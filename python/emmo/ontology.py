@@ -146,7 +146,7 @@ class Ontology(owlready2.Ontology):
 
     def get_relations(self):
         """Returns a generator for all relations."""
-        return self.object_properties
+        return self.object_properties()
 
     def get_dot_relations_graph(self, graph=None, **kw):
         """Returns a disjoined graph of all relations.
