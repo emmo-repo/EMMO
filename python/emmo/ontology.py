@@ -34,6 +34,7 @@ categories = (
 )
 
 
+
 def get_ontology(base_iri):
     """Returns a new Ontology from `base_iri`."""
     #if thisdir not in owlready2.onto_path:
@@ -49,10 +50,12 @@ def get_ontology(base_iri):
 class Ontology(owlready2.Ontology):
     """A generic class extending owlready2.Ontology.
     """
-    #def __getattr__(self, name):
-    #    attr = super().__getattr__(name)
-    #    if attr:
-    #        return attr
+    def __getattr__(self, name):
+        attr = super().__getattr__(name)
+        if attr:
+            return attr
+        else:
+            return self.get_by_label(name)
 
     def get_dot_graph(self, root=None, graph=None, taxonomy=False,
                       other_relations=True, reflexions=False, visited=None,
@@ -141,17 +144,19 @@ class Ontology(owlready2.Ontology):
 
         return graph
 
+    def get_relations(self):
+        """Returns a generator for all relations."""
+        return self.object_properties
+
     def get_dot_relations_graph(self, graph=None, **kw):
         """Returns a disjoined graph of all relations.
 
         This method simply calls get_dot_graph() with all root relations.
         All arguments are passed on.
         """
-        roots = [relation for relation in self.object_properties()
-                 if not [r for r in relation.is_a
-                         if r not in (owlready2.ObjectProperty,
-                                      owlready2.ObjectPropertyClass,
-                                      owlready2.TransitiveProperty)]]
+        relations = tuple(self.get_relations())
+        roots = [relation for relation in relations
+                 if not any([r in relations for r in relation.is_a])]
         return self.get_dot_graph(root=roots, graph=graph, **kw)
 
     def get_root_classes(self):
@@ -175,7 +180,9 @@ class Ontology(owlready2.Ontology):
             self.name, label))
 
     def get_by_label_all(self, label):
-        """Like get_by_label(), but returns a list of all matching labels."""
+        """Like get_by_label(), but returns a list of all entities with
+        matching labels.
+        """
         return [entity for entity in
                 itertools.chain(*(getattr(self, c)() for c in categories))
                 if label in entity.label]

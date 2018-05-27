@@ -13,23 +13,11 @@ onto.load()
 onto.sync_reasoner()
 
 
-abstract_graph = onto.get_dot_graph('abstract')
-abstract_graph.write_pdf('abstract_graph.pdf')
+entity_graph = onto.get_dot_graph('entity')
+entity_graph.write_pdf('entity_graph.pdf')
 
+property_graph = onto.get_dot_graph('property', rankdir='RL')
+property_graph.write_pdf('property_graph.pdf')
 
-if False:
-    entity_graph = onto.get_dot_graph('entity')
-    entity_graph.write_pdf('entity_graph.pdf')
-
-    material_entity_graph = onto.get_dot_graph('material_entity', rankdir='RL')
-    material_entity_graph.write_pdf('material_entity_graph.pdf')
-
-    quality_graph = onto.get_dot_graph('quality', rankdir='RL')
-    quality_graph.write_pdf('quality_graph.pdf')
-
-    graph = onto.get_dot_graph('has_continuant_part', rankdir='RL')
-    graph.write_pdf('has_continuant_part.pdf')
-
-
-    relations_graph = onto.get_dot_relations_graph(rankdir='RL')
-    relations_graph.write_pdf('relations.pdf')
+relations_graph = onto.get_dot_relations_graph(rankdir='RL')
+relations_graph.write_pdf('relation_graph.pdf')

@@ -8,8 +8,11 @@ thisdir = os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(1, os.path.abspath(os.path.join(thisdir, '..', '..')))
 import emmo
 
+
 onto = emmo.get_ontology('emmo.owl')
 onto.load()
+#onto.sync_reasoner()
+
 
 # Vocabulary before reasoning
 with open('emmo-noreason.html', 'w') as f:
