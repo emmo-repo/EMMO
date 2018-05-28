@@ -5,19 +5,22 @@ import os
 # Add emmo to sys path
 thisdir = os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(1, os.path.abspath(os.path.join(thisdir, '..', '..')))
-import emmo
+from emmo import get_ontology
 
 
-onto = emmo.get_ontology('emmo.owl')
-onto.load()
-onto.sync_reasoner()
+emmo = get_ontology('emmo.owl')
+emmo.load()
+emmo.sync_reasoner()
 
 
-entity_graph = onto.get_dot_graph('entity')
+graph = emmo.get_dot_graph(relations=True)
+graph.write_pdf('graph.pdf')
+
+entity_graph = emmo.get_dot_graph('entity')
 entity_graph.write_pdf('entity_graph.pdf')
 
-property_graph = onto.get_dot_graph('property', rankdir='RL')
+property_graph = emmo.get_dot_graph('property', rankdir='RL')
 property_graph.write_pdf('property_graph.pdf')
 
-relations_graph = onto.get_dot_relations_graph(rankdir='RL')
+relations_graph = emmo.get_dot_relations_graph(relations=True, rankdir='RL')
 relations_graph.write_pdf('relation_graph.pdf')
