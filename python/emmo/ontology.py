@@ -63,8 +63,24 @@ class Ontology(owlready2.Ontology):
         else:
             return self.get_by_label(name)
 
+    _default_style = {
+        'graph': {'graph_type': 'digraph', 'rankdir': 'RL', 'fontsize': 8,
+                  #'fontname': 'Bitstream Vera Sans', 'splines': 'ortho',
+              },
+        'class': {},
+        'individuals': {},
+        'is_a': {},
+        'equivalent_to': {'color': 'green', },
+        'disjoint_with': {'color': 'red', },
+        'inverse_of': {'color': 'orange', },
+        'other': {'color': 'blue', },
+
+        }
+    _uml_style = {
+        }
+
     def get_dot_graph(self, root=None, graph=None, relations='is_a',
-                      reflexions=False, **kw):
+                      style=None):
         """Returns a pydot graph object for visualising the ontology.
 
         Parameters
@@ -79,17 +95,29 @@ class Ontology(owlready2.Ontology):
         relations : True | str | sequence
             Sequence of relations to visualise.  If True, all relations are
             included.
-        reflexions : bool
-            Whether to visualise reflective relations both ways.
-
-        Keyword arguments are passed to pydot.Dot().
+        style : dict
+            A dict mapping the name of the different graphical elements
+            to dicts of pydot style settings. Supported graphical elements
+            include:
+              - graph : overall settings pydot graph
+              - class : nodes for classes
+              - individual : nodes for invididuals
+              - is_a : edges for is_a relations
+              - equivalent_to : edges for equivalent_to relations
+              - disjoint_with : edges for disjoint_with relations
+              - inverse_of : edges for inverse_of relations
+              - other : edges for other relations and restrictions
+            If style is None, a very simple default style is used.
 
         Note: This method requires pydot.
         """
-        import pydot
+        if style is None:
+            style = self._default_style
+        elif style == 'uml':
+            style = self._uml_style
+
         graph = self._get_dot_graph(root=root, graph=graph,
-                                    relations=relations,
-                                    reflexions=reflexions, **kw)
+                                    relations=relations, style=style)
 
         for node in graph.get_nodes():
             try:
@@ -97,54 +125,93 @@ class Ontology(owlready2.Ontology):
             except KeyError:
                 continue
 
-            for r in entity.is_a:
-                s = asstring(r)
-                if (isinstance(entity, owlready2.ThingClass) and
-                    isinstance(r, owlready2.ThingClass)):
-                    pass
-                elif (isinstance(entity, owlready2.ObjectPropertyClass) and
-                      isinstance(r, (
-                          owlready2.ObjectPropertyClass,
-                          owlready2.PropertyClass,
-                      ))):
-                    pass
-                elif isinstance(r, owlready2.Restriction):
-                    terms = s.split()
-                    if len(terms) == 3:
-                        if relations is True or terms[0] in relations:
-                            others = graph.get_node(terms[2])
-                            if len(others) == 1:
-                                other = others[0]
-                            else:
-                                continue
-                            label = ' '.join(terms[:2])
-                            edge = pydot.Edge(node, other, label=label,
-                                              color='blue')
-                            graph.add_edge(edge)
-                    else:
-                        print('* get_dot_graph() * Ignoring: '
-                              '%s %s' % (node.get_name(), s))
-                else:
-                    print('* get_dot_graph() * Ignoring: '
-                          '%s is_a %s' % (node.get_name(), s))
+            # Add is_a edges (
+            targets = [e for e in entity.is_a if not isinstance(e, (
+                owlready2.ThingClass, owlready2.ObjectPropertyClass,
+                owlready2.PropertyClass))]
+            self._get_dot_add_edges(graph, entity, targets, 'is_a',
+                                    relations, style.get('other', {}))
+
+
+
+            # Add equivalent_to edges
+            self._get_dot_add_edges(graph, entity, entity.equivalent_to,
+                                    'equivalent_to', relations,
+                                    style.get('equivalent_to', {}))
+
+            # disjoint_with
+            if hasattr(entity, 'disjoints'):
+                self._get_dot_add_edges(
+                    graph, entity, entity.disjoints(), 'disjoint_with',
+                    relations, style.get('disjoint_with', {}))
+
+
+            # Add inverse_of
+            if hasattr(entity, 'inverse_property'):
+                self._get_dot_add_edges(
+                    graph, entity, [entity.inverse_property], 'inverse_of',
+                    relations, style.get('inverse_of', {}))
+
 
         return graph
 
+    def _get_dot_add_edges(self, graph, entity, targets, relation,
+                           relations, style):
+        """Adds edges to `graph` for relations between `entity` and all
+        members in `targets`.  `style` is a dict with options to pydot.Edge().
+        """
+        import pydot
+
+        nodes = graph.get_node(entity.label.first())
+        if not nodes:
+            return
+        node = nodes[0]
+        for e in targets:
+            s = asstring(e)
+            if isinstance(e, (owlready2.ThingClass,
+                              owlready2.ObjectPropertyClass,
+                              owlready2.PropertyClass)):
+                label = e.label.first()
+                edge = pydot.Edge(node, graph.get_node(label)[0], label=label,
+                              **style)
+                graph.add_edge(edge)
+            elif isinstance(e, owlready2.Restriction):
+                terms = s.split()
+                if len(terms) == 3:
+                    if relations is True or terms[0] in relations:
+                        others = graph.get_node(terms[2])
+                        if len(others) == 1:
+                            other = others[0]
+                        else:
+                            continue
+                        label = ' '.join(terms[:2])
+                        # Add some extra space to labels
+                        edge = pydot.Edge(
+                            node, other, label=label + '   ', **style)
+                        graph.add_edge(edge)
+                else:
+                    print('* get_dot_graph() * Ignoring: '
+                          '%s %s' % (node.get_name(), s))
+            else:
+                print('* get_dot_graph() * Ignoring: '
+                      '%s %s %s' % (node.get_name(), relation, s))
+
+
+
     def _get_dot_graph(self, root=None, graph=None, relations='is_a',
-                      reflexions=False, visited=None,
-                      **kw):
+                       style=None, visited=None):
         """Help method. See get_dot_graph(). `visited` is used to filter
         out circular dependencies.
         """
         import pydot
 
         if graph is None:
-            kw.setdefault('graph_type', 'digraph')
-            kw.setdefault('rankdir', 'BT')
-            #kw.setdefault('fontname', 'Bitstream Vera Sans')
-            kw.setdefault('fontsize', 8)
-            #kw.setdefault('splines', 'ortho')
-            graph = pydot.Dot(**kw)
+            #kw.setdefault('graph_type', 'digraph')
+            #kw.setdefault('rankdir', 'BT')
+            ##kw.setdefault('fontname', 'Bitstream Vera Sans')
+            #kw.setdefault('fontsize', 8)
+            ##kw.setdefault('splines', 'ortho')
+            graph = pydot.Dot(**style.get('graph', {}))
 
         if relations is True:
             relations = ['is_a'] + list(self.get_relations())
@@ -161,13 +228,13 @@ class Ontology(owlready2.Ontology):
             for root in self.get_root_classes():
                 self._get_dot_graph(root=root, graph=graph,
                                     relations=relations,
-                                    reflexions=reflexions, visited=visited)
+                                    style=style, visited=visited)
             return graph
         elif isinstance(root, (list, tuple, set)):
             for r in root:
                 self._get_dot_graph(root=r, graph=graph,
                                     relations=relations,
-                                    reflexions=reflexions, visited=visited)
+                                    style=style, visited=visited)
             return graph
         elif isinstance(root, str):
             root = self.get_by_label(root)
@@ -183,31 +250,38 @@ class Ontology(owlready2.Ontology):
         if nodes:
             node, = nodes
         else:
-            node = pydot.Node(label)
+            if self.is_individual(label):
+                node = pydot.Node(label, **style.get('individual', {}))
+            else:
+                node = pydot.Node(label, **style.get('class', {}))
             graph.add_node(node)
 
         for sc in root.subclasses():
             label = sc.label.first() if len(sc.label) == 1 else sc.name
-            subnode = pydot.Node(label)
+            if self.is_individual(label):
+                subnode = pydot.Node(label, **style.get('individual', {}))
+            else:
+                subnode = pydot.Node(label, **style.get('class', {}))
             if relations is True or 'is_a' in relations:
                 edge = pydot.Edge(subnode, node, label='is_a')
-                graph.add_edge(edge)
+                graph.add_edge(edge, **style.get('is_a', {}))
             self._get_dot_graph(root=sc, graph=graph,
                                 relations=relations,
-                                reflexions=reflexions, visited=visited)
+                                style=style, visited=visited)
 
         return graph
 
-    def get_dot_relations_graph(self, graph=None, **kw):
+    def get_dot_relations_graph(self, graph=None, relations='is_a', style=None):
         """Returns a disjoined graph of all relations.
 
         This method simply calls get_dot_graph() with all root relations.
         All arguments are passed on.
         """
-        relations = tuple(self.get_relations())
-        roots = [relation for relation in relations
-                 if not any([r in relations for r in relation.is_a])]
-        return self.get_dot_graph(root=roots, graph=graph, **kw)
+        rels = tuple(self.get_relations())
+        roots = [relation for relation in rels
+                 if not any([r in rels for r in relation.is_a])]
+        return self.get_dot_graph(root=roots, graph=graph, relations=relations,
+                                  style=style)
 
     def get_root_classes(self):
         """Returns a list or root classes."""
@@ -226,6 +300,11 @@ class Ontology(owlready2.Ontology):
             for entity in method():
                 if label in entity.label:
                     return entity
+        d = {
+            'Nothing': owlready2.Nothing,
+        }
+        if label in d:
+            return d[label]
         raise KeyError('Ontology "%s" has no such label: %s' % (
             self.name, label))
 
@@ -257,6 +336,12 @@ class Ontology(owlready2.Ontology):
                 o.strip('"') for s, p, o in
                 self.get_triples(entity.storid, a.storid, None)]
         return d
+
+    def is_individual(self, entity):
+        """Returns true if entity is an individual."""
+        if isinstance(entity, str):
+            entity = self.get_by_label(entity)
+        return isinstance(type(entity), owlready2.ThingClass)
 
     _markdown_template = dict(
         point='  - {point}\n',
@@ -498,3 +583,8 @@ def asstring(expr, link='{name}', n=0):
     else:
         raise RuntimeError('Unknown expression: %r (type: %r)' % (
             expr, type(expr)))
+
+
+def is_individual(entity):
+    """Returns true if entity is an individual."""
+    return isinstance(type(entity), owlready2.ThingClass)

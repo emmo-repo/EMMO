@@ -12,6 +12,8 @@ emmo = get_ontology('emmo.owl')
 emmo.load()
 emmo.sync_reasoner()
 
+emmo.sync_reasoner()
+
 
 graph = emmo.get_dot_graph(relations=True)
 graph.write_pdf('graph.pdf')
@@ -19,8 +21,8 @@ graph.write_pdf('graph.pdf')
 entity_graph = emmo.get_dot_graph('entity')
 entity_graph.write_pdf('entity_graph.pdf')
 
-property_graph = emmo.get_dot_graph('property', rankdir='RL')
+property_graph = emmo.get_dot_graph('property')
 property_graph.write_pdf('property_graph.pdf')
 
-relations_graph = emmo.get_dot_relations_graph(relations=True, rankdir='RL')
+relations_graph = emmo.get_dot_relations_graph(relations=True)
 relations_graph.write_pdf('relation_graph.pdf')
