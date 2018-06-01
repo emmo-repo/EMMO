@@ -10,12 +10,13 @@ from emmo import get_ontology
 
 emmo = get_ontology('emmo.owl')
 emmo.load()
-emmo.sync_reasoner()
+
+graph = emmo.get_dot_graph(relations=True, style='uml')
+graph.write_pdf('graph-noreason.pdf')
 
 emmo.sync_reasoner()
 
-
-graph = emmo.get_dot_graph(relations=True)
+graph = emmo.get_dot_graph(relations=True, style='uml')
 graph.write_pdf('graph.pdf')
 
 entity_graph = emmo.get_dot_graph('entity')

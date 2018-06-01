@@ -77,8 +77,22 @@ class Ontology(owlready2.Ontology):
 
         }
     _uml_style = {
-        }
-
+        'graph': {'graph_type': 'digraph', 'rankdir': 'RL', 'fontsize': 8,
+                  #'splines': 'ortho',
+              },
+        'class': {
+            'shape': 'record',
+            'fontname': 'Bitstream Vera Sans',
+            'style': 'filled',
+            'fillcolor': '#ffffe0',
+        },
+        'individuals': {},
+        'is_a': {'arrowhead': 'empty'},
+        'equivalent_to': {'color': 'green', },
+        'disjoint_with': {'color': 'red', },
+        'inverse_of': {'color': 'orange', },
+        'other': {'color': 'blue', 'arrowhead': 'diamond'},
+    }
     def get_dot_graph(self, root=None, graph=None, relations='is_a',
                       style=None):
         """Returns a pydot graph object for visualising the ontology.
@@ -206,11 +220,6 @@ class Ontology(owlready2.Ontology):
         import pydot
 
         if graph is None:
-            #kw.setdefault('graph_type', 'digraph')
-            #kw.setdefault('rankdir', 'BT')
-            ##kw.setdefault('fontname', 'Bitstream Vera Sans')
-            #kw.setdefault('fontsize', 8)
-            ##kw.setdefault('splines', 'ortho')
             graph = pydot.Dot(**style.get('graph', {}))
 
         if relations is True:
@@ -262,9 +271,11 @@ class Ontology(owlready2.Ontology):
                 subnode = pydot.Node(label, **style.get('individual', {}))
             else:
                 subnode = pydot.Node(label, **style.get('class', {}))
+            graph.add_node(subnode)
             if relations is True or 'is_a' in relations:
-                edge = pydot.Edge(subnode, node, label='is_a')
-                graph.add_edge(edge, **style.get('is_a', {}))
+                edge = pydot.Edge(subnode, node, label='is_a',
+                                  **style.get('is_a', {}))
+                graph.add_edge(edge)
             self._get_dot_graph(root=sc, graph=graph,
                                 relations=relations,
                                 style=style, visited=visited)
