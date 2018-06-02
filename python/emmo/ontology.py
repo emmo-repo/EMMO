@@ -355,13 +355,13 @@ class Ontology(owlready2.Ontology):
         return isinstance(type(entity), owlready2.ThingClass)
 
     _markdown_template = dict(
+        link='[{name}](#{name})',
         point='  - {point}\n',
         points='\n\n{points}\n',
         annotation='**{key}:** {value}\n\n',
         item='### {label}\n\n{annotations}\n',
         list='{items}',
-        document='# Controlled vocabulary\nBased on {ontology.name}.\n\n'
-                 '## Relations\n\n{relations}\n\n'
+        document='## Relations\n\n{relations}\n\n'
                  '## Entities\n\n{entities}\n\n'
                  '## Individuals\n\n{individuals}',
     )
@@ -372,14 +372,16 @@ class Ontology(owlready2.Ontology):
         annotation='  <dd><strong>{key}:</strong> {value}</dd>\n',
         item='  <dt><dfn id="{label}">{label}</dfn></dt>\n{annotations}\n',
         list='<dl>\n{items}\n</dl>',
-        document='\n'.join(['<h1>Controlled vocabulary</h1>',
-                            'Based on {ontology.name}.',
-                            '<h2>Relations</h2>',
-                            '{relations}',
-                            '<h2>Entities</h2>',
-                            '{entities}',
-                            '<h2>Individuals</h2>',
-                            '{individuals}']),
+        document='\n'.join([
+            '<h1>European Materials Modelling Ontology &#8210; '
+            'Controlled Vocabulary</h1>',
+            'Based on <a href="{ontology.base_iri}">{ontology.base_iri}</a>',
+            '<h2>Relations</h2>',
+            '{relations}',
+            '<h2>Entities</h2>',
+            '{entities}',
+            '<h2>Individuals</h2>',
+            '{individuals}']),
         substitutions=[(r'\n\n', r'<p>'),
                        (r'\n', r'<br>\n'),
                        (r'<p>', r'<p>\n\n'),
