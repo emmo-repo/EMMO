@@ -51,7 +51,8 @@ Dependencies
 
         pip3 install pydot
 
-  * [pandoc]: Used for generating nicely formatted controlled vocabulary.
+  * [pandoc]: Only used for converting generated controlled vocabulary
+    from markdown to nicely formatted html or pdf.
 
 
 [Owlready2]: https://pypi.org/project/Owlready2/
