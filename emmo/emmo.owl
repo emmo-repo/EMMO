@@ -453,7 +453,7 @@ IrreflexiveObjectProperty(:EMMO_ea69f6b1_95b2_4721_b24a_b1a1dfa643a6)
 
 # Class: :EMMO_04955fb5_4912_4729_8a19_35276e380b43 (granularity)
 
-AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_04955fb5_4912_4729_8a19_35276e380b43 "The root of a taxonomy that categorizes states based on at least one object.")
+AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_04955fb5_4912_4729_8a19_35276e380b43 "A defined class which is the root of a taxonomy that categorizes states based on at least one object.")
 AnnotationAssertion(rdfs:comment :EMMO_04955fb5_4912_4729_8a19_35276e380b43 "THE CLASSES UNDER GRANULARITY HAVE BEEN DEFINED ACCORDING TO THE MATERIAL ONTOLOGY PROVIDED UNDER THE OBJECT CLASS AS EXAMPLE!!!")
 AnnotationAssertion(rdfs:comment :EMMO_04955fb5_4912_4729_8a19_35276e380b43 "The class containing all classes that define granularities of objects using direct parthood based definitions.
 
@@ -478,6 +478,7 @@ SubClassOf(:EMMO_0ac4e80a_5dee_480c_aad3_a793ce1c3bd7 :EMMO_d3d3a586_8a94_4cb0_a
 
 # Class: :EMMO_0bd22df9_081a_4258_bf00_5ef31c51f883 (measurement)
 
+AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_0bd22df9_081a_4258_bf00_5ef31c51f883 "An observation that results in a quantitative comparison of a physical property with a standard reference.")
 AnnotationAssertion(rdfs:label :EMMO_0bd22df9_081a_4258_bf00_5ef31c51f883 "measurement"@en)
 SubClassOf(:EMMO_0bd22df9_081a_4258_bf00_5ef31c51f883 :EMMO_ba7562e1_1416_4020_aed0_b6acd151de3e)
 SubClassOf(:EMMO_0bd22df9_081a_4258_bf00_5ef31c51f883 ObjectSomeValuesFrom(:EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 :EMMO_a60dff7b_7a27_4925_9c44_2d094cee14c0))
@@ -534,6 +535,9 @@ SubClassOf(:EMMO_15865d0d_9423_4692_be1d_cf6a7a48dce7 :EMMO_e1e330cb_d0c6_485c_8
 # Class: :EMMO_1703b6d9_b780_4c61_a75b_5f0cd39323e3 (process)
 
 AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_1703b6d9_b780_4c61_a75b_5f0cd39323e3 "A temporal part of a physical that identifies a particular type of evolution in time.")
+AnnotationAssertion(rdfs:comment :EMMO_1703b6d9_b780_4c61_a75b_5f0cd39323e3 "A process is easily defined as a temporal part of a physical that is categorized in a primitive process subclass according to what type of process we want to represent.
+
+Strictly speaking, every physical is a process since it always has a time dimension, but in the EMMO we restrict the meaning of ‘process’ to physicals whose evolution in time have a particular meaning for the material ontologist. i.e. a process is not only something that unfolds in time, but something happening that has a meaning for the interpreter.")
 AnnotationAssertion(rdfs:label :EMMO_1703b6d9_b780_4c61_a75b_5f0cd39323e3 "process"@en)
 SubClassOf(:EMMO_1703b6d9_b780_4c61_a75b_5f0cd39323e3 :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d)
 SubClassOf(:EMMO_1703b6d9_b780_4c61_a75b_5f0cd39323e3 ObjectSomeValuesFrom(:EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 :EMMO_da6411c8_8551_487c_94ee_582ba2b8b748))
@@ -587,12 +591,18 @@ AnnotationAssertion(rdfs:label :EMMO_2b2c3291_452f_449f_b251_2146957f6d0a "objec
 
 # Class: :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 (set)
 
-AnnotationAssertion(rdfs:comment :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 "As a rule, a collection of states is a 'state' if it has at least one property when considered as a whole, otherwise is a 'set'.
+AnnotationAssertion(rdfs:comment :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 "How to decide if an individual must be declared as 'set' or 'item' individual? 
 
-A gas is not a set of e.g. atoms, since a gas has well defined properties as a whole (i.e. pressure, temperature).")
-AnnotationAssertion(rdfs:comment :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 "The 'item' class and all its sub-classes are instances of 'set'.
+A 'set' is a collection of other individuals using the membership relation (e.g. the 'set' of red objects).
 
-It means that the usefulness of the 'set' class is only to declare collection of things that the EMMO designer did not consider to be general of significative enough to be part of the 'item' branch.
+An 'item' is a whole made of parts that consitute a whole (e.g. a car made of components).
+
+Some world objects can have two representations, as 'item' or 'set'.
+ 
+For example, the user can define the molecules contained in a closed bottle as a 'set' of individual things. But, if he is interested in the temperature or pressure of this molecule collection, then he needs to represent them as a whole: a gas, for which each molecule is a part, since temperature and pressure are properties of a whole.")
+AnnotationAssertion(rdfs:comment :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 "We can consider the 'set' branch as the meta-ontology branch, since it contains 'item' and all its subclasses.
+
+It means that the usefulness of the 'set' class is to declare collection of things that the EMMO designer did not consider to be general of significative enough to be part of the 'item' branch.
 
 e.g. the set of users of a particular software, the set of atoms that have been part of that just dissociated molecule.")
 AnnotationAssertion(rdfs:label :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 "set")
@@ -604,7 +614,7 @@ AnnotationAssertion(rdfs:label :EMMO_2efbd83b_97c7_412a_805e_9866aa572885 "world
 
 # Class: :EMMO_2f79e5bc_5591_4996_8e35_4ff43f82daf7 (change)
 
-AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_2f79e5bc_5591_4996_8e35_4ff43f82daf7 "A temporal part of a physical that includes a change of state.")
+AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_2f79e5bc_5591_4996_8e35_4ff43f82daf7 "A process that include the transition of a physical from a state to another (i.e. a discontinuity of parts)")
 AnnotationAssertion(rdfs:comment :EMMO_2f79e5bc_5591_4996_8e35_4ff43f82daf7 "A change is by definition not a property change but a granularity change.")
 AnnotationAssertion(rdfs:label :EMMO_2f79e5bc_5591_4996_8e35_4ff43f82daf7 "change"@en)
 SubClassOf(:EMMO_2f79e5bc_5591_4996_8e35_4ff43f82daf7 :EMMO_1703b6d9_b780_4c61_a75b_5f0cd39323e3)
@@ -622,7 +632,7 @@ AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_36c79456_e2
 AnnotationAssertion(rdfs:comment :EMMO_36c79456_e29c_400d_8bd3_0eedddb82652 "A state is a finite thickness slice in time of a physical.")
 AnnotationAssertion(rdfs:comment :EMMO_36c79456_e29c_400d_8bd3_0eedddb82652 "Direct partitioning is not unique. It depends on the choice of object types to be used as direct parts.
 
-A state can always be direct partitioned in elementary objects.
+A state can always be direct partitioned in elementary objects and vacuum.
 
 e.g. the water in my glass can be seen as a single object without declaring direct parts, or as made of H2O molecules direct parts.")
 AnnotationAssertion(rdfs:comment :EMMO_36c79456_e29c_400d_8bd3_0eedddb82652 "The definition of states implies that its direct parts are not gained or lost during its temporal extension (they exist from the left to the right side of the time interval), so that the granularity of a state is well defined.
@@ -637,7 +647,7 @@ SubClassOf(:EMMO_36c79456_e29c_400d_8bd3_0eedddb82652 ObjectUnionOf(:EMMO_0f795e
 
 # Class: :EMMO_3769c91c_b851_44c5_8fca_50751dd81d0a (matter)
 
-AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_3769c91c_b851_44c5_8fca_50751dd81d0a "The 4D representation of a physical piece of matter.")
+AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_3769c91c_b851_44c5_8fca_50751dd81d0a "A spacetime that manifests the properties of matter (has mass).")
 AnnotationAssertion(rdfs:comment :EMMO_3769c91c_b851_44c5_8fca_50751dd81d0a "A spacetime that is made of elementary entities.
 
 (Atomic Mereology)")
@@ -710,7 +720,7 @@ SubClassOf(:EMMO_4a8bba7a_01c7_4f75_a7e4_e457342bbeab :EMMO_3fb0306b_0206_43f6_a
 
 # Class: :EMMO_4d91b8d8_6df7_4b03_b648_cf7aef7284f0 (vacuum)
 
-AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_4d91b8d8_6df7_4b03_b648_cf7aef7284f0 "A field without any elementary.")
+AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_4d91b8d8_6df7_4b03_b648_cf7aef7284f0 "A spacetime that has no elementary parts.")
 AnnotationAssertion(rdfs:label :EMMO_4d91b8d8_6df7_4b03_b648_cf7aef7284f0 "vacuum"@en)
 EquivalentClasses(:EMMO_4d91b8d8_6df7_4b03_b648_cf7aef7284f0 ObjectIntersectionOf(:EMMO_d82fd6c6_aebe_440f_9dd2_24a4eb3a417b ObjectComplementOf(ObjectSomeValuesFrom(:EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360))))
 
@@ -733,7 +743,9 @@ AnnotationAssertion(rdfs:comment :EMMO_52211e5e_d767_4812_845e_eb6b402c476a "A m
 AnnotationAssertion(rdfs:comment :EMMO_52211e5e_d767_4812_845e_eb6b402c476a "An existent can be a state.")
 AnnotationAssertion(rdfs:comment :EMMO_52211e5e_d767_4812_845e_eb6b402c476a "Existent is the most important class to be used for representing real changing things.
 
-e.g. a car, a supersaturated gas with nucleating nanoparticles")
+This class is used to represent the whole life of a complex but structured state-changing matter entity
+
+e.g. a car, a supersaturated gas with nucleating nanoparticles, an atom that becomes ionized and then recombines with an electron.")
 AnnotationAssertion(rdfs:comment :EMMO_52211e5e_d767_4812_845e_eb6b402c476a "ex-sistere (latin): to stay (to persist through time) outside others of the same type (to be distinct from the rest).")
 AnnotationAssertion(rdfs:label :EMMO_52211e5e_d767_4812_845e_eb6b402c476a "existent"@en)
 EquivalentClasses(:EMMO_52211e5e_d767_4812_845e_eb6b402c476a ObjectUnionOf(:EMMO_36c79456_e29c_400d_8bd3_0eedddb82652 ObjectSomeValuesFrom(:EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d :EMMO_36c79456_e29c_400d_8bd3_0eedddb82652)))
@@ -816,10 +828,10 @@ SubClassOf(:EMMO_75bfd283_ff56_4a97_b05e_a3ea15d5e0a8 :EMMO_c170a738_51ec_4983_8
 
 # Class: :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf (entity)
 
-AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf "Entities are things that exist.")
-AnnotationAssertion(rdfs:comment :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf "entity can exist as items (for which mereology applies) or set (for which set theory applies).
+AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf "The class representing the collection of all the individuals (signs) that are used in the ontology.")
+AnnotationAssertion(rdfs:comment :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf "'entity' is the disjoint union of 'Item' and 'set'.
 
-Item and set are disjoint.")
+'entity' individuals can exist as 'item' individuals (for which mereology applies) or 'set' individuals (for which set theory applies).")
 AnnotationAssertion(rdfs:label :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf "entity")
 DisjointUnion(:EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de)
 
@@ -1017,9 +1029,9 @@ An abstract individual is created to express a particular abstraction coming fro
 
 Abstract individuals must be represented by at least one physical entity. A physical entity that represents an abstract object is call semeion (i.e. symbol).
 
-A semeion S \"stays\" for the entity E that has been abstracted by the abstract A.
+A semeion S \"stands\" for the entity E that has been abstracted by the abstract A.
 
-e.g. E is abstracted by A. A is represented by S. S stays for E.
+e.g. E is abstracted by A. A is represented by S. S stands for E.
 (this is related to the discipline of semiotics)
 
 More than one abstract can refer to the same entity.")
@@ -1046,7 +1058,7 @@ SubClassOf(:EMMO_c2e4665b_66e5_419c_ad7c_4cdd7c5ea456 ObjectSomeValuesFrom(:EMMO
 AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d "The 4D domain upon which matter or field (e.g. electromagnetic, gravitational) exists.")
 AnnotationAssertion(rdfs:comment :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d "A physical can be a field or matter or both (they are not disjoint).
 
-A field is infinite divisible. Matter however is granular up to the elementary level ('atom' in mereological lexycon).")
+A field is infinite divisible in terms of parthood. Matter however is granular up to the elementary level (atom, in mereological lexycon).")
 AnnotationAssertion(rdfs:comment :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d "We perceive things only in space and time (3D + 1D), so the only place for physical entities is spacetime.
 
 There is no possible perception of a 3D thing, since perception is a process (unfolds in time).")
@@ -1081,6 +1093,7 @@ SubClassOf(:EMMO_d82fd6c6_aebe_440f_9dd2_24a4eb3a417b ObjectAllValuesFrom(:EMMO_
 
 # Class: :EMMO_da6411c8_8551_487c_94ee_582ba2b8b748 (role)
 
+AnnotationAssertion(rdfs:comment :EMMO_da6411c8_8551_487c_94ee_582ba2b8b748 "Participants of a process are always parts of that particular process (i.e. they are spacetime). It means that is_participant relation is subclass of is_part_of relation (e.g. you cannot participate to a party if you are not enclosed by the party room)")
 AnnotationAssertion(rdfs:label :EMMO_da6411c8_8551_487c_94ee_582ba2b8b748 "role"@en)
 SubClassOf(:EMMO_da6411c8_8551_487c_94ee_582ba2b8b748 ObjectSomeValuesFrom(:EMMO_756d158a_cd64_44ba_b2e5_c3853ba2f3b2 :EMMO_1703b6d9_b780_4c61_a75b_5f0cd39323e3))
 
@@ -1113,9 +1126,13 @@ SubClassOf(:EMMO_e9ecb2c2_a125_42f4_acee_0642ffbdaca7 :EMMO_3b27ce04_e759_433f_b
 
 # Class: :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de (item)
 
-AnnotationAssertion(rdfs:comment :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de "Items are subjected to mereological relations.
+AnnotationAssertion(rdfs:comment :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de "'item' individuals are subjected to mereological relations (parthood). 
 
-Parthood relations occurs only between objects of the same superclass type.")
+They are whole made of sub-parts, or parts of some whole.
+
+Parthood relations occurs only between 'item' individuals (wholes and parts) that have a common superclass type.
+
+'item' is the highest superclass for all wholes and parts.")
 AnnotationAssertion(rdfs:label :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de "item")
 DisjointUnion(:EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de :EMMO_c170a738_51ec_4983_8cc9_0e03dfa63c73 :EMMO_f67528f5_7e45_405b_84e4_8a3b48aea914)
 
@@ -1133,6 +1150,7 @@ SubClassOf(:EMMO_eecf7dcf_dabc_441f_b09c_69286bd0dd94 :EMMO_e1e330cb_d0c6_485c_8
 
 # Class: :EMMO_f24d4542_ccf1_4cb7_8225_01aa73fea9d2 (experiment)
 
+AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_f24d4542_ccf1_4cb7_8225_01aa73fea9d2 "A process that is aimed to replicate a physical phenomena in a controlled environment.")
 AnnotationAssertion(rdfs:label :EMMO_f24d4542_ccf1_4cb7_8225_01aa73fea9d2 "experiment"@en)
 SubClassOf(:EMMO_f24d4542_ccf1_4cb7_8225_01aa73fea9d2 :EMMO_ba7562e1_1416_4020_aed0_b6acd151de3e)
 
@@ -1142,7 +1160,11 @@ AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_f67528f5_7e
 AnnotationAssertion(rdfs:comment :EMMO_f67528f5_7e45_405b_84e4_8a3b48aea914 "A substrate exists a priori, without need to be a place for a physical (e.g. Minkowsky metric is spacetime without matter-energy).
 
 However, quantum field theories state that there always be matter-energy even in void at Planck scales. We do not consider this, since we place ourselves on a higher time/space scale, far above Planck scales.")
-AnnotationAssertion(rdfs:comment :EMMO_f67528f5_7e45_405b_84e4_8a3b48aea914 "A substrate is a topological entity, so that the primitive property of enclosure can be defined for it.")
+AnnotationAssertion(rdfs:comment :EMMO_f67528f5_7e45_405b_84e4_8a3b48aea914 "A substrate is a topological entity, so that the primitive property of enclosure can be defined for it.
+
+Substrates are always topologically connected spaces (a topological
+space X is said to be disconnected if it is the union of two disjoint
+nonempty open sets. Otherwise, X is said to be connected)")
 AnnotationAssertion(rdfs:comment :EMMO_f67528f5_7e45_405b_84e4_8a3b48aea914 "Being Cxy a primitive connection relation between two entities, the mereotopological description of substrates is done by the following axioms,:
 
 1) Cxx (reflexive)
@@ -1154,9 +1176,10 @@ E  enclosure relation) is defined as:
 Exy iff (Czx -> Czy)
 
 E is reflexive, transitive and antisymmetric.")
-AnnotationAssertion(rdfs:comment :EMMO_f67528f5_7e45_405b_84e4_8a3b48aea914 "Parthood relations does not change dimensionality of an item (e.g. a physical is 4D and all its parts are 4D).
+AnnotationAssertion(rdfs:comment :EMMO_f67528f5_7e45_405b_84e4_8a3b48aea914 "Parthood relations does not change dimensionality of a 'substrate' individual (e.g. a 4D individual has only 4D parts, a spacetime has
+no space parts).
 
-Changes in dimensionality comes from topological relations between subspaces (i.e. slicing).")
+Changes in dimensionality come from pure topological relations between subspaces (i.e. slicing).")
 AnnotationAssertion(rdfs:label :EMMO_f67528f5_7e45_405b_84e4_8a3b48aea914 "substrate")
 DisjointUnion(:EMMO_f67528f5_7e45_405b_84e4_8a3b48aea914 :EMMO_1ca51de7_6aa5_45d3_94ae_1df14d9aad5e :EMMO_718157a4_4580_4c59_815b_74ad3fdffca8 :EMMO_bdc95950_1798_4619_b1f5_19e3155411e4)
 
