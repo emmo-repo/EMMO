@@ -26,8 +26,7 @@ def emmodoc(filename='emmodoc.html', format=None, figformat=None,
     Parameters
     ----------
     filename : string
-        Name of generated document.  Additional files and directories
-        may also be generated.
+        Name of generated document.
     format : None | "html" | "pdf" | ...
         Format of generated document.  If None, the format is inferred
         from `filename`.
@@ -119,11 +118,11 @@ def emmodoc(filename='emmodoc.html', format=None, figformat=None,
         # Run pandoc
         subprocess.check_call(['pandoc'] + args, cwd=tmpdir)
 
-        # Finalise
-        curdir = os.getcwd()
-        if format in ('html', 'htm'):
-            if not os.path.samefile(outdir, thisdir):
-                shutil.copy(os.path.join(thisdir, 'emmodoc.css'), outdir)
+        # Finalise -- not needed for standalone documents
+        #curdir = os.getcwd()
+        #if format in ('html', 'htm'):
+        #    if not os.path.samefile(outdir, thisdir):
+        #        shutil.copy(os.path.join(thisdir, 'emmodoc.css'), outdir)
 
 
 
