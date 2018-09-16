@@ -234,5 +234,5 @@ def get_sections(filename):
 
 if __name__ == '__main__':
     os.makedirs('xxx', exist_ok=True)
-    emmodoc('xxx/myemmo.html')
-    emmodoc('xxx/myemmo.pdf')
+    emmodoc('xxx/emmodoc.html')
+    emmodoc('xxx/emmodoc.pdf')

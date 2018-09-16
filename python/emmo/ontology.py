@@ -21,6 +21,7 @@ import owlready2
 
 
 thisdir = os.path.abspath(os.path.dirname(__file__))
+#owldir = os.path.abspath(os.path.join(thisdir, '..', '..', 'emmo'))
 owldir = os.path.abspath(os.path.join(thisdir, '..', '..', 'emmo', 'owl'))
 owlready2.onto_path.append(owldir)
 
@@ -194,30 +195,35 @@ class Ontology(owlready2.Ontology):
             targets = [e for e in entity.is_a if not isinstance(e, (
                 owlready2.ThingClass, owlready2.ObjectPropertyClass,
                 owlready2.PropertyClass))]
-            self._get_dot_add_edges(graph, entity, targets, 'is_a',
-                                    relations, style.get('other', {}))
-
-
+            self._get_dot_add_edges(
+                graph, entity, targets, 'is_a',
+                relations, style.get('other', {}))
 
             # Add equivalent_to edges
-            self._get_dot_add_edges(graph, entity, entity.equivalent_to,
-                                    'equivalent_to', relations,
-                                    style.get('equivalent_to', {}),
-                                    #constraint='false'
-            )
+            if relations is True or 'equivalent_to' in relations:
+                self._get_dot_add_edges(
+                    graph, entity, entity.equivalent_to, 'equivalent_to',
+                    relations, style.get('equivalent_to', {}),
+                    #constraint='false',
+                )
 
             # disjoint_with
-            if hasattr(entity, 'disjoints'):
+            if hasattr(entity, 'disjoints') and (
+                    relations is True or 'disjoint_with' in relations):
                 self._get_dot_add_edges(
                     graph, entity, entity.disjoints(), 'disjoint_with',
-                    relations, style.get('disjoint_with', {}))
-
+                    relations, style.get('disjoint_with', {}),
+                    #constraint='false',
+                )
 
             # Add inverse_of
-            if hasattr(entity, 'inverse_property'):
+            if hasattr(entity, 'inverse_property') and (
+                    relations is True or 'inverse_of' in relations):
                 self._get_dot_add_edges(
                     graph, entity, [entity.inverse_property], 'inverse_of',
-                    relations, style.get('inverse_of', {}))
+                    relations, style.get('inverse_of', {}),
+                    #constraint='false',
+                )
 
         return graph
 
@@ -238,6 +244,10 @@ class Ontology(owlready2.Ontology):
                               owlready2.ObjectPropertyClass,
                               owlready2.PropertyClass)):
                 label = e.label.first()
+
+                print('=== node1=%r, node2=%r, label=%r' % (
+                    node.get_name(), graph.get_node(label), label))
+
                 edge = pydot.Edge(node, graph.get_node(label)[0], label=label,
                               **style)
                 if constraint is not None:
@@ -256,12 +266,6 @@ class Ontology(owlready2.Ontology):
                         # Add some extra space to labels
                         edge = pydot.Edge(
                             node, other, label=label + '   ', **style)
-
-                        #print('=== Edge %s -> %s: %r' % (
-                        #    node.get_name(), other.get_name(),
-                        #    edge.get_constraint()))
-
-                        edge.set_constraint('false')
                         if constraint is not None:
                             edge.set_constraint(constraint)
                         graph.add_edge(edge)

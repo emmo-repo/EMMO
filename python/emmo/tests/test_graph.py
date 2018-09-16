@@ -34,7 +34,10 @@ substrate_graph.write_svg('substrate_graph.svg')
 property_graph = emmo.get_dot_graph('property')
 property_graph.write_pdf('property_graph.pdf')
 
-relations_graph = emmo.get_dot_relations_graph(relations=True)
+#relations_graph = emmo.get_dot_relations_graph(relations=True)
+#relations_graph.write_pdf('relation_graph.pdf')
+
+relations_graph = emmo.get_dot_relations_graph()
 relations_graph.write_pdf('relation_graph.pdf')
 
 

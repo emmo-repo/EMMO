@@ -8,6 +8,9 @@
 ## encloses
 aaa
 
+## is_enclosed_by
+aaa
+
 ## has_part
 aaa
 
