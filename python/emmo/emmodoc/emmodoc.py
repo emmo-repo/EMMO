@@ -6,6 +6,7 @@ import time
 import tempfile
 import shutil
 from collections import OrderedDict
+import xml.etree.ElementTree as ET
 
 
 # Add emmo package to sys path
@@ -20,7 +21,7 @@ emmo.sync_reasoner()
 
 
 def emmodoc(filename='emmodoc.html', format=None, figformat=None,
-            figstyle='uml', **kw):
+            figstyle='uml', figscale=0.7):
     """Generates EMMO documentation using pandoc.
 
     Parameters
@@ -50,7 +51,7 @@ def emmodoc(filename='emmodoc.html', format=None, figformat=None,
 
     with tempfile.TemporaryDirectory() as tmpdir:
     #if True:
-    #    tmpdir = os.path.join(thisdir, 'xxx')  # XXX
+        #tmpdir = os.path.join(thisdir, 'xxx')  # XXX
         mdfile = (root + '.md' if os.path.isabs(root)
                   else os.path.join(tmpdir, basename + '.md'))
         htmldir = os.path.join(tmpdir, 'html_files')
@@ -62,7 +63,8 @@ def emmodoc(filename='emmodoc.html', format=None, figformat=None,
 
         relations = get_sections('relations.md')
         introduction = relations.pop(None, '')
-        #add_figs(relations, figformat=figformat, figdir=figdir)
+        #add_figs(relations, figformat=figformat, figdir=figdir, outdir=htmldir,
+        #         figscale=figscale)
         #make_graphs(relations, outdir=htmldir, format=figformat,
         #            style=figstyle, href=href)
         doc.append(emmo.get_vocabulary(
@@ -71,7 +73,8 @@ def emmodoc(filename='emmodoc.html', format=None, figformat=None,
 
         entities = get_sections('entities.md')
         introduction = entities.pop(None, '')
-        add_figs(entities, figformat=figformat, figdir=figdir)
+        add_figs(entities, figformat=figformat, figdir=figdir, outdir=htmldir,
+                 figscale=figscale)
         make_graphs(entities, outdir=htmldir, format=figformat,
                     style=figstyle, href=href)
         doc.append(emmo.get_vocabulary(
@@ -159,11 +162,42 @@ def make_graphs(sections, outdir='.', format='svg', style='uml', href=''):
         writer(os.path.join(outdir, name + '.' + format))
 
 
-def add_figs(sections, figformat='svg', figdir='html_files'):
+def get_figwidths(sections, outdir='.'):
+    """Returns a dict mapping section names to corresponding figure
+    widths."""
+    widthsfile = os.path.join(outdir, 'figwidths.txt')
+    if not os.path.exists(widthsfile):
+        make_graphs(sections, outdir=outdir, format='svg')
+        with open(widthsfile, 'w') as f:
+            for name in sections:
+                xml = ET.parse(os.path.join(outdir, name +'.svg'))
+                svg = xml.getroot()
+                width = svg.attrib['width']
+                f.write('%s: %s\n' % (name, width))
+    with open(widthsfile, 'r') as f:
+        widths = {}
+        for line in f:
+            name, width = line.rstrip().split(':', 1)
+            widths[name] = width
+    return widths
+
+
+def add_figs(sections, figformat='svg', figdir='html_files', outdir='.',
+             figscale=None):
     """Update `sections` by injecting figures after the ingress."""
+    scaled_widths = {}
+    if figscale:
+        widths = get_figwidths(sections, outdir)
+        for k, v in widths.items():
+            v = v.strip()
+            for i in range(len(v)):
+                if not v[i].isdigit():
+                    break
+            scaled_widths[k] = '{ width=%.0fpx }' % (float(v[:i]) * figscale, )
+
     for k in sections:
-        sections[k] = ('%s\n\n![The %s branch.](%s/%s.%s)\n\n' % (
-            sections[k], k, figdir, k, figformat))
+        sections[k] = '%s\n\n![The %s branch.](%s/%s.%s)%s\n\n' % (
+            sections[k], k, figdir, k, figformat, scaled_widths.get(k, ''))
 
 
 def get_sections(filename):
@@ -199,5 +233,6 @@ def get_sections(filename):
 
 
 if __name__ == '__main__':
-    emmodoc('myemmo.html')
-    emmodoc('myemmo.pdf')
+    os.makedirs('xxx', exist_ok=True)
+    emmodoc('xxx/myemmo.html')
+    emmodoc('xxx/myemmo.pdf')

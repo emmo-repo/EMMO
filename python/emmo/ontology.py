@@ -101,7 +101,8 @@ class Ontology(owlready2.Ontology):
                   #'splines': 'ortho',
               },
         'class': {
-            'shape': 'record',
+            #'shape': 'record',
+            'shape': 'box',
             'fontname': 'Bitstream Vera Sans',
             'style': 'filled',
             'fillcolor': '#ffffe0',
@@ -201,7 +202,9 @@ class Ontology(owlready2.Ontology):
             # Add equivalent_to edges
             self._get_dot_add_edges(graph, entity, entity.equivalent_to,
                                     'equivalent_to', relations,
-                                    style.get('equivalent_to', {}))
+                                    style.get('equivalent_to', {}),
+                                    #constraint='false'
+            )
 
             # disjoint_with
             if hasattr(entity, 'disjoints'):
@@ -219,7 +222,7 @@ class Ontology(owlready2.Ontology):
         return graph
 
     def _get_dot_add_edges(self, graph, entity, targets, relation,
-                           relations, style):
+                           relations, style, constraint=None):
         """Adds edges to `graph` for relations between `entity` and all
         members in `targets`.  `style` is a dict with options to pydot.Edge().
         """
@@ -235,9 +238,10 @@ class Ontology(owlready2.Ontology):
                               owlready2.ObjectPropertyClass,
                               owlready2.PropertyClass)):
                 label = e.label.first()
-                print('=== label="%s"' % (label, ))
                 edge = pydot.Edge(node, graph.get_node(label)[0], label=label,
                               **style)
+                if constraint is not None:
+                    edge.set_constraint(constraint)
                 graph.add_edge(edge)
             elif isinstance(e, owlready2.Restriction):
                 terms = s.split()
@@ -252,6 +256,14 @@ class Ontology(owlready2.Ontology):
                         # Add some extra space to labels
                         edge = pydot.Edge(
                             node, other, label=label + '   ', **style)
+
+                        #print('=== Edge %s -> %s: %r' % (
+                        #    node.get_name(), other.get_name(),
+                        #    edge.get_constraint()))
+
+                        edge.set_constraint('false')
+                        if constraint is not None:
+                            edge.set_constraint(constraint)
                         graph.add_edge(edge)
                 else:
                     print('* get_dot_graph() * Ignoring: '
