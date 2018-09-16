@@ -17,8 +17,7 @@ entities in EMMO are represented as Python classes, while individuals
 are represented as instances of these. Relations are represented as
 class properties.
 
-Below is a simple example showing how to access the "matter" entity in
-EMMO:
+Below is a basic example showing how to access an entity using `emmo`:
 
 ```python
 >>> from emmo import get_ontology
@@ -38,10 +37,14 @@ emmo.physical]
 ```
 
 
+Features
+--------
+
+
+
 
 Dependencies
 ------------
-
   * Python 3.5 or greater
   * [Owlready2]:  Install it with
 

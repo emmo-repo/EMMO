@@ -12,6 +12,7 @@ from emmo import get_ontology
 
 emmo = get_ontology('emmo.owl')
 emmo.load()
+
 #emmo.sync_reasoner()
 
 
@@ -37,3 +38,17 @@ subprocess.call(['pandoc', 'emmodoc.md', 'emmodoc-meta.yaml',
                  '--css=emmodoc.css',
                  '--template=emmodoc-template.html',
                  '--output=emmodoc.html'])
+
+
+# Markdown vocabulary converted to pdf with pandoc
+subtitle = r'Generated from \url{%s}' % (emmo.base_iri, )
+subprocess.call(['pandoc', 'emmodoc.md', 'emmodoc-meta.yaml',
+                 '--standalone', '--self-contained', '--toc', '--toc-depth=2',
+                 '--variable=date:%s' % time.strftime('%B %d, %Y'),
+                 '--variable=subtitle:%s' % subtitle,
+                 '--variable=urlcolor:blue',
+                 '--variable=toccolor:blue',
+                 '--variable=geometry:margin=2cm',
+                 '--variable=author:Europeean Materials Modelling Council',
+                 '--from=markdown+auto_identifiers',
+                 '--output=emmodoc.pdf'])
