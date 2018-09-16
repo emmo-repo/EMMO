@@ -8,9 +8,9 @@ Prefix(e-mat:=<http://emmc.info/emmo-material#>)
 
 
 Ontology(<http://emmc.info/emmo-material>
-Import(<http://emmc.info/emmo>)
 
 Declaration(Class(e-mat:EMMO_076dda89_691f_4330_9a15_47cdc18ae388))
+Declaration(Class(e-mat:EMMO_1067b97a_84f8_4d22_8ace_b842b8ce355c))
 Declaration(Class(e-mat:EMMO_153ba20b_72b1_4b34_8b16_29ce5ecf5437))
 Declaration(Class(e-mat:EMMO_174cf221_9d16_427c_abea_e217a948969b))
 Declaration(Class(e-mat:EMMO_23c0242f_d699_4e81_a07e_79738931ce57))
@@ -27,6 +27,7 @@ Declaration(Class(e-mat:EMMO_4efc77eb_2d23_42a1_86c4_a94c93c2b052))
 Declaration(Class(e-mat:EMMO_50781fd9_a9e4_46ad_b7be_4500371d188d))
 Declaration(Class(e-mat:EMMO_530cc355_84f0_45c0_ac79_7b075e313e96))
 Declaration(Class(e-mat:EMMO_55dc2a1f_e613_4d72_b458_e48b196565a6))
+Declaration(Class(e-mat:EMMO_5c4aff3c_c30c_4507_86d5_b4df41eb9f2f))
 Declaration(Class(e-mat:EMMO_5e4b8f8a_3f5b_485d_8561_9f0dcf05ec50))
 Declaration(Class(e-mat:EMMO_5e6bc770_55ac_469a_84d7_8710d0d6ea51))
 Declaration(Class(e-mat:EMMO_64334d8c_5a3d_4b6c_893f_99592a25b15e))
@@ -71,10 +72,27 @@ Declaration(Class(e-mat:EMMO_fc4acecf_b127_4a8d_a36d_b99cf9b4764c))
 #   Classes
 ############################
 
+# Class: <http://emmc.info/emmo#EMMO_36c79456_e29c_400d_8bd3_0eedddb82652> (state)
+
+AnnotationAssertion(rdfs:comment <http://emmc.info/emmo#EMMO_36c79456_e29c_400d_8bd3_0eedddb82652> "The usefulness of state is that it makes it possible to describe the evolution in time of an existent in terms of series of states that can take into account the disappearance or appearance of parts within an entity. A state is a recognizable granularity level of matter, in the sense that its direct parts do not appear or disappear within its lifetime as it can be for a generic existent.")
+AnnotationAssertion(rdfs:comment <http://emmc.info/emmo#EMMO_36c79456_e29c_400d_8bd3_0eedddb82652> "”state” stands for “matter in a particular configurational state” and is defined as having spatial direct parts that persists (do not change) throughout the lifetime of the whole: the state.
+
+There is no change in granularity or cardinality of parts within a state.
+
+The use of spatial direct parthood in state definition means that a state cannot overlap in space another state
+
+A spatial direct part of a state can only be matter or vacuum.")
+
 # Class: e-mat:EMMO_076dda89_691f_4330_9a15_47cdc18ae388 (monomer)
 
 AnnotationAssertion(rdfs:label e-mat:EMMO_076dda89_691f_4330_9a15_47cdc18ae388 "monomer"@en)
 SubClassOf(e-mat:EMMO_076dda89_691f_4330_9a15_47cdc18ae388 e-mat:EMMO_3397f270_dfc1_4500_8f6f_4d0d85ac5f71)
+
+# Class: e-mat:EMMO_1067b97a_84f8_4d22_8ace_b842b8ce355c (electron_cloud)
+
+AnnotationAssertion(rdfs:label e-mat:EMMO_1067b97a_84f8_4d22_8ace_b842b8ce355c "electron_cloud"@en)
+SubClassOf(e-mat:EMMO_1067b97a_84f8_4d22_8ace_b842b8ce355c e-mat:EMMO_7d66bde4_b68d_41cc_b5fc_6fd98c5e2ff0)
+SubClassOf(e-mat:EMMO_1067b97a_84f8_4d22_8ace_b842b8ce355c ObjectSomeValuesFrom(<http://emmc.info/emmo#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe> ObjectIntersectionOf(<http://emmc.info/emmo#EMMO_4d91b8d8_6df7_4b03_b648_cf7aef7284f0> e-mat:EMMO_8043d3c6_a4c1_4089_ba34_9744e28e5b3d)))
 
 # Class: e-mat:EMMO_153ba20b_72b1_4b34_8b16_29ce5ecf5437 (aerosol)
 
@@ -176,6 +194,11 @@ SubClassOf(e-mat:EMMO_530cc355_84f0_45c0_ac79_7b075e313e96 e-mat:EMMO_a2b006f2_b
 
 AnnotationAssertion(rdfs:label e-mat:EMMO_55dc2a1f_e613_4d72_b458_e48b196565a6 "electron_only_based"@en)
 EquivalentClasses(e-mat:EMMO_55dc2a1f_e613_4d72_b458_e48b196565a6 ObjectIntersectionOf(ObjectSomeValuesFrom(<http://emmc.info/emmo#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe> e-mat:EMMO_8043d3c6_a4c1_4089_ba34_9744e28e5b3d) ObjectAllValuesFrom(<http://emmc.info/emmo#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe> ObjectUnionOf(<http://emmc.info/emmo#EMMO_4d91b8d8_6df7_4b03_b648_cf7aef7284f0> e-mat:EMMO_8043d3c6_a4c1_4089_ba34_9744e28e5b3d))))
+
+# Class: e-mat:EMMO_5c4aff3c_c30c_4507_86d5_b4df41eb9f2f (atomic)
+
+AnnotationAssertion(rdfs:label e-mat:EMMO_5c4aff3c_c30c_4507_86d5_b4df41eb9f2f "atomic"@en)
+SubClassOf(e-mat:EMMO_5c4aff3c_c30c_4507_86d5_b4df41eb9f2f <http://emmc.info/emmo#EMMO_36c79456_e29c_400d_8bd3_0eedddb82652>)
 
 # Class: e-mat:EMMO_5e4b8f8a_3f5b_485d_8561_9f0dcf05ec50 (nanoparticle)
 
@@ -383,7 +406,7 @@ An H atom within an H2 molecule is a e-bonded_atom.
 
 The H2 molecule has direct part two electrons and two H atoms.")
 AnnotationAssertion(rdfs:label e-mat:EMMO_eb77076b_a104_42ac_a065_798b2d2809ad "atom"@en)
-SubClassOf(e-mat:EMMO_eb77076b_a104_42ac_a065_798b2d2809ad <http://emmc.info/emmo#EMMO_36c79456_e29c_400d_8bd3_0eedddb82652>)
+SubClassOf(e-mat:EMMO_eb77076b_a104_42ac_a065_798b2d2809ad e-mat:EMMO_5c4aff3c_c30c_4507_86d5_b4df41eb9f2f)
 SubClassOf(e-mat:EMMO_eb77076b_a104_42ac_a065_798b2d2809ad ObjectAllValuesFrom(<http://emmc.info/emmo#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe> ObjectUnionOf(<http://emmc.info/emmo#EMMO_4d91b8d8_6df7_4b03_b648_cf7aef7284f0> e-mat:EMMO_8043d3c6_a4c1_4089_ba34_9744e28e5b3d e-mat:EMMO_f835f4d4_c665_403d_ab25_dca5cc74be52)))
 SubClassOf(e-mat:EMMO_eb77076b_a104_42ac_a065_798b2d2809ad ObjectExactCardinality(1 <http://emmc.info/emmo#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe> e-mat:EMMO_f835f4d4_c665_403d_ab25_dca5cc74be52))
 DisjointUnion(e-mat:EMMO_eb77076b_a104_42ac_a065_798b2d2809ad e-mat:EMMO_2fd3f574_5e93_47fe_afca_ed80b0a21ab4 e-mat:EMMO_8303a247_f9d9_4616_bdcd_f5cbd7b298e3)
@@ -412,4 +435,57 @@ SubClassOf(e-mat:EMMO_fc4acecf_b127_4a8d_a36d_b99cf9b4764c e-mat:EMMO_3397f270_d
 SubClassOf(e-mat:EMMO_fc4acecf_b127_4a8d_a36d_b99cf9b4764c e-mat:EMMO_5e4b8f8a_3f5b_485d_8561_9f0dcf05ec50)
 
 
+AnnotationAssertion(rdfs:comment <http://emmc.info/emmo#EMMO_04955fb5_4912_4729_8a19_35276e380b43> "“Granularity” stands for “matter with a particular granularity” .
+
+Granularity is then defined as a superclass of defined subclasses that are defined as matter that is composed of specific types of objects
+(and vacuum) and whose partitions respect direct parthood criteria.
+
+The granularity class (and its inherited classes) is useful since a reasoner can automatically puts the individuals defined by the user under a generic class that expresses clearly the types of its compositional parts.
+
+Since most of physics based modelling tools are designed to describe systems made of a specific base-object (e.g. atoms, fluids, particles) the granularity classes can be directly linked to model types.")
+AnnotationAssertion(<http://emmc.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> <http://emmc.info/emmo#EMMO_13399199_cb46_4641_a951_cf032d5996ae> "A 1D (space) + 0D (time) substrate.")
+AnnotationAssertion(rdfs:comment <http://emmc.info/emmo#EMMO_1703b6d9_b780_4c61_a75b_5f0cd39323e3> "A 'process' individual is easily defined as a temporal part of a physical that is categorized in a primitive process subclass according to what type of process we want to represent.
+
+Strictly speaking, every physical is a ‘process’ since it always has a time dimension, but here we restrict the meaning of ‘process’ to physicals whose evolution in time have a meaning for the material ontologist.
+
+Participants of a process are always parts of that particular process (i.e. they are spacetime). It means that is_participant relation is subclass of is_part_of relation (e.g. you cannot participate to a party if you are not enclosed by the party room)")
+AnnotationAssertion(<http://emmc.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> <http://emmc.info/emmo#EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31> "The class representing the collection of all the individuals (signs) that represents a collection of 'item' individuals.")
+AnnotationAssertion(rdfs:comment <http://emmc.info/emmo#EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31> "A 'set' individual cannot be member of a 'set' (to avoid Russel's paradox).")
+AnnotationAssertion(<http://emmc.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> <http://emmc.info/emmo#EMMO_2efbd83b_97c7_412a_805e_9866aa572885> "A 1D (space) + 1D (time) substrate.")
+AnnotationAssertion(rdfs:comment <http://emmc.info/emmo#EMMO_3769c91c_b851_44c5_8fca_50751dd81d0a> "Matter is always 4D! There is no 3D representation of matter.
+
+There can be a 3D slice of a matter but is no more matter: it’s simply a 3D spatial region.")
+AnnotationAssertion(<http://emmc.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> <http://emmc.info/emmo#EMMO_54dc7f83_6c93_4bec_a0ff_3ea96f6ce16a> "A 2D (space) + 0D (time) substrate.")
+AnnotationAssertion(<http://emmc.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> <http://emmc.info/emmo#EMMO_6a572193_effc_43a1_ab52_b2cec846b37e> "A 0D (space) + 0D (time) substrate.")
+AnnotationAssertion(<http://emmc.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> <http://emmc.info/emmo#EMMO_7152d8e4_7c94_4a67_87b9_6de9c021e1b5> "A 3D (space) + 0D (time) substrate.")
+AnnotationAssertion(<http://emmc.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> <http://emmc.info/emmo#EMMO_75bfd283_ff56_4a97_b05e_a3ea15d5e0a8> "A model is an abstraction for a physical entity.")
+AnnotationAssertion(rdfs:comment <http://emmc.info/emmo#EMMO_75bfd283_ff56_4a97_b05e_a3ea15d5e0a8> "A model can be an abstraction for simple entities (e.g. an atom, a field) or a more complex existent.")
+AnnotationAssertion(<http://emmc.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> <http://emmc.info/emmo#EMMO_a984ae65_ea32_44aa_9fab_c8493fe6d3e0> "A 2D (space) + 1D (time) substrate.")
+AnnotationAssertion(<http://emmc.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> <http://emmc.info/emmo#EMMO_ac8e5770_cb05_4d82_ac83_93de968cdd8e> "A 0D (space) + 1D (time) substrate.")
+AnnotationAssertion(<http://emmc.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> <http://emmc.info/emmo#EMMO_d82fd6c6_aebe_440f_9dd2_24a4eb3a417b> "A 3D (space) + 1D (time) substrate.")
+AnnotationAssertion(rdfs:comment <http://emmc.info/emmo#EMMO_d82fd6c6_aebe_440f_9dd2_24a4eb3a417b> "The EMMO basic assumption is that the real world (the world outside us) manifests itself as a one spacetime entity, the Universe.
+
+Some mereological parts (regions) of the Universe express peculiar properties that can be perceived by (they interact with) an interpreter/ontologist. 
+
+These mereological parts can be categorized in matter spacetimes or field spacetimes individuals.
+
+'physical' class is the union of 'field' and 'matter' classes.")
+AnnotationAssertion(<http://emmc.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> <http://emmc.info/emmo#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de> "The class that collects all the individuals that are member of a set (it’s the most comprehensive set individual).")
+AnnotationAssertion(rdfs:comment <http://emmc.info/emmo#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de> "The 'item' class and all its sub-classes are 'set' individuals.
+
+The 'item' branch will be used to represent the world things and can be seen in practice as the ontology core.")
+AnnotationAssertion(<http://emmc.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> <http://emmc.info/emmo#EMMO_eeb837b9_3995_4805_8662_5c2a59aeb494> "A 0D (space) + 0D (time) substrate.")
+AnnotationAssertion(rdfs:comment <http://emmc.info/emmo#EMMO_f67528f5_7e45_405b_84e4_8a3b48aea914> "A 'substrate' individual represents a place (in general sense) in which real world item exists.
+
+A 'substrate' individual provides the dimensions of existence for real world entities. It follows the fact that everything that exists is placed
+somewhere and space and time coordinates can be used to identify
+it.")
+AnnotationAssertion(rdfs:comment <http://emmc.info/emmo#EMMO_f67528f5_7e45_405b_84e4_8a3b48aea914> "Substrate is the disjoint union of spacetime (4D), space (3D), surface (2D) and time (1D).")
+AnnotationAssertion(rdfs:comment <http://emmc.info/emmo#EMMO_f67528f5_7e45_405b_84e4_8a3b48aea914> "This restriction in the mereological relations is done in order to overcome a typical misuse of the partitioning procedure, that occurs when the user wants to stretch the is_part_of relation beyond its applicability limit.
+
+e.g. you can slice a 3D+1D cake in 3D+1D thin parts (3 spatial + 1 temporal dimension), but it’s impossible to slice the cake in infinitely thin 2D+1D slices (2 spatial + 1 temporal dimension). The relation of parthood applied to material entities cannot reduce spatial dimensions for a material object, since a 2D+1D material object does not exist! 
+
+Slicing a 3D+1D entity in a 2D+1D entity can still be done, but within the substrate level (the topological level) using
+the is_slice_of relation working on geometrical concepts and not actual materials.")
+AnnotationAssertion(<http://emmc.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> <http://emmc.info/emmo#EMMO_fee4fbb6_03a4_4e09_8af1_de772829963b> "A 0D (space) + 1D (time) substrate.")
 )
