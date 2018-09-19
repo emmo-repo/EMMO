@@ -54,11 +54,6 @@ It is the disjoint union of *spacetime* (4D), *space* (3D), *surface* (2D)
 and *time* (1D).
 
 
-## interval
-
-## instant
-
-
 ## spacetime
 The space and time that the real world manifest itself in (the Universe).
 
@@ -72,35 +67,33 @@ It has several important subclasses:
   - **void**: a vacuum that has no *field* parts
 
 
-## process
-aaa
+## granularity
 
-## observer
-aaa
+## elementary_based
+
+
+## state
+
+
+## process
 
 
 ## abstract
-aaa
+
 
 ## mathematical_entity
-aaa
 
-## variable
-aaa
 
 ## equation
-aaa
 
 
 ## model
-aaa
+
 
 ## property
-aaa
 
 
 ## extensive_property
-aaa
+
 
 ## intensive_property
-aaa

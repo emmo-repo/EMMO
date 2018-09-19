@@ -21,9 +21,15 @@ import owlready2
 
 
 thisdir = os.path.abspath(os.path.dirname(__file__))
-#owldir = os.path.abspath(os.path.join(thisdir, '..', '..', 'emmo'))
-owldir = os.path.abspath(os.path.join(thisdir, '..', '..', 'emmo', 'owl'))
+#owldir = os.path.abspath(os.path.join(thisdir, '..', '..', 'emmo', 'owl-old'))
+owldir = os.path.abspath(os.path.join(thisdir, '..', '..', 'owl'))
 owlready2.onto_path.append(owldir)
+
+
+class NoSuchLabelError(LookupError):
+    """Error raised when a label cannot be found."""
+    pass
+
 
 # owl types
 categories = (
@@ -58,39 +64,27 @@ def get_ontology(base_iri):
 class Ontology(owlready2.Ontology):
     """A generic class extending owlready2.Ontology.
     """
+    def __getitem__(self, name):
+        return self.__getattr__(name)
+
     def __getattr__(self, name):
-        #attr = super().__getattr__(name)
-        #if attr:
-        #    return attr
-        #else:
-        #    return self.get_by_label(name)
-        # Allow entity access by label
         attr = super().__getattr__(name)
         if not attr:
             attr = self.get_by_label(name)
-        # Extend entities
-        #if isinstance(attr, owlready2.EntityClass):
-        #    #attr.__dict__.update(EntityClass.__dict__)
-        #    for k, v in EntityClass.__dict__.items():
-        #        setattr(attr, k, v)
-        #if isinstance(attr, owlready2.ThingClass):
-        #    #attr.__dict__.update(ThingClass.__dict__)
-        #    #for k, v in ThingClass.__dict__.items():
-        #    #    setattr(attr, k, v)
-        #    attr.get_parts = lambda self: ['abc']
-        #if isinstance(attr, owlready2.PropertyClass):
-        #    #attr.__dict__.update(PropertyClass.__dict__)
-        #    for k, v in PropertyClass.__dict__.items():
-        #        setattr(attr, k, v)
         return attr
 
     _default_style = {
         'graph': {'graph_type': 'digraph', 'rankdir': 'RL', 'fontsize': 8,
                   #'fontname': 'Bitstream Vera Sans', 'splines': 'ortho',
               },
-        'class': {},
+        'class': {
+            'fillcolor': '#ffffcc',
+        },
+        'defined_class': {
+            'fillcolor': '#ffc880',
+        },
         'individuals': {},
-        'is_a': {},
+        'is_a': {'arrowhead': 'empty'},
         'equivalent_to': {'color': 'green', },
         'disjoint_with': {'color': 'red', },
         'inverse_of': {'color': 'orange', },
@@ -108,6 +102,13 @@ class Ontology(owlready2.Ontology):
             'style': 'filled',
             'fillcolor': '#ffffe0',
         },
+        'defined_class': {
+            #'shape': 'record',
+            'shape': 'box',
+            'fontname': 'Bitstream Vera Sans',
+            'style': 'filled',
+            'fillcolor': '#ffc880',
+        },
         'individuals': {},
         'is_a': {'arrowhead': 'empty'},
         'equivalent_to': {'color': 'green', },
@@ -116,7 +117,8 @@ class Ontology(owlready2.Ontology):
         'other': {'color': 'blue', 'arrowhead': 'diamond'},
     }
     def get_dot_graph(self, root=None, graph=None, relations='is_a',
-                      leafs=None, parents=False, style=None):
+                      leafs=None, parents=False, style=None,
+                      abbreviations=None):
         """Returns a pydot graph object for visualising the ontology.
 
         Parameters
@@ -151,6 +153,8 @@ class Ontology(owlready2.Ontology):
             If style is None, a very simple default style is used.
             Some pre-defined styles can be selected by name (currently
             only "uml").
+        abbreviations : None | dict
+            A dict mapping relation names to corresponding abbreviation.
 
         Note: This method requires pydot.
         """
@@ -173,7 +177,10 @@ class Ontology(owlready2.Ontology):
                 if (parent is None or parent is owlready2.Thing):
                     break
                 label = parent.label.first()
-                node = pydot.Node(label, **style.get('class', {}))
+                if self.is_defined(label):
+                    node = pydot.Node(label, **style.get('defined_class', {}))
+                else:
+                    node = pydot.Node(label, **style.get('class', {}))
                 graph.add_node(node)
                 if relations is True or 'is_a' in relations:
                     rootnode = graph.get_node(r.label.first())[0]
@@ -197,14 +204,17 @@ class Ontology(owlready2.Ontology):
                 owlready2.PropertyClass))]
             self._get_dot_add_edges(
                 graph, entity, targets, 'is_a',
-                relations, style.get('other', {}))
+                relations, style.get('other', {}),
+                abbreviations=abbreviations,
+                constraint='false')
 
             # Add equivalent_to edges
             if relations is True or 'equivalent_to' in relations:
                 self._get_dot_add_edges(
                     graph, entity, entity.equivalent_to, 'equivalent_to',
                     relations, style.get('equivalent_to', {}),
-                    #constraint='false',
+                    abbreviations=abbreviations,
+                    constraint='false',
                 )
 
             # disjoint_with
@@ -213,7 +223,8 @@ class Ontology(owlready2.Ontology):
                 self._get_dot_add_edges(
                     graph, entity, entity.disjoints(), 'disjoint_with',
                     relations, style.get('disjoint_with', {}),
-                    #constraint='false',
+                    abbreviations=abbreviations,
+                    constraint='false',
                 )
 
             # Add inverse_of
@@ -222,17 +233,22 @@ class Ontology(owlready2.Ontology):
                 self._get_dot_add_edges(
                     graph, entity, [entity.inverse_property], 'inverse_of',
                     relations, style.get('inverse_of', {}),
-                    #constraint='false',
+                    abbreviations=abbreviations,
+                    constraint='false',
                 )
 
         return graph
 
     def _get_dot_add_edges(self, graph, entity, targets, relation,
-                           relations, style, constraint=None):
+                           relations, style, abbreviations=None,
+                           constraint=None):
         """Adds edges to `graph` for relations between `entity` and all
         members in `targets`.  `style` is a dict with options to pydot.Edge().
         """
         import pydot
+
+        if abbreviations is None:
+            abbreviations = {}
 
         nodes = graph.get_node(entity.label.first())
         if not nodes:
@@ -244,11 +260,8 @@ class Ontology(owlready2.Ontology):
                               owlready2.ObjectPropertyClass,
                               owlready2.PropertyClass)):
                 label = e.label.first()
-
-                print('=== node1=%r, node2=%r, label=%r' % (
-                    node.get_name(), graph.get_node(label), label))
-
-                edge = pydot.Edge(node, graph.get_node(label)[0], label=label,
+                elabel = abbreviations.get(label, label)
+                edge = pydot.Edge(node, graph.get_node(label)[0], label=elabel,
                               **style)
                 if constraint is not None:
                     edge.set_constraint(constraint)
@@ -263,9 +276,10 @@ class Ontology(owlready2.Ontology):
                         else:
                             continue
                         label = ' '.join(terms[:2])
+                        elabel = abbreviations.get(label, label)
                         # Add some extra space to labels
                         edge = pydot.Edge(
-                            node, other, label=label + '   ', **style)
+                            node, other, label=elabel + '   ', **style)
                         if constraint is not None:
                             edge.set_constraint(constraint)
                         graph.add_edge(edge)
@@ -327,6 +341,8 @@ class Ontology(owlready2.Ontology):
         else:
             if self.is_individual(label):
                 node = pydot.Node(label, **style.get('individual', {}))
+            elif self.is_defined(label):
+                node = pydot.Node(label, **style.get('defined_class', {}))
             else:
                 node = pydot.Node(label, **style.get('class', {}))
             graph.add_node(node)
@@ -338,6 +354,8 @@ class Ontology(owlready2.Ontology):
             label = sc.label.first() if len(sc.label) == 1 else sc.name
             if self.is_individual(label):
                 subnode = pydot.Node(label, **style.get('individual', {}))
+            elif self.is_defined(label):
+                subnode = pydot.Node(label, **style.get('defined_class', {}))
             else:
                 subnode = pydot.Node(label, **style.get('class', {}))
             graph.add_node(subnode)
@@ -375,17 +393,27 @@ class Ontology(owlready2.Ontology):
         found first is returned.  A KeyError is raised if `label`
         cannot be found.
         """
+        # Check for name in all categories in self
         for category in categories:
             method = getattr(self, category)
             for entity in method():
                 if label in entity.label:
                     return entity
+        # Check for special names
         d = {
             'Nothing': owlready2.Nothing,
         }
         if label in d:
             return d[label]
-        raise KeyError('Ontology "%s" has no such label: %s' % (
+        # Check imported ontologies
+        for onto in self.imported_ontologies:
+            onto.__class__ = self.__class__  # magically change type of onto
+            try:
+                return onto.get_by_label(label)
+            except NoSuchLabelError:
+                pass
+        # Label cannot be found
+        raise NoSuchLabelError('Ontology "%s" has no such label: %s' % (
             self.name, label))
 
     def get_by_label_all(self, label):
@@ -451,6 +479,14 @@ class Ontology(owlready2.Ontology):
             entity = self.get_by_label(entity)
         return isinstance(type(entity), owlready2.ThingClass)
 
+    def is_defined(self, entity):
+        """Returns true if the entity is a derived class."""
+        if isinstance(entity, str):
+            entity = self.get_by_label(entity)
+        return hasattr(entity, 'equivalent_to') and bool(entity.equivalent_to)
+
+
+
     _markdown_template = dict(
         link='[{name}]({url})',
         point='  - {point}\n',
@@ -500,7 +536,8 @@ class Ontology(owlready2.Ontology):
         ],
     )
     def get_vocabulary(self, items=None, sections=None, chapter=None,
-                       introduction='', template='html', show_individuals=True):
+                       introduction='', template='html',
+                       show_individuals=False):
         """Returns a controlled vocabulary describing `items`.
 
         By default all entities, relations and individuals in this ontology

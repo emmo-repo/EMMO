@@ -19,6 +19,35 @@ emmo = get_ontology('emmo.owl')
 emmo.load()
 emmo.sync_reasoner()
 
+#material = get_ontology('emmo-material.owl')
+#material.name = 'material'
+#material.load()
+#material.sync_reasoner()
+
+
+abbreviations = {
+    'has_part only': 'hp-o',
+    'is_part_of only': 'ipo-o',
+    'has_member some': 'hm-s',
+    'is_member_of some': 'imo-s',
+    'has_abstraction some': 'ha-s',
+    'is_abstraction_of some': 'iao-s',
+    'has_abstract_part only': 'pap-o',
+    'is_abstract_part_of only': 'iapo-o',
+    'has_space_slice some': 'hss-s',
+    'is_space_slice_of some': 'isso-s',
+    'has_time_slice some': 'hts-s',
+    'is_time_slice_of some': 'itso-s',
+    'has_projection some': 'hp-s',
+    'is_projection_of some': 'ipo-s',
+    'has_proper_part some': 'hpp-s',
+    'is_proper_part_of some': 'ippo-s',
+    'has_proper_part_of some': 'hppo-s',
+    'has_spatial_direct_part min': 'hsdp-m',
+    'has_spatial_direct_part some': 'hsdp-s',
+    'has_spatial_direct_part exactly': 'hsdp-e',
+    }
+
 
 def emmodoc(filename='emmodoc.html', format=None, figformat=None,
             figstyle='uml', figscale=0.7):
@@ -82,7 +111,7 @@ def emmodoc(filename='emmodoc.html', format=None, figformat=None,
             template='markdown'))
 
         doc.append(emmo.get_vocabulary(
-            items=emmo.individuals(), chapter='Instances',
+            items=emmo.individuals(), chapter='Individuals',
             template='markdown'))
 
         with open(mdfile, 'w') as f:
@@ -152,7 +181,7 @@ def make_graphs(sections, outdir='.', format='svg', style='uml', href=''):
         leafs = set(sections.keys())
         leafs.discard(name)
         graph = emmo.get_dot_graph(name, relations=True, leafs=leafs,
-                                   style=style)
+                                   style=style, abbreviations=abbreviations)
 
         for node in graph.get_nodes():
             node.set_URL("%s#%s" % (href, node.get_name()))
@@ -217,8 +246,7 @@ def get_sections(filename):
             if line.startswith(';'):
                 continue
             if line.startswith('#'):
-                if lines:
-                    sections[section] = '\n'.join(lines)
+                sections[section] = '\n'.join(lines)
                 section = line.lstrip('#').strip()
                 lines = []
             elif lines or line.strip():
