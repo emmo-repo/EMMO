@@ -78,9 +78,11 @@ class Ontology(owlready2.Ontology):
                   #'fontname': 'Bitstream Vera Sans', 'splines': 'ortho',
               },
         'class': {
+            'style': 'filled',
             'fillcolor': '#ffffcc',
         },
         'defined_class': {
+            'style': 'filled',
             'fillcolor': '#ffc880',
         },
         'individuals': {},
@@ -230,6 +232,9 @@ class Ontology(owlready2.Ontology):
             # Add inverse_of
             if hasattr(entity, 'inverse_property') and (
                     relations is True or 'inverse_of' in relations):
+                print()
+                print('=== entity:', entity)
+                print('    inverse_property:', entity.inverse_property)
                 self._get_dot_add_edges(
                     graph, entity, [entity.inverse_property], 'inverse_of',
                     relations, style.get('inverse_of', {}),
@@ -261,11 +266,16 @@ class Ontology(owlready2.Ontology):
                               owlready2.PropertyClass)):
                 label = e.label.first()
                 elabel = abbreviations.get(label, label)
-                edge = pydot.Edge(node, graph.get_node(label)[0], label=elabel,
-                              **style)
-                if constraint is not None:
-                    edge.set_constraint(constraint)
-                graph.add_edge(edge)
+                nodes = graph.get_node(label)
+                print('    label:', label)
+                print('    elabel:', elabel)
+                print('    nodes:', nodes)
+                if nodes:
+                    edge = pydot.Edge(node, nodes[0], label=elabel,
+                                      **style)
+                    if constraint is not None:
+                        edge.set_constraint(constraint)
+                    graph.add_edge(edge)
             elif isinstance(e, owlready2.Restriction):
                 terms = s.split()
                 if len(terms) == 3:

@@ -32,31 +32,10 @@ following abbreviations are used in the graphs:
 
 
 
-## encloses
-
-
-## is_enclosed_by
+## relation
 
 
 ## has_part
 
 
 ## is_part_of
-
-
-## has_subdimensional_space
-
-
-## is_subdimensional_space_of
-
-
-## has_property
-
-
-## has_member
-
-
-## has_representation
-
-
-## has_abstract_part

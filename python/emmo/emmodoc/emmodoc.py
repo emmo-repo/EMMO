@@ -19,11 +19,6 @@ emmo = get_ontology('emmo.owl')
 emmo.load()
 emmo.sync_reasoner()
 
-#material = get_ontology('emmo-material.owl')
-#material.name = 'material'
-#material.load()
-#material.sync_reasoner()
-
 
 abbreviations = {
     'has_part only': 'hp-o',
@@ -78,24 +73,25 @@ def emmodoc(filename='emmodoc.html', format=None, figformat=None,
     figdir = 'html_files'  # relative path to figures
     href = filename  # relative path to documentation file
 
-    with tempfile.TemporaryDirectory() as tmpdir:
-    #if True:
-        #tmpdir = os.path.join(thisdir, 'xxx')  # XXX
+    #with tempfile.TemporaryDirectory() as tmpdir:
+    if True:
+        tmpdir = os.path.join(thisdir, 'xxx')  # XXX
         mdfile = (root + '.md' if os.path.isabs(root)
                   else os.path.join(tmpdir, basename + '.md'))
         htmldir = os.path.join(tmpdir, 'html_files')
-        os.makedirs(htmldir) # XXX
-        #os.makedirs(htmldir, exist_ok=True) # XXX
+        #os.makedirs(htmldir) # XXX
+        os.makedirs(htmldir, exist_ok=True) # XXX
 
         # Generate document and graphs
         doc = []
 
         relations = get_sections('relations.md')
         introduction = relations.pop(None, '')
-        #add_figs(relations, figformat=figformat, figdir=figdir, outdir=htmldir,
-        #         figscale=figscale)
-        #make_graphs(relations, outdir=htmldir, format=figformat,
-        #            style=figstyle, href=href)
+        add_figs(relations, figformat=figformat, figdir=figdir, outdir=htmldir,
+                 figscale=figscale)
+        make_graphs(relations, outdir=htmldir, format=figformat,
+                    relations='is_a', style=figstyle, href=href)
+
         doc.append(emmo.get_vocabulary(
             sections=relations, chapter='Relations', introduction=introduction,
             template='markdown'))
@@ -158,7 +154,8 @@ def emmodoc(filename='emmodoc.html', format=None, figformat=None,
 
 
 
-def make_graphs(sections, outdir='.', format='svg', style='uml', href=''):
+def make_graphs(sections, outdir='.', format='svg', relations=True,
+                style='uml', href=''):
     """Reads `sections` dict and generate graphs for each section.
 
     Parameters
@@ -171,6 +168,8 @@ def make_graphs(sections, outdir='.', format='svg', style='uml', href=''):
         Directory to write generated figures to.
     format : "svg" | "pdf" | "png" | ...
         Output format.
+    relations : None | True | string | sequence
+        Relations to include.
     style : None | dict | "uml"
         Output style.  See ontology.gen_dot_graph() for details.
     href : str
@@ -180,7 +179,7 @@ def make_graphs(sections, outdir='.', format='svg', style='uml', href=''):
     for name in sections:
         leafs = set(sections.keys())
         leafs.discard(name)
-        graph = emmo.get_dot_graph(name, relations=True, leafs=leafs,
+        graph = emmo.get_dot_graph(name, relations=relations, leafs=leafs,
                                    style=style, abbreviations=abbreviations)
 
         for node in graph.get_nodes():
