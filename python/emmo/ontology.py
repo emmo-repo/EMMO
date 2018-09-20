@@ -232,9 +232,6 @@ class Ontology(owlready2.Ontology):
             # Add inverse_of
             if hasattr(entity, 'inverse_property') and (
                     relations is True or 'inverse_of' in relations):
-                print()
-                print('=== entity:', entity)
-                print('    inverse_property:', entity.inverse_property)
                 self._get_dot_add_edges(
                     graph, entity, [entity.inverse_property], 'inverse_of',
                     relations, style.get('inverse_of', {}),

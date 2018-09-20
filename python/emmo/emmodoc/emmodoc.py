@@ -5,6 +5,8 @@ import subprocess
 import time
 import tempfile
 import shutil
+import shlex
+from glob import glob
 from collections import OrderedDict
 import xml.etree.ElementTree as ET
 
@@ -42,6 +44,7 @@ abbreviations = {
     'has_spatial_direct_part some': 'hsdp-s',
     'has_spatial_direct_part exactly': 'hsdp-e',
     }
+max_width = 668  # max width of image in px
 
 
 def emmodoc(filename='emmodoc.html', format=None, figformat=None,
@@ -82,36 +85,50 @@ def emmodoc(filename='emmodoc.html', format=None, figformat=None,
         #os.makedirs(htmldir) # XXX
         os.makedirs(htmldir, exist_ok=True) # XXX
 
-        # Generate document and graphs
+        # Generate the markdown document
         doc = []
 
+        # Chapter 1 - introduction
+        with open(os.path.join(thisdir, 'introduction.md'), 'r') as f:
+            doc.append(f.read() + '\n\n')
+
+        # Chapter 2 - relations
         relations = get_sections('relations.md')
-        introduction = relations.pop(None, '')
+        intro = relations.pop(None, '')
         add_figs(relations, figformat=figformat, figdir=figdir, outdir=htmldir,
                  figscale=figscale)
         make_graphs(relations, outdir=htmldir, format=figformat,
                     relations='is_a', style=figstyle, href=href)
 
         doc.append(emmo.get_vocabulary(
-            sections=relations, chapter='Relations', introduction=introduction,
+            sections=relations, chapter='Relations', introduction=intro,
             template='markdown'))
 
+        # Chapter 3 - entities
         entities = get_sections('entities.md')
-        introduction = entities.pop(None, '')
+        intro = entities.pop(None, '')
         add_figs(entities, figformat=figformat, figdir=figdir, outdir=htmldir,
                  figscale=figscale)
         make_graphs(entities, outdir=htmldir, format=figformat,
                     style=figstyle, href=href)
         doc.append(emmo.get_vocabulary(
-            sections=entities, chapter='Entities', introduction=introduction,
+            sections=entities, chapter='Entities', introduction=intro,
             template='markdown'))
 
-        doc.append(emmo.get_vocabulary(
-            items=emmo.individuals(), chapter='Individuals',
-            template='markdown'))
+        # Chapter 4 - instances
+        #doc.append(emmo.get_vocabulary(
+        #    items=emmo.individuals(), chapter='Individuals',
+        #    template='markdown'))
 
+        # Write markdown document
         with open(mdfile, 'w') as f:
             f.write('\n'.join(doc) + '\n')
+
+        # Copy all figures into htmldir
+        for fname in glob(os.path.join(thisdir, 'figs', '*.*')):
+            if not os.path.exists(os.path.join(
+                    htmldir, os.path.basename(fname))):
+                shutil.copy(fname, htmldir)
 
         # Prepare arguments for pandoc
         outfile = filename if os.path.isabs(filename) else os.path.join(
@@ -123,7 +140,7 @@ def emmodoc(filename='emmodoc.html', format=None, figformat=None,
                 '--standalone',
                 '--self-contained',
                 '--toc',
-                '--toc-depth=2',
+                '--toc-depth=3',
                 '--variable=date:%s' % time.strftime('%B %d, %Y'),
                 '--variable=author:Europeean Materials Modelling Council',
         ]
@@ -144,7 +161,12 @@ def emmodoc(filename='emmodoc.html', format=None, figformat=None,
             args.append('--from=markdown+auto_identifiers'),
 
         # Run pandoc
-        subprocess.check_call(['pandoc'] + args, cwd=tmpdir)
+        cmd = ['pandoc'] + args
+        print()
+        print('* Executing command: %r in %r' % (
+            ' '.join(shlex.quote(s) for s in cmd), tmpdir))
+        subprocess.check_call(cmd, cwd=tmpdir)
+
 
         # Finalise -- not needed for standalone documents
         #curdir = os.getcwd()
@@ -193,20 +215,25 @@ def make_graphs(sections, outdir='.', format='svg', relations=True,
 def get_figwidths(sections, outdir='.'):
     """Returns a dict mapping section names to corresponding figure
     widths."""
+    widths = {}
     widthsfile = os.path.join(outdir, 'figwidths.txt')
-    if not os.path.exists(widthsfile):
+    if os.path.exists(widthsfile):
+        with open(widthsfile, 'r') as f:
+            for line in f:
+                name, width = line.rstrip().split(':', 1)
+                widths[name] = width
+
+    if not set(sections.keys()).issubset(widths.keys()):
         make_graphs(sections, outdir=outdir, format='svg')
+        for name in sections:
+            xml = ET.parse(os.path.join(outdir, name +'.svg'))
+            svg = xml.getroot()
+            widths[name] = svg.attrib['width']
+
         with open(widthsfile, 'w') as f:
-            for name in sections:
-                xml = ET.parse(os.path.join(outdir, name +'.svg'))
-                svg = xml.getroot()
-                width = svg.attrib['width']
+            for name, width in widths.items():
                 f.write('%s: %s\n' % (name, width))
-    with open(widthsfile, 'r') as f:
-        widths = {}
-        for line in f:
-            name, width = line.rstrip().split(':', 1)
-            widths[name] = width
+
     return widths
 
 
@@ -221,7 +248,8 @@ def add_figs(sections, figformat='svg', figdir='html_files', outdir='.',
             for i in range(len(v)):
                 if not v[i].isdigit():
                     break
-            scaled_widths[k] = '{ width=%.0fpx }' % (float(v[:i]) * figscale, )
+            width = min(float(v[:i]) * figscale, max_width)
+            scaled_widths[k] = '{ width=%.0fpx }' % width
 
     for k in sections:
         sections[k] = '%s\n\n![The %s branch.](%s/%s.%s)%s\n\n' % (
