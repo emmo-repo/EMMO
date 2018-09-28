@@ -99,7 +99,7 @@ EMMO is build upon several theoretical frameworks, including:
 
     EMMO makes a strong distinction between membership and parthood
     relations.  In contrast to sets, items can only have parts that
-    are themselves itmes.  This means for instance that parthood is
+    are themselves items.  This means for instance that parthood is
     only between substrates of the same dimensionality.  Hence, the
     boundary of an item is not a part of the item since it has a lower
     dimensionality.
@@ -209,7 +209,7 @@ pre-mathematical entity.
 
 The *natural_law* class is defined as
 
-    is_abstraction_for sime experiment
+    is_abstraction_for some experiment
 
 It can be represented e.g. as a thought in the mind of the
 experimentalist, a sketch and textual description in a book of
