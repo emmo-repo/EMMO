@@ -264,9 +264,6 @@ class Ontology(owlready2.Ontology):
                 label = e.label.first()
                 elabel = abbreviations.get(label, label)
                 nodes = graph.get_node(label)
-                print('    label:', label)
-                print('    elabel:', elabel)
-                print('    nodes:', nodes)
                 if nodes:
                     edge = pydot.Edge(node, nodes[0], label=elabel,
                                       **style)
