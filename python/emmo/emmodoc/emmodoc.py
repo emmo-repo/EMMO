@@ -120,6 +120,17 @@ def emmodoc(filename='emmodoc.html', format=None, figformat=None,
         #    items=emmo.individuals(), chapter='Individuals',
         #    template='markdown'))
 
+        # Appendix - full taxonomy
+        entity_graph = emmo.get_dot_graph('entity', relations=True,
+                                          abbreviations=abbreviations)
+        figname = os.path.join(htmldir, 'entity_graph.' + figformat)
+        writer = getattr(entity_graph, 'write_' + figformat)
+        writer(figname)
+        doc.append('\n\n# Appendix\n\n')
+        doc.append(
+            '![The full entity branch of EMMO including all relations '
+            'between subbranches.](%s)\n\n' % figname)
+
         # Write markdown document
         with open(mdfile, 'w') as f:
             f.write('\n'.join(doc) + '\n')
