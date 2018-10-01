@@ -5,33 +5,58 @@ representational framework (the ontology) based on current materials
 modelling knowledge, including physical sciences, analytical
 philosophy and information and communication technologies.
 This multidisciplinarity is illustrated by the figure on the title page.
-
-It is based on and consistent with the [Review of Materials
-Modelling][RoMM], [CEN Workshop Agreement][CWA] and [MODA
-template][MODA].  But in contrast to these, is formalised and provided
-in a both machine and human readable way.  It provides the connection
-between the physical world, materials characterisation world and
-materials modelling world.
+It provides the connection between the physical world, materials
+characterisation world and materials modelling world.
 
 ![EMMO provides the connection between the physical world, materials
 characterisation world and materials modelling world.](html_files/emmo-three_worlds.png){ width=620px }
+
+EMMO is based on and consistent with the [Review of Materials
+Modelling][RoMM], [CEN Workshop Agreement][CWA] and [MODA
+template][MODA].  However, while these efforts are written for humans,
+EMMO is defined using the [Web Ontology Language (OWL)][OWL], which is
+a machine readable and allows for machine reasoning.  In terms of
+semantic representation EMMO brings everything to a much higher level.
 
 As illustrated in the figure below, EMMO cover all aspects of
 materials modelling and characterisation, including:
 
   - the **material** itself, which must be described in a rigorous way
-  - the **physics laws** that describes the material behaviour
   - the **observation process** involving an observer that percieves the
     real world
-  - the **physical models** that approximate the physics laws
   - the **properties** that is measured or modelled
+  - the **physics laws** that describes the material behaviour
+  - the **physical models** that approximate the physics laws
   - the **solver** including the numerical discretisation method that
     leads to a solvable mathimatical representation under certain
     simplifying assumptions
   - the **numerical solver** that performs the calculations
-  - the **post processing** of experimental or modelled data
+  - the **post processing** of experimental or simulated data
 
 ![The aspects of materials modelling and characterisation covered by EMMO.](html_files/emmo-scope.png){ width=260px }
+
+
+## What is an ontology
+In short, an ontology is a specification of a conceptualization.  The
+work "ontology" has a long history in philosophy, in which it refers
+to the subject of existence.  The so-called [ontological
+argument][ontological_argument] for the existence of god was proposed
+by Anselm of Canterbury in 1078. He defined God as *"that than which
+nothing greater can be thought"*, and argued that *"if the greatest
+possible being exists in the mind, it must also exist in reality. If
+it only exists in the mind, then an even greater being must be
+possible -- one which exists both in the mind and in reality"*. Even
+though this example has little to do with todays use of ontologies
+in computer science, it illustrates the basic idea;  the ontology
+defines some basic premises (concepts and relations between them) from
+which it is possible reason to gain new knowledge.
+
+For a more elaborated and modern definition of the ontology we refer
+the reader to the one provided by [Tom Gruber (2009)][Gruber2009].
+Another useful introduction to ontologies is the paper [Ontology
+Development 101: A Guide to Creating Your First Ontology][Ontology101]
+by Noy and McGuinness (2001), which is based on the [Protege][Protege]
+sortware, with which EMMO has been developed.
 
 
 
@@ -43,8 +68,15 @@ materials modelling and characterisation, including:
 Individuals are the basic, "ground level" components of EMMO.  They
 may include concrete objects such as cars, flowers, stars, persons and
 molecules, as well as abstract individuals such as a measured height,
-a specific equation and software programs.  They are a logical picture
-of the real world entity they represent.
+a specific equation and software programs.
+
+<!--
+They are a logical picture of the real world entity they represent.
+
+    Remove this for now, since Anne thinks this sentence no longer
+    ahere to realism since we make a distinction between individuals
+    and the real world.
+-->
 
 Individuals are not simple, but possess attributes in form of axioms
 that are defined by the user (interpreter) upon declaration.
@@ -74,6 +106,27 @@ Axioms are propositions in a logical framework that define the
 relations between the individuals and classes.  They are used to
 categorise individuals in classes and to define the *defined* classes.
 
+The simplest form of a class axiom is a class description that just
+states the existence of the class and gives it an unique identifier.
+In order to provide more knowledge about the class, class axioms
+typically contains contain additional components that state necessary
+and/or sufficient characteristics of the class. OWL contains three
+language constructs for combining class descriptions into class
+axioms:
+
+* `rdfs:subClassOf` allows one to say that the class extension of a
+  class description is a subset of the class extension of another
+  class description.
+
+* `owl:equivalentClass` allows one to say that a class description has
+  exactly the same class extension as another class description.
+
+* `owl:disjointWith` allows one to say that the class extension of a
+  class description has no members in common with the class extension
+  of another class description.
+
+See the section about [Description logic](#description-logic) for
+more information about these language constructs.
 
 
 
@@ -123,6 +176,7 @@ are always topologically connedted in space and time.
 Mereotopological relationships are defined with the `encloses` /
 `is_enclosed_by` relations.
 
+
 ### Metrology
 Metrology is the science of measurements.  It is used to
 introduce units and link them to properties.
@@ -153,11 +207,14 @@ OWL distinguishes six between types of class descriptions:
   5. the union of two or more class descriptions (`owl:unionOf`)
   6. the complement of a class description (`owl:complementOf`)
 
-Except for the first, all of refer to *defined classes*.  The table
-below shows the notation in OWL, DL and the [Manchester OWL
+Except for the first, all of these refer to *defined classes*.  The
+table below shows the notation in OWL, DL and the [Manchester OWL
 syntax][Manchester_OWL], all commonly used for the definitions.  The
 Manchester syntax is used [Protege][Protege] and is designed to be not
-use DL symbols and to be easy and quick to read and write.
+use DL symbols and to be easy and quick to read and write.  Several
+other syntaxes exists for DL.  An interesting example is the pure
+Python syntax proposed by [Lamy (2017)][Lamy2017], which is used in
+the open source [Owlready2][Owlready2] Python package.
 
 -----------------------------------------------------------------------------------------
 OWL constructor    DL               Manchester        Read                 Meaning
@@ -353,7 +410,7 @@ In EMMO is `matter` always a 4D spacetime.  This is a fundamental difference
 between EMMO and most other ontologies.
 
 In order to describe the real world, we must also take into account
-the vacuum between the `elementary` that composes a higher granularity
+the vacuum between the elementaries that composes higher granularity
 level entity (e.g. an atom).
 
 In EMMO `vacuum` is defined as a `spacetime` that has no `elementary` parts.
@@ -373,7 +430,7 @@ appearing and disappearing in time.
 
 #### State
 A `state` is matter in a particular configurational state.  It is
-defined as having spatial direct parts that persists (do not change)
+defined as having spatial direct parts that persist (do not change)
 throughout the lifetime of the `state`.  Hence, a `state` is like a
 snapshot of a physical in a finite time interval.
 
@@ -389,22 +446,22 @@ An important feature of states, that follows from the fact that they are
 #### Elementary
 The basic assumption of decomposition in EMMO, is that the most basic
 manifestation of `matter` is represented by a subclass of `spacetime`
-called `elementaty`.
+called `elementary`.
 
 The `elementary` class defines the "atomic" (undividable) level in EMMO.
 A generic `matter` can always be decomposed in proper parts down to the
-`elementary` level using proper parthood.  However, an `elementary` can
+`elementary` level using proper parthood.  An `elementary` can
 still be decomposed in temporal parts, that are themselves `elementary`.
 
-Example of elementaries are electron, photon and quarks.
+Example of elementaries are electrons, photons and quarks.
 
 ![Elementary.](html_files/emmo-elementary.png){ width=320px }
 
 
 ### Granularity - direct parthood
 Granularity is a central concept of EMMO, which allows the user to
-percieve the world at different levels of details (granularity) that
-follows physics and materials science perspectives.
+percieve the world at different levels of detail (granularity) that
+follow physics and materials science perspectives.
 
 ![Different levels of granularity.](html_files/emmo-granularity2.png){ width=660px }
 
@@ -422,7 +479,7 @@ parts.
 
 
 ### Mathematical entities
-The class `mathematical_entities` represents fundamental elements of
+The class `mathematical_entity` represents fundamental elements of
 mathematical expressions, like numbers, variables, unknowns and
 equations.  Mathematical entities are pure mathematical and have no
 physical unit.
@@ -449,26 +506,135 @@ relations, respectively.
 
 ### Properties
 Properties are abstracts that are related to a specific material
-entity with the relation *has_property*, but that depends on a
+entity with the relation *has_property*, but that depend on a
 **specific observation process**, participated by a **specific
 observer**, who catch the physical entity behaviour that is abstracted
 as a property.
 
-Properties enables to connect a measured property to the measurement
+Properties enable to connect a measured property to the measurement
 process and the measurement instrument.
 
 
 ## How to read this document
 
 ### Annotations
-All entities and relations in EMMO have some attributes, including:
 
-- **IRI** (required). The IRI is an
+All entities and relations in EMMO have some attributes, called
+*annocations*.  In many cases, only the necessary *IRI* and *relations* are
+provided.  However, more descriptive annotations, like *elucidation*
+and *comment* will be added with time.  Possible annotations are:
+
+<!--
+- **Definition** is a human readable definition of the class.  Definition
+  annotations are currently not used in EMMO.
+
+- **Axiom**
+  Currently not used in EMMO.
+
+- **Theorem**
+  Currently not used in EMMO.
+-->
+
+- **Elucidation** is a human readable explanation and clearification
+  of the documented class or relation.
+
+<!--
+- **Domain**
+  Currently not used in EMMO.
+
+- **Range**
+  Currently not used in EMMO.
+-->
+
+- **Example** clearifies the elucidation through an example.  A class may
+  have several examples, each addressing different aspects.
+
+- **Comment** is a clearifying note complementing the definition and
+  elucidation.  A class may have several comments, each clearifying
+  different aspects.
+
+- **IRI** stands for *international resource identifier*.  It is an
+  identifier that uniquely identifies the class or relation.  IRIs are
+  similar to URIs, but are not restricted to the ASCII character set.
+  Even though the IRIs used in EMMO appears to be URLs, they currently
+  do not point to any existing content. This might change in the
+  future.
+
+- **Relations** is a list of relations applying to the current class
+  or relation.  The relations for relations are special and will be
+  elaborated on in the introduction to chapter [Relations].  Some of
+  the listed relations are defined in the OWL sources, while other are
+  inferred by the reasoner.
+
+  The relations are using the Manchester OWL syntax introduced in section
+  [Description logic](#description-logic).
+
 
 ### Graphs
-The graphs
+The generated graphs borrows some syntax borrowed from the [Unified
+Modelling Language (UML)][UML], which is a general purpose language for
+software design and modelling.  The table below shows the style used
+for the different types of relations and the concept they corresponds to
+in UML.
 
-### Relations
+Relation           UML arrow     UML concept
+-------------      -----------   -----------
+is-a               ![img][isa]   inheritance
+disjoint_with      ![img][djw]   association
+equivalent_to      ![img][eqt]   association
+encloses           ![img][rel]   aggregation
+has_abstract_part  ![img][rel]   aggregation
+has_abstraction    ![img][rel]   aggregation
+has_representation ![img][rel]   aggregation
+has_member         ![img][rel]   aggregation
+has_property       ![img][rel]   aggregation
+
+Table: Notation for arrow styles used in the graphs.  Only active
+relations are listed. Corresponding passive relations uses the same
+style.
+
+[isa]: html_files/arrow-is_a.png "inheritance"
+[djw]: html_files/arrow-disjoint_with.png "association"
+[eqt]: html_files/arrow-equivalent_to.png "association"
+[rel]: html_files/arrow-relation.png "aggregation"
+
+In order to reduce clutter and limit the size of the graphs, the
+relations are abbreviated according to the following table:
+
+Relation                        Abbreviation
+--------                        ------------
+has_part only                   hp-o
+is_part_of only                 ipo-o
+has_member some                 hm-s
+is_member_of some               imo-s
+has_abstraction some            ha-s
+is_abstraction_of some          iao-s
+has_abstract_part only          pap-o
+is_abstract_part_of only        iapo-o
+has_space_slice some            hss-s
+is_space_slice_of some          isso-s
+has_time_slice some             hts-s
+is_time_slice_of some           itso-s
+has_projection some             hp-s
+is_projection_of some           ipo-s
+has_proper_part some            hpp-s
+is_proper_part_of some          ippo-s
+has_proper_part_of some         hppo-s
+has_spatial_direct_part min     hsdp-m
+has_spatial_direct_part some    hsdp-s
+has_spatial_direct_part exactly hsdp-e
+
+Table: Abbriviations of relations used in the graphical representation
+of the different subbranches.
+
+
+UML represents classes as a box with three compartment; name, attributes
+and operators.  However, since the classes in EMMO has no operators and
+it gives little meaning to include the OWL annotations as attributes,
+we simply represent the classes as boxes.
+
+As already mentioned, defined classes are colored orange, while
+undefined classes are yellow.
 
 
 
@@ -477,6 +643,9 @@ The graphs
 [RoMM]: https://publications.europa.eu/en/publication-detail/-/publication/ec1455c3-d7ca-11e6-ad7c-01aa75ed71a1
 [CWA]: https://www.cen.eu/news/workshops/Pages/WS_2016-013.aspx
 [MODA]: https://emmc.info/moda-workflow-templates/
+[ontological_argument]: https://en.wikipedia.org/wiki/Ontological_argument
+[Gruber2009]: http://tomgruber.org/writing/ontology-definition-2007.htm
+[Ontology101]: http://www.ksl.stanford.edu/people/dlm/papers/ontology-tutorial-noy-mcguinness-abstract.html
 [DL]: https://en.wikipedia.org/wiki/Description_logic
 [OWL]: https://en.wikipedia.org/wiki/Web_Ontology_Language
 [FOL]: https://en.wikipedia.org/wiki/First-order_logic
@@ -485,6 +654,9 @@ The graphs
 [OWL2_Primer]: https://www.w3.org/TR/owl2-primer/
 [OWL_Reference]: https://www.w3.org/TR/owl-ref/
 [Manchester_OWL]: http://ceur-ws.org/Vol-216/submission_9.pdf
+[Owlready2]: https://pythonhosted.org/Owlready2/
+[Lamy2017]: http://www.lesfleursdunormal.fr/_downloads/article_owlready_aim_2017.pdf
 [universal_restriction]: https://en.wikipedia.org/wiki/Universal_quantifier
 [existential_restriction]: https://en.wikipedia.org/wiki/Universal_quantifier
 [Protege]: https://protege.stanford.edu/
+[UML]: http://www.uml.org/
