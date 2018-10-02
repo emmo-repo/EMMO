@@ -600,8 +600,12 @@ style.
 [eqt]: html_files/arrow-equivalent_to.png "association"
 [rel]: html_files/arrow-relation.png "aggregation"
 
-In order to reduce clutter and limit the size of the graphs, the
-relations are abbreviated according to the following table:
+
+All relationships have a direction.  In the graphical visualisations,
+the relationships are represented with an arrow pointing from the
+subject to the object.  In order to reduce clutter and limit the size
+of the graphs, the relations are abbreviated according to the
+following table:
 
 Relation                        Abbreviation
 --------                        ------------
