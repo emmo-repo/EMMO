@@ -11,14 +11,14 @@ characterisation world and materials modelling world.
 ![EMMO provides the connection between the physical world, materials
 characterisation world and materials modelling world.](html_files/emmo-three_worlds.png){ width=620px }
 
-EMMO is based on and consistent with the [Review of Materials
+EMMO is based on and is consistent with the [Review of Materials
 Modelling][RoMM], [CEN Workshop Agreement][CWA] and [MODA
 template][MODA].  However, while these efforts are written for humans,
 EMMO is defined using the [Web Ontology Language (OWL)][OWL], which is
-a machine readable and allows for machine reasoning.  In terms of
-semantic representation EMMO brings everything to a much higher level.
+machine readable and allows for machine reasoning.  In terms of
+semantic representation, EMMO brings everything to a much higher level.
 
-As illustrated in the figure below, EMMO cover all aspects of
+As illustrated in the figure below, EMMO covers all aspects of
 materials modelling and characterisation, including:
 
   - the **material** itself, which must be described in a rigorous way
@@ -28,7 +28,7 @@ materials modelling and characterisation, including:
   - the **physics laws** that describes the material behaviour
   - the **physical models** that approximate the physics laws
   - the **solver** including the numerical discretisation method that
-    leads to a solvable mathimatical representation under certain
+    leads to a solvable mathematical representation under certain
     simplifying assumptions
   - the **numerical solver** that performs the calculations
   - the **post processing** of experimental or simulated data
@@ -38,9 +38,9 @@ materials modelling and characterisation, including:
 
 ## What is an ontology
 In short, an ontology is a specification of a conceptualization.  The
-work "ontology" has a long history in philosophy, in which it refers
+word "ontology" has a long history in philosophy, in which it refers
 to the subject of existence.  The so-called [ontological
-argument][ontological_argument] for the existence of god was proposed
+argument][ontological_argument] for the existence of God was proposed
 by Anselm of Canterbury in 1078. He defined God as *"that than which
 nothing greater can be thought"*, and argued that *"if the greatest
 possible being exists in the mind, it must also exist in reality. If
@@ -109,7 +109,7 @@ categorise individuals in classes and to define the *defined* classes.
 The simplest form of a class axiom is a class description that just
 states the existence of the class and gives it an unique identifier.
 In order to provide more knowledge about the class, class axioms
-typically contains contain additional components that state necessary
+typically contain additional components that state necessary
 and/or sufficient characteristics of the class. OWL contains three
 language constructs for combining class descriptions into class
 axioms:
@@ -125,14 +125,16 @@ axioms:
   class description has no members in common with the class extension
   of another class description.
 
-See the section about [Description logic](#description-logic) for
-more information about these language constructs.
+See the section about [Description logic](#description-logic) for more
+information about these language constructs.  Axioms are also used to
+define relations between relations. These are further detailed in the
+chapter on [Relations].
+
 
 
 
 ## Theoretical foundations
-EMMO is build upon several theoretical frameworks, including:
-
+EMMO build upon several theoretical frameworks.
 
 ### Semiotics
 Semiotics is the study of meaning-making.  It is the dicipline
@@ -190,7 +192,7 @@ logical formalism for ontologies and semantic web.  EMMO is expressed
 in the [Web Ontology Language (OWL)][OWL], which is in turn is based
 on DL.  This opens for features like reasoning.
 
-Since it is essential to have a basic notion for OWL and DL, we
+Since it is essential to have a basic notion of OWL and DL, we
 include here a very brief overview.  For a proper introduction to OWL
 and DL, we refer the reader to sources like [Grau et.al. (2008)][Grau2008],
 [OWL2 Primer][OWL2_Primer] and [OWL Reference][OWL_Reference].
@@ -210,7 +212,7 @@ OWL distinguishes six between types of class descriptions:
 Except for the first, all of these refer to *defined classes*.  The
 table below shows the notation in OWL, DL and the [Manchester OWL
 syntax][Manchester_OWL], all commonly used for the definitions.  The
-Manchester syntax is used [Protege][Protege] and is designed to be not
+Manchester syntax is used by [Protege][Protege] and is designed to not
 use DL symbols and to be easy and quick to read and write.  Several
 other syntaxes exists for DL.  An interesting example is the pure
 Python syntax proposed by [Lamy (2017)][Lamy2017], which is used in
@@ -372,8 +374,8 @@ A person is a man or woman:
 A `substrate` represents the place (in general sense) in which every
 real world item exists. It provides the dimensions of existence for
 real world entities.  This follows from the fact that everything that
-exists is placed somewhere and space and time coordinates can be used
-to identify it.
+exists is placed somewhere in space and time. Hence, its space and
+time coordinates can be used to identify it.
 
 Substrates are always **topologically connected spaces** (a topological
 space X is said to be disconnected if it is the union of two disjoint
@@ -406,7 +408,7 @@ or a composition of other `matter` and `vacuum`.
 
 ![Matter.](html_files/emmo-matter.png){ width=540px }
 
-In EMMO is `matter` always a 4D spacetime.  This is a fundamental difference
+In EMMO `matter` is always a 4D spacetime.  This is a fundamental difference
 between EMMO and most other ontologies.
 
 In order to describe the real world, we must also take into account
@@ -511,7 +513,7 @@ entity with the relation *has_property*, but that depend on a
 observer**, who catch the physical entity behaviour that is abstracted
 as a property.
 
-Properties enable to connect a measured property to the measurement
+Properties enable us to connect a measured property to the measurement
 process and the measurement instrument.
 
 
@@ -520,7 +522,7 @@ process and the measurement instrument.
 ### Annotations
 
 All entities and relations in EMMO have some attributes, called
-*annocations*.  In many cases, only the necessary *IRI* and *relations* are
+*annotations*.  In many cases, only the necessary *IRI* and *relations* are
 provided.  However, more descriptive annotations, like *elucidation*
 and *comment* will be added with time.  Possible annotations are:
 
@@ -571,11 +573,11 @@ and *comment* will be added with time.  Possible annotations are:
 
 
 ### Graphs
-The generated graphs borrows some syntax borrowed from the [Unified
-Modelling Language (UML)][UML], which is a general purpose language for
-software design and modelling.  The table below shows the style used
-for the different types of relations and the concept they corresponds to
-in UML.
+The generated graphs borrows some syntax from the [Unified Modelling
+Language (UML)][UML], which is a general purpose language for software
+design and modelling.  The table below shows the style used for the
+different types of relations and the concept they corresponds to in
+UML.
 
 Relation           UML arrow     UML concept
 -------------      -----------   -----------
@@ -629,7 +631,7 @@ of the different subbranches.
 
 
 UML represents classes as a box with three compartment; name, attributes
-and operators.  However, since the classes in EMMO has no operators and
+and operators.  However, since the classes in EMMO have no operators and
 it gives little meaning to include the OWL annotations as attributes,
 we simply represent the classes as boxes.
 

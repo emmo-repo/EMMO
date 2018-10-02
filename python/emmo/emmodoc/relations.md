@@ -21,7 +21,7 @@ while the predicate is a relation.  An example of an relationship is
 the statement *dog is_a animal*.  Here is `dog` the subject, `is_a`
 the predicate and `animal` the object.
 
-All relationships have a direction.  In EMMO we distinguesh between
+All relationships have a direction.  In EMMO we distinguish between
 `active relations` where the subject is acting on the object and
 `passive relations` where the subject is acted on by the object.
 In the graphical visualisations, we represent active relations with
@@ -44,9 +44,11 @@ the following *property axioms*:
 
   The `rdf:subPropertyOf` axioms forms a taxonomy-like tree for relations.
 
+<!--
 - `rdfs:domain` is not used in EMMO.
 
 - `rdfs:range` is not used in EMMO.
+-->
 
 - `owl:equivalentProperty` states that two properties have the same
   property extension.
@@ -67,7 +69,7 @@ the following *property axioms*:
   of P, and the pair (y,z) is also instance of P, then we can infer
   the the pair (x,z) is also an instance of P.
 
-- `owl:SymmetricProperty` that if the pair (x,y) is an instance of P,
+- `owl:SymmetricProperty` states that if the pair (x,y) is an instance of P,
   then the pair (y,x) is also an instance of P.
 
   A popular example of a symmetric property is the `friend_of` relation.
