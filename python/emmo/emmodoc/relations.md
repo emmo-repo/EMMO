@@ -19,20 +19,15 @@ relationship between the subject and the object.
 In EMMO, are the subject and object classes or individuals (or data)
 while the predicate is a relation.  An example of an relationship is
 the statement *dog is_a animal*.  Here is `dog` the subject, `is_a`
-the predicate and `animal` the object.
-
-All relationships have a direction.  In EMMO we distinguish between
+the predicate and `animal` the object.  We distinguish between
 `active relations` where the subject is acting on the object and
 `passive relations` where the subject is acted on by the object.
-In the graphical visualisations, we represent active relations with
-an arrow pointing from the subject to the object.  Passive relations
-are represented with an arrow pointing from the object to the subject.
 
 OWL distingues between `owl:ObjectProperty` that link classes or
 individuals to classes or individuals and `owl:DatatypeProperty` that
 links individuals to data values.  Since EMMO only deals with classes,
 we will only be discussing object properties.  However, in actual
-applications, datatype propertyes will be important.
+applications build on EMMO, datatype propertyes will be important.
 
 The characteristics of the different properties is described by
 the following *property axioms*:
