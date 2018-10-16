@@ -35,10 +35,15 @@ materials modelling and characterisation, including:
 
 ![The aspects of materials modelling and characterisation covered by EMMO.](html_files/emmo-scope.png){ width=260px }
 
+<!--
+ADD MAIN FEATURES OF EMMO FROM GERHARDS SLIDE
+-->
+
+
 
 ## What is an ontology
 In short, an ontology is a specification of a conceptualization.  The
-word "ontology" has a long history in philosophy, in which it refers
+word *ontology* has a long history in philosophy, in which it refers
 to the subject of existence.  The so-called [ontological
 argument][ontological_argument] for the existence of God was proposed
 by Anselm of Canterbury in 1078. He defined God as *"that than which
@@ -58,6 +63,25 @@ Development 101: A Guide to Creating Your First Ontology][Ontology101]
 by Noy and McGuinness (2001), which is based on the [Protege][Protege]
 sortware, with which EMMO has been developed.
 
+A taxonomy is a hierarchical representation of classes and subclasses
+connected via `is_a` relations.  Hence, it is a subset of the ontology
+excluding all, but the `is_a` relations.  The main use of taxonomies
+are for classifications.  The figure shows a simple example of a
+taxonomy illustrating a categorisation of four classes into a
+hierarchy of more higher of levels of generality.
+
+![Example of a taxonomy.](html_files/animal.png){ width=240px }
+
+In EMMO is the taxonomy a rooted directed acyclic graph (DAG).  This
+is an important since many classification methods relies on this
+property [Valentini (2014)][Valentini2014] and [Robison et al
+(2015)][Robison2015].
+
+<!--
+ADD TAXONOMY GRAPH
+Full graph in appendix
+Base EMMO graph here
+-->
 
 
 ## Primitive elements in EMMO
@@ -143,6 +167,10 @@ space and time in the real world. It is introdused in EMMO via the
 `semion` class and used as a way to reduce the complexity of a
 physical to a simple sign (symbol).  A `semion` is a physical
 entity that represents an abstract object.
+
+<!--
+ADD FIGURE
+-->
 
 
 ### Set theory
@@ -368,6 +396,10 @@ A person is a man or woman:
 ## Important concepts
 
 ### Mereotopological composition
+
+<!--
+ADD OVERVIEW IMAGE/GRAPH
+-->
 
 #### Substrate
 
@@ -639,6 +671,11 @@ As already mentioned, defined classes are colored orange, while
 undefined classes are yellow.
 
 
+<!--
+## Further work
+
+-->
+
 
 
 
@@ -646,6 +683,8 @@ undefined classes are yellow.
 [CWA]: https://www.cen.eu/news/workshops/Pages/WS_2016-013.aspx
 [MODA]: https://emmc.info/moda-workflow-templates/
 [ontological_argument]: https://en.wikipedia.org/wiki/Ontological_argument
+[Valentini2014]: https://arxiv.org/abs/1406.4472
+[Robison2015]: https://www.google.no/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&ved=0ahUKEwi_2vv-8tXbAhUFiiwKHVRdD4EQFgg1MAE&url=https%3A%2F%2Fwww.springer.com%2Fcda%2Fcontent%2Fdocument%2Fcda_downloaddocument%2F9783319202471-c2.pdf%3FSGWID%3D0-0-45-1510685-p177420182&usg=AOvVaw39c3v4a5PfVMEYDulWpF3w
 [Gruber2009]: http://tomgruber.org/writing/ontology-definition-2007.htm
 [Ontology101]: http://www.ksl.stanford.edu/people/dlm/papers/ontology-tutorial-noy-mcguinness-abstract.html
 [DL]: https://en.wikipedia.org/wiki/Description_logic
