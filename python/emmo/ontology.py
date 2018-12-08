@@ -20,7 +20,7 @@ import owlready2
 #from .entity import EntityClass, ThingClass, PropertyClass
 
 
-thisdir = os.path.abspath(os.path.dirname(__file__))
+thisdir = os.path.abspath(os.path.realpath((os.path.dirname(__file__))))
 #owldir = os.path.abspath(os.path.join(thisdir, '..', '..', 'emmo', 'owl-old'))
 owldir = os.path.abspath(os.path.join(thisdir, '..', '..', 'owl'))
 owlready2.onto_path.append(owldir)
