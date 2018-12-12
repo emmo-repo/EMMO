@@ -17,7 +17,7 @@ import warnings
 
 import owlready2
 
-#from .entity import EntityClass, ThingClass, PropertyClass
+from .entity import EntityClass, ThingClass, PropertyClass
 
 
 thisdir = os.path.abspath(os.path.realpath((os.path.dirname(__file__))))
@@ -72,6 +72,18 @@ class Ontology(owlready2.Ontology):
         if not attr:
             attr = self.get_by_label(name)
         return attr
+
+    def __dir__(self):
+        """Include EMMO classes in dir() listing."""
+        f = lambda s: s[s.rindex('.') + 1: ] if '.' in s else s
+        s = set(object.__dir__(self))
+        for onto in [get_ontology(uri) for uri in self._namespaces.keys()]:
+            s.update([f(repr(cls)) for cls in onto.classes()])
+        return sorted(s)
+
+    def __objclass__(self):
+        # Play nice with inspect...
+        pass
 
     _default_style = {
         'graph': {'graph_type': 'digraph', 'rankdir': 'RL', 'fontsize': 8,
