@@ -18,6 +18,53 @@ class EmmoGraph:
     """
     """
 
+    _default_style = {
+        'graph': {'graph_type': 'digraph', 'rankdir': 'RL', 'fontsize': 8,
+            #'fontname': 'Bitstream Vera Sans', 'splines': 'ortho',
+            },
+        'class': {
+            'style': 'filled',
+            'fillcolor': '#ffffcc',
+        },
+        'defined_class': {
+            'style': 'filled',
+            'fillcolor': '#ffc880',
+        },
+        'individuals': {},
+        'is_a': {'arrowhead': 'empty'},
+        'equivalent_to': {'color': 'green', },
+        'disjoint_with': {'color': 'red', },
+        'inverse_of': {'color': 'orange', },
+        'other': {'color': 'blue', },
+
+        }
+
+    _uml_style = {
+        'graph': {'graph_type': 'digraph', 'rankdir': 'RL', 'fontsize': 8,
+              #'splines': 'ortho',
+            },
+        'class': {
+            #'shape': 'record',
+            'shape': 'box',
+            'fontname': 'Bitstream Vera Sans',
+            'style': 'filled',
+            'fillcolor': '#ffffe0',
+        },
+        'defined_class': {
+            #'shape': 'record',
+            'shape': 'box',
+            'fontname': 'Bitstream Vera Sans',
+            'style': 'filled',
+            'fillcolor': '#ffc880',
+        },
+        'individuals': {},
+        'is_a': {'arrowhead': 'empty'},
+        'equivalent_to': {'color': 'green', 'arrowhead': 'none'},
+        'disjoint_with': {'color': 'red', 'arrowhead': 'none'},
+        'inverse_of': {'color': 'orange', 'arrowhead': 'none'},
+        'other': {'color': 'blue', 'arrowtail': 'diamond', 'dir': 'back'},
+        }
+
 
     def get_dot_graph(self, root=None, graph=None, relations='is_a',
                       leafs=None, parents=False, style=None,
@@ -63,58 +110,10 @@ class EmmoGraph:
         """
         import pydot
 
-        _default_style = {
-            'graph': {'graph_type': 'digraph', 'rankdir': 'RL', 'fontsize': 8,
-                #'fontname': 'Bitstream Vera Sans', 'splines': 'ortho',
-                },
-            'class': {
-                'style': 'filled',
-                'fillcolor': '#ffffcc',
-            },
-            'defined_class': {
-                'style': 'filled',
-                'fillcolor': '#ffc880',
-            },
-            'individuals': {},
-            'is_a': {'arrowhead': 'empty'},
-            'equivalent_to': {'color': 'green', },
-            'disjoint_with': {'color': 'red', },
-            'inverse_of': {'color': 'orange', },
-            'other': {'color': 'blue', },
-
-            }
-
-        _uml_style = {
-            'graph': {'graph_type': 'digraph', 'rankdir': 'RL', 'fontsize': 8,
-                  #'splines': 'ortho',
-                },
-            'class': {
-                #'shape': 'record',
-                'shape': 'box',
-                'fontname': 'Bitstream Vera Sans',
-                'style': 'filled',
-                'fillcolor': '#ffffe0',
-            },
-            'defined_class': {
-                #'shape': 'record',
-                'shape': 'box',
-                'fontname': 'Bitstream Vera Sans',
-                'style': 'filled',
-                'fillcolor': '#ffc880',
-            },
-            'individuals': {},
-            'is_a': {'arrowhead': 'empty'},
-            'equivalent_to': {'color': 'green', 'arrowhead': 'none'},
-            'disjoint_with': {'color': 'red', 'arrowhead': 'none'},
-            'inverse_of': {'color': 'orange', 'arrowhead': 'none'},
-            'other': {'color': 'blue', 'arrowtail': 'diamond', 'dir': 'back'},
-            }
-
-
         if style is None:
-            style = _default_style
+            style = self._default_style
         elif style == 'uml':
-            style = _uml_style
+            style = self._uml_style
 
         graph = self._get_dot_graph(root=root, graph=graph,
                                     relations=relations, leafs=leafs,
