@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-A module adding graphing functionality to emmo.ontology 
+A module adding graphing functionality to emmo.ontology
 This addition (emmograph.py) includes:
   - Visualisation of taxonomy and ontology as graphs (using pydot).
 
@@ -8,64 +8,20 @@ This addition (emmograph.py) includes:
 # TODO - Check comments containing FLB
 
 import itertools
-import warnings 
+import warnings
 
 import owlready2
 
 import emmo
 
 class EmmoGraph:
+    """
+    """
+
 
     def get_dot_graph(self, root=None, graph=None, relations='is_a',
                       leafs=None, parents=False, style=None,
                       abbreviations=None):
-        _default_style = {
-            'graph': {'graph_type': 'digraph', 'rankdir': 'RL', 'fontsize': 8,
-                #'fontname': 'Bitstream Vera Sans', 'splines': 'ortho',
-                },
-            'class': {
-                'style': 'filled',
-                'fillcolor': '#ffffcc',
-            },
-            'defined_class': {
-                'style': 'filled',
-                'fillcolor': '#ffc880',
-            },
-            'individuals': {},
-            'is_a': {'arrowhead': 'empty'},
-            'equivalent_to': {'color': 'green', },
-            'disjoint_with': {'color': 'red', },
-            'inverse_of': {'color': 'orange', },
-            'other': {'color': 'blue', },
-
-            }   
-
-        _uml_style = {
-            'graph': {'graph_type': 'digraph', 'rankdir': 'RL', 'fontsize': 8,
-                  #'splines': 'ortho',
-                },
-            'class': {
-                #'shape': 'record',
-                'shape': 'box',
-                'fontname': 'Bitstream Vera Sans',
-                'style': 'filled',
-                'fillcolor': '#ffffe0',
-            },
-            'defined_class': {
-                #'shape': 'record',
-                'shape': 'box',
-                'fontname': 'Bitstream Vera Sans',
-                'style': 'filled',
-                'fillcolor': '#ffc880',
-            },
-            'individuals': {},
-            'is_a': {'arrowhead': 'empty'},
-            'equivalent_to': {'color': 'green', 'arrowhead': 'none'},
-            'disjoint_with': {'color': 'red', 'arrowhead': 'none'},
-            'inverse_of': {'color': 'orange', 'arrowhead': 'none'},
-            'other': {'color': 'blue', 'arrowtail': 'diamond', 'dir': 'back'},
-            }
-        
         """Returns a pydot graph object for visualising the ontology.
 
         Parameters
@@ -107,6 +63,54 @@ class EmmoGraph:
         """
         import pydot
 
+        _default_style = {
+            'graph': {'graph_type': 'digraph', 'rankdir': 'RL', 'fontsize': 8,
+                #'fontname': 'Bitstream Vera Sans', 'splines': 'ortho',
+                },
+            'class': {
+                'style': 'filled',
+                'fillcolor': '#ffffcc',
+            },
+            'defined_class': {
+                'style': 'filled',
+                'fillcolor': '#ffc880',
+            },
+            'individuals': {},
+            'is_a': {'arrowhead': 'empty'},
+            'equivalent_to': {'color': 'green', },
+            'disjoint_with': {'color': 'red', },
+            'inverse_of': {'color': 'orange', },
+            'other': {'color': 'blue', },
+
+            }
+
+        _uml_style = {
+            'graph': {'graph_type': 'digraph', 'rankdir': 'RL', 'fontsize': 8,
+                  #'splines': 'ortho',
+                },
+            'class': {
+                #'shape': 'record',
+                'shape': 'box',
+                'fontname': 'Bitstream Vera Sans',
+                'style': 'filled',
+                'fillcolor': '#ffffe0',
+            },
+            'defined_class': {
+                #'shape': 'record',
+                'shape': 'box',
+                'fontname': 'Bitstream Vera Sans',
+                'style': 'filled',
+                'fillcolor': '#ffc880',
+            },
+            'individuals': {},
+            'is_a': {'arrowhead': 'empty'},
+            'equivalent_to': {'color': 'green', 'arrowhead': 'none'},
+            'disjoint_with': {'color': 'red', 'arrowhead': 'none'},
+            'inverse_of': {'color': 'orange', 'arrowhead': 'none'},
+            'other': {'color': 'blue', 'arrowtail': 'diamond', 'dir': 'back'},
+            }
+
+
         if style is None:
             style = _default_style
         elif style == 'uml':
@@ -124,7 +128,7 @@ class EmmoGraph:
                 if (parent is None or parent is owlready2.Thing):
                     break
                 label = parent.label.first()
-                if is_defined(label):
+                if self.is_defined(label):
                     node = pydot.Node(label, **style.get('defined_class', {}))
                 else:
                     node = pydot.Node(label, **style.get('class', {}))
