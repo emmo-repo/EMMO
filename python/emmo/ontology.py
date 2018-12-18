@@ -487,16 +487,15 @@ class Ontology(owlready2.Ontology):
         leafs.discard(root)
         return _branch(root, leafs)
 
-
-
     def is_individual(self, entity):
         """Returns true if entity is an individual."""
         if isinstance(entity, str):
             entity = self.get_by_label(entity)
-        return isinstance(type(entity), owlready2.ThingClass)
+        #return isinstance(type(entity), owlready2.ThingClass)
+        return isinstance(entity, owlready2.Thing)
 
     def is_defined(self, entity):
-        """Returns true if the entity is a derived class."""
+        """Returns true if the entity is a defined class."""
         if isinstance(entity, str):
             entity = self.get_by_label(entity)
         return hasattr(entity, 'equivalent_to') and bool(entity.equivalent_to)
