@@ -9,16 +9,12 @@ The classextension is defined within.
 
 If desirable some of this may be moved back into owlready2.
 """
-# TODO - factor out generation of graphs and controlled vocabulary
-# into own modules, keeping the Ontology class as a thin extension of
-# owlready.Ontology.
-# CHECK comments FLB
 import os
-import itertools 
+import itertools
 
 import owlready2
 
-from .entity import EntityClass, ThingClass, PropertyClass
+from .relations import EntityClass, ThingClass, PropertyClass
 import emmo.emmograph as emmograph # FLB, importing graphadditions
 import emmo.emmovocabulary as emmovocabulary # FLB, check vocab-additions
 
@@ -58,12 +54,36 @@ def get_ontology(base_iri):
     if (not base_iri.endswith('/')) and (not base_iri.endswith('#')):
         base_iri = '%s#' % base_iri
     if base_iri in owlready2.default_world.ontologies:
-        return owlready2.default_world.ontologies[base_iri]
+        onto = owlready2.default_world.ontologies[base_iri]
     else:
-        return Ontology(owlready2.default_world, base_iri)
+        onto = Ontology(owlready2.default_world, base_iri)
+
+    # Add annotations used by EMMO
+    #with onto:
+    #    class definition(owlready2.comment):
+    #        pass
+    #
+    #    class axiom(owlready2.comment):
+    #        pass
+    #
+    #    class elucidation(owlready2.comment):
+    #        pass
+    #
+    #    #class domain(owlready2.AnnotationProperty):
+    #    #    pass
+    #    #
+    #    #class range(owlready2.AnnotationProperty):
+    #    #    pass
+    #
+    #    class example(owlready2.comment):
+    #        pass
+
+    return onto
 
 
-class Ontology(owlready2.Ontology,emmograph.EmmoGraph,emmovocabulary.EmmoVocab): #FLB
+class Ontology(owlready2.Ontology,
+               emmograph.EmmoGraph,
+               emmovocabulary.EmmoVocab):
     """A generic class extending owlready2.Ontology.
     """
     def __getitem__(self, name):
@@ -76,7 +96,7 @@ class Ontology(owlready2.Ontology,emmograph.EmmoGraph,emmovocabulary.EmmoVocab):
         return attr
 
     def __dir__(self):
-        """Include EMMO classes in dir() listing."""
+        """Include classes in dir() listing."""
         f = lambda s: s[s.rindex('.') + 1: ] if '.' in s else s
         s = set(object.__dir__(self))
         for onto in [get_ontology(uri) for uri in self._namespaces.keys()]:

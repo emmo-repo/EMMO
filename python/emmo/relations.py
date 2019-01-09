@@ -11,6 +11,9 @@ from owlready2.util import CallbackList
 
 
 # List of all relations in EMMO
+# This could easily be obtained
+#_relations = [r.label.first() for r in emmo.relation.descendants()]
+
 _relations  = [
     'relation',
     'active_relation',
@@ -136,7 +139,7 @@ def get_init(orig_init):
         setattr(self, 'emmo_relations', Relations(self))
     return init
 
-type.__setattr__(Thing, '__init__', get_init(Thing.__dict__['__init__']))
+#type.__setattr__(Thing, '__init__', get_init(Thing.__dict__['__init__']))
 #type.__setattr__(ThingClass, '__init__', get_init(ThingClass.__dict__['__init__']))
 #setattr(ThingClass, '__init__', get_init(ThingClass.__init__))
 

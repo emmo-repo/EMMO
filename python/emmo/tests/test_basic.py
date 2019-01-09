@@ -13,6 +13,12 @@ emmo.sync_reasoner()
 
 
 H = emmo.atom(label='H')
+e = emmo.electron(label='e')
+p = emmo.proton(label='p')
+v = emmo.vacuum(label='v')
+
+H.has_spatial_direct_part = [e, p, v]
+
 
 print()
 print("atom")
@@ -23,4 +29,6 @@ print()
 print("H")
 print([s for s in dir(H) if not s.startswith('_')])
 
-from emmo import entity
+
+
+#from emmo import relations
