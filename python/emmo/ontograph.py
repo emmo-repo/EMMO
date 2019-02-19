@@ -1,23 +1,19 @@
 # -*- coding: utf-8 -*-
 """
 A module adding graphing functionality to emmo.ontology
-This addition (emmograph.py) includes:
-  - Visualisation of taxonomy and ontology as graphs (using pydot).
-
 """
-# TODO - Check comments containing FLB
-
 import itertools
 import warnings
 
 import owlready2
 
+from .utils import asstring
 import emmo
 
-class EmmoGraph:
+class OntoGraph:
+    """A mixin class used by emmo.ontology.Ontology that adds
+    functionality for generating graph representations of the ontology.
     """
-    """
-
     _default_style = {
         'graph': {'graph_type': 'digraph', 'rankdir': 'RL', 'fontsize': 8,
             #'fontname': 'Bitstream Vera Sans', 'splines': 'ortho',
@@ -205,7 +201,7 @@ class EmmoGraph:
             return
         node = nodes[0]
         for e in targets:
-            s = emmo.emmovocabulary.asstring(e) #FLB: put asstring in separate file?
+            s = asstring(e)
             if isinstance(e, (owlready2.ThingClass,
                               owlready2.ObjectPropertyClass,
                               owlready2.PropertyClass)):

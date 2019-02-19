@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
-"""
-A module adding additional functionality to owlready2. The main additions
+"""A module adding additional functionality to owlready2. The main additions
 includes:
-  - Visualisation of taxonomy and ontology as graphs (using pydot)(file emmograph.py).
-  - Generation of a controlled vocabulary from an ontology (file emmovocabulary.py).
+  - Visualisation of taxonomy and ontology as graphs (using pydot, see
+    ontograph.py).
+  - Generation of a controlled vocabulary from an ontology (see ontovocab.py).
 
-The classextension is defined within.
+The class extension is defined within.
 
 If desirable some of this may be moved back into owlready2.
+
 """
 import os
 import itertools
@@ -15,20 +16,8 @@ import itertools
 import owlready2
 
 from .relations import EntityClass, ThingClass, PropertyClass
-import emmo.emmograph as emmograph # FLB, importing graphadditions
-import emmo.emmovocabulary as emmovocabulary # FLB, check vocab-additions
-
-thisdir = os.path.abspath(os.path.realpath((os.path.dirname(__file__))))
-#owldir = os.path.abspath(os.path.join(thisdir, '..', '..', 'owl'))
-owldir = os.path.abspath(os.path.join(thisdir, 'owl'))
-
-if not os.path.exists(os.path.join(owldir, 'emmo.owl')):
-    print('File %s does not exists' % os.path.join(owldir, 'emmo.owl'))
-    print('You should install it by running the `copyowl.py` script')
-    print('in the python root directory.')
-    exit(1)
-
-owlready2.onto_path.append(owldir)
+from .ontograph import OntoGraph
+from .ontovocab import OntoVocab
 
 
 class NoSuchLabelError(LookupError):
@@ -46,7 +35,6 @@ categories = (
     #'properties',
 )
 
-
 # Improve default rendering of entities
 def render_func(entity):
     name = entity.label[0] if len(entity.label) == 1 else entity.name
@@ -56,8 +44,6 @@ owlready2.set_render_func(render_func)
 
 def get_ontology(base_iri):
     """Returns a new Ontology from `base_iri`."""
-    #if thisdir not in owlready2.onto_path:
-    #    owlready2.onto_path.append(thisdir)
     if (not base_iri.endswith('/')) and (not base_iri.endswith('#')):
         base_iri = '%s#' % base_iri
     if base_iri in owlready2.default_world.ontologies:
@@ -88,9 +74,7 @@ def get_ontology(base_iri):
     return onto
 
 
-class Ontology(owlready2.Ontology,
-               emmograph.EmmoGraph,
-               emmovocabulary.EmmoVocab):
+class Ontology(owlready2.Ontology, OntoGraph, OntoVocab):
     """A generic class extending owlready2.Ontology.
     """
     def __getitem__(self, name):

@@ -352,8 +352,7 @@ def get_sections(filename):
 
 
 if __name__ == '__main__':
-    #os.makedirs('xxx', exist_ok=True)
-    tmpdir = os.path.join(thisdir, 'yyy')  # XXX
-    #tmpdir = None
+    os.makedirs('output', exist_ok=True)
+    tmpdir = os.path.join(thisdir, 'output')
     emmodoc('emmodoc.html', figscale=1.2, tmpdir=tmpdir)
     emmodoc('emmodoc.pdf', figscale=0.7, tmpdir=tmpdir)
