@@ -282,9 +282,9 @@ owl:someValuesFrom $\exists R.A$    R some A          some A with R        [*Exi
 
 owl:cardinality    $=n R.A$         R exactly n A                          *Cardinality restriction*
 
-owl:minCardinality $\leq n R.A$     R min n                                *Minimum cardinality restriction*
+owl:minCardinality $\leq n R.A$     R min n A                              *Minimum cardinality restriction*
 
-owl:maxCardinality $\geq n R.A$     R max n                                *Minimum cardinality restriction*
+owl:maxCardinality $\geq n R.A$     R max n A                              *Minimum cardinality restriction*
 
 owl:hasValue       $\exists R\{a\}$ R value a
 
