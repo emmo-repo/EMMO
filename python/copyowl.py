@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """Copies owl files from root owl/ directory to the python/emmo/ directory.
 Import paths are fixed on the way.
 """
