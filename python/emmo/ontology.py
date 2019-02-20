@@ -201,6 +201,12 @@ class Ontology(owlready2.Ontology, OntoGraph, OntoVocab):
             entity = self.get_by_label(entity)
         return hasattr(entity, 'equivalent_to') and bool(entity.equivalent_to)
 
+    def closest_common_ancestor(self, cls1, cls2):
+        """Returns the closest common ansestor for classes `cls1` and `cls2`."""
+        ancestors2 = set(cls2.ancestors())
+        while not cls1 in ancestors2:
+            cls1 = cls1.is_a.first()
+        return cls1
 
 def is_individual(entity):
     """Returns true if entity is an individual."""
