@@ -46,7 +46,7 @@ Features
 Dependencies
 ------------
   * Python 3.5 or greater
-  * [Owlready2]:  Devekioed and tested for v0.10. Install it with
+  * [Owlready2]:  Developed and tested for v0.10. Install it with
 
         pip3 install Owlready2
 
