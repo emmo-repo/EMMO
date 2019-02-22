@@ -41,6 +41,14 @@ def render_func(entity):
     return "%s.%s" % (entity.namespace.name, name)
 owlready2.set_render_func(render_func)
 
+def _get_parents(self):
+    """Returns a list of all parents (in case of multiple inheritance)."""
+    return [cls for cls in self.is_a if isinstance(cls, owlready2.ThingClass)]
+
+# Inject get_parents() into ThingClass 
+setattr(owlready2.ThingClass, 'get_parents', _get_parents)
+
+
 
 def get_ontology(base_iri):
     """Returns a new Ontology from `base_iri`."""
@@ -193,7 +201,7 @@ class Ontology(owlready2.Ontology, OntoGraph, OntoVocab):
         if isinstance(entity, str):
             entity = self.get_by_label(entity)
         #return isinstance(type(entity), owlready2.ThingClass)
-        return isinstance(entity, owlready2.Thing)
+        return isinstance(entity, owlready2.Thing) 
 
     def is_defined(self, entity):
         """Returns true if the entity is a defined class."""
@@ -201,13 +209,25 @@ class Ontology(owlready2.Ontology, OntoGraph, OntoVocab):
             entity = self.get_by_label(entity)
         return hasattr(entity, 'equivalent_to') and bool(entity.equivalent_to)
 
-    def closest_common_ancestor(self, cls1, cls2):
-        """Returns the closest common ansestor for classes `cls1` and `cls2`."""
-        ancestors2 = set(cls2.ancestors())
-        while not cls1 in ancestors2:
-            cls1 = cls1.is_a.first()
-        return cls1
+    def _closest_common_ancestor(self, cls, ancestors2):
+        """Recursive help function used by closest_common_ancestor()."""
+        ######FLB Something wring with counting, to be fixed ####
+        if cls in ancestors2:
+            return cls, 1
+        lst = []
+        for parent in cls.get_parents():
+            lst.append(self._closest_common_ancestor(parent, ancestors2))
+        print(lst)
+        return min(lst, key=lambda x: x[1])
 
-def is_individual(entity):
-    """Returns true if entity is an individual."""
-    return isinstance(type(entity), owlready2.ThingClass)
+    def closest_common_ancestor(self, cls1, cls2):
+        """Returns the closest common ancestor for classes `cls1` and `cls2`."""
+        cls, depth = self._closest_common_ancestor(cls1, set(cls2.ancestors()))
+        return cls
+
+
+#t, key=lambda x: x[1])ef is_individual(entity): #FLB removed
+#    """Returns true if entity is an individual."""
+#    return isinstance(type(entity), owlready2.ThingClass)
+
+
