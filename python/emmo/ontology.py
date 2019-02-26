@@ -217,8 +217,11 @@ class Ontology(owlready2.Ontology, OntoGraph, OntoVocab):
         lst = []
         for parent in cls.get_parents():
             lst.append(self._closest_common_ancestor(parent, ancestors2))
-        print(lst)
         return min(lst, key=lambda x: x[1])
+
+    def common_ancestors(self, cls1, cls2):
+         """Return a list of common ancestors"""
+         return set(cls1.ancestors()).intersection(cls2.ancestors())
 
     def closest_common_ancestor(self, cls1, cls2):
         """Returns the closest common ancestor for classes `cls1` and `cls2`."""
@@ -226,7 +229,7 @@ class Ontology(owlready2.Ontology, OntoGraph, OntoVocab):
         return cls
 
 
-#t, key=lambda x: x[1])ef is_individual(entity): #FLB removed
+#def is_individual(entity): #FLB removed
 #    """Returns true if entity is an individual."""
 #    return isinstance(type(entity), owlready2.ThingClass)
 
