@@ -209,28 +209,32 @@ class Ontology(owlready2.Ontology, OntoGraph, OntoVocab):
             entity = self.get_by_label(entity)
         return hasattr(entity, 'equivalent_to') and bool(entity.equivalent_to)
 
-    def _closest_common_ancestor(self, cls, ancestors2):
-        """Recursive help function used by closest_common_ancestor()."""
-        ######FLB Something wring with counting, to be fixed ####
-        if cls in ancestors2:
-            return cls, 1
-        lst = []
-        for parent in cls.get_parents():
-            lst.append(self._closest_common_ancestor(parent, ancestors2))
-        return min(lst, key=lambda x: x[1])
-
     def common_ancestors(self, cls1, cls2):
          """Return a list of common ancestors"""
          return set(cls1.ancestors()).intersection(cls2.ancestors())
 
-    def closest_common_ancestor(self, cls1, cls2):
-        """Returns the closest common ancestor for classes `cls1` and `cls2`."""
-        cls, depth = self._closest_common_ancestor(cls1, set(cls2.ancestors()))
-        return cls
+    def number_of_generations(self, descendant, ancestor):
+        """ Return shortest distance from ancestor to descendant"""
+        if ancestor not in descendant.ancestors():
+            raise ValueError('Descendant is not a descendant of ancestor')	
+        return self._number_of_generations(descendant, ancestor, 0)
+
+    def _number_of_generations(self, descendant, ancestor, n):
+        """ Recursive help function to number_of_generations(), return distance between a ancestor-descendant pair (n+1). """
+        if descendant.name == ancestor.name: 
+            return n
+        return min(self._number_of_generations(parent, ancestor, n + 1) 
+                   for parent in descendant.get_parents()
+                   if ancestor in parent.ancestors()) 
+
+    def closest_common_ancestors(self, cls1, cls2):
+        """Returns a list  with closest_common_ancestor to cls1 and cls2"""
+        distances = {}
+        for ancestor in self.common_ancestors(cls1, cls2):
+            distances[ancestor] = self.number_of_generations(cls1, ancestor) + self.number_of_generations(cls2, ancestor)
+        return [ancestor for ancestor, distance in distances.items() if distance == min(distances.values())]
+        
 
 
-#def is_individual(entity): #FLB removed
-#    """Returns true if entity is an individual."""
-#    return isinstance(type(entity), owlready2.ThingClass)
 
 
