@@ -50,7 +50,7 @@ setattr(owlready2.ThingClass, 'get_parents', _get_parents)
 
 
 
-def get_ontology(base_iri):
+def get_ontology(base_iri='emmo-all-inferred.owl'):
     """Returns a new Ontology from `base_iri`."""
     if (not base_iri.endswith('/')) and (not base_iri.endswith('#')):
         base_iri = '%s#' % base_iri
