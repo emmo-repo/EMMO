@@ -10,19 +10,20 @@ Prefix(emmo-direct:=<http://emmc.info/emmo-direct#>)
 
 
 Ontology(<http://emmc.info/emmo-math>
-
 Import(<http://emmc.info/emmo-semiotics>)
 
 Declaration(Class(emmo-math:EMMO_031d61af_6405_41de_8880_df2f85a53383))
 Declaration(Class(emmo-math:EMMO_1a663927_3b68_4618_acd3_a8aa0d406329))
 Declaration(Class(emmo-math:EMMO_1eed0732_e3f1_4b2c_a9c4_b4e75eeb5895))
 Declaration(Class(emmo-math:EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0))
+Declaration(Class(emmo-math:EMMO_ae15fb4f_8e4d_41de_a0f9_3997f89ba6a2))
 Declaration(Class(emmo-math:EMMO_d1d436e7_72fc_49cd_863b_7bfb4ba5276a))
 Declaration(Class(emmo-math:EMMO_e56ee3eb_7609_4ae1_8bed_51974f0960a6))
-Declaration(Class(emmo-math:EMMO_f9bc8b52_85e9_4b53_b969_dd7724d5b8e4))
 Declaration(Class(emmo-math:EMMO_fe7e56ce_118b_4243_9aad_20eb9f4f31f6))
 Declaration(ObjectProperty(emmo-math:EMMO_0e9f1075_e4ea_4a91_ab90_a772b4880e95))
 Declaration(ObjectProperty(emmo-math:EMMO_3446e167_c576_49d6_846c_215bb8878a55))
+Declaration(NamedIndividual(emmo-core:EMMO_01e2864a_bd60_4fb0_9f80_576b729c1c94))
+Declaration(NamedIndividual(emmo-core:EMMO_847b8c93_f66d_48b9_9a35_2ad83a29cded))
 
 ############################
 #   Object Properties
@@ -69,10 +70,17 @@ AnnotationAssertion(rdfs:comment emmo-math:EMMO_54ee6b5e_5261_44a8_86eb_5717e7fd
 AnnotationAssertion(rdfs:label emmo-math:EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0 "mathematical"@en)
 SubClassOf(emmo-math:EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0 <http://emmc.info/emmo-semiotics#EMMO_50ea1ec5_f157_41b0_b46b_a9032f17ca10>)
 
+# Class: emmo-math:EMMO_ae15fb4f_8e4d_41de_a0f9_3997f89ba6a2 (constant)
+
+AnnotationAssertion(emmo-core:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 emmo-math:EMMO_ae15fb4f_8e4d_41de_a0f9_3997f89ba6a2 "A 'varaible' that stand for a well known constant.")
+AnnotationAssertion(rdfs:comment emmo-math:EMMO_ae15fb4f_8e4d_41de_a0f9_3997f89ba6a2 "pi = 3.14")
+AnnotationAssertion(rdfs:label emmo-math:EMMO_ae15fb4f_8e4d_41de_a0f9_3997f89ba6a2 "constant"@en)
+SubClassOf(emmo-math:EMMO_ae15fb4f_8e4d_41de_a0f9_3997f89ba6a2 emmo-math:EMMO_1eed0732_e3f1_4b2c_a9c4_b4e75eeb5895)
+
 # Class: emmo-math:EMMO_d1d436e7_72fc_49cd_863b_7bfb4ba5276a (parameter)
 
 AnnotationAssertion(emmo-core:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a emmo-math:EMMO_d1d436e7_72fc_49cd_863b_7bfb4ba5276a "Viscosity, the total energy of the system given by an Hamiltonian, the force between two atoms.")
-AnnotationAssertion(rdfs:comment emmo-math:EMMO_d1d436e7_72fc_49cd_863b_7bfb4ba5276a "A variable whose value is know or assumed to be known")
+AnnotationAssertion(rdfs:comment emmo-math:EMMO_d1d436e7_72fc_49cd_863b_7bfb4ba5276a "A variable whose value is assumed to be known independently from the equation, but whose value is not explicitated in the equation.")
 AnnotationAssertion(rdfs:label emmo-math:EMMO_d1d436e7_72fc_49cd_863b_7bfb4ba5276a "parameter"@en)
 SubClassOf(emmo-math:EMMO_d1d436e7_72fc_49cd_863b_7bfb4ba5276a emmo-math:EMMO_1eed0732_e3f1_4b2c_a9c4_b4e75eeb5895)
 
@@ -93,12 +101,7 @@ dv/dt = a
 sin(x) = y")
 AnnotationAssertion(rdfs:label emmo-math:EMMO_e56ee3eb_7609_4ae1_8bed_51974f0960a6 "equation"@en)
 SubClassOf(emmo-math:EMMO_e56ee3eb_7609_4ae1_8bed_51974f0960a6 emmo-math:EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0)
-SubClassOf(emmo-math:EMMO_e56ee3eb_7609_4ae1_8bed_51974f0960a6 ObjectExactCardinality(2 emmo-direct:EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe emmo-math:EMMO_f9bc8b52_85e9_4b53_b969_dd7724d5b8e4))
-
-# Class: emmo-math:EMMO_f9bc8b52_85e9_4b53_b969_dd7724d5b8e4 (expression)
-
-AnnotationAssertion(rdfs:label emmo-math:EMMO_f9bc8b52_85e9_4b53_b969_dd7724d5b8e4 "expression"@en)
-SubClassOf(emmo-math:EMMO_f9bc8b52_85e9_4b53_b969_dd7724d5b8e4 emmo-math:EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0)
+SubClassOf(emmo-math:EMMO_e56ee3eb_7609_4ae1_8bed_51974f0960a6 ObjectSomeValuesFrom(emmo-core:EMMO_05b6fce2_322b_49b4_84aa_ab3c544cf1a1 emmo-math:EMMO_1eed0732_e3f1_4b2c_a9c4_b4e75eeb5895))
 
 # Class: emmo-math:EMMO_fe7e56ce_118b_4243_9aad_20eb9f4f31f6 (unknown)
 
@@ -112,11 +115,11 @@ SubClassOf(emmo-math:EMMO_fe7e56ce_118b_4243_9aad_20eb9f4f31f6 emmo-math:EMMO_1e
 #   Named Individuals
 ############################
 
-# Individual: emmo-core:EMMO_01e2864a_bd60_4fb0_9f80_576b729c1c94 (my_number_1)
+# Individual: emmo-core:EMMO_01e2864a_bd60_4fb0_9f80_576b729c1c94 (emmo-core:EMMO_01e2864a_bd60_4fb0_9f80_576b729c1c94)
 
 ClassAssertion(emmo-math:EMMO_1a663927_3b68_4618_acd3_a8aa0d406329 emmo-core:EMMO_01e2864a_bd60_4fb0_9f80_576b729c1c94)
 
-# Individual: emmo-core:EMMO_847b8c93_f66d_48b9_9a35_2ad83a29cded (my_variable_a)
+# Individual: emmo-core:EMMO_847b8c93_f66d_48b9_9a35_2ad83a29cded (emmo-core:EMMO_847b8c93_f66d_48b9_9a35_2ad83a29cded)
 
 ClassAssertion(emmo-math:EMMO_1eed0732_e3f1_4b2c_a9c4_b4e75eeb5895 emmo-core:EMMO_847b8c93_f66d_48b9_9a35_2ad83a29cded)
 ObjectPropertyAssertion(emmo-math:EMMO_0e9f1075_e4ea_4a91_ab90_a772b4880e95 emmo-core:EMMO_847b8c93_f66d_48b9_9a35_2ad83a29cded emmo-core:EMMO_01e2864a_bd60_4fb0_9f80_576b729c1c94)

@@ -6,11 +6,13 @@ Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
 Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
 Prefix(emmo-core:=<http://emmc.info/emmo-core#>)
 Prefix(emmo-direct:=<http://emmc.info/emmo-direct#>)
+Prefix(emmo-process:=<http://emmc.info/emmo-process#>)
 Prefix(emmo-semiotics:=<http://emmc.info/emmo-semiotics#>)
 
 
 Ontology(<http://emmc.info/emmo-semiotics>
 Import(<http://emmc.info/emmo-direct>)
+Import(<http://emmc.info/emmo-process>)
 
 Declaration(Class(emmo-semiotics:EMMO_008fd3b2_4013_451f_8827_52bceab11841))
 Declaration(Class(emmo-semiotics:EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee))
@@ -21,10 +23,8 @@ Declaration(Class(emmo-semiotics:EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9))
 Declaration(Class(emmo-semiotics:EMMO_50ea1ec5_f157_41b0_b46b_a9032f17ca10))
 Declaration(Class(emmo-semiotics:EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b))
 Declaration(Class(emmo-semiotics:EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527))
-Declaration(Class(emmo-semiotics:EMMO_acc0c994_768b_430e_8338_fb77f209ee88))
 Declaration(Class(emmo-semiotics:EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d))
 Declaration(Class(emmo-semiotics:EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9))
-Declaration(Class(emmo-semiotics:EMMO_cfd5c2c5_c696_4ba3_b1f1_5ff91acf21b4))
 Declaration(Class(emmo-semiotics:EMMO_d7788d1a_020d_4c78_85a1_13563fcec168))
 Declaration(ObjectProperty(emmo-semiotics:EMMO_233f6eca_6714_449e_8484_cb93ac832a0f))
 Declaration(ObjectProperty(emmo-semiotics:EMMO_297999d6_c9e4_4262_9536_bd524d1c6e21))
@@ -97,10 +97,10 @@ cat -> object (in Peirce semiotics)
 the cat perceived by my mind -> interpretant
 \"Cat!\" -> sign, the produced sign")
 AnnotationAssertion(rdfs:label emmo-semiotics:EMMO_008fd3b2_4013_451f_8827_52bceab11841 "semiosis"@en)
-SubClassOf(emmo-semiotics:EMMO_008fd3b2_4013_451f_8827_52bceab11841 emmo-core:EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce)
-SubClassOf(emmo-semiotics:EMMO_008fd3b2_4013_451f_8827_52bceab11841 ObjectSomeValuesFrom(emmo-core:EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 emmo-semiotics:EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d))
+SubClassOf(emmo-semiotics:EMMO_008fd3b2_4013_451f_8827_52bceab11841 emmo-process:EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce)
 SubClassOf(emmo-semiotics:EMMO_008fd3b2_4013_451f_8827_52bceab11841 ObjectSomeValuesFrom(emmo-direct:EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe emmo-semiotics:EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee))
-SubClassOf(emmo-semiotics:EMMO_008fd3b2_4013_451f_8827_52bceab11841 ObjectSomeValuesFrom(emmo-direct:EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe emmo-semiotics:EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b))
+SubClassOf(emmo-semiotics:EMMO_008fd3b2_4013_451f_8827_52bceab11841 ObjectSomeValuesFrom(emmo-process:EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1 emmo-semiotics:EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b))
+SubClassOf(emmo-semiotics:EMMO_008fd3b2_4013_451f_8827_52bceab11841 ObjectSomeValuesFrom(emmo-process:EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1 emmo-semiotics:EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d))
 
 # Class: emmo-semiotics:EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee (interpreter)
 
@@ -125,7 +125,7 @@ emmo
 cat")
 AnnotationAssertion(rdfs:comment emmo-semiotics:EMMO_057e7d57_aff0_49de_911a_8861d85cef40 "In formal languages it is called a string of symbols.")
 AnnotationAssertion(rdfs:label emmo-semiotics:EMMO_057e7d57_aff0_49de_911a_8861d85cef40 "symbolic"@en)
-SubClassOf(emmo-semiotics:EMMO_057e7d57_aff0_49de_911a_8861d85cef40 emmo-direct:EMMO_52211e5e_d767_4812_845e_eb6b402c476a)
+SubClassOf(emmo-semiotics:EMMO_057e7d57_aff0_49de_911a_8861d85cef40 emmo-direct:EMMO_36c79456_e29c_400d_8bd3_0eedddb82652)
 SubClassOf(emmo-semiotics:EMMO_057e7d57_aff0_49de_911a_8861d85cef40 ObjectUnionOf(emmo-semiotics:EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ObjectSomeValuesFrom(emmo-direct:EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe emmo-semiotics:EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527)))
 
 # Class: emmo-semiotics:EMMO_0cd58641_824c_4851_907f_f4c3be76630c (index)
@@ -179,12 +179,6 @@ AnnotationAssertion(rdfs:comment emmo-semiotics:EMMO_a1083d0a_c1fb_471f_8e20_a98
 AnnotationAssertion(rdfs:label emmo-semiotics:EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 "symbol"@en)
 SubClassOf(emmo-semiotics:EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 emmo-semiotics:EMMO_057e7d57_aff0_49de_911a_8861d85cef40)
 
-# Class: emmo-semiotics:EMMO_acc0c994_768b_430e_8338_fb77f209ee88 (language)
-
-AnnotationAssertion(rdfs:label emmo-semiotics:EMMO_acc0c994_768b_430e_8338_fb77f209ee88 "language"@en)
-EquivalentClasses(emmo-semiotics:EMMO_acc0c994_768b_430e_8338_fb77f209ee88 ObjectAllValuesFrom(emmo-core:EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4 emmo-semiotics:EMMO_50ea1ec5_f157_41b0_b46b_a9032f17ca10))
-SubClassOf(emmo-semiotics:EMMO_acc0c994_768b_430e_8338_fb77f209ee88 emmo-core:EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31)
-
 # Class: emmo-semiotics:EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d (sign)
 
 AnnotationAssertion(emmo-core:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 emmo-semiotics:EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d "An 'existent' that is used as sign (\"semeion\" in greek) that stands for another 'physical' through an abstraction process.")
@@ -217,11 +211,11 @@ AnnotationAssertion(rdfs:comment emmo-semiotics:EMMO_b21a56ed_f969_4612_a6ec_cb7
 
 'sign' subclasses categorize the type of signs that are used to create representations/models of the real world entities.")
 AnnotationAssertion(rdfs:label emmo-semiotics:EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d "sign"@en)
+EquivalentClasses(emmo-semiotics:EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d ObjectUnionOf(emmo-semiotics:EMMO_0cd58641_824c_4851_907f_f4c3be76630c emmo-semiotics:EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9 emmo-semiotics:EMMO_d7788d1a_020d_4c78_85a1_13563fcec168))
 EquivalentClasses(emmo-semiotics:EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d ObjectSomeValuesFrom(emmo-semiotics:EMMO_72a3342f_ba51_49b6_bf5b_4eb948e2a172 emmo-core:EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf))
 SubClassOf(emmo-semiotics:EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d emmo-semiotics:EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9)
 SubClassOf(emmo-semiotics:EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d ObjectSomeValuesFrom(emmo-core:EMMO_85fc27bc_5e42_4baa_bf85_5a2dc4a26a1f emmo-semiotics:EMMO_008fd3b2_4013_451f_8827_52bceab11841))
 SubClassOf(emmo-semiotics:EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d ObjectAllValuesFrom(emmo-direct:EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d emmo-semiotics:EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d))
-DisjointUnion(emmo-semiotics:EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d emmo-semiotics:EMMO_0cd58641_824c_4851_907f_f4c3be76630c emmo-semiotics:EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9 emmo-semiotics:EMMO_d7788d1a_020d_4c78_85a1_13563fcec168)
 
 # Class: emmo-semiotics:EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 (semiotic_role)
 
@@ -236,13 +230,8 @@ The triadic elements:
 
 This class includes also the 'interpeter' i.e. the entity that connects the 'sign' to the 'object'")
 AnnotationAssertion(rdfs:label emmo-semiotics:EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 "semiotic_role"@en)
-SubClassOf(emmo-semiotics:EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 emmo-core:EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d)
-
-# Class: emmo-semiotics:EMMO_cfd5c2c5_c696_4ba3_b1f1_5ff91acf21b4 (alphabet)
-
-AnnotationAssertion(rdfs:label emmo-semiotics:EMMO_cfd5c2c5_c696_4ba3_b1f1_5ff91acf21b4 "alphabet"@en)
-SubClassOf(emmo-semiotics:EMMO_cfd5c2c5_c696_4ba3_b1f1_5ff91acf21b4 emmo-core:EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31)
-SubClassOf(emmo-semiotics:EMMO_cfd5c2c5_c696_4ba3_b1f1_5ff91acf21b4 ObjectAllValuesFrom(emmo-core:EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4 emmo-semiotics:EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527))
+EquivalentClasses(emmo-semiotics:EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 ObjectUnionOf(emmo-semiotics:EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee emmo-semiotics:EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b emmo-semiotics:EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d))
+SubClassOf(emmo-semiotics:EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 ObjectSomeValuesFrom(emmo-process:EMMO_748696de_8257_47c1_a53c_d09df0ff71c5 emmo-semiotics:EMMO_008fd3b2_4013_451f_8827_52bceab11841))
 
 # Class: emmo-semiotics:EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 (icon)
 
