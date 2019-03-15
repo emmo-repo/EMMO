@@ -24,7 +24,6 @@ def asstring(expr, link='{name}', n=0):
             return link.format(name=e, url=e)
         else:
             return str(e).replace('owl.', 'owl:')
-
     if isinstance(expr, str):
         #return link.format(name=expr)
         return fmt(expr)
@@ -56,6 +55,12 @@ def asstring(expr, link='{name}', n=0):
         return fmt(expr)
     elif isinstance(expr, bool):
         return repr(expr)
+    elif isinstance(expr, owlready2.class_construct.Inverse): #FLB
+        print("Inverse in utils. TODO")
+        return fmt(expr)
+    elif isinstance(expr, owlready2.disjoint.AllDisjoint): #FLB
+        print("owlready2.disjoint.AllDisjoints in utils. TODO")
+        return fmt(expr)
     else:
         raise RuntimeError('Unknown expression: %r (type: %r)' % (
             expr, type(expr)))

@@ -116,7 +116,7 @@ def emmodoc(filename='emmodoc.html', format=None, figformat=None,
         sections=relations, chapter='Relations', introduction=intro,
         template='markdown'))
 
-    # Chapter 3 - entities
+    # Chapter 3 - entities # FLB removed, emmo.entity  has been changed to emmo
     entities = get_sections('entities.md')
     intro = entities.pop(None, '')
     add_figs(entities, figformat=figformat, figdir=figdir, outdir=htmldir,
@@ -128,9 +128,9 @@ def emmodoc(filename='emmodoc.html', format=None, figformat=None,
         template='markdown'))
 
     # Chapter 4 - instances
-    #doc.append(emmo.get_vocabulary(
-    #    items=emmo.individuals(), chapter='Individuals',
-    #    template='markdown'))
+    doc.append(emmo.get_vocabulary(
+        items=emmo.individuals(), chapter='Individuals',
+        template='markdown'))
 
     # Appendix - full taxonomy
     entity_graph = emmo.get_dot_graph('entity', relations=True,
@@ -233,6 +233,7 @@ def make_graphs(sections, outdir='.', format='svg', relations=True,
     for name in sections:
         leafs = set(sections.keys())
         leafs.discard(name)
+        print(name)
         graph = emmo.get_dot_graph(name, relations=relations, leafs=leafs,
                                    style=style, abbreviations=abbreviations)
 

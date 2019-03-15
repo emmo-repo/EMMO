@@ -118,6 +118,8 @@ class Ontology(owlready2.Ontology, OntoGraph, OntoVocab):
         found first is returned.  A KeyError is raised if `label`
         cannot be found.
         """
+        #label = label.replace("-", "") FLB: problem with - in variable
+        print(f'get all the labels {label}')
         # Check for name in all categories in self
         for category in categories:
             method = getattr(self, category)
@@ -126,7 +128,7 @@ class Ontology(owlready2.Ontology, OntoGraph, OntoVocab):
                     return entity
         # Check for special names
         d = {
-            'Nothing': owlready2.Nothing,
+                'Nothing': owlready2.Nothing,
         }
         if label in d:
             return d[label]
@@ -138,6 +140,7 @@ class Ontology(owlready2.Ontology, OntoGraph, OntoVocab):
             except NoSuchLabelError:
                 pass
         # Label cannot be found
+        print(f"label is {label}")
         raise NoSuchLabelError('Ontology "%s" has no such label: %s' % (
             self.name, label))
 
