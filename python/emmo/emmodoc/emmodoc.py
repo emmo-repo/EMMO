@@ -116,7 +116,7 @@ def emmodoc(filename='emmodoc.html', format=None, figformat=None,
         sections=relations, chapter='Relations', introduction=intro,
         template='markdown'))
 
-    # Chapter 3 - entities # FLB removed, emmo.entity  has been changed to emmo
+    # Chapter 3 - entities # FLB emmo.entity  has been changed to emmo.emmo in the entities.md. substrate removed.
     entities = get_sections('entities.md')
     intro = entities.pop(None, '')
     add_figs(entities, figformat=figformat, figdir=figdir, outdir=htmldir,
