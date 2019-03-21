@@ -119,17 +119,18 @@ class Ontology(owlready2.Ontology, OntoGraph, OntoVocab):
         cannot be found.
         """
         #label = label.replace("-", "") FLB: problem with - in variable
-        print(f'get all the labels {label}')
         # Check for name in all categories in self
         for category in categories:
             method = getattr(self, category)
             for entity in method():
+                print(f"entity is {entity} and entity.label is {entity.label}")
                 if label in entity.label:
                     return entity
         # Check for special names
         d = {
                 'Nothing': owlready2.Nothing,
         }
+        print(f"d is {d}")
         if label in d:
             return d[label]
         # Check imported ontologies
@@ -204,7 +205,7 @@ class Ontology(owlready2.Ontology, OntoGraph, OntoVocab):
         if isinstance(entity, str):
             entity = self.get_by_label(entity)
         #return isinstance(type(entity), owlready2.ThingClass)
-        return isinstance(entity, owlready2.Thing) 
+        return isinstance(entity, owlready2.Thing)
 
     def is_defined(self, entity):
         """Returns true if the entity is a defined class."""
@@ -219,16 +220,16 @@ class Ontology(owlready2.Ontology, OntoGraph, OntoVocab):
     def number_of_generations(self, descendant, ancestor):
         """ Return shortest distance from ancestor to descendant"""
         if ancestor not in descendant.ancestors():
-            raise ValueError('Descendant is not a descendant of ancestor')	
+            raise ValueError('Descendant is not a descendant of ancestor')
         return self._number_of_generations(descendant, ancestor, 0)
 
     def _number_of_generations(self, descendant, ancestor, n):
         """ Recursive help function to number_of_generations(), return distance between a ancestor-descendant pair (n+1). """
-        if descendant.name == ancestor.name: 
+        if descendant.name == ancestor.name:
             return n
-        return min(self._number_of_generations(parent, ancestor, n + 1) 
+        return min(self._number_of_generations(parent, ancestor, n + 1)
                    for parent in descendant.get_parents()
-                   if ancestor in parent.ancestors()) 
+                   if ancestor in parent.ancestors())
 
     def closest_common_ancestors(self, cls1, cls2):
         """Returns a list  with closest_common_ancestor to cls1 and cls2"""
@@ -236,8 +237,6 @@ class Ontology(owlready2.Ontology, OntoGraph, OntoVocab):
         for ancestor in self.common_ancestors(cls1, cls2):
             distances[ancestor] = self.number_of_generations(cls1, ancestor) + self.number_of_generations(cls2, ancestor)
         return [ancestor for ancestor, distance in distances.items() if distance == min(distances.values())]
-        
-
 
 
 

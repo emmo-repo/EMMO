@@ -67,10 +67,8 @@ It has several important subclasses:
   - **vacuum**: is a field that has no *elementary* parts
   - **void**: a vacuum that has no *field* parts
 
-
-## granularity
-
-## elementary_based
+;## granularity
+;## elementary_based
 
 
 ## state
@@ -79,10 +77,10 @@ It has several important subclasses:
 ## process
 
 
-## abstract
+;## abstract
 
 
-## mathematical_entity
+;## mathematical_entity
 
 
 ## equation
@@ -94,7 +92,7 @@ It has several important subclasses:
 ## property
 
 
-## extensive_property
+;## extensive_property
 
 
-## intensive_property
+;## intensive_property
