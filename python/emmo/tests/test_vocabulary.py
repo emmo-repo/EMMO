@@ -10,17 +10,10 @@ sys.path.insert(1, os.path.abspath(os.path.join(thisdir, '..', '..')))
 from emmo import get_ontology
 
 
-emmo = get_ontology('emmo.owl')
+emmo = get_ontology()
 emmo.load()
 
 #emmo.sync_reasoner()
-
-
-# Vocabulary before reasoning
-with open('emmo-noreason.html', 'w') as f:
-    f.write(emmo.get_vocabulary())
-
-emmo.sync_reasoner()
 
 # Vocabulary after reasoning
 with open('emmo.html', 'w') as f:

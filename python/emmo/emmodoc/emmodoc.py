@@ -133,7 +133,7 @@ def emmodoc(filename='emmodoc.html', format=None, figformat=None,
         template='markdown'))
 
     # Appendix - full taxonomy
-    entity_graph = emmo.get_dot_graph('entity', relations=True,
+    entity_graph = emmo.get_dot_graph('emmo', relations=True,
                                       abbreviations=abbreviations)
     figname = os.path.join(htmldir, 'entity_graph.' + figformat)
     writer = getattr(entity_graph, 'write_' + figformat)
