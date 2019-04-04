@@ -54,6 +54,8 @@ Dependencies
 
         pip3 install pydot
 
+  * [java]. Needed for reasoning.
+
   * [pandoc]: Only used for converting generated controlled vocabulary
     from markdown to nicely formatted html or pdf.
 
