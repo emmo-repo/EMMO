@@ -45,7 +45,7 @@ def _get_parents(self):
     """Returns a list of all parents (in case of multiple inheritance)."""
     return [cls for cls in self.is_a if isinstance(cls, owlready2.ThingClass)]
 
-# Inject get_parents() into ThingClass 
+# Inject get_parents() into ThingClass
 setattr(owlready2.ThingClass, 'get_parents', _get_parents)
 
 
@@ -123,14 +123,12 @@ class Ontology(owlready2.Ontology, OntoGraph, OntoVocab):
         for category in categories:
             method = getattr(self, category)
             for entity in method():
-                print(f"entity is {entity} and entity.label is {entity.label}")
                 if label in entity.label:
                     return entity
         # Check for special names
         d = {
                 'Nothing': owlready2.Nothing,
         }
-        print(f"d is {d}")
         if label in d:
             return d[label]
         # Check imported ontologies
@@ -141,7 +139,6 @@ class Ontology(owlready2.Ontology, OntoGraph, OntoVocab):
             except NoSuchLabelError:
                 pass
         # Label cannot be found
-        print(f"label is {label}")
         raise NoSuchLabelError('Ontology "%s" has no such label: %s' % (
             self.name, label))
 
@@ -237,6 +234,3 @@ class Ontology(owlready2.Ontology, OntoGraph, OntoVocab):
         for ancestor in self.common_ancestors(cls1, cls2):
             distances[ancestor] = self.number_of_generations(cls1, ancestor) + self.number_of_generations(cls2, ancestor)
         return [ancestor for ancestor, distance in distances.items() if distance == min(distances.values())]
-
-
-
