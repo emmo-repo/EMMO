@@ -225,13 +225,12 @@ class OntoVocab:
                                 points.append(point_template.format(
                                     point='disjoint_with ' + asstring(e, link),
                                     ontology=self))
+
                 # ...add inverse_of relations
-                
-                #FLB: emmo.active_relation.inverse_property fails in owlready2
-                #if hasattr(item, 'inverse_property') and item.inverse_property:
-                #    points.append(point_template.format(
-                #    point='inverse_of ' + asstring(
-                #        item.inverse_property, link)))
+                if hasattr(item, 'inverse_property') and item.inverse_property:
+                    points.append(point_template.format(
+                    point='inverse_of ' + asstring(
+                        item.inverse_property, link)))
 
                 # ...add domain restrictions
                 for d in getattr(item, 'domain', ()):

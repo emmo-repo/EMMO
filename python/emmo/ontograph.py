@@ -146,7 +146,7 @@ class OntoGraph:
             # Add is_a edges
             targets = [e for e in entity.is_a if not isinstance(e, (
                 owlready2.ThingClass, owlready2.ObjectPropertyClass,
-                owlready2.PropertyClass, owlready2.class_construct.Inverse))] # added owlready2.class_construct.Inverse FLB to remove problem with Inverse(emmo-core.passive_relation)
+                owlready2.PropertyClass))]
             self._get_dot_add_edges(
                 graph, entity, targets, 'is_a',
                 relations, style.get('other', {}),
@@ -172,17 +172,15 @@ class OntoGraph:
                     constraint='false',
                 )
 
-                #FLB: Commented out whole because 
             # Add inverse_of
-            #if hasattr(entity, 'inverse_property') and (
-            #        relations is True or 'inverse_of' in relations):
-            #    if entity.inverse_property: # FLB: if because emmo.relation.inverse_property is None
-            #        self._get_dot_add_edges(
-            #            graph, entity, [entity.inverse_property], 'inverse_of',
-            #            relations, style.get('inverse_of', {}),
-            #            abbreviations=abbreviations,
-            #            constraint='false',
-            #        )
+            if hasattr(entity, 'inverse_property') and (
+                    relations is True or 'inverse_of' in relations):
+                self._get_dot_add_edges(
+                    graph, entity, [entity.inverse_property], 'inverse_of',
+                    relations, style.get('inverse_of', {}),
+                    abbreviations=abbreviations,
+                    constraint='false',
+                )
 
         return graph
 

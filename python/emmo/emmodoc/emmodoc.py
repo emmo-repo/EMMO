@@ -116,15 +116,15 @@ def emmodoc(filename='emmodoc.html', format=None, figformat=None,
         sections=relations, chapter='Relations', introduction=intro,
         template='markdown'))
 
-    # Chapter 3 - entities # FLB emmo.entity  has been changed to emmo.emmo in the entities.md. substrate removed.
-    entities = get_sections('entities.md')
+    # Chapter 3 - emmo
+    entities = get_sections('emmo.md')
     intro = entities.pop(None, '')
     add_figs(entities, figformat=figformat, figdir=figdir, outdir=htmldir,
              figscale=figscale)
     make_graphs(entities, outdir=htmldir, format=figformat,
                 style=figstyle, href=href)
     doc.append(emmo.get_vocabulary(
-        sections=entities, chapter='Entities', introduction=intro,
+        sections=entities, chapter='emmo', introduction=intro,
         template='markdown'))
 
     # Chapter 4 - instances
