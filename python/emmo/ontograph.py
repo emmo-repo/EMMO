@@ -173,8 +173,9 @@ class OntoGraph:
                 )
 
             # Add inverse_of
-            if hasattr(entity, 'inverse_property') and (
-                    relations is True or 'inverse_of' in relations):
+            if (hasattr(entity, 'inverse_property') and
+                (relations is True or 'inverse_of' in relations) and
+                entity.inverse_property is not None):
                 self._get_dot_add_edges(
                     graph, entity, [entity.inverse_property], 'inverse_of',
                     relations, style.get('inverse_of', {}),
