@@ -30,13 +30,17 @@ def asstring(expr, link='{name}', n=0):
         return fmt(expr)
     elif isinstance(expr, owlready2.Restriction):
         rlabel = owlready2.class_construct._restriction_type_2_label[expr.type]
-        if n == 0:
-            s = '%%s %s %%s' % rlabel if rlabel else '%s %s'
+        #if n == 0:
+        if not rlabel:
+            s = '%s %s'
+        elif expr.type in (owlready2.MIN, owlready2.MAX, owlready2.EXACTLY):
+            s = '(%%s %s %d %%s)' % (rlabel, expr.cardinality)
         elif expr.type in (owlready2.SOME, owlready2.ONLY,
                            owlready2.VALUE, owlready2.HAS_SELF):
             s = '(%%s %s %%s)' % rlabel
         else:
-            s = '(%%s %s %d %%s)' % (rlabel, expr.cardinality)
+            print('*** WARNING: unknown relation', expr, rlabel)
+            s = '(%%s %s %%s)' % rlabel
         return s % (fmt(expr.property), asstring(expr.value, link, n + 1))
     elif isinstance(expr, owlready2.Or):
         s = '%s' if n == 0 else '(%s)'

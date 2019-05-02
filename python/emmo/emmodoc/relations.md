@@ -71,14 +71,21 @@ the following *property axioms*:
 
 
 
-
 ## relation
 
+## encloses
 
-## has_part
+## has_sign
+
+## has_member
 
 
-## is_part_of
+## is_enclosed_by
+
+## stands_for
+
+## is_member_of
+
 
 
 [RDF]: https://en.wikipedia.org/wiki/Resource_Description_Framework

@@ -104,7 +104,7 @@ def emmodoc(filename='emmodoc.html', format=None, figformat=None,
     with open(os.path.join(thisdir, 'introduction.md'), 'r') as f:
         doc.append(f.read() + '\n\n')
 
-    # Chapter 2 - relations
+    # Chapter 2 - EMMO relations
     relations = get_sections('relations.md')
     intro = relations.pop(None, '')
     add_figs(relations, figformat=figformat, figdir=figdir, outdir=htmldir,
@@ -113,10 +113,10 @@ def emmodoc(filename='emmodoc.html', format=None, figformat=None,
                 relations='is_a', style=figstyle, href=href)
 
     doc.append(emmo.get_vocabulary(
-        sections=relations, chapter='Relations', introduction=intro,
+        sections=relations, chapter='EMMO relations', introduction=intro,
         template='markdown'))
 
-    # Chapter 3 - emmo
+    # Chapter 3 - EMMO classes
     entities = get_sections('emmo.md')
     intro = entities.pop(None, '')
     add_figs(entities, figformat=figformat, figdir=figdir, outdir=htmldir,
@@ -124,13 +124,13 @@ def emmodoc(filename='emmodoc.html', format=None, figformat=None,
     make_graphs(entities, outdir=htmldir, format=figformat,
                 style=figstyle, href=href)
     doc.append(emmo.get_vocabulary(
-        sections=entities, chapter='emmo', introduction=intro,
+        sections=entities, chapter='EMMO classes', introduction=intro,
         template='markdown'))
 
-    # Chapter 4 - instances
-    doc.append(emmo.get_vocabulary(
-        items=emmo.individuals(), chapter='Individuals',
-        template='markdown'))
+    ## Chapter 4 - individuals
+    #doc.append(emmo.get_vocabulary(
+    #    items=emmo.individuals(), chapter='Individuals',
+    #    template='markdown'))
 
     # Appendix - full taxonomy
     entity_graph = emmo.get_dot_graph('emmo', relations=True,
@@ -140,8 +140,7 @@ def emmodoc(filename='emmodoc.html', format=None, figformat=None,
     writer(figname)
     doc.append('\n\n# Appendix\n\n')
     doc.append(
-        '![The full entity branch of EMMO including all relations '
-        'between subbranches.](%s)\n\n' % figname)
+        '![The complete EMMO taxonomy.](%s)\n\n' % figname)
 
     # Write markdown document
     with open(mdfile, 'w') as f:
