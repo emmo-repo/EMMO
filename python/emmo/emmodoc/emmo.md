@@ -4,12 +4,12 @@
 ; be stripped off.
 ;
 
-*entity* is a class representing the collection of all the individuals
+*emmo* is a class representing the collection of all the individuals
 (signs) that are used in the ontology. Individuals are declared by the
-EMMO users when they wants to apply the EMMO to represent the world.
+EMMO users when they want to apply the EMMO to represent the world.
 
 
-## entity
+## emmo
 The root of all classes used to represent the world.  It has two children;
 *set* and *item*.
 
@@ -18,13 +18,12 @@ The root of all classes used to represent the world.  It has two children;
 *membership*.
 
   - a set is declared using the *has_member* primitive relation
-  - a set individual keeps its members (i.e.  item individuals)
-    distinct and is a further entity over and above them (e.g. the set
+  - a set individual has no parts but only members
+  - a set is not of the same entity types as its members (e.g. the set
     of men is not a man)
-  - a set is not of the same entity types of its members
   - a set individual has a determinate number of members
 
-*item* Is the class that collects all the individuals that are member
+*item* Is the class that collects all the individuals that are members
 of a set (it's the most comprehensive set individual).  It is the
 branch of parthood (mereology).
 
@@ -34,24 +33,6 @@ branch of parthood (mereology).
   - a fusion is of the same entity type as its parts (e.g. a physical
     entity is made of physical entities parts)
   - a fusion can be partitioned in more than one way
-
-
-## substrate
-It represents the place (in general sense) in which every real world
-item exists.
-
-A substrate provides the dimensions of existence for real world
-entities. It follows the fact that everything that exists is placed
-somewhere and space and time coordinates can be used to identify it.
-
-Substrate is a mereotopological entity.
-
-Substrates are always topologically connected spaces (a topological
-space X is said to be disconnected if it is the union of two disjoint
-nonempty open sets. Otherwise, X is said to be connected)
-
-It is the disjoint union of *spacetime* (4D), *space* (3D), *surface* (2D)
-and *time* (1D).
 
 
 ## spacetime
@@ -66,34 +47,35 @@ It has several important subclasses:
   - **vacuum**: is a field that has no *elementary* parts
   - **void**: a vacuum that has no *field* parts
 
+;## granularity
+;## elementary_based
 
-## granularity
 
-## elementary_based
+## physical
 
 
 ## state
 
 
+## elementary
+
+
 ## process
 
 
-## abstract
+## role
 
 
-## mathematical_entity
+## sign
 
 
-## equation
+## symbolic
 
 
-## model
+;## equation
+
+
+;## model
 
 
 ## property
-
-
-## extensive_property
-
-
-## intensive_property

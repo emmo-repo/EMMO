@@ -4,59 +4,88 @@
 ; be stripped off.
 ;
 
-The relations is this section are used to define axioms (rules).  The
-following abbreviations are used in the graphs:
+In the language of OWL, relations are called *properties*.  However,
+since relations describe relations between classes and individuals and
+since [properties](#Properties) has an other meaning in EMMO, we call
+them *relations* here.
 
-| relation                        | abbreviation |
-| --------                        | ------------ |
-| has_part only                   | hp-o         |
-| is_part_of only                 | ipo-o        |
-| has_member some                 | hm-s         |
-| is_member_of some               | imo-s        |
-| has_abstraction some            | ha-s         |
-| is_abstraction_of some          | iao-s        |
-| has_abstract_part only          | pap-o        |
-| is_abstract_part_of only        | iapo-o       |
-| has_space_slice some            | hss-s        |
-| is_space_slice_of some          | isso-s       |
-| has_time_slice some             | hts-s        |
-| is_time_slice_of some           | itso-s       |
-| has_projection some             | hp-s         |
-| is_projection_of some           | ipo-s        |
-| has_proper_part some            | hpp-s        |
-| is_proper_part_of some          | ippo-s       |
-| has_proper_part_of some         | hppo-s       |
-| has_spatial_direct_part min     | hsdp-m       |
-| has_spatial_direct_part some    | hsdp-s       |
-| has_spatial_direct_part exactly | hsdp-e       |
+[Resource Description Framework (RDF)][RDF] is a W3C standard that is
+widely used for describing informations on the web and is one of the
+standards that OWL builds on.  RDF expresses information in form of
+*subject-predicate-object* triplets.  The subject and object are
+resources (aka items to describe) and the predicate expresses a
+relationship between the subject and the object.
+
+In EMMO, are the subject and object classes or individuals (or data)
+while the predicate is a relation.  An example of an relationship is
+the statement *dog is_a animal*.  Here is `dog` the subject, `is_a`
+the predicate and `animal` the object.  We distinguish between
+`active relations` where the subject is acting on the object and
+`passive relations` where the subject is acted on by the object.
+
+OWL distingues between `owl:ObjectProperty` that link classes or
+individuals to classes or individuals and `owl:DatatypeProperty` that
+links individuals to data values.  Since EMMO only deals with classes,
+we will only be discussing object properties.  However, in actual
+applications build on EMMO, datatype propertyes will be important.
+
+The characteristics of the different properties is described by
+the following *property axioms*:
+
+- `rdf:subPropertyOf` is used to define that a property is a
+  subproperty of some other property.  For instance, in the figure
+  below showing the relation branch, we see that `active_relation` is
+  a subproperty or `relation`.
+
+  The `rdf:subPropertyOf` axioms forms a taxonomy-like tree for relations.
+
+<!--
+- `rdfs:domain` is not used in EMMO.
+
+- `rdfs:range` is not used in EMMO.
+-->
+
+- `owl:equivalentProperty` states that two properties have the same
+  property extension.
+
+- `owl:inverseOf` axioms relate active relations to their corresponding
+  passive relations, and vice versa. The root relation `relation` is its
+  own inverse.
+
+- `owl:FunctionalProperty` is a property that can have only one
+  (unique) value y for each instance x, i.e. there cannot be two
+  distinct values y1 and y2 such that the pairs (x,y1) and (x,y2) are
+  both instances of this property. Both object properties and datatype
+  properties can be declared as "functional".
+
+- `owl:InverseFunctionalProperty`
+
+- `owl:TransitiveProperty` states that if a pair (x,y) is an instance
+  of P, and the pair (y,z) is also instance of P, then we can infer
+  the the pair (x,z) is also an instance of P.
+
+- `owl:SymmetricProperty` states that if the pair (x,y) is an instance of P,
+  then the pair (y,x) is also an instance of P.
+
+  A popular example of a symmetric property is the `friend_of` relation.
 
 
+
+## relation
 
 ## encloses
 
-
-## is_enclosed_by
-
-
-## has_part
-
-
-## is_part_of
-
-
-## has_subdimensional_space
-
-
-## is_subdimensional_space_of
-
-
-## has_property
-
+## has_sign
 
 ## has_member
 
 
-## has_representation
+## is_enclosed_by
+
+## stands_for
+
+## is_member_of
 
 
-## has_abstract_part
+
+[RDF]: https://en.wikipedia.org/wiki/Resource_Description_Framework

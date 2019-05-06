@@ -46,13 +46,15 @@ Features
 Dependencies
 ------------
   * Python 3.5 or greater
-  * [Owlready2]:  Install it with
+  * [Owlready2]:  Developed and tested for v0.10. Install it with
 
         pip3 install Owlready2
 
   * [pydot].  Required for generating graphs.  Install it with
 
         pip3 install pydot
+
+  * [java]. Needed for reasoning.
 
   * [pandoc]: Only used for converting generated controlled vocabulary
     from markdown to nicely formatted html or pdf.
