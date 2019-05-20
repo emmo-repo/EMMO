@@ -215,25 +215,44 @@ class OntoGraph:
                         edge.set_constraint(constraint)
                     graph.add_edge(edge)
             elif isinstance(e, owlready2.Restriction):
-                terms = s.split()
-                if len(terms) == 3:
-                    if relations is True or terms[0] in relations:
-                        others = graph.get_node(terms[2])
-                        if len(others) == 1:
-                            other = others[0]
-                        else:
-                            continue
-                        label = ' '.join(terms[:2])
-                        elabel = abbreviations.get(label, label)
-                        # Add some extra space to labels
-                        edge = pydot.Edge(
-                            node, other, label=elabel + '   ', **style)
-                        if constraint is not None:
-                            edge.set_constraint(constraint)
-                        graph.add_edge(edge)
-                else:
-                    print('* get_dot_graph() * Ignoring: '
-                          '%s %s' % (node.get_name(), s))
+                rname = e.property.label.first()
+                rtype = owlready2.class_construct._restriction_type_2_label[
+                    e.type]
+                if relations is True or rname in relations:
+                    vname = e.value.label.first()
+                    others = graph.get_node(vname)
+                    if len(others) == 1:
+                        other = others[0]
+                    else:
+                        continue
+                    label = '%s %s' % (rname, rtype)
+                    elabel = abbreviations.get(label, label)
+                    # Add some extra space to labels
+                    edge = pydot.Edge(
+                        node, other, label=elabel + '   ', **style)
+                    #edge = pydot.Edge(node, other, **style)
+                    if constraint is not None:
+                        edge.set_constraint(constraint)
+                    graph.add_edge(edge)
+                #terms = s.split()
+                #if len(terms) == 3:
+                #    if relations is True or terms[0] in relations:
+                #        others = graph.get_node(terms[2])
+                #        if len(others) == 1:
+                #            other = others[0]
+                #        else:
+                #            continue
+                #        label = ' '.join(terms[:2])
+                #        elabel = abbreviations.get(label, label)
+                #        # Add some extra space to labels
+                #        edge = pydot.Edge(
+                #            node, other, label=elabel + '   ', **style)
+                #        if constraint is not None:
+                #            edge.set_constraint(constraint)
+                #        graph.add_edge(edge)
+                #else:
+                #    print('* get_dot_graph() * Ignoring: '
+                #          '%s %s' % (node.get_name(), s))
             else:
                 print('* get_dot_graph() * Ignoring: '
                       '%s %s %s' % (node.get_name(), relation, s))
