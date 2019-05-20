@@ -449,7 +449,23 @@ interpretations of quantum mechanics) and levels of approximations
 
 ### EMMO Semiotics
 
+The semiotics module introduces three connected branches, `symbolic`,
+`semiosis` and `semiotic_role` in addition to the
+`has_sign`/`stands_for` family of relations.
+
+
+
+Since the EMMO must represent models and properties (which are signs
+that stand for a physical entity), the semiotic process must be
+described also within the EMMO itself.  The concepts of Peirce
+semiotics (interpreter, object, sign) are included in the semiotic
+branch, together with the semiosis process.
+
+
 ### EMMO Formal languages
+
+
+
 
 ### EMMO Data formats
 
