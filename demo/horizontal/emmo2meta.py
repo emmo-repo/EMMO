@@ -40,7 +40,7 @@ class EMMO2Meta:
         if ontology is None:
             self.onto = get_ontology()
             self.onto.load()
-        elif isinstance(onto, str):
+        elif isinstance(ontology, str):
             self.onto = get_ontology(ontology)
             self.onto.load()
         else:
@@ -56,6 +56,8 @@ class EMMO2Meta:
 
         if classes is None:
             classes = self.onto.classes()
+        elif isinstance(classes, str):
+            classes = [classes]
 
         for cls in classes:
             self.add_class(cls)
@@ -113,7 +115,7 @@ class EMMO2Meta:
         """Adds owl class `cls` to collection and returns a reference to
         the new metadata."""
         if isinstance(cls, str):
-            cls = onto[cls]
+            cls = self.onto[cls]
         label = cls.label.first()
         uri = self.get_uri(label)
         if self.coll.has(label):
