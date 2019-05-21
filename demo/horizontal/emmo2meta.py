@@ -35,8 +35,17 @@ class EMMO2Meta:
         include all of the ontology.
     version : string
         Default version for classes lacking a `version` annotation.
+    collid : string
+        Set an explicit id to the generated collection.
+
+    Notes
+    -----
+    The collection UUID is accessable via the `coll.uuid` attribute.
+    Use the `collid` argument to provide a human readable id to make
+    it easier to later to retrieve it from a storage (without having
+    to remember its UUID).
     """
-    def __init__(self, ontology=None, classes=None, version='0.1'):
+    def __init__(self, ontology=None, classes=None, version='0.1', collid=None):
         if ontology is None:
             self.onto = get_ontology()
             self.onto.load()
@@ -48,7 +57,7 @@ class EMMO2Meta:
         self.version = version
         self.iri = self.onto.base_iri
         self.namespace = self.onto.base_iri.rstrip('#')
-        self.coll = dlite.Collection()
+        self.coll = dlite.Collection(collid)
         # To avoid infinite recursion when adding cyclic dependent entities
         # we keep track of all labels we add (or are going to add) to the
         # collection
