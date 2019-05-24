@@ -104,6 +104,17 @@ with onto:
     class position(emmo.physical_quantity):
         label = ['position']
 
+    class unit_vector(emmo.physical_quantity):
+        """A vector that participitates defining the unit cell."""
+        label = ['unit_vector']
+
+    class spacegroup(emmo.descriptive_property):
+        """A spacegroup is the symmetry group off all symmetry operations that
+        apply to a crystal structure. It can be represented by the space
+        group number from the International tables of Crystallography
+        and a setting."""
+        label = ['spacegroup']
+
     #
     # Material classes
     # ----------------
@@ -122,75 +133,30 @@ with onto:
         label = ['boundary_surface']
         is_a = [emmo.has_property.exactly(1, area)]
 
-    class unit_cell(emmo.descriptive_property):
-        """Describes a unit cell in a crystal.  Three cell vectors."""
-        label = ['unit_cell']
 
     #
     # Crystallography-related classes
     # -------------------------------
+
+    class crystal_unit_cell(emmo.mesoscopic):
+        """A volume defined by the 3 unit cell vectors.  It contains the atoms
+        constituting the unit cell of a crystal."""
+        label = ['crystal_unit_cell']
+        is_a = [emmo.has_spatial_direct_part.some(emmo.e_bonded_atom),
+                emmo.has_property.exactly(3, unit_vector)]
+
     class crystal(emmo.solid):
         """A periodic crystal structure."""
         label = ['crystal']
+        is_a = [emmo.has_spatial_direct_part.only(crystal_unit_cell),
+                emmo.has_property.exectly(1, spacegroup)]
 
-    class ASE_Atom(emmo.atom):
-        """Representation of a periodic Atoms class in ASE."""
-        label = ['ASE_Atom']
-        is_a = [emmo.has_property.exactly(1, atomic_number),
-                emmo.has_property.exactly(1, atomic_mass),
-                emmo.has_property.exactly(1, position),
-        ]
-
-    class ASE_Atoms(crystal):
-        """Representation of a periodic Atoms class in ASE."""
-        label = ['ASE_Atoms']
-        is_a = [emmo.has_spatial_direct_part.some(ASE_Atom),
-                emmo.has_property.exactly(1, unit_cell)]
 
     # Add some properties to our atoms
-    #emmo.atom.is_a.append(emmo.has_property.exactly(1, atomic_number))
-    #emmo.atom.is_a.append(emmo.has_property.exactly(1, atomic_mass))
-    #emmo.atom.is_a.append(emmo.has_property.exactly(1, position))
+    emmo.e_bonded_atom.is_a.append(emmo.has_property.exactly(1, atomic_number))
+    emmo.e_bonded_atom.is_a.append(emmo.has_property.exactly(1, atomic_mass))
+    emmo.e_bonded_atom.is_a.append(emmo.has_property.exactly(1, position))
 
-
-
-
-    #class unit_cell(emmo.intensive_property):
-    #    """Describes a unit cell in a crystal.  Essentially the three cell vectors."""
-    #    pass
-    #
-    #class PeriodicAtoms(emmo.crystal):
-    #    """Representation of a periodic Atoms class in ASE.  This essential
-    #    corresponds to a crystal in EMMO."""
-    #    equivalent_to = [emmo.has_spatial_direct_part.some(emmo.atom) &
-    #                     emmo.has_property.exactly(1, unit_cell)]
-    #
-    #class atomic_number(emmo.intensive_property):
-    #    pass
-    #
-    #class atomic_mass(emmo.intensive_property):
-    #    pass
-    #
-    #class position(emmo.intensive_property):
-    #    pass
-    #
-    #emmo.atom.equivalent_to.append(emmo.has_property.exactly(1, atomic_number))
-    #emmo.atom.equivalent_to.append(emmo.has_property.exactly(1, atomic_mass))
-    #emmo.atom.equivalent_to.append(emmo.has_property.exactly(1, position))
-
-
-    #class crystal_structure(property):
-    #    """Represents a simple crystal structure, like fcc, bcc, etc."""
-    #    pass
-    #
-    #class spacegroup(abstract):  # FIXME - be more specific
-    #    """A class representing a crystallographic space group."""
-    #    pass
-    #
-    #class has_spacegroup_number(spacegroup >> int):
-    #    """A data property for specifying a space group using its number in
-    #    International Tables of Crystallography."""
-    #    pass
 
 
 # Save our new extended version of EMMO
