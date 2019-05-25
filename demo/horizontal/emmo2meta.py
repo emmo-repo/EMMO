@@ -140,6 +140,17 @@ class EMMO2Meta:
                 self.coll.add_relation(label, "is_a", r.label.first())
                 self.add_class(r)
             elif isinstance(r, owlready2.Restriction):
+
+                print('*** label=%s, property=%r' % (label, r.property))
+                b1 = isinstance(r.property, self.onto.has_sign)
+                print('   ', b1)
+                if b1:
+                    b2 = isinstance(r.value, owlready2.ThingClass)
+                    print('   ', b2)
+                    if b2:
+                        b3 = isinstance(r.value, self.onto.property)
+                        print('   ', b3)
+
                 if     (isinstance(r.property, self.onto.has_sign) and
                         isinstance(r.value, owlready2.ThingClass) and
                         isinstance(r.value, self.onto.property)):
@@ -151,6 +162,9 @@ class EMMO2Meta:
                     descr = self.get_description(v)
                     props.append(Property(name, type='double', dims=d,
                                           unit=unit, description=descr))
+
+                    print('*** label=%s, name=%s, props=%r' % (label, name, props))
+
                 else:
                     self.add_restriction(r)
             elif isinstance(r, owlready2.ClassConstruct):

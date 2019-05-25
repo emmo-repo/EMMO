@@ -8,6 +8,7 @@ ontopath = os.path.abspath(os.path.join(
 
 
 
+#e = EMMO2Meta(ontology=ontopath, collid='ASE_Atoms')
 e = EMMO2Meta(ontology=ontopath, classes='ASE_Atoms', collid='ASE_Atoms')
 e.save('json', 'horizontal.json', 'mode=w')
 onto = e.onto
