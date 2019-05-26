@@ -46,9 +46,20 @@ abbreviations = {
     'has_proper_part some': 'hpp-s',
     'is_proper_part_of some': 'ippo-s',
     'has_proper_part_of some': 'hppo-s',
+    'has_spatial_proper_part some': 'hspp-s',
+    'has_spatial_proper_part only': 'hspp-o',
     'has_spatial_direct_part min': 'hsdp-m',
     'has_spatial_direct_part some': 'hsdp-s',
     'has_spatial_direct_part exactly': 'hsdp-e',
+    'has_temporal_proper_part only': 'htpp-o',
+    'has_temporal_proper_part some': 'htpp-s',
+    'has_temporal_direct_part only': 'htdp-o',
+    'has_temporal_direct_part some': 'htdp-s',
+    'encloses some': 'e-s',
+    'encloses only': 'e-o',
+    'is_enclosed_by some': 'ieb-s',
+    'is_enclosed_by only': 'ieb-o',
+    'has_sign some': 'hs-s',
     }
 max_width = 668  # max width of image in px
 

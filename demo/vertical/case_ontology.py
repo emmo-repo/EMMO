@@ -142,20 +142,20 @@ with onto:
         """A volume defined by the 3 unit cell vectors.  It contains the atoms
         constituting the unit cell of a crystal."""
         label = ['crystal_unit_cell']
-        is_a = [emmo.has_spatial_direct_part.some(emmo.e_bonded_atom),
+        is_a = [emmo.has_spatial_direct_part.some(emmo['e-bonded_atom']),
                 emmo.has_property.exactly(3, unit_vector)]
 
     class crystal(emmo.solid):
         """A periodic crystal structure."""
         label = ['crystal']
         is_a = [emmo.has_spatial_direct_part.only(crystal_unit_cell),
-                emmo.has_property.exectly(1, spacegroup)]
+                emmo.has_property.exactly(1, spacegroup)]
 
 
     # Add some properties to our atoms
-    emmo.e_bonded_atom.is_a.append(emmo.has_property.exactly(1, atomic_number))
-    emmo.e_bonded_atom.is_a.append(emmo.has_property.exactly(1, atomic_mass))
-    emmo.e_bonded_atom.is_a.append(emmo.has_property.exactly(1, position))
+    emmo['e-bonded_atom'].is_a.append(emmo.has_property.exactly(1, atomic_number))
+    emmo['e-bonded_atom'].is_a.append(emmo.has_property.exactly(1, atomic_mass))
+    emmo['e-bonded_atom'].is_a.append(emmo.has_property.exactly(1, position))
 
 
 

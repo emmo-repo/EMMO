@@ -219,14 +219,24 @@ class OntoGraph:
                 rtype = owlready2.class_construct._restriction_type_2_label[
                     e.type]
                 if relations is True or rname in relations:
-                    vname = e.value.label.first()
+                    if hasattr(e.value, 'label'):
+                        vname = e.value.label.first()
+                    else:
+                        vname = repr(e.value)
+                        print('=== vname:', vname)
                     others = graph.get_node(vname)
                     if len(others) == 1:
                         other = others[0]
                     else:
                         continue
-                    label = '%s %s' % (rname, rtype)
-                    elabel = abbreviations.get(label, label)
+                    if rtype in ('min', 'max', 'exactly'):
+                        label = '%s %s %d' % (rname, rtype, e.cardinality)
+                        slabel = '%s %s' % (rname, rtype)
+                        elabel = abbreviations.get(slabel, label)
+                    else:
+                        label = '%s %s' % (rname, rtype)
+                        elabel = abbreviations.get(label, label)
+
                     # Add some extra space to labels
                     edge = pydot.Edge(
                         node, other, label=elabel + '   ', **style)
