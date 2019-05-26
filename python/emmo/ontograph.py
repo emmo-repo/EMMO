@@ -16,7 +16,8 @@ class OntoGraph:
     """
     _default_style = {
         'graph': {'graph_type': 'digraph', 'rankdir': 'RL', 'fontsize': 8,
-            #'fontname': 'Bitstream Vera Sans', 'splines': 'ortho',
+                  #'fontname': 'Bitstream Vera Sans', 'splines': 'ortho',
+                  #'engine': 'neato',
             },
         'class': {
             'style': 'filled',
@@ -105,6 +106,7 @@ class OntoGraph:
         Note: This method requires pydot.
         """
         import pydot
+        from .ontology import NoSuchLabelError
 
         if style is None:
             style = self._default_style
@@ -141,7 +143,7 @@ class OntoGraph:
         for node in graph.get_nodes():
             try:
                 entity = self.get_by_label(node.get_name())
-            except KeyError:
+            except (KeyError, NoSuchLabelError):
                 continue
             # Add is_a edges
             targets = [e for e in entity.is_a if not isinstance(e, (
@@ -223,7 +225,6 @@ class OntoGraph:
                         vname = e.value.label.first()
                     else:
                         vname = repr(e.value)
-                        print('=== vname:', vname)
                     others = graph.get_node(vname)
                     if len(others) == 1:
                         other = others[0]

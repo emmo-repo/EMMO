@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """An example script that uses EMMO to describe a vertical use case on
 welding aluminium to steel and how the thin layer of intermetallic
 that are formed at the interface is influencing the overall
@@ -34,8 +35,6 @@ References
 """
 from emmo import get_ontology
 
-import ase
-
 
 # Load EMMO and run reasoner (currently this also includes the materials branch)
 emmo = get_ontology('emmo.owl')
@@ -52,11 +51,34 @@ with onto:
 
     # Relations
     class has_unit(emmo.has_convention):
+        """Associates a unit to a property."""
         label = ['has_unit']
 
     class is_unit_for(emmo.is_convention_for):
+        """Associates a property to a unit."""
         label = ['is_unit_for']
         inverse_property = has_unit
+
+    class has_type(emmo.has_convention):
+        """Associates a type (symbol, number...) to a property."""
+        label = ['has_type']
+
+    class is_type_of(emmo.is_convention_for):
+        """Associates a property to a type (symbol, number...)."""
+        label = ['is_type_of']
+        inverse_property = has_type
+
+    #
+    # Types
+    # -----
+    class integer(emmo.number):
+        label = ['integer']
+
+    class real(emmo.number):
+        label = ['real']
+
+    class string(emmo.symbol):
+        label = ['string']
 
     #
     # Units
@@ -83,37 +105,49 @@ with onto:
     class area(emmo.physical_quantity):
         """Area of a surface."""
         label = ['area']
-        is_a = [has_unit.exactly(1, square_meter)]
+        is_a = [has_unit.exactly(1, square_meter),
+                has_type.exactly(1, real)]
 
     class energy(emmo.physical_quantity):
         """Energy."""
         label = ['energy']
-        is_a = [has_unit.exactly(1, jourle)]
+        is_a = [has_unit.exactly(1, jourle),
+                has_type.exactly(1, real)]
 
     class work_of_separation(energy):
         """The work required to separate two materials per boundary area."""
         label = ['work_of_separation']
-        is_a = [has_unit.exactly(1, jourle_per_square_meter)]
+        is_a = [has_unit.exactly(1, jourle_per_square_meter),
+                has_type.exactly(1, real)]
 
     class atomic_number(emmo.physical_quantity):
+        """Number of protons in the nucleus of an atom."""
         label = ['atomic_number']
+        is_a = [has_type.exactly(1, integer)]
 
     class atomic_mass(emmo.physical_quantity):
         label = ['atomic_mass']
+        is_a = [has_type.exactly(1, real)]
 
     class position(emmo.physical_quantity):
         label = ['position']
+        is_a = [has_type.exactly(3, real)]
 
     class unit_vector(emmo.physical_quantity):
         """A vector that participitates defining the unit cell."""
         label = ['unit_vector']
+        is_a = [has_type.exactly(3, real)]
 
     class spacegroup(emmo.descriptive_property):
         """A spacegroup is the symmetry group off all symmetry operations that
-        apply to a crystal structure. It can be represented by the space
-        group number from the International tables of Crystallography
-        and a setting."""
+        apply to a crystal structure.
+
+        It is typically represented by its Hermann-Mauguin symbol or
+        space group number (and setting) from the International tables of
+        Crystallography.
+        """
         label = ['spacegroup']
+        is_a = [has_type.exactly(1, string)]
 
     #
     # Material classes
@@ -162,5 +196,11 @@ with onto:
 # Save our new extended version of EMMO
 onto.save('case_ontology.owl')
 
-graph = onto.get_dot_graph(list(onto.classes()), relations=True)
+ontoclasses = set(onto.classes())
+parents = {e.mro()[1] for e in ontoclasses}
+classes = ontoclasses.union(parents)
+graph = onto.get_dot_graph(ontoclasses, relations=True, annotations=None)
 graph.write_pdf('case_ontology.pdf')
+
+graph2 = onto.get_dot_graph(classes, relations=True)
+graph2.write_pdf('case_ontology-parents.pdf')

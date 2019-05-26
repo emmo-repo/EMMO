@@ -129,8 +129,6 @@ class EMMO2Meta:
         uri = self.get_uri(label)
         if self.coll.has(label):
             return self.coll.get(label)
-        dims = []
-        props = []
         self.labels.add(label)
         for r in cls.is_a:
             if r == owlready2.Thing:
@@ -140,31 +138,10 @@ class EMMO2Meta:
                 self.coll.add_relation(label, "is_a", r.label.first())
                 self.add_class(r)
             elif isinstance(r, owlready2.Restriction):
-
-                print('*** label=%s, property=%r' % (label, r.property))
-                b1 = isinstance(r.property, self.onto.has_sign)
-                print('   ', b1)
-                if b1:
-                    b2 = isinstance(r.value, owlready2.ThingClass)
-                    print('   ', b2)
-                    if b2:
-                        b3 = isinstance(r.value, self.onto.property)
-                        print('   ', b3)
-
-                if     (isinstance(r.property, self.onto.has_sign) and
+                if     (issubclass(r.property, self.onto.has_property) and
                         isinstance(r.value, owlready2.ThingClass) and
                         isinstance(r.value, self.onto.property)):
-                    name = self.get_label(r.value)
-                    v = self.add_class(r.value)
-                    d = [0] if r.cardinality == 1 else []
-                    # FIXME determine unit
-                    unit = None
-                    descr = self.get_description(v)
-                    props.append(Property(name, type='double', dims=d,
-                                          unit=unit, description=descr))
-
-                    print('*** label=%s, name=%s, props=%r' % (label, name, props))
-
+                    self.add_class(r.value)
                 else:
                     self.add_restriction(r)
             elif isinstance(r, owlready2.ClassConstruct):
@@ -172,9 +149,72 @@ class EMMO2Meta:
             else:
                 print('*** unknown element type in is_a:', r)
         if not self.coll.has(label):
+            dims, props = self.get_properties(cls)
             e = Instance(uri, dims, props, self.get_description(cls))
             self.coll.add(label, e)
         return self.coll.get(label)
+
+    def get_properties(self, cls):
+        """Returns two lists with the dlite dimensions and properties
+        correspinding to owl class `cls`."""
+        dims = []
+        props = []
+        dimindices = {}
+        propnames = set()
+        types = dict(integer='int', real='double', string='string')
+
+        def get_dim(r, name, descr=None):
+            """Returns dimension index corresponding to dimension name `name`
+            for property `r.value`."""
+            t = owlready2.class_construct._restriction_type_2_label[r.type]
+            if (t in ('some', 'only', 'min') or
+                (t in ('max', 'exactly') and r.cardinality > 1)):
+                if name not in dimindices:
+                    dimindices[name] = len(dims)
+                    dims.append(Dimension(name, descr))
+                return [dimindices[name]]
+            else:
+                return []
+
+        for c in cls.mro():
+            if not isinstance(c, owlready2.ThingClass):
+                continue
+            for r in c.is_a:
+                if     (isinstance(r, owlready2.Restriction) and
+                        issubclass(r.property, self.onto.has_property) and
+                        isinstance(r.value, owlready2.ThingClass) and
+                        isinstance(r.value, self.onto.property)):
+                    name = self.get_label(r.value)
+                    if name in propnames:
+                        continue
+                    propnames.add(name)
+
+                    # Default type, ndims and unit
+                    if isinstance(r.value, (self.onto.descriptive_property,
+                                            self.onto.qualitative_property,
+                                            self.onto.subjective_property)):
+                        ptype = 'string'
+                    else:
+                        ptype = 'double'
+                    d = []
+                    d.extend(get_dim(r, 'n_%ss' % name, 'Number of %s.' % name))
+                    unit = None
+
+                    # Update type, ndims and unit from relations
+                    for r2 in [r] + r.value.is_a:
+                        if isinstance(r2, owlready2.Restriction):
+                            if issubclass(r2.property, self.onto.has_type):
+                                typelabel = self.get_label(r2.value)
+                                ptype = types[typelabel]
+                                d.extend(get_dim(r2, '%s_length' % name,
+                                                 'Length of %s' % name))
+                            elif issubclass(r2.property, self.onto.has_unit):
+                                unit = self.get_label(r2.value)
+
+                    descr = self.get_description(r.value)
+                    props.append(Property(name, type=ptype, dims=d,
+                                          unit=unit, description=descr))
+        return dims, props
 
     def add_restriction(self, r):
         """Adds owl restriction `r` to collection and returns a reference

@@ -164,7 +164,7 @@ class Ontology(owlready2.Ontology, OntoGraph, OntoVocab):
         either as a ThingClass object or as a label."""
         if isinstance(entity, str):
             entity = self.get_by_label(entity)
-        d = {'comment': entity.comment}
+        d = {'comment': getattr(entity, 'comment', '')}
         for a in self.annotation_properties():
             d[a.label.first()] = [
                 o.strip('"') for s, p, o in
