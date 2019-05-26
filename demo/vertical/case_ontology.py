@@ -36,8 +36,8 @@ References
 from emmo import get_ontology
 
 
-# Load EMMO and run reasoner (currently this also includes the materials branch)
-emmo = get_ontology('emmo.owl')
+# Load EMMO
+emmo = get_ontology()
 emmo.load()
 #emmo.sync_reasoner()
 
@@ -139,8 +139,8 @@ with onto:
         is_a = [has_type.exactly(3, real)]
 
     class spacegroup(emmo.descriptive_property):
-        """A spacegroup is the symmetry group off all symmetry operations that
-        apply to a crystal structure.
+        """A spacegroup is the symmetry group off all symmetry operations
+        that apply to a crystal structure.
 
         It is typically represented by its Hermann-Mauguin symbol or
         space group number (and setting) from the International tables of
@@ -196,11 +196,12 @@ with onto:
 # Save our new extended version of EMMO
 onto.save('case_ontology.owl')
 
+# Create graphs
 ontoclasses = set(onto.classes())
-parents = {e.mro()[1] for e in ontoclasses}
-classes = ontoclasses.union(parents)
 graph = onto.get_dot_graph(ontoclasses, relations=True, abbreviations=None)
 graph.write_pdf('case_ontology.pdf')
 
+parents = {e.mro()[1] for e in ontoclasses}
+classes = ontoclasses.union(parents)
 graph2 = onto.get_dot_graph(classes, relations=True)
 graph2.write_pdf('case_ontology-parents.pdf')
