@@ -53,7 +53,7 @@ def map_ase2onto(atoms, metacoll):
 
     UnitCell = metacoll['crystal_unit_cell']
     unit_cell = UnitCell([3, 3])
-    unit_cell.unit_vector = at.cell
+    unit_cell.lattice_vector = at.cell
     atcoll.add('unit_cell', unit_cell)
     atcoll.add_relation('crystal', 'has_spatial_direct_part', 'unit_cell')
 

@@ -133,9 +133,9 @@ with onto:
         label = ['position']
         is_a = [has_type.exactly(3, real)]
 
-    class unit_vector(emmo.physical_quantity):
+    class lattice_vector(emmo.physical_quantity):
         """A vector that participitates defining the unit cell."""
-        label = ['unit_vector']
+        label = ['lattice_vector']
         is_a = [has_type.exactly(3, real)]
 
     class spacegroup(emmo.descriptive_property):
@@ -177,7 +177,7 @@ with onto:
         constituting the unit cell of a crystal."""
         label = ['crystal_unit_cell']
         is_a = [emmo.has_spatial_direct_part.some(emmo['e-bonded_atom']),
-                emmo.has_property.exactly(3, unit_vector)]
+                emmo.has_property.exactly(3, lattice_vector)]
 
     class crystal(emmo.solid):
         """A periodic crystal structure."""
@@ -199,7 +199,7 @@ onto.save('case_ontology.owl')
 ontoclasses = set(onto.classes())
 parents = {e.mro()[1] for e in ontoclasses}
 classes = ontoclasses.union(parents)
-graph = onto.get_dot_graph(ontoclasses, relations=True, annotations=None)
+graph = onto.get_dot_graph(ontoclasses, relations=True, abbreviations=None)
 graph.write_pdf('case_ontology.pdf')
 
 graph2 = onto.get_dot_graph(classes, relations=True)
