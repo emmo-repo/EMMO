@@ -96,6 +96,9 @@ with onto:
     class square_meter(SI_unit):
         label = ['square_meter']
 
+    class cubic_meter(SI_unit):
+        label = ['cubic_meter']
+
     class pascal(SI_unit):
         label = ['pascal']
 
@@ -111,6 +114,15 @@ with onto:
         is_a = [has_unit.exactly(1, square_meter),
                 has_type.exactly(1, real)]
 
+    class volume(emmo.physical_quantity):
+        """Volume."""
+        label = ['volume']
+        is_a = [has_unit.exactly(1, cubic_meter),
+                has_type.exactly(1, real)]
+
+    class orientation(emmo.physical_quantity):
+        label = ['orientation']
+
     class energy(emmo.physical_quantity):
         """Energy."""
         label = ['energy']
@@ -123,17 +135,29 @@ with onto:
                 has_type.exactly(1, real)]
 
     class pressure(emmo.physical_quantity):
-        """The force applied perpendicular to the surface of an object per unit area."""
-        label = ['stiffness']
+        """The force applied perpendicular to the surface of an object per
+        unit area."""
+        label = ['pressure']
         is_a = [has_unit.exactly(1, pascal),
                 has_type.exactly(1, real)]
 
-    class stiffness(energy_per_area):
+    class youngs_modulus(pressure):
         """The extent to which an object resists deformation in respnse to an
-        applied force."""
-        label = ['stiffness']
-        is_a = [has_unit.exactly(1, joule_per_square_meter),
-                has_type.exactly(1, real)]
+        applied force.
+        """
+        label = ['youngs_module']
+        is_a = [has_unit.exactly(1, pascal),
+                has_type.min(1, real)]
+
+    class poissons_ratio(emmo.physical_quantity):
+        """A measure for "Poissons effect" - the phenomena that a material
+        that is stretched in one direction, tends to contract in the
+        directions perpendicular to the stretching direction.
+
+        It is defined as the negative of the ratio of (signed)
+        transverse strain to (signed) axial strain."""
+        label = ['poissons_ratio']
+        is_a = [has_type.exactly(1, real)]
 
     class work_of_separation(energy_per_area):
         """The work required to separate two materials per boundary area."""
@@ -194,6 +218,11 @@ with onto:
         label = ['boundary_surface']
         is_a = [emmo.has_property.exactly(1, area)]
 
+    class rve(emmo.mesoscopic):
+        """The minimum volume that represents the system in question."""
+        label = ['rve']
+        is_a = [emmo.has_property.exactly(1, volume)]
+
 
     #
     # Crystallography-related classes
@@ -219,16 +248,36 @@ with onto:
     emmo['e-bonded_atom'].is_a.append(emmo.has_property.exactly(1, position))
 
 
+
+    class grain(crystal):
+        """The complexity with subgrains is ignored here..."""
+        label = ['grain']
+        is_a = [emmo.has_property.exactly(1, orientation),
+                emmo.has_property.exactly(1, volume),
+        ]
+
+
+
+
+
 #onto.sync_reasoner()
 
-# Save our new extended version of EMMO
-onto.save('case_ontology.owl')
+# Save our new extended version of EMMO.  It seems that owlready by default
+# is appending to the existing ontology.  To avoid that, we simply delete
+# the owl file if it already exists.
+owlfile = 'case_ontology.owl'
+import os
+if os.path.exists(owlfile):
+    os.remove(owlfile)
+onto.save(owlfile)
 
-# Create graphs
+# Save graph with our new classes
 ontoclasses = set(onto.classes())
 graph = onto.get_dot_graph(ontoclasses, relations=True, abbreviations=None)
 graph.write_pdf('case_ontology.pdf')
 
+# Also include the parents of our new classes (this graph becomes
+# rather large...)
 parents = {e.mro()[1] for e in ontoclasses}
 classes = ontoclasses.union(parents)
 graph2 = onto.get_dot_graph(classes, relations=True)

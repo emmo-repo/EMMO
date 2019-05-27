@@ -226,7 +226,11 @@ class OntoGraph:
                     else:
                         vname = repr(e.value)
                     others = graph.get_node(vname)
-                    if len(others) == 1:
+                    # Only proceede if there is only one node named `vname`
+                    # and an edge to that node does not already exists
+                    if (len(others) == 1 and
+                        (node.get_name(), vname) not in
+                        graph.obj_dict['edges'].keys()):
                         other = others[0]
                     else:
                         continue
@@ -264,7 +268,7 @@ class OntoGraph:
                 #else:
                 #    print('* get_dot_graph() * Ignoring: '
                 #          '%s %s' % (node.get_name(), s))
-            else:
+            elif hasattr(self, '_verbose') and self._verbose:
                 print('* get_dot_graph() * Ignoring: '
                       '%s %s %s' % (node.get_name(), relation, s))
 
@@ -307,16 +311,16 @@ class OntoGraph:
             root = self.get_by_label(root)
 
         if root in visited:
-            warnings.warn('Circular dependency of class %r' %
-                          root.label.first())
+            if hasattr(self, '_verbose') and self._verbose:
+                warnings.warn('Circular dependency of class %r' %
+                              root.label.first())
             return graph
         visited.add(root)
 
         label = root.label.first() if len(root.label) == 1 else root.name
         nodes = graph.get_node(label)
         if nodes:
-            #node, = nodes
-            node = nodes[0]
+            node, = nodes
         else:
             if self.is_individual(label):
                 node = pydot.Node(label, **style.get('individual', {}))

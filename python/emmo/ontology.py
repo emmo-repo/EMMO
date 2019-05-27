@@ -50,14 +50,18 @@ setattr(owlready2.ThingClass, 'get_parents', _get_parents)
 
 
 
-def get_ontology(base_iri='emmo-all-inferred.owl'):
-    """Returns a new Ontology from `base_iri`."""
+def get_ontology(base_iri='emmo-all-inferred.owl', verbose=False):
+    """Returns a new Ontology from `base_iri`.
+
+    If `verbose` is true, a lot of dianostics is written.
+    """
     if (not base_iri.endswith('/')) and (not base_iri.endswith('#')):
         base_iri = '%s#' % base_iri
     if base_iri in owlready2.default_world.ontologies:
         onto = owlready2.default_world.ontologies[base_iri]
     else:
         onto = Ontology(owlready2.default_world, base_iri)
+    onto._verbose = verbose
 
     # Add annotations used by EMMO
     #with onto:
