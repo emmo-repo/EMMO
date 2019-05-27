@@ -182,7 +182,6 @@ class OntoVocab:
             #for item in sorted(items, key=lambda i: i.label):
             litems = []
             for item in items:
-                print(f"item is {item}")
                 lannotations = []
 
                 # Add annotations

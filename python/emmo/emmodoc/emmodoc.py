@@ -146,7 +146,7 @@ def emmodoc(filename='emmodoc.html', format=None, figformat=None,
 
     # Appendix - full taxonomy
     entity_graph = emmo.get_dot_graph('emmo', relations=True,
-                                      abbreviations=abbreviations)
+                                      edgelabels=abbreviations)
     figname = os.path.join(htmldir, 'entity_graph.' + figformat)
     writer = getattr(entity_graph, 'write_' + figformat)
     writer(figname)
@@ -244,9 +244,8 @@ def make_graphs(sections, outdir='.', format='svg', relations=True,
     for name in sections:
         leafs = set(sections.keys())
         leafs.discard(name)
-        print(name)
         graph = emmo.get_dot_graph(name, relations=relations, leafs=leafs,
-                                   style=style, abbreviations=abbreviations)
+                                   style=style, edgelabels=abbreviations)
 
         for node in graph.get_nodes():
             node.set_URL("%s#%s" % (href, node.get_name()))
@@ -294,8 +293,6 @@ def add_figs(sections, figformat='svg', figdir='html_files', outdir='.',
                     break
             width = min(float(v[:i]) * figscale, max_width)
             scaled_widths[k] = '{ width=%.0fpx }' % width
-
-    print(scaled_widths)
 
     for k in sections:
         sections[k] = '%s\n\n![The %s branch.](%s/%s.%s)%s\n\n' % (

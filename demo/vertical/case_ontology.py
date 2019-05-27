@@ -273,12 +273,12 @@ onto.save(owlfile)
 
 # Save graph with our new classes
 ontoclasses = set(onto.classes())
-graph = onto.get_dot_graph(ontoclasses, relations=True, abbreviations=None)
+graph = onto.get_dot_graph(ontoclasses, relations=True)
 graph.write_pdf('case_ontology.pdf')
 
 # Also include the parents of our new classes (this graph becomes
 # rather large...)
 parents = {e.mro()[1] for e in ontoclasses}
 classes = ontoclasses.union(parents)
-graph2 = onto.get_dot_graph(classes, relations=True)
+graph2 = onto.get_dot_graph(classes, relations=True, edgelabels=False)
 graph2.write_pdf('case_ontology-parents.pdf')
