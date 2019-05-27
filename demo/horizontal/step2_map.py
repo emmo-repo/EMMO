@@ -74,6 +74,8 @@ def map_ase2onto(atoms, metacoll):
 # Load atom structure from cif file and convert it to a DLiteAtoms object
 at = ase.io.read('../vertical/Al-Fe4Al13.cif')
 atoms = dlite.objectfactory(at, cls=DLiteAtoms, instanceid='atoms_Al-Fe4Al13')
+atoms.dlite_inst.save('json', 'atoms_Al-Fe4Al13.json', 'mode=w')
+
 
 # Load metadata collection from step 1
 metacoll = dlite.Collection('json://horizontal.json?mode=r#crystal', True)

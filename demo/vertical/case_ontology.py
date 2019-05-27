@@ -87,17 +87,20 @@ with onto:
         """Base class for all SI units."""
         label = ['SI_unit']
 
-    class jourle(SI_unit):
+    class joule(SI_unit):
         # To allow the reasoner to help us, we could add an
         # equivalent_to to the mathematical expression kg*m^2/s^2,
         # but it seems a rather complicated thing to do in DL.
-        label = ['jourle']
+        label = ['joule']
 
     class square_meter(SI_unit):
         label = ['square_meter']
 
-    class jourle_per_square_meter(SI_unit):
-        label = ['jourle_per_square_meter']
+    class pascal(SI_unit):
+        label = ['pascal']
+
+    class joule_per_square_meter(SI_unit):
+        label = ['joule_per_square_meter']
 
     #
     # Properties
@@ -111,13 +114,37 @@ with onto:
     class energy(emmo.physical_quantity):
         """Energy."""
         label = ['energy']
-        is_a = [has_unit.exactly(1, jourle),
+        is_a = [has_unit.exactly(1, joule),
                 has_type.exactly(1, real)]
 
-    class work_of_separation(energy):
+    class energy_per_area(emmo.physical_quantity):
+        label = ['energy_per_area']
+        is_a = [has_unit.exactly(1, joule_per_square_meter),
+                has_type.exactly(1, real)]
+
+    class pressure(emmo.physical_quantity):
+        """The force applied perpendicular to the surface of an object per unit area."""
+        label = ['stiffness']
+        is_a = [has_unit.exactly(1, pascal),
+                has_type.exactly(1, real)]
+
+    class stiffness(energy_per_area):
+        """The extent to which an object resists deformation in respnse to an
+        applied force."""
+        label = ['stiffness']
+        is_a = [has_unit.exactly(1, joule_per_square_meter),
+                has_type.exactly(1, real)]
+
+    class work_of_separation(energy_per_area):
         """The work required to separate two materials per boundary area."""
         label = ['work_of_separation']
-        is_a = [has_unit.exactly(1, jourle_per_square_meter),
+        is_a = [has_unit.exactly(1, joule_per_square_meter),
+                has_type.exactly(1, real)]
+
+    class force_of_separation(pressure):
+        """The work required to separate two materials per boundary area."""
+        label = ['force_of_separation']
+        is_a = [has_unit.exactly(1, pascal),
                 has_type.exactly(1, real)]
 
     class atomic_number(emmo.physical_quantity):
@@ -192,6 +219,7 @@ with onto:
     emmo['e-bonded_atom'].is_a.append(emmo.has_property.exactly(1, position))
 
 
+#onto.sync_reasoner()
 
 # Save our new extended version of EMMO
 onto.save('case_ontology.owl')
