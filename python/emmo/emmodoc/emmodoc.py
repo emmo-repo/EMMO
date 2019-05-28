@@ -248,7 +248,7 @@ def make_graphs(sections, outdir='.', format='svg', relations=True,
                                    style=style, edgelabels=abbreviations)
 
         for node in graph.get_nodes():
-            node.set_URL("%s#%s" % (href, node.get_name()))
+            node.set_URL("%s#%s" % (href, node.get_name().strip('"')))
             node.set_target("_top")
 
         writer = getattr(graph, 'write_' + format)
