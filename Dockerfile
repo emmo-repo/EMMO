@@ -1,9 +1,10 @@
 from continuumio/miniconda3
 
-RUN apt update && apt install -y graphviz pandoc
+RUN apt update && apt install -y graphviz pandoc gcc
+RUN pip install Cython
 RUN pip install pydot 
 RUN pip install ase
-RUN pip install Owlready2==0.13
+RUN pip install Owlready2==0.10
 
 ENV PYTHONPATH "/emmo/python:${PYTHONPATH}"
 
