@@ -107,6 +107,9 @@ with onto:
     class joule_per_square_meter(SI_unit):
         label = ['joule_per_square_meter']
 
+    class kilogram_per_cubic_meter(SI_unit):
+        label = ['kilogram_per_cubic_meter']
+
     class radian(SI_unit):
         label = ['radian']
 
@@ -133,7 +136,10 @@ with onto:
                 has_type.exactly(3, real)]
 
     class density(emmo.physical_quantity):
-        pass
+        """Density."""
+        label = ['density']
+        is_a = [has_unit.exactly(1, kilogram_per_cubic_meter),
+                has_type.exactly(1, real)]
 
     class energy(emmo.physical_quantity):
         """Energy."""
@@ -159,10 +165,10 @@ with onto:
         label = ['elastic_tensor']
         is_a = [has_unit.exactly(1, pascal),
                 has_type.exactly(81, real)]
-                has_type.exactly(81, real)]
 
     class plasticity(emmo.physical_quantity):
         """Describes Yield stress and material hardening."""
+        label = ['plasticity']
         is_a = [has_unit.exactly(1, pascal),
                 has_type.min(2, real)]
 
@@ -272,6 +278,7 @@ with onto:
                 emmo.has_space_slice.exactly(1, interface)]
 
     class phase(emmo.mesoscopic):
+        label = ['phase']
         is_a = [emmo.has_property.exactly(1, elastic_tensor),
                 emmo.has_property.exactly(1, density),
                 emmo.has_property.exactly(1, plasticity)]
@@ -283,14 +290,14 @@ with onto:
                 emmo.has_space_slice.exactly(1, interface)]
 
     class cohesive_element(fem_unit_cell):
-        label = ['fem_unit_cell']
+        label = ['cohesive_element']
         is_a = [boundary,
                 emmo.has_property.exactly(1, measured_volume),
                 emmo.has_spatial_direct_part.exactly(1, phase),
                 emmo.has_space_slice.exactly(1, interface)]
 
     class bulk_element(fem_unit_cell):
-        label = ['fem_unit_cell']
+        label = ['bulk_element']
         is_a = [emmo.has_property.exactly(1, measured_volume),
                 emmo.has_property.exactly(1, phase)]
 
