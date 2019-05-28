@@ -54,171 +54,145 @@ with onto:
     # =========
     class has_unit(emmo.has_convention):
         """Associates a unit to a property."""
-        label = ['has_unit']
+        pass
 
     class is_unit_for(emmo.is_convention_for):
         """Associates a property to a unit."""
-        label = ['is_unit_for']
         inverse_property = has_unit
 
     class has_type(emmo.has_convention):
         """Associates a type (symbol, number...) to a property."""
-        label = ['has_type']
+        pass
 
     class is_type_of(emmo.is_convention_for):
         """Associates a property to a type (symbol, number...)."""
-        label = ['is_type_of']
         inverse_property = has_type
 
     #
     # Types
     # =====
     class integer(emmo.number):
-        label = ['integer']
+        pass
 
     class real(emmo.number):
-        label = ['real']
+        pass
 
     class string(emmo.symbol):
-        label = ['string']
+        pass
 
     #
     # Units
     # =====
     class SI_unit(emmo.measurement_unit):
         """Base class for all SI units."""
-        label = ['SI_unit']
+        pass
 
     class joule(SI_unit):
         # To allow the reasoner to help us, we could add an
         # equivalent_to to the mathematical expression kg*m^2/s^2,
         # but it seems a rather complicated thing to do in DL.
-        label = ['joule']
+        pass
+
+    class meter(SI_unit):
+        pass
 
     class square_meter(SI_unit):
-        label = ['square_meter']
+        pass
 
     class cubic_meter(SI_unit):
-        label = ['cubic_meter']
+        pass
+
+    class kilogram(SI_unit):
+        pass
 
     class pascal(SI_unit):
-        label = ['pascal']
+        pass
 
     class joule_per_square_meter(SI_unit):
-        label = ['joule_per_square_meter']
+        pass
 
     class kilogram_per_cubic_meter(SI_unit):
-        label = ['kilogram_per_cubic_meter']
+        pass
 
     class radian(SI_unit):
-        label = ['radian']
+        pass
 
     #
     # Properties
     # ==========
+    class position(emmo.physical_quantity):
+        is_a = [has_unit.exactly(1, meter),
+                has_type.exactly(3, real)]
+
     class area(emmo.physical_quantity):
         """Area of a surface."""
-        label = ['area']
         is_a = [has_unit.exactly(1, square_meter),
+                has_type.exactly(1, real)]
+
+    class mass(emmo.physical_quantity):
+        is_a = [has_unit.exactly(1, kilogram),
                 has_type.exactly(1, real)]
 
     class measured_volume(emmo.physical_quantity):
         """Volume.  We call it a measured volume to not mix up with the
         `volume` defined in EMMO Core."""
-        label = ['measured_volume']
         is_a = [has_unit.exactly(1, cubic_meter),
                 has_type.exactly(1, real)]
 
     class orientation(emmo.physical_quantity):
         """Orientation characterised by three Euler angles."""
-        label = ['orientation']
         is_a = [has_unit.exactly(1, radian),
                 has_type.exactly(3, real)]
 
     class density(emmo.physical_quantity):
         """Density."""
-        label = ['density']
         is_a = [has_unit.exactly(1, kilogram_per_cubic_meter),
                 has_type.exactly(1, real)]
 
     class energy(emmo.physical_quantity):
         """Energy."""
-        label = ['energy']
         is_a = [has_unit.exactly(1, joule),
                 has_type.exactly(1, real)]
 
     class energy_per_area(emmo.physical_quantity):
-        label = ['energy_per_area']
         is_a = [has_unit.exactly(1, joule_per_square_meter),
                 has_type.exactly(1, real)]
 
     class pressure(emmo.physical_quantity):
         """The force applied perpendicular to the surface of an object per
         unit area."""
-        label = ['pressure']
         is_a = [has_unit.exactly(1, pascal),
                 has_type.exactly(1, real)]
 
     class elastic_tensor(pressure):
         """The stiffness tensor is a property of a continuous elastic material
         that relates stresses to strains (Hooks's law)."""
-        label = ['elastic_tensor']
         is_a = [has_unit.exactly(1, pascal),
                 has_type.exactly(81, real)]
 
     class plasticity(emmo.physical_quantity):
         """Describes Yield stress and material hardening."""
-        label = ['plasticity']
         is_a = [has_unit.exactly(1, pascal),
                 has_type.min(2, real)]
 
-    #class youngs_modulus(pressure):
-    #    """The extent to which an object resists deformation in respnse to an
-    #    applied force.
-    #    """
-    #    label = ['youngs_module']
-    #    is_a = [has_unit.exactly(1, pascal),
-    #            has_type.min(1, real)]
-    #
-    #class poissons_ratio(emmo.physical_quantity):
-    #    """A measure for "Poissons effect" - the phenomena that a material
-    #    that is stretched in one direction, tends to contract in the
-    #    directions perpendicular to the stretching direction.
-    #
-    #    It is defined as the negative of the ratio of (signed)
-    #    transverse strain to (signed) axial strain."""
-    #    label = ['poissons_ratio']
-    #    is_a = [has_type.exactly(1, real)]
-
     class work_of_separation(energy_per_area):
         """The work required to separate two materials per boundary area."""
-        label = ['work_of_separation']
         is_a = [has_unit.exactly(1, joule_per_square_meter),
                 has_type.exactly(1, real)]
 
     class traction_separation(pressure):
         """The work required to separate two materials per boundary area."""
-        label = ['force_of_separation']
         is_a = [has_unit.exactly(1, pascal),
                 has_type.exactly(1, real)]
 
     class atomic_number(emmo.physical_quantity):
         """Number of protons in the nucleus of an atom."""
-        label = ['atomic_number']
         is_a = [has_type.exactly(1, integer)]
-
-    class atomic_mass(emmo.physical_quantity):
-        label = ['atomic_mass']
-        is_a = [has_type.exactly(1, real)]
-
-    class position(emmo.physical_quantity):
-        label = ['position']
-        is_a = [has_type.exactly(3, real)]
 
     class lattice_vector(emmo.physical_quantity):
         """A vector that participitates defining the unit cell."""
-        label = ['lattice_vector']
-        is_a = [has_type.exactly(3, real)]
+        is_a = [has_unit.exactly(1, meter),
+                has_type.exactly(3, real)]
 
     class spacegroup(emmo.descriptive_property):
         """A spacegroup is the symmetry group off all symmetry operations
@@ -228,7 +202,6 @@ with onto:
         space group number (and setting) from the International tables of
         Crystallography.
         """
-        label = ['spacegroup']
         is_a = [has_type.exactly(1, string)]
 
     #
@@ -237,23 +210,21 @@ with onto:
 
     # Crystallography-related classes
     # -------------------------------
-    class crystal_unit_cell(emmo.mesoscopic):
+    class crystal_unit_cell(emmo.atomic):
         """A volume defined by the 3 unit cell vectors.  It contains the atoms
         constituting the unit cell of a crystal."""
-        label = ['crystal_unit_cell']
         is_a = [emmo.has_spatial_direct_part.some(emmo['e-bonded_atom']),
                 emmo.has_property.exactly(3, lattice_vector),
                 emmo.has_property.exactly(1, elastic_tensor)]
 
     class crystal(emmo.solid):
         """A periodic crystal structure."""
-        label = ['crystal']
         is_a = [emmo.has_spatial_direct_part.only(crystal_unit_cell),
                 emmo.has_property.exactly(1, spacegroup)]
 
     # Add some properties to our atoms
     emmo['e-bonded_atom'].is_a.append(emmo.has_property.exactly(1, atomic_number))
-    emmo['e-bonded_atom'].is_a.append(emmo.has_property.exactly(1, atomic_mass))
+    emmo['e-bonded_atom'].is_a.append(emmo.has_property.exactly(1, mass))
     emmo['e-bonded_atom'].is_a.append(emmo.has_property.exactly(1, position))
 
 
@@ -269,41 +240,47 @@ with onto:
                 emmo.has_property.exactly(1, work_of_separation),
                 emmo.has_property.exactly(1, traction_separation)]
 
+    # Aassign `measured_volume` as a property of `emmo.volume`
+    emmo.volume.is_a.append(emmo.has_property.exactly(1, measured_volume))
+
     class boundary(emmo.state):
         """A boundary is a 4D region of spacetime shared by two material
         entities.
         """
-        label = ['boundary']
         is_a = [emmo.has_spatial_direct_part.exactly(2, emmo.state),
                 emmo.has_space_slice.exactly(1, interface)]
 
-    class phase(emmo.mesoscopic):
-        label = ['phase']
+    class phase(emmo.solid):
+        """A phase in a bulk material.
+
+        Other properties, like compositions etc. would normally be
+        assigned to a phase, are omitted here because they are not
+        essential for this case study."""
         is_a = [emmo.has_property.exactly(1, elastic_tensor),
                 emmo.has_property.exactly(1, density),
                 emmo.has_property.exactly(1, plasticity)]
 
-    class fem_unit_cell(emmo.mesoscopic):
-        label = ['fem_unit_cell']
-        is_a = [emmo.has_property.exactly(1, measured_volume),
-                emmo.has_spatial_direct_part.exactly(1, phase),
-                emmo.has_space_slice.exactly(1, interface)]
+    class vertex(emmo.point):
+        """A vertex in a finite element unit cell."""
+        is_a = [emmo.has_property.exactly(1, position)]
+
+    class fem_unit_cell(emmo.solid):
+        """A volume of a real world entity that is represented as a finite
+        element unit cell in FEM."""
+        is_a = [emmo.has_space_slice.exactly(1, emmo.volume)]
 
     class cohesive_element(fem_unit_cell):
-        label = ['cohesive_element']
         is_a = [boundary,
-                emmo.has_property.exactly(1, measured_volume),
-                emmo.has_spatial_direct_part.exactly(1, phase),
+                emmo.has_spatial_direct_part.exactly(2, phase),
+                emmo.has_space_slice.min(6, vertex),
                 emmo.has_space_slice.exactly(1, interface)]
 
     class bulk_element(fem_unit_cell):
-        label = ['bulk_element']
-        is_a = [emmo.has_property.exactly(1, measured_volume),
-                emmo.has_property.exactly(1, phase)]
+        is_a = [emmo.has_spatial_direct_part.exactly(1, phase),
+                emmo.has_space_slice.min(4, vertex)]
 
-    class rve(emmo.mesoscopic):
+    class rve(emmo.solid):
         """The minimum volume that represents the system in question."""
-        label = ['rve']
         is_a = [emmo.has_spatial_direct_part.only(fem_unit_cell)]
 
     #class grain(crystal):
@@ -317,9 +294,11 @@ with onto:
 
 
 
+# Sync attributes to make sure that all classes get a `label` and to
+# include the docstrings in the comments
+onto.sync_attributes()
 
-
-
+# Sync the reasoner - FIXME: figure out how to use Pellet instead of HermiT
 #onto.sync_reasoner()
 
 # Save our new extended version of EMMO.  It seems that owlready by default
@@ -332,15 +311,32 @@ if os.path.exists(owlfile):
 onto.save(owlfile)
 
 # Save graph with our new classes
-ontoclasses = set(onto.classes())
-graph = onto.get_dot_graph(ontoclasses, relations=True)
+graph = onto.get_dot_graph(list(onto.classes()), relations=True)
 graph.write_pdf('case_ontology.pdf')
 #graph.write_pdf('case_ontology.pdf', prog='fdp')
 
+# Show only physical_quantities
+onto._uml_style['graph']['rankdir'] = 'BT'
+graph = onto.get_dot_graph([emmo.physical_quantity], relations=True,
+                           style='uml')
+graph.write_pdf('physical_quantities.pdf')
+
+# Show only units
+graph = onto.get_dot_graph([onto.SI_unit], relations=True, style='uml')
+graph.write_pdf('units.pdf')
+
+# Material and properties
+materials = [emmo.atomic, emmo.continuum, onto.boundary]
+leafs = ['symbolic', 'subatomic', 'atom', 'mesoscopic']
+graph = onto.get_dot_graph(emmo.state, leafs=leafs, relations=True,
+                           parents=False, style='uml')
+graph.write_pdf('materials.pdf')
+
 # Also include the parents of our new classes (this graph becomes
 # rather large...)
-parents = {e.mro()[1] for e in ontoclasses}
-classes = ontoclasses.union(parents)
+parents = {e.mro()[1] for e in onto.classes()}
+classes = parents.union(onto.classes())
+onto._uml_style['graph']['rankdir'] = 'RL'
 graph2 = onto.get_dot_graph(classes, relations=True, style='uml',
                             edgelabels=True)
 graph2.write_pdf('case_ontology-parents.pdf')
