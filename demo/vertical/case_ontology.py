@@ -328,17 +328,22 @@ types = [c for c in onto.classes() if issubclass(c, (
     emmo.number, emmo.symbol))]
 
 
-# Show only physical_quantities
-graph = onto.get_dot_graph([emmo.physical_quantity], relations=True,
-                           style='uml')
-graph.write_pdf('physical_quantities.pdf')
-
 # Show only units
-graph = onto.get_dot_graph([onto.SI_unit] + leaf_prop, relations=True,
+#graph = onto.get_dot_graph([onto.SI_unit] + leaf_prop, relations=True,
+graph = onto.get_dot_graph([onto.SI_unit] + properties, relations=True,
                            style='uml', constraint=None)
 graph.write_pdf('units.pdf')
 
 onto._uml_style['graph']['rankdir'] = 'BT'
+
+
+# Show only physical_quantities
+graph = onto.get_dot_graph(
+    [emmo.physical_quantity, emmo['e-bonded_atom']] + materials + subdimensional,
+                           relations=True, style='uml', constraint=None)
+graph.write_pdf('physical_quantities.pdf')
+
+
 
 # Material and properties
 materials = [emmo.atomic, emmo.continuum, onto.boundary]
