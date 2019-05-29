@@ -312,18 +312,33 @@ onto.save(owlfile)
 
 # Save graph with our new classes
 graph = onto.get_dot_graph(list(onto.classes()), relations=True)
+graph.write_dot('case_ontology.dot')
 graph.write_pdf('case_ontology.pdf')
 #graph.write_pdf('case_ontology.pdf', prog='fdp')
 
+
+units = [c for c in onto.classes() if issubclass(c, onto.SI_unit)]
+properties = [c for c in onto.classes() if issubclass(c, onto.property)]
+leaf_prop = [c for c in properties if len(c.descendants()) == 1]
+materials = [c for c in onto.classes() if issubclass(c, (
+    emmo.subatomic, emmo.atomic, emmo.mesoscopic, emmo.continuum))]
+subdimensional = [c for c in onto.classes() if issubclass(c, (
+    emmo.point, emmo.line, emmo.surface, emmo.volume))]
+types = [c for c in onto.classes() if issubclass(c, (
+    emmo.number, emmo.symbol))]
+
+
 # Show only physical_quantities
-onto._uml_style['graph']['rankdir'] = 'BT'
 graph = onto.get_dot_graph([emmo.physical_quantity], relations=True,
                            style='uml')
 graph.write_pdf('physical_quantities.pdf')
 
 # Show only units
-graph = onto.get_dot_graph([onto.SI_unit], relations=True, style='uml')
+graph = onto.get_dot_graph([onto.SI_unit] + leaf_prop, relations=True,
+                           style='uml', constraint=None)
 graph.write_pdf('units.pdf')
+
+onto._uml_style['graph']['rankdir'] = 'BT'
 
 # Material and properties
 materials = [emmo.atomic, emmo.continuum, onto.boundary]

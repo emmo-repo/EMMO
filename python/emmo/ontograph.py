@@ -2,6 +2,10 @@
 """
 A module adding graphing functionality to emmo.ontology
 """
+#
+# This module was written while I had a very poor understanding of DL.
+# Should be simplified and improved.
+#
 import itertools
 import warnings
 
@@ -29,11 +33,21 @@ class OntoGraph:
         },
         'individuals': {},
         'is_a': {'arrowhead': 'empty'},
-        'equivalent_to': {'color': 'green', },
+        'equivalent_to': {'color': 'green3', },
         'disjoint_with': {'color': 'red', },
         'inverse_of': {'color': 'orange', },
-        'other': {'color': 'blue', },
-
+        #'other': {'color': 'blue', },
+        'relations': {
+            'enclosing': {'color': 'red', 'arrowtail': 'diamond',
+                          'dir': 'back'},
+            'has_subdimension': {'color': 'red', 'arrowtail': 'diamond',
+                                 'dir': 'back', 'style': 'dashed'},
+            'has_sign': {'color': 'blue', 'style': 'dotted'},
+            'has_property': {'color': 'blue'},
+            'has_unit': {'color': 'magenta'},
+            'has_type': {'color': 'forestgreen'},
+        },
+        'other': {'color': 'olivedrab'},
         }
 
     _uml_style = {
@@ -56,16 +70,27 @@ class OntoGraph:
         },
         'individuals': {},
         'is_a': {'arrowhead': 'empty'},
-        'equivalent_to': {'color': 'green', 'arrowhead': 'none'},
+        'equivalent_to': {'color': 'green3'},
         'disjoint_with': {'color': 'red', 'arrowhead': 'none'},
         'inverse_of': {'color': 'orange', 'arrowhead': 'none'},
-        'other': {'color': 'blue', 'arrowtail': 'diamond', 'dir': 'back'},
-        }
+        #'other': {'color': 'blue', 'arrowtail': 'diamond', 'dir': 'back'},
+        'relations': {
+            'enclosing': {'color': 'red', 'arrowtail': 'diamond',
+                          'dir': 'back'},
+            'has_subdimension': {'color': 'red', 'arrowtail': 'diamond',
+                                 'dir': 'back', 'style': 'dashed'},
+            'has_sign': {'color': 'blue', 'style': 'dotted'},
+            'has_property': {'color': 'blue'},
+            'has_unit': {'color': 'magenta'},
+            'has_type': {'color': 'forestgreen'},
+        },
+        'other': {'color': 'green4'},
+    }
 
 
     def get_dot_graph(self, root=None, graph=None, relations='is_a',
                       leafs=None, parents=False, style=None,
-                      edgelabels=True):
+                      edgelabels=True, constraint=False):
         """Returns a pydot graph object for visualising the ontology.
 
         Parameters
@@ -96,6 +121,8 @@ class OntoGraph:
               - equivalent_to : edges for equivalent_to relations
               - disjoint_with : edges for disjoint_with relations
               - inverse_of : edges for inverse_of relations
+              - relations : with relation names
+                  XXX
               - other : edges for other relations and restrictions
             If style is None, a very simple default style is used.
             Some pre-defined styles can be selected by name (currently
@@ -105,13 +132,14 @@ class OntoGraph:
             It is also possible to provide a dict mapping the
             full labels (with cardinality stripped off for restrictions)
             to some abbriviations.
+        constraint : None | bool
 
         Note: This method requires pydot.
         """
         import pydot
         from .ontology import NoSuchLabelError
 
-        if style is None:
+        if style is None or style == 'default':
             style = self._default_style
         elif style == 'uml':
             style = self._uml_style
@@ -156,11 +184,15 @@ class OntoGraph:
             targets = [e for e in entity.is_a if not isinstance(e, (
                 owlready2.ThingClass, owlready2.ObjectPropertyClass,
                 owlready2.PropertyClass))]
+
             self._get_dot_add_edges(
-                graph, entity, targets, 'is_a',
-                relations, style.get('other', {}),
+                graph, entity, targets, 'relation',
+                relations,
+                #style=style.get('relations', style.get('other', {})),
+                style=style.get('other', {}),
                 edgelabels=edgelabels,
-                constraint='false')
+                constraint=constraint,
+            )
 
             # Add equivalent_to edges
             if relations is True or 'equivalent_to' in relations:
@@ -168,7 +200,7 @@ class OntoGraph:
                     graph, entity, entity.equivalent_to, 'equivalent_to',
                     relations, style.get('equivalent_to', {}),
                     edgelabels=edgelabels,
-                    constraint='false',
+                    constraint=constraint,
                 )
 
             # disjoint_with
@@ -178,7 +210,7 @@ class OntoGraph:
                     graph, entity, entity.disjoints(), 'disjoint_with',
                     relations, style.get('disjoint_with', {}),
                     edgelabels=edgelabels,
-                    constraint='false',
+                    constraint=constraint,
                 )
 
             # Add inverse_of
@@ -189,7 +221,7 @@ class OntoGraph:
                     graph, entity, [entity.inverse_property], 'inverse_of',
                     relations, style.get('inverse_of', {}),
                     edgelabels=edgelabels,
-                    constraint='false',
+                    constraint=constraint,
                 )
 
         return graph
@@ -206,11 +238,21 @@ class OntoGraph:
         if not nodes:
             return
         node = nodes[0]
+
+        xstyle = style.get(relation, {})
+        if relation == 'relation':
+            rel = []
+
+
         for e in targets:
             s = asstring(e)
-            if isinstance(e, (owlready2.ThingClass,
-                              owlready2.ObjectPropertyClass,
-                              owlready2.PropertyClass)):
+            if isinstance(e, owlready2.ThingClass):
+                pass
+            elif isinstance(e, (owlready2.ObjectPropertyClass,
+                                owlready2.PropertyClass)):
+                #if style is None:
+                #    #style =
+
                 label = e.label.first()
                 nodes = graph.get_node(label)
                 if nodes:

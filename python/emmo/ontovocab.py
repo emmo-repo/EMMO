@@ -2,6 +2,10 @@
 """
 A module adding vocabulary functionality to emmo.ontology
 """
+#
+# This module was written while I had a very poor understanding of DL.
+# Should be simplified and improved.
+#
 import re
 
 import owlready2

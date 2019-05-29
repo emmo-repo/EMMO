@@ -8,8 +8,11 @@ includes:
 The class extension is defined within.
 
 If desirable some of this may be moved back into owlready2.
-
 """
+#
+# This module was written while I had a very poor understanding of DL.
+# Should be simplified and improved.
+#
 import os
 import itertools
 
