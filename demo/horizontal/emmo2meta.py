@@ -250,7 +250,16 @@ class EMMO2Meta:
                          'cardinality.  Unused for "only" and '
                          '"some" restrictions.'),
             ]
-            e = Instance(uri, [], props, "Class restriction.")
+            e = Instance(uri, [], props,
+                         "Class restriction.  For each instance of a class "
+                         "restriction there should be a relation\n"
+                         "\n"
+                         "    (r.label, r.property, r.value.label)\n"
+                         "\n"
+                         "where `r.label` is the label associated with the "
+                         "restriction, `r.property` is a relation and "
+                         "`r.value.label` is the label of the value of the "
+                         "restriction.")
             self.labels.add('Restriction')
             self.coll.add('Restriction', e)
         return self.coll.get('Restriction')
@@ -258,8 +267,43 @@ class EMMO2Meta:
     def add_class_construct(self, c):
         """Adds owl class construct `c` to collection and returns a reference
         to it."""
-        # FIXME - add class constructs
-        pass
+        label = self.get_label(c)
+        e = self.add_class_construct_entity()
+        inst = e()
+        inst.type = c.__class__.__name__
+        if isinstance(c, owlready2.LogicalClassConstruct):
+            args = c.Classes
+        else:
+            args = [c.Class]
+        for arg in args:
+            self.coll.add_relation(label, 'has_argument', self.get_label(arg))
+        self.coll.add(label, inst)
+        return self.coll.get(label)
+
+    def add_class_construct_entity(self):
+        """Adds class construct metadata to collection and returns a reference
+        to it."""
+        uri = self.get_uri("ClassConstruct")
+        uuid = self.get_uuid(uri)
+        if not self.coll.has('ClassConstruct'):
+            props = [
+                Property('type', type='string', description='Type of '
+                         'class construct.  Valid values for `type` are: '
+                         '"not", "inverse", "and" or "or".'),
+            ]
+            e = Instance(uri, [], props,
+                         "Class construct.  For each instance of a class "
+                         "construct there should be one or more relations "
+                         "of type\n"
+                         "\n"
+                         "    (c.label, \"has_argument\", c.value.label)\n"
+                         "\n"
+                         "where `c.label` is the label associated with the "
+                         "class construct, `c.value.label` is the label of "
+                         "an argument.")
+            self.labels.add('ClassConstruct')
+            self.coll.add('ClassConstruct', e)
+        return self.coll.get('ClassConstruct')
 
     def get_description(self, cls):
         """Returns description for OWL class `cls` by combining its

@@ -13,6 +13,7 @@ If desirable some of this may be moved back into owlready2.
 # This module was written before I had a good understanding of DL.
 # Should be simplified and improved:
 #   - Replace the mixin classes with composition.
+#   - Update to work with latest version of Owlready2
 #   - Rename get_dot_graph to get_graph().
 #   - Deprecate methods that are not needed.
 import os
