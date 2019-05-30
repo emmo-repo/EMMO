@@ -3,9 +3,10 @@
 A module adding vocabulary functionality to emmo.ontology
 """
 #
-# This module was written while I had a very poor understanding of DL.
-# Should be simplified and improved.
-#
+# This module was written before I had a good understanding of DL.
+# Should be simplified and improved:
+#   - Rewrite OntoVocab to be a standalone class instead of as an mixin
+#     for Ontology.
 import re
 
 import owlready2

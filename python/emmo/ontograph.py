@@ -3,8 +3,19 @@
 A module adding graphing functionality to emmo.ontology
 """
 #
-# This module was written while I had a very poor understanding of DL.
-# Should be simplified and improved.
+# This module was written before I had a good understanding of DL.
+# Should be simplified and improved:
+#   - Rewrite OntoGraph to be a standalone class instead of as an mixin
+#     for Ontology.
+#   - Make it possible to have different styles for different types of
+#     relations (by default differentiate between is_a, has_part,
+#     has_subdimension, has_sign and has_member).
+#   - Factor out methods for finding node trees (may go into Ontology).
+#   - Factor out methods to finding relation triplets ``(node1, relation,
+#     node2)`` (may go into Ontology).
+#   - Consider to switch to graphviz Python package since it seems to have
+#     very useful interface to Jupyter Notebook and Qt Console integration,
+#     see https://pypi.org/project/graphviz/.
 #
 import itertools
 import warnings
@@ -13,6 +24,7 @@ import owlready2
 
 from .utils import asstring
 import emmo
+
 
 class OntoGraph:
     """A mixin class used by emmo.ontology.Ontology that adds
@@ -84,7 +96,7 @@ class OntoGraph:
             'has_unit': {'color': 'magenta'},
             'has_type': {'color': 'forestgreen'},
         },
-        'other': {'color': 'green4'},
+        'other': {'color': 'blue'},
     }
 
 
@@ -158,8 +170,13 @@ class OntoGraph:
                 label = parent.label.first()
                 if self.is_defined(label):
                     node = pydot.Node(label, **style.get('defined_class', {}))
+                    # If label contains a hyphen, the node name will
+                    # be quoted (bug in pydot?).  To work around, set
+                    # the name explicitly...
+                    node.set_name(label)
                 else:
                     node = pydot.Node(label, **style.get('class', {}))
+                    node.set_name(label)
                 graph.add_node(node)
                 if relations is True or 'is_a' in relations:
                     kw = style.get('is_a', {}).copy()
@@ -186,7 +203,7 @@ class OntoGraph:
                 owlready2.PropertyClass))]
 
             self._get_dot_add_edges(
-                graph, entity, targets, 'relation',
+                graph, entity, targets, 'relations',
                 relations,
                 #style=style.get('relations', style.get('other', {})),
                 style=style.get('other', {}),
@@ -239,20 +256,12 @@ class OntoGraph:
             return
         node = nodes[0]
 
-        xstyle = style.get(relation, {})
-        if relation == 'relation':
-            rel = []
-
-
         for e in targets:
             s = asstring(e)
             if isinstance(e, owlready2.ThingClass):
                 pass
             elif isinstance(e, (owlready2.ObjectPropertyClass,
                                 owlready2.PropertyClass)):
-                #if style is None:
-                #    #style =
-
                 label = e.label.first()
                 nodes = graph.get_node(label)
                 if nodes:
@@ -269,6 +278,7 @@ class OntoGraph:
                 rname = e.property.label.first()
                 rtype = owlready2.class_construct._restriction_type_2_label[
                     e.type]
+
                 if relations is True or rname in relations:
                     if hasattr(e.value, 'label'):
                         vname = e.value.label.first()
@@ -361,10 +371,13 @@ class OntoGraph:
         else:
             if self.is_individual(label):
                 node = pydot.Node(label, **style.get('individual', {}))
+                node.set_name(label)
             elif self.is_defined(label):
                 node = pydot.Node(label, **style.get('defined_class', {}))
+                node.set_name(label)
             else:
                 node = pydot.Node(label, **style.get('class', {}))
+                node.set_name(label)
             graph.add_node(node)
 
         if leafs and label in leafs:
@@ -374,10 +387,13 @@ class OntoGraph:
             label = sc.label.first() if len(sc.label) == 1 else sc.name
             if self.is_individual(label):
                 subnode = pydot.Node(label, **style.get('individual', {}))
+                subnode.set_name(label)
             elif self.is_defined(label):
                 subnode = pydot.Node(label, **style.get('defined_class', {}))
+                subnode.set_name(label)
             else:
                 subnode = pydot.Node(label, **style.get('class', {}))
+                subnode.set_name(label)
             graph.add_node(subnode)
             if relations is True or 'is_a' in relations:
                 kw = style.get('is_a', {}).copy()

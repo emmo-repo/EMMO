@@ -10,9 +10,11 @@ The class extension is defined within.
 If desirable some of this may be moved back into owlready2.
 """
 #
-# This module was written while I had a very poor understanding of DL.
-# Should be simplified and improved.
-#
+# This module was written before I had a good understanding of DL.
+# Should be simplified and improved:
+#   - Replace the mixin classes with composition.
+#   - Rename get_dot_graph to get_graph().
+#   - Deprecate methods that are not needed.
 import os
 import itertools
 

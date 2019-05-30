@@ -87,35 +87,29 @@ with onto:
         """Base class for all SI units."""
         pass
 
-    class joule(SI_unit):
-        # To allow the reasoner to help us, we could add an
-        # equivalent_to to the mathematical expression kg*m^2/s^2,
-        # but it seems a rather complicated thing to do in DL.
-        pass
-
     class meter(SI_unit):
-        pass
+        label = ['m']
 
     class square_meter(SI_unit):
-        pass
+        label = ['m²']
 
     class cubic_meter(SI_unit):
-        pass
+        label = ['m³']
 
     class kilogram(SI_unit):
-        pass
+        label = ['kg']
 
     class pascal(SI_unit):
-        pass
+        label = ['Pa']
 
     class joule_per_square_meter(SI_unit):
-        pass
+        label = ['J/m²']
 
     class kilogram_per_cubic_meter(SI_unit):
-        pass
+        label = ['kg/m³']
 
     class radian(SI_unit):
-        pass
+        label = ['rad']
 
     #
     # Properties
@@ -147,11 +141,6 @@ with onto:
     class density(emmo.physical_quantity):
         """Density."""
         is_a = [has_unit.exactly(1, kilogram_per_cubic_meter),
-                has_type.exactly(1, real)]
-
-    class energy(emmo.physical_quantity):
-        """Energy."""
-        is_a = [has_unit.exactly(1, joule),
                 has_type.exactly(1, real)]
 
     class energy_per_area(emmo.physical_quantity):
@@ -293,32 +282,41 @@ with onto:
     #
 
 
-
 # Sync attributes to make sure that all classes get a `label` and to
 # include the docstrings in the comments
 onto.sync_attributes()
 
+
 # Sync the reasoner - FIXME: figure out how to use Pellet instead of HermiT
 #onto.sync_reasoner()
 
-# Save our new extended version of EMMO.  It seems that owlready by default
-# is appending to the existing ontology.  To avoid that, we simply delete
-# the owl file if it already exists.
+
+# Save our new EMMO-based ontology.
+#
+# It seems that owlready2 by default is appending to the existing
+# ontology.  To get a clean version, we simply delete the owl file if
+# it already exists.
 owlfile = 'case_ontology.owl'
 import os
 if os.path.exists(owlfile):
     os.remove(owlfile)
 onto.save(owlfile)
 
+
+#
+# Visualise our new EMMO-based ontology
+# =====================================
+
 # Save graph with our new classes
-graph = onto.get_dot_graph(list(onto.classes()), relations=True)
-graph.write_dot('case_ontology.dot')
+graph = onto.get_dot_graph(list(onto.classes()), relations=True,
+                           style='uml', constraint=None)
 graph.write_pdf('case_ontology.pdf')
-#graph.write_pdf('case_ontology.pdf', prog='fdp')
 
 
+# Categories of classes
 units = [c for c in onto.classes() if issubclass(c, onto.SI_unit)]
-properties = [c for c in onto.classes() if issubclass(c, onto.property)]
+properties = [c for c in onto.classes()
+              if issubclass(c, onto.property) and not c in units]
 leaf_prop = [c for c in properties if len(c.descendants()) == 1]
 materials = [c for c in onto.classes() if issubclass(c, (
     emmo.subatomic, emmo.atomic, emmo.mesoscopic, emmo.continuum))]
@@ -327,36 +325,39 @@ subdimensional = [c for c in onto.classes() if issubclass(c, (
 types = [c for c in onto.classes() if issubclass(c, (
     emmo.number, emmo.symbol))]
 
+# Update the uml-stype to generate
+onto._uml_style['graph']['rankdir'] = 'BT'
 
-# Show only units
+# Units and properties
 #graph = onto.get_dot_graph([onto.SI_unit] + leaf_prop, relations=True,
 graph = onto.get_dot_graph([onto.SI_unit] + properties, relations=True,
                            style='uml', constraint=None)
-graph.write_pdf('units.pdf')
+graph.write_pdf('units+properties.pdf')
 
-onto._uml_style['graph']['rankdir'] = 'BT'
+# Types and properties
+graph = onto.get_dot_graph(types + leaf_prop, relations=True, style='uml',
+                           constraint=None)
+graph.write_pdf('types+properties.pdf')
 
+# Properties and materials
+items = [
+    emmo.physical_quantity, emmo['e-bonded_atom']] + materials + subdimensional
+graph = onto.get_dot_graph(items, relations=True, style='uml', constraint=None)
+graph.write_pdf('properties+materials.pdf')
 
-# Show only physical_quantities
-graph = onto.get_dot_graph(
-    [emmo.physical_quantity, emmo['e-bonded_atom']] + materials + subdimensional,
-                           relations=True, style='uml', constraint=None)
-graph.write_pdf('physical_quantities.pdf')
-
-
-
-# Material and properties
-materials = [emmo.atomic, emmo.continuum, onto.boundary]
+# Material
+#items = [emmo.atomic, emmo.continuum, onto.boundary]
+items = [emmo.state] + materials
 leafs = ['symbolic', 'subatomic', 'atom', 'mesoscopic']
-graph = onto.get_dot_graph(emmo.state, leafs=leafs, relations=True,
+graph = onto.get_dot_graph(items, leafs=leafs, relations=True,
                            parents=False, style='uml')
 graph.write_pdf('materials.pdf')
 
 # Also include the parents of our new classes (this graph becomes
 # rather large...)
 parents = {e.mro()[1] for e in onto.classes()}
-classes = parents.union(onto.classes())
+classes = list(parents.union(onto.classes())) + [emmo.space]
 onto._uml_style['graph']['rankdir'] = 'RL'
-graph2 = onto.get_dot_graph(classes, relations=True, style='uml',
+graph = onto.get_dot_graph(classes, relations=True, style='uml',
                             edgelabels=True)
-graph2.write_pdf('case_ontology-parents.pdf')
+graph.write_pdf('case_ontology-parents.pdf')
