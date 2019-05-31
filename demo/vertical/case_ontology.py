@@ -325,7 +325,7 @@ onto.save(owlfile)
 # Save graph with our new classes
 graph = onto.get_dot_graph(list(onto.classes()), relations=True,
                            style='uml', constraint=None)
-graph.write_png('case_ontology.png')
+graph.write_png('figs/case_ontology.png')
 
 
 # Categories of classes
@@ -347,18 +347,18 @@ onto._uml_style['graph']['rankdir'] = 'BT'
 #graph = onto.get_dot_graph([onto.SI_unit] + leaf_prop, relations=True,
 graph = onto.get_dot_graph([onto.SI_unit] + properties, relations=True,
                            style='uml', constraint=None)
-graph.write_png('units+properties.png')
+graph.write_png('figs/units+properties.png')
 
 # Types and properties
 graph = onto.get_dot_graph(types + leaf_prop, relations=True, style='uml',
                            constraint=None)
-graph.write_png('types+properties.png')
+graph.write_png('figs/types+properties.png')
 
 # Properties and materials
 items = [
     emmo.physical_quantity, emmo['e-bonded_atom']] + materials + subdimensional
 graph = onto.get_dot_graph(items, relations=True, style='uml', constraint=None)
-graph.write_png('properties+materials.png')
+graph.write_png('figs/properties+materials.png')
 
 # Material
 #items = [emmo.atomic, emmo.continuum, onto.boundary]
@@ -366,7 +366,7 @@ items = [emmo.state] + materials
 leafs = ['symbolic', 'subatomic', 'mesoscopic']
 graph = onto.get_dot_graph(items, leafs=leafs, relations=True,
                            parents=False, style='uml')
-graph.write_png('materials.png')
+graph.write_png('figs/materials.png')
 
 # Also include the parents of our new classes (this graph becomes
 # rather large...)
@@ -375,4 +375,4 @@ classes = list(parents.union(onto.classes())) + [emmo.space]
 onto._uml_style['graph']['rankdir'] = 'RL'
 graph = onto.get_dot_graph(classes, relations=True, style='uml',
                             edgelabels=True)
-graph.write_png('case_ontology-parents.png')
+graph.write_png('figs/case_ontology-parents.png')
