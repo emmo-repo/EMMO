@@ -12,7 +12,7 @@ EMMO can be used to achieve vertical and horizontal interoperability.
 Generate the documentation
 --------------------------
 To generate the full documentation for EMMO, go to
-[python/emmo/emmodoc](python/emmo/emmodoc) and run the script `emmodoc.py`.
+[python/emmo/emmodoc](../python/emmo/emmodoc) and run the script `emmodoc.py`.
 That will create the full documentation in both pdf and html format.
 
 
