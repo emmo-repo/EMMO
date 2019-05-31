@@ -377,14 +377,14 @@ A person is a man or woman:
   **Manchester:** `person equivalent_to man or woman`
 
 ##### Complement (`owl:complementOf`)
-Individuals of the union of two classes, are either instances
-of one or both classes.
+Individuals of the complement of a class, are all individuals that are not
+member of the class.
 
-A person is a man or woman:
+Not a man:
 
-  **DL:** `person` $\equiv$ `man` $\sqcup$ `woman`
+  **DL:** `female` $\equiv$ $\lnot$ `male`
 
-  **Manchester:** `person equivalent_to man or woman`
+  **Manchester:** `female equivalent_to not male`
 
 
 

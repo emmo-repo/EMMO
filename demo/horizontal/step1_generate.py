@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Takes our ontology from the vertical case and generates metadata from it.
+"""Step 1 - Generate metadata from ontology
+----------------------------------------
+This step takes the ontology from the vertical case and generates
+metadata from it.
 
 Here we use DLite as metadata framework, which is a SOFT
 implementation in C.  Other frameworks, like CUDS, could equally well
@@ -26,10 +29,12 @@ ontopath = os.path.abspath(os.path.join(
 onto = get_ontology(ontopath)
 onto.load()
 
+
 # hmm, the base iri has cnanged... - bug in owlready2?
 onto.base_iri = 'http://www.emmc.info/emmc-csa/demo#'
 
 
 # Generate metadata and store it in a JSON file
-e = EMMO2Meta(ontology=onto, classes='crystal', collid='crystal')
-e.save('json', 'horizontal.json', 'mode=w')
+items = list(onto.classes()) + [onto['e-bonded_atom']]
+e = EMMO2Meta(ontology=onto, classes=items, collid='case_ontology')
+e.save('json', 'case_metadata.json', 'mode=w')

@@ -18,6 +18,7 @@ If desirable some of this may be moved back into owlready2.
 #   - Deprecate methods that are not needed.
 import os
 import itertools
+import inspect
 
 import owlready2
 
@@ -203,7 +204,7 @@ class Ontology(owlready2.Ontology, OntoGraph, OntoVocab):
             if not cls.label:
                 cls.label.append(cls.__name__)
             if not cls.comment and cls.__doc__:
-                cls.comment.append(cls.__doc__)
+                cls.comment.append(inspect.cleandoc(cls.__doc__))
         if sync_imported:
             for onto in self.imported_ontologies:
                 onto.sync_attributes()

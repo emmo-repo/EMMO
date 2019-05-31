@@ -1,6 +1,16 @@
 #!/usr/bin/env python3
-"""Script for representing EMMO, or an EMMO-based ontology, as a
-collection of SOFT (or DLite) entities.
+"""Module for representing an EMMO-based ontology, as a collection of
+DLite metadata entities.
+
+Entities in the ontology are mapped to DLite as follows:
+  - owl class -> metadata entity
+  - owl object property -> relation
+  - owl restriction -> entity + relation
+  - owl class construct -> entity + relation(s)
+
+TODO:
+  - map restriction cardinality to collection diminsions
+
 """
 import sys
 import json
@@ -126,29 +136,26 @@ class EMMO2Meta:
         if isinstance(cls, str):
             cls = self.onto[cls]
         label = cls.label.first()
-        uri = self.get_uri(label)
-        if self.coll.has(label):
-            return self.coll.get(label)
-        self.labels.add(label)
-        for r in cls.is_a:
-            if r == owlready2.Thing:
-                pass
-            elif isinstance(r, owlready2.ThingClass):
-                self.labels.add(label)
-                self.coll.add_relation(label, "is_a", r.label.first())
-                self.add_class(r)
-            elif isinstance(r, owlready2.Restriction):
-                if     (issubclass(r.property, self.onto.has_property) and
-                        isinstance(r.value, owlready2.ThingClass) and
-                        isinstance(r.value, self.onto.property)):
-                    self.add_class(r.value)
+        if label not in self.labels:
+            assert not self.coll.has(label)
+            self.labels.add(label)
+            uri = self.get_uri(label)
+            for r in cls.is_a:
+                if isinstance(r, owlready2.ThingClass):
+                    self.labels.add(label)
+                    self.coll.add_relation(label, "is_a", r.label.first())
+                    self.add_class(r)
+                elif isinstance(r, owlready2.Restriction):
+                    if     (issubclass(r.property, self.onto.has_property) and
+                            isinstance(r.value, owlready2.ThingClass) and
+                            isinstance(r.value, self.onto.property)):
+                        self.add_class(r.value)
+                    else:
+                        self.add_restriction(r)
+                elif isinstance(r, owlready2.ClassConstruct):
+                    self.add_class_construct(r)
                 else:
-                    self.add_restriction(r)
-            elif isinstance(r, owlready2.ClassConstruct):
-                self.add_class_construct(r)
-            else:
-                print('*** unknown element type in is_a:', r)
-        if not self.coll.has(label):
+                    raise TypeError('Unexpected is_a member: %s' % type(r))
             dims, props = self.get_properties(cls)
             e = Instance(uri, dims, props, self.get_description(cls))
             self.coll.add(label, e)
@@ -219,14 +226,16 @@ class EMMO2Meta:
     def add_restriction(self, r):
         """Adds owl restriction `r` to collection and returns a reference
         to it."""
-        e = self.add_restriction_entity()
-        label = self.get_label(r)
-        self.labels.add(label)
-        if not self.coll.has(label):
-            inst = e()
-            inst.type = owlready2.class_construct._restriction_type_2_label[
-                r.type]
-            inst.cardinality = r.cardinality if r.cardinality else 0
+        rtype = owlready2.class_construct._restriction_type_2_label[r.type]
+        cardinality = r.cardinality if r.cardinality else 0
+        label = 'restriction_%s_%d' % (rtype, cardinality)
+        if label not in self.labels:
+            assert not self.coll.has(label)
+            self.labels.add(label)
+            e = self.add_restriction_entity()
+            inst = e(id=label)
+            inst.type = rtype
+            inst.cardinality = cardinality
             vlabel = self.get_label(r.value)
             if not vlabel in self.labels:
                 self.labels.add(vlabel)
@@ -267,17 +276,22 @@ class EMMO2Meta:
     def add_class_construct(self, c):
         """Adds owl class construct `c` to collection and returns a reference
         to it."""
-        label = self.get_label(c)
-        e = self.add_class_construct_entity()
-        inst = e()
-        inst.type = c.__class__.__name__
-        if isinstance(c, owlready2.LogicalClassConstruct):
-            args = c.Classes
-        else:
-            args = [c.Class]
-        for arg in args:
-            self.coll.add_relation(label, 'has_argument', self.get_label(arg))
-        self.coll.add(label, inst)
+        ctype = c.__class__.__name__
+        label = 'class_construct_%s' % ctype
+        if not label in self.labels:
+            assert not self.coll.has(label)
+            e = self.add_class_construct_entity()
+            self.labels.add(label)
+            inst = e(id=label)
+            inst.type = ctype
+            if isinstance(c, owlready2.LogicalClassConstruct):
+                args = c.Classes
+            else:
+                args = [c.Class]
+            for arg in args:
+                self.coll.add_relation(label, 'has_argument',
+                                       self.get_label(arg))
+            self.coll.add(label, inst)
         return self.coll.get(label)
 
     def add_class_construct_entity(self):

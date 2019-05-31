@@ -154,10 +154,25 @@ with onto:
                 has_type.exactly(1, real)]
 
     class elastic_tensor(pressure):
-        """The stiffness tensor is a property of a continuous elastic material
-        that relates stresses to strains (Hooks's law)."""
+        """The stiffness tensor $c_{ijkl}$ is a property of a continuous
+        elastic material that relates stresses to strains (Hooks's
+        law) according to
+
+            $\sigma_{ij} = c_{ijkl} \epsilon_{kl}$
+
+        Due to symmetry and using the Voight notation, the stiffness
+        tensor can be represented as a symmetric 6x6 matrix
+
+            / c_1111  c_1122  c_1133  c_1123  c_1131  c_1112 \\
+            | c_2211  c_2222  c_2233  c_2223  c_2231  c_2212 |
+            | c_3311  c_3322  c_3333  c_3323  c_3331  c_3312 |
+            | c_2311  c_2322  c_2333  c_2323  c_2331  c_2312 |
+            | c_3111  c_3122  c_3133  c_3123  c_3131  c_3112 |
+            \\ c_1211  c_1222  c_1233  c_1223  c_1231  c_1212 /
+
+        """
         is_a = [has_unit.exactly(1, pascal),
-                has_type.exactly(81, real)]
+                has_type.exactly(36, real)]
 
     class plasticity(emmo.physical_quantity):
         """Describes Yield stress and material hardening."""
