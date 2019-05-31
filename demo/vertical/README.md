@@ -13,10 +13,10 @@ we here denote _macroscopic_, _microscopic_ and _atomistic_.
 
 Creating an EMMO-based application ontology for the user case
 -------------------------------------------------------------
-The script [vertical/case_ontology.py](vertical/case_ontology.py)
-used the Python API for EMMO to generate an application ontology
-extending EMMO with additional concepts needed to describe the
-data that is exchanged between scales.
+The script [case_ontology.py](case_ontology.py) uses the Python API
+for EMMO to generate an application ontology extending EMMO with
+additional concepts needed to describe the data that is exchanged
+between scales.
 
 
 ### Defining the needed material entities

@@ -19,7 +19,7 @@ This is done in three steps:
   2. Define application metadata and instansiate an atom structure
      in terms of this metadata.
 
-     Implemented in the script [step2_load_atoms.py](step1_load_atoms.py).
+     Implemented in the script [step2_load_atoms.py](step2_load_atoms.py).
 
   3. Map the atom structure from the application representation to the
      common EMMO-based representation.
