@@ -363,7 +363,7 @@ graph.write_png('figs/properties+materials.png')
 # Material
 #items = [emmo.atomic, emmo.continuum, onto.boundary]
 items = [emmo.state] + materials
-leafs = ['symbolic', 'subatomic', 'mesoscopic']
+leafs = ['symbolic', 'subatomic', 'mesoscopic', 'standalone_atom']
 graph = onto.get_dot_graph(items, leafs=leafs, relations=True,
                            parents=False, style='uml')
 graph.write_png('figs/materials.png')
