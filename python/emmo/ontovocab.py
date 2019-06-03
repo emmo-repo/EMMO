@@ -2,6 +2,11 @@
 """
 A module adding vocabulary functionality to emmo.ontology
 """
+#
+# This module was written before I had a good understanding of DL.
+# Should be simplified and improved:
+#   - Rewrite OntoVocab to be a standalone class instead of as an mixin
+#     for Ontology.
 import re
 
 import owlready2
@@ -182,7 +187,6 @@ class OntoVocab:
             #for item in sorted(items, key=lambda i: i.label):
             litems = []
             for item in items:
-                print(f"item is {item}")
                 lannotations = []
 
                 # Add annotations

@@ -377,14 +377,14 @@ A person is a man or woman:
   **Manchester:** `person equivalent_to man or woman`
 
 ##### Complement (`owl:complementOf`)
-Individuals of the union of two classes, are either instances
-of one or both classes.
+Individuals of the complement of a class, are all individuals that are not
+member of the class.
 
-A person is a man or woman:
+Not a man:
 
-  **DL:** `person` $\equiv$ `man` $\sqcup$ `woman`
+  **DL:** `female` $\equiv$ $\lnot$ `male`
 
-  **Manchester:** `person equivalent_to man or woman`
+  **Manchester:** `female equivalent_to not male`
 
 
 
@@ -449,7 +449,23 @@ interpretations of quantum mechanics) and levels of approximations
 
 ### EMMO Semiotics
 
+The semiotics module introduces three connected branches, `symbolic`,
+`semiosis` and `semiotic_role` in addition to the
+`has_sign`/`stands_for` family of relations.
+
+
+
+Since the EMMO must represent models and properties (which are signs
+that stand for a physical entity), the semiotic process must be
+described also within the EMMO itself.  The concepts of Peirce
+semiotics (interpreter, object, sign) are included in the semiotic
+branch, together with the semiosis process.
+
+
 ### EMMO Formal languages
+
+
+
 
 ### EMMO Data formats
 

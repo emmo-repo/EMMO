@@ -1,0 +1,103 @@
+{
+    "name": "Atoms",
+    "version": "0.1",
+    "namespace": "http://sintef.no/meta/soft",
+    "description": "An ASE Atoms object",
+    "dimensions": [
+        {
+            "name": "natoms",
+            "description": "Number of atoms"
+        },
+        {
+            "name": "ncellvecs",
+            "description": "Number of cell vectors. Always 3"
+        },
+        {
+            "name": "ncoords",
+            "description": "Number coordinates. Always 3"
+        },
+        {
+            "name": "npair",
+            "description": "Number in a (key-value) pair.  Always 2"
+        },
+        {
+            "name": "ninfo",
+            "description": "Number of info items."
+        }
+    ],
+    "properties": [
+        {
+            "name": "positions",
+            "type": "double",
+            "dims": ["natoms", "ncoords"],
+            "unit": "Ångström",
+            "description": "Atomic positions in Cartesian coordinates."
+        },
+        {
+            "name": "numbers",
+            "type": "int64",
+            "dims": ["natoms"],
+            "description": "Atomic numbers."
+        },
+        {
+            "name": "tags",
+            "type": "int64",
+            "dims": ["natoms"],
+            "description": "Special purpose tags."
+        },
+        {
+            "name": "momenta",
+            "type": "double",
+            "dims": ["natoms", "ncoords"],
+            "unit": "u Å/fs",
+            "description": "Momenta."
+        },
+        {
+            "name": "masses",
+            "type": "double",
+            "dims": ["natoms"],
+            "unit": "u",
+            "description": "Atomic masses."
+        },
+        {
+            "name": "initial_magnetic_moments",
+            "type": "double",
+            "dims": ["natoms"],
+            "unit": "Bohr",
+            "description": "Initial local magnetic moments (magmoms)."
+        },
+        {
+            "name": "initial_charges",
+            "type": "double",
+            "dims": ["natoms"],
+            "unit": "e",
+            "description": "Initial charges."
+        },
+        {
+            "name": "cell",
+            "type": "double",
+            "dims": ["ncellvecs", "ncoords"],
+            "unit": "Ångström",
+            "description": "Unit cell vectors."
+        },
+        {
+            "name": "celldisp",
+            "type": "double",
+            "dims": ["ncoords"],
+            "unit": "Ångström",
+            "description": "Displacement of unit cell."
+        },
+        {
+            "name": "pbc",
+            "type": "int32",
+            "dims": ["ncoords"],
+            "description": "Periodic boundary conditions flags."
+        },
+        {
+            "name": "info",
+            "type": "string",
+            "dims": ["ninfo", "npair"],
+            "description": "Additional information."
+        }
+    ]
+}

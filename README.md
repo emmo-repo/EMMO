@@ -13,6 +13,10 @@ The accompinied Python API is released under the [BSD
 license](python/LICENSE.txt).
 
 
-This repository contains two subfolders:
+Content of this repository
+--------------------------
   * emmo: OWL sources for the ontology
   * python: Python API for working with EMMO
+  * doc: [Documentation](doc/index.md)
+  * demo: [An example](demo/README.md) on how EMMO can be used for
+    achieving  vertical and horizontal interoperability.

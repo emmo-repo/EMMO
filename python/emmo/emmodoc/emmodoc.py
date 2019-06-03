@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 import sys
 import os
 import subprocess
@@ -46,9 +47,20 @@ abbreviations = {
     'has_proper_part some': 'hpp-s',
     'is_proper_part_of some': 'ippo-s',
     'has_proper_part_of some': 'hppo-s',
+    'has_spatial_proper_part some': 'hspp-s',
+    'has_spatial_proper_part only': 'hspp-o',
     'has_spatial_direct_part min': 'hsdp-m',
     'has_spatial_direct_part some': 'hsdp-s',
     'has_spatial_direct_part exactly': 'hsdp-e',
+    'has_temporal_proper_part only': 'htpp-o',
+    'has_temporal_proper_part some': 'htpp-s',
+    'has_temporal_direct_part only': 'htdp-o',
+    'has_temporal_direct_part some': 'htdp-s',
+    'encloses some': 'e-s',
+    'encloses only': 'e-o',
+    'is_enclosed_by some': 'ieb-s',
+    'is_enclosed_by only': 'ieb-o',
+    'has_sign some': 'hs-s',
     }
 max_width = 668  # max width of image in px
 
@@ -134,7 +146,7 @@ def emmodoc(filename='emmodoc.html', format=None, figformat=None,
 
     # Appendix - full taxonomy
     entity_graph = emmo.get_dot_graph('emmo', relations=True,
-                                      abbreviations=abbreviations)
+                                      edgelabels=abbreviations)
     figname = os.path.join(htmldir, 'entity_graph.' + figformat)
     writer = getattr(entity_graph, 'write_' + figformat)
     writer(figname)
@@ -232,12 +244,11 @@ def make_graphs(sections, outdir='.', format='svg', relations=True,
     for name in sections:
         leafs = set(sections.keys())
         leafs.discard(name)
-        print(name)
         graph = emmo.get_dot_graph(name, relations=relations, leafs=leafs,
-                                   style=style, abbreviations=abbreviations)
+                                   style=style, edgelabels=abbreviations)
 
         for node in graph.get_nodes():
-            node.set_URL("%s#%s" % (href, node.get_name()))
+            node.set_URL("%s#%s" % (href, node.get_name().strip('"')))
             node.set_target("_top")
 
         writer = getattr(graph, 'write_' + format)
@@ -282,8 +293,6 @@ def add_figs(sections, figformat='svg', figdir='html_files', outdir='.',
                     break
             width = min(float(v[:i]) * figscale, max_width)
             scaled_widths[k] = '{ width=%.0fpx }' % width
-
-    print(scaled_widths)
 
     for k in sections:
         sections[k] = '%s\n\n![The %s branch.](%s/%s.%s)%s\n\n' % (
