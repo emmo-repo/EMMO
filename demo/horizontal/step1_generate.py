@@ -25,7 +25,7 @@ from emmo2meta import EMMO2Meta
 
 # Load our ontology from the vertical case
 ontopath = os.path.abspath(os.path.join(
-    os.path.dirname(__file__), '..', 'vertical', 'case_ontology.owl'))
+    os.path.dirname(__file__), '..', 'vertical', 'usercase_ontology.owl'))
 onto = get_ontology(ontopath)
 onto.load()
 

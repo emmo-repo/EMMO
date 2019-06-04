@@ -163,11 +163,11 @@ with onto:
         Due to symmetry and using the Voight notation, the stiffness
         tensor can be represented as a symmetric 6x6 matrix
 
-            / c_1111  c_1122  c_1133  c_1123  c_1131  c_1112 \\
-            | c_2211  c_2222  c_2233  c_2223  c_2231  c_2212 |
-            | c_3311  c_3322  c_3333  c_3323  c_3331  c_3312 |
-            | c_2311  c_2322  c_2333  c_2323  c_2331  c_2312 |
-            | c_3111  c_3122  c_3133  c_3123  c_3131  c_3112 |
+             / c_1111  c_1122  c_1133  c_1123  c_1131  c_1112 \\
+             | c_2211  c_2222  c_2233  c_2223  c_2231  c_2212 |
+             | c_3311  c_3322  c_3333  c_3323  c_3331  c_3312 |
+             | c_2311  c_2322  c_2333  c_2323  c_2331  c_2312 |
+             | c_3111  c_3122  c_3133  c_3123  c_3131  c_3112 |
             \\ c_1211  c_1222  c_1233  c_1223  c_1231  c_1212 /
 
         """
@@ -202,9 +202,10 @@ with onto:
         """A spacegroup is the symmetry group off all symmetry operations
         that apply to a crystal structure.
 
-        It is typically represented by its Hermann-Mauguin symbol or
-        space group number (and setting) from the International tables of
+        It is represented by its Hermann-Mauguin symbol or space group
+        number (and setting) from the International tables of
         Crystallography.
+
         """
         is_a = [has_type.exactly(1, string)]
 
@@ -214,10 +215,11 @@ with onto:
 
     # Crystallography-related classes
     # -------------------------------
-    class crystal_unit_cell(emmo.atomic):
-        """A volume defined by the 3 unit cell vectors.  It contains the atoms
-        constituting the unit cell of a crystal."""
-        is_a = [emmo.has_spatial_direct_part.some(emmo['e-bonded_atom']),
+    class crystal_unit_cell(emmo.mesoscopic):
+        """A periodic unit of a crystal structure defined by 3 lattice
+        vectors."""
+        is_a = [emmo.has_spatial_direct_part.some(emmo['e-bonded_atom'] |
+                                                  emmo.molecule),
                 emmo.has_property.exactly(3, lattice_vector),
                 emmo.has_property.exactly(1, elastic_tensor)]
 
@@ -251,24 +253,38 @@ with onto:
         """A boundary is a 4D region of spacetime shared by two material
         entities.
         """
-        is_a = [emmo.has_spatial_direct_part.exactly(2, emmo.state),
-                emmo.has_space_slice.exactly(1, interface)]
+        equivalent_to = [emmo.has_spatial_direct_part.exactly(2, emmo.state)]
+        is_a = [emmo.has_space_slice.exactly(1, interface)]
 
-    class phase(emmo.solid):
-        """A phase in a bulk material.
-
-        Other properties, like compositions etc. would normally be
-        assigned to a phase, are omitted here because they are not
-        essential for this case study."""
+    class phase(emmo.continuum):
+        """A phase is a continuum in which properties are homogeneous and can
+        have different state of matter."""
         is_a = [emmo.has_property.exactly(1, elastic_tensor),
                 emmo.has_property.exactly(1, density),
                 emmo.has_property.exactly(1, plasticity)]
 
+    class representative_volume_element(emmo.solid):
+        """The minimum volume that represents the system in question."""
+        is_a = [emmo.has_spatial_direct_part.only(fem_unit_cell)]
+
+    #class grain(crystal):
+    #    """The complexity with subgrains is ignored here..."""
+    #    label = ['grain']
+    #    is_a = [emmo.has_property.exactly(1, orientation),
+    #            emmo.has_property.exactly(1, measured_volume),
+    #    ]
+
+    #
+
+
+    #
+    # Model classes
+    # =============
     class vertex(emmo.point):
         """A vertex in a finite element unit cell."""
         is_a = [emmo.has_property.exactly(1, position)]
 
-    class fem_unit_cell(emmo.solid):
+    class fem_unit_cell(emmo.model):
         """A volume of a real world entity that is represented as a finite
         element unit cell in FEM."""
         is_a = [emmo.has_space_slice.exactly(1, emmo.volume)]
@@ -283,26 +299,15 @@ with onto:
         is_a = [emmo.has_spatial_direct_part.exactly(1, phase),
                 emmo.has_space_slice.min(4, vertex)]
 
-    class rve(emmo.solid):
-        """The minimum volume that represents the system in question."""
-        is_a = [emmo.has_spatial_direct_part.only(fem_unit_cell)]
-
-    #class grain(crystal):
-    #    """The complexity with subgrains is ignored here..."""
-    #    label = ['grain']
-    #    is_a = [emmo.has_property.exactly(1, orientation),
-    #            emmo.has_property.exactly(1, measured_volume),
-    #    ]
-
-    #
-
 
 # Sync attributes to make sure that all classes get a `label` and to
 # include the docstrings in the comments
 onto.sync_attributes()
 
 
-# Sync the reasoner - FIXME: figure out how to use Pellet instead of HermiT
+# Sync the reasoner
+# Commented out since HermiT is slow and uses a huge amount of memory
+# TODO: figure out how to use Pellet instead of HermiT
 #onto.sync_reasoner()
 
 
@@ -311,68 +316,8 @@ onto.sync_attributes()
 # It seems that owlready2 by default is appending to the existing
 # ontology.  To get a clean version, we simply delete the owl file if
 # it already exists.
-owlfile = 'case_ontology.owl'
+owlfile = 'usercase_ontology.owl'
 import os
 if os.path.exists(owlfile):
     os.remove(owlfile)
 onto.save(owlfile)
-
-
-#
-# Visualise our new EMMO-based ontology
-# =====================================
-
-# Save graph with our new classes
-graph = onto.get_dot_graph(list(onto.classes()), relations=True,
-                           style='uml', constraint=None)
-graph.write_png('figs/case_ontology.png')
-
-
-# Categories of classes
-units = [c for c in onto.classes() if issubclass(c, onto.SI_unit)]
-properties = [c for c in onto.classes()
-              if issubclass(c, onto.property) and not c in units]
-leaf_prop = [c for c in properties if len(c.descendants()) == 1]
-materials = [c for c in onto.classes() if issubclass(c, (
-    emmo.subatomic, emmo.atomic, emmo.mesoscopic, emmo.continuum))]
-subdimensional = [c for c in onto.classes() if issubclass(c, (
-    emmo.point, emmo.line, emmo.surface, emmo.volume))]
-types = [c for c in onto.classes() if issubclass(c, (
-    emmo.number, emmo.symbol))]
-
-# Update the uml-stype to generate
-onto._uml_style['graph']['rankdir'] = 'BT'
-
-# Units and properties
-#graph = onto.get_dot_graph([onto.SI_unit] + leaf_prop, relations=True,
-graph = onto.get_dot_graph([onto.SI_unit] + properties, relations=True,
-                           style='uml', constraint=None)
-graph.write_png('figs/units+properties.png')
-
-# Types and properties
-graph = onto.get_dot_graph(types + leaf_prop, relations=True, style='uml',
-                           constraint=None)
-graph.write_png('figs/types+properties.png')
-
-# Properties and materials
-items = [
-    emmo.physical_quantity, emmo['e-bonded_atom']] + materials + subdimensional
-graph = onto.get_dot_graph(items, relations=True, style='uml', constraint=None)
-graph.write_png('figs/properties+materials.png')
-
-# Material
-#items = [emmo.atomic, emmo.continuum, onto.boundary]
-items = [emmo.state] + materials
-leafs = ['symbolic', 'subatomic', 'mesoscopic', 'standalone_atom']
-graph = onto.get_dot_graph(items, leafs=leafs, relations=True,
-                           parents=False, style='uml')
-graph.write_png('figs/materials.png')
-
-# Also include the parents of our new classes (this graph becomes
-# rather large...)
-parents = {e.mro()[1] for e in onto.classes()}
-classes = list(parents.union(onto.classes())) + [emmo.space]
-onto._uml_style['graph']['rankdir'] = 'RL'
-graph = onto.get_dot_graph(classes, relations=True, style='uml',
-                            edgelabels=True)
-graph.write_png('figs/case_ontology-parents.png')
