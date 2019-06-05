@@ -8,15 +8,7 @@ multidisciplinarity is illustrated by the figure on the title page.
 It provides the connection between the physical world, materials
 characterisation world and materials modelling world.
 
-EMMO is released under a [Creative Commons license](emmo/LICENSE.md).
-The accompinied Python API is released under the [BSD
-license](python/LICENSE.txt).
+EMMO is released under a [Creative Commons license](LICENSE.md).
 
-
-Content of this repository
---------------------------
-  * emmo: OWL sources for the ontology
-  * python: Python API for working with EMMO
-  * doc: [Documentation](doc/index.md)
-  * demo: [An example](demo/README.md) on how EMMO can be used for
-    achieving  vertical and horizontal interoperability.
+The OWL sources are available in [turtle](emmo) and
+[rdf/xml](emmo/rdfxml) formats in the [emmo](emmo) subfolder.
