@@ -10,5 +10,4 @@ characterisation world and materials modelling world.
 
 EMMO is released under a [Creative Commons license](LICENSE.md).
 
-The OWL sources are available in [turtle](emmo) and
-[rdf/xml](emmo/rdfxml) formats in the [emmo](emmo) subfolder.
+The OWL sources are available in turtle format in the [emmo](emmo) subfolder.
