@@ -1,0 +1,74 @@
+Prefix(:=<http://emmc.info/emmo-usercase#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(emmo-usercase:=<http://emmc.info/emmo-usercase#>)
+
+
+Ontology(<http://emmc.info/emmo-usercase>
+Import(<http://emmc.info/emmo-material>)
+
+Annotation(<http://emmc.info/emmo-core#EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc> "EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
+
+https://creativecommons.org/licenses/by/4.0/legalcode")
+Annotation(rdfs:comment "Contacts:
+Gerhard Goldbeck
+Goldbeck Consulting Ltd (UK)
+email: gerhard@goldbeck-consulting.com
+
+Emanuele Ghedini
+University of Bologna (IT)
+email: emanuele.ghedini@unibo.it")
+Annotation(rdfs:comment "European Materials and Modelling Ontology (EMMO)
+
+EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies. 
+
+It provides the connection between the physical world, materials characterisation world and materials modelling world.")
+Annotation(owl:versionInfo "The European Materials Modelling Ontology
+
+Version 0.9.9")
+
+
+Declaration(Class(emmo-usercase:EMMO_4207e895_8b83_4318_996a_72cfb32acd94))
+Declaration(Class(emmo-usercase:EMMO_494b372c_cfdf_47d3_a4de_5e037c540de8))
+Declaration(Class(emmo-usercase:EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad))
+Declaration(Class(emmo-usercase:EMMO_e775e341_5687_4d45_b50c_379b098a8c26))
+
+
+
+############################
+#   Classes
+############################
+
+# Class: emmo-usercase:EMMO_4207e895_8b83_4318_996a_72cfb32acd94 (material)
+
+AnnotationAssertion(rdfs:label emmo-usercase:EMMO_4207e895_8b83_4318_996a_72cfb32acd94 "material"@en)
+SubClassOf(emmo-usercase:EMMO_4207e895_8b83_4318_996a_72cfb32acd94 emmo-usercase:EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad)
+
+# Class: emmo-usercase:EMMO_494b372c_cfdf_47d3_a4de_5e037c540de8 (component)
+
+AnnotationAssertion(rdfs:label emmo-usercase:EMMO_494b372c_cfdf_47d3_a4de_5e037c540de8 "component"@en)
+EquivalentClasses(emmo-usercase:EMMO_494b372c_cfdf_47d3_a4de_5e037c540de8 ObjectSomeValuesFrom(<http://emmc.info/emmo-direct#EMMO_0c4f91af_55e4_448b_9bd4_5dfe4007af05> emmo-usercase:EMMO_e775e341_5687_4d45_b50c_379b098a8c26))
+SubClassOf(emmo-usercase:EMMO_494b372c_cfdf_47d3_a4de_5e037c540de8 emmo-usercase:EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad)
+
+# Class: emmo-usercase:EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad (engineered_entity)
+
+AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> emmo-usercase:EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad "An 'existent' that is a parthood composition of 'state' individuals for a particular purpose.")
+AnnotationAssertion(rdfs:comment emmo-usercase:EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad "While the 'state' branch describes single simple entities (e.g. atoms, molecules, nanoparticles), the 'engineered_entity' branch describe entities that show some level of complexity/heterogeneity in their composition, and are made for a specific use.
+
+Classes in this branch are primitive.
+
+e.g. car, tire, composite material.")
+AnnotationAssertion(rdfs:label emmo-usercase:EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad "engineered_entity"@en)
+SubClassOf(emmo-usercase:EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad <http://emmc.info/emmo-direct#EMMO_52211e5e_d767_4812_845e_eb6b402c476a>)
+
+# Class: emmo-usercase:EMMO_e775e341_5687_4d45_b50c_379b098a8c26 (system)
+
+AnnotationAssertion(rdfs:label emmo-usercase:EMMO_e775e341_5687_4d45_b50c_379b098a8c26 "system"@en)
+EquivalentClasses(emmo-usercase:EMMO_e775e341_5687_4d45_b50c_379b098a8c26 ObjectSomeValuesFrom(<http://emmc.info/emmo-direct#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe> emmo-usercase:EMMO_494b372c_cfdf_47d3_a4de_5e037c540de8))
+SubClassOf(emmo-usercase:EMMO_e775e341_5687_4d45_b50c_379b098a8c26 emmo-usercase:EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad)
+
+
+)
