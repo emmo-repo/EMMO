@@ -8,9 +8,8 @@ Prefix(emmo-models:=<http://emmc.info/emmo-models#>)
 
 
 Ontology(<http://emmc.info/emmo-models>
-Import(<http://emmc.info/emmo-math>)
 Import(<http://emmc.info/emmo-properties>)
-
+Import(<http://emmc.info/emmo-math>)
 Annotation(<http://emmc.info/emmo-core#EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc> "EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
 
 https://creativecommons.org/licenses/by/4.0/legalcode")
@@ -24,7 +23,7 @@ University of Bologna (IT)
 email: emanuele.ghedini@unibo.it")
 Annotation(rdfs:comment "European Materials and Modelling Ontology (EMMO)
 
-EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies. 
+EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies.
 
 It provides the connection between the physical world, materials characterisation world and materials modelling world.")
 Annotation(owl:versionInfo "The European Materials Modelling Ontology
@@ -47,6 +46,7 @@ Declaration(Class(emmo-models:EMMO_db9a009e_f097_43f5_9520_6cbc07e7610b))
 Declaration(Class(emmo-models:EMMO_e5438930_04e7_4d42_ade5_3700d4a52ab7))
 Declaration(Class(emmo-models:EMMO_f19ff3b4_6bfe_4c41_a2b2_9affd39c140b))
 Declaration(Class(emmo-models:EMMO_f7ed665b_c2e1_42bc_889b_6b42ed3a36f0))
+Declaration(Class(emmo-models:EMMO_026b9e6a_0739_42ed_bc6c_01709519dc2f))
 Declaration(ObjectProperty(emmo-models:EMMO_05eef8df_e29a_43bf_8afd_4de96d38317f))
 Declaration(ObjectProperty(emmo-models:EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c))
 
@@ -185,6 +185,13 @@ AnnotationAssertion(rdfs:label emmo-models:EMMO_f7ed665b_c2e1_42bc_889b_6b42ed3a
 SubClassOf(emmo-models:EMMO_f7ed665b_c2e1_42bc_889b_6b42ed3a36f0 <http://emmc.info/emmo-math#EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0>)
 SubClassOf(emmo-models:EMMO_f7ed665b_c2e1_42bc_889b_6b42ed3a36f0 emmo-models:EMMO_939483b1_0148_43d1_8b35_851d2cd5d939)
 
+# Class: emmo-models:EMMO_026b9e6a_0739_42ed_bc6c_01709519dc2f (experiment)
+
+AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> emmo-models:EMMO_026b9e6a_0739_42ed_bc6c_01709519dc2f "An experiment is a process that is intended to replicate a physical phenomenon in a controlled environment.")
+AnnotationAssertion(rdfs:label emmo-models:EMMO_026b9e6a_0739_42ed_bc6c_01709519dc2f "experiment"@en)
+SubClassOf(emmo-models:EMMO_026b9e6a_0739_42ed_bc6c_01709519dc2f <http://emmc.info/emmo-properties#EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069>)
+SubClassOf(emmo-models:EMMO_026b9e6a_0739_42ed_bc6c_01709519dc2f ObjectSomeValuesFrom(<http://emmc.info/emmo-process#EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a> emmo-models:EMMO_314d0bd5_67ed_437e_a609_36d46147cea7))
+
 # Class: <http://emmc.info/emmo-semiotics#EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9> (conventional)
 
 AnnotationAssertion(rdfs:comment <http://emmc.info/emmo-semiotics#EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9> "In Peirce semiotics this kind of sign category is called symbol. However, since symbol is also used in formal languages, the name is changed in conventional.")
@@ -192,7 +199,7 @@ AnnotationAssertion(rdfs:comment <http://emmc.info/emmo-semiotics#EMMO_35d2e130_
 
 AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> <http://emmc.info/emmo-math#EMMO_7d69e8b9_e797_4cde_820e_500ecb6ebfdb> "A 'mathematical' that has no variables.")
 AnnotationAssertion(rdfs:comment <http://emmc.info/emmo-semiotics#EMMO_d7788d1a_020d_4c78_85a1_13563fcec168> "Three subtypes of icon are possible:
- 
+
 (a) the image, which depends on a simple quality (e.g. picture)
 
 (b) the diagram, whose internal relations, mainly dyadic or so taken, represent by analogy the relations in something (e.g. math formula, geometric flowchart)
