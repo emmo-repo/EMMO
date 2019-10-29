@@ -7,11 +7,15 @@ Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
 
 
 Ontology(<http://emmc.info/emmo-physical>
-Import(<http://emmc.info/emmo-granularity>)
-
+Import(<http://emmc.info/emmo-4d>)
 Annotation(<http://emmc.info/emmo-core#EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc> "EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
 
 https://creativecommons.org/licenses/by/4.0/legalcode")
+Annotation(<http://emmc.info/emmo-core#EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab> "Emanuele Ghedini (University of Bologna, IT)
+Gerhard Goldbeck (GCL Ltd, UK)
+Adham Hashibon (Fraunhofer IWM, DE)
+Georg Schmitz (Access, DE)
+Jesper Friis (SINTEF, NO)")
 Annotation(rdfs:comment "Contacts:
 Gerhard Goldbeck
 Goldbeck Consulting Ltd (UK)
@@ -20,13 +24,6 @@ email: gerhard@goldbeck-consulting.com
 Emanuele Ghedini
 University of Bologna (IT)
 email: emanuele.ghedini@unibo.it")
-
-Annotation(<http://emmc.info/emmo-core#EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab> "Emanuele Ghedini (University of Bologna, IT)
-Gerhard Goldbeck (GCL Ltd, UK)
-Adham Hashibon (Fraunhofer IWM, DE)
-Georg Schmitz (Access, DE)
-Jesper Friis (SINTEF, NO)")
-
 Annotation(rdfs:comment "European Materials and Modelling Ontology (EMMO)
 
 EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies. 
@@ -46,6 +43,20 @@ Declaration(Class(<http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac49
 ############################
 #   Classes
 ############################
+
+# Class: <http://emmc.info/emmo-core#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360> (elementary)
+
+AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> <http://emmc.info/emmo-core#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360> "The basic constituent of 'item'-s that can be proper partitioned only in time up to quantum level.")
+AnnotationAssertion(rdfs:comment <http://emmc.info/emmo-core#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360> "'elementary' is by definition the most simple example of 'state'.")
+AnnotationAssertion(rdfs:comment <http://emmc.info/emmo-core#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360> "According to mereology, this should be call 'a-tomistic' in the strict etimological sense of the word (from greek, a-tomos: un-divisible).
+
+Mereology based on such items is called atomistic mereology.
+
+However, in order not to confuse the lexicon between mereology and physics (in which an atom is a divisible physical entity) we prefer to call it 'elementary', recalling the concept of elementary particle coming from the standard particles model.")
+AnnotationAssertion(rdfs:label <http://emmc.info/emmo-core#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360> "elementary"@en)
+SubClassOf(<http://emmc.info/emmo-core#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360> <http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d>)
+SubClassOf(<http://emmc.info/emmo-core#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360> ObjectAllValuesFrom(<http://emmc.info/emmo-4d#EMMO_f68030be_94b8_4c61_a161_886468558054> owl:Nothing))
+SubClassOf(<http://emmc.info/emmo-core#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360> ObjectAllValuesFrom(<http://emmc.info/emmo-core#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6> <http://emmc.info/emmo-core#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360>))
 
 # Class: <http://emmc.info/emmo-core#EMMO_29072ec4_ffcb_42fb_bdc7_26f05a2e9873> (void)
 
@@ -125,16 +136,12 @@ More than one model can be connected to the same 'physical'.
 
 e.g. Navier-Stokes or Euler equation applied to the same fluid")
 AnnotationAssertion(rdfs:label <http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d> "physical"@en)
-SubClassOf(<http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d> ObjectUnionOf(<http://emmc.info/emmo-core#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360> ObjectSomeValuesFrom(<http://emmc.info/emmo-core#EMMO_9380ab64_0363_4804_b13f_3a8a94119a76> <http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d>)))
+SubClassOf(<http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d> ObjectSomeValuesFrom(<http://emmc.info/emmo-core#EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f> <http://emmc.info/emmo-core#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360>))
 SubClassOf(<http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d> ObjectAllValuesFrom(<http://emmc.info/emmo-core#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6> <http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d>))
 
 # Class: <http://emmc.info/emmo-core#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de> (item)
 
 DisjointUnion(<http://emmc.info/emmo-core#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de> <http://emmc.info/emmo-core#EMMO_29072ec4_ffcb_42fb_bdc7_26f05a2e9873> <http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d>)
-
-# Class: <http://emmc.info/emmo-direct#EMMO_52211e5e_d767_4812_845e_eb6b402c476a> (existent)
-
-SubClassOf(<http://emmc.info/emmo-direct#EMMO_52211e5e_d767_4812_845e_eb6b402c476a> <http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d>)
 
 
 )

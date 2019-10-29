@@ -28,14 +28,11 @@ Annotation(rdfs:comment "European Materials and Modelling Ontology (EMMO)
 EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies. 
 
 It provides the connection between the physical world, materials characterisation world and materials modelling world.")
-
 Annotation(rdfs:comment "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege).")
-
+Annotation(rdfs:comment "The emmo-core module provide the fundamental axioms to express real world obejcts in an a-tomistic mereotpological framework, introducing the distinction between items and collections, and the fundamental mereotopological relations.")
 Annotation(owl:versionInfo "The European Materials Modelling Ontology
 
 Version 0.9.10")
-
-Annotation(rdfs:comment "The emmo-core module provide the fundamental axioms to express real world obejcts in an a-tomistic mereotpological framework, introducing the distinction between items and collections, and the fundamental mereotopological relations.")
 
 Declaration(Class(:EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31))
 Declaration(Class(:EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68))
@@ -90,18 +87,25 @@ AnnotationAssertion(rdfs:label :EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab "autho
 # Object Property: :EMMO_03212fd7_abfd_4828_9c8e_62c293052d4b (mereotopological)
 
 AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_03212fd7_abfd_4828_9c8e_62c293052d4b "The generic EMMO mereotopological relation.")
+AnnotationAssertion(rdfs:comment :EMMO_03212fd7_abfd_4828_9c8e_62c293052d4b "Mereotopology merges mereological and topological concepts and provides relations between wholes, parts, boundaries, etc.")
 AnnotationAssertion(rdfs:label :EMMO_03212fd7_abfd_4828_9c8e_62c293052d4b "mereotopological"@en)
 SubObjectPropertyOf(:EMMO_03212fd7_abfd_4828_9c8e_62c293052d4b :EMMO_ec2472ae_cf4a_46a5_8555_1556f5a6c3c5)
 
 # Object Property: :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f (has_part)
 
+AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f "The primitive relation of parthood (reflexive, transitive, antisymmetric).
+
+Pxy := x is part of y")
 AnnotationAssertion(rdfs:label :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f "has_part"@en)
+AnnotationAssertion(rdfs:seeAlso :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f "is_part_of")
 SubObjectPropertyOf(:EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f :EMMO_8c898653_1118_4682_9bbf_6cc334d16a99)
 SubObjectPropertyOf(:EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6)
 TransitiveObjectProperty(:EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f)
 
 # Object Property: :EMMO_4d6504f1_c470_4ce9_b941_bbbebc9ab05d (contacts)
 
+AnnotationAssertion(:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 :EMMO_4d6504f1_c470_4ce9_b941_bbbebc9ab05d "ECxy := Cxy ∧ ¬Oxy")
+AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_4d6504f1_c470_4ce9_b941_bbbebc9ab05d "The relation between two connected but not overlapping real world objects, also known as external connection")
 AnnotationAssertion(rdfs:label :EMMO_4d6504f1_c470_4ce9_b941_bbbebc9ab05d "contacts"@en)
 SubObjectPropertyOf(:EMMO_4d6504f1_c470_4ce9_b941_bbbebc9ab05d :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8)
 SymmetricObjectProperty(:EMMO_4d6504f1_c470_4ce9_b941_bbbebc9ab05d)
@@ -115,7 +119,16 @@ SymmetricObjectProperty(:EMMO_517dfaf9_4970_41ac_81ee_d031627d2c7c)
 
 # Object Property: :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 (connected)
 
+AnnotationAssertion(:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 "Definition:
+Cxy := x is connected with y
+
+Axiom:
+ 1) Cxx (x is always connected with itself (reflexivity))
+Axiom:
+2) Cxy->Cyx (if x is connected with y then y is connected with x (symmetry))")
 AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 "The relation between two individuals that stand for real world topological connected objects.")
+AnnotationAssertion(rdfs:comment :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 "Causality is a topological property between connected items.")
+AnnotationAssertion(rdfs:comment :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 "Items being connected means that there is a topological contact or \"interaction\" between them.")
 AnnotationAssertion(rdfs:label :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 "connected"@en)
 SubObjectPropertyOf(:EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 :EMMO_03212fd7_abfd_4828_9c8e_62c293052d4b)
 SymmetricObjectProperty(:EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8)
@@ -131,24 +144,33 @@ ObjectPropertyRange(:EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4 :EMMO_eb3a768e_d5
 
 # Object Property: :EMMO_8c898653_1118_4682_9bbf_6cc334d16a99 (encloses)
 
+AnnotationAssertion(:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 :EMMO_8c898653_1118_4682_9bbf_6cc334d16a99 "Exy := ∀z(Czx -> Czy)")
+AnnotationAssertion(rdfs:comment :EMMO_8c898653_1118_4682_9bbf_6cc334d16a99 "Enclosure is reflexive and transitive.")
 AnnotationAssertion(rdfs:label :EMMO_8c898653_1118_4682_9bbf_6cc334d16a99 "encloses"@en)
+AnnotationAssertion(rdfs:seeAlso :EMMO_8c898653_1118_4682_9bbf_6cc334d16a99 "is_enclosed_by")
 SubObjectPropertyOf(:EMMO_8c898653_1118_4682_9bbf_6cc334d16a99 :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8)
 TransitiveObjectProperty(:EMMO_8c898653_1118_4682_9bbf_6cc334d16a99)
 
 # Object Property: :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 (has_proper_part)
 
+AnnotationAssertion(:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 "PPxy := Pxy ∧ ¬(x=y)")
 AnnotationAssertion(rdfs:label :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 "has_proper_part"@en)
+AnnotationAssertion(rdfs:seeAlso :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 "is_proper_part_of")
 SubObjectPropertyOf(:EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f)
 TransitiveObjectProperty(:EMMO_9380ab64_0363_4804_b13f_3a8a94119a76)
 
 # Object Property: :EMMO_9cb984ca_48ad_4864_b09e_50d3fff19420 (overcrosses)
 
+AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_9cb984ca_48ad_4864_b09e_50d3fff19420 "A relation between two overlapping real world objects without one being part of the other.")
 AnnotationAssertion(rdfs:label :EMMO_9cb984ca_48ad_4864_b09e_50d3fff19420 "overcrosses"@en)
 SubObjectPropertyOf(:EMMO_9cb984ca_48ad_4864_b09e_50d3fff19420 :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6)
 SymmetricObjectProperty(:EMMO_9cb984ca_48ad_4864_b09e_50d3fff19420)
 
 # Object Property: :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 (overlaps)
 
+AnnotationAssertion(:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 "Oxy := ∃z(Pzx ∧ Pzy)
+
+x overlap with y means that there exists a z that is part of both x and y")
 AnnotationAssertion(rdfs:label :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 "overlaps"@en)
 SubObjectPropertyOf(:EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8)
 SymmetricObjectProperty(:EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6)
@@ -231,6 +253,7 @@ The smallest part is a 'quantum'.
 It follows that, for the EMMO, real world objects of dimensionality lower than 4D do not exist (e.g. surfaces, lines).")
 AnnotationAssertion(rdfs:label :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf "emmo"@en)
 EquivalentClasses(:EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf ObjectHasValue(ObjectInverseOf(:EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f) :EMMO_08cb807c_e626_447b_863f_e2835540e918))
+SubClassOf(:EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf ObjectSomeValuesFrom(:EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f :EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68))
 DisjointUnion(:EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de)
 
 # Class: :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de (item)
@@ -259,6 +282,8 @@ AnnotationAssertion(rdfs:label :EMMO_08cb807c_e626_447b_863f_e2835540e918 "unive
 ClassAssertion(:EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de :EMMO_08cb807c_e626_447b_863f_e2835540e918)
 
 
+AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_548343f9_4257_47fe_aaab_488587ed41f0 "A proper part that extends along the whole spatial dimension of an hybrid.")
+AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_7bb33ab7_cc3e_418d_a57c_97651533c865 "A proper part that extends along the whole temporal dimension of an hybrid.")
 AnnotationAssertion(rdfs:comment owl:Thing "A word between apices represents an OWL-DL class (e.g. 'emmo').")
 AnnotationAssertion(rdfs:comment owl:Thing "In the following classes annotations we will often shorten expressions like:
 
