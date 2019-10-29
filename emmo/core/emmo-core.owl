@@ -10,6 +10,11 @@ Ontology(<http://emmc.info/emmo-core>
 Annotation(:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc "EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
 
 https://creativecommons.org/licenses/by/4.0/legalcode")
+Annotation(:EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab "Emanuele Ghedini (University of Bologna, IT)
+Gerhard Goldbeck (GCL Ltd, UK)
+Adham Hashibon (Fraunhofer IWM, DE)
+Georg Schmitz (Access, DE)
+Jesper Friis (SINTEF, NO)")
 Annotation(rdfs:comment "Contacts:
 Gerhard Goldbeck
 Goldbeck Consulting Ltd (UK)
@@ -17,17 +22,20 @@ email: gerhard@goldbeck-consulting.com
 
 Emanuele Ghedini
 University of Bologna (IT)
-email: emanuele.ghedini"@unibo.it)
+email: emanuele.ghedini@unibo.it")
 Annotation(rdfs:comment "European Materials and Modelling Ontology (EMMO)
 
 EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies. 
 
 It provides the connection between the physical world, materials characterisation world and materials modelling world.")
-Annotation(rdfs:comment "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege).")
-Annotation(rdfs:comment "The emmo-core module provide the fundamental axioms to express real world obejcts in a mereotpological framework, introducing the distinction between items and collections, and the fundamental mereotopological relations.")
+
+Annotation(rdfs:comment "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege).")
+
 Annotation(owl:versionInfo "The European Materials Modelling Ontology
 
 Version 0.9.10")
+
+Annotation(rdfs:comment "The emmo-core module provide the fundamental axioms to express real world obejcts in an a-tomistic mereotpological framework, introducing the distinction between items and collections, and the fundamental mereotopological relations.")
 
 Declaration(Class(:EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31))
 Declaration(Class(:EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68))
@@ -44,10 +52,12 @@ Declaration(ObjectProperty(:EMMO_9380ab64_0363_4804_b13f_3a8a94119a76))
 Declaration(ObjectProperty(:EMMO_9cb984ca_48ad_4864_b09e_50d3fff19420))
 Declaration(ObjectProperty(:EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6))
 Declaration(ObjectProperty(:EMMO_ec2472ae_cf4a_46a5_8555_1556f5a6c3c5))
+Declaration(NamedIndividual(:EMMO_08cb807c_e626_447b_863f_e2835540e918))
 Declaration(AnnotationProperty(:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc))
 Declaration(AnnotationProperty(:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84))
 Declaration(AnnotationProperty(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9))
 Declaration(AnnotationProperty(:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a))
+Declaration(AnnotationProperty(:EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab))
 ############################
 #   Annotation Properties
 ############################
@@ -67,6 +77,10 @@ AnnotationAssertion(rdfs:label :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "eluci
 # Annotation Property: :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a (example)
 
 AnnotationAssertion(rdfs:label :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "example"@en)
+
+# Annotation Property: :EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab (author)
+
+AnnotationAssertion(rdfs:label :EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab "author"@en)
 
 
 ############################
@@ -178,13 +192,16 @@ SubClassOf(:EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ObjectSomeValuesFrom(:EMMO
 # Class: :EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68 (quantum)
 
 AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68 "An 'emmo' that can't be further divided in time nor in space.")
-AnnotationAssertion(rdfs:comment :EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68 "A 'quantum' is the most fundamental subclass of 'item', since we consider it as the smallest self-connected 4D real world object.
+AnnotationAssertion(:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a :EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68 "For a physics based ontology, like the EMMO, the 'quantum' can stand for the smallest identifiable portion of spacetime defined by the Planck limit in length (1.616e-35 m) and time (5.39e-44 s).
+
+For a manpower management ontology, a 'quantum' can stand for an hour (time) of a worker (space) activity.")
+AnnotationAssertion(rdfs:comment :EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68 "A 'quantum' is the most fundamental subclass of 'item', since we consider it as the smallest possible self-connected 4D real world object.
 
 The quantum concept recalls the fact that there is lower epistemological limit to our knowledge of the universe, related to the uncertainity principle.")
-AnnotationAssertion(rdfs:comment :EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68 "A quantum is a 4D real world object.")
+AnnotationAssertion(rdfs:comment :EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68 "A 'quantum' stands for a 4D real world object.")
 AnnotationAssertion(rdfs:comment :EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68 "A quantum is the EMMO mereological a-tomic entity. 
 
-To avoid confusion with the concept of atom coming from physics, we will use the expression quantum mereology, instead of atomistic mereology.")
+To avoid confusion with the concept of atom coming from physics, we will use the expression quantum mereology, instead of a-tomistic mereology.")
 AnnotationAssertion(rdfs:label :EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68 "quantum"@en)
 SubClassOf(:EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68 :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de)
 SubClassOf(:EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68 ObjectAllValuesFrom(:EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 owl:Nothing))
@@ -201,16 +218,19 @@ AnnotationAssertion(rdfs:comment :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf "For
 
 A real world object is then a topological sub-region of the whole 4D manifold that describes our universe. 
 
-A universe sub-region is isolated and defined as a real world object by the ontologist, through a semiotic process that occurs on the meta-ontological level.
+A universe sub-region is isolated and defined as a real world object by the ontologist, through a semiotic process that occurs at the meta-ontological level (i.e. outside the ontology).
 
-Mereotopology is the fundamental logical representation used to characterize the universe and to provide the definitions for the EMMO concepts.
+Mereotopology is the fundamental logical representation used to characterize the universe and to provide the definitions for the EMMO concepts at interpreter's level.
 
 The fundamental distinction between real world objects upon which the EMMO is based in self-connectedness: a real world object can be self-connected xor not self-connected.")
-AnnotationAssertion(rdfs:comment :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf "In the EMMO we will refer to spacetime as a Minkowski space, restricting the ontology to special relativity only. However, exension to general relativity, will adding more complexity, should not change the overall approach.")
-AnnotationAssertion(rdfs:comment :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf "Parthood relations does not change dimensionality of an 'emmo' individual, i.e. every part of a real world object always retains its 4D dimensionality.
+AnnotationAssertion(rdfs:comment :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf "In the EMMO we will refer to the universe as a Minkowski space, restricting the ontology to special relativity only. However, exension to general relativity, will adding more complexity, should not change the overall approach.")
+AnnotationAssertion(rdfs:comment :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf "Parthood relations does not change dimensionality of an 'emmo' individual, i.e. every part of a real world object always retains its 4D dimensionality. 
+
+The smallest part is a 'quantum'.
 
 It follows that, for the EMMO, real world objects of dimensionality lower than 4D do not exist (e.g. surfaces, lines).")
 AnnotationAssertion(rdfs:label :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf "emmo"@en)
+EquivalentClasses(:EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf ObjectHasValue(ObjectInverseOf(:EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f) :EMMO_08cb807c_e626_447b_863f_e2835540e918))
 DisjointUnion(:EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de)
 
 # Class: :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de (item)
@@ -221,14 +241,22 @@ AnnotationAssertion(rdfs:comment :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de "A r
 Alternatively, using the primitive path-connectivity concept we can define a self-connected real world object as an object for which each couple of points is path-connected.")
 AnnotationAssertion(rdfs:comment :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de "An 'item' individual stands for a real world self-connected object which can be represented as a whole made of connected parts (e.g. a car made of components).
 
-The 'item' individuals stand for sub-regions of the 4D spacetime.
-
 In the EMMO, connectivity is the topological foundation of causality.
 
 All physical systems, i.e. systems whose behaviour is explained by physics laws, are always represented by 'item'-s.
 
-Members of a 'collection\" lack of causality connection, i.e. they do not constitute a physical system.")
+Members of a 'collection' lack of causality connection, i.e. they do not constitute a physical system as a whole.")
 AnnotationAssertion(rdfs:label :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de "item"@en)
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: :EMMO_08cb807c_e626_447b_863f_e2835540e918 (universe)
+
+AnnotationAssertion(rdfs:label :EMMO_08cb807c_e626_447b_863f_e2835540e918 "universe"@en)
+ClassAssertion(:EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de :EMMO_08cb807c_e626_447b_863f_e2835540e918)
 
 
 AnnotationAssertion(rdfs:comment owl:Thing "A word between apices represents an OWL-DL class (e.g. 'emmo').")

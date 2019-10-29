@@ -18,39 +18,48 @@ email: gerhard@goldbeck-consulting.com
 
 Emanuele Ghedini
 University of Bologna (IT)
-email: emanuele.ghedini"@unibo.it)
+email: emanuele.ghedini@unibo.it")
+
+Annotation(<http://emmc.info/emmo-core#EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab> "Emanuele Ghedini (University of Bologna, IT)
+Gerhard Goldbeck (GCL Ltd, UK)
+Adham Hashibon (Fraunhofer IWM, DE)
+Georg Schmitz (Access, DE)
+Jesper Friis (SINTEF, NO)")
+
 Annotation(rdfs:comment "European Materials and Modelling Ontology (EMMO)
 
 EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies. 
 
 It provides the connection between the physical world, materials characterisation world and materials modelling world.")
-Annotation(rdfs:comment "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege).")
+Annotation(rdfs:comment "The EMMO requires FaCT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege).")
 Annotation(rdfs:comment "The emmo-4d module includes the parthood relations that distinguish between partitioning in 3D space and 1D time dimensions.
-It depends on emmo-core which is valid for topological spaces without a specific dimensionality.")
+It depends on emmo-core which is valid for generic topological spaces without a specific dimensionality.")
 Annotation(owl:versionInfo "The European Materials Modelling Ontology
 
 Version 0.9.10")
 
 Declaration(ObjectProperty(:EMMO_6e046dd0_9634_4013_b2b1_9cc468087c83))
 Declaration(ObjectProperty(:EMMO_f68030be_94b8_4c61_a161_886468558054))
-Declaration(ObjectProperty(<http://emmc.info/emmo-core#EMMO_42eef0b0_cc64_4380_b912_8cc37e87506c>))
-Declaration(ObjectProperty(<http://emmc.info/emmo-core#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6>))
 
 ############################
 #   Object Properties
 ############################
 
-# Object Property: :EMMO_6e046dd0_9634_4013_b2b1_9cc468087c83 (has_non_essential_part)
+# Object Property: :EMMO_6e046dd0_9634_4013_b2b1_9cc468087c83 (has_inessential_part)
 
 AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_6e046dd0_9634_4013_b2b1_9cc468087c83 "A relation that isolates a proper part extending in time through a portion of the lifetime whole.")
-AnnotationAssertion(rdfs:label :EMMO_6e046dd0_9634_4013_b2b1_9cc468087c83 "has_non_essential_part"@en)
+AnnotationAssertion(rdfs:label :EMMO_6e046dd0_9634_4013_b2b1_9cc468087c83 "has_inessential_part"@en)
 SubObjectPropertyOf(:EMMO_6e046dd0_9634_4013_b2b1_9cc468087c83 :EMMO_f68030be_94b8_4c61_a161_886468558054)
+TransitiveObjectProperty(:EMMO_6e046dd0_9634_4013_b2b1_9cc468087c83)
 
 # Object Property: :EMMO_f68030be_94b8_4c61_a161_886468558054 (has_spatial_part)
 
-AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_f68030be_94b8_4c61_a161_886468558054 "A relation that isolates a proper part extending in time twithin the lifetime of the whole, without covering the full spatial extension of the 4D whole (i.e. is not a temporal part).")
+AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_f68030be_94b8_4c61_a161_886468558054 "A relation that isolates a proper part extending in time within the lifetime of the whole, without covering the full spatial extension of the 4D whole (i.e. is not a temporal part).")
 AnnotationAssertion(rdfs:label :EMMO_f68030be_94b8_4c61_a161_886468558054 "has_spatial_part"@en)
 SubObjectPropertyOf(:EMMO_f68030be_94b8_4c61_a161_886468558054 <http://emmc.info/emmo-core#EMMO_9380ab64_0363_4804_b13f_3a8a94119a76>)
+TransitiveObjectProperty(:EMMO_f68030be_94b8_4c61_a161_886468558054)
+ObjectPropertyDomain(:EMMO_f68030be_94b8_4c61_a161_886468558054 <http://emmc.info/emmo-core#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de>)
+ObjectPropertyRange(:EMMO_f68030be_94b8_4c61_a161_886468558054 <http://emmc.info/emmo-core#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de>)
 
 # Object Property: <http://emmc.info/emmo-core#EMMO_42eef0b0_cc64_4380_b912_8cc37e87506c> (has_essential_part)
 
@@ -65,6 +74,9 @@ AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_967080e5_2f42_4eb2_a3a9_c58
 AnnotationAssertion(rdfs:label <http://emmc.info/emmo-core#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6> "has_temporal_part"@en)
 SubObjectPropertyOf(<http://emmc.info/emmo-core#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6> <http://emmc.info/emmo-core#EMMO_9380ab64_0363_4804_b13f_3a8a94119a76>)
 TransitiveObjectProperty(<http://emmc.info/emmo-core#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6>)
+ObjectPropertyDomain(<http://emmc.info/emmo-core#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6> <http://emmc.info/emmo-core#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de>)
+ObjectPropertyRange(<http://emmc.info/emmo-core#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6> <http://emmc.info/emmo-core#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de>)
+
 
 
 
