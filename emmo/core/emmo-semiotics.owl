@@ -7,11 +7,15 @@ Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
 
 
 Ontology(<http://emmc.info/emmo-semiotics>
-Import(<http://emmc.info/emmo-direct>)
 Import(<http://emmc.info/emmo-process>)
 Annotation(<http://emmc.info/emmo-core#EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc> "EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
 
 https://creativecommons.org/licenses/by/4.0/legalcode")
+Annotation(<http://emmc.info/emmo-core#EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab> "Emanuele Ghedini (University of Bologna, IT)
+Gerhard Goldbeck (GCL Ltd, UK)
+Adham Hashibon (Fraunhofer IWM, DE)
+Georg Schmitz (Access, DE)
+Jesper Friis (SINTEF, NO)")
 Annotation(rdfs:comment "Contacts:
 Gerhard Goldbeck
 Goldbeck Consulting Ltd (UK)
@@ -25,9 +29,10 @@ Annotation(rdfs:comment "European Materials and Modelling Ontology (EMMO)
 EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies. 
 
 It provides the connection between the physical world, materials characterisation world and materials modelling world.")
+Annotation(rdfs:comment "The EMMO requires FaCT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege).")
 Annotation(owl:versionInfo "The European Materials Modelling Ontology
 
-Version 0.9.9")
+Version 0.9.10")
 
 Declaration(Class(:EMMO_008fd3b2_4013_451f_8827_52bceab11841))
 Declaration(Class(:EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee))
@@ -41,66 +46,47 @@ Declaration(Class(:EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527))
 Declaration(Class(:EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d))
 Declaration(Class(:EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9))
 Declaration(Class(:EMMO_d7788d1a_020d_4c78_85a1_13563fcec168))
+Declaration(ObjectProperty(<http://emmc.info/emmo-core#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6>))
 Declaration(ObjectProperty(:EMMO_2337e25c_3c60_43fc_a8f9_b11a3f974291))
-Declaration(ObjectProperty(:EMMO_233f6eca_6714_449e_8484_cb93ac832a0f))
 Declaration(ObjectProperty(:EMMO_297999d6_c9e4_4262_9536_bd524d1c6e21))
 Declaration(ObjectProperty(:EMMO_39c3815d_8cae_4c8f_b2ff_eeba24bec455))
 Declaration(ObjectProperty(:EMMO_60577dea_9019_4537_ac41_80b0fb563d41))
-Declaration(ObjectProperty(:EMMO_72a3342f_ba51_49b6_bf5b_4eb948e2a172))
-Declaration(ObjectProperty(:EMMO_a0ce0efc_0794_43d4_8891_052c12b1b8af))
-Declaration(ObjectProperty(:EMMO_c96aa488_aac9_4982_8b8d_97f69e238818))
 Declaration(ObjectProperty(:EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b))
 
 ############################
 #   Object Properties
 ############################
 
-# Object Property: :EMMO_2337e25c_3c60_43fc_a8f9_b11a3f974291 (semiotic)
+# Object Property: :EMMO_2337e25c_3c60_43fc_a8f9_b11a3f974291 (semiotical)
 
-AnnotationAssertion(rdfs:label :EMMO_2337e25c_3c60_43fc_a8f9_b11a3f974291 "semiotic"@en)
+AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_2337e25c_3c60_43fc_a8f9_b11a3f974291 "The generic EMMO semiotical relation.")
+AnnotationAssertion(rdfs:label :EMMO_2337e25c_3c60_43fc_a8f9_b11a3f974291 "semiotical"@en)
 SubObjectPropertyOf(:EMMO_2337e25c_3c60_43fc_a8f9_b11a3f974291 <http://emmc.info/emmo-core#EMMO_ec2472ae_cf4a_46a5_8555_1556f5a6c3c5>)
-
-# Object Property: :EMMO_233f6eca_6714_449e_8484_cb93ac832a0f (is_convention_for)
-
-AnnotationAssertion(rdfs:label :EMMO_233f6eca_6714_449e_8484_cb93ac832a0f "is_convention_for"@en)
-SubObjectPropertyOf(:EMMO_233f6eca_6714_449e_8484_cb93ac832a0f :EMMO_72a3342f_ba51_49b6_bf5b_4eb948e2a172)
-InverseObjectProperties(:EMMO_233f6eca_6714_449e_8484_cb93ac832a0f :EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b)
 
 # Object Property: :EMMO_297999d6_c9e4_4262_9536_bd524d1c6e21 (has_index)
 
 AnnotationAssertion(rdfs:label :EMMO_297999d6_c9e4_4262_9536_bd524d1c6e21 "has_index"@en)
 SubObjectPropertyOf(:EMMO_297999d6_c9e4_4262_9536_bd524d1c6e21 :EMMO_60577dea_9019_4537_ac41_80b0fb563d41)
+ObjectPropertyRange(:EMMO_297999d6_c9e4_4262_9536_bd524d1c6e21 :EMMO_0cd58641_824c_4851_907f_f4c3be76630c)
 
 # Object Property: :EMMO_39c3815d_8cae_4c8f_b2ff_eeba24bec455 (has_icon)
 
 AnnotationAssertion(rdfs:label :EMMO_39c3815d_8cae_4c8f_b2ff_eeba24bec455 "has_icon"@en)
 SubObjectPropertyOf(:EMMO_39c3815d_8cae_4c8f_b2ff_eeba24bec455 :EMMO_60577dea_9019_4537_ac41_80b0fb563d41)
+ObjectPropertyRange(:EMMO_39c3815d_8cae_4c8f_b2ff_eeba24bec455 :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168)
 
 # Object Property: :EMMO_60577dea_9019_4537_ac41_80b0fb563d41 (has_sign)
 
 AnnotationAssertion(rdfs:label :EMMO_60577dea_9019_4537_ac41_80b0fb563d41 "has_sign"@en)
 SubObjectPropertyOf(:EMMO_60577dea_9019_4537_ac41_80b0fb563d41 :EMMO_2337e25c_3c60_43fc_a8f9_b11a3f974291)
-InverseObjectProperties(:EMMO_60577dea_9019_4537_ac41_80b0fb563d41 :EMMO_72a3342f_ba51_49b6_bf5b_4eb948e2a172)
-
-# Object Property: :EMMO_72a3342f_ba51_49b6_bf5b_4eb948e2a172 (stands_for)
-
-AnnotationAssertion(rdfs:label :EMMO_72a3342f_ba51_49b6_bf5b_4eb948e2a172 "stands_for"@en)
-SubObjectPropertyOf(:EMMO_72a3342f_ba51_49b6_bf5b_4eb948e2a172 :EMMO_2337e25c_3c60_43fc_a8f9_b11a3f974291)
-
-# Object Property: :EMMO_a0ce0efc_0794_43d4_8891_052c12b1b8af (is_index_of)
-
-AnnotationAssertion(rdfs:label :EMMO_a0ce0efc_0794_43d4_8891_052c12b1b8af "is_index_of"@en)
-SubObjectPropertyOf(:EMMO_a0ce0efc_0794_43d4_8891_052c12b1b8af :EMMO_72a3342f_ba51_49b6_bf5b_4eb948e2a172)
-
-# Object Property: :EMMO_c96aa488_aac9_4982_8b8d_97f69e238818 (is_icon_of)
-
-AnnotationAssertion(rdfs:label :EMMO_c96aa488_aac9_4982_8b8d_97f69e238818 "is_icon_of"@en)
-SubObjectPropertyOf(:EMMO_c96aa488_aac9_4982_8b8d_97f69e238818 :EMMO_72a3342f_ba51_49b6_bf5b_4eb948e2a172)
+ObjectPropertyDomain(:EMMO_60577dea_9019_4537_ac41_80b0fb563d41 :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b)
+ObjectPropertyRange(:EMMO_60577dea_9019_4537_ac41_80b0fb563d41 :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d)
 
 # Object Property: :EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b (has_convention)
 
 AnnotationAssertion(rdfs:label :EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b "has_convention"@en)
 SubObjectPropertyOf(:EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b :EMMO_60577dea_9019_4537_ac41_80b0fb563d41)
+ObjectPropertyRange(:EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b :EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9)
 
 
 
@@ -119,7 +105,7 @@ the cat perceived by my mind -> interpretant
 \"Cat!\" -> sign, the produced sign")
 AnnotationAssertion(rdfs:label :EMMO_008fd3b2_4013_451f_8827_52bceab11841 "semiosis"@en)
 SubClassOf(:EMMO_008fd3b2_4013_451f_8827_52bceab11841 <http://emmc.info/emmo-process#EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce>)
-SubClassOf(:EMMO_008fd3b2_4013_451f_8827_52bceab11841 ObjectSomeValuesFrom(<http://emmc.info/emmo-core#EMMO_05b6fce2_322b_49b4_84aa_ab3c544cf1a1> :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee))
+SubClassOf(:EMMO_008fd3b2_4013_451f_8827_52bceab11841 ObjectSomeValuesFrom(<http://emmc.info/emmo-process#EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a> :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee))
 SubClassOf(:EMMO_008fd3b2_4013_451f_8827_52bceab11841 ObjectSomeValuesFrom(<http://emmc.info/emmo-process#EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1> :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b))
 SubClassOf(:EMMO_008fd3b2_4013_451f_8827_52bceab11841 ObjectSomeValuesFrom(<http://emmc.info/emmo-process#EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1> :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d))
 
@@ -128,14 +114,12 @@ SubClassOf(:EMMO_008fd3b2_4013_451f_8827_52bceab11841 ObjectSomeValuesFrom(<http
 AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee "The entity (or agent, or observer, or cognitive entity) who connects 'sign', 'interpretant' and 'object'.")
 AnnotationAssertion(rdfs:label :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee "interpreter"@en)
 SubClassOf(:EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9)
-SubClassOf(:EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee ObjectSomeValuesFrom(<http://emmc.info/emmo-core#EMMO_05b6fce2_322b_49b4_84aa_ab3c544cf1a1> :EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b))
-SubClassOf(:EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee ObjectSomeValuesFrom(<http://emmc.info/emmo-core#EMMO_7bb33ab7_cc3e_418d_a57c_97651533c865> :EMMO_008fd3b2_4013_451f_8827_52bceab11841))
+SubClassOf(:EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee ObjectSomeValuesFrom(<http://emmc.info/emmo-4d#EMMO_f68030be_94b8_4c61_a161_886468558054> :EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b))
 
 # Class: :EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b (interpretant)
 
 AnnotationAssertion(rdfs:label :EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b "interpretant"@en)
 SubClassOf(:EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d)
-SubClassOf(:EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b ObjectSomeValuesFrom(<http://emmc.info/emmo-core#EMMO_756d158a_cd64_44ba_b2e5_c3853ba2f3b2> :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee))
 
 # Class: :EMMO_057e7d57_aff0_49de_911a_8861d85cef40 (symbolic)
 
@@ -147,7 +131,7 @@ cat")
 AnnotationAssertion(rdfs:comment :EMMO_057e7d57_aff0_49de_911a_8861d85cef40 "In formal languages it is called a string of symbols.")
 AnnotationAssertion(rdfs:label :EMMO_057e7d57_aff0_49de_911a_8861d85cef40 "symbolic"@en)
 SubClassOf(:EMMO_057e7d57_aff0_49de_911a_8861d85cef40 <http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d>)
-SubClassOf(:EMMO_057e7d57_aff0_49de_911a_8861d85cef40 ObjectUnionOf(:EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ObjectSomeValuesFrom(<http://emmc.info/emmo-core#EMMO_05b6fce2_322b_49b4_84aa_ab3c544cf1a1> :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527)))
+SubClassOf(:EMMO_057e7d57_aff0_49de_911a_8861d85cef40 ObjectUnionOf(:EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ObjectSomeValuesFrom(<http://emmc.info/emmo-4d#EMMO_f68030be_94b8_4c61_a161_886468558054> :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527)))
 
 # Class: :EMMO_0cd58641_824c_4851_907f_f4c3be76630c (index)
 
@@ -156,17 +140,15 @@ AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_b432d2d5_25f4_4165_99c5_593
 
 My facial expression stands for my emotional status.")
 AnnotationAssertion(rdfs:label :EMMO_0cd58641_824c_4851_907f_f4c3be76630c "index"@en)
-EquivalentClasses(:EMMO_0cd58641_824c_4851_907f_f4c3be76630c ObjectSomeValuesFrom(:EMMO_a0ce0efc_0794_43d4_8891_052c12b1b8af <http://emmc.info/emmo-core#EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf>))
 
 # Class: :EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9 (conventional)
 
 AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9 "A 'sign' that stand for an 'object' through convention, norm or habit, without any resemblance to it.")
 AnnotationAssertion(rdfs:label :EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9 "conventional"@en)
-EquivalentClasses(:EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9 ObjectSomeValuesFrom(:EMMO_233f6eca_6714_449e_8484_cb93ac832a0f <http://emmc.info/emmo-core#EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf>))
 
 # Class: :EMMO_50ea1ec5_f157_41b0_b46b_a9032f17ca10 (formula)
 
-AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_50ea1ec5_f157_41b0_b46b_a9032f17ca10 "A composition of 'symbol'-s respecting a specific language syntactic rules (well-formed).")
+AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_50ea1ec5_f157_41b0_b46b_a9032f17ca10 "A composition of 'symbol'-s respecting a specific language syntactic rules (well-formed formula).")
 AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a> :EMMO_50ea1ec5_f157_41b0_b46b_a9032f17ca10 "The word \"cat\" considered as a collection of 'symbol'-s respecting the rules of english language. 
 
 In this example the 'symbolic' entity \"cat\" is not related to the real cat, but it is only a word (like it would be to an italian person that ignores the meaning of this english word).
@@ -187,7 +169,6 @@ In this way the 'sign'-ed entity become and 'object', and the 'object' is the ba
 AnnotationAssertion(rdfs:label :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b "object"@en)
 EquivalentClasses(:EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b ObjectSomeValuesFrom(:EMMO_60577dea_9019_4537_ac41_80b0fb563d41 :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d))
 SubClassOf(:EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9)
-SubClassOf(:EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b ObjectSomeValuesFrom(<http://emmc.info/emmo-core#EMMO_7bb33ab7_cc3e_418d_a57c_97651533c865> :EMMO_008fd3b2_4013_451f_8827_52bceab11841))
 
 # Class: :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 (symbol)
 
@@ -235,13 +216,13 @@ AnnotationAssertion(rdfs:comment :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d "It 
 'sign' subclasses categorize the type of signs that are used to create representations/models of the real world entities.")
 AnnotationAssertion(rdfs:label :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d "sign"@en)
 EquivalentClasses(:EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d ObjectUnionOf(:EMMO_0cd58641_824c_4851_907f_f4c3be76630c :EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9 :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168))
-EquivalentClasses(:EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d ObjectSomeValuesFrom(:EMMO_72a3342f_ba51_49b6_bf5b_4eb948e2a172 <http://emmc.info/emmo-core#EMMO_d82fd6c6_aebe_440f_9dd2_24a4eb3a417b>))
 SubClassOf(:EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9)
-SubClassOf(:EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d ObjectAllValuesFrom(<http://emmc.info/emmo-core#EMMO_90993ca7_7668_4225_92c9_3f1a20f346f2> :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d))
+SubClassOf(:EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d ObjectAllValuesFrom(<http://emmc.info/emmo-core#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6> :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d))
 
 # Class: :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 (semiotic)
 
-AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 "The class of semiotic elements used in Peirce's semiotic theory.
+AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 "The class of individuals that stands for semiotic objects, i.e. objects that take part on a semiotic process.")
+AnnotationAssertion(rdfs:comment :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 "Semiotic subclasse are defined using Peirce's semiotic theory.
 
 \"Namely, a sign is something, A, which brings something, B, its interpretant sign determined or created by it, into the same sort of correspondence with something, C, its object, as that in which itself stands to C.\" (Peirce 1902, NEM 4, 20–21).
 
@@ -253,7 +234,7 @@ The triadic elements:
 This class includes also the 'interpeter' i.e. the entity that connects the 'sign' to the 'object'")
 AnnotationAssertion(rdfs:label :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 "semiotic"@en)
 EquivalentClasses(:EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 ObjectUnionOf(:EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d))
-SubClassOf(:EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 ObjectSomeValuesFrom(<http://emmc.info/emmo-process#EMMO_748696de_8257_47c1_a53c_d09df0ff71c5> :EMMO_008fd3b2_4013_451f_8827_52bceab11841))
+SubClassOf(:EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 ObjectSomeValuesFrom(ObjectInverseOf(<http://emmc.info/emmo-process#EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1>) :EMMO_008fd3b2_4013_451f_8827_52bceab11841))
 
 # Class: :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 (icon)
 
@@ -262,7 +243,6 @@ AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_b432d2d5_25f4_4165_99c5_593
 
 An equation that reproduces the logical connection of the properties of a physical entity.")
 AnnotationAssertion(rdfs:label :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 "icon"@en)
-EquivalentClasses(:EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 ObjectSomeValuesFrom(:EMMO_c96aa488_aac9_4982_8b8d_97f69e238818 <http://emmc.info/emmo-core#EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf>))
 
 
 )

@@ -7,10 +7,15 @@ Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
 
 
 Ontology(<http://emmc.info/emmo-process>
-Import(<http://emmc.info/emmo-core>)
+Import(<http://emmc.info/emmo-physical>)
 Annotation(<http://emmc.info/emmo-core#EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc> "EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
 
 https://creativecommons.org/licenses/by/4.0/legalcode")
+Annotation(<http://emmc.info/emmo-core#EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab> "Emanuele Ghedini (University of Bologna, IT)
+Gerhard Goldbeck (GCL Ltd, UK)
+Adham Hashibon (Fraunhofer IWM, DE)
+Georg Schmitz (Access, DE)
+Jesper Friis (SINTEF, NO)")
 Annotation(rdfs:comment "Contacts:
 Gerhard Goldbeck
 Goldbeck Consulting Ltd (UK)
@@ -24,46 +29,32 @@ Annotation(rdfs:comment "European Materials and Modelling Ontology (EMMO)
 EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies. 
 
 It provides the connection between the physical world, materials characterisation world and materials modelling world.")
+Annotation(rdfs:comment "The EMMO requires FaCT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege).")
 Annotation(owl:versionInfo "The European Materials Modelling Ontology
 
-Version 0.9.9")
+Version 0.9.10")
 
 Declaration(Class(:EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce))
 Declaration(Class(:EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d))
-Declaration(ObjectProperty(:EMMO_748696de_8257_47c1_a53c_d09df0ff71c5))
 Declaration(ObjectProperty(:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a))
 Declaration(ObjectProperty(:EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1))
-Declaration(ObjectProperty(:EMMO_dfd0f9d7_f425_45bb_93de_9fc7981eafdc))
 
 ############################
 #   Object Properties
 ############################
 
-# Object Property: :EMMO_748696de_8257_47c1_a53c_d09df0ff71c5 (is_participant_of)
-
-AnnotationAssertion(rdfs:label :EMMO_748696de_8257_47c1_a53c_d09df0ff71c5 "is_participant_of"@en)
-SubObjectPropertyOf(:EMMO_748696de_8257_47c1_a53c_d09df0ff71c5 <http://emmc.info/emmo-core#EMMO_85fc27bc_5e42_4baa_bf85_5a2dc4a26a1f>)
-InverseObjectProperties(:EMMO_748696de_8257_47c1_a53c_d09df0ff71c5 :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a)
-
 # Object Property: :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a (has_participant)
 
 AnnotationAssertion(rdfs:label :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a "has_participant"@en)
 SubObjectPropertyOf(:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a <http://emmc.info/emmo-core#EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f>)
+ObjectPropertyDomain(:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce)
+ObjectPropertyRange(:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a :EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d)
 
 # Object Property: :EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1 (has_proper_participant)
 
 AnnotationAssertion(rdfs:label :EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1 "has_proper_participant"@en)
 SubObjectPropertyOf(:EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1 <http://emmc.info/emmo-core#EMMO_9380ab64_0363_4804_b13f_3a8a94119a76>)
 SubObjectPropertyOf(:EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1 :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a)
-InverseObjectProperties(:EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1 :EMMO_dfd0f9d7_f425_45bb_93de_9fc7981eafdc)
-TransitiveObjectProperty(:EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1)
-
-# Object Property: :EMMO_dfd0f9d7_f425_45bb_93de_9fc7981eafdc (is_proper_participant)
-
-AnnotationAssertion(rdfs:label :EMMO_dfd0f9d7_f425_45bb_93de_9fc7981eafdc "is_proper_participant"@en)
-SubObjectPropertyOf(:EMMO_dfd0f9d7_f425_45bb_93de_9fc7981eafdc <http://emmc.info/emmo-core#EMMO_756d158a_cd64_44ba_b2e5_c3853ba2f3b2>)
-SubObjectPropertyOf(:EMMO_dfd0f9d7_f425_45bb_93de_9fc7981eafdc :EMMO_748696de_8257_47c1_a53c_d09df0ff71c5)
-TransitiveObjectProperty(:EMMO_dfd0f9d7_f425_45bb_93de_9fc7981eafdc)
 
 
 
@@ -78,23 +69,18 @@ AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_70fe84ff_99b6_4206_a9fc_9a8
 Following the common definition of process, every 'physical' is a process since every 4D object always has a time dimension. However, in the EMMO we restrict the meaning of the word process to 'physical'-s whose evolution in time have a particular meaning for the ontologist. 
 
 i.e. a 'process' is not only something that unfolds in time (which is automatically represented in a 4D ontology), but something happening that has a meaning for the interpreter.")
-AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce "A 'process' is always a 'physical', since a 'void' does not have elements that evolves in time.
-
-However, 'void' parts inside a 'process' can be a 'participant'.")
+AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce "A 'process' is always a 'physical', since a 'void' does not have elements that evolves in time.")
 AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce "A temporal part of a 'physical' that identifies a particular type of evolution in time.")
 AnnotationAssertion(rdfs:label :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce "process"@en)
-EquivalentClasses(:EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ObjectSomeValuesFrom(:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a :EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d))
 SubClassOf(:EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce <http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d>)
+SubClassOf(:EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ObjectSomeValuesFrom(:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a :EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d))
 
 # Class: :EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d (participant)
 
-AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d "A portion of a 'process' that participates to the 'process' with a specific role.
-
-In the EMMO the relation of participation to a process falls under mereology.
-
-It can be a 'physical' or a 'void'.")
+AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d "A portion of a 'process' that participates to the 'process' with a specific role.")
+AnnotationAssertion(rdfs:comment :EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d "In the EMMO the relation of participation to a process falls under mereotopology.")
 AnnotationAssertion(rdfs:label :EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d "participant"@en)
-EquivalentClasses(:EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d ObjectSomeValuesFrom(:EMMO_748696de_8257_47c1_a53c_d09df0ff71c5 :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce))
+SubClassOf(:EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d <http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d>)
 
 
 )
