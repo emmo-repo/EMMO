@@ -95,7 +95,7 @@ SubObjectPropertyOf(:EMMO_03212fd7_abfd_4828_9c8e_62c293052d4b :EMMO_ec2472ae_cf
 
 AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f "The primitive relation of parthood (reflexive, transitive, antisymmetric).
 
-Pxy := x is part of y")
+Pxy ≡ x is part of y")
 AnnotationAssertion(rdfs:label :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f "has_part"@en)
 AnnotationAssertion(rdfs:seeAlso :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f "is_part_of")
 SubObjectPropertyOf(:EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f :EMMO_8c898653_1118_4682_9bbf_6cc334d16a99)
@@ -104,7 +104,7 @@ TransitiveObjectProperty(:EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f)
 
 # Object Property: :EMMO_4d6504f1_c470_4ce9_b941_bbbebc9ab05d (contacts)
 
-AnnotationAssertion(:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 :EMMO_4d6504f1_c470_4ce9_b941_bbbebc9ab05d "ECxy := Cxy ∧ ¬Oxy")
+AnnotationAssertion(:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 :EMMO_4d6504f1_c470_4ce9_b941_bbbebc9ab05d "ECxy ≡ Cxy ∧ ¬Oxy")
 AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_4d6504f1_c470_4ce9_b941_bbbebc9ab05d "The relation between two connected but not overlapping real world objects, also known as external connection")
 AnnotationAssertion(rdfs:label :EMMO_4d6504f1_c470_4ce9_b941_bbbebc9ab05d "contacts"@en)
 SubObjectPropertyOf(:EMMO_4d6504f1_c470_4ce9_b941_bbbebc9ab05d :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8)
@@ -120,12 +120,12 @@ SymmetricObjectProperty(:EMMO_517dfaf9_4970_41ac_81ee_d031627d2c7c)
 # Object Property: :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 (connected)
 
 AnnotationAssertion(:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 "Definition:
-Cxy := x is connected with y
+Cxy ≡ x is connected with y
 
 Axiom:
  1) Cxx (x is always connected with itself (reflexivity))
 Axiom:
-2) Cxy->Cyx (if x is connected with y then y is connected with x (symmetry))")
+2) Cxy → Cyx (if x is connected with y then y is connected with x (symmetry))")
 AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 "The relation between two individuals that stand for real world topological connected objects.")
 AnnotationAssertion(rdfs:comment :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 "Causality is a topological property between connected items.")
 AnnotationAssertion(rdfs:comment :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 "Items being connected means that there is a topological contact or \"interaction\" between them.")
@@ -135,6 +135,11 @@ SymmetricObjectProperty(:EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8)
 
 # Object Property: :EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4 (has_member)
 
+AnnotationAssertion(:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4 "The relation that connects and individual that stands for a collection to an individual that stands for a member of the collections.
+
+A member is a proper part of the collection that:
+- is an item (i.e. is a self-connected object)
+- is maximally self-connected with respect to the collection (i.e. it is not in contact with other members of the same collection)")
 AnnotationAssertion(rdfs:label :EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4 "has_member"@en)
 SubObjectPropertyOf(:EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4 :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76)
 AsymmetricObjectProperty(:EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4)
@@ -144,7 +149,7 @@ ObjectPropertyRange(:EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4 :EMMO_eb3a768e_d5
 
 # Object Property: :EMMO_8c898653_1118_4682_9bbf_6cc334d16a99 (encloses)
 
-AnnotationAssertion(:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 :EMMO_8c898653_1118_4682_9bbf_6cc334d16a99 "Exy := ∀z(Czx -> Czy)")
+AnnotationAssertion(:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 :EMMO_8c898653_1118_4682_9bbf_6cc334d16a99 "Exy ≡ ∀z(Czx → Czy)")
 AnnotationAssertion(rdfs:comment :EMMO_8c898653_1118_4682_9bbf_6cc334d16a99 "Enclosure is reflexive and transitive.")
 AnnotationAssertion(rdfs:label :EMMO_8c898653_1118_4682_9bbf_6cc334d16a99 "encloses"@en)
 AnnotationAssertion(rdfs:seeAlso :EMMO_8c898653_1118_4682_9bbf_6cc334d16a99 "is_enclosed_by")
@@ -153,7 +158,7 @@ TransitiveObjectProperty(:EMMO_8c898653_1118_4682_9bbf_6cc334d16a99)
 
 # Object Property: :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 (has_proper_part)
 
-AnnotationAssertion(:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 "PPxy := Pxy ∧ ¬(x=y)")
+AnnotationAssertion(:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 "PPxy ≡ Pxy ∧ ¬(x=y)")
 AnnotationAssertion(rdfs:label :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 "has_proper_part"@en)
 AnnotationAssertion(rdfs:seeAlso :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 "is_proper_part_of")
 SubObjectPropertyOf(:EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f)
@@ -168,7 +173,7 @@ SymmetricObjectProperty(:EMMO_9cb984ca_48ad_4864_b09e_50d3fff19420)
 
 # Object Property: :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 (overlaps)
 
-AnnotationAssertion(:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 "Oxy := ∃z(Pzx ∧ Pzy)
+AnnotationAssertion(:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 "Oxy ≡ ∃z(Pzx ∧ Pzy)
 
 x overlap with y means that there exists a z that is part of both x and y")
 AnnotationAssertion(rdfs:label :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 "overlaps"@en)
@@ -197,17 +202,10 @@ AnnotationAssertion(rdfs:comment :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 "A '
 A 'collection' individual is related to each 'item' individuals of the collection (i.e. the members) through the membership relation.
 
 An 'item' individual stands for a real world self-connected object which can be represented as a whole made of connected parts (e.g. a car made of components).")
-AnnotationAssertion(rdfs:comment :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 "Formally, 'set' is axiomatized as the class of individuals that 'has_member' some 'item'.
+AnnotationAssertion(rdfs:comment :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 "Formally, 'collection' is axiomatized as the class of individuals that 'has_member' some 'item'.
 
-A 'set' cannot have as member another 'set'. This relation is expressed instead by the subset relation, which is the OWL-DL built-in 'is_a' relation used to declare subclasses of 'set'.")
-AnnotationAssertion(rdfs:comment :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 "Since OWL-DL classes are intended as signs that stand for real world sets, we can consider the 'set' branch as a meta-ontological branch, since 'item' class and all its subclasses are then individuals of 'set'.
-
-It is also possible to define a relation 'is_subset_of' valid only between 'set' individuals that is equivalent to the OWL-DL built-in 'is_a' relation between classes in the 'item' branch. 
-
-However this is not done in the EMMO for the sake of simplicity and due to the limitation of the language.")
-AnnotationAssertion(rdfs:comment :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 "The 'set' class can be used to declare individuals that stand for collections of parts that does not form a self-connected whole in mereotopological sense.
-
-e.g. the set of users of a particular software, the set of atoms that have been part of that just dissociated molecule, or even the set of atoms that are part of a molecule considered as single individual entities and not as a mereotopological self-connected fusion.")
+A 'collection' cannot have as member another 'collection'.")
+AnnotationAssertion(rdfs:comment :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 "e.g. the collection of users of a particular software, the collection of atoms that have been part of that just dissociated molecule, or even the collection of atoms that are part of a molecule considered as single individual non-connected objects and not as a mereotopological self-connected fusion.")
 AnnotationAssertion(rdfs:label :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 "collection"@en)
 SubClassOf(:EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ObjectSomeValuesFrom(:EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4 :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de))
 
@@ -236,19 +234,19 @@ AnnotationAssertion(rdfs:comment :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf "'em
 The union implies that 'emmo' individuals can only be 'item' individuals (standing for self-connected real world objects) or 'collection' individuals (standing for a collection of disconnected items).
 
 Disjointness means that a 'collection' individual cannot be an 'item' individual and viceversa, meaning that a real world object cannot be self-connected and non-self connected at the same time.")
-AnnotationAssertion(rdfs:comment :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf "For the EMMO the universe is represented at meta-ontological level (i.e. the representational level that includes the ontologist, the ontology and the universe) as a 4D path-connected topological manifold (i.e. the spacetime).
-
-A real world object is then a topological sub-region of the whole 4D manifold that describes our universe. 
-
-A universe sub-region is isolated and defined as a real world object by the ontologist, through a semiotic process that occurs at the meta-ontological level (i.e. outside the ontology).
+AnnotationAssertion(rdfs:comment :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf "For the EMMO the whole universe is represented at meta-ontological level (i.e. the representational level that includes the ontologist, the ontology and the universe) as a 4D path-connected topological manifold (i.e. the spacetime).
 
 Mereotopology is the fundamental logical representation used to characterize the universe and to provide the definitions for the EMMO concepts at interpreter's level.
+
+A real world object is then a 4D topological sub-region of the universe. 
+
+A universe sub-region is isolated and defined as a real world object by the ontologist. Then, through a semiotic process that occurs at the meta-ontological level (i.e. outside the ontology). an ontology entity (e.g. an OWL individual) is assigned to represent that real object. 
 
 The fundamental distinction between real world objects upon which the EMMO is based in self-connectedness: a real world object can be self-connected xor not self-connected.")
 AnnotationAssertion(rdfs:comment :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf "In the EMMO we will refer to the universe as a Minkowski space, restricting the ontology to special relativity only. However, exension to general relativity, will adding more complexity, should not change the overall approach.")
 AnnotationAssertion(rdfs:comment :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf "Parthood relations does not change dimensionality of an 'emmo' individual, i.e. every part of a real world object always retains its 4D dimensionality. 
 
-The smallest part is a 'quantum'.
+The smallest part is a 'quantum', that has no proper parts.
 
 It follows that, for the EMMO, real world objects of dimensionality lower than 4D do not exist (e.g. surfaces, lines).")
 AnnotationAssertion(rdfs:label :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf "emmo"@en)
