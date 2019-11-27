@@ -7,8 +7,9 @@ Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
 
 
 Ontology(<http://emmc.info/emmo-math>
-Import(<http://emmc.info/emmo>)
-Annotation(<http://emmc.info/emmo-core#EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc> "EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
+Import(<http://emmc.info/emmo-graphical>)
+Import(<http://emmc.info/emmo-semiotics>)
+Annotation(<http://emmc.info/emmo-annotations#EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc> "EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
 
 https://creativecommons.org/licenses/by/4.0/legalcode")
 Annotation(rdfs:comment "Contacts:
@@ -55,9 +56,9 @@ SubObjectPropertyOf(:EMMO_3446e167_c576_49d6_846c_215bb8878a55 <http://emmc.info
 
 # Class: :EMMO_031d61af_6405_41de_8880_df2f85a53383 (math symbol)
 
-AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_031d61af_6405_41de_8880_df2f85a53383 "A 'symbol' that is part of standard mathematical formalism.")
+AnnotationAssertion(<http://emmc.info/emmo-annotations#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_031d61af_6405_41de_8880_df2f85a53383 "A 'symbol' that is part of standard mathematical formalism.")
 AnnotationAssertion(rdfs:label :EMMO_031d61af_6405_41de_8880_df2f85a53383 "math symbol"@en)
-SubClassOf(:EMMO_031d61af_6405_41de_8880_df2f85a53383 <http://emmc.info/emmo-semiotics#EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527>)
+SubClassOf(:EMMO_031d61af_6405_41de_8880_df2f85a53383 <http://emmc.info/emmo-graphical#EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527>)
 SubClassOf(:EMMO_031d61af_6405_41de_8880_df2f85a53383 ObjectAllValuesFrom(<http://emmc.info/emmo-4d#EMMO_f68030be_94b8_4c61_a161_886468558054> ObjectComplementOf(:EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0)))
 
 # Class: :EMMO_1a663927_3b68_4618_acd3_a8aa0d406329 (number)
@@ -70,23 +71,24 @@ SubClassOf(:EMMO_1a663927_3b68_4618_acd3_a8aa0d406329 :EMMO_031d61af_6405_41de_8
 AnnotationAssertion(rdfs:comment :EMMO_1eed0732_e3f1_4b2c_a9c4_b4e75eeb5895 "A 'variable' is a 'symbol' that stands for a numerical defined 'mathematical' entity like e.g. a number, a vector, a matrix.")
 AnnotationAssertion(rdfs:label :EMMO_1eed0732_e3f1_4b2c_a9c4_b4e75eeb5895 "variable"@en)
 SubClassOf(:EMMO_1eed0732_e3f1_4b2c_a9c4_b4e75eeb5895 :EMMO_031d61af_6405_41de_8880_df2f85a53383)
+SubClassOf(:EMMO_1eed0732_e3f1_4b2c_a9c4_b4e75eeb5895 ObjectSomeValuesFrom(ObjectInverseOf(:EMMO_3446e167_c576_49d6_846c_215bb8878a55) :EMMO_1a663927_3b68_4618_acd3_a8aa0d406329))
 
 # Class: :EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0 (mathematical)
 
 AnnotationAssertion(rdfs:comment :EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0 "The class of general mathematical symbols.")
 AnnotationAssertion(rdfs:label :EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0 "mathematical"@en)
-SubClassOf(:EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0 <http://emmc.info/emmo-semiotics#EMMO_50ea1ec5_f157_41b0_b46b_a9032f17ca10>)
+SubClassOf(:EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0 <http://emmc.info/emmo-graphical#EMMO_50ea1ec5_f157_41b0_b46b_a9032f17ca10>)
 
 # Class: :EMMO_ae15fb4f_8e4d_41de_a0f9_3997f89ba6a2 (constant)
 
-AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_ae15fb4f_8e4d_41de_a0f9_3997f89ba6a2 "A 'varaible' that stand for a well known constant.")
+AnnotationAssertion(<http://emmc.info/emmo-annotations#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_ae15fb4f_8e4d_41de_a0f9_3997f89ba6a2 "A 'varaible' that stand for a well known constant.")
 AnnotationAssertion(rdfs:comment :EMMO_ae15fb4f_8e4d_41de_a0f9_3997f89ba6a2 "pi = 3.14")
 AnnotationAssertion(rdfs:label :EMMO_ae15fb4f_8e4d_41de_a0f9_3997f89ba6a2 "constant"@en)
 SubClassOf(:EMMO_ae15fb4f_8e4d_41de_a0f9_3997f89ba6a2 :EMMO_1eed0732_e3f1_4b2c_a9c4_b4e75eeb5895)
 
 # Class: :EMMO_d1d436e7_72fc_49cd_863b_7bfb4ba5276a (parameter)
 
-AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a> :EMMO_d1d436e7_72fc_49cd_863b_7bfb4ba5276a "Viscosity, the total energy of the system given by an Hamiltonian, the force between two atoms.")
+AnnotationAssertion(<http://emmc.info/emmo-annotations#EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a> :EMMO_d1d436e7_72fc_49cd_863b_7bfb4ba5276a "Viscosity, the total energy of the system given by an Hamiltonian, the force between two atoms.")
 AnnotationAssertion(rdfs:comment :EMMO_d1d436e7_72fc_49cd_863b_7bfb4ba5276a "A 'variable' whose value is assumed to be known independently from the equation, but whose value is not explicitated in the equation.")
 AnnotationAssertion(rdfs:label :EMMO_d1d436e7_72fc_49cd_863b_7bfb4ba5276a "parameter"@en)
 SubClassOf(:EMMO_d1d436e7_72fc_49cd_863b_7bfb4ba5276a :EMMO_1eed0732_e3f1_4b2c_a9c4_b4e75eeb5895)
@@ -112,8 +114,8 @@ SubClassOf(:EMMO_e56ee3eb_7609_4ae1_8bed_51974f0960a6 ObjectSomeValuesFrom(<http
 
 # Class: :EMMO_fe7e56ce_118b_4243_9aad_20eb9f4f31f6 (unknown)
 
-AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_fe7e56ce_118b_4243_9aad_20eb9f4f31f6 "The dependent variable for which an equation has been written.")
-AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a> :EMMO_fe7e56ce_118b_4243_9aad_20eb9f4f31f6 "Velocity, for the Navier-Stokes equation.")
+AnnotationAssertion(<http://emmc.info/emmo-annotations#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_fe7e56ce_118b_4243_9aad_20eb9f4f31f6 "The dependent variable for which an equation has been written.")
+AnnotationAssertion(<http://emmc.info/emmo-annotations#EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a> :EMMO_fe7e56ce_118b_4243_9aad_20eb9f4f31f6 "Velocity, for the Navier-Stokes equation.")
 AnnotationAssertion(rdfs:label :EMMO_fe7e56ce_118b_4243_9aad_20eb9f4f31f6 "unknown"@en)
 SubClassOf(:EMMO_fe7e56ce_118b_4243_9aad_20eb9f4f31f6 :EMMO_1eed0732_e3f1_4b2c_a9c4_b4e75eeb5895)
 

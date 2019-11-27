@@ -8,14 +8,6 @@ Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
 
 Ontology(<http://emmc.info/emmo-physical>
 Import(<http://emmc.info/emmo-4d>)
-Annotation(<http://emmc.info/emmo-core#EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc> "EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
-
-https://creativecommons.org/licenses/by/4.0/legalcode")
-Annotation(<http://emmc.info/emmo-core#EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab> "Emanuele Ghedini (University of Bologna, IT)
-Gerhard Goldbeck (GCL Ltd, UK)
-Adham Hashibon (Fraunhofer IWM, DE)
-Georg Schmitz (Access, DE)
-Jesper Friis (SINTEF, NO)")
 Annotation(rdfs:comment "Contacts:
 Gerhard Goldbeck
 Goldbeck Consulting Ltd (UK)
@@ -23,7 +15,7 @@ email: gerhard@goldbeck-consulting.com
 
 Emanuele Ghedini
 University of Bologna (IT)
-email: emanuele.ghedini"@unibo.it)
+email: emanuele.ghedini@unibo.it")
 Annotation(rdfs:comment "European Materials and Modelling Ontology (EMMO)
 
 EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies. 
@@ -34,45 +26,50 @@ Annotation(owl:versionInfo "The European Materials Modelling Ontology
 
 Version 0.9.10")
 
-Declaration(Class(<http://emmc.info/emmo-core#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360>))
-Declaration(Class(<http://emmc.info/emmo-core#EMMO_29072ec4_ffcb_42fb_bdc7_26f05a2e9873>))
-Declaration(Class(<http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d>))
-
+Declaration(Class(:EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360))
+Declaration(Class(:EMMO_29072ec4_ffcb_42fb_bdc7_26f05a2e9873))
+Declaration(Class(:EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d))
 
 
 ############################
 #   Classes
 ############################
 
-# Class: <http://emmc.info/emmo-core#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360> (elementary)
+# Class: <http://emmc.info/emmo-mereotopology#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de> (item)
 
-AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> <http://emmc.info/emmo-core#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360> "The basic constituent of 'item'-s that can be proper partitioned only in time up to quantum level.")
-AnnotationAssertion(rdfs:comment <http://emmc.info/emmo-core#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360> "'elementary' is by definition the most simple example of 'state'.")
-AnnotationAssertion(rdfs:comment <http://emmc.info/emmo-core#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360> "According to mereology, this should be call 'a-tomistic' in the strict etimological sense of the word (from greek, a-tomos: un-divisible).
+DisjointUnion(<http://emmc.info/emmo-mereotopology#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de> :EMMO_29072ec4_ffcb_42fb_bdc7_26f05a2e9873 :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d)
+
+# Class: :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 (elementary)
+
+AnnotationAssertion(<http://emmc.info/emmo-annotations#EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84> :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 "The basic constituent of 'item'-s that can be proper partitioned only in time up to quantum level.")
+AnnotationAssertion(rdfs:comment :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 "According to mereology, this should be call 'a-tomistic' in the strict etimological sense of the word (from greek, a-tomos: un-divisible).
 
 Mereology based on such items is called atomistic mereology.
 
 However, in order not to confuse the lexicon between mereology and physics (in which an atom is a divisible physical entity) we prefer to call it 'elementary', recalling the concept of elementary particle coming from the standard particles model.")
-AnnotationAssertion(rdfs:label <http://emmc.info/emmo-core#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360> "elementary"@en)
-SubClassOf(<http://emmc.info/emmo-core#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360> <http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d>)
-SubClassOf(<http://emmc.info/emmo-core#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360> ObjectAllValuesFrom(<http://emmc.info/emmo-4d#EMMO_f68030be_94b8_4c61_a161_886468558054> owl:Nothing))
-SubClassOf(<http://emmc.info/emmo-core#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360> ObjectAllValuesFrom(<http://emmc.info/emmo-core#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6> <http://emmc.info/emmo-core#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360>))
+AnnotationAssertion(rdfs:comment :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 "While a 'quantum' is a-tomistic in time and space, an 'elementary' is a-tomistic only in space, recalling the concept of elementary particle.")
+AnnotationAssertion(rdfs:label :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 "elementary"@en)
+SubClassOf(:EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 <http://emmc.info/emmo-mereotopology#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de>)
+SubClassOf(:EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d)
+SubClassOf(:EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 ObjectAllValuesFrom(<http://emmc.info/emmo-4d#EMMO_f68030be_94b8_4c61_a161_886468558054> owl:Nothing))
+SubClassOf(:EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 ObjectAllValuesFrom(<http://emmc.info/emmo-mereotopology#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6> :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360))
 
-# Class: <http://emmc.info/emmo-core#EMMO_29072ec4_ffcb_42fb_bdc7_26f05a2e9873> (void)
+# Class: :EMMO_29072ec4_ffcb_42fb_bdc7_26f05a2e9873 (void)
 
-AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84> <http://emmc.info/emmo-core#EMMO_29072ec4_ffcb_42fb_bdc7_26f05a2e9873> "A 'item' that has no 'physical' parts.")
-AnnotationAssertion(rdfs:label <http://emmc.info/emmo-core#EMMO_29072ec4_ffcb_42fb_bdc7_26f05a2e9873> "void"@en)
-SubClassOf(<http://emmc.info/emmo-core#EMMO_29072ec4_ffcb_42fb_bdc7_26f05a2e9873> ObjectAllValuesFrom(<http://emmc.info/emmo-core#EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f> <http://emmc.info/emmo-core#EMMO_29072ec4_ffcb_42fb_bdc7_26f05a2e9873>))
+AnnotationAssertion(<http://emmc.info/emmo-annotations#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_29072ec4_ffcb_42fb_bdc7_26f05a2e9873 "A 'item' that has no 'physical' parts.")
+AnnotationAssertion(rdfs:comment :EMMO_29072ec4_ffcb_42fb_bdc7_26f05a2e9873 "From Latin vacuus, “empty”.")
+AnnotationAssertion(rdfs:label :EMMO_29072ec4_ffcb_42fb_bdc7_26f05a2e9873 "void"@en)
+SubClassOf(:EMMO_29072ec4_ffcb_42fb_bdc7_26f05a2e9873 ObjectAllValuesFrom(<http://emmc.info/emmo-mereotopology#EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f> :EMMO_29072ec4_ffcb_42fb_bdc7_26f05a2e9873))
 
-# Class: <http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d> (physical)
+# Class: :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d (physical)
 
-AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> <http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d> "A 'item' that is an 'elementary' or has some 'elementary' as proper parts and whose temporal proper parts are only 'physical'-s (i.e. it can be perceived without interruptions in time).")
-AnnotationAssertion(rdfs:comment <http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d> "A 'physical' is the class that contains all the individuals that stand for real world objects that interact physically with the interpreter.
+AnnotationAssertion(<http://emmc.info/emmo-annotations#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d "A 'item' that is an 'elementary' or has some 'elementary' as proper parts and whose temporal proper parts are only 'physical'-s (i.e. it can be perceived without interruptions in time).")
+AnnotationAssertion(rdfs:comment :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d "A 'physical' is the class that contains all the individuals that stand for real world objects that interact physically with the interpreter.
 
 Perception is a subcategory of interaction.
 
 A physical must be perceived through physical interaction by the ontologist. Then the ontologist can declare an individual standing for the physical object just perceived.")
-AnnotationAssertion(rdfs:comment <http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d> "A 'physical' must include at least an 'elementary' part, but can also include void parts.
+AnnotationAssertion(rdfs:comment :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d "A 'physical' must include at least an 'elementary' part, but can also include void parts.
 
 A 'physical' may include as part also the 'void' surrounding or enclosed by its 'physical' sub parts.
 
@@ -83,13 +80,16 @@ a) take into account the quantum nature of physical systems, in which the actual
 b) take into account the fact that large entities (e.g. devices, cars, materials) have some void into them.
 
 e.g. a 'spacetime' that has spatial parts an atom and a cubic light year of 'void' extending for some time can be a 'physical' individual.")
-AnnotationAssertion(rdfs:comment <http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d> "A 'physical' with dimensions other than 4D cannot exist, following the restriction of the parent 'emmo' class.
+AnnotationAssertion(rdfs:comment :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d "A 'physical' with dimensions other than 4D cannot exist, following the restriction of the parent 'emmo' class.
 
 It follows from the fact that perception is always a process (e.g. it unfolds in time).
 
 e.g. you always have an aperture time when you take a picture or measure a property. Instantaneous perceptions are idealizations (abstractions) or a very small time measurement.")
-AnnotationAssertion(rdfs:comment <http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d> "In the EMMO there are no relations such as 'occupies_space', since 'physical'-s are themselves the 4D region.")
-AnnotationAssertion(rdfs:comment <http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d> "The EMMO can be used to represent real world entities as 'physical'-s that are easy to connect to classical or quantum mechanical based models.
+AnnotationAssertion(rdfs:comment :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d "From Latin physica \"study of nature\" (and Ancient Greek φυσικός, “natural”). 
+
+Here the word relates to things perceived through the senses as opposed to the mind; tangible or concrete.")
+AnnotationAssertion(rdfs:comment :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d "In the EMMO there are no relations such as 'occupies_space', since 'physical'-s are themselves the 4D region.")
+AnnotationAssertion(rdfs:comment :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d "The EMMO can be used to represent real world entities as 'physical'-s that are easy to connect to classical or quantum mechanical based models.
 
 Classical mechanics poses no representational issues, for the EMMO: the 4D representation of 'physical'-s is consistent with classical physics systems.
 
@@ -130,18 +130,14 @@ a) before the slit: a 'physical' that extend in space and has parts 'electron' a
 b) during slit passage: a 'physical' made of one declared individual, the 'electron'.
 c) after the slit: again 'single_electron_wave_function'
 d) upon collision with the detector:  'physical' made of one declared individual, the 'electron'.")
-AnnotationAssertion(rdfs:comment <http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d> "The purpose of the 'physical' branch is to provide a representation of the real world objects, while the models used to explain or predict the behaviour of the real world objects lay under the 'semiotic' branch.
+AnnotationAssertion(rdfs:comment :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d "The purpose of the 'physical' branch is to provide a representation of the real world objects, while the models used to explain or predict the behaviour of the real world objects lay under the 'semiotic' branch.
 
 More than one model can be connected to the same 'physical'.
 
 e.g. Navier-Stokes or Euler equation applied to the same fluid")
-AnnotationAssertion(rdfs:label <http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d> "physical"@en)
-SubClassOf(<http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d> ObjectSomeValuesFrom(<http://emmc.info/emmo-core#EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f> <http://emmc.info/emmo-core#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360>))
-SubClassOf(<http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d> ObjectAllValuesFrom(<http://emmc.info/emmo-core#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6> <http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d>))
-
-# Class: <http://emmc.info/emmo-core#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de> (item)
-
-DisjointUnion(<http://emmc.info/emmo-core#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de> <http://emmc.info/emmo-core#EMMO_29072ec4_ffcb_42fb_bdc7_26f05a2e9873> <http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d>)
+AnnotationAssertion(rdfs:label :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d "physical"@en)
+SubClassOf(:EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d ObjectSomeValuesFrom(<http://emmc.info/emmo-mereotopology#EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f> :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360))
+SubClassOf(:EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d ObjectAllValuesFrom(<http://emmc.info/emmo-mereotopology#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6> :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d))
 
 
 )

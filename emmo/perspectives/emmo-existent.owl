@@ -1,4 +1,4 @@
-Prefix(:=<http://emmc.info/emmo-granularity#>)
+Prefix(:=<http://emmc.info/emmo-existent#>)
 Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
 Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
 Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
@@ -6,12 +6,12 @@ Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
 Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
 
 
-Ontology(<http://emmc.info/emmo-granularity>
+Ontology(<http://emmc.info/emmo-existent>
 Import(<http://emmc.info/emmo-physical>)
-Annotation(<http://emmc.info/emmo-core#EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc> "EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
+Annotation(<http://emmc.info/emmo-annotations#EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc> "EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
 
 https://creativecommons.org/licenses/by/4.0/legalcode")
-Annotation(<http://emmc.info/emmo-core#EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab> "Emanuele Ghedini (University of Bologna, IT)
+Annotation(<http://emmc.info/emmo-annotations#EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab> "Emanuele Ghedini (University of Bologna, IT)
 Gerhard Goldbeck (GCL Ltd, UK)
 Adham Hashibon (Fraunhofer IWM, DE)
 Georg Schmitz (Access, DE)
@@ -54,7 +54,7 @@ Declaration(NamedIndividual(:EMMO_ede401a8_91b9_43ba_ac9f_edc754df23eb))
 # Object Property: :EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d (has_temporal_direct_part)
 
 AnnotationAssertion(rdfs:label :EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d "has_temporal_direct_part"@en)
-SubObjectPropertyOf(:EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d <http://emmc.info/emmo-core#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6>)
+SubObjectPropertyOf(:EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d <http://emmc.info/emmo-mereotopology#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6>)
 InverseFunctionalObjectProperty(:EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d)
 AsymmetricObjectProperty(:EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d)
 IrreflexiveObjectProperty(:EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d)
@@ -87,14 +87,10 @@ ObjectPropertyRange(:EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe :EMMO_52211e5e_d7
 #   Classes
 ############################
 
-# Class: <http://emmc.info/emmo-core#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360> (elementary)
-
-SubClassOf(<http://emmc.info/emmo-core#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360> :EMMO_36c79456_e29c_400d_8bd3_0eedddb82652)
-
 # Class: :EMMO_36c79456_e29c_400d_8bd3_0eedddb82652 (state)
 
-AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_36c79456_e29c_400d_8bd3_0eedddb82652 "An 'existent' whose spatial direct parts extends from one change in spatial direct part cardinality (i.e. the number of spatial direct parts) to the immidiate next change.")
-AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a> :EMMO_36c79456_e29c_400d_8bd3_0eedddb82652 "e.g. the existent in my glass is declared at t = t_start as made of two direct parts: the ice and the water. It will continue to exists as state as long as the ice is completely melt at t = t_end. The new state will be completely made of water. Between t_start and t_end there is an exchange of molecules between the ice and the water, but this does not affect the existence of the two states.
+AnnotationAssertion(<http://emmc.info/emmo-annotations#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_36c79456_e29c_400d_8bd3_0eedddb82652 "An 'existent' whose spatial direct parts extends from one change in spatial direct part cardinality (i.e. the number of spatial direct parts) to the immidiate next change.")
+AnnotationAssertion(<http://emmc.info/emmo-annotations#EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a> :EMMO_36c79456_e29c_400d_8bd3_0eedddb82652 "e.g. the existent in my glass is declared at t = t_start as made of two direct parts: the ice and the water. It will continue to exists as state as long as the ice is completely melt at t = t_end. The new state will be completely made of water. Between t_start and t_end there is an exchange of molecules between the ice and the water, but this does not affect the existence of the two states.
 
 If we partition the existent in my glass as ice surrounded by several molecules (we do not use the object water as direct part) then the appearance of a molecule coming from the ice will cause a state to end and another state to begin.")
 AnnotationAssertion(rdfs:comment :EMMO_36c79456_e29c_400d_8bd3_0eedddb82652 "Direct partitions declaration is a choice of the ontology developer that choses the classes to be used as direct parts, according to its own world view.
@@ -119,11 +115,11 @@ AnnotationAssertion(rdfs:comment :EMMO_36c79456_e29c_400d_8bd3_0eedddb82652 "The
 The use of spatial direct parthood in state definition means that a state cannot overlap in space another state that is direct part of the same whole.")
 AnnotationAssertion(rdfs:label :EMMO_36c79456_e29c_400d_8bd3_0eedddb82652 "state"@en)
 SubClassOf(:EMMO_36c79456_e29c_400d_8bd3_0eedddb82652 :EMMO_52211e5e_d767_4812_845e_eb6b402c476a)
-SubClassOf(:EMMO_36c79456_e29c_400d_8bd3_0eedddb82652 ObjectUnionOf(<http://emmc.info/emmo-core#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360> ObjectSomeValuesFrom(:EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe :EMMO_52211e5e_d767_4812_845e_eb6b402c476a)))
+SubClassOf(:EMMO_36c79456_e29c_400d_8bd3_0eedddb82652 ObjectUnionOf(<http://emmc.info/emmo-physical#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360> ObjectSomeValuesFrom(:EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe :EMMO_52211e5e_d767_4812_845e_eb6b402c476a)))
 
 # Class: :EMMO_52211e5e_d767_4812_845e_eb6b402c476a (existent)
 
-AnnotationAssertion(<http://emmc.info/emmo-core#EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84> :EMMO_52211e5e_d767_4812_845e_eb6b402c476a "A 'item' which is a 'state' or made only of 'state' temporal direct parts.")
+AnnotationAssertion(<http://emmc.info/emmo-annotations#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_52211e5e_d767_4812_845e_eb6b402c476a "A 'item' which is a 'state' or made only of 'state' temporal direct parts.")
 AnnotationAssertion(rdfs:comment :EMMO_52211e5e_d767_4812_845e_eb6b402c476a "'existent' is the most important class to be used for representing real world physical objects under a reductionistic (i.e. objects come from the composition of sub-part objects) and epistemological pluralistic (i.e. objects definitions are interpreter dependent) perspectives . 
 
 'existent' class collects all individuals that stand for real world physical objects that can be structured in well defined temporal sub-parts called states through the temporal direct parthood.
@@ -133,8 +129,12 @@ This class provides a granularity hierarchy in time, that provides a way to axio
 e.g. a car, a supersaturated gas with nucleating nanoparticles, an atom that becomes ionized and then recombines with an electron.")
 AnnotationAssertion(rdfs:comment :EMMO_52211e5e_d767_4812_845e_eb6b402c476a "ex-sistere (latin): to stay (to persist through time) outside others of the same type (to be distinct from the rest).")
 AnnotationAssertion(rdfs:label :EMMO_52211e5e_d767_4812_845e_eb6b402c476a "existent"@en)
-SubClassOf(:EMMO_52211e5e_d767_4812_845e_eb6b402c476a <http://emmc.info/emmo-core#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d>)
+SubClassOf(:EMMO_52211e5e_d767_4812_845e_eb6b402c476a <http://emmc.info/emmo-physical#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d>)
 SubClassOf(:EMMO_52211e5e_d767_4812_845e_eb6b402c476a ObjectUnionOf(:EMMO_36c79456_e29c_400d_8bd3_0eedddb82652 ObjectSomeValuesFrom(:EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d :EMMO_36c79456_e29c_400d_8bd3_0eedddb82652)))
+
+# Class: <http://emmc.info/emmo-physical#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360> (elementary)
+
+SubClassOf(<http://emmc.info/emmo-physical#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360> :EMMO_36c79456_e29c_400d_8bd3_0eedddb82652)
 
 
 ############################
