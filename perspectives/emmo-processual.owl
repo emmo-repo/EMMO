@@ -1,96 +1,132 @@
-Prefix(:=<http://emmo.info/perspectives/emmo-processual.owl#>)
-Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
-Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
-Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
-Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
-Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://emmo.info/perspectives/emmo-processual.owl#"
+     xml:base="http://emmo.info/perspectives/emmo-processual.owl"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:emmo-annotations="http://emmo.info/base/emmo-annotations.owl#">
+    <owl:Ontology rdf:about="http://emmo.info/perspectives/emmo-processual.owl">
+        <owl:imports rdf:resource="http://emmo.info/base/emmo-physical.owl"/>
+        <emmo-annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
 
-
-Ontology(<http://emmo.info/perspectives/emmo-processual.owl>
-Import(<http://emmo.info/base/emmo-physical.owl>)
-Annotation(<http://emmo.info/base/emmo-annotations.owl#EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc> "EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
-
-https://creativecommons.org/licenses/by/4.0/legalcode")
-Annotation(<http://emmo.info/base/emmo-annotations.owl#EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab> "Emanuele Ghedini (University of Bologna, IT)
+https://creativecommons.org/licenses/by/4.0/legalcode</emmo-annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>
+        <emmo-annotations:EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab>Emanuele Ghedini (University of Bologna, IT)
 Gerhard Goldbeck (GCL Ltd, UK)
 Adham Hashibon (Fraunhofer IWM, DE)
 Georg Schmitz (Access, DE)
-Jesper Friis (SINTEF, NO)")
-Annotation(rdfs:comment "Contacts:
+Jesper Friis (SINTEF, NO)</emmo-annotations:EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab>
+        <rdfs:comment>Contacts:
 Gerhard Goldbeck
 Goldbeck Consulting Ltd (UK)
 email: gerhard@goldbeck-consulting.com
 
 Emanuele Ghedini
 University of Bologna (IT)
-email: emanuele.ghedini"@unibo.it)
-Annotation(rdfs:comment "European Materials and Modelling Ontology (EMMO)
+email: emanuele.ghedini@unibo.it</rdfs:comment>
+        <rdfs:comment>European Materials and Modelling Ontology (EMMO)
 
 EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies. 
 
-It provides the connection between the physical world, materials characterisation world and materials modelling world.")
-Annotation(rdfs:comment "The EMMO requires FaCT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege).")
-Annotation(owl:versionInfo "The European Materials Modelling Ontology
+It provides the connection between the physical world, materials characterisation world and materials modelling world.</rdfs:comment>
+        <rdfs:comment>The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege).</rdfs:comment>
+        <owl:versionInfo>The European Materials Modelling Ontology
 
-Version 0.9.10")
-
-Declaration(Class(:EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62))
-Declaration(Class(:EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce))
-Declaration(Class(:EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d))
-Declaration(ObjectProperty(:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a))
-Declaration(ObjectProperty(:EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1))
-
-############################
-#   Object Properties
-############################
-
-# Object Property: :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a (has_participant)
-
-AnnotationAssertion(<http://emmo.info/base/emmo-annotations.owl#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a "The relation between a process and an object participating to it.")
-AnnotationAssertion(rdfs:comment :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a "Participation is a parthood relation: you must be part (and then be connected) of the process to contribute to it.")
-AnnotationAssertion(rdfs:comment :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a "Participation is not under direct parthood since a process is not strictly related to reductionism, but it's a way to categorize temporal regions by the interpreters.")
-AnnotationAssertion(rdfs:label :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a "has_participant"@en)
-SubObjectPropertyOf(:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a <http://emmo.info/base/emmo-mereotopology.owl#EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f>)
-ObjectPropertyDomain(:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce)
-ObjectPropertyRange(:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a :EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d)
-
-# Object Property: :EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1 (has_proper_participant)
-
-AnnotationAssertion(rdfs:label :EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1 "has_proper_participant"@en)
-SubObjectPropertyOf(:EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1 <http://emmo.info/base/emmo-mereotopology.owl#EMMO_9380ab64_0363_4804_b13f_3a8a94119a76>)
-SubObjectPropertyOf(:EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1 :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a)
+Version 0.9.10</owl:versionInfo>
+    </owl:Ontology>
+    
 
 
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
-############################
-#   Classes
-############################
-
-# Class: :EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62 (processual)
-
-AnnotationAssertion(<http://emmo.info/base/emmo-annotations.owl#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62 "A 'physical' that stands for a real world object related to or involving the study of processes rather than discrete events.")
-AnnotationAssertion(rdfs:label :EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62 "processual"@en)
-SubClassOf(:EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62 <http://emmo.info/base/emmo-physical.owl#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d>)
-
-# Class: :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce (process)
-
-AnnotationAssertion(<http://emmo.info/base/emmo-annotations.owl#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce "A temporal part of a 'physical' that identifies a particular type of evolution in time.")
-AnnotationAssertion(rdfs:comment :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce "A 'process' is always a 'physical', since a 'void' does not have elements that evolves in time.")
-AnnotationAssertion(rdfs:comment :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce "A 'process' is defined as a temporal part of a 'physical' that is categorized in a primitive process subclass according to what type of process we want to represent.
-
-Following the common definition of process, every 'physical' is a process since every 4D object always has a time dimension. However, in the EMMO we restrict the meaning of the word process to 'physical'-s whose evolution in time have a particular meaning for the ontologist. 
-
-i.e. a 'process' is not only something that unfolds in time (which is automatically represented in a 4D ontology), but something happening that has a meaning for the interpreter.")
-AnnotationAssertion(rdfs:label :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce "process"@en)
-SubClassOf(:EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce :EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62)
-SubClassOf(:EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ObjectSomeValuesFrom(:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a :EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d))
-
-# Class: :EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d (participant)
-
-AnnotationAssertion(<http://emmo.info/base/emmo-annotations.owl#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d "A portion of a 'process' that participates to the 'process' with a specific role.")
-AnnotationAssertion(rdfs:comment :EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d "In the EMMO the relation of participation to a process falls under mereotopology.")
-AnnotationAssertion(rdfs:label :EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d "participant"@en)
-SubClassOf(:EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d :EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62)
+    
 
 
-)
+    <!-- http://emmo.info/perspectives/emmo-processual.owl#EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a -->
+
+    <owl:ObjectProperty rdf:about="http://emmo.info/perspectives/emmo-processual.owl#EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a">
+        <rdfs:subPropertyOf rdf:resource="http://emmo.info/base/emmo-mereotopology.owl#EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f"/>
+        <rdfs:domain rdf:resource="http://emmo.info/perspectives/emmo-processual.owl#EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce"/>
+        <rdfs:range rdf:resource="http://emmo.info/perspectives/emmo-processual.owl#EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d"/>
+        <emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>The relation between a process and an object participating to it.</emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
+        <rdfs:comment>Participation is a parthood relation: you must be part (and then be connected) of the process to contribute to it.</rdfs:comment>
+        <rdfs:comment>Participation is not under direct parthood since a process is not strictly related to reductionism, but it&apos;s a way to categorize temporal regions by the interpreters.</rdfs:comment>
+        <rdfs:label xml:lang="en">has_participant</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://emmo.info/perspectives/emmo-processual.owl#EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1 -->
+
+    <owl:ObjectProperty rdf:about="http://emmo.info/perspectives/emmo-processual.owl#EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1">
+        <rdfs:subPropertyOf rdf:resource="http://emmo.info/base/emmo-mereotopology.owl#EMMO_9380ab64_0363_4804_b13f_3a8a94119a76"/>
+        <rdfs:subPropertyOf rdf:resource="http://emmo.info/perspectives/emmo-processual.owl#EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a"/>
+        <rdfs:label xml:lang="en">has_proper_participant</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://emmo.info/perspectives/emmo-processual.owl#EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62 -->
+
+    <owl:Class rdf:about="http://emmo.info/perspectives/emmo-processual.owl#EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/base/emmo-physical.owl#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d"/>
+        <emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A &apos;physical&apos; that stands for a real world object related to or involving the study of processes rather than discrete events.</emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
+        <rdfs:label xml:lang="en">processual</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/perspectives/emmo-processual.owl#EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce -->
+
+    <owl:Class rdf:about="http://emmo.info/perspectives/emmo-processual.owl#EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/perspectives/emmo-processual.owl#EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/perspectives/emmo-processual.owl#EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a"/>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/perspectives/emmo-processual.owl#EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A temporal part of a &apos;physical&apos; that identifies a particular type of evolution in time.</emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
+        <rdfs:comment>A &apos;process&apos; is always a &apos;physical&apos;, since a &apos;void&apos; does not have elements that evolves in time.</rdfs:comment>
+        <rdfs:comment>A &apos;process&apos; is defined as a temporal part of a &apos;physical&apos; that is categorized in a primitive process subclass according to what type of process we want to represent.
+
+Following the common definition of process, every &apos;physical&apos; is a process since every 4D object always has a time dimension. However, in the EMMO we restrict the meaning of the word process to &apos;physical&apos;-s whose evolution in time have a particular meaning for the ontologist. 
+
+i.e. a &apos;process&apos; is not only something that unfolds in time (which is automatically represented in a 4D ontology), but something happening that has a meaning for the interpreter.</rdfs:comment>
+        <rdfs:label xml:lang="en">process</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/perspectives/emmo-processual.owl#EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d -->
+
+    <owl:Class rdf:about="http://emmo.info/perspectives/emmo-processual.owl#EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/perspectives/emmo-processual.owl#EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62"/>
+        <emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A portion of a &apos;process&apos; that participates to the &apos;process&apos; with a specific role.</emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
+        <rdfs:comment>In the EMMO the relation of participation to a process falls under mereotopology.</rdfs:comment>
+        <rdfs:label xml:lang="en">participant</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

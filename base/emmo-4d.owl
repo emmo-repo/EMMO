@@ -1,68 +1,93 @@
-Prefix(:=<http://emmo.info/base/emmo-4d.owl#>)
-Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
-Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
-Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
-Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
-Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://emmo.info/base/emmo-4d.owl#"
+     xml:base="http://emmo.info/base/emmo-4d.owl"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:emmo-annotations="http://emmo.info/base/emmo-annotations.owl#">
+    <owl:Ontology rdf:about="http://emmo.info/base/emmo-4d.owl">
+        <owl:imports rdf:resource="http://emmo.info/base/emmo-mereotopology.owl"/>
+        <emmo-annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
 
-
-Ontology(<http://emmo.info/base/emmo-4d.owl>
-Import(<http://emmo.info/base/emmo-mereotopology.owl>)
-Annotation(rdfs:comment "Contacts:
+https://creativecommons.org/licenses/by/4.0/legalcode</emmo-annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>
+        <emmo-annotations:EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab>Emanuele Ghedini (University of Bologna, IT)
+Gerhard Goldbeck (GCL Ltd, UK)
+Adham Hashibon (Fraunhofer IWM, DE)
+Georg Schmitz (Access, DE)
+Jesper Friis (SINTEF, NO)</emmo-annotations:EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab>
+        <rdfs:comment>Contacts:
 Gerhard Goldbeck
 Goldbeck Consulting Ltd (UK)
 email: gerhard@goldbeck-consulting.com
 
 Emanuele Ghedini
 University of Bologna (IT)
-email: emanuele.ghedini@unibo.it")
-Annotation(rdfs:comment "European Materials and Modelling Ontology (EMMO)
+email: emanuele.ghedini@unibo.it</rdfs:comment>
+        <rdfs:comment>European Materials and Modelling Ontology (EMMO)
 
 EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies. 
 
-It provides the connection between the physical world, materials characterisation world and materials modelling world.")
-Annotation(rdfs:comment "The EMMO requires FaCT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege).")
-Annotation(rdfs:comment "The emmo-4d module includes the parthood relations that distinguish between partitioning in 3D space and 1D time dimensions.
-It depends on emmo-mereotopology which is valid for generic topological spaces without a specific dimensionality.")
-Annotation(owl:versionInfo "The European Materials Modelling Ontology
+It provides the connection between the physical world, materials characterisation world and materials modelling world.</rdfs:comment>
+        <rdfs:comment>The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege).</rdfs:comment>
+        <owl:versionInfo>The European Materials Modelling Ontology
 
-Version 0.9.10")
-
-Declaration(ObjectProperty(:EMMO_6e046dd0_9634_4013_b2b1_9cc468087c83))
-Declaration(ObjectProperty(:EMMO_f68030be_94b8_4c61_a161_886468558054))
-
-############################
-#   Object Properties
-############################
-
-# Object Property: :EMMO_6e046dd0_9634_4013_b2b1_9cc468087c83 (has_spatio-temporal_part)
-
-AnnotationAssertion(<http://emmo.info/base/emmo-annotations.owl#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_6e046dd0_9634_4013_b2b1_9cc468087c83 "A relation that isolates a proper part that extends itself in time through a portion of the lifetime whole.")
-AnnotationAssertion(rdfs:label :EMMO_6e046dd0_9634_4013_b2b1_9cc468087c83 "has_spatio-temporal_part"@en)
-SubObjectPropertyOf(:EMMO_6e046dd0_9634_4013_b2b1_9cc468087c83 <http://emmo.info/base/emmo-mereotopology.owl#EMMO_9380ab64_0363_4804_b13f_3a8a94119a76>)
-TransitiveObjectProperty(:EMMO_6e046dd0_9634_4013_b2b1_9cc468087c83)
-ObjectPropertyDomain(:EMMO_6e046dd0_9634_4013_b2b1_9cc468087c83 <http://emmo.info/base/emmo-mereotopology.owl#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de>)
-ObjectPropertyRange(:EMMO_6e046dd0_9634_4013_b2b1_9cc468087c83 <http://emmo.info/base/emmo-mereotopology.owl#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de>)
-
-# Object Property: :EMMO_f68030be_94b8_4c61_a161_886468558054 (has_spatial_part)
-
-AnnotationAssertion(<http://emmo.info/base/emmo-annotations.owl#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> :EMMO_f68030be_94b8_4c61_a161_886468558054 "A relation that isolates a proper part that extends itself in time within the lifetime of the whole, without covering the full spatial extension of the 4D whole (i.e. is not a temporal part).")
-AnnotationAssertion(rdfs:label :EMMO_f68030be_94b8_4c61_a161_886468558054 "has_spatial_part"@en)
-SubObjectPropertyOf(:EMMO_f68030be_94b8_4c61_a161_886468558054 <http://emmo.info/base/emmo-mereotopology.owl#EMMO_9380ab64_0363_4804_b13f_3a8a94119a76>)
-TransitiveObjectProperty(:EMMO_f68030be_94b8_4c61_a161_886468558054)
-ObjectPropertyDomain(:EMMO_f68030be_94b8_4c61_a161_886468558054 <http://emmo.info/base/emmo-mereotopology.owl#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de>)
-ObjectPropertyRange(:EMMO_f68030be_94b8_4c61_a161_886468558054 <http://emmo.info/base/emmo-mereotopology.owl#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de>)
-
-# Object Property: <http://emmo.info/base/emmo-mereotopology.owl#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6> (has_temporal_part)
-
-AnnotationAssertion(<http://emmo.info/base/emmo-annotations.owl#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> <http://emmo.info/base/emmo-mereotopology.owl#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6> "A relation that isolate a proper part that covers the total spatial extension of a whole within a time interval.")
-AnnotationAssertion(rdfs:label <http://emmo.info/base/emmo-mereotopology.owl#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6> "has_temporal_part"@en)
-SubObjectPropertyOf(<http://emmo.info/base/emmo-mereotopology.owl#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6> <http://emmo.info/base/emmo-mereotopology.owl#EMMO_9380ab64_0363_4804_b13f_3a8a94119a76>)
-TransitiveObjectProperty(<http://emmo.info/base/emmo-mereotopology.owl#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6>)
-ObjectPropertyDomain(<http://emmo.info/base/emmo-mereotopology.owl#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6> <http://emmo.info/base/emmo-mereotopology.owl#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de>)
-ObjectPropertyRange(<http://emmo.info/base/emmo-mereotopology.owl#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6> <http://emmo.info/base/emmo-mereotopology.owl#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de>)
+Version 0.9.10</owl:versionInfo>
+    </owl:Ontology>
+    
 
 
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
 
 
-)
+    <!-- http://emmo.info/base/emmo-4d.owl#EMMO_6e046dd0_9634_4013_b2b1_9cc468087c83 -->
+
+    <owl:ObjectProperty rdf:about="http://emmo.info/base/emmo-4d.owl#EMMO_6e046dd0_9634_4013_b2b1_9cc468087c83">
+        <rdfs:subPropertyOf rdf:resource="http://emmo.info/base/emmo-mereotopology.owl#EMMO_9380ab64_0363_4804_b13f_3a8a94119a76"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://emmo.info/base/emmo-mereotopology.owl#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de"/>
+        <rdfs:range rdf:resource="http://emmo.info/base/emmo-mereotopology.owl#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de"/>
+        <emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A relation that isolates a proper part that extends itself in time through a portion of the lifetime whole.</emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
+        <rdfs:label xml:lang="en">has_spatio-temporal_part</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://emmo.info/base/emmo-4d.owl#EMMO_f68030be_94b8_4c61_a161_886468558054 -->
+
+    <owl:ObjectProperty rdf:about="http://emmo.info/base/emmo-4d.owl#EMMO_f68030be_94b8_4c61_a161_886468558054">
+        <rdfs:subPropertyOf rdf:resource="http://emmo.info/base/emmo-mereotopology.owl#EMMO_9380ab64_0363_4804_b13f_3a8a94119a76"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://emmo.info/base/emmo-mereotopology.owl#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de"/>
+        <rdfs:range rdf:resource="http://emmo.info/base/emmo-mereotopology.owl#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de"/>
+        <emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A relation that isolates a proper part that extends itself in time within the lifetime of the whole, without covering the full spatial extension of the 4D whole (i.e. is not a temporal part).</emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
+        <rdfs:label xml:lang="en">has_spatial_part</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://emmo.info/base/emmo-mereotopology.owl#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 -->
+
+    <owl:ObjectProperty rdf:about="http://emmo.info/base/emmo-mereotopology.owl#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6">
+        <rdfs:subPropertyOf rdf:resource="http://emmo.info/base/emmo-mereotopology.owl#EMMO_9380ab64_0363_4804_b13f_3a8a94119a76"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://emmo.info/base/emmo-mereotopology.owl#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de"/>
+        <rdfs:range rdf:resource="http://emmo.info/base/emmo-mereotopology.owl#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de"/>
+        <emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A relation that isolate a proper part that covers the total spatial extension of a whole within a time interval.</emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
+        <rdfs:label xml:lang="en">has_temporal_part</rdfs:label>
+    </owl:ObjectProperty>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
