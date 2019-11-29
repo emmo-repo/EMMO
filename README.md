@@ -23,7 +23,7 @@ The fastest way to access the EMMO is to open the ontology via Protégé via the
 
 The EMMO hierarchy will be visible only after reasoning inference: use *ctrl-R* to start the reasoner and under the *Entities* tab, select the *Classes* subtab and *Inferred* in the scroll button.
 
-It is recommended to use FaCT++ as reasoner. You can select it through the menu *Resoner*.
+It is recommended to use FaCT++ as reasoner. You can select it through the menu *Reasoner*.
 
 ## Contacts:
 Emanuele Ghedini
@@ -37,6 +37,6 @@ email: gerhard@goldbeck-consulting.com
 ### Acknowledgement
 This work is conducted under the framework of the [SimDOME](https://simdome.eu) project (2019-2023), that receives funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 814492
 
-This work was conducted under the framework of the EMMC-CSA project (2016-2019), that has received funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 723867
+This work was conducted under the framework of the [EMMC-CSA](https://emmc.info) project (2016-2019), that has received funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 723867
 
 This work was conducted using the Protégé resource, which is supported by grant GM10331601 from the National Institute of General Medical Sciences of the United States National Institutes of Health.
