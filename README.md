@@ -21,7 +21,7 @@ The [emmo-mereotopology](emmo-mereotopology.owl) introduces the fundamental mere
 The [emmo-4d](emmo-4d.owl) introduces the fundamental mereotopological relations used to distinguish between space and time dimensions.
 
 The [emmo-physicals](emmo-physicals.owl) introduces the fundamental definitions in order to define the *physical* objects and the concept of *void* that plays a fundamental role in the description of multiscale objects and quantum systems. It also define the *elemetary* object that restricts mereological atomism in space, and refers to the concept of elementary particles coming from the Standard Model of Particles.
- 
+
 ### emmo-perspectives
 For the EMMO, the only univocally defined real world objects are the *item* individual call **universe** that stands for the Universe and the *quantum* individuals. Every other real world object is a composition in time and space of *quantum* objects up to the most comprehensive object: the **universe**. These intermediate objects are not univocally defined, but their definition is provided according to some specific perspectives.
 
@@ -38,8 +38,8 @@ The [emmo-processsual](emmo-processual.owl) introduces the concept of real world
 The [emmo-semiotics](emmo-semiotics.owl) introduces the concept of semiotic process that is used in the EMMO to represent e.g. models, formal languages, theories, information, properties.
 
 ### domains
-The domains ontologies act as roots for extending the EMMO under specific application domains. Up to now the EMMO includes graphical, geometry, material, mathematics, models, properties, physical properties and usercase. 
- 
+The domains ontologies act as roots for extending the EMMO under specific application domains. Up to now the EMMO includes graphical, geometry, material, mathematics, models, properties, physical properties and usercase.
+
 ### EMMO relations
 All EMMO relations are subrelations of two roots relations: mereotopology and semiosis. The relation hierarchy extends more vertically (i.e. subrelations) than horizontally (i.e. sibling realtions), facilitating the categorization and inferencing of individual.
 
@@ -61,7 +61,7 @@ The fastest way to access the EMMO is to open the ontology via Protégé via the
 
 The EMMO hierarchy will be visible only after reasoning inference: use *ctrl-R* to start the reasoner and under the *Entities* tab, select the *Classes* subtab and *Inferred* in the scroll button.
 
-It is recommended to use FaCT++ as reasoner. You can select it through the menu *Reasoner*.
+It is recommended to use FaCT++ as reasoner. You can select it through the menu *Reasoner*.  An instruction for how to install the FaCT++ plugin on Protege 5.5.0 on Windows can be found in the [doc subdirectory](doc/installing_factplusplus.md).
 
 ## Contacts:
 Emanuele Ghedini
