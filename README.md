@@ -20,7 +20,7 @@ The [emmo-mereotopology](base/emmo-mereotopology.owl) introduces the fundamental
 
 The [emmo-4d](base/emmo-4d.owl) introduces the fundamental mereotopological relations used to distinguish between space and time dimensions.
 
-The [emmo-physicals](base/emmo-physicals.owl) introduces the fundamental definitions in order to define the *physical* objects and the concept of *void* that plays a fundamental role in the description of multiscale objects and quantum systems. It also define the *elemetary* object that restricts mereological atomism in space, and refers to the concept of elementary particles coming from the [Standard Model of Particle Physics](https://en.wikipedia.org/wiki/Standard_Model).
+The [emmo-physicals](base/emmo-physicals.owl) introduces the fundamental definitions in order to define the *physical* objects and the concept of *void* that plays a fundamental role in the description of multiscale objects and quantum systems. It also define the *elemetary* object that restricts mereological atomism in space, and refers to the concept of elementary particles coming from the [Standard Model](https://en.wikipedia.org/wiki/Standard_Model) of particle physics.
 
 ### emmo-perspectives
 For the EMMO, the only univocally defined real world objects are the *item* individual call **universe** that stands for the Universe and the *quantum* individuals. Every other real world object is a composition in time and space of *quantum* objects up to the most comprehensive object: the **universe**. These intermediate objects are not univocally defined, but their definition is provided according to some specific perspectives.
