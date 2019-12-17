@@ -160,14 +160,9 @@ e.g. you cannot remove H from H20 without changing the molecule type (essential)
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://emmo.info/perspectives/emmo-existent.owl#EMMO_52211e5e_d767_4812_845e_eb6b402c476a"/>
+                    <rdf:Description rdf:about="http://emmo.info/domains/emmo-material.owl#EMMO_70dac51e_bddd_48c2_8a98_7d8395e91fc2"/>
                     <owl:Class>
-                        <owl:complementOf>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://emmo.info/base/emmo-mereotopology.owl#EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f"/>
-                                <owl:someValuesFrom rdf:resource="http://emmo.info/domains/emmo-material.owl#EMMO_385b8f6e_43ac_4596_ad76_ac322c68b7ca"/>
-                            </owl:Restriction>
-                        </owl:complementOf>
+                        <owl:complementOf rdf:resource="http://emmo.info/domains/emmo-material.owl#EMMO_5b2222df_4da6_442f_8244_96e9e45887d1"/>
                     </owl:Class>
                 </owl:intersectionOf>
             </owl:Class>
@@ -180,7 +175,7 @@ e.g. you cannot remove H from H20 without changing the molecule type (essential)
     <!-- http://emmo.info/domains/emmo-material.owl#EMMO_4207e895_8b83_4318_996a_72cfb32acd94 -->
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-material.owl#EMMO_4207e895_8b83_4318_996a_72cfb32acd94">
-        <rdfs:subClassOf rdf:resource="http://emmo.info/perspectives/emmo-existent.owl#EMMO_52211e5e_d767_4812_845e_eb6b402c476a"/>
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-material.owl#EMMO_5b2222df_4da6_442f_8244_96e9e45887d1"/>
         <emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>An &apos;existent&apos; that stands for a real world object that represents an amount of a physical substance (or mixture of substances) that constitute (is part of) a more comprehensive real world object.</emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <rdfs:comment>The definition states that a &apos;material&apos; is a portion of a real world object, being that a full functional device or component, or a sample made of that material (or the sample itself).</rdfs:comment>
         <rdfs:label xml:lang="en">material</rdfs:label>
@@ -210,10 +205,22 @@ e.g. you cannot remove H from H20 without changing the molecule type (essential)
     
 
 
+    <!-- http://emmo.info/domains/emmo-material.owl#EMMO_508e84f6_5081_4a9b_80b4_0b7830718b37 -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-material.owl#EMMO_508e84f6_5081_4a9b_80b4_0b7830718b37">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/base/emmo-physical.owl#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d"/>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://emmo.info/domains/emmo-material.owl#EMMO_5b2222df_4da6_442f_8244_96e9e45887d1"/>
+            <rdf:Description rdf:about="http://emmo.info/domains/emmo-material.owl#EMMO_70dac51e_bddd_48c2_8a98_7d8395e91fc2"/>
+        </owl:disjointUnionOf>
+        <rdfs:label xml:lang="en">type</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://emmo.info/domains/emmo-material.owl#EMMO_5b2222df_4da6_442f_8244_96e9e45887d1 -->
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-material.owl#EMMO_5b2222df_4da6_442f_8244_96e9e45887d1">
-        <rdfs:subClassOf rdf:resource="http://emmo.info/perspectives/emmo-existent.owl#EMMO_52211e5e_d767_4812_845e_eb6b402c476a"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://emmo.info/base/emmo-mereotopology.owl#EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f"/>
@@ -244,7 +251,6 @@ e.g. you cannot remove H from H20 without changing the molecule type (essential)
     <!-- http://emmo.info/domains/emmo-material.owl#EMMO_70dac51e_bddd_48c2_8a98_7d8395e91fc2 -->
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-material.owl#EMMO_70dac51e_bddd_48c2_8a98_7d8395e91fc2">
-        <rdfs:subClassOf rdf:resource="http://emmo.info/perspectives/emmo-existent.owl#EMMO_52211e5e_d767_4812_845e_eb6b402c476a"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://emmo.info/base/emmo-mereotopology.owl#EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f"/>
@@ -258,6 +264,9 @@ e.g. you cannot remove H from H20 without changing the molecule type (essential)
             </owl:Restriction>
         </rdfs:subClassOf>
         <emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A &apos;physical&apos; with &apos;massless&apos; parts that are mediators of interactions.</emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
+        <rdfs:comment>The concepts of matter and field for classical physics, upon which we can categorize physical entities, are replaced in quantum physics by the more general concepts of quantum field.
+
+Here the class &apos;field&apos; refers to the quantum field of massless bosonic particles (i.e. photons, gluons), while the class &apos;matter&apos; refers to the quantum field of massive fermionic or bosonic particles (e.g. quarks, electrons).</rdfs:comment>
         <rdfs:label xml:lang="en">field</rdfs:label>
     </owl:Class>
     

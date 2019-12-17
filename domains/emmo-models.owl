@@ -96,6 +96,16 @@ Version 0.9.10</owl:versionInfo>
                 <owl:someValuesFrom rdf:resource="http://emmo.info/domains/emmo-physical-properties.owl#EMMO_02c0621e_a527_4790_8a0f_2bb51973c819"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/perspectives/emmo-semiotics.owl#EMMO_39c3815d_8cae_4c8f_b2ff_eeba24bec455"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/domains/emmo-models.owl#EMMO_314d0bd5_67ed_437e_a609_36d46147cea7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>An &apos;equation&apos; that stands for a &apos;physical_law&apos; by mathematically defining the relations between physics_quantities.</emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <rdfs:comment>The Newton&apos;s equation of motion.
 
@@ -111,6 +121,8 @@ The Navier-Stokes equation.</rdfs:comment>
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-models.owl#EMMO_314d0bd5_67ed_437e_a609_36d46147cea7">
         <rdfs:subClassOf rdf:resource="http://emmo.info/perspectives/emmo-processual.owl#EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce"/>
+        <emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A &apos;process&apos; that is recognized by physical sciences and is catogrized accordingly.</emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
+        <rdfs:comment>While every &apos;process&apos; in the EMMO involves physical objects, this class is devoted to represent real world objects that express a phenomena relevant for the ontologist.</rdfs:comment>
         <rdfs:label xml:lang="en">physical phenomenon</rdfs:label>
     </owl:Class>
     
@@ -283,8 +295,15 @@ An Hamiltonian.</emmo-annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
     <!-- http://emmo.info/domains/emmo-models.owl#EMMO_f7ed665b_c2e1_42bc_889b_6b42ed3a36f0 -->
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-models.owl#EMMO_f7ed665b_c2e1_42bc_889b_6b42ed3a36f0">
-        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-math.owl#EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0"/>
-        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-models.owl#EMMO_939483b1_0148_43d1_8b35_851d2cd5d939"/>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://emmo.info/domains/emmo-math.owl#EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0"/>
+                    <rdf:Description rdf:about="http://emmo.info/domains/emmo-models.owl#EMMO_939483b1_0148_43d1_8b35_851d2cd5d939"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-graphical.owl#EMMO_2c1ceb4c_8b09_4374_91ec_98497b245a22"/>
         <rdfs:label xml:lang="en">mathematical model</rdfs:label>
     </owl:Class>
     

@@ -9,7 +9,7 @@
      xmlns:emmo-annotations="http://emmo.info/base/emmo-annotations.owl#">
     <owl:Ontology rdf:about="http://emmo.info/domains/emmo-graphical.owl">
         <owl:imports rdf:resource="http://emmo.info/perspectives/emmo-impression.owl"/>
-                <emmo-annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
+        <emmo-annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
 
 https://creativecommons.org/licenses/by/4.0/legalcode</emmo-annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>
         <emmo-annotations:EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab>Emanuele Ghedini (University of Bologna, IT)
@@ -64,14 +64,41 @@ Version 0.9.10</owl:versionInfo>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:subClassOf>
-        <emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>An &apos;physical&apos; that stands for a symbolic object, i.e. a string of symbols from a specific alphabet.</emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
-        <emmo-annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>fe@è0
+        <emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>An &apos;graphical&apos; that stands for a symbolic object, i.e. a token or a string of tokens from a specific alphabet.</emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
+        <emmo-annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>fe780
 emmo
 !5*a
 cat</emmo-annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
-        <rdfs:comment>A &apos;symbol&apos; or a composition of &apos;symbol&apos;-s not necesarily respecting syntactic rules.</rdfs:comment>
-        <rdfs:comment>In formal languages it is called a string of symbols.</rdfs:comment>
+        <rdfs:comment>A &apos;symbol&apos; or a composition of &apos;symbol&apos;-s not necessarily respecting syntactic rules.</rdfs:comment>
         <rdfs:label xml:lang="en">symbolic</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-graphical.owl#EMMO_1da53c06_9577_4008_8652_272fa3b62be7 -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-graphical.owl#EMMO_1da53c06_9577_4008_8652_272fa3b62be7">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-graphical.owl#EMMO_c74da218_9147_4f03_92d1_8894abca55f3"/>
+        <emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A &apos;graphical&apos; that stands for a real world object that shows a recognizable pictorial pattern without being necessarily associated to a symbolic language.</emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
+        <emmo-annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>A drawing of a cat.
+A circle on a paper sheet.
+The Mona Lisa.</emmo-annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
+        <rdfs:label xml:lang="en">pictorial</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-graphical.owl#EMMO_2c1ceb4c_8b09_4374_91ec_98497b245a22 -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-graphical.owl#EMMO_2c1ceb4c_8b09_4374_91ec_98497b245a22">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-graphical.owl#EMMO_057e7d57_aff0_49de_911a_8861d85cef40"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/base/emmo-mereotopology.owl#EMMO_9380ab64_0363_4804_b13f_3a8a94119a76"/>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/domains/emmo-graphical.owl#EMMO_50ea1ec5_f157_41b0_b46b_a9032f17ca10"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">composition</rdfs:label>
     </owl:Class>
     
 
@@ -86,14 +113,14 @@ cat</emmo-annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
                 <owl:someValuesFrom rdf:resource="http://emmo.info/domains/emmo-graphical.owl#EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A composition of more than one &apos;symbol&apos;-s respecting a specific language syntactic rules (well-formed formula).</emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
+        <emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A composition of more than one &apos;symbol&apos;-s respecting a specific language syntactic rules (a well-formed formula).</emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <emmo-annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>The word &quot;cat&quot; considered as a collection of &apos;symbol&apos;-s respecting the rules of english language. 
 
 In this example the &apos;symbolic&apos; entity &quot;cat&quot; is not related to the real cat, but it is only a word (like it would be to an italian person that ignores the meaning of this english word).
 
 If an &apos;interpreter&apos; skilled in english language is involved in a &apos;semiotic&apos; process with this word, that &quot;cat&quot; became also a &apos;sign&apos; i.e. it became for the &apos;interpreter&apos; a representation for a real cat.</emmo-annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
         <rdfs:comment>In formal languages the terms word or well-formed formula are used with the same meaning.</rdfs:comment>
-        <rdfs:label xml:lang="en">formula</rdfs:label>
+        <rdfs:label xml:lang="en">string</rdfs:label>
     </owl:Class>
     
 
@@ -104,7 +131,11 @@ If an &apos;interpreter&apos; skilled in english language is involved in a &apos
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-graphical.owl#EMMO_057e7d57_aff0_49de_911a_8861d85cef40"/>
         <emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>The class of individuals that stand for an elementary mark of a specific symbolic code (alphabet).</emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <emmo-annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>The class of letter &quot;A&quot; is the symbol as idea and the letter A that you see on the screen is the mark.</emmo-annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
-        <rdfs:comment>Subclasses of &apos;symbol&apos; are alphabets, in formal languages terminology.</rdfs:comment>
+        <rdfs:comment>Subclasses of &apos;symbol&apos; are alphabets, in formal languages terminology.
+
+A &apos;symbol&apos; is atomic for that alphabet, i.e. it has no parts that are symbols for the same alphabet.
+
+e.g. a math symbol is not made of other math symbols</rdfs:comment>
         <rdfs:comment>Symbols of a formal language need not be symbols of anything. For instance there are logical constants which do not refer to any idea, but rather serve as a form of punctuation in the language (e.g. parentheses). 
 
 Symbols of a formal language must be capable of being specified without any reference to any interpretation of them. 
