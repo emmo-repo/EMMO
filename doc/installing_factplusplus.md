@@ -1,5 +1,5 @@
-Installing the FaCT++ reasoner plugin for Protégé 5.0 on Windows
-================================================================
+Installing the FaCT++ reasoner plugin for Protégé 5.5.0 on Windows
+==================================================================
 There is a known issue with the FaCT++ reasoner for Protégé 5.5.0 on Windows.
 Fortunately a solution has been posted on http://protege-project.136.n4.nabble.com/Protege-5-5-0-and-Fact-td4671904.html.
 
