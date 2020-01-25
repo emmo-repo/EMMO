@@ -40,8 +40,11 @@ echo "  <link rel=\"stylesheet\" type=\"text/css\" href=\"../css/style.css\">" >
 echo "</head>" >>$reltable
 echo "<table class\"reltable\">" >>$reltable
 echo "  <tr>" >>$reltable
-echo "  <th>Name</th>" >>$reltable
-echo "  <th>URL</th>" >>$reltable
+echo "    <th>Version</th>" >>$reltable
+echo "    <th>Ontology IRI</th>" >>$reltable
+echo "    <th>Inferred ontology IRI</th>" >>$reltable
+echo "    <th>HTML documentation</th>" >>$reltable
+echo "    <th>PDF documentation</th>" >>$reltable
 echo "  </tr>" >>$reltable
 for rel in $($rootdir/.github/get_releases.sh); do
     if [ -f $releasesdir/$rel/emmo.owl ]; then
@@ -52,9 +55,17 @@ for rel in $($rootdir/.github/get_releases.sh); do
         emmourl="$baseurl/$rel/emmo/emmo.owl"
         emmoref="../$rel/emmo/emmo.owl"
     fi
+    inferredurl="$baseurl/$rel/emmo-inferred.owl"
+    inferredref="../$rel/emmo-inferred.owl"
+    [ $rel = latest ] && docurl="$rel" || docurl="v$rel"
+    docref="../$rel/doc/emmo.html"
+    pdfref="../$rel/doc/emmo.pdf"
     echo "  <tr>" >>$reltable
-    echo "  <td>$rel</td>" >>$reltable
-    echo "  <td><a href=\"$emmoref\" target=\"_blank\">$emmourl</a></td>" >>$reltable
+    echo "    <td>$rel</td>" >>$reltable
+    echo "    <td><a href=\"$emmoref\" target=\"_blank\">$emmourl</a></td>" >>$reltable
+    echo "    <td><a href=\"$inferredref\" target=\"_blank\">$inferredurl</a></td>" >>$reltable
+    echo "    <td><a href=\"$docref\" target=\"_blank\">$docurl</a></td>" >>$reltable
+    echo "    <td><a href=\"$pdfref\" target=\"_blank\">$docurl</a></td>" >>$reltable
     echo "  </tr>" >>$reltable
 done
 echo "</table>" >>$reltable
@@ -62,6 +73,6 @@ echo "</table>" >>$reltable
 
 # Push updates to github pages
 cd $releasesdir
-git add $release $reltable
-git commit -m "Added/updated release $release"
-git push origin
+#git add $release $reltable
+#git commit -m "Added/updated release $release"
+#git push origin

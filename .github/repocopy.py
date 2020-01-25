@@ -39,7 +39,7 @@ def walk(srcdir, destdir):
             for filename in filenames:
                 src = os.path.join(fromdir, filename)
                 dest = os.path.join(todir, filename)
-                if os.path.splitext(dest)[1] == '.owl':
+                if os.path.splitext(dest)[1] in ('.owl', '.xml'):
                     copyowl(src, dest, name)
                 elif not dest.endswith('~') and not filename.startswith('.'):
                     shutil.copy(src, dest)
