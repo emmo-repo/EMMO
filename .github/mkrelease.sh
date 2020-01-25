@@ -30,7 +30,6 @@ fi
 python3 $rootdir/.github/repocopy.py $src $releasesdir/$release
 
 
-
 # Generate html release table file
 baseurl="http://emmo.info"
 #baseurl=https://raw.githubusercontent.com/emmo-repo/emmo-repo.github.io/master
