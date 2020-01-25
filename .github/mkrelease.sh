@@ -63,5 +63,5 @@ echo "</table>" >>$reltable
 # Push updates to github pages
 cd $releasesdir
 git add $release $reltable
-git commit -m 'Added/updated release $release'
+git commit -m "Added/updated release $release"
 git push origin
