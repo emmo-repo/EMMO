@@ -29,9 +29,11 @@ else
 fi
 python3 $rootdir/.github/repocopy.py $src $releasesdir/$release
 
-# TODO: generate documentation
+
 
 # Generate html release table file
+baseurl="http://emmo.info"
+#baseurl=https://raw.githubusercontent.com/emmo-repo/emmo-repo.github.io/master
 mkdir -p $releasesdir/html
 reltable=$releasesdir/html/releasetable.html
 echo "<head>" >$reltable
@@ -43,8 +45,14 @@ echo "  <th>Name</th>" >>$reltable
 echo "  <th>URL</th>" >>$reltable
 echo "  </tr>" >>$reltable
 for rel in $($rootdir/.github/get_releases.sh); do
-    emmourl="http://emmo.info/$rel/emmo.owl"
-    emmoref="../$rel/emmo.owl"
+    if [ -f $releasesdir/$rel/emmo.owl ]; then
+        emmourl="$baseurl/$rel/emmo.owl"
+        emmoref="../$rel/emmo.owl"
+    else
+        # Fix url for v0.9.9
+        emmourl="$baseurl/$rel/emmo/emmo.owl"
+        emmoref="../$rel/emmo/emmo.owl"
+    fi
     echo "  <tr>" >>$reltable
     echo "  <td>$rel</td>" >>$reltable
     echo "  <td><a href=\"$emmoref\" target=\"_blank\">$emmourl</a></td>" >>$reltable
