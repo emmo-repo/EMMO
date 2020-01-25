@@ -1,4 +1,4 @@
-name: Release to GitHub Pages
+name: Release EMMO to GitHub Pages
 
 on: [push]
 
@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: Release to GitHub Pages
+    - name: Versioned release of EMMO on GitHub Pages
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         GIT_SSH_COMMAND: "ssh -o StrictHostKeyChecking=no"
@@ -19,4 +19,7 @@ jobs:
         ssh-add - <<< "${SSH_PRIVATE_KEY}"
         git config --global user.email "emmo.github.action@github.com"
         git config --global user.name "EMMO GitHub Action"
+        # Deploy master
         .github/mkrelease.sh
+        # Deploy all tagged versions
+        for tag in $(git tag); do ./github/mkrelease.sh $tag; done

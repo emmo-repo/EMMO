@@ -5,8 +5,6 @@
 # If 'TAG' is given, a copy of that tag is created, otherwise the latest master
 # created.
 
-set -x
-
 rootdir="$(git rev-parse --show-toplevel)"  # git root dir
 releasesdir=$rootdir/.github/releases
 
@@ -38,15 +36,13 @@ mkdir -p $releasesdir/html
 reltable=$releasesdir/html/releasetable.html
 echo "<head>" >$reltable
 echo "  <link rel=\"stylesheet\" type=\"text/css\" href=\"../css/style.css\">" >>$reltable
-echo "</head>"
+echo "</head>" >>$reltable
 echo "<table class\"reltable\">" >>$reltable
 echo "  <tr>" >>$reltable
 echo "  <th>Name</th>" >>$reltable
 echo "  <th>URL</th>" >>$reltable
 echo "  </tr>" >>$reltable
-for owlfile in $releasesdir/*/emmo.owl; do
-    reldir=$(dirname $owlfile)
-    rel=$(basename $reldir)
+for rel in $($rootdir/.github/get_releases.sh); do
     emmourl="http://emmo.info/$rel/emmo.owl"
     emmoref="../$rel/emmo.owl"
     echo "  <tr>" >>$reltable

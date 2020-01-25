@@ -14,8 +14,15 @@ def copyowl(src, dest, name, base='http://emmo.info'):
     `base` replaced with "`base`/`name`"."""
     with open(src, 'rt') as f:
         buf = f.read()
+    content = buf.replace(base, base + '/' + name)
+
+    # For old versions of EMMO
+    content = content.replace(
+        'http://emmc.info', '%s/%s/emmo' % (base, name))
+
     with open(dest, 'wt') as f:
-        f.write(buf.replace(base, base + '/' + name))
+        f.write(content)
+
 
 
 def walk(srcdir, destdir):
