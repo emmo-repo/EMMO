@@ -1,4 +1,4 @@
-name: CI Tests
+name: Release to GitHub Pages
 
 on: [push]
 
@@ -17,4 +17,6 @@ jobs:
       run: |
         eval "$(ssh-agent -s)"
         ssh-add - <<< "${SSH_PRIVATE_KEY}"
+        git config --global user.email "emmo.github.action@github.com"
+        git config --global user.name "EMMO GitHub Action"
         .github/mkrelease.sh
