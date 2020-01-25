@@ -19,11 +19,7 @@ jobs:
         ssh-add - <<< "${SSH_PRIVATE_KEY}"
         git config --global user.email "emmo.github.action@github.com"
         git config --global user.name "EMMO GitHub Action"
-        # Show debug info
-        pwd
-        ls -l
-        ls -l .github
         # Deploy master
-        .github/mkrelease.sh
+        ./.github/mkrelease.sh
         # Deploy all tagged versions
-        for tag in $(git tag); do ./github/mkrelease.sh $tag; done
+        for tag in $(git tag); do ./.github/mkrelease.sh $tag; done
