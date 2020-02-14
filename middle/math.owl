@@ -85,7 +85,7 @@ Version 0.9.10</owl:versionInfo>
         </owl:equivalentClass>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://emmo.info/emmo/top/mereotopology#EMMO_9380ab64_0363_4804_b13f_3a8a94119a76"/>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/top/physical#EMMO_f68030be_94b8_4c61_a161_886468558054"/>
                 <owl:allValuesFrom>
                     <owl:Class>
                         <owl:complementOf rdf:resource="http://emmo.info/emmo/middle/math#EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0"/>
@@ -103,11 +103,23 @@ Version 0.9.10</owl:versionInfo>
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/math#EMMO_1a663927_3b68_4618_acd3_a8aa0d406329">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/graphical#EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527"/>
+        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/math#EMMO_21f56795_ee72_4858_b571_11cfaa59c1a8"/>
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/math#EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://emmo.info/emmo/top/physical#EMMO_f68030be_94b8_4c61_a161_886468558054"/>
+                        <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/math#EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A &apos;Symbol&apos; (e.g. 2, 7) used to build numbers (e.g. 3, 56, 1.6, 4e-6, 3+i7) according to some positional numeral systems.</emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <emmo-annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>0
 3
 7</emmo-annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
-        <rdfs:label xml:lang="en">Numeral</rdfs:label>
+        <rdfs:label xml:lang="en">NumericalDigit</rdfs:label>
     </owl:Class>
     
 
@@ -128,6 +140,9 @@ Version 0.9.10</owl:versionInfo>
             </owl:Restriction>
         </rdfs:subClassOf>
         <emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A &apos;variable&apos; is a &apos;symbol&apos; that stands for a numerical defined &apos;mathematical&apos; entity like e.g. a number, a vector, a matrix.</emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
+        <emmo-annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>x
+k
+a_{i,j}</emmo-annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
         <rdfs:label xml:lang="en">Variable</rdfs:label>
     </owl:Class>
     
@@ -148,6 +163,7 @@ Version 0.9.10</owl:versionInfo>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A composition of &apos;NumericalDigit&apos;-s according to a defined numeral position system.</emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <rdfs:label xml:lang="en">Number</rdfs:label>
     </owl:Class>
     
@@ -184,7 +200,7 @@ Version 0.9.10</owl:versionInfo>
     <owl:Class rdf:about="http://emmo.info/emmo/middle/math#EMMO_ae15fb4f_8e4d_41de_a0f9_3997f89ba6a2">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/math#EMMO_1eed0732_e3f1_4b2c_a9c4_b4e75eeb5895"/>
         <emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A &apos;varaible&apos; that stand for a well known constant.</emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
-        <rdfs:comment>pi = 3.14</rdfs:comment>
+        <emmo-annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>π refers to the constant number ~3.14</emmo-annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
         <rdfs:label xml:lang="en">Constant</rdfs:label>
     </owl:Class>
     
