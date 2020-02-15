@@ -458,6 +458,14 @@ In EMMO, the dimension of the permeance can be described by the following set of
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-units.owl#EMMO_86b662ff_1cb8_4694_bf7a_12bb947848f8">
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-physical-properties.owl#EMMO_dd4a7f3e_ef56_466c_ac1a_d2716b5f87ec"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_7c97fa4f_e74d_4646_8bc9_2d1ae2ec619b"/>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/domains/emmo-physical-properties.owl#EMMO_02c0621e_a527_4790_8a0f_2bb51973c819"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Dimensional quantities includes vectors (rank 1) and multidimensional quantities (rank 2 or more).</rdfs:comment>
+        <rdfs:comment>The dimensions of multidimensional quantities are ordered. To express this in OWL, we have to define a QuantityDimension subclass for each dimension of the multidimensional quantity.</rdfs:comment>
         <rdfs:label xml:lang="en">DimensionalQuantity</rdfs:label>
     </owl:Class>
     
