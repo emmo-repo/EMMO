@@ -60,11 +60,11 @@ where `k&apos;` is the permeance measured in units of `mol/sqrt(m*kg)`.
 
 In EMMO, the dimension of the permeance can be described by the following set of restrictions:
 
-    permeance has_positive_power exactly 1 &apos;amount of substance&apos;
-    permeance has_negative_power exactly 1 length
-    permeance has_inverse_power exactly 2 length
-    permeance has_negative_power exactly 1 mass
-    permeance has_inverse_power exactly 2 mass</emmo-annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
+    permeance has_positive_power exactly 1 AmountOfSubstance
+    permeance has_negative_power exactly 1 Length
+    permeance has_inverse_power exactly 2 Length
+    permeance has_negative_power exactly 1 Mass
+    permeance has_inverse_power exactly 2 Mass</emmo-annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
         <rdfs:comment>It is questionable whether physical quantities can have non-integer. But see the example below.</rdfs:comment>
         <rdfs:label xml:lang="en">hasInversePower</rdfs:label>
         <rdfs:seeAlso>has_physical_dimension</rdfs:seeAlso>
@@ -162,6 +162,17 @@ In EMMO, the dimension of the permeance can be described by the following set of
     
 
 
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_09a57c96_9a1e_47da_8546_fecfd1e90854 -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_09a57c96_9a1e_47da_8546_fecfd1e90854">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-physical-properties.owl#EMMO_02c0621e_a527_4790_8a0f_2bb51973c819"/>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.E02281</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Physical quantity whose magnitude is additive for subsystems.</rdfs:comment>
+        <rdfs:label xml:lang="en">ExtensiveQuantity</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_61df559b_216a_4556_a2ba_1231b5c04122 -->
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_61df559b_216a_4556_a2ba_1231b5c04122">
@@ -180,6 +191,29 @@ In EMMO, the dimension of the permeance can be described by the following set of
         </rdfs:subClassOf>
         <rdfs:comment>The dimensions of multidimensional quantities are ordered. To express this in OWL, we have to define a QuantityDimension subclass for each dimension of the multidimensional quantity.</rdfs:comment>
         <rdfs:label xml:lang="en">MultiDimensionalQuantity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_6be817b1_7f17_448a_96a1_d5a22039a9da -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_6be817b1_7f17_448a_96a1_d5a22039a9da">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-physical-properties.owl#EMMO_02c0621e_a527_4790_8a0f_2bb51973c819"/>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.I03074</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Physical quantity whose magnitude is independent of the extent of the system.</rdfs:comment>
+        <rdfs:label xml:lang="en">IntensiveQuantity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_df85edfa_5416_4dd3_8c94_2cf60578132d -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_df85edfa_5416_4dd3_8c94_2cf60578132d">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-physical-properties.owl#EMMO_02c0621e_a527_4790_8a0f_2bb51973c819"/>
+        <rdfs:comment>Physical quantities that are conserved in any inertial frame.
+
+That is, if a closed system is not affected by external forces, the conserved quantity does not change.</rdfs:comment>
+        <rdfs:label xml:lang="en">ConservedQuantity</rdfs:label>
     </owl:Class>
     
 
@@ -404,7 +438,9 @@ In EMMO, the dimension of the permeance can be described by the following set of
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-units.owl#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3">
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-physical-properties.owl#EMMO_02c0621e_a527_4790_8a0f_2bb51973c819"/>
+        <rdfs:comment>Physical quantities whos dimension can be expressed in terms of base quantites and dimensional-less quantities.</rdfs:comment>
         <rdfs:label xml:lang="en">DerivedQuantity</rdfs:label>
+        <rdfs:seeAlso>https://en.wikipedia.org/wiki/List_of_physical_quantities</rdfs:seeAlso>
     </owl:Class>
     
 
@@ -449,6 +485,7 @@ In EMMO, the dimension of the permeance can be described by the following set of
     <!-- http://emmo.info/domains/emmo-units.owl#EMMO_8159c26a_494b_4fa0_9959_10888f152298 -->
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-units.owl#EMMO_8159c26a_494b_4fa0_9959_10888f152298">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_09a57c96_9a1e_47da_8546_fecfd1e90854"/>
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_acaaa124_3dde_48b6_86e6_6ec6f364f408"/>
         <rdfs:label xml:lang="en">AmountOfSubstance</rdfs:label>
     </owl:Class>
@@ -579,6 +616,7 @@ In EMMO, the dimension of the permeance can be described by the following set of
     <!-- http://emmo.info/domains/emmo-units.owl#EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f -->
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-units.owl#EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_6be817b1_7f17_448a_96a1_d5a22039a9da"/>
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_acaaa124_3dde_48b6_86e6_6ec6f364f408"/>
         <rdfs:label xml:lang="en">ThermodynamicTemperature</rdfs:label>
     </owl:Class>
@@ -718,6 +756,7 @@ With &quot;exact&quot; constants, we refer to physical constants that have an ex
     <!-- http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405 -->
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_09a57c96_9a1e_47da_8546_fecfd1e90854"/>
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_acaaa124_3dde_48b6_86e6_6ec6f364f408"/>
         <rdfs:label xml:lang="en">Mass</rdfs:label>
     </owl:Class>

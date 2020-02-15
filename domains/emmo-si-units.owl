@@ -103,6 +103,24 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
     
 
 
+    <!-- http://emmo.info/domains/emmo-physical-properties.owl#EMMO_02c0621e_a527_4790_8a0f_2bb51973c819 -->
+
+    <rdf:Description rdf:about="http://emmo.info/domains/emmo-physical-properties.owl#EMMO_02c0621e_a527_4790_8a0f_2bb51973c819">
+        <rdfs:comment>All physical quantities can be categorised into one of:
+  - base quantities (BaseQuantity)
+  - dimensionless quantities (DimensionlessQuantity)
+  - derived quantities (DerivedQuantity)
+based on their physical dimension.
+
+In addition EMMO defines other categorisations of quantities based their physical nature, like:
+  - wheter they are conseved (ConservedQuantity)
+  - whether they are extensive, i.e. depends on system size (ExtensiveQuantity)
+  - whether they are intensive, i.e. independent of system size (IntensiveQuantity)</rdfs:comment>
+        <rdfs:seeAlso>https://en.wikipedia.org/wiki/List_of_physical_quantities</rdfs:seeAlso>
+    </rdf:Description>
+    
+
+
     <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_00199e76_69dc_45b6_a9c6_98cc90cdc0f5 -->
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_00199e76_69dc_45b6_a9c6_98cc90cdc0f5">
@@ -140,7 +158,10 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_04b3300c_98bd_42dc_a3b5_e6c29d69f1ac">
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_fdadf52c_5c39_40bc_95d9_5b7807f06e19"/>
-        <rdfs:label xml:lang="en">MoleFraction</rdfs:label>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Mole_fraction</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.A00296</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:label xml:lang="en">AmountFraction</rdfs:label>
+        <rdfs:label>MoleFraction</rdfs:label>
     </owl:Class>
     
 
@@ -177,6 +198,9 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Inductance</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.M04076</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>A property of an electrical conductor by which a change in current through it induces an electromotive force in both the conductor itself and in any nearby conductors by mutual inductance.</rdfs:comment>
         <rdfs:label xml:lang="en">ElectricalInductance</rdfs:label>
     </owl:Class>
     
@@ -185,6 +209,7 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
     <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_06448f64_8db6_4304_8b2c_e785dba82044 -->
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_06448f64_8db6_4304_8b2c_e785dba82044">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_6be817b1_7f17_448a_96a1_d5a22039a9da"/>
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -200,6 +225,9 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Density</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.D01590</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Mass per volume.</rdfs:comment>
         <rdfs:label xml:lang="en">Density</rdfs:label>
     </owl:Class>
     
@@ -238,6 +266,47 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
     
 
 
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_09663630_1b84_4202_91e6_e641104f579e -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_09663630_1b84_4202_91e6_e641104f579e">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_6be817b1_7f17_448a_96a1_d5a22039a9da"/>
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Permeability_(electromagnetism)</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.P04503</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Measure for how the magnetization of material is affected by the application of an external magnetic field .</rdfs:comment>
+        <rdfs:label xml:lang="en">Permeability</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_0d9c5ae5_e24a_4e6d_93ae_5e048d99eba8 -->
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_0d9c5ae5_e24a_4e6d_93ae_5e048d99eba8">
@@ -267,6 +336,47 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_c90b97c0_585d_4b19_8c17_8996b58425d6"/>
         <rdfs:comment>isUnitFor some Velocity</rdfs:comment>
         <rdfs:label xml:lang="en">MetrePerSecond</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_0ee5779e_d798_4ee5_9bfe_c392d5bea112 -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_0ee5779e_d798_4ee5_9bfe_c392d5bea112">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_6be817b1_7f17_448a_96a1_d5a22039a9da"/>
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Permittivity</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.P04507</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Measure for how the polarization of a material is affected by the application of an external electric field.</rdfs:comment>
+        <rdfs:label xml:lang="en">Permittivity</rdfs:label>
     </owl:Class>
     
 
@@ -305,6 +415,9 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Mass_concentration_(chemistry)</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.M03713</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Mass of a constituent divided by the volume of the mixture.</rdfs:comment>
         <rdfs:label xml:lang="en">MassConcentration</rdfs:label>
     </owl:Class>
     
@@ -337,6 +450,7 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Vergence</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
         <rdfs:comment>In geometrical optics, vergence describes the curvature of optical wavefronts.</rdfs:comment>
         <rdfs:label xml:lang="en">Vergence</rdfs:label>
     </owl:Class>
@@ -399,6 +513,7 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
             </owl:Restriction>
         </rdfs:subClassOf>
         <emmo-annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/ANGSTROM</emmo-annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/%C3%85ngstr%C3%B6m</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
         <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.N00350</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
         <rdfs:label>Angstrom</rdfs:label>
         <rdfs:label xml:lang="en">Ångström</rdfs:label>
@@ -417,6 +532,7 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
             </owl:Restriction>
         </rdfs:subClassOf>
         <emmo-annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/KAT</emmo-annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Katal</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
         <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.K03372</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
         <rdfs:label xml:lang="en">Katal</rdfs:label>
     </owl:Class>
@@ -434,6 +550,53 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">MolePerCubicMetre</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_4091d5ec_a4df_42b9_a073_9a090839279f -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_4091d5ec_a4df_42b9_a073_9a090839279f">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_31ec09ba_1713_42cb_83c7_b38bf6f9ced2"/>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Enthalpy</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.E02141</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Measurement of energy in a thermodynamic system.</rdfs:comment>
+        <rdfs:label xml:lang="en">Enthalpy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_43776fc9_d712_4571_85f0_72183678039a -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_43776fc9_d712_4571_85f0_72183678039a">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_09a57c96_9a1e_47da_8546_fecfd1e90854"/>
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_df85edfa_5416_4dd3_8c94_2cf60578132d"/>
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Momentum</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.M04007</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Product of mass and velocity.</rdfs:comment>
+        <rdfs:label xml:lang="en">Momentum</rdfs:label>
     </owl:Class>
     
 
@@ -490,8 +653,46 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
     <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_5eedba4d_105b_44d8_b1bc_e33606276ea2 -->
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_5eedba4d_105b_44d8_b1bc_e33606276ea2">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_6be817b1_7f17_448a_96a1_d5a22039a9da"/>
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_fdadf52c_5c39_40bc_95d9_5b7807f06e19"/>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Refractive_index</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.R05240</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Factor by which the phase velocity of light is reduced in a medium.</rdfs:comment>
         <rdfs:label xml:lang="en">RefractiveIndex</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_66d01570_36dd_42fd_844d_29b81b029cd5 -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_66d01570_36dd_42fd_844d_29b81b029cd5">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_df85edfa_5416_4dd3_8c94_2cf60578132d"/>
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Angular_momentum</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.A00353</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Measure of the extent and direction an object rotates about a reference point.</rdfs:comment>
+        <rdfs:label xml:lang="en">AngularMomentum</rdfs:label>
     </owl:Class>
     
 
@@ -533,7 +734,9 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_79a02de5_b884_4eab_bc18_f67997d597a2">
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_e88f75d6_9a17_4cfc_bdf7_43d7cea5a9a1"/>
-        <rdfs:label xml:lang="en">Impedance</rdfs:label>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Electrical_impedance</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <rdfs:comment>Measure of the opposition that a circuit presents to a current when a voltage is applied.</rdfs:comment>
+        <rdfs:label xml:lang="en">ElectricalImpedance</rdfs:label>
     </owl:Class>
     
 
@@ -541,7 +744,11 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
     <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_7c055d65_2929_40e1_af4f_4bf10995ad50 -->
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_7c055d65_2929_40e1_af4f_4bf10995ad50">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_6be817b1_7f17_448a_96a1_d5a22039a9da"/>
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_fdadf52c_5c39_40bc_95d9_5b7807f06e19"/>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Mass_fraction_(chemistry)</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.M03722</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Mass of a constituent divided by the total mass of all constituents in the mixture.</rdfs:comment>
         <rdfs:label xml:lang="en">MassFraction</rdfs:label>
     </owl:Class>
     
@@ -565,6 +772,9 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Current_density</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.E01928</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Electric current divided by the cross-sectional area it is passing through.</rdfs:comment>
         <rdfs:label xml:lang="en">CurrentDensity</rdfs:label>
     </owl:Class>
     
@@ -588,6 +798,11 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Speed</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.S05852</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Length per unit time. 
+
+Speed in the absolute value of the velocity.</rdfs:comment>
         <rdfs:label xml:lang="en">Speed</rdfs:label>
     </owl:Class>
     
@@ -606,6 +821,47 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
         <emmo-annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/HR</emmo-annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
         <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.H02866</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
         <rdfs:label xml:lang="en">Hour</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_88fc5d1b_d3ab_4626_b24c_915ebe7400ca -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_88fc5d1b_d3ab_4626_b24c_915ebe7400ca">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_6be817b1_7f17_448a_96a1_d5a22039a9da"/>
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_8159c26a_494b_4fa0_9959_10888f152298"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Chemical_potential</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.C01032</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Energy per unit change in amount of substance.</rdfs:comment>
+        <rdfs:label xml:lang="en">ChemicalPotential</rdfs:label>
     </owl:Class>
     
 
@@ -631,7 +887,9 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_92b2fb85_2143_4bc7_bbca_df3e6944bfc1">
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_e88f75d6_9a17_4cfc_bdf7_43d7cea5a9a1"/>
-        <rdfs:label xml:lang="en">Reactance</rdfs:label>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Electrical_reactance</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <rdfs:comment>The opposition of a circuit element to a change in current or voltage, due to that element&apos;s inductance or capacitance.</rdfs:comment>
+        <rdfs:label xml:lang="en">ElectricalReactance</rdfs:label>
     </owl:Class>
     
 
@@ -664,7 +922,9 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Area</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
         <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.A00429</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Extent of a surface.</rdfs:comment>
         <rdfs:label xml:lang="en">Area</rdfs:label>
     </owl:Class>
     
@@ -688,6 +948,8 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_50bf79a6_a48b_424d_9d2c_813bd631231a"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Luminance</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.L03640</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
         <rdfs:comment>a photometric measure of the luminous intensity per unit area of light travelling in a given direction.</rdfs:comment>
         <rdfs:label xml:lang="en">Luminance</rdfs:label>
     </owl:Class>
@@ -726,6 +988,10 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Capacitance</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.C00791</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>The derivative of the electric charge of a system with respect to 
+the electric potential.</rdfs:comment>
         <rdfs:label xml:lang="en">ElectricalCapacitance</rdfs:label>
     </owl:Class>
     
@@ -744,6 +1010,48 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
         <emmo-annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/TON_M</emmo-annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
         <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.T06394</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
         <rdfs:label xml:lang="en">Tonne</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_9bbab0be_f9cc_4f46_9f46_0fd271911b79 -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_9bbab0be_f9cc_4f46_9f46_0fd271911b79">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_09a57c96_9a1e_47da_8546_fecfd1e90854"/>
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Entropy</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.E02149</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Logarithmic measure of the number of available states of a system.</rdfs:comment>
+        <rdfs:comment>May also be referred to as a measure of order of  a system.</rdfs:comment>
+        <rdfs:label xml:lang="en">Entropy</rdfs:label>
     </owl:Class>
     
 
@@ -861,7 +1169,10 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:label xml:lang="en">SurfaceDensity</rdfs:label>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Area_density</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.S06167</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Mass per unit area.</rdfs:comment>
+        <rdfs:label xml:lang="en">AreaDensity</rdfs:label>
     </owl:Class>
     
 
@@ -901,6 +1212,9 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Magnetic_field</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.M03683</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Strength of a magnetic field. Commonly denoted H.</rdfs:comment>
         <rdfs:label xml:lang="en">MagneticFieldStrength</rdfs:label>
     </owl:Class>
     
@@ -909,9 +1223,16 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
     <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_b53d316d_06a2_4f70_a6e3_53fc774c810c -->
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_b53d316d_06a2_4f70_a6e3_53fc774c810c">
-        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_04b3300c_98bd_42dc_a3b5_e6c29d69f1ac"/>
-        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_7c055d65_2929_40e1_af4f_4bf10995ad50"/>
-        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_d5be1faf_0c56_4f5a_9b78_581e6dee949f"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_04b3300c_98bd_42dc_a3b5_e6c29d69f1ac"/>
+                    <rdf:Description rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_16f2fe60_2db7_43ca_8fee_5b3e416bfe87"/>
+                    <rdf:Description rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_7c055d65_2929_40e1_af4f_4bf10995ad50"/>
+                    <rdf:Description rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_d5be1faf_0c56_4f5a_9b78_581e6dee949f"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_749d243d_669c_4e00_b9f2_90ca4a1cc8b7"/>
@@ -919,7 +1240,8 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_fbe7a78a_0b08_4886_bf38_ca9ca510ac4a"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment>Since ChemicalContent is a subclass of Concentration, MassFraction and MoleFraction, it is possible to express the chemical content in terms of all these quantities.</rdfs:comment>
+        <emmo-annotations:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84>Amount of a component in a system.</emmo-annotations:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84>
+        <rdfs:comment>Since ChemicalContent is a subclass of Concentration, MassConcentration, MassFraction and MoleFraction, it is possible to express the chemical content in terms of all these quantities.</rdfs:comment>
         <rdfs:label xml:lang="en">ChemicalContent</rdfs:label>
     </owl:Class>
     
@@ -1016,7 +1338,12 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:label xml:lang="en">Conductivity</rdfs:label>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Electrical_resistivity_and_conductivity</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.C01245</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Measure of a material&apos;s ability to conduct an electric current. 
+
+Conductivity is equeal to the resiprocal of resistivity.</rdfs:comment>
+        <rdfs:label xml:lang="en">ElectricalConductivity</rdfs:label>
     </owl:Class>
     
 
@@ -1051,6 +1378,7 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
     <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_d5be1faf_0c56_4f5a_9b78_581e6dee949f -->
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_d5be1faf_0c56_4f5a_9b78_581e6dee949f">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_6be817b1_7f17_448a_96a1_d5a22039a9da"/>
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1066,7 +1394,12 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_8159c26a_494b_4fa0_9959_10888f152298"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Molar_concentration</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.A00295</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Also called &quot;molar concentration&quot; or &quot;amount concentration&quot;.</rdfs:comment>
+        <rdfs:comment>The amount of a constituent divided by the volume of the mixture.</rdfs:comment>
         <rdfs:label xml:lang="en">Concentration</rdfs:label>
+        <rdfs:label>MolarConcentration</rdfs:label>
     </owl:Class>
     
 
@@ -1127,6 +1460,9 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Wavenumber</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.W06664</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>The number of waves per unit length along the direction of propagation.</rdfs:comment>
         <rdfs:label xml:lang="en">Wavenumber</rdfs:label>
     </owl:Class>
     
@@ -1186,6 +1522,7 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
     <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_e150fa8d_06dc_4bb8_bf95_04e2aea529c1 -->
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_e150fa8d_06dc_4bb8_bf95_04e2aea529c1">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_09a57c96_9a1e_47da_8546_fecfd1e90854"/>
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1215,7 +1552,10 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:label xml:lang="en">Resistivity</rdfs:label>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Electrical_resistivity_and_conductivity</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.R05316</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Electric field strength divided by the current density.</rdfs:comment>
+        <rdfs:label xml:lang="en">ElectricalResistivity</rdfs:label>
     </owl:Class>
     
 
@@ -1255,6 +1595,7 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Acceleration</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
         <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.A00051</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
         <rdfs:comment>Derivative of velocity with respect to time.</rdfs:comment>
         <rdfs:label xml:lang="en">Acceleration</rdfs:label>
@@ -1282,6 +1623,7 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
     <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_e88f75d6_9a17_4cfc_bdf7_43d7cea5a9a1 -->
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_e88f75d6_9a17_4cfc_bdf7_43d7cea5a9a1">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_09a57c96_9a1e_47da_8546_fecfd1e90854"/>
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1311,6 +1653,11 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Electrical_resistance_and_conductance</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.E01936</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Measure of the difficulty to pass an electric current through a material.
+
+Inverse of &apos;ElectricalConductance&apos;.</rdfs:comment>
         <rdfs:label xml:lang="en">ElectricalResistance</rdfs:label>
     </owl:Class>
     
@@ -1336,6 +1683,7 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
     <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_f1a51559_aa3d_43a0_9327_918039f0dfed -->
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_f1a51559_aa3d_43a0_9327_918039f0dfed">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_09a57c96_9a1e_47da_8546_fecfd1e90854"/>
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1344,6 +1692,8 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Volume</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <rdfs:comment>Extent of an object in space.</rdfs:comment>
         <rdfs:label xml:lang="en">Volume</rdfs:label>
     </owl:Class>
     
@@ -1407,6 +1757,16 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
     
 
 
+    <!-- http://emmo.info/domains/emmo-units.owl#EMMO_e7c9f7fd_e534_4441_88fe_1fec6cb20f26 -->
+
+    <rdf:Description rdf:about="http://emmo.info/domains/emmo-units.owl#EMMO_e7c9f7fd_e534_4441_88fe_1fec6cb20f26">
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Solid_angle</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.S05732</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Ratio of area on a sphere to its radius squared.</rdfs:comment>
+    </rdf:Description>
+    
+
+
     <!-- http://emmo.info/domains/emmo-units.owl#EMMO_e9ffc696_5228_4ff9_8a60_0f5e05e9931b -->
 
     <rdf:Description rdf:about="http://emmo.info/domains/emmo-units.owl#EMMO_e9ffc696_5228_4ff9_8a60_0f5e05e9931b">
@@ -1415,10 +1775,31 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
     
 
 
+    <!-- http://emmo.info/domains/emmo-units.owl#EMMO_f1e87395_b79d_4f3a_8815_e35914d0aacf -->
+
+    <rdf:Description rdf:about="http://emmo.info/domains/emmo-units.owl#EMMO_f1e87395_b79d_4f3a_8815_e35914d0aacf">
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Angle</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.A00346</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Ratio of circular arc length to radius.</rdfs:comment>
+    </rdf:Description>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-units.owl#EMMO_fdadf52c_5c39_40bc_95d9_5b7807f06e19 -->
+
+    <rdf:Description rdf:about="http://emmo.info/domains/emmo-units.owl#EMMO_fdadf52c_5c39_40bc_95d9_5b7807f06e19">
+        <rdfs:comment>Physical quantities with no physical dimension (in terms of the 7 base quantities).</rdfs:comment>
+    </rdf:Description>
+    
+
+
     <!-- http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_04cf0295_3e8f_4693_a87f_3130d125cf05 -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_04cf0295_3e8f_4693_a87f_3130d125cf05">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_1f087811_06cb_42d5_90fb_25d0e7e068ef"/>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Weight</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.W06668</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Force of gravity acting on a body.</rdfs:comment>
         <rdfs:label xml:lang="en">Weight</rdfs:label>
     </owl:Class>
     
@@ -1427,6 +1808,7 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
     <!-- http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2 -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_09a57c96_9a1e_47da_8546_fecfd1e90854"/>
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1449,45 +1831,10 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Power_(physics)</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.P04792</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Rate of transfer of energy per unit time.</rdfs:comment>
         <rdfs:label xml:lang="en">Power</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_0b0f2500_d752_4648_8133_47d5646d7800 -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_0b0f2500_d752_4648_8133_47d5646d7800">
-        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.C00791</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
-        <rdfs:label xml:lang="en">Capacitance</rdfs:label>
     </owl:Class>
     
 
@@ -1496,6 +1843,7 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
 
     <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_12d4ba9b_2f89_4ea3_b206_cd376f96c875">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_31ec09ba_1713_42cb_83c7_b38bf6f9ced2"/>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.H02752</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
         <rdfs:comment>Heat is energy in transfer to or from a thermodynamic system, by mechanisms other than thermodynamic work or transfer of matter.</rdfs:comment>
         <rdfs:label xml:lang="en">Heat</rdfs:label>
     </owl:Class>
@@ -1505,6 +1853,8 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
     <!-- http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_1604f495_328a_4f28_9962_f4cc210739dd -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_1604f495_328a_4f28_9962_f4cc210739dd">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_09a57c96_9a1e_47da_8546_fecfd1e90854"/>
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_df85edfa_5416_4dd3_8c94_2cf60578132d"/>
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1520,6 +1870,9 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Electric_charge</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.E01923</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>The physical property of matter that causes it to experience a force when placed in an electromagnetic field.</rdfs:comment>
         <rdfs:label xml:lang="en">ElectricCharge</rdfs:label>
     </owl:Class>
     
@@ -1528,6 +1881,7 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
     <!-- http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_1f087811_06cb_42d5_90fb_25d0e7e068ef -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_1f087811_06cb_42d5_90fb_25d0e7e068ef">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_09a57c96_9a1e_47da_8546_fecfd1e90854"/>
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1550,6 +1904,9 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Force</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.F02480</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Any interaction that, when unopposed, will change the motion of an object.</rdfs:comment>
         <rdfs:label xml:lang="en">Force</rdfs:label>
     </owl:Class>
     
@@ -1580,6 +1937,8 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Energy</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.E02101</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
         <rdfs:label xml:lang="en">Energy</rdfs:label>
     </owl:Class>
     
@@ -1617,6 +1976,9 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Magnetic_flux</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.M03684</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Measure of magnetism, taking account of the strength and the extent of a magnetic field.</rdfs:comment>
         <rdfs:label xml:lang="en">MagneticFlux</rdfs:label>
     </owl:Class>
     
@@ -1640,6 +2002,8 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Equivalent_dose</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <rdfs:comment>A dose quantity used in the International Commission on Radiological Protection (ICRP) system of radiological protection.</rdfs:comment>
         <rdfs:label xml:lang="en">EquivalentDose</rdfs:label>
     </owl:Class>
     
@@ -1648,6 +2012,7 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
     <!-- http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_4f2d3939_91b1_4001_b8ab_7d19074bf845 -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_4f2d3939_91b1_4001_b8ab_7d19074bf845">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_09a57c96_9a1e_47da_8546_fecfd1e90854"/>
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1677,7 +2042,11 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:label xml:lang="en">Voltage</rdfs:label>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Voltage</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.A00424</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Energy required to move a unit charge through an electric field from a reference point.</rdfs:comment>
+        <rdfs:comment>Often referred to as &apos;voltage&apos;.</rdfs:comment>
+        <rdfs:label xml:lang="en">ElectricPotential</rdfs:label>
     </owl:Class>
     
 
@@ -1685,6 +2054,7 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
     <!-- http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989 -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_6be817b1_7f17_448a_96a1_d5a22039a9da"/>
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1707,6 +2077,9 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Pressure</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.P04819</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>The force applied perpendicular to the surface of an object per unit area over which that force is distributed.</rdfs:comment>
         <rdfs:label xml:lang="en">Pressure</rdfs:label>
     </owl:Class>
     
@@ -1716,7 +2089,10 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
 
     <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_624d72ee_e676_4470_9434_c22b4190d3d5">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_31ec09ba_1713_42cb_83c7_b38bf6f9ced2"/>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Heat</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Work_(physics)</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
         <emmo-annotations:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84>Product of force and displacement.</emmo-annotations:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.W06684</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
         <rdfs:label xml:lang="en">Work</rdfs:label>
     </owl:Class>
     
@@ -1733,6 +2109,9 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Frequency</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84>Number of periods per time interval.</emmo-annotations:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.FT07383</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
         <rdfs:label xml:lang="en">Frequency</rdfs:label>
     </owl:Class>
     
@@ -1741,6 +2120,7 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
     <!-- http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_8d3da9ac_2265_4382_bee5_db72046722f8 -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_8d3da9ac_2265_4382_bee5_db72046722f8">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_09a57c96_9a1e_47da_8546_fecfd1e90854"/>
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1749,8 +2129,9 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.A00114</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
         <rdfs:comment>Decays per unit time</rdfs:comment>
-        <rdfs:label xml:lang="en">Radioactivity</rdfs:label>
+        <rdfs:label xml:lang="en">RadioactiveActivity</rdfs:label>
     </owl:Class>
     
 
@@ -1773,6 +2154,7 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Absorbed_dose</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
         <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.A00031</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
         <rdfs:comment>Energy imparted to matter by ionizing radiation in a suitable small element of volume divided by the mass of that element of volume.</rdfs:comment>
         <rdfs:label xml:lang="en">AbsorbedDose</rdfs:label>
@@ -1805,6 +2187,9 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Magnetic_field</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.M03686</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Measure for the strength of the magnetic field. Often denoted B.</rdfs:comment>
         <rdfs:label xml:lang="en">MagneticFluxDensity</rdfs:label>
     </owl:Class>
     
@@ -1828,7 +2213,9 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_50bf79a6_a48b_424d_9d2c_813bd631231a"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Illuminance</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
         <emmo-annotations:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84>The total luminous flux incident on a surface, per unit area.</emmo-annotations:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.I02941</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
         <rdfs:label xml:lang="en">Illuminance</rdfs:label>
     </owl:Class>
     
@@ -1837,7 +2224,7 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
     <!-- http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_bd67d149_24c2_4bc9_833a_c2bc26f98fd3 -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_bd67d149_24c2_4bc9_833a_c2bc26f98fd3">
-        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_d5be1faf_0c56_4f5a_9b78_581e6dee949f"/>
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
@@ -1852,6 +2239,8 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_8159c26a_494b_4fa0_9959_10888f152298"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.C00881</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Increase in the rate of reaction of a specified chemical reaction that an enzyme produces in a specific assay system.</rdfs:comment>
         <rdfs:label xml:lang="en">CatalyticActivity</rdfs:label>
     </owl:Class>
     
@@ -1861,6 +2250,9 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
 
     <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_d1917609_db5e_4b8a_9b76_ef1d6f860a81">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989"/>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Stress_(mechanics)</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <rdfs:comment>Force per unit oriented surface area .</rdfs:comment>
+        <rdfs:comment>Measure of the internal forces that neighboring particles of a continuous material exert on each other.</rdfs:comment>
         <rdfs:label xml:lang="en">Stress</rdfs:label>
     </owl:Class>
     
@@ -1884,6 +2276,8 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_e7c9f7fd_e534_4441_88fe_1fec6cb20f26"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Luminous_flux</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.L03646</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
         <rdfs:comment>Measure of the perceived power of light.</rdfs:comment>
         <rdfs:label xml:lang="en">LuminousFlux</rdfs:label>
     </owl:Class>
@@ -1894,44 +2288,10 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
 
     <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_e46f3f24_c2ec_4552_8dd4_cfc5c0a89c09">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2"/>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Radiant_flux</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.R05046</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>The radiant energy emitted, reflected, transmitted or received, per unit time.</rdfs:comment>
         <rdfs:label xml:lang="en">RadiantFlux</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_fdc39c47_bbe0_4ac3_99ae_d882df53c237 -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_fdc39c47_bbe0_4ac3_99ae_d882df53c237">
-        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:label xml:lang="en">Inductance</rdfs:label>
     </owl:Class>
     
 
@@ -1968,6 +2328,11 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
                 <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Electrical_resistance_and_conductance</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.E01925</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:comment>Measure of the ease for electric current to pass through a material.
+
+Inverse of &apos;ElectricalResistance&apos;.</rdfs:comment>
         <rdfs:label xml:lang="en">ElectricalConductance</rdfs:label>
     </owl:Class>
     
@@ -1984,6 +2349,10 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
     <rdf:Description rdf:about="http://emmo.info/domains/emmo-units.owl#EMMO_1b134346_a9f7_4954_b1cc_362094077fa9">
         <rdfs:comment>A dimension that is related to a physical quantity.</rdfs:comment>
         <rdfs:comment>The axis for a field may correspond to different physical dimensions.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://emmo.info/domains/emmo-units.owl#EMMO_acaaa124_3dde_48b6_86e6_6ec6f364f408">
+        <rdfs:seeAlso>https://en.wikipedia.org/wiki/List_of_physical_quantities</rdfs:seeAlso>
+        <rdfs:comment>Base quantities corresponding to the 7 SI base units.</rdfs:comment>
     </rdf:Description>
 </rdf:RDF>
 
