@@ -1,0 +1,1296 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://emmo.info/domains/emmo-physical-dimensions.owl#"
+     xml:base="http://emmo.info/domains/emmo-physical-dimensions.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:emmo-annotations="http://emmo.info/base/emmo-annotations.owl#">
+    <owl:Ontology rdf:about="http://emmo.info/domains/emmo-physical-dimensions.owl">
+        <owl:imports rdf:resource="http://emmo.info/domains/emmo-physical-constants.owl"/>
+        <emmo-annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
+
+https://creativecommons.org/licenses/by/4.0/legalcode</emmo-annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>
+        <rdfs:comment>European Materials and Modelling Ontology (EMMO)
+
+EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies.
+
+It provides the connection between the physical world, materials characterisation world and materials modelling world.</rdfs:comment>
+        <emmo-annotations:EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab>Emanuele Ghedini (University of Bologna, IT)
+Gerhard Goldbeck (GCL Ltd, UK)
+Adham Hashibon (Fraunhofer IWM, DE)
+Georg Schmitz (Access, DE)
+Jesper Friis (SINTEF, NO)</emmo-annotations:EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab>
+        <rdfs:comment>Contacts:
+Gerhard Goldbeck
+Goldbeck Consulting Ltd (UK)
+email: gerhard@goldbeck-consulting.com
+
+Emanuele Ghedini
+University of Bologna (IT)
+email: emanuele.ghedini@unibo.it</rdfs:comment>
+        <rdfs:comment>The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege).</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_308889e8_5da3_4bc1_932f_cddc9178faaa -->
+
+    <owl:ObjectProperty rdf:about="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_308889e8_5da3_4bc1_932f_cddc9178faaa">
+        <rdfs:subPropertyOf rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_8f5ce602_34b5_4317_8a52_0b189d1679b9"/>
+        <emmo-annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>In the literature of metallic membranes for hydrogen storage, the hydrogen flux is commonly expressed as the difference of the square root of the H2 partial pressures on the retentate permeate sides of the membrane
+
+    flux_H2 = k&apos; (P_{H2,ret} - P_{H2,perm})
+
+where `k&apos;` is the permeance measured in units of `mol/sqrt(m*kg)`.
+
+In EMMO, the dimension of the permeance can be described by the following set of restrictions:
+
+    permeance hasPositivePower exactly 1 AmountOfSubstance
+    permeance hasNegativePower exactly 1 Length
+    permeance hasInversePower exactly 2 Length
+    permeance hasNegativePower exactly 1 Mass
+    permeance hasInversePower exactly 2 Mass</emmo-annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
+        <rdfs:comment>It is questionable whether physical quantities can have non-integer. But see the example below.</rdfs:comment>
+        <rdfs:label xml:lang="en">hasInversePower</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527 -->
+
+    <owl:ObjectProperty rdf:about="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527">
+        <rdfs:subPropertyOf rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_8f5ce602_34b5_4317_8a52_0b189d1679b9"/>
+        <rdfs:label xml:lang="en">hasNegativePower</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_8f5ce602_34b5_4317_8a52_0b189d1679b9 -->
+
+    <owl:ObjectProperty rdf:about="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_8f5ce602_34b5_4317_8a52_0b189d1679b9">
+        <rdfs:subPropertyOf rdf:resource="http://emmo.info/base/emmo-4d.owl#EMMO_f68030be_94b8_4c61_a161_886468558054"/>
+        <rdfs:domain rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://emmo.info/domains/emmo-units.owl#EMMO_acaaa124_3dde_48b6_86e6_6ec6f364f408"/>
+                    <rdf:Description rdf:about="http://emmo.info/domains/emmo-units.owl#EMMO_fdadf52c_5c39_40bc_95d9_5b7807f06e19"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <emmo-annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>For example, the derived physical quantity &quot;velocity&quot; may have the restrictions
+
+    velocity hasPositivePower exactly 1 Length
+    velocity hasNegativePower exactly 1 Time</emmo-annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
+        <rdfs:comment>The subrelations under this relation are used to define the physical quantities in terms of &apos;base quantities&apos; (with respect to dimensionality).</rdfs:comment>
+        <rdfs:label xml:lang="en">hasPhysicalDimension</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4 -->
+
+    <owl:ObjectProperty rdf:about="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4">
+        <rdfs:subPropertyOf rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_8f5ce602_34b5_4317_8a52_0b189d1679b9"/>
+        <rdfs:label xml:lang="en">hasPositivePower</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_04cc9451_5306_45d0_8554_22cee4d6e785 -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_04cc9451_5306_45d0_8554_22cee4d6e785">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_06448f64_8db6_4304_8b2c_e785dba82044 -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_06448f64_8db6_4304_8b2c_e785dba82044">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_09663630_1b84_4202_91e6_e641104f579e -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_09663630_1b84_4202_91e6_e641104f579e">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_0ee5779e_d798_4ee5_9bfe_c392d5bea112 -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_0ee5779e_d798_4ee5_9bfe_c392d5bea112">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_6be817b1_7f17_448a_96a1_d5a22039a9da"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_16f2fe60_2db7_43ca_8fee_5b3e416bfe87 -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_16f2fe60_2db7_43ca_8fee_5b3e416bfe87">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-physical-constants.owl#EMMO_176cae33_b83e_4cd2_a6bc_281f42f0ccc8 -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-physical-constants.owl#EMMO_176cae33_b83e_4cd2_a6bc_281f42f0ccc8">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_8159c26a_494b_4fa0_9959_10888f152298"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_1e7603a7_1365_49b8_b5e5_3711c8e6b904 -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_1e7603a7_1365_49b8_b5e5_3711c8e6b904">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_43776fc9_d712_4571_85f0_72183678039a -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_43776fc9_d712_4571_85f0_72183678039a">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-physical-constants.owl#EMMO_5186f2b2_e981_425d_8d87_0cbb753c0882 -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-physical-constants.owl#EMMO_5186f2b2_e981_425d_8d87_0cbb753c0882">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_8159c26a_494b_4fa0_9959_10888f152298"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-physical-constants.owl#EMMO_5c7261e7_4471_4422_9250_705770fdce79 -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-physical-constants.owl#EMMO_5c7261e7_4471_4422_9250_705770fdce79">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_66d01570_36dd_42fd_844d_29b81b029cd5 -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_66d01570_36dd_42fd_844d_29b81b029cd5">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_7c8007b0_58a7_4486_bf1c_4772852caca0 -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_7c8007b0_58a7_4486_bf1c_4772852caca0">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_81369540_1b0e_471b_9bae_6801af22800e -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_81369540_1b0e_471b_9bae_6801af22800e">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_88fc5d1b_d3ab_4626_b24c_915ebe7400ca -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_88fc5d1b_d3ab_4626_b24c_915ebe7400ca">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_8159c26a_494b_4fa0_9959_10888f152298"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_96f39f77_44dc_491b_8fa7_30d887fe0890 -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_96f39f77_44dc_491b_8fa7_30d887fe0890">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_97589322_710c_4af4_9431_1e5027f2be42 -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_97589322_710c_4af4_9431_1e5027f2be42">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_50bf79a6_a48b_424d_9d2c_813bd631231a"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_99dba333_0dbd_4f75_8841_8c0f97fd58e2 -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_99dba333_0dbd_4f75_8841_8c0f97fd58e2">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_9bbab0be_f9cc_4f46_9f46_0fd271911b79 -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_9bbab0be_f9cc_4f46_9f46_0fd271911b79">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_afea89af_ef16_4bdb_99d5_f3b2f4c85a6c -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_afea89af_ef16_4bdb_99d5_f3b2f4c85a6c">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_b4895f75_41c8_4fd9_b6d6_4d5f7c99c423 -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_b4895f75_41c8_4fd9_b6d6_4d5f7c99c423">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_cde4368c_1d4d_4c94_8548_604749523c6d -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_cde4368c_1d4d_4c94_8548_604749523c6d">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-physical-constants.owl#EMMO_d26baba6_1f0a_4c9f_b162_afff6ee0cd20 -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-physical-constants.owl#EMMO_d26baba6_1f0a_4c9f_b162_afff6ee0cd20">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_d5be1faf_0c56_4f5a_9b78_581e6dee949f -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_d5be1faf_0c56_4f5a_9b78_581e6dee949f">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_8159c26a_494b_4fa0_9959_10888f152298"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_d859588d_44dc_4614_bc75_5fcd0058acc8 -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_d859588d_44dc_4614_bc75_5fcd0058acc8">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-physical-constants.owl#EMMO_da831168_975a_41f8_baae_279c298569da -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-physical-constants.owl#EMMO_da831168_975a_41f8_baae_279c298569da">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_e150fa8d_06dc_4bb8_bf95_04e2aea529c1 -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_e150fa8d_06dc_4bb8_bf95_04e2aea529c1">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_e37ac288_aa60_415a_8cb7_c375724ac8e1 -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_e37ac288_aa60_415a_8cb7_c375724ac8e1">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_e88f75d6_9a17_4cfc_bdf7_43d7cea5a9a1 -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_e88f75d6_9a17_4cfc_bdf7_43d7cea5a9a1">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_9bfd6f1e_b0ce_459c_beb7_8f1f41708bba"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_f1a51559_aa3d_43a0_9327_918039f0dfed -->
+
+    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_f1a51559_aa3d_43a0_9327_918039f0dfed">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_1604f495_328a_4f28_9962_f4cc210739dd -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_1604f495_328a_4f28_9962_f4cc210739dd">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_1f087811_06cb_42d5_90fb_25d0e7e068ef -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_1f087811_06cb_42d5_90fb_25d0e7e068ef">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_31ec09ba_1713_42cb_83c7_b38bf6f9ced2 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_31ec09ba_1713_42cb_83c7_b38bf6f9ced2">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_3b931698_937e_49be_ab1b_36fa52d91181 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_3b931698_937e_49be_ab1b_36fa52d91181">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_3df10765_f6ff_4c9e_be3d_10b1809d78bd -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_3df10765_f6ff_4c9e_be3d_10b1809d78bd">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_4f2d3939_91b1_4001_b8ab_7d19074bf845 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_4f2d3939_91b1_4001_b8ab_7d19074bf845">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_852b4ab8_fc29_4749_a8c7_b92d4fca7d5a -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_852b4ab8_fc29_4749_a8c7_b92d4fca7d5a">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_8d3da9ac_2265_4382_bee5_db72046722f8 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_8d3da9ac_2265_4382_bee5_db72046722f8">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_8e5dd473_808b_4a8a_b7cd_63068c12ff57 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_8e5dd473_808b_4a8a_b7cd_63068c12ff57">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_961d1aba_f75e_4411_aaa4_457f7516ed6b -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_961d1aba_f75e_4411_aaa4_457f7516ed6b">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_b51fbd00_a857_4132_9711_0ef70e7bdd20 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_b51fbd00_a857_4132_9711_0ef70e7bdd20">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_50bf79a6_a48b_424d_9d2c_813bd631231a"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_bd67d149_24c2_4bc9_833a_c2bc26f98fd3 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_bd67d149_24c2_4bc9_833a_c2bc26f98fd3">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_8159c26a_494b_4fa0_9959_10888f152298"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_e2ee1c98_497a_4f66_b4ed_5711496a848e -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_e2ee1c98_497a_4f66_b4ed_5711496a848e">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_50bf79a6_a48b_424d_9d2c_813bd631231a"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_e7c9f7fd_e534_4441_88fe_1fec6cb20f26"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_ffb73b1e_5786_43e4_a964_cb32ac7affb7 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/friisj/ontologies/2019/11/untitled-ontology-48#EMMO_ffb73b1e_5786_43e4_a964_cb32ac7affb7">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_7bc80051_e62a_4789_9e6a_b50eadab8527"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-physical-dimensions.owl#EMMO_acc00345_2f73_43fa_8fb2_b0a5574466c4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+
