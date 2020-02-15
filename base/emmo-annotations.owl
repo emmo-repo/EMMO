@@ -1,21 +1,24 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://emmo.info/base/emmo-annotations.owl#"
      xml:base="http://emmo.info/base/emmo-annotations.owl"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:emmo-annotations="http://emmo.info/base/emmo-annotations.owl#">
     <owl:Ontology rdf:about="http://emmo.info/base/emmo-annotations.owl">
-            <emmo-annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
+        <owl:versionInfo>The European Materials Modelling Ontology
 
-https://creativecommons.org/licenses/by/4.0/legalcode</emmo-annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>
-        <emmo-annotations:EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab>Emanuele Ghedini (University of Bologna, IT)
+Version 0.9.10</owl:versionInfo>
+        <EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
+
+https://creativecommons.org/licenses/by/4.0/legalcode</EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>
+        <EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab>Emanuele Ghedini (University of Bologna, IT)
 Gerhard Goldbeck (GCL Ltd, UK)
 Adham Hashibon (Fraunhofer IWM, DE)
 Georg Schmitz (Access, DE)
-Jesper Friis (SINTEF, NO)</emmo-annotations:EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab>
+Jesper Friis (SINTEF, NO)</EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab>
         <rdfs:comment>Contacts:
 Gerhard Goldbeck
 Goldbeck Consulting Ltd (UK)
@@ -24,16 +27,15 @@ email: gerhard@goldbeck-consulting.com
 Emanuele Ghedini
 University of Bologna (IT)
 email: emanuele.ghedini@unibo.it</rdfs:comment>
+        <rdfs:comment>The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege).</rdfs:comment>
         <rdfs:comment>European Materials and Modelling Ontology (EMMO)
 
 EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies. 
 
 It provides the connection between the physical world, materials characterisation world and materials modelling world.</rdfs:comment>
-        <rdfs:comment>The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege).</rdfs:comment>
-        <owl:versionInfo>The European Materials Modelling Ontology
-
-Version 0.9.10</owl:versionInfo>
     </owl:Ontology>
+    
+
 
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -46,11 +48,33 @@ Version 0.9.10</owl:versionInfo>
     
 
 
+    <!-- http://emmo.info/base/emmo-annotations.owl#EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc -->
+
+    <owl:AnnotationProperty rdf:about="http://emmo.info/base/emmo-annotations.owl#EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc">
+        <rdfs:comment>URL to corresponing entity in QUDT.</rdfs:comment>
+        <rdfs:label xml:lang="en">qudtMatch</rdfs:label>
+        <rdfs:seeAlso>http://www.qudt.org/2.1/catalog/qudt-catalog.html</rdfs:seeAlso>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#seeAlso"/>
+    </owl:AnnotationProperty>
+    
+
+
     <!-- http://emmo.info/base/emmo-annotations.owl#EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc -->
 
     <owl:AnnotationProperty rdf:about="http://emmo.info/base/emmo-annotations.owl#EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc">
         <rdfs:label xml:lang="en">license</rdfs:label>
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#comment"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://emmo.info/base/emmo-annotations.owl#EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 -->
+
+    <owl:AnnotationProperty rdf:about="http://emmo.info/base/emmo-annotations.owl#EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25">
+        <rdfs:comment>URL to corresponding concept in DBpedia.</rdfs:comment>
+        <rdfs:label xml:lang="en">dbpediaMatch</rdfs:label>
+        <rdfs:seeAlso>https://wiki.dbpedia.org/</rdfs:seeAlso>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#seeAlso"/>
     </owl:AnnotationProperty>
     
 
@@ -88,16 +112,7 @@ Version 0.9.10</owl:versionInfo>
         <rdfs:label xml:lang="en">author</rdfs:label>
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#comment"/>
     </owl:AnnotationProperty>
-
-
-
-    <!-- http://emmo.info/base/emmo-annotations.owl#EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc -->
-
-    <owl:AnnotationProperty rdf:about="http://emmo.info/base/emmo-annotations.owl#EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc">
-        <rdfs:label xml:lang="en">qudtSameAs</rdfs:label>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#seeAlso"/>
-    </owl:AnnotationProperty>
-
+    
 
 
     <!-- http://emmo.info/base/emmo-annotations.owl#EMMO_fe015383_afb3_44a6_ae86_043628697aa2 -->
@@ -105,12 +120,12 @@ Version 0.9.10</owl:versionInfo>
     <owl:AnnotationProperty rdf:about="http://emmo.info/base/emmo-annotations.owl#EMMO_fe015383_afb3_44a6_ae86_043628697aa2">
         <rdfs:comment>DOI to corresponding concept in IUPAC</rdfs:comment>
         <rdfs:label xml:lang="en">iupacDoi</rdfs:label>
+        <rdfs:seeAlso>https://goldbook.iupac.org/</rdfs:seeAlso>
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#seeAlso"/>
     </owl:AnnotationProperty>
-    
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
 
