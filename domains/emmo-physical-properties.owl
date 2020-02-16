@@ -9,6 +9,7 @@
      xmlns:emmo-annotations="http://emmo.info/base/emmo-annotations.owl#">
     <owl:Ontology rdf:about="http://emmo.info/domains/emmo-physical-properties.owl">
         <owl:imports rdf:resource="http://emmo.info/domains/emmo-properties.owl"/>
+        <owl:imports rdf:resource="http://emmo.info/domains/emmo-datatypes.owl"/>
         <owl:imports rdf:resource="http://emmo.info/domains/emmo-math.owl"/>
         <owl:versionInfo>The European Materials Modelling Ontology
 
@@ -130,6 +131,12 @@ Quantitative measurement results are expressed as a multiple of the &apos;measur
     <owl:Class rdf:about="http://emmo.info/domains/emmo-physical-properties.owl#EMMO_dd4a7f3e_ef56_466c_ac1a_d2716b5f87ec">
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-graphical.owl#EMMO_057e7d57_aff0_49de_911a_8861d85cef40"/>
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-properties.owl#EMMO_2a888cdf_ec4a_4ec5_af1c_0343372fc978"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/base/emmo-4d.owl#EMMO_f68030be_94b8_4c61_a161_886468558054"/>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/domains/emmo-datatypes.owl#EMMO_2461f170_55ae_46cf_a6ea_e5ed2fb230f9"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A &apos;property&apos; that can be quantified with respect to a standardized reference physical instance (e.g. the prototype meter bar, the kg prototype) or method (e.g. resilience) through a measurement process.</emmo-annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <rdfs:label xml:lang="en">QuantitativeProperty</rdfs:label>
     </owl:Class>
