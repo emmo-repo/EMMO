@@ -123,6 +123,11 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
     <!-- http://emmo.info/domains/emmo-physical-properties.owl#EMMO_02c0621e_a527_4790_8a0f_2bb51973c819 -->
 
     <rdf:Description rdf:about="http://emmo.info/domains/emmo-physical-properties.owl#EMMO_02c0621e_a527_4790_8a0f_2bb51973c819">
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://emmo.info/domains/emmo-units.owl#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
+            <rdf:Description rdf:about="http://emmo.info/domains/emmo-units.owl#EMMO_acaaa124_3dde_48b6_86e6_6ec6f364f408"/>
+            <rdf:Description rdf:about="http://emmo.info/domains/emmo-units.owl#EMMO_fdadf52c_5c39_40bc_95d9_5b7807f06e19"/>
+        </owl:disjointUnionOf>
         <rdfs:comment>All physical quantities can be categorised into one of:
   - base quantities (BaseQuantity)
   - dimensionless quantities (DimensionlessQuantity)
@@ -174,6 +179,8 @@ In addition EMMO defines other categorisations of quantities based their physica
     <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_04b3300c_98bd_42dc_a3b5_e6c29d69f1ac -->
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_04b3300c_98bd_42dc_a3b5_e6c29d69f1ac">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_6be817b1_7f17_448a_96a1_d5a22039a9da"/>
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_b53d316d_06a2_4f70_a6e3_53fc774c810c"/>
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_fdadf52c_5c39_40bc_95d9_5b7807f06e19"/>
         <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Mole_fraction</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
         <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.A00296</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
@@ -362,6 +369,8 @@ In addition EMMO defines other categorisations of quantities based their physica
     <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_16f2fe60_2db7_43ca_8fee_5b3e416bfe87 -->
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_16f2fe60_2db7_43ca_8fee_5b3e416bfe87">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_6be817b1_7f17_448a_96a1_d5a22039a9da"/>
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_b53d316d_06a2_4f70_a6e3_53fc774c810c"/>
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
         <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Mass_concentration_(chemistry)</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
         <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.M03713</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
@@ -731,6 +740,7 @@ In addition EMMO defines other categorisations of quantities based their physica
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_7c055d65_2929_40e1_af4f_4bf10995ad50">
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_6be817b1_7f17_448a_96a1_d5a22039a9da"/>
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_b53d316d_06a2_4f70_a6e3_53fc774c810c"/>
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_fdadf52c_5c39_40bc_95d9_5b7807f06e19"/>
         <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Mass_fraction_(chemistry)</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
         <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.M03722</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
@@ -1108,16 +1118,7 @@ the electric potential.</rdfs:comment>
     <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_b53d316d_06a2_4f70_a6e3_53fc774c810c -->
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_b53d316d_06a2_4f70_a6e3_53fc774c810c">
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_04b3300c_98bd_42dc_a3b5_e6c29d69f1ac"/>
-                    <rdf:Description rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_16f2fe60_2db7_43ca_8fee_5b3e416bfe87"/>
-                    <rdf:Description rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_7c055d65_2929_40e1_af4f_4bf10995ad50"/>
-                    <rdf:Description rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_d5be1faf_0c56_4f5a_9b78_581e6dee949f"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-physical-properties.owl#EMMO_02c0621e_a527_4790_8a0f_2bb51973c819"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_749d243d_669c_4e00_b9f2_90ca4a1cc8b7"/>
@@ -1232,17 +1233,6 @@ Conductivity is equeal to the resiprocal of resistivity.</rdfs:comment>
     
 
 
-    <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_d02d0bcc_b118_4331_a41b_e8d545a07edc -->
-
-    <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_d02d0bcc_b118_4331_a41b_e8d545a07edc">
-        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-datatypes.owl#EMMO_11ead35b_b007_414a_af7b_72d08b283277"/>
-        <rdfs:comment>Cardinality restrictions on the hasDimension or hasNextDimension relations are used to specify the size of the dimension that it refers to.</rdfs:comment>
-        <rdfs:comment>The subclasses of QuantityDimension are the individual dimensions of multidimensional quantities.</rdfs:comment>
-        <rdfs:label xml:lang="en">QuantityDimension</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- http://emmo.info/domains/emmo-si-units.owl#EMMO_d1917609_db5e_4b8a_9b76_ef1d6f860a81 -->
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_d1917609_db5e_4b8a_9b76_ef1d6f860a81">
@@ -1259,13 +1249,15 @@ Conductivity is equeal to the resiprocal of resistivity.</rdfs:comment>
 
     <owl:Class rdf:about="http://emmo.info/domains/emmo-si-units.owl#EMMO_d5be1faf_0c56_4f5a_9b78_581e6dee949f">
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_6be817b1_7f17_448a_96a1_d5a22039a9da"/>
+        <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-si-units.owl#EMMO_b53d316d_06a2_4f70_a6e3_53fc774c810c"/>
         <rdfs:subClassOf rdf:resource="http://emmo.info/domains/emmo-units.owl#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
         <emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Molar_concentration</emmo-annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
         <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.A00295</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
-        <rdfs:comment>Also called &quot;molar concentration&quot; or &quot;amount concentration&quot;.</rdfs:comment>
+        <rdfs:comment>Also called &quot;molar concentration&quot; or &quot;amount concentration&quot; or &quot;molarity&quot;.</rdfs:comment>
+        <rdfs:comment>Molarity</rdfs:comment>
         <rdfs:comment>The amount of a constituent divided by the volume of the mixture.</rdfs:comment>
+        <rdfs:label>AmountConcentration</rdfs:label>
         <rdfs:label xml:lang="en">Concentration</rdfs:label>
-        <rdfs:label>MolarConcentration</rdfs:label>
     </owl:Class>
     
 
@@ -1578,6 +1570,15 @@ Inverse of &apos;ElectricalResistance&apos;.</rdfs:comment>
     
 
 
+    <!-- http://emmo.info/domains/emmo-units.owl#EMMO_acaaa124_3dde_48b6_86e6_6ec6f364f408 -->
+
+    <rdf:Description rdf:about="http://emmo.info/domains/emmo-units.owl#EMMO_acaaa124_3dde_48b6_86e6_6ec6f364f408">
+        <rdfs:comment>Base quantities corresponding to the 7 SI base units.</rdfs:comment>
+        <rdfs:seeAlso>https://en.wikipedia.org/wiki/List_of_physical_quantities</rdfs:seeAlso>
+    </rdf:Description>
+    
+
+
     <!-- http://emmo.info/domains/emmo-units.owl#EMMO_e9ffc696_5228_4ff9_8a60_0f5e05e9931b -->
 
     <rdf:Description rdf:about="http://emmo.info/domains/emmo-units.owl#EMMO_e9ffc696_5228_4ff9_8a60_0f5e05e9931b">
@@ -1605,22 +1606,22 @@ Inverse of &apos;ElectricalResistance&apos;.</rdfs:comment>
         <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
     </rdf:Description>
     <rdf:Description>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+    </rdf:Description>
+    <rdf:Description>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+    </rdf:Description>
+    <rdf:Description>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+    </rdf:Description>
+    <rdf:Description>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+    </rdf:Description>
+    <rdf:Description>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+    </rdf:Description>
+    <rdf:Description>
         <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-    </rdf:Description>
-    <rdf:Description>
-        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
-    </rdf:Description>
-    <rdf:Description>
-        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
-    </rdf:Description>
-    <rdf:Description>
-        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
-    </rdf:Description>
-    <rdf:Description>
-        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
-    </rdf:Description>
-    <rdf:Description>
-        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
     </rdf:Description>
     <rdf:Description>
         <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
@@ -1642,10 +1643,6 @@ Inverse of &apos;ElectricalResistance&apos;.</rdfs:comment>
     <rdf:Description rdf:about="http://emmo.info/domains/emmo-units.owl#EMMO_1b134346_a9f7_4954_b1cc_362094077fa9">
         <rdfs:comment>A dimension that is related to a physical quantity.</rdfs:comment>
         <rdfs:comment>The axis for a field may correspond to different physical dimensions.</rdfs:comment>
-    </rdf:Description>
-    <rdf:Description rdf:about="http://emmo.info/domains/emmo-units.owl#EMMO_acaaa124_3dde_48b6_86e6_6ec6f364f408">
-        <rdfs:seeAlso>https://en.wikipedia.org/wiki/List_of_physical_quantities</rdfs:seeAlso>
-        <rdfs:comment>Base quantities corresponding to the 7 SI base units.</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="http://emmo.info/domains/emmo-units.owl#EMMO_e7c9f7fd_e534_4441_88fe_1fec6cb20f26">
         <emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.S05732</emmo-annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
