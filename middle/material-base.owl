@@ -9,7 +9,6 @@
      xmlns:annotations="http://emmo.info/emmo/top/annotations#">
     <owl:Ontology rdf:about="http://emmo.info/emmo/middle/material-base">
         <owl:versionIRI rdf:resource="http://emmo.info/emmo/1.0.0/middle/material-base"/>
-        <owl:imports rdf:resource="http://emmo.info/emmo/1.0.0/top"/>
         <owl:imports rdf:resource="http://emmo.info/emmo/1.0.0/middle/physics-base"/>
         <annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
 
@@ -80,7 +79,7 @@ Version 1.0.0</owl:versionInfo>
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/material-base#EMMO_7d66bde4_b68d_41cc_b5fc_6fd98c5e2ff0"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://emmo.info/emmo/top/granular#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/top/mereotopology#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
                 <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/physics-base#EMMO_8043d3c6_a4c1_4089_ba34_9744e28e5b3d"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -93,7 +92,7 @@ Version 1.0.0</owl:versionInfo>
     <!-- http://emmo.info/emmo/middle/material-base#EMMO_174cf221_9d16_427c_abea_e217a948969b -->
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/material-base#EMMO_174cf221_9d16_427c_abea_e217a948969b">
-        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/top/granular#EMMO_36c79456_e29c_400d_8bd3_0eedddb82652"/>
+        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/top/perspectives#EMMO_36c79456_e29c_400d_8bd3_0eedddb82652"/>
         <rdfs:label xml:lang="en">Mesoscopic</rdfs:label>
     </owl:Class>
     
@@ -112,7 +111,8 @@ Version 1.0.0</owl:versionInfo>
                 </owl:unionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:label xml:lang="en">BaseMaterial</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/physics-base#EMMO_4207e895_8b83_4318_996a_72cfb32acd94"/>
+        <rdfs:label xml:lang="en">MaterialState</rdfs:label>
     </owl:Class>
     
 
@@ -164,6 +164,12 @@ e.g. you cannot remove H from H20 without changing the molecule type (essential)
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/material-base#EMMO_50781fd9_a9e4_46ad_b7be_4500371d188d">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/material-base#EMMO_7d66bde4_b68d_41cc_b5fc_6fd98c5e2ff0"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/top/mereotopology#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/physics-base#EMMO_72d53756_7fb1_46ed_980f_83f47efbe105"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <owl:disjointUnionOf rdf:parseType="Collection">
             <rdf:Description rdf:about="http://emmo.info/emmo/middle/material-base#EMMO_8f87e700_99a8_4427_8ffb_e493de05c217"/>
             <rdf:Description rdf:about="http://emmo.info/emmo/middle/material-base#EMMO_df808271_df91_4f27_ba59_fa423c51896c"/>
@@ -176,7 +182,7 @@ e.g. you cannot remove H from H20 without changing the molecule type (essential)
     <!-- http://emmo.info/emmo/middle/material-base#EMMO_5c4aff3c_c30c_4507_86d5_b4df41eb9f2f -->
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/material-base#EMMO_5c4aff3c_c30c_4507_86d5_b4df41eb9f2f">
-        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/top/granular#EMMO_36c79456_e29c_400d_8bd3_0eedddb82652"/>
+        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/top/perspectives#EMMO_36c79456_e29c_400d_8bd3_0eedddb82652"/>
         <rdfs:label xml:lang="en">Atomic</rdfs:label>
     </owl:Class>
     
@@ -185,7 +191,7 @@ e.g. you cannot remove H from H20 without changing the molecule type (essential)
     <!-- http://emmo.info/emmo/middle/material-base#EMMO_7d66bde4_b68d_41cc_b5fc_6fd98c5e2ff0 -->
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/material-base#EMMO_7d66bde4_b68d_41cc_b5fc_6fd98c5e2ff0">
-        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/top/granular#EMMO_36c79456_e29c_400d_8bd3_0eedddb82652"/>
+        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/top/perspectives#EMMO_36c79456_e29c_400d_8bd3_0eedddb82652"/>
         <rdfs:label xml:lang="en">Subatomic</rdfs:label>
     </owl:Class>
     
@@ -220,7 +226,7 @@ In general, metallic and ionic bonds have atoms sharing electrons.</rdfs:comment
     <!-- http://emmo.info/emmo/middle/material-base#EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 -->
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/material-base#EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2">
-        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/top/granular#EMMO_36c79456_e29c_400d_8bd3_0eedddb82652"/>
+        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/top/perspectives#EMMO_36c79456_e29c_400d_8bd3_0eedddb82652"/>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A state that is a collection of sufficiently large number of other parts such that:
 - it is the bearer of qualities that can exists only by the fact that it is a sum of parts
 - the smallest partition dV of the state volume in which we are interested in, contains enough parts to be statistically consistent: n [#/m3] x dV [m3] &gt;&gt; 1</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
@@ -237,12 +243,6 @@ A single continuum individual can be the whole fluid in a pipe.</rdfs:comment>
     <!-- http://emmo.info/emmo/middle/material-base#EMMO_8f87e700_99a8_4427_8ffb_e493de05c217 -->
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/material-base#EMMO_8f87e700_99a8_4427_8ffb_e493de05c217">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://emmo.info/emmo/top/granular#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
-                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/physics-base#EMMO_72d53756_7fb1_46ed_980f_83f47efbe105"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">Proton</rdfs:label>
     </owl:Class>
     
@@ -271,12 +271,6 @@ A single continuum individual can be the whole fluid in a pipe.</rdfs:comment>
     <!-- http://emmo.info/emmo/middle/material-base#EMMO_df808271_df91_4f27_ba59_fa423c51896c -->
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/material-base#EMMO_df808271_df91_4f27_ba59_fa423c51896c">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://emmo.info/emmo/top/granular#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
-                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/physics-base#EMMO_72d53756_7fb1_46ed_980f_83f47efbe105"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">Neutron</rdfs:label>
     </owl:Class>
     
@@ -286,6 +280,18 @@ A single continuum individual can be the whole fluid in a pipe.</rdfs:comment>
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/material-base#EMMO_eb77076b_a104_42ac_a065_798b2d2809ad">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/material-base#EMMO_5c4aff3c_c30c_4507_86d5_b4df41eb9f2f"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/top/mereotopology#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/material-base#EMMO_1067b97a_84f8_4d22_8ace_b842b8ce355c"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/top/mereotopology#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/material-base#EMMO_f835f4d4_c665_403d_ab25_dca5cc74be52"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A standalone atom has direct part one &apos;nucleus&apos; and one &apos;electron_cloud&apos;. 
 
 An O &apos;atom&apos; within an O2 &apos;molecule&apos; is an &apos;e-bonded_atom&apos;.
@@ -305,7 +311,7 @@ We cannot say that H2 molecule has direct part two H atoms, but has direct part 
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/material-base#EMMO_7d66bde4_b68d_41cc_b5fc_6fd98c5e2ff0"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://emmo.info/emmo/top/granular#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/top/mereotopology#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
                 <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/material-base#EMMO_50781fd9_a9e4_46ad_b7be_4500371d188d"/>
             </owl:Restriction>
         </rdfs:subClassOf>
