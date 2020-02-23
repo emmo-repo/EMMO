@@ -46,6 +46,8 @@ The middle level ontologies act as roots for extending the EMMO towards specific
 ### EMMO relations
 All EMMO relations are subrelations of the relations found in the two roots: *mereotopological* and *semiotical*. The relation hierarchy extends more vertically (i.e. more subrelations) than horizontally (i.e. less sibling relations), facilitating the categorisation and inferencing of individuals.
 
+Imposing all relations to fall under mereotopology or semiotics is how the EMMO force the developers to respect its perspectives. Two entities are related only by contact or parthood (mereotopology) or by standing one for another (semiosis): no other types of relation are possible within the EMMO.
+
 ![Figure 3. The full hierarchy of EMMO relations.](doc/EMMORelation.png)
 
 
