@@ -10,7 +10,7 @@
     <owl:Ontology rdf:about="http://emmo.info/emmo/top/perspectives">
         <owl:versionIRI rdf:resource="http://emmo.info/emmo/1.0.0/top/perspectives"/>
         <owl:imports rdf:resource="http://emmo.info/emmo/1.0.0/top/physical"/>
-                <annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
+        <annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
 
 https://creativecommons.org/licenses/by/4.0/legalcode</annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>
         <annotations:EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab>Emanuele Ghedini (University of Bologna, IT)
@@ -98,6 +98,7 @@ Version 1.0.0</owl:versionInfo>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/top/perspectives#EMMO_49267eba_5548_4163_8f36_518d65b583f9"/>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A union of classes that categorize physicals under a holistic perspective, meaning that the interest is on the whole 4D object (process) and the role of its spatial parts (participants) without going further into its subparts.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
+        <rdfs:comment>Holism (from Greek ὅλος holos &quot;all, whole, entire&quot;)</rdfs:comment>
         <rdfs:label xml:lang="en">Holistic</rdfs:label>
     </owl:Class>
     
@@ -124,12 +125,6 @@ Version 1.0.0</owl:versionInfo>
     <!-- http://emmo.info/emmo/top/perspectives#EMMO_36c79456_e29c_400d_8bd3_0eedddb82652 -->
 
     <owl:Class rdf:about="http://emmo.info/emmo/top/perspectives#EMMO_36c79456_e29c_400d_8bd3_0eedddb82652">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://emmo.info/emmo/top/mereotopology#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
-                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/top/physical#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A &apos;Physical&apos; which is a tessellation of other &apos;Physical&apos; spatial direct parts.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>e.g. the existent in my glass is declared at t = t_start as made of two direct parts: the ice and the water. It will continue to exists as state as long as the ice is completely melt at t = t_end. The new state will be completely made of water. Between t_start and t_end there is an exchange of molecules between the ice and the water, but this does not affect the existence of the two states.
 
@@ -185,6 +180,7 @@ A &apos;Process&apos; is not only something that unfolds in time (which is autom
 
     <owl:Class rdf:about="http://emmo.info/emmo/top/perspectives#EMMO_49267eba_5548_4163_8f36_518d65b583f9">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/top/physical#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d"/>
+        <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>The class of individuals that stand for real world objects according to a specific representational perspective.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <rdfs:label xml:lang="en">Perspective</rdfs:label>
     </owl:Class>
     
@@ -193,6 +189,16 @@ A &apos;Process&apos; is not only something that unfolds in time (which is autom
     <!-- http://emmo.info/emmo/top/perspectives#EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d -->
 
     <owl:Class rdf:about="http://emmo.info/emmo/top/perspectives#EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/top/perspectives#EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/top/perspectives#EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A portion of a &apos;Process&apos; that participates to the process with a specific role.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <rdfs:comment>In the EMMO the relation of participation to a process falls under mereotopology.</rdfs:comment>
         <rdfs:label xml:lang="en">Participant</rdfs:label>
@@ -203,18 +209,6 @@ A &apos;Process&apos; is not only something that unfolds in time (which is autom
     <!-- http://emmo.info/emmo/top/perspectives#EMMO_52211e5e_d767_4812_845e_eb6b402c476a -->
 
     <owl:Class rdf:about="http://emmo.info/emmo/top/perspectives#EMMO_52211e5e_d767_4812_845e_eb6b402c476a">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://emmo.info/emmo/top/mereotopology#EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d"/>
-                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/top/perspectives#EMMO_36c79456_e29c_400d_8bd3_0eedddb82652"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://emmo.info/emmo/top/mereotopology#EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d"/>
-                <owl:allValuesFrom rdf:resource="http://emmo.info/emmo/top/perspectives#EMMO_36c79456_e29c_400d_8bd3_0eedddb82652"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A &apos;Physical&apos; which is a tessellation of &apos;State&apos; temporal direct parts.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <rdfs:comment>&apos;Existent&apos; is the EMMO class to be used for representing real world physical objects under a reductionistic (i.e. objects come from the composition of sub-part objects, both in time and space) and epistemological pluralistic (i.e. objects definitions are interpreter dependent) perspectives . 
 
