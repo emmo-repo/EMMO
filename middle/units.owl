@@ -1,24 +1,29 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://emmo.info/emmo/middle/units#"
      xml:base="http://emmo.info/emmo/middle/units"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:changes="http://emmo.info/emmo/middle/changes#"
-     xmlns:annotations="http://emmo.info/emmo/top/annotations#">
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:annotations="http://emmo.info/emmo/top/annotations#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://emmo.info/emmo/middle/units">
         <owl:versionIRI rdf:resource="http://emmo.info/emmo/1.0.0/middle/units"/>
         <owl:imports rdf:resource="http://emmo.info/emmo/1.0.0/middle/physical-properties"/>
-        <annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
-
-https://creativecommons.org/licenses/by/4.0/legalcode</annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>
         <annotations:EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab>Emanuele Ghedini (University of Bologna, IT)
 Gerhard Goldbeck (GCL Ltd, UK)
 Adham Hashibon (Fraunhofer IWM, DE)
 Georg Schmitz (Access, DE)
 Jesper Friis (SINTEF, NO)</annotations:EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab>
+        <rdfs:comment>European Materials and Modelling Ontology (EMMO)
+
+EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies.
+
+It provides the connection between the physical world, materials characterisation world and materials modelling world.</rdfs:comment>
+        <annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
+
+https://creativecommons.org/licenses/by/4.0/legalcode</annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>
         <rdfs:comment xml:lang="en">Contacts:
 Gerhard Goldbeck
 Goldbeck Consulting Ltd (UK)
@@ -27,11 +32,6 @@ email: gerhard@goldbeck-consulting.com
 Emanuele Ghedini
 University of Bologna (IT)
 email: emanuele.ghedini@unibo.it</rdfs:comment>
-        <rdfs:comment>European Materials and Modelling Ontology (EMMO)
-
-EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies.
-
-It provides the connection between the physical world, materials characterisation world and materials modelling world.</rdfs:comment>
         <rdfs:comment>The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege).</rdfs:comment>
     </owl:Ontology>
     
@@ -123,6 +123,16 @@ It provides the connection between the physical world, materials characterisatio
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/units#EMMO_00cec04d_4344_452b_b375_96ef3ad6097f">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/DAY</annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
         <annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Day</annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>Non-SI unit of time that equals 86 400 s.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
@@ -259,6 +269,24 @@ Systems of units suggests that this is the correct approach, since except for th
         <annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/W</annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
         <annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.W06656</annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
         <rdfs:label xml:lang="en">Watt</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/emmo/middle/units#EMMO_08f8a602_7fdc_4dbf_b78a_d0032be9a486 -->
+
+    <owl:Class rdf:about="http://emmo.info/emmo/middle/units#EMMO_08f8a602_7fdc_4dbf_b78a_d0032be9a486">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_92d73676_b337_455f_bf85_1653de930226"/>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_871408cf_dbc5_4a95_8efa_c530652ad8ed"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Viscosity</annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>Measure for the resistance of an incompressible fluid to stress.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
+        <annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.D01877</annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:label xml:lang="en">DynamicViscosity</rdfs:label>
     </owl:Class>
     
 
@@ -508,6 +536,16 @@ According to the SI brouchure, may, but need not, coherent dimensionless derived
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/units#EMMO_1aaa8e50_b88b_4370_b8da_c24dc47f7178">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/Dalton</annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
         <annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Unified_atomic_mass_unit</annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A non-SI unified atomic mass unit that is used for indicating mass on an atomic or molecular scale.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
@@ -747,6 +785,12 @@ Here we do a further subclassification into coherent and non-coherent dimensionl
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_7b0e40c6_3f94_48e8_a205_0f14fb05b8bb"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_92d73676_b337_455f_bf85_1653de930226"/>
                 <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_8a70dea4_d6ab_4260_b931_a3e990982416"/>
             </owl:Restriction>
@@ -816,6 +860,16 @@ Here we do a further subclassification into coherent and non-coherent dimensionl
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/units#EMMO_39ea1323_71ec_462a_8f28_d6d23e6ec24f">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_f1a51559_aa3d_43a0_9327_918039f0dfed"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/L</annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
         <annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Litre</annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>Non-SI unit of volume, corresponding 1 cube decimeter.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
@@ -1038,6 +1092,12 @@ Here we do a further subclassification into coherent and non-coherent dimensionl
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_fdadf52c_5c39_40bc_95d9_5b7807f06e19"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_b4e7c4c5_1f1d_4eb8_9207_b7caa1f30609"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_92d73676_b337_455f_bf85_1653de930226"/>
                 <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_5ebd5e01_0ed3_49a2_a30d_cd05cbe72978"/>
             </owl:Restriction>
@@ -1064,6 +1124,16 @@ Here we do a further subclassification into coherent and non-coherent dimensionl
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/units#EMMO_4d1079a3_6f96_41be_b33d_ab3397f8a0eb">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_e9ffc696_5228_4ff9_8a60_0f5e05e9931b"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_92d73676_b337_455f_bf85_1653de930226"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_f3dd74c0_f480_49e8_9764_33b78638c235"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/RAD</annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
         <annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.R05036</annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
         <rdfs:label xml:lang="en">Radian</rdfs:label>
@@ -1256,19 +1326,6 @@ Here we do a further subclassification into coherent and non-coherent dimensionl
     
 
 
-    <!-- http://emmo.info/emmo/middle/units#EMMO_5d865be0_c9ad_494f_bd4b_4bceffeb10ba -->
-
-    <owl:Class rdf:about="http://emmo.info/emmo/middle/units#EMMO_5d865be0_c9ad_494f_bd4b_4bceffeb10ba">
-        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1"/>
-        <annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/DEG_C</annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
-        <annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Celsius</annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
-        <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A SI derived unit of temperature.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
-        <annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.D01561</annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
-        <rdfs:label xml:lang="en">DegreeCelcius</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- http://emmo.info/emmo/middle/units#EMMO_5dcf912d_79b9_4ba4_a3de_33da10622f1f -->
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/units#EMMO_5dcf912d_79b9_4ba4_a3de_33da10622f1f">
@@ -1424,6 +1481,16 @@ Here we do a further subclassification into coherent and non-coherent dimensionl
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/units#EMMO_64f5a78b_87a9_48a2_8a27_7c92a7e1d09f">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/ANGSTROM</annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
         <annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/%C3%85ngstr%C3%B6m</annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>Non-SI unit of length, corresponding to 1e-10 m.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
@@ -1443,6 +1510,7 @@ Here we do a further subclassification into coherent and non-coherent dimensionl
 
 Temperature is a relative quantity that can be used to express temperature differences. Unlike ThermodynamicTemperature, it cannot express absolute temperatures.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.T06261</annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:label>CelsiusTemperature</rdfs:label>
         <rdfs:label xml:lang="en">Temperature</rdfs:label>
     </owl:Class>
     
@@ -1489,6 +1557,16 @@ Temperature is a relative quantity that can be used to express temperature diffe
                 <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_7db11dbf_a643_464a_9b56_07eabcc3e9c5"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_92d73676_b337_455f_bf85_1653de930226"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_bd8aa8eb_c772_4fef_a51c_b072d320ae8b"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>W/(m⋅K)</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <rdfs:label xml:lang="en">WattPerMeterAndKelvin</rdfs:label>
     </owl:Class>
@@ -1530,6 +1608,16 @@ Temperature is a relative quantity that can be used to express temperature diffe
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/units#EMMO_6c0927f0_7477_4e87_b168_e21bf301cce6">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/PARSEC</annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
         <annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>A non-SI unit of length, roughly the distance from Earth to the Sun.</annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
         <annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Astronomical_unit</annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
@@ -1601,6 +1689,16 @@ Temperature is a relative quantity that can be used to express temperature diffe
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/units#EMMO_7b0e40c6_3f94_48e8_a205_0f14fb05b8bb">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_31ec09ba_1713_42cb_83c7_b38bf6f9ced2"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/EV</annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
         <annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>A non-SI unit of energy corresponding to the amount of energy gained (or lost) by the charge of a single electron moving across an electric potential difference of one volt.</annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
         <annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Electronvolt</annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
@@ -1785,6 +1883,16 @@ Temperature is a relative quantity that can be used to express temperature diffe
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/units#EMMO_863c7bed_50d3_4c20_9e0e_fe23eec1510f">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_96f39f77_44dc_491b_8fa7_30d887fe0890"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/HA</annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
         <annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Hectare</annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>Non-SI unit for area corresponding to 10 000 m².</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
@@ -1797,6 +1905,16 @@ Temperature is a relative quantity that can be used to express temperature diffe
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/units#EMMO_871408cf_dbc5_4a95_8efa_c530652ad8ed">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_33d84967_2666_4a21_9601_52df2f486b05"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_92d73676_b337_455f_bf85_1653de930226"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_08f8a602_7fdc_4dbf_b78a_d0032be9a486"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>Pa⋅s</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <rdfs:label xml:lang="en">PascalSecond</rdfs:label>
     </owl:Class>
@@ -2042,6 +2160,12 @@ Temperature is a relative quantity that can be used to express temperature diffe
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_fdadf52c_5c39_40bc_95d9_5b7807f06e19"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_b4e7c4c5_1f1d_4eb8_9207_b7caa1f30609"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_92d73676_b337_455f_bf85_1653de930226"/>
                 <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_5ebd5e01_0ed3_49a2_a30d_cd05cbe72978"/>
             </owl:Restriction>
@@ -2058,6 +2182,12 @@ Temperature is a relative quantity that can be used to express temperature diffe
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/units#EMMO_96f39f77_44dc_491b_8fa7_30d887fe0890">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_863c7bed_50d3_4c20_9e0e_fe23eec1510f"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_92d73676_b337_455f_bf85_1653de930226"/>
@@ -2203,6 +2333,12 @@ Temperature is a relative quantity that can be used to express temperature diffe
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_fdadf52c_5c39_40bc_95d9_5b7807f06e19"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_b4e7c4c5_1f1d_4eb8_9207_b7caa1f30609"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_92d73676_b337_455f_bf85_1653de930226"/>
                 <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_5ebd5e01_0ed3_49a2_a30d_cd05cbe72978"/>
             </owl:Restriction>
@@ -2315,6 +2451,16 @@ Temperature is a relative quantity that can be used to express temperature diffe
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/units#EMMO_a558b923_b950_4ed4_95eb_d862bfee78dd">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/MIN</annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
         <annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Minute</annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>Non-SI unit of time, corresponding to 60s.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
@@ -2586,9 +2732,19 @@ https://www.bipm.org/utils/common/pdf/si-brochure/SI-Brochure-9-EN.pdf</rdfs:com
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/units#EMMO_b20be325_8bfd_4237_bee7_201ab0fd9c75">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_e9ffc696_5228_4ff9_8a60_0f5e05e9931b"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_66bc9029_f473_45ff_bab9_c3509ff37a22"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/DEG_C</annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
         <annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.D01561</annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
-        <rdfs:label xml:lang="en">Celsius</rdfs:label>
+        <rdfs:label xml:lang="en">DegreeCelsius</rdfs:label>
     </owl:Class>
     
 
@@ -2616,6 +2772,46 @@ https://www.bipm.org/utils/common/pdf/si-brochure/SI-Brochure-9-EN.pdf</rdfs:com
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/units#EMMO_b4e7c4c5_1f1d_4eb8_9207_b7caa1f30609">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_32cbaab1_3cd1_4f8a_b833_56de12bdaed7"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_46a19577_ce3c_4ac5_9ec8_c4252434b3a5"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_966b03f5_5b3e_4c07_96fa_71488cd12935"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_9dde9322_d392_4d3d_b3b0_c40185849d06"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_ec4192ac_e0a0_446b_afbc_1d9c635d5d40"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/PERCENT</annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
         <annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Percentage</annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>One part in a hundred.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
@@ -2662,6 +2858,16 @@ https://www.bipm.org/utils/common/pdf/si-brochure/SI-Brochure-9-EN.pdf</rdfs:com
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/units#EMMO_b5c961b0_ceb6_4d54_9c0c_f05a0b90d203">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_32cbaab1_3cd1_4f8a_b833_56de12bdaed7"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_f3dd74c0_f480_49e8_9764_33b78638c235"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>Measure of plane angles.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>http://qudt.org/vocab/unit/DEG</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.D01560</annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
@@ -2674,6 +2880,16 @@ https://www.bipm.org/utils/common/pdf/si-brochure/SI-Brochure-9-EN.pdf</rdfs:com
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/units#EMMO_b6e116f2_2fc1_46e8_a3f8_461b5b4a5189">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>Non-SI unit of mass, corresponding to 1000 kg.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <rdfs:label xml:lang="en">Tonne</rdfs:label>
     </owl:Class>
@@ -2727,6 +2943,24 @@ With &quot;exact&quot; constants, we refer to physical constants that have an ex
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>Increase in the rate of reaction of a specified chemical reaction that an enzyme produces in a specific assay system.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.C00881</annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
         <rdfs:label xml:lang="en">CatalyticActivity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/emmo/middle/units#EMMO_bd8aa8eb_c772_4fef_a51c_b072d320ae8b -->
+
+    <owl:Class rdf:about="http://emmo.info/emmo/middle/units#EMMO_bd8aa8eb_c772_4fef_a51c_b072d320ae8b">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_92d73676_b337_455f_bf85_1653de930226"/>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_690aacd7_e4fd_4fdc_a433_8223708bafcf"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>http://dbpedia.org/page/Thermal_conductivity</annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
+        <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>Measure for the ease with which a material conducts heat.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
+        <annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.T06299</annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
+        <rdfs:label xml:lang="en">ThermalConductivity</rdfs:label>
     </owl:Class>
     
 
@@ -2873,6 +3107,18 @@ International vocabulary of metrology (VIM)</rdfs:comment>
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_acaaa124_3dde_48b6_86e6_6ec6f364f408"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_64f5a78b_87a9_48a2_8a27_7c92a7e1d09f"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_6c0927f0_7477_4e87_b168_e21bf301cce6"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_92d73676_b337_455f_bf85_1653de930226"/>
                 <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_7db11dbf_a643_464a_9b56_07eabcc3e9c5"/>
             </owl:Restriction>
@@ -2908,6 +3154,16 @@ International vocabulary of metrology (VIM)</rdfs:comment>
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/units#EMMO_ce881003_d909_4912_a216_3d516b7eb9a5">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/HR</annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
         <annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>Non-SI unit of time corresponding to 3600 s.</annotations:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25>
         <annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.H02866</annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
@@ -2920,6 +3176,16 @@ International vocabulary of metrology (VIM)</rdfs:comment>
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/units#EMMO_cf3dd6cc_c5d6_4b3d_aef4_82f3b7a361af">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_0d5d561b_8949_44c7_a391_b45328533561"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_92d73676_b337_455f_bf85_1653de930226"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_e7c9f7fd_e534_4441_88fe_1fec6cb20f26"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/SR</annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>Measure of solid angle.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.S05971</annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
@@ -2956,6 +3222,24 @@ International vocabulary of metrology (VIM)</rdfs:comment>
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/units#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_acaaa124_3dde_48b6_86e6_6ec6f364f408"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_00cec04d_4344_452b_b375_96ef3ad6097f"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_a558b923_b950_4ed4_95eb_d862bfee78dd"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_ce881003_d909_4912_a216_3d516b7eb9a5"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_92d73676_b337_455f_bf85_1653de930226"/>
@@ -3519,6 +3803,12 @@ International vocabulary of metrology (VIM)</rdfs:comment>
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_fdadf52c_5c39_40bc_95d9_5b7807f06e19"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_b4e7c4c5_1f1d_4eb8_9207_b7caa1f30609"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_92d73676_b337_455f_bf85_1653de930226"/>
                 <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_5ebd5e01_0ed3_49a2_a30d_cd05cbe72978"/>
             </owl:Restriction>
@@ -3536,6 +3826,18 @@ International vocabulary of metrology (VIM)</rdfs:comment>
     <owl:Class rdf:about="http://emmo.info/emmo/middle/units#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_26aa1a58_4188_43c8_85d3_e3a53cfa3f78"/>
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_acaaa124_3dde_48b6_86e6_6ec6f364f408"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_1aaa8e50_b88b_4370_b8da_c24dc47f7178"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_b6e116f2_2fc1_46e8_a3f8_461b5b4a5189"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_92d73676_b337_455f_bf85_1653de930226"/>
@@ -3613,6 +3915,12 @@ International vocabulary of metrology (VIM)</rdfs:comment>
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_39ea1323_71ec_462a_8f28_d6d23e6ec24f"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_92d73676_b337_455f_bf85_1653de930226"/>
                 <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_c21b8995_0392_4742_86c6_d520881fdf89"/>
             </owl:Restriction>
@@ -3647,6 +3955,12 @@ International vocabulary of metrology (VIM)</rdfs:comment>
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/units#EMMO_f3dd74c0_f480_49e8_9764_33b78638c235">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_fdadf52c_5c39_40bc_95d9_5b7807f06e19"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_b5c961b0_ceb6_4d54_9c0c_f05a0b90d203"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/units#EMMO_92d73676_b337_455f_bf85_1653de930226"/>
@@ -3810,5 +4124,5 @@ International vocabulary of metrology (VIM)</rdfs:comment>
 
 
 
-<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
 
