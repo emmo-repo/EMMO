@@ -1,27 +1,32 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://emmo.info/emmo/middle/units#"
      xml:base="http://emmo.info/emmo/middle/units"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:changes="http://emmo.info/emmo/middle/changes#"
      xmlns:graphical="http://emmo.info/emmo/middle/perceptual#"
-     xmlns:annotations="http://emmo.info/emmo/top/annotations#">
+     xmlns:changes="http://emmo.info/emmo/middle/changes#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:annotations="http://emmo.info/emmo/top/annotations#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://emmo.info/emmo/middle/units">
         <owl:versionIRI rdf:resource="http://emmo.info/emmo/1.0.0-alpha/middle/units"/>
+        <owl:imports rdf:resource="http://emmo.info/emmo/1.0.0-alpha/middle/properties"/>
         <owl:imports rdf:resource="http://emmo.info/emmo/1.0.0-alpha/middle/math"/>
         <owl:imports rdf:resource="http://emmo.info/emmo/1.0.0-alpha/middle/perceptual"/>
-        <owl:imports rdf:resource="http://emmo.info/emmo/1.0.0-alpha/middle/properties"/>
-        <annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
-
-https://creativecommons.org/licenses/by/4.0/legalcode</annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>
         <annotations:EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab>Emanuele Ghedini (University of Bologna, IT)
 Gerhard Goldbeck (GCL Ltd, UK)
 Adham Hashibon (Fraunhofer IWM, DE)
 Georg Schmitz (Access, DE)
 Jesper Friis (SINTEF, NO)</annotations:EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab>
+        <rdfs:comment>European Materials and Modelling Ontology (EMMO)
+
+EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies.
+
+It provides the connection between the physical world, materials characterisation world and materials modelling world.</rdfs:comment>
+        <annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
+
+https://creativecommons.org/licenses/by/4.0/legalcode</annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>
         <rdfs:comment xml:lang="en">Contacts:
 Gerhard Goldbeck
 Goldbeck Consulting Ltd (UK)
@@ -30,11 +35,6 @@ email: gerhard@goldbeck-consulting.com
 Emanuele Ghedini
 University of Bologna (IT)
 email: emanuele.ghedini@unibo.it</rdfs:comment>
-        <rdfs:comment>European Materials and Modelling Ontology (EMMO)
-
-EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies.
-
-It provides the connection between the physical world, materials characterisation world and materials modelling world.</rdfs:comment>
         <rdfs:comment>The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege).</rdfs:comment>
     </owl:Ontology>
     
@@ -120,6 +120,7 @@ It provides the connection between the physical world, materials characterisatio
             </owl:Restriction>
         </rdfs:subClassOf>
         <annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/GRAY</annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
+        <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>The SI derived unit of ionizing radiation dose, defined as the absorption of one joule of radiation energy per kilogram of matter.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.G02696</annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
         <rdfs:label xml:lang="en">Gray</rdfs:label>
     </owl:Class>
@@ -175,6 +176,16 @@ Systems of units suggests that this is the correct approach, since except for th
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_e9ffc696_5228_4ff9_8a60_0f5e05e9931b"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:allValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/W</annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
         <annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.W06656</annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
         <rdfs:label xml:lang="en">Watt</rdfs:label>
@@ -637,6 +648,7 @@ Temperature is a relative quantity that can be used to express temperature diffe
             </owl:Restriction>
         </rdfs:subClassOf>
         <annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/C</annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
+        <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>SI derived unit of electric charge corresponding to the charge transported by a constant current of one ampere during one second.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.C01365</annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
         <rdfs:label xml:lang="en">Coulomb</rdfs:label>
     </owl:Class>
@@ -948,6 +960,16 @@ Temperature is a relative quantity that can be used to express temperature diffe
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_e9ffc696_5228_4ff9_8a60_0f5e05e9931b"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:allValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_f3dd74c0_f480_49e8_9764_33b78638c235"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/RAD</annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>Measure of plane angle.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.R05036</annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
@@ -997,6 +1019,16 @@ Temperature is a relative quantity that can be used to express temperature diffe
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_e9ffc696_5228_4ff9_8a60_0f5e05e9931b"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:allValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/PA</annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
         <annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.P04442</annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
         <rdfs:label xml:lang="en">Pascal</rdfs:label>
@@ -1033,6 +1065,7 @@ Temperature is a relative quantity that can be used to express temperature diffe
             </owl:Restriction>
         </rdfs:subClassOf>
         <annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/FARAD</annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
+        <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>One farad is defined as the capacitance across which, when charged with one coulomb, there is a potential difference of one volt.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.F02320</annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
         <rdfs:label xml:lang="en">Farad</rdfs:label>
     </owl:Class>
@@ -1206,7 +1239,18 @@ https://www.bipm.org/utils/common/pdf/si-brochure/SI-Brochure-9-EN.pdf</rdfs:com
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_e9ffc696_5228_4ff9_8a60_0f5e05e9931b"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:allValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_b71e4ba5_8f73_4199_8c96_7ea7f94d9e2a"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/BQ</annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
+        <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>The SI derived unit of radioactivity defined as the activity of a quantity of radioactive material in which one nucleus decays per second.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.B00624</annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
         <rdfs:label xml:lang="en">Becquerel</rdfs:label>
     </owl:Class>
@@ -1297,6 +1341,16 @@ International vocabulary of metrology (VIM)</rdfs:comment>
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_e9ffc696_5228_4ff9_8a60_0f5e05e9931b"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:allValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_e7c9f7fd_e534_4441_88fe_1fec6cb20f26"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/SR</annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>Measure of solid angle.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.S05971</annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
@@ -1658,6 +1712,8 @@ International vocabulary of metrology (VIM)</rdfs:comment>
                 <owl:allValuesFrom rdf:resource="http://emmo.info/emmo/middle/units#EMMO_ffb73b1e_5786_43e4_a964_cb32ac7affb7"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/S</annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
+        <annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.S05657</annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
         <rdfs:label xml:lang="en">Siemens</rdfs:label>
     </owl:Class>
     
@@ -1761,6 +1817,7 @@ International vocabulary of metrology (VIM)</rdfs:comment>
             </owl:Restriction>
         </rdfs:subClassOf>
         <annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>http://qudt.org/vocab/unit/H</annotations:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc>
+        <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>The SI derived unit of electrical inductance. If a current of 1 ampere flowing through the coil produces flux linkage of 1 weber turn, the coil has a self inductance of 1 henry.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>https://doi.org/10.1351/goldbook.H02782</annotations:EMMO_fe015383_afb3_44a6_ae86_043628697aa2>
         <rdfs:label xml:lang="en">Henry</rdfs:label>
     </owl:Class>
@@ -1845,5 +1902,5 @@ International vocabulary of metrology (VIM)</rdfs:comment>
 
 
 
-<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
 
