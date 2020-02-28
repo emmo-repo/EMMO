@@ -94,6 +94,7 @@ Version 1.0.0</owl:versionInfo>
 
     <owl:DatatypeProperty rdf:about="http://emmo.info/emmo/middle/math#EMMO_faf79f53_749d_40b2_807c_d34244c192f4">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://emmo.info/emmo/middle/math#EMMO_4ce76d7f_03f8_45b6_9003_90052a79bfaa"/>
         <rdfs:label xml:lang="en">hasNumericalData</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -187,13 +188,23 @@ k</annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
     <!-- http://emmo.info/emmo/middle/math#EMMO_21f56795_ee72_4858_b571_11cfaa59c1a8 -->
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/math#EMMO_21f56795_ee72_4858_b571_11cfaa59c1a8">
-        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/math#EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0"/>
+        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/math#EMMO_4ce76d7f_03f8_45b6_9003_90052a79bfaa"/>
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/perceptual#EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527"/>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A numerical data value.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <rdfs:comment>A number is actually a string (e.g. 1.4, 1e-8) of numerical digits and other symbols. However, in order not to increase complexity of the taxonomy and relations, here we take a number as an &quot;atomic&quot; object.
 
 A &apos;Number&apos; individual provide the link between the ontology and the actual data, through the data property hasNumericalValue.</rdfs:comment>
         <rdfs:label xml:lang="en">Number</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/emmo/middle/math#EMMO_4ce76d7f_03f8_45b6_9003_90052a79bfaa -->
+
+    <owl:Class rdf:about="http://emmo.info/emmo/middle/math#EMMO_4ce76d7f_03f8_45b6_9003_90052a79bfaa">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/math#EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0"/>
+        <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A &apos;Mathematical&apos; that has no unknown value, i.e. all its &apos;Variable&quot;-s parts refers to a &apos;Number&apos; (for scalars that have a built-in datatype) or to another &apos;Numerical&apos; (for complex numerical data structures that should rely on external implementations).</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
+        <rdfs:label xml:lang="en">Numerical</rdfs:label>
     </owl:Class>
     
 
