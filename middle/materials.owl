@@ -1,24 +1,27 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://emmo.info/emmo/middle/materials#"
      xml:base="http://emmo.info/emmo/middle/materials"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:annotations="http://emmo.info/emmo/top/annotations#">
+     xmlns:annotations="http://emmo.info/emmo/top/annotations#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://emmo.info/emmo/middle/materials">
         <owl:versionIRI rdf:resource="http://emmo.info/emmo/1.0.0-alpha/middle/materials"/>
-        <owl:imports rdf:resource="http://emmo.info/emmo/1.0.0-alpha/middle/physicalistic"/>
         <owl:imports rdf:resource="http://emmo.info/emmo/1.0.0-alpha/middle/reductionistic"/>
-        <annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
-
-https://creativecommons.org/licenses/by/4.0/legalcode</annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>
+        <owl:imports rdf:resource="http://emmo.info/emmo/1.0.0-alpha/middle/physicalistic"/>
         <annotations:EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab>Emanuele Ghedini (University of Bologna, IT)
 Gerhard Goldbeck (GCL Ltd, UK)
 Adham Hashibon (Fraunhofer IWM, DE)
 Georg Schmitz (Access, DE)
 Jesper Friis (SINTEF, NO)</annotations:EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab>
+        <annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
+
+https://creativecommons.org/licenses/by/4.0/legalcode</annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>
+        <owl:versionInfo>The European Materials Modelling Ontology
+
+Version 1.0.0-alpha</owl:versionInfo>
         <rdfs:comment xml:lang="en">Contacts:
 Gerhard Goldbeck
 Goldbeck Consulting Ltd (UK)
@@ -27,15 +30,12 @@ email: gerhard@goldbeck-consulting.com
 Emanuele Ghedini
 University of Bologna (IT)
 email: emanuele.ghedini@unibo.it</rdfs:comment>
+        <rdfs:comment>The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege).</rdfs:comment>
         <rdfs:comment>European Materials and Modelling Ontology (EMMO)
 
 EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies. 
 
 It provides the connection between the physical world, materials characterisation world and materials modelling world.</rdfs:comment>
-        <rdfs:comment>The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege).</rdfs:comment>
-        <owl:versionInfo>The European Materials Modelling Ontology
-
-Version 1.0.0-alpha</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -242,12 +242,6 @@ A single continuum individual can be the whole fluid in a pipe.</rdfs:comment>
     <!-- http://emmo.info/emmo/middle/materials#EMMO_8f87e700_99a8_4427_8ffb_e493de05c217 -->
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/materials#EMMO_8f87e700_99a8_4427_8ffb_e493de05c217">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/reductionistic#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
-                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/physicalistic#EMMO_72d53756_7fb1_46ed_980f_83f47efbe105"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">Proton</rdfs:label>
     </owl:Class>
     
@@ -276,12 +270,6 @@ A single continuum individual can be the whole fluid in a pipe.</rdfs:comment>
     <!-- http://emmo.info/emmo/middle/materials#EMMO_df808271_df91_4f27_ba59_fa423c51896c -->
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/materials#EMMO_df808271_df91_4f27_ba59_fa423c51896c">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/reductionistic#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
-                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/physicalistic#EMMO_72d53756_7fb1_46ed_980f_83f47efbe105"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">Neutron</rdfs:label>
     </owl:Class>
     
@@ -335,17 +323,17 @@ We cannot say that H2 molecule has direct part two H atoms, but has direct part 
         <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
     </rdf:Description>
     <rdf:Description>
-        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
     </rdf:Description>
     <rdf:Description>
         <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
     </rdf:Description>
     <rdf:Description>
-        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </rdf:Description>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
 
