@@ -20,11 +20,17 @@ The [mereotopology](top/mereotopology.owl) module introduces the fundamental mer
 
 The [physical](top/physical.owl) module, defines the *Physical* objects and the concept of *Void* that plays a fundamental role in the description of multiscale objects and quantum systems. It also define the *Elementary* class, that restricts mereological atomism in space.
 
-![Figure 1. The most fundamental top-level classes of EMMO.](doc/physical.png)
+![Figure 1. The EMMO top level.](doc/top.png)
 
 In EMMO, the only univocally defined real world object is the *Item* individual called **Universe** that stands for the universe. Every other real world object is a composition of elementaries up to the most comprehensive object; the **Universe**. Intermediate objects are not univocally defined, but their definition is provided according to some specific philosophical perspectives.  This is an expression of reductionism (i.e. objects are made of sub-objects) and epistemological pluralism (i.e. objects are always defined according to the perspective of an interpreter, or a class of interpreters).
 
-The [perspectives](top/perspectives.owl) modules defines different ways to represent the objects that populate the conceptual region between the elementary and universe levels.  *Perspectives* class collect different ways to represent the same intermediate objects.
+The *Perspective* class collects the different ways to represent the objects that populate the conceptual region between the elementary and universe levels.
+
+
+### Middle Level
+The middle level ontologies act as roots for extending the EMMO towards specific application domains. 
+
+![Figure 2. The EMMO perspectives.](doc/perspectives.png)
 
 The *Reductionistic* perspective class uses the fundamental non-transitive parthood relation, called direct parthood, to provide a powerful granularity description of multiscale real world objects. The EMMO can in principle represents the **Universe** with direct parthood relations as a direct rooted tree up to its elementary constituents.
 
@@ -34,21 +40,14 @@ The *Phenomenic* perspective class introduces the concept of real world objects 
 
 The *Physics* perspective class introduces the concept of real world objects that have a meaning for the under applied physics perspective.
 
-The [semiotics](top/semiotical.owl) module introduces the concepts of semiotics and the *Semiosis* process that has a *Sign*, an *Object* and an *Interpreter* as participants.  This forms the basis in EMMO to represent e.g. models, formal languages, theories, information and properties.
+The [semiotics](top/semiotics.owl) module introduces the concepts of semiotics and the *Semiosis* process that has a *Sign*, an *Object* and an *Interpreter* as participants.  This forms the basis in EMMO to represent e.g. models, formal languages, theories, information and properties.
 
-![Figure 2. The basic taxonomy of EMMO perspectives.](doc/top.png)
-
-
-### Middle Level
-The middle level ontologies act as roots for extending the EMMO towards specific application domains. 
-
+![Figure 3. The semiotic level.](doc/semiotics.png)
 
 ### EMMO relations
 All EMMO relations are subrelations of the relations found in the two roots: *mereotopological* and *semiotical*. The relation hierarchy extends more vertically (i.e. more subrelations) than horizontally (i.e. less sibling relations), facilitating the categorisation and inferencing of individuals.
 
 Imposing all relations to fall under mereotopology or semiotics is how the EMMO force the developers to respect its perspectives. Two entities are related only by contact or parthood (mereotopology) or by standing one for another (semiosis): no other types of relation are possible within the EMMO.
-
-![Figure 3. The full hierarchy of EMMO relations.](doc/EMMORelation.png)
 
 
 ## Repository Description

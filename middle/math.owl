@@ -129,36 +129,30 @@ Version 1.0.0-alpha</owl:versionInfo>
     
 
 
-    <!-- http://emmo.info/emmo/middle/math#EMMO_16607490_1ad8_4f4e_ad3b_dc8740b37fe9 -->
-
-    <owl:Class rdf:about="http://emmo.info/emmo/middle/math#EMMO_16607490_1ad8_4f4e_ad3b_dc8740b37fe9">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/math#EMMO_faf79f53_749d_40b2_807c_d34244c192f4"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/math#EMMO_21f56795_ee72_4858_b571_11cfaa59c1a8"/>
-        <rdfs:isDefinedBy>https://www.w3.org/TR/2012/REC-xmlschema11-2-201.0.0-alpha5/#built-in-primitive-datatypes</rdfs:isDefinedBy>
-        <rdfs:label xml:lang="en">Decimal</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- http://emmo.info/emmo/middle/math#EMMO_18d180e4_5e3e_42f7_820c_e08951223486 -->
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/math#EMMO_18d180e4_5e3e_42f7_820c_e08951223486">
         <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/math#EMMO_faf79f53_749d_40b2_807c_d34244c192f4"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/math#EMMO_21f56795_ee72_4858_b571_11cfaa59c1a8"/>
-        <rdfs:isDefinedBy>https://www.w3.org/TR/2012/REC-xmlschema11-2-201.0.0-alpha5/#built-in-primitive-datatypes</rdfs:isDefinedBy>
-        <rdfs:label xml:lang="en">Double</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/math#EMMO_faf79f53_749d_40b2_807c_d34244c192f4"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/math#EMMO_faf79f53_749d_40b2_807c_d34244c192f4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Real</rdfs:label>
     </owl:Class>
     
 
@@ -191,7 +185,7 @@ k</annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/math#EMMO_4ce76d7f_03f8_45b6_9003_90052a79bfaa"/>
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/perceptual#EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527"/>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A numerical data value.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
-        <rdfs:comment>A number is actually a string (e.g. 1.4, 1e-8) of numerical digits and other symbols. However, in order not to increase complexity of the taxonomy and relations, here we take a number as an &quot;atomic&quot; object.
+        <rdfs:comment>A number is actually a string (e.g. 1.4, 1e-8) of numerical digits and other symbols. However, in order not to increase complexity of the taxonomy and relations, here we take a number as an &quot;atomic&quot; object (i.e. we do not include digits in the EMMO as alphabet for numbers).
 
 A &apos;Number&apos; individual provide the link between the ontology and the actual data, through the data property hasNumericalValue.</rdfs:comment>
         <rdfs:label xml:lang="en">Number</rdfs:label>
@@ -219,7 +213,19 @@ A &apos;Number&apos; individual provide the link between the ontology and the ac
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/math#EMMO_21f56795_ee72_4858_b571_11cfaa59c1a8"/>
-        <rdfs:isDefinedBy>https://www.w3.org/TR/2012/REC-xmlschema11-2-201.0.0-alpha5/#built-in-primitive-datatypes</rdfs:isDefinedBy>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/math#EMMO_faf79f53_749d_40b2_807c_d34244c192f4"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/math#EMMO_faf79f53_749d_40b2_807c_d34244c192f4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">Boolean</rdfs:label>
     </owl:Class>
     
@@ -231,6 +237,22 @@ A &apos;Number&apos; individual provide the link between the ontology and the ac
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/perceptual#EMMO_d8d2144e_5c8d_455d_a643_5caf4d8d9df8"/>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>The class of general mathematical symbolic objects respecting mathematical syntactic rules.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <rdfs:label xml:lang="en">Mathematical</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/emmo/middle/math#EMMO_5be83f9c_a4ba_4b9a_be1a_5bfc6e891231 -->
+
+    <owl:Class rdf:about="http://emmo.info/emmo/middle/math#EMMO_5be83f9c_a4ba_4b9a_be1a_5bfc6e891231">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://emmo.info/emmo/middle/math#EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0"/>
+                    <rdf:Description rdf:about="http://emmo.info/emmo/middle/perceptual#EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:label xml:lang="en">MathematicalSymbol</rdfs:label>
     </owl:Class>
     
 
@@ -279,43 +301,19 @@ A &apos;Number&apos; individual provide the link between the ontology and the ac
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/math#EMMO_ae15fb4f_8e4d_41de_a0f9_3997f89ba6a2">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/math#EMMO_1eed0732_e3f1_4b2c_a9c4_b4e75eeb5895"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/math#EMMO_3446e167_c576_49d6_846c_215bb8878a55"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:allValuesFrom rdf:resource="http://emmo.info/emmo/middle/math#EMMO_4ce76d7f_03f8_45b6_9003_90052a79bfaa"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A &apos;varaible&apos; that stand for a well known constant.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>π refers to the constant number ~3.14</annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
         <rdfs:label xml:lang="en">Constant</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://emmo.info/emmo/middle/math#EMMO_b9db54a5_2a6c_4764_8141_9f7579fe5ad8 -->
-
-    <owl:Class rdf:about="http://emmo.info/emmo/middle/math#EMMO_b9db54a5_2a6c_4764_8141_9f7579fe5ad8">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/math#EMMO_faf79f53_749d_40b2_807c_d34244c192f4"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/math#EMMO_21f56795_ee72_4858_b571_11cfaa59c1a8"/>
-        <rdfs:isDefinedBy>https://www.w3.org/TR/2012/REC-xmlschema11-2-201.0.0-alpha5/#built-in-primitive-datatypes</rdfs:isDefinedBy>
-        <rdfs:label xml:lang="en">Natural</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://emmo.info/emmo/middle/math#EMMO_c22f0989_1be2_4a34_9bb8_d780abffbdfa -->
-
-    <owl:Class rdf:about="http://emmo.info/emmo/middle/math#EMMO_c22f0989_1be2_4a34_9bb8_d780abffbdfa">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/math#EMMO_faf79f53_749d_40b2_807c_d34244c192f4"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/math#EMMO_21f56795_ee72_4858_b571_11cfaa59c1a8"/>
-        <rdfs:isDefinedBy>https://www.w3.org/TR/2012/REC-xmlschema11-2-201.0.0-alpha5/#built-in-primitive-datatypes</rdfs:isDefinedBy>
-        <rdfs:label xml:lang="en">Float</rdfs:label>
     </owl:Class>
     
 
@@ -363,12 +361,23 @@ where f is the left hand and g the right hand  side expressions and v0, v1, ...,
         <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/math#EMMO_faf79f53_749d_40b2_807c_d34244c192f4"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/math#EMMO_21f56795_ee72_4858_b571_11cfaa59c1a8"/>
-        <rdfs:isDefinedBy>https://www.w3.org/TR/2012/REC-xmlschema11-2-201.0.0-alpha5/#built-in-primitive-datatypes</rdfs:isDefinedBy>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/math#EMMO_faf79f53_749d_40b2_807c_d34244c192f4"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/math#EMMO_faf79f53_749d_40b2_807c_d34244c192f4"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">Integer</rdfs:label>
     </owl:Class>
     

@@ -54,16 +54,9 @@ Version 1.0.0-alpha</owl:versionInfo>
     <!-- http://emmo.info/emmo/middle/perceptual#EMMO_23b579e1_8088_45b5_9975_064014026c42 -->
 
     <owl:DatatypeProperty rdf:about="http://emmo.info/emmo/middle/perceptual#EMMO_23b579e1_8088_45b5_9975_064014026c42">
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://emmo.info/emmo/middle/perceptual#EMMO_50ea1ec5_f157_41b0_b46b_a9032f17ca10"/>
-                    <rdf:Description rdf:about="http://emmo.info/emmo/middle/perceptual#EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
+        <rdfs:domain rdf:resource="http://emmo.info/emmo/middle/perceptual#EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:label xml:lang="en">hasStringData</rdfs:label>
+        <rdfs:label xml:lang="en">hasSymbolData</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -153,31 +146,6 @@ The Mona Lisa.</annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
     <owl:Class rdf:about="http://emmo.info/emmo/middle/perceptual#EMMO_25f5ca8e_8f7f_44d8_a392_bd3fe8894458">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/perceptual#EMMO_9268958f_7f54_48ab_a693_febe2645892b"/>
         <rdfs:label xml:lang="en">Plane</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://emmo.info/emmo/middle/perceptual#EMMO_2c1ceb4c_8b09_4374_91ec_98497b245a22 -->
-
-    <owl:Class rdf:about="http://emmo.info/emmo/middle/perceptual#EMMO_2c1ceb4c_8b09_4374_91ec_98497b245a22">
-        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/perceptual#EMMO_057e7d57_aff0_49de_911a_8861d85cef40"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/reductionistic#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
-                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/perceptual#EMMO_057e7d57_aff0_49de_911a_8861d85cef40"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/reductionistic#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
-                <owl:allValuesFrom rdf:resource="http://emmo.info/emmo/middle/perceptual#EMMO_057e7d57_aff0_49de_911a_8861d85cef40"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A symbolic object composed of other symbolic objects arranged in a specific spatial configuraton.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
-        <annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>A system of equations
-A matrix
-A paragraph of text.</annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
-        <rdfs:label xml:lang="en">SymbolicComposition</rdfs:label>
     </owl:Class>
     
 
@@ -333,13 +301,22 @@ However, a perceptual is not necessarily a &apos;Sign&apos; (e.g. a line sketche
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/perceptual#EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/perceptual#EMMO_057e7d57_aff0_49de_911a_8861d85cef40"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/perceptual#EMMO_23b579e1_8088_45b5_9975_064014026c42"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>The class of individuals that stand for an elementary mark of a specific symbolic code (alphabet).</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>The class of letter &quot;A&quot; is the symbol as idea and the letter A that you see on the screen is the mark.</annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
         <rdfs:comment>Subclasses of &apos;Symbol&apos; are alphabets, in formal languages terminology.
 
 A &apos;Symbol&apos; is atomic for that alphabet, i.e. it has no parts that are symbols for the same alphabet.
+e.g. a math symbol is not made of other math symbols
 
-e.g. a math symbol is not made of other math symbols</rdfs:comment>
+A Symbol may be a String in another language.
+e.g. &quot;Bq&quot; is the symbol for Becquerel units when dealing with metrology, or a string of &quot;B&quot; and &quot;q&quot; symbols when dealing with characters.</rdfs:comment>
         <rdfs:comment>Symbols of a formal language need not be symbols of anything. For instance there are logical constants which do not refer to any idea, but rather serve as a form of punctuation in the language (e.g. parentheses). 
 
 Symbols of a formal language must be capable of being specified without any reference to any interpretation of them. 
@@ -355,27 +332,6 @@ Symbols of a formal language must be capable of being specified without any refe
     <owl:Class rdf:about="http://emmo.info/emmo/middle/perceptual#EMMO_b2a234a8_579a_422c_9305_b8f7e72c76cd">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/perceptual#EMMO_0c576e13_4ee7_4f3d_bfe9_1614243df018"/>
         <rdfs:label xml:lang="en">Circle</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://emmo.info/emmo/middle/perceptual#EMMO_b4b8b947_2a21_4391_b299_2a940b2a4e00 -->
-
-    <owl:Class rdf:about="http://emmo.info/emmo/middle/perceptual#EMMO_b4b8b947_2a21_4391_b299_2a940b2a4e00">
-        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/perceptual#EMMO_057e7d57_aff0_49de_911a_8861d85cef40"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/reductionistic#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
-                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/perceptual#EMMO_50ea1ec5_f157_41b0_b46b_a9032f17ca10"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/reductionistic#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
-                <owl:allValuesFrom rdf:resource="http://emmo.info/emmo/middle/perceptual#EMMO_50ea1ec5_f157_41b0_b46b_a9032f17ca10"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:label xml:lang="en">StringConcatenation</rdfs:label>
     </owl:Class>
     
 
@@ -424,7 +380,7 @@ The case a) is a geometrical and mathematical, b) is geometrical and pictorial, 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/perceptual#EMMO_d8d2144e_5c8d_455d_a643_5caf4d8d9df8">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/perceptual#EMMO_057e7d57_aff0_49de_911a_8861d85cef40"/>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A symbolic object respecting a specific language syntactic rules (a well-formed formula).</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
-        <rdfs:label xml:lang="en">WellFormedSymbolic</rdfs:label>
+        <rdfs:label xml:lang="en">WellFormed</rdfs:label>
     </owl:Class>
 </rdf:RDF>
 
