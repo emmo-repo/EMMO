@@ -352,14 +352,6 @@ kg/m^3</annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
     
 
 
-    <!-- http://emmo.info/emmo/middle/units#EMMO_18bf8558_d2ff_4f2b_a314_db3451e2299c -->
-
-    <owl:Class rdf:about="http://emmo.info/emmo/middle/units#EMMO_18bf8558_d2ff_4f2b_a314_db3451e2299c">
-        <rdfs:label xml:lang="en">NonSIUnit</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- http://emmo.info/emmo/middle/units#EMMO_18ce5200_00f5_45bb_8c6f_6fb128cd41ae -->
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/units#EMMO_18ce5200_00f5_45bb_8c6f_6fb128cd41ae">
@@ -839,6 +831,16 @@ J stands for N m</annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/top/mereotopology#EMMO_9380ab64_0363_4804_b13f_3a8a94119a76"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_985bec21_989f_4b9e_a4b3_735d88099c3c"/>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">MetrologicalSymbol</rdfs:label>
     </owl:Class>
     
@@ -1768,7 +1770,7 @@ ISO 80000-1</rdfs:comment>
 &quot;Symbols for units are treated as mathematical entities. In expressing the value of a quantity as the product of a numerical value and a unit, both the numerical value and the unit may be treated by the ordinary rules of algebra.&quot;
 
 https://www.bipm.org/utils/common/pdf/si-brochure/SI-Brochure-9-EN.pdf</rdfs:comment>
-        <rdfs:comment>While the SI brochure treats &apos;MeasurementUnit&apos; as a &apos;PhysicalQuantity&apos;, in the EMMO this is not possible since the latter always has two durect parts, a &apos;Numerical&apos; and a &apos;MeasurementUnit&apos;, while the former a single &apos;Symbol&apos;.
+        <rdfs:comment>While the SI brochure treats &apos;MeasurementUnit&apos; as a &apos;PhysicalQuantity&apos;, in the EMMO this is not possible since the latter always has two direct parts, a &apos;Numerical&apos; and a &apos;MeasurementUnit&apos;, while the former a single &apos;Symbol&apos;.
 
 SI distinguishes between a quantity (an abstract concept) and the quantity value (a number and a reference). The EMMO, following strict nominalism, considers a SI quantity as a SI quantity value, collapsing the two concepts into one: the &apos;Quantity&apos;.
 
@@ -2100,6 +2102,19 @@ International vocabulary of metrology (VIM)</rdfs:comment>
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/units#EMMO_d41ce84b_4317_41fb_a5d1_6cd281fca106">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/units#EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/reductionistic#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://emmo.info/emmo/middle/units#EMMO_7d2afa66_ae9e_4095_a9bf_421d0be401b6"/>
+                            <rdf:Description rdf:about="http://emmo.info/emmo/middle/units#EMMO_d41ce84b_4317_41fb_a5d1_6cd281fca106"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">SIPrefixedUnit</rdfs:label>
     </owl:Class>
     
