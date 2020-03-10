@@ -1,24 +1,27 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://emmo.info/emmo/middle/models#"
      xml:base="http://emmo.info/emmo/middle/models"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:annotations="http://emmo.info/emmo/top/annotations#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:units="http://emmo.info/emmo/middle/metrology#"
-     xmlns:annotations="http://emmo.info/emmo/top/annotations#">
+     xmlns:units="http://emmo.info/emmo/middle/metrology#">
     <owl:Ontology rdf:about="http://emmo.info/emmo/middle/models">
         <owl:versionIRI rdf:resource="http://emmo.info/emmo/1.0.0-alpha/middle/models"/>
         <owl:imports rdf:resource="http://emmo.info/emmo/1.0.0-alpha/middle/metrology"/>
-        <annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
-
-https://creativecommons.org/licenses/by/4.0/legalcode</annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>
         <annotations:EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab>Emanuele Ghedini (University of Bologna, IT)
 Gerhard Goldbeck (GCL Ltd, UK)
 Adham Hashibon (Fraunhofer IWM, DE)
 Georg Schmitz (Access, DE)
 Jesper Friis (SINTEF, NO)</annotations:EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab>
+        <annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
+
+https://creativecommons.org/licenses/by/4.0/legalcode</annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>
+        <owl:versionInfo>The European Materials Modelling Ontology
+
+Version 1.0.0-alpha</owl:versionInfo>
         <rdfs:comment xml:lang="en">Contacts:
 Gerhard Goldbeck
 Goldbeck Consulting Ltd (UK)
@@ -27,15 +30,12 @@ email: gerhard@goldbeck-consulting.com
 Emanuele Ghedini
 University of Bologna (IT)
 email: emanuele.ghedini@unibo.it</rdfs:comment>
+        <rdfs:comment>The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege).</rdfs:comment>
         <rdfs:comment>European Materials and Modelling Ontology (EMMO)
 
 EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies. 
 
 It provides the connection between the physical world, materials characterisation world and materials modelling world.</rdfs:comment>
-        <rdfs:comment>The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege).</rdfs:comment>
-        <owl:versionInfo>The European Materials Modelling Ontology
-
-Version 1.0.0-alpha</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -133,6 +133,7 @@ The Navier-Stokes equation.</rdfs:comment>
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/models#EMMO_4456a5d2_16a6_4ee1_9a8e_5c75956b28ea">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/models#EMMO_b29fd350_39aa_4af7_9459_3faa0544cba6"/>
+        <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A physics-based model based on a physics equation describing the behaviour of continuum volume.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <rdfs:label xml:lang="en">ContinuumModel</rdfs:label>
     </owl:Class>
     
@@ -142,6 +143,7 @@ The Navier-Stokes equation.</rdfs:comment>
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/models#EMMO_53935db0_af45_4426_b9e9_244a0d77db00">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/models#EMMO_b29fd350_39aa_4af7_9459_3faa0544cba6"/>
+        <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A physics-based model based on a physics equation describing the behaviour of mesoscopic entities, i.e. a set of bounded atoms like a molecule, bead or nanoparticle.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <rdfs:label xml:lang="en">MesoscopicModel</rdfs:label>
     </owl:Class>
     
@@ -161,6 +163,9 @@ The Navier-Stokes equation.</rdfs:comment>
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/models#EMMO_6eca09be_17e9_445e_abc9_000aa61b7a11">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/models#EMMO_b29fd350_39aa_4af7_9459_3faa0544cba6"/>
+        <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A physics-based model based on a physics equation describing the behaviour of electrons.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
+        <annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>Density functional theory.
+Hartree-Fock.</annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
         <rdfs:label xml:lang="en">ElectronicModel</rdfs:label>
     </owl:Class>
     
@@ -170,6 +175,7 @@ The Navier-Stokes equation.</rdfs:comment>
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/models#EMMO_84cadc45_6758_46f2_ba2a_5ead65c70213">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/models#EMMO_b29fd350_39aa_4af7_9459_3faa0544cba6"/>
+        <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A physics-based model based on a physics equation describing the behaviour of atoms.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <rdfs:label xml:lang="en">AtomisticModel</rdfs:label>
     </owl:Class>
     
@@ -304,11 +310,14 @@ An Hamiltonian.</annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <rdfs:comment>A mathematical model can be defined as a description of a system using mathematical concepts and language to facilitate proper explanation of a system or to study the effects of different components and to make predictions on patterns of behaviour. 
+
+Abramowitz and Stegun, 1968</rdfs:comment>
         <rdfs:label xml:lang="en">MathematicalModel</rdfs:label>
     </owl:Class>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
 
