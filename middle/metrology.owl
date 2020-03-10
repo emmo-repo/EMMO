@@ -1,26 +1,31 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://emmo.info/emmo/middle/metrology#"
      xml:base="http://emmo.info/emmo/middle/metrology"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:annotations="http://emmo.info/emmo/top/annotations#">
+     xmlns:annotations="http://emmo.info/emmo/top/annotations#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://emmo.info/emmo/middle/metrology">
         <owl:versionIRI rdf:resource="http://emmo.info/emmo/1.0.0-alpha/middle/metrology"/>
+        <owl:imports rdf:resource="http://emmo.info/emmo/1.0.0-alpha/middle/properties"/>
+        <owl:imports rdf:resource="http://emmo.info/emmo/1.0.0-alpha/middle/physicalistic"/>
         <owl:imports rdf:resource="http://emmo.info/emmo/1.0.0-alpha/middle/math"/>
         <owl:imports rdf:resource="http://emmo.info/emmo/1.0.0-alpha/middle/perceptual"/>
-        <owl:imports rdf:resource="http://emmo.info/emmo/1.0.0-alpha/middle/physicalistic"/>
-        <owl:imports rdf:resource="http://emmo.info/emmo/1.0.0-alpha/middle/properties"/>
-        <annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
-
-https://creativecommons.org/licenses/by/4.0/legalcode</annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>
         <annotations:EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab>Emanuele Ghedini (University of Bologna, IT)
 Gerhard Goldbeck (GCL Ltd, UK)
 Adham Hashibon (Fraunhofer IWM, DE)
 Georg Schmitz (Access, DE)
 Jesper Friis (SINTEF, NO)</annotations:EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab>
+        <rdfs:comment>European Materials and Modelling Ontology (EMMO)
+
+EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies.
+
+It provides the connection between the physical world, materials characterisation world and materials modelling world.</rdfs:comment>
+        <annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
+
+https://creativecommons.org/licenses/by/4.0/legalcode</annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>
         <rdfs:comment xml:lang="en">Contacts:
 Gerhard Goldbeck
 Goldbeck Consulting Ltd (UK)
@@ -29,11 +34,6 @@ email: gerhard@goldbeck-consulting.com
 Emanuele Ghedini
 University of Bologna (IT)
 email: emanuele.ghedini@unibo.it</rdfs:comment>
-        <rdfs:comment>European Materials and Modelling Ontology (EMMO)
-
-EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies.
-
-It provides the connection between the physical world, materials characterisation world and materials modelling world.</rdfs:comment>
         <rdfs:comment>The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege).</rdfs:comment>
     </owl:Ontology>
     
@@ -98,26 +98,6 @@ It provides the connection between the physical world, materials characterisatio
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
-
-    <!-- http://emmo.info/emmo/middle/physicalistic#EMMO_5b2222df_4da6_442f_8244_96e9e45887d1 -->
-
-    <owl:Class rdf:about="http://emmo.info/emmo/middle/physicalistic#EMMO_5b2222df_4da6_442f_8244_96e9e45887d1"/>
-    
-
-
-    <!-- http://emmo.info/emmo/middle/properties#EMMO_dd4a7f3e_ef56_466c_ac1a_d2716b5f87ec -->
-
-    <owl:Class rdf:about="http://emmo.info/emmo/middle/properties#EMMO_dd4a7f3e_ef56_466c_ac1a_d2716b5f87ec">
-        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/metrology#EMMO_f658c301_ce93_46cf_9639_4eace2c5d1d5"/>
-        <rdfs:comment>A quantitative property is always expresssed as a quantity (i.e. a number and a reference unit). For the EMMO, a nominalistic ontology, there is no property as abstract object.
-
-A property is a sign that stands for an object according to a specific code shared by some observers.
-
-For quantititative properties, one possible code that is shared between the scientific community (the observers) is the SI system of units.</rdfs:comment>
-        <rdfs:comment>Subclasses of &apos;QuantitativeProperty&apos; classify objects according to the type semiosis that is used to connect the property to the object (e.g. by measurement, by convention, by modelling).</rdfs:comment>
-    </owl:Class>
     
 
 
@@ -223,8 +203,8 @@ This is peculiar to EMMO, where quantities (symbolic) are distinct with properti
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://emmo.info/emmo/middle/perceptual#EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527"/>
                     <rdf:Description rdf:about="http://emmo.info/emmo/middle/metrology#EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4"/>
+                    <rdf:Description rdf:about="http://emmo.info/emmo/middle/perceptual#EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527"/>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
@@ -232,6 +212,7 @@ This is peculiar to EMMO, where quantities (symbolic) are distinct with properti
             <rdf:Description rdf:about="http://emmo.info/emmo/middle/metrology#EMMO_3ee80521_3c23_4dd1_935d_9d522614a3e2"/>
             <rdf:Description rdf:about="http://emmo.info/emmo/middle/metrology#EMMO_db716151_6b73_45ff_910c_d182fdcbb4f5"/>
         </owl:disjointUnionOf>
+        <annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>Some examples are &quot;Pa&quot;, &quot;m&quot; and &quot;J&quot;.</annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
         <rdfs:label xml:lang="en">UnitSymbol</rdfs:label>
     </owl:Class>
     
@@ -279,6 +260,7 @@ J stands for N m</annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
     <!-- http://emmo.info/emmo/middle/metrology#EMMO_3f15d200_c97b_42c8_8ac0_d81d150361e2 -->
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/metrology#EMMO_3f15d200_c97b_42c8_8ac0_d81d150361e2">
+        <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>For a given unit system, measured constants are physical constants that are not used to define the unit system. Hence, these constants have to be measured and will therefore be associated with an uncertainty.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <rdfs:label xml:lang="en">MeasuredConstant</rdfs:label>
     </owl:Class>
     
@@ -290,8 +272,8 @@ J stands for N m</annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://emmo.info/emmo/middle/perceptual#EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527"/>
                     <rdf:Description rdf:about="http://emmo.info/emmo/middle/metrology#EMMO_985bec21_989f_4b9e_a4b3_735d88099c3c"/>
+                    <rdf:Description rdf:about="http://emmo.info/emmo/middle/perceptual#EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527"/>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
@@ -346,7 +328,7 @@ barn</annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
     <!-- http://emmo.info/emmo/middle/metrology#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3 -->
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/metrology#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3">
-        <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>&quot;Quantity, in a system of quantities, defined in terms of the base quantities of that system&quot;</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
+        <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>&quot;Quantity, in a system of quantities, defined in terms of the base quantities of that system&quot;.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <rdfs:label xml:lang="en">DerivedQuantity</rdfs:label>
     </owl:Class>
     
@@ -356,9 +338,9 @@ barn</annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/metrology#EMMO_7d2afa66_ae9e_4095_a9bf_421d0be401b6">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/math#EMMO_ae15fb4f_8e4d_41de_a0f9_3997f89ba6a2"/>
-        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/perceptual#EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527"/>
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/metrology#EMMO_985bec21_989f_4b9e_a4b3_735d88099c3c"/>
-        <rdfs:comment>Dimensionless multiplicative unit prefix</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/perceptual#EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527"/>
+        <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>Dimensionless multiplicative unit prefix.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <rdfs:label xml:lang="en">MetricPrefix</rdfs:label>
         <rdfs:seeAlso>https://en.wikipedia.org/wiki/Metric_prefix</rdfs:seeAlso>
     </owl:Class>
@@ -384,7 +366,7 @@ barn</annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
     <!-- http://emmo.info/emmo/middle/metrology#EMMO_89762966_8076_4f7c_b745_f718d653e8e2 -->
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/metrology#EMMO_89762966_8076_4f7c_b745_f718d653e8e2">
-        <rdfs:comment>Physical constant that by definition (after the latest revision of the SI system that was enforsed May 2019) has a known exact numerical value when expressed in SI units.</rdfs:comment>
+        <rdfs:comment>Physical constant used to define a unit system. Hence, when expressed in that unit system they have an exact value with no associated uncertainty.</rdfs:comment>
         <rdfs:label xml:lang="en">ExactConstant</rdfs:label>
     </owl:Class>
     
@@ -404,8 +386,8 @@ barn</annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
     <!-- http://emmo.info/emmo/middle/metrology#EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc -->
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/metrology#EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc">
-        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/perceptual#EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527"/>
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/metrology#EMMO_985bec21_989f_4b9e_a4b3_735d88099c3c"/>
+        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/perceptual#EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527"/>
         <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A symbol that, following SI specifications, describe the physical dimensionality of a physical quantity and the exponents of the base units in a measurement unit.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <rdfs:comment>All physical quantities, with the exception of counts, are derived quantities, which may be written in terms of base quantities according to the equations of physics. The dimensions of the derived quantities are written as products of powers of the dimensions of the base quantities using the equations that relate the derived quantities to the base quantities.
 In general the dimension of any quantity Q is written in the form of a dimensional product,
@@ -689,9 +671,29 @@ So, for the EMMO the symbol &quot;kg&quot; is not a physical quantity but simply
 While the string &quot;1 kg&quot; is a &apos;Physical Quantity&apos;.</rdfs:comment>
         <rdfs:label xml:lang="en">Quantity</rdfs:label>
     </owl:Class>
+    
+
+
+    <!-- http://emmo.info/emmo/middle/physicalistic#EMMO_5b2222df_4da6_442f_8244_96e9e45887d1 -->
+
+    <owl:Class rdf:about="http://emmo.info/emmo/middle/physicalistic#EMMO_5b2222df_4da6_442f_8244_96e9e45887d1"/>
+    
+
+
+    <!-- http://emmo.info/emmo/middle/properties#EMMO_dd4a7f3e_ef56_466c_ac1a_d2716b5f87ec -->
+
+    <owl:Class rdf:about="http://emmo.info/emmo/middle/properties#EMMO_dd4a7f3e_ef56_466c_ac1a_d2716b5f87ec">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/metrology#EMMO_f658c301_ce93_46cf_9639_4eace2c5d1d5"/>
+        <rdfs:comment>A quantitative property is always expresssed as a quantity (i.e. a number and a reference unit). For the EMMO, a nominalistic ontology, there is no property as abstract object.
+
+A property is a sign that stands for an object according to a specific code shared by some observers.
+
+For quantititative properties, one possible code that is shared between the scientific community (the observers) is the SI system of units.</rdfs:comment>
+        <rdfs:comment>Subclasses of &apos;QuantitativeProperty&apos; classify objects according to the type semiosis that is used to connect the property to the object (e.g. by measurement, by convention, by modelling).</rdfs:comment>
+    </owl:Class>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
 
