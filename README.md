@@ -38,7 +38,7 @@ The *Holistic* perspective class introduces the concept of real world objects th
 
 The *Phenomenic* perspective class introduces the concept of real world objects that express of a recognisable pattern in space or time that impress the user. Under this class the EMMO categorises e.g. formal languages, pictures, geometry, mathematics and sounds. Phenomenic objects can be used in a semiotic process as signs.
 
-The *Physics* perspective class introduces the concept of real world objects that have a meaning for the under applied physics perspective.
+The *Physicalistic* perspective class introduces the concept of real world objects that have a meaning for the under applied physics perspective.
 
 The [semiotics](top/semiotics.owl) module introduces the concepts of semiotics and the *Semiosis* process that has a *Sign*, an *Object* and an *Interpreter* as participants.  This forms the basis in EMMO to represent e.g. models, formal languages, theories, information and properties.
 
