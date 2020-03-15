@@ -1,8 +1,8 @@
 Setting up Protégé for working with EMMO-based ontologies
 =========================================================
-Protégé can be downloaded from [https://protege.stanford.edu/products.php#desktop-protege](https://protege.stanford.edu/products.php#desktop-protege).
-
-It is recommended that you go through the following steps:
+After you have installed Protégé (can be downloaded from
+[https://protege.stanford.edu/products.php#desktop-protege](https://protege.stanford.edu/products.php#desktop-protege))
+it is recommended that you go through the following steps:
 
   * To render by label, select `View -> 'Render by label (rdfs:label)'`
 

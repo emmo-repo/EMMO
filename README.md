@@ -28,7 +28,7 @@ The *Perspective* class collects the different ways to represent the objects tha
 
 
 ### Middle Level
-The middle level ontologies act as roots for extending the EMMO towards specific application domains. 
+The middle level ontologies act as roots for extending the EMMO towards specific application domains.
 
 ![Figure 2. The EMMO perspectives.](doc/perspectives.png)
 
@@ -61,6 +61,8 @@ The OWL2-DL sources are available in RDF/XML format.
 ## How To Use It
 In order to be able to view and navigate the EMMO ontology we recommend to download the Protégé editor from [https://protege.stanford.edu/products.php#desktop-protege](https://protege.stanford.edu/products.php#desktop-protege).
 
+See [these instructions](doc/protege-setup.md) for how to set up Protégé for working with EMMO-based ontologies.
+
 The fastest way to access the EMMO is to open the ontology via Protégé via the menu under *File -> Open from URL...* and copy the URL [http://emmo.info/emmo](http://emmo.info/emmo): Protégé will automatically download all the necessary dependencies.
 
 The EMMO hierarchy will be visible only after reasoning inference: use *ctrl-R* to start the reasoner and under the *Entities* tab, select the *Classes* subtab and *Inferred* in the scroll button.
@@ -85,4 +87,3 @@ This work is conducted under the framework of the [SimDOME](https://simdome.eu) 
 This work was conducted under the framework of the [EMMC-CSA](https://emmc.info) project (2016-2019), that has received funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 723867
 
 This work was conducted using the Protégé resource, which is supported by grant GM10331601 from the National Institute of General Medical Sciences of the United States National Institutes of Health.
-
