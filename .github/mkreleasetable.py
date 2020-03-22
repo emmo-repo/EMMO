@@ -50,11 +50,11 @@ def release_table(pages_dir, unstable_version=None):
         lines.append('    <td><a href="%s" target="_blank">%s</a></td>' % (
             emmo_url, emmo_url))
         lines.append('    <td><a href="%s" target="_blank">%s</a></td>' % (
-            emmo_url + '/emmo-inferred', inferred_url))
+            inferred_url, emmo_url + '/emmo-inferred'))
         lines.append('    <td><a href="%s" target="_blank">%s</a></td>' % (
-            version, html_url))
+            html_url, version))
         lines.append('    <td><a href="%s" target="_blank">%s</a></td>' % (
-            version, pdf_url))
+            pdf_url, version))
         lines.append('  </tr>')
         entries.append('\n'.join(lines))
     table = template.format(versions='\n'.join(entries))

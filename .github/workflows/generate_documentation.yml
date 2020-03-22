@@ -3,46 +3,49 @@ name: Generate and copy EMMO documentation to GitHub Pages
 on:
   push:
     branches:
-      [0-9]+.[0-9]+.[0-9]+
-      [0-9]+.[0-9]+.[0-9]+-*
+      - '[0-9]+.[0-9]+.[0-9]+'
+      - '[0-9]+.[0-9]+.[0-9]+-*'
 
 jobs:
 
   build:
     runs-on: ubuntu-latest
-    env:
-      python-version 3.7
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
 
-    - name: Set up Python ${{ python-version }}
+    - name: Setup Python 3.7
       uses: actions/setup-python@v1
       with:
-        python-version: ${{ python-version }}
+        python-version: 3.7
 
-    - name: Checkout GitHub Pages for EMMO-repo
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        GIT_SSH_COMMAND: "ssh -o StrictHostKeyChecking=no"
+    - name: Setup git identity
       run: |
-        eval "$(ssh-agent -s)"
-        ssh-add - <<< "${SSH_PRIVATE_KEY}"
         git config --global user.email "emmo.github.action@github.com"
         git config --global user.name "EMMO GitHub Action"
-        git clone git@github.com:emmo-repo/emmo-repo.github.io.git ~/pages
 
-    - name: Initialise GitHub pages for current version
-      run: |
-        ./.github/init_pages.sh ~/pages ${{ github.ref }}
+    - name: Checkout GitHub Pages for EMMO-repo
+      uses: actions/checkout@v2
+      with:
+        repository: emmo-repo/emmo-repo.github.io
+        path: "pages"
+        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        ssh-strict: no
 
     - name: Install EMMO-python
       run: |
+        pip install --upgrade pip
         pip install EMMO
 
     - name: Generate inferred ontology
       run: |
         echo "TODO"
+
+    - name: Initialise GitHub pages for current version
+      run: |
+        ref=${{ github.ref }}
+        version=${ref##*/}
+        ./.github/init_pages.sh "$PWD/pages" "$version"
 
     - name: Install pandoc 2.1.2
       run: |
@@ -52,8 +55,6 @@ jobs:
 
     - name: Install other dependencies
       run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
         sudo apt-get install graphviz
         sudo apt-get install texlive-xetex
         sudo apt-get install texlive-latex-extra
@@ -61,25 +62,26 @@ jobs:
 
     - name: Generate documentation
       run: |
-        versiondir="~/pages/versions/${{ github.ref }}"
+        ref=${{ github.ref }}
+        version=${ref##*/}
+        versiondir="$PWD/pages/versions/$version"
         inferred="$versiondir/emmo-inferred.owl"
-        d=$(python -c 'import os, emmo; print(os.path.dirname(emmo.__file__))')
-        echo "d=$d"  # xxx
-        cd "$d/examples/emmodoc"
-        ontodoc --template=emmo.md --format=html "$inferred" emmo.html
-        ontodoc --template=emmo.md "$inferred" emmo.pdf
+        prefix=$(python -c 'import sys; print(sys.prefix)')
+        datadir="$prefix/share/EMMO-python"
+        cd "$datadir/examples/emmodoc"
+        ontodoc --template=emmo.md --format=html -p variable=version:${{ github.ref }} "$inferred" emmo.html
+        ontodoc --template=emmo.md -p variable=version:${{ github.ref }} "$inferred" emmo.pdf
         mv emmo.html emmo.pdf "$versiondir"
         cd "$versiondir"
         git add emmo.html emmo.pdf
-        git ci -m 'Added emmo.html and emmo.pdf'
+        git commit -m 'Added emmo.html and emmo.pdf'
         git push
         cd -
 
     - name: Update release table for README file
       run: |
-        python ./.github/mkreleasetable.py ~/pages --unstable-version=${{ github.ref }} --output=~/pages/html/releasetable.html
-        cd ~/pages
+        python ./.github/mkreleasetable.py $PWD/pages --unstable-version=${{ github.ref }} --output=$PWD/pages/html/releasetable.html
+        cd $PWD/pages
         git add html/releasetable.html
-        git ci -m 'Updated releasetable'
-        git push
+        [ -n "$(git status --porcelain -uno)" ] && git commit -m 'Updated releasetable' && git push
         cd -

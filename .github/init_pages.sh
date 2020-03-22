@@ -9,6 +9,8 @@
 #
 # This script should be run from the checked out EMMO root directory.
 #
+set -e
+set -x
 
 pagesdir="$1"
 version="$2"
@@ -23,21 +25,24 @@ if [ ! -d "$versiondir" ]; then
 fi
 
 # Add/update README and LICENSE files
-cp README.md LICENSE.md "$versiondir/."
+cp -f README.md LICENSE.md "$versiondir/."
 cd "$versiondir"
 git add README.md LICENSE.md
-git ci -m 'Added README and LICENSE files'
-git push
+if [ -n "$(git status --porcelain -uno)" ]; then
+    git commit -m 'Added README and LICENSE files'
+    git push
+fi
 cd -
 
 # Check for inferred ontology
-if [ ! -d "$versiondir/emmo-inferred.owl" ]; then
+if [ ! -f "$versiondir/emmo-inferred.owl" ]; then
     echo "Missing inferred ontology for EMMO $version."
     echo "Please do the following:"
     echo "  1. Clone $pagesurl"
     echo "  2. Open http://emmo.info/emmo/$version in Protege"
     echo "  3. Save inferred ontology to in the cloned GitHub Pages repo as:"
-    echo"      versions/$version/emmo-inferred.owl"
+    echo "     versions/$version/emmo-inferred.owl"
     echo "  4. Add, commit and push inferred ontology to GitHub Pages"
+    echo ""
     exit 1
 fi
