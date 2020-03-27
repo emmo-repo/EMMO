@@ -49,7 +49,7 @@ jobs:
 
     - name: Install pandoc 2.1.2
       run: |
-        #sudo apt-get install pandoc
+        #sudo apt-get install pandoc  # we need v2.1.2
         wget https://github.com/jgm/pandoc/releases/download/2.1.2/pandoc-2.1.2-1-amd64.deb
         sudo apt-get install ./pandoc-2.1.2-1-amd64.deb
 
@@ -69,8 +69,8 @@ jobs:
         prefix=$(python -c 'import sys; print(sys.prefix)')
         datadir="$prefix/share/EMMO-python"
         cd "$datadir/examples/emmodoc"
-        ontodoc --template=emmo.md --format=html -p variable=version:${{ github.ref }} "$inferred" emmo.html
-        ontodoc --template=emmo.md -p variable=version:${{ github.ref }} "$inferred" emmo.pdf
+        ontodoc --template=emmo.md --format=html -p variable=version:$version "$inferred" emmo.html
+        ontodoc --template=emmo.md -p variable=version:$version "$inferred" emmo.pdf
         mv emmo.html emmo.pdf "$versiondir"
         cd "$versiondir"
         git add emmo.html emmo.pdf
@@ -80,7 +80,9 @@ jobs:
 
     - name: Update release table for README file
       run: |
-        python ./.github/mkreleasetable.py $PWD/pages --unstable-version=${{ github.ref }} --output=$PWD/pages/html/releasetable.html
+        ref=${{ github.ref }}
+        version=${ref##*/}
+        python ./.github/mkreleasetable.py $PWD/pages --unstable-version=$version --output=$PWD/pages/html/releasetable.html
         cd $PWD/pages
         git add html/releasetable.html
         [ -n "$(git status --porcelain -uno)" ] && git commit -m 'Updated releasetable' && git push
