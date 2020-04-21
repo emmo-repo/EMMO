@@ -25,6 +25,7 @@ EMMO (top level and middle level) is co-authored and (shown in brackets) copyrig
 * Jesper Friis (SINTEF)
 * Adham Hashibon (Fraunhofer IWM)
 * Georg J. Schmitz (ACCESS)
+
 Updated Authors and Contributors will be published with every release.
 
 
@@ -35,11 +36,11 @@ It is a permissive licence which means that everybody can develop domain and app
 EMMO Governance includes overseeing the maintenance and further development of EMMO top- and middle-level ontologies even when funding for the work is obtained from project grants and other sources.
 
 
-It is also strongly encouraged that Domain ontology developments take place within the [EMMO Governance structure](https://docs.google.com/document/d/1_Vlz8Ord-keObAtC_4aIveJDRBSiqDTZ3J2V_Ovhb2U/edit#heading=h.x7hpiijdzgyn) (see in particular [Domain Ontology Groups](https://docs.google.com/document/d/1_Vlz8Ord-keObAtC_4aIveJDRBSiqDTZ3J2V_Ovhb2U/edit#heading=h.1hwhqwfyozfx)).
+It is also strongly encouraged that Domain ontology developments take place within the [EMMO Governance structure](#Governance structure) (see in particular [Domain Ontology Groups](#Domain ontologies governance)).
 
 *Application Ontologies are beyond the scope of EMMO overall governance and any issues arising are the responsibility of application development.*
 
-Governance structure
+### Governance structure
 EMMO governance is organised via [EMMC ASBL](https://emmc.eu); i.e. committees and groups concerned with EMMO governance are constituted within the groups structure of EMMC. EMMO Governance Committee members and Group Leaders are either Individual Full Members of EMMC or belong to an organisational member of EMMC.
 
 
@@ -49,7 +50,8 @@ Based on input by the EMMO Governance Committee and EMMO Domain Ontology Groups,
 
 The governance structure is shown graphically in __Figure 1__.
 
-![Figure 1. EMMO Governance Structure.](EMMO_governance_structure.png)
+__Figure 1__. EMMO Governance Structure.
+![EMMO Governance Structure](EMMO_governance_structure.png)
 
 
 ### EMMO Governance Committee
@@ -80,10 +82,11 @@ Following quality control procedures (to be defined separately) a Domain Ontolog
 ### Organisation of repositories
 The GitHub organisation https://github.com/EMMO-repo/ is the "official" site for development and distribution of EMMO and related domain ontologies and tools. Each of these will have its own git repository within the [EMMO-repo](https://github.com/EMMO-repo/) organisation. The repositories are organised as follows.
 
-### EMMO
+#### EMMO
 * Organised with EMMO top and middle level ontologies in two separate subfolders. All top level ontologies are also included in the top.owl file which can be addressed using URL http://emmo.info/emmo/top.
 * The root folder includes an emmo.owl file containing all EMMO top and middle level ontologies. It can be addressed under the URL http://emmo.info/emmo.
-Domain Ontologies
+
+#### Domain Ontologies
 * EMMO Domain Ontologies will be managed within separate repositories. These ontologies will follow the conventions outlined for EMMO and never duplicate any class or relation defined in EMMO top and middle level. Consistency and dependencies between these ontologies shall be managed via Domain Group meetings, liaising with EMMO Editor Group and decision making by EMMO Governance Committee where required.
 * It is recommended that domain ontologies are organised hierarchically, such that more specialised domain ontologies will import generic domain-level concepts from less specialised domain ontologies.  However, as stated above, detailed management of domain ontologies is beyond the remit of EMMO governance. Rather, general [best practice](http://wiki.opensemanticframework.org/index.php/Ontology_Best_Practices) should be applied.
 
@@ -123,7 +126,7 @@ http://emmo.info/my_domain_1/X.Y.Z/
 
 
 The branching model applied for EMMO (and strongly suggested for domain ontologies and tools) is illustrated in Figure 2 following a set of rules:
-* Never pull to master except for publishing a new release. Master is only changed via pull requests from a release branch reviewed by the EMMO Editors Group. The master branch always hosts the current stable version.
+* Never pull to master. Master is only changed via pull requests from a release branch reviewed by the EMMO Editors Group. The master branch always hosts the current stable version.
 * Each change of the master branch corresponds to a new release, with a unique semantic version number. All versions should be tagged with the version number prefixed with a “v”. For example, the tag for version 1.0.0 should be “v1.0.0”.
 * Work on the next release is done in a separate release branch named after the targeted version. For example, all work towards version 0.9.10 is done in a branch with name “0.9.10”.
 * After a release branch has been merged into master, it is kept, but never changed. The IRI of past versions of the EMMO will be redirected to the corresponding branches.
@@ -131,8 +134,8 @@ The branching model applied for EMMO (and strongly suggested for domain ontologi
 * Features are developed in separate branches derived from a version branch and merged back via reviewed pull requests. Feature branches should be named “issue<N>-<SHORT-MESSAGE>”, where <N> is the issue number and <SHORT-MESSAGE> is a short message describing the feature.
 * Before issuing, the developer should ensure that all unit and other tests pass. At least one EMMO Editor Group member must be assigned.
 
-
-![Figure 2. EMMO branching model. The light blue horizontal boxes correspond to branches,  blue boxes to commits (i.e. snapshots of the repository) and brown boxes to tags.](EMMO_branching_model.png)
+![EMMO branching model](EMMO_branching_model.png)
+__Figure 2__. EMMO branching model. The light blue horizontal boxes correspond to branches,  blue boxes to commits (i.e. snapshots of the repository) and brown boxes to tags.
 
 Only ontologies or tools with version number equal to or larger than 1.0.0 are expected to satisfy all requirements.
 
@@ -161,8 +164,8 @@ where <REPO> is the repository name, <VERSION> is the current version, <PATH> is
 ### Structural conventions
 * New relations (i.e. object properties) must be either mereotopological or semiotical and be a subrelation of any of the relations defined in EMMO Core.
 
-
-![Figure 3. The dialog in Protege for configuring new IRIs. It is found under File->Preferences menu and then the “New Entities” tab. These settings should be used consistently in all EMMO ontologies.](new_entities.png)
+![Configuring new entities in Protege](new_entities.png)
+__Figure 3__. The dialog in Protègè for configuring new IRIs. It is found under File->Preferences menu and then the “New Entities” tab. These settings should be used consistently in all EMMO ontologies.
 
 
 ## Community contributions and interactions
