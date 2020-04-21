@@ -50,9 +50,9 @@ Based on input by the EMMO Governance Committee and EMMO Domain Ontology Groups,
 
 The governance structure is shown graphically in __Figure 1__.
 
-__Figure 1__. EMMO Governance Structure.
-
 ![EMMO Governance Structure](EMMO_governance_structure.png)
+
+_**Figure 1.** EMMO Governance Structure._
 
 
 ### EMMO Governance Committee
@@ -137,7 +137,7 @@ The branching model applied for EMMO (and strongly suggested for domain ontologi
 
 ![EMMO branching model](EMMO_branching_model.png)
 
-__Figure 2__. EMMO branching model. The light blue horizontal boxes correspond to branches,  blue boxes to commits (i.e. snapshots of the repository) and brown boxes to tags.
+_**Figure 2.** EMMO branching model. The light blue horizontal boxes correspond to branches,  blue boxes to commits (i.e. snapshots of the repository) and brown boxes to tags._
 
 Only ontologies or tools with version number equal to or larger than 1.0.0 are expected to satisfy all requirements.
 
@@ -168,7 +168,7 @@ where <REPO> is the repository name, <VERSION> is the current version, <PATH> is
 
 ![Configuring new entities in Protege](new_entities.png)
 
-__Figure 3__. The dialog in Protègè for configuring new IRIs. It is found under File->Preferences menu and then the “New Entities” tab. These settings should be used consistently in all EMMO ontologies.
+_**Figure 3.** The dialog in Protègè for configuring new IRIs. It is found under File->Preferences menu and then the “New Entities” tab. These settings should be used consistently in all EMMO ontologies._
 
 
 ## Community contributions and interactions
