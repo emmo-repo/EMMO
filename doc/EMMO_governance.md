@@ -36,7 +36,7 @@ It is a permissive licence which means that everybody can develop domain and app
 EMMO Governance includes overseeing the maintenance and further development of EMMO top- and middle-level ontologies even when funding for the work is obtained from project grants and other sources.
 
 
-It is also strongly encouraged that Domain ontology developments take place within the [EMMO Governance structure](#Governance-structure) (see in particular [Domain Ontology Groups](#Domain-ontologies-governance)).
+It is also strongly encouraged that Domain ontology developments take place within the EMMO [Governance structure](#Governance-structure) (see in particular [Domain Ontology Groups](#Domain-ontologies-governance)).
 
 *Application Ontologies are beyond the scope of EMMO overall governance and any issues arising are the responsibility of application development.*
 
