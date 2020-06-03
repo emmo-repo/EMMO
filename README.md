@@ -1,7 +1,9 @@
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+
 # The European Materials Modelling Ontology (EMMO)
 
 ## About
-EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) for applied sciences.  It is based on physics, analytical philosophy and information and communication technologies. It has been instigated by materials science and provides the connection between the physical world, the experimental world (materials characterisation) and the simulation world (materials modelling).  It is released under a [Creative Commons license](LICENSE.md).
+EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) for applied sciences.  It is based on physics, analytical philosophy and information and communication technologies. It has been instigated by materials science and provides the connection between the physical world, the experimental world (materials characterisation) and the simulation world (materials modelling).  It is released under a Creative Commons [CC BY 4.0](LICENSE.md) license.
 
 
 ## EMMO in a Nutshell
@@ -70,7 +72,13 @@ The fastest way to access the EMMO is to open the ontology via Protégé via the
 
 The EMMO hierarchy will be visible only after reasoning inference: use *ctrl-R* to start the reasoner and under the *Entities* tab, select the *Classes* subtab and *Inferred* in the scroll button.
 
-It is recommended to use FaCT++ as reasoner. You can select it through the menu *Reasoner*.  See [this instruction](doc/installing_factplusplus.md) for how to install the FaCT++ plugin on Protege 5.5.0 on Windows.
+It is recommended to use FaCT++ as reasoner. You can select it through the menu *Reasoner*.  An instruction for how to install the FaCT++ plugin on Protege 5.5.0 on Windows can be found in the [doc subdirectory](doc/installing_factplusplus.md).
+
+To access EMMO from Python, we recommend [EMMO-python](https://github.com/emmo-repo/EMMO-python/).
+
+
+## Pre-inferred ontology and documentation
+Browsable documentation and pre-inferred versions of EMMO are available on [GitHub Pages](https://emmo-repo.github.io/).
 
 ---
 
