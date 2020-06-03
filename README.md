@@ -28,7 +28,7 @@ The *Perspective* class collects the different ways to represent the objects tha
 
 
 ### Middle Level
-The middle level ontologies act as roots for extending the EMMO towards specific application domains. 
+The middle level ontologies act as roots for extending the EMMO towards specific application domains.
 
 ![Figure 2. The EMMO perspectives.](doc/perspectives.png)
 
@@ -38,7 +38,7 @@ The *Holistic* perspective class introduces the concept of real world objects th
 
 The *Phenomenic* perspective class introduces the concept of real world objects that express of a recognisable pattern in space or time that impress the user. Under this class the EMMO categorises e.g. formal languages, pictures, geometry, mathematics and sounds. Phenomenic objects can be used in a semiotic process as signs.
 
-The *Physics* perspective class introduces the concept of real world objects that have a meaning for the under applied physics perspective.
+The *Physicalistic* perspective class introduces the concept of real world objects that have a meaning for the under applied physics perspective.
 
 The [semiotics](top/semiotics.owl) module introduces the concepts of semiotics and the *Semiosis* process that has a *Sign*, an *Object* and an *Interpreter* as participants.  This forms the basis in EMMO to represent e.g. models, formal languages, theories, information and properties.
 
@@ -57,16 +57,20 @@ The overall middle level ontoloiges are collected by the [emmo](emmo.owl) ontolo
 
 The OWL2-DL sources are available in RDF/XML format.
 
+A description of the EMMO Governance, organisation of related repositories,
+conventions and how to contribute can be found [here](doc/EMMO_governance.md).
+
 
 ## How To Use It
 In order to be able to view and navigate the EMMO ontology we recommend to download the Protégé editor from [https://protege.stanford.edu/products.php#desktop-protege](https://protege.stanford.edu/products.php#desktop-protege).
+
+See [these instructions](doc/protege-setup.md) for how to set up Protégé for working with EMMO-based ontologies.
 
 The fastest way to access the EMMO is to open the ontology via Protégé via the menu under *File -> Open from URL...* and copy the URL [http://emmo.info/emmo](http://emmo.info/emmo): Protégé will automatically download all the necessary dependencies.
 
 The EMMO hierarchy will be visible only after reasoning inference: use *ctrl-R* to start the reasoner and under the *Entities* tab, select the *Classes* subtab and *Inferred* in the scroll button.
 
-It is recommended to use FaCT++ as reasoner. You can select it through the menu *Reasoner*.  An instruction for how to install the FaCT++ plugin on Protege 5.5.0 on Windows can be found in the [doc subdirectory](doc/installing_factplusplus.md).
-
+It is recommended to use FaCT++ as reasoner. You can select it through the menu *Reasoner*.  See [this instruction](doc/installing_factplusplus.md) for how to install the FaCT++ plugin on Protege 5.5.0 on Windows.
 
 ---
 
@@ -85,4 +89,3 @@ This work is conducted under the framework of the [SimDOME](https://simdome.eu) 
 This work was conducted under the framework of the [EMMC-CSA](https://emmc.info) project (2016-2019), that has received funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 723867
 
 This work was conducted using the Protégé resource, which is supported by grant GM10331601 from the National Institute of General Medical Sciences of the United States National Institutes of Health.
-
