@@ -59,6 +59,9 @@ The overall middle level ontoloiges are collected by the [emmo](emmo.owl) ontolo
 
 The OWL2-DL sources are available in RDF/XML format.
 
+A description of the EMMO Governance, organisation of related repositories,
+conventions and how to contribute can be found [here](doc/EMMO_governance.md).
+
 
 ## How To Use It
 In order to be able to view and navigate the EMMO ontology we recommend to download the Protégé editor from [https://protege.stanford.edu/products.php#desktop-protege](https://protege.stanford.edu/products.php#desktop-protege).
@@ -68,6 +71,7 @@ See [these instructions](doc/protege-setup.md) for how to set up Protégé for w
 The fastest way to access the EMMO is to open the ontology via Protégé via the menu under *File -> Open from URL...* and copy the URL [http://emmo.info/emmo](http://emmo.info/emmo): Protégé will automatically download all the necessary dependencies.
 
 The EMMO hierarchy will be visible only after reasoning inference: use *ctrl-R* to start the reasoner and under the *Entities* tab, select the *Classes* subtab and *Inferred* in the scroll button.
+
 It is recommended to use FaCT++ as reasoner. You can select it through the menu *Reasoner*.  An instruction for how to install the FaCT++ plugin on Protege 5.5.0 on Windows can be found in the [doc subdirectory](doc/installing_factplusplus.md).
 
 To access EMMO from Python, we recommend [EMMO-python](https://github.com/emmo-repo/EMMO-python/).
@@ -75,7 +79,6 @@ To access EMMO from Python, we recommend [EMMO-python](https://github.com/emmo-r
 
 ## Pre-inferred ontology and documentation
 Browsable documentation and pre-inferred versions of EMMO are available on [GitHub Pages](https://emmo-repo.github.io/).
-
 
 ---
 
