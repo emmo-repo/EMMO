@@ -61,6 +61,25 @@ It provides the connection between the physical world, materials characterisatio
         <rdfs:range rdf:resource="http://emmo.info/emmo/middle/metrology#EMMO_18ce5200_00f5_45bb_8c6f_6fb128cd41ae"/>
         <rdfs:comment>Relates the physical quantity to its unit through spatial direct parthood.</rdfs:comment>
         <rdfs:label xml:lang="en">hasReferenceUnit</rdfs:label>
+        <owl:versionInfo>In EMMO version 1.0.0-alpha2, physical quantities used the hasReferenceUnit object property to relate them to their units via physical dimensionality. This was simplified in 1.0.0-alpha3 in order to make reasoning faster.
+
+The restriction (e.g. for the physical quantity Length)
+
+    Length hasReferenceUnit only (hasPhysicsDimension only LengthDimension)
+
+was in 1.0.0-alpha3 changed to
+
+    Length hasPhysicsDimension some LengthDimension
+
+Likewise were the universal restrictions on the corresponding unit changed to excistential. E.g.
+
+    Metre hasPhysicsDimension only LengthDimension
+
+was changed to
+
+    Metre hasPhysicsDimension some LengthDimension
+
+The name of this class was also changed from PhysicsDimension to PhysicalDimension.</owl:versionInfo>
     </owl:ObjectProperty>
     
 
