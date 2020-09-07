@@ -1,4 +1,4 @@
-# The European Materials Modelling Ontology (EMMO)
+# The European Materials & Modelling Ontology (EMMO)
 
 ## About
 EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) for applied sciences.  It is based on physics, analytical philosophy and information and communication technologies. It has been instigated by materials science and provides the connection between the physical world, the experimental world (materials characterisation) and the simulation world (materials modelling).  It is released under a [Creative Commons license](LICENSE.md).
