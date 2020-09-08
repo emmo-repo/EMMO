@@ -1,4 +1,4 @@
-name: Check that EMMO confirms to our conventions
+name: Check conventions
 on: [push]
 
 jobs:
@@ -24,4 +24,4 @@ jobs:
 
     - name: Check EMMO
       run: |
-        emmocheck --local --verbose --check-imported emmo.owl
+        emmocheck --local --verbose --check-imported --skip=test_*_dimension emmo.owl
