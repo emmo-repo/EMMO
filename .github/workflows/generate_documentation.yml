@@ -1,0 +1,89 @@
+name: Generate and copy EMMO documentation to GitHub Pages
+
+on:
+  push:
+    branches:
+      - '[0-9]+.[0-9]+.[0-9]+'
+      - '[0-9]+.[0-9]+.[0-9]+-*'
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+
+    - name: Setup git identity
+      run: |
+        git config --global user.email "emmo.github.action@github.com"
+        git config --global user.name "EMMO GitHub Action"
+
+    - name: Checkout GitHub Pages for EMMO-repo
+      uses: actions/checkout@v2
+      with:
+        repository: emmo-repo/emmo-repo.github.io
+        path: "pages"
+        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        ssh-strict: no
+
+    - name: Install EMMO-python
+      run: |
+        pip install --upgrade pip
+        pip install EMMO
+
+    - name: Generate inferred ontology
+      run: |
+        echo "TODO"
+
+    - name: Initialise GitHub pages for current version
+      run: |
+        ref=${{ github.ref }}
+        version=${ref##*/}
+        ./.github/init_pages.sh "$PWD/pages" "$version"
+
+    - name: Install pandoc 2.1.2
+      run: |
+        #sudo apt-get install pandoc  # we need v2.1.2
+        wget https://github.com/jgm/pandoc/releases/download/2.1.2/pandoc-2.1.2-1-amd64.deb
+        sudo apt-get install ./pandoc-2.1.2-1-amd64.deb
+
+    - name: Install other dependencies
+      run: |
+        sudo apt-get install graphviz
+        sudo apt-get install texlive-xetex
+        sudo apt-get install texlive-latex-extra
+        pip install semver
+
+    - name: Generate documentation
+      run: |
+        ref=${{ github.ref }}
+        version=${ref##*/}
+        versiondir="$PWD/pages/versions/$version"
+        inferred="$versiondir/emmo-inferred.owl"
+        prefix=$(python -c 'import sys; print(sys.prefix)')
+        datadir="$prefix/share/EMMO-python"
+        cd "$datadir/examples/emmodoc"
+        ontodoc --template=emmo.md --format=html -p variable=version:$version "$inferred" emmo.html
+        ontodoc --template=emmo.md -p variable=version:$version "$inferred" emmo.pdf
+        mv emmo.html emmo.pdf "$versiondir"
+        cd "$versiondir"
+        git add emmo.html emmo.pdf
+        git commit -m 'Added emmo.html and emmo.pdf'
+        git push
+        cd -
+
+    - name: Update release table for README file
+      run: |
+        ref=${{ github.ref }}
+        version=${ref##*/}
+        python ./.github/mkreleasetable.py $PWD/pages --unstable-version=$version --output=$PWD/pages/html/releasetable.html
+        cd $PWD/pages
+        git add html/releasetable.html
+        [ -n "$(git status --porcelain -uno)" ] && git commit -m 'Updated releasetable' && git push
+        cd -
