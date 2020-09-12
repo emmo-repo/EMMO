@@ -10,6 +10,8 @@
     <owl:Ontology rdf:about="http://emmo.info/emmo/middle/manufacturing">
         <owl:versionIRI rdf:resource="http://emmo.info/emmo/1.0.0-alpha2/middle/manufacturing"/>
         <owl:imports rdf:resource="http://emmo.info/emmo/1.0.0-alpha2/middle/holistic"/>
+        <owl:imports rdf:resource="http://emmo.info/emmo/1.0.0-alpha2/middle/materials"/>
+        <owl:imports rdf:resource="http://emmo.info/emmo/1.0.0-alpha2/middle/physicalistic"/>
         <annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)
 
 https://creativecommons.org/licenses/by/4.0/legalcode</annotations:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc>
@@ -54,7 +56,32 @@ Version 1.0.0-alpha2</owl:versionInfo>
 
     <owl:Class rdf:about="http://emmo.info/emmo/middle/manufacturing#EMMO_494b372c_cfdf_47d3_a4de_5e037c540de8">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/manufacturing#EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad"/>
-        <rdfs:label xml:lang="en">Component</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/holistic#EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/manufacturing#EMMO_8786cb47_8e1f_4968_9b15_f6d41fc51252"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>An engineered object which is instrumental for reaching a particular purpose through its characteristic functioning process, with particular reference to mechanical or electronic equipment.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
+        <rdfs:comment>From Old French &quot;deviser&quot;, meaning: arrange, plan, contrive.
+
+Literally &quot;dispose in portions,&quot; from Vulgar Latin &quot;divisare&quot;, frequentative of Latin dividere, meaning &quot;to divide&quot;</rdfs:comment>
+        <rdfs:label xml:lang="en">Device</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/emmo/middle/manufacturing#EMMO_71d1c8f0_c6e3_44b5_a4b6_1b74ff35698a -->
+
+    <owl:Class rdf:about="http://emmo.info/emmo/middle/manufacturing#EMMO_71d1c8f0_c6e3_44b5_a4b6_1b74ff35698a">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/manufacturing#EMMO_a4d66059_5dd3_4b90_b4cb_10960559441b"/>
+        <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A manufacturing process whose product is the result of the combination of more substances.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
+        <annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>Synthesis of materials, the preparation of a cake.</annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
+        <rdfs:label xml:lang="en">ContinuousManufacturing</rdfs:label>
     </owl:Class>
     
 
@@ -72,10 +99,21 @@ Version 1.0.0-alpha2</owl:versionInfo>
                 <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/manufacturing#EMMO_a4d66059_5dd3_4b90_b4cb_10960559441b"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A &apos;physical&apos; that stands for a real world object that has been manufacturedfor a particular purpose.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
+        <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A &apos;physical&apos; that stands for a real world object that has been designed and manufactured for a particular purpose.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
         <annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>Car, tire, composite material.</annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
         <rdfs:comment>The &apos;Engineered&apos; branch represents real world objects that show some level of complexity/heterogeneity in their composition, and are made for a specific use.</rdfs:comment>
         <rdfs:label xml:lang="en">Engineered</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://emmo.info/emmo/middle/manufacturing#EMMO_8786cb47_8e1f_4968_9b15_f6d41fc51252 -->
+
+    <owl:Class rdf:about="http://emmo.info/emmo/middle/manufacturing#EMMO_8786cb47_8e1f_4968_9b15_f6d41fc51252">
+        <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/manufacturing#EMMO_a4d66059_5dd3_4b90_b4cb_10960559441b"/>
+        <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>A manufacturing process aimed to the production of a device made of specific components.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
+        <annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>Assemblying a bicycle, building a car.</annotations:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
+        <rdfs:label xml:lang="en">DiscreteManufacturing</rdfs:label>
     </owl:Class>
     
 
@@ -90,22 +128,27 @@ Version 1.0.0-alpha2</owl:versionInfo>
                 <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/manufacturing#EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>The process of transforming raw materials into a product by the use of manual labor, machinery or chemical/biological processes.</annotations:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9>
+        <rdfs:comment>From Latin manufacture: &quot;made by hand&quot;.</rdfs:comment>
         <rdfs:label xml:lang="en">Manufacturing</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://emmo.info/emmo/middle/manufacturing#EMMO_e775e341_5687_4d45_b50c_379b098a8c26 -->
+    <!-- http://emmo.info/emmo/middle/materials#EMMO_ec7464a9_d99d_45f8_965b_4e9230ea8356 -->
 
-    <owl:Class rdf:about="http://emmo.info/emmo/middle/manufacturing#EMMO_e775e341_5687_4d45_b50c_379b098a8c26">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://emmo.info/emmo/top/physical#EMMO_f68030be_94b8_4c61_a161_886468558054"/>
-                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/manufacturing#EMMO_494b372c_cfdf_47d3_a4de_5e037c540de8"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
+    <owl:Class rdf:about="http://emmo.info/emmo/middle/materials#EMMO_ec7464a9_d99d_45f8_965b_4e9230ea8356">
         <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/manufacturing#EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad"/>
-        <rdfs:label xml:lang="en">System</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://emmo.info/emmo/middle/holistic#EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/manufacturing#EMMO_71d1c8f0_c6e3_44b5_a4b6_1b74ff35698a"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
 </rdf:RDF>
 
