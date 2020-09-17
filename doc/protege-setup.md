@@ -4,7 +4,7 @@ After you have installed Protégé (can be downloaded from
 [https://protege.stanford.edu/products.php#desktop-protege](https://protege.stanford.edu/products.php#desktop-protege))
 it is recommended that you go through the following steps:
 
-  * To render by label, select `View -> 'Render by label (rdfs:label)'`
+  * To render by label, select `View -> 'Render by annotation property' -> skos:prefLabel`.
 
   * Install the FaCT++ reasoner:
       1. Select `File -> 'Check for plugins...'`
