@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Usage: update_pages.sh [-g -p -v]
+# Usage: update_pages.sh [-g -l -v]
 #
 # This is the main script that updates GitHub Pages.
 #

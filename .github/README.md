@@ -14,7 +14,8 @@ Remove the -n option if you also want to push possible changes to
 GitHub Pages.
 
 
-**Sub-directories**
+Directory content
+-----------------
   - [workflows](workflows): YAML scripts defining GitHub Actions in response
     to push requests.
   - [scripts](scripts): Shell and puthon scripts for testing and creating
@@ -44,7 +45,7 @@ Scripts
 -------
 Scripts found in the [scripts](scripts) sub-directory:
 
-### update_pages.sh [-gpv]
+### update_pages.sh [-glv]
 
 Main script that calls the other scripts to update GitHub Pages.
 
