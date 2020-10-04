@@ -83,7 +83,7 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
         <rdfs:comment xml:lang="en">URL to corresponding entry in the IEC Electropedia online database of ISO 80000 terms and definitions of quantities and units available at http://www.electropedia.org/.</rdfs:comment>
         <rdfs:seeAlso>http://www.electropedia.org/</rdfs:seeAlso>
         <skos:prefLabel xml:lang="en">IECEntry</skos:prefLabel>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#seeAlso"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#isDefinedBy"/>
     </owl:AnnotationProperty>
     
 
@@ -125,8 +125,8 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
         <EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a xml:lang="en">3‑1.1  (refers to length)</EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a>
         <rdfs:comment xml:lang="en">Corresponding item number in ISO 80 000.</rdfs:comment>
         <rdfs:seeAlso>https://www.iso.org/obp/ui/#iso:std:iso:80000:-1:ed-1:v1:en</rdfs:seeAlso>
-        <skos:prefLabel xml:lang="en">ISO80000Entry</skos:prefLabel>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#seeAlso"/>
+        <skos:prefLabel xml:lang="en">ISO80000Ref</skos:prefLabel>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#isDefinedBy"/>
     </owl:AnnotationProperty>
     
 
@@ -246,6 +246,18 @@ email: emanuele.ghedini@unibo.it</rdfs:comment>
 
     <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#isDefinedBy">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#seeAlso"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#seeAlso -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#seeAlso">
+        <rdfs:comment xml:lang="en">EMMO applies the naming convension to its sub-properties of rdfs:seeAlso that their label must end with one of the following terms:
+  - &apos;Match&apos;: resolvable URLs to corresponding entity in another ontology
+  - &apos;Entry&apos;: resolvable URLs to a human readable resource describing the subject
+  - &apos;Ref&apos;: non-resolvable reference to a human readable resource describing the subject</rdfs:comment>
+        <rdfs:comment xml:lang="en">Indicate a resource that might provide additional information about the subject resource.</rdfs:comment>
     </rdf:Description>
     
 
