@@ -47,8 +47,7 @@ done < "$versionsfile"
 
 
 # Generate index.html
-d=$(date +%F)
 sed -e "/\${versions}/ r $tmpfile" \
     -e 's/\${versions}//' \
-    -e "s|\(<meta name=\"dcterms.date\" content=\"\)[.0-9]*\">|\1${d}\">|" \
+    -e "s|\${date}|$(date +%F)|" \
     "$ghdir/pages-index.html.in" > "$pagesdir/index.html"
