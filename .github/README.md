@@ -71,22 +71,22 @@ Options:
   - -r Recreate existing sub-directories and their content.
   - -v Verbose.  Print commands as they are executed.
 
-### makedoc.sh <inferred> <version> <outdir>
+### makedoc.sh inferred version outdir
 
 Generates EMMO documentation in html and pdf formats.
 
 Arguments:
-  - <inferred>: path to inferred ontology
-  - <version>: version to generate documentation for
-  - <outdir>: output directory
+  - inferred: path to inferred ontology
+  - version: version to generate documentation for
+  - outdir: output directory
 
-### fixinferred.sh <owlfile>
+### fixinferred.sh owlfile
 
 Fix inferred ontology modifying the target file in-place.
 It is safe to run this script multiple times on the same file.
 
 Arguments:
-  - <owlfile>: Inferred ontology up fix.
+  - owlfile: Inferred ontology up fix.
 
 
 
