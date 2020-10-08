@@ -43,7 +43,7 @@ The *Perceptual* perspective class introduces the concept of real world objects 
 
 The *Physicalistic* perspective class introduces the concept of real world objects that have a meaning for the under applied physics perspective.
 
-The [semiotics](midlle/semiotics.owl) module introduces the concepts of semiotics and the *Semiosis* process that has a *Sign*, an *Object* and an *Interpreter* as participants.  This forms the basis in EMMO to represent e.g. models, formal languages, theories, information and properties.
+The [semiotics](middle/semiotics.owl) module introduces the concepts of semiotics and the *Semiosis* process that has a *Sign*, an *Object* and an *Interpreter* as participants.  This forms the basis in EMMO to represent e.g. models, formal languages, theories, information and properties.
 
 ![Figure 3. The semiotic level.](doc/semiotics.png)
 
