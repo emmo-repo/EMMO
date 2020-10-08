@@ -43,7 +43,7 @@ The *Perceptual* perspective class introduces the concept of real world objects 
 
 The *Physicalistic* perspective class introduces the concept of real world objects that have a meaning for the under applied physics perspective.
 
-The [semiotics](top/semiotics.owl) module introduces the concepts of semiotics and the *Semiosis* process that has a *Sign*, an *Object* and an *Interpreter* as participants.  This forms the basis in EMMO to represent e.g. models, formal languages, theories, information and properties.
+The [semiotics](midlle/semiotics.owl) module introduces the concepts of semiotics and the *Semiosis* process that has a *Sign*, an *Object* and an *Interpreter* as participants.  This forms the basis in EMMO to represent e.g. models, formal languages, theories, information and properties.
 
 ![Figure 3. The semiotic level.](doc/semiotics.png)
 
@@ -54,9 +54,9 @@ Imposing all relations to fall under mereotopology or semiotics is how the EMMO 
 
 
 ## Repository Description
-You can find the EMMO ontology at [http://emmo.info/emmo](http://emmo.info/emmo).  The basic structure of the EMMO is collected by the [top](top.owl) ontology.
+You can find the EMMO ontology at [http://emmo.info/emmo](http://emmo.info/emmo).  The basic structure of the EMMO is collected by the [top](top/top.owl) ontology.
 
-The overall middle level ontoloiges are collected by the [emmo](emmo.owl) ontology.
+The overall middle level ontologies are collected by the [emmo](emmo.owl) ontology.
 
 The OWL2-DL sources are available in RDF/XML format.
 
