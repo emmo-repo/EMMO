@@ -12,7 +12,7 @@ The EMMO ontology is structured in shells, expressed by specific ontology fragme
 
 
 ### Top Level
-The [EMMO top level](top.owl) is the group of fundamental axioms that constitute the philosophical foundation of the EMMO.  Adopting a physicalistic/nominalistic perspective, the EMMO defines real world objects as 4D objects that are always extended in space and time (i.e. real world objects cannot be spaceless nor timeless).  For this reason abstract objects, i.e. objects that does not extend in space and time, are forbidden in the EMMO.
+The [EMMO top level](top/top.owl) is the group of fundamental axioms that constitute the philosophical foundation of the EMMO.  Adopting a physicalistic/nominalistic perspective, the EMMO defines real world objects as 4D objects that are always extended in space and time (i.e. real world objects cannot be spaceless nor timeless).  For this reason abstract objects, i.e. objects that does not extend in space and time, are forbidden in the EMMO.
 
 EMMO is strongly based on the analytical philosophy dicipline semiotic.
 The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. real world objects (e.g. symbol or sign) that stand for other real world objects that are to be interpreted by an agent. These symbols appear in actions (semiotic processes) meant to communicate meaning by establishing relationships between symbols (signs).
@@ -43,7 +43,7 @@ The *Perceptual* perspective class introduces the concept of real world objects 
 
 The *Physicalistic* perspective class introduces the concept of real world objects that have a meaning for the under applied physics perspective.
 
-The [semiotics](top/semiotics.owl) module introduces the concepts of semiotics and the *Semiosis* process that has a *Sign*, an *Object* and an *Interpreter* as participants.  This forms the basis in EMMO to represent e.g. models, formal languages, theories, information and properties.
+The [semiotics](middle/semiotics.owl) module introduces the concepts of semiotics and the *Semiosis* process that has a *Sign*, an *Object* and an *Interpreter* as participants.  This forms the basis in EMMO to represent e.g. models, formal languages, theories, information and properties.
 
 ![Figure 3. The semiotic level.](doc/semiotics.png)
 
@@ -54,9 +54,9 @@ Imposing all relations to fall under mereotopology or semiotics is how the EMMO 
 
 
 ## Repository Description
-You can find the EMMO ontology at [http://emmo.info/emmo](http://emmo.info/emmo).  The basic structure of the EMMO is collected by the [top](top.owl) ontology.
+You can find the EMMO ontology at [http://emmo.info/emmo](http://emmo.info/emmo).  The basic structure of the EMMO is collected by the [top](top/top.owl) ontology.
 
-The overall middle level ontoloiges are collected by the [emmo](emmo.owl) ontology.
+The overall middle level ontologies are collected by the [emmo](emmo.owl) ontology.
 
 The OWL2-DL sources are available in RDF/XML format.
 
