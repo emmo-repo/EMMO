@@ -1,0 +1,27 @@
+name: Check conventions
+on: [push]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 1
+      matrix:
+        python-version: [3.7]
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install EMMO-python
+      run: |
+        pip install EMMO
+
+    - name: Check EMMO
+      run: |
+        emmocheck --local --verbose --check-imported --configfile=.github/emmocheck_conf.yml --skip=test_*_dimension emmo.owl

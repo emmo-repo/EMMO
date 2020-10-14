@@ -1,0 +1,55 @@
+name: Update GitHub Pages
+
+on:
+  push:
+    branches:
+      - '[0-9]+.[0-9]+.[0-9]+'
+      - '[0-9]+.[0-9]+.[0-9]+-*'
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup git identity
+      run: |
+        git config --global user.email "emmo.github.action@github.com"
+        git config --global user.name "EMMO GitHub Action"
+
+    - name: Setup Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+
+    - name: Install EMMO-python
+      run: |
+        pip install --upgrade pip
+        pip install EMMO
+
+    - name: Install pandoc 2.1.2
+      run: |
+        #sudo apt-get install pandoc  # we need v2.1.2
+        wget https://github.com/jgm/pandoc/releases/download/2.1.2/pandoc-2.1.2-1-amd64.deb
+        sudo apt-get install ./pandoc-2.1.2-1-amd64.deb
+
+    - name: Install other dependencies
+      run: |
+        sudo apt-get install graphviz
+        sudo apt-get install texlive-xetex
+        sudo apt-get install texlive-latex-extra
+        pip install semver
+
+    - name: Checkout GitHub Pages for EMMO-repo
+      uses: actions/checkout@v2
+      with:
+        repository: emmo-repo/emmo-repo.github.io
+        path: ".github/pages"
+        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        ssh-strict: no
+
+    - name: Update GitHub Pages
+      run: |
+        .github/scripts/update_pages.sh
