@@ -1,0 +1,130 @@
+@prefix : <http://emmo.info/emmo/middle#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix top: <http://emmo.info/emmo/top#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <http://emmo.info/emmo/middle/holistic> .
+
+<http://emmo.info/emmo/middle/holistic> rdf:type owl:Ontology ;
+                                         owl:versionIRI <http://emmo.info/emmo/1.0.0-beta/middle/holistic> ;
+                                         owl:imports <http://emmo.info/emmo/1.0.0-beta/top> ;
+                                         dcterms:abstract """European Materials & Modelling Ontology (EMMO)
+
+EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies.
+
+It provides the connection between the physical world, materials characterisation world and materials modelling world.
+
+EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)."""@en ;
+                                         dcterms:contributor "Access, DE" ,
+                                                             "Fraunhofer IWM, DE" ,
+                                                             "Goldbeck Consulting Ltd (UK)" ,
+                                                             "SINTEF, NO" ,
+                                                             "University of Bologna, IT" ;
+                                         dcterms:creator "Adham Hashibon" ,
+                                                         "Emanuele Ghedini" ,
+                                                         "Georg Schmitz" ,
+                                                         "Gerhard Goldbeck" ,
+                                                         "Jesper Friis" ;
+                                         dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+                                         dcterms:publisher "EMMC ASBL" ;
+                                         dcterms:title "European Materials & Modelling Ontology"@en ;
+                                         rdfs:comment """Contacts:
+Gerhard Goldbeck
+Goldbeck Consulting Ltd (UK)
+email: gerhard@goldbeck-consulting.com
+
+Emanuele Ghedini
+University of Bologna (IT)
+email: emanuele.ghedini@unibo.it"""@en ,
+                                                      "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
+                                         owl:versionInfo "1.0.0-beta" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://emmo.info/emmo/middle#EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a
+:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf top:EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
+                                           rdfs:domain :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
+                                           rdfs:range :EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d ;
+                                           top:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between a process and an object participating to it."@en ;
+                                           rdfs:comment "Participation is a parthood relation: you must be part (and then be connected) of the process to contribute to it."@en ,
+                                                        "Participation is not under direct parthood since a process is not strictly related to reductionism, but it's a way to categorize temporal regions by the interpreters."@en ;
+                                           skos:prefLabel "hasParticipant"@en .
+
+
+###  http://emmo.info/emmo/middle#EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1
+:EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ,
+                                                              top:EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+                                           skos:prefLabel "hasProperParticipant"@en .
+
+
+###  http://emmo.info/emmo/top#EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f
+top:EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f rdf:type owl:ObjectProperty .
+
+
+###  http://emmo.info/emmo/top#EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
+top:EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://emmo.info/emmo/middle#EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62
+:EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce
+                                                                               :EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d
+                                                                             )
+                                                               ] ;
+                                           rdfs:subClassOf top:EMMO_49267eba_5548_4163_8f36_518d65b583f9 ;
+                                           top:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A union of classes that categorize physicals under a holistic perspective: the interest is on the whole 4D object (process) and the role of its 4D parts (participants) without going further into specifying the spatial hierarchy or the temporal position of each part."@en ;
+                                           rdfs:comment """An holistic perspective considers each part of the whole as equally important, without the need of a granularity hierarchy (in time or space).
+
+A molecule of a body can have role in the body evolution, without caring if its part of a specific organ and without specifying the time interval in which this role occurred.
+
+This class allows the picking of parts without necessarily going trough a rigid hierarchy of spatial compositions (e.g. body -> organ -> cell -> molecule) or temporal composition."""@en ,
+                                                        "Holism (from Greek ὅλος holos \"all, whole, entire\")."@en ;
+                                           skos:prefLabel "Holistic"@en .
+
+
+###  http://emmo.info/emmo/middle#EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce
+:EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce rdf:type owl:Class ;
+                                           rdfs:subClassOf top:EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
+                                                             owl:someValuesFrom :EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d
+                                                           ] ;
+                                           top:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A temporal part of a physical that identifies a particular type of evolution in time."@en ;
+                                           rdfs:comment "A 'Process' is always a 'Physical', since a 'Void' does not have elements that evolves in time."@en ,
+                                                        """Following the common definition of process, the reader may think that every 'Physical' should be a process, since every 4D object always has a time dimension. 
+
+However, in the EMMO we restrict the meaning of the word process to 'Physical'-s whose evolution in time have a particular meaning for the ontologist (i.e. every 4D object unfolds in time, but not every 4D object may be of interest for the ontologist). 
+
+A 'Process' is not only something that unfolds in time (which is automatically represented in a 4D ontology), but something that has a meaning for the ontologist (i.e. that the ontologist can separate from the rest of the 4D physical for any reason)."""@en ;
+                                           skos:prefLabel "Process"@en .
+
+
+###  http://emmo.info/emmo/middle#EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d
+:EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d rdf:type owl:Class ;
+                                           rdfs:subClassOf top:EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce
+                                                           ] ;
+                                           top:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A portion of a 'Process' that participates to the process with a specific role."@en ;
+                                           rdfs:comment """In the EMMO the relation of participation to a process falls under mereotopology.
+
+Since topological connection means causality, then the only way for a real world object to participate to a process is to be a part of it."""@en ;
+                                           skos:prefLabel "Participant"@en .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
