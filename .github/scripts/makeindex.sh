@@ -19,6 +19,7 @@ pagesdir="$ghdir/pages"
 versionsfile="$ghdir/versions.txt"
 tmpfile="$tmpdir/versions_html_table.txt"
 
+mkdir -p "$tmpdir"
 
 # Initiate github pages
 "$rootdir/.github/scripts/init_pages.sh"
