@@ -37,13 +37,21 @@ sed -n '/<owl:Ontology/,/<\/owl:Ontology/p' "$rootdir/emmo.owl" | \
         -e '/owl:imports/d' >> "$tmpfile"
 
 # -- add all axioms
-if grep -q '</owl:Ontology' "$filename"; then
-    sed -e '1,/<\/owl:Ontology/d' \
-        -e '/<\/rdf:RDF>/d' "$filename" >> "$tmpfile"
-else
-    sed -e '1,/<owl:Ontology/d' \
-        -e '/<\/rdf:RDF>/d' "$filename" >> "$tmpfile"
-fi
+grep -q '</owl:Ontology' "$filename" && \
+    range='1,/<\/owl:Ontology/d' || \
+    range='1,/<owl:Ontology/d'
+sed -e "$range" \
+    -e '/owl#Nothing -->/,/<\/rdf:Description>/d' \
+    -e '/<\/rdf:RDF>/d' "$filename" >> "$tmpfile"
+
+
+#if grep -q '</owl:Ontology' "$filename"; then
+#    sed -e '1,/<\/owl:Ontology/d' \
+#        -e '/<\/rdf:RDF>/d' "$filename" >> "$tmpfile"
+#else
+#    sed -e '1,/<owl:Ontology/d' \
+#        -e '/<\/rdf:RDF>/d' "$filename" >> "$tmpfile"
+#fi
 
 # -- comment before additional fixes by us
 cat <<EOF >> "$tmpfile"
