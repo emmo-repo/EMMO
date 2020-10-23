@@ -1,7 +1,6 @@
-@prefix : <http://emmo.info/emmo/middle#> .
+@prefix : <http://emmo.info/emmo#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix top: <http://emmo.info/emmo/top#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -114,7 +113,7 @@ The label of this class was also changed from PhysicsDimension to PhysicalDimens
                                            owl:disjointUnionOf ( :EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3
                                                                  :EMMO_acaaa124_3dde_48b6_86e6_6ec6f364f408
                                                                ) ;
-                                           top:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Mathematical' entity that is made of a 'Numeral' and a 'MeasurementUnit' defined by a physical law, connected to a physical entity through a model perspective. Measurement is done according to the same model."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Mathematical' entity that is made of a 'Numeral' and a 'MeasurementUnit' defined by a physical law, connected to a physical entity through a model perspective. Measurement is done according to the same model."@en ;
                                            rdfs:comment """In the same system of quantities, dim ρB = ML−3 is the quantity dimension of mass concentration of component B, and ML−3 is also the quantity dimension of mass density, ρ.
 ISO 80000-1"""@en ,
                                                         """Measured or simulated 'physical propertiy'-s are always defined by a physical law, connected to a physical entity through a model perspective and measurement is done according to the same model.
@@ -138,7 +137,7 @@ ISO 80000-1"""@en ;
 
 ###  http://emmo.info/emmo/middle#EMMO_08b308d4_31cd_4779_a784_aa92fc730f39
 :EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 rdf:type owl:Class ;
-                                           top:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Derived units are defined as products of powers of the base units corresponding to the relations defining the derived quantities in terms of the base quantities."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Derived units are defined as products of powers of the base units corresponding to the relations defining the derived quantities in terms of the base quantities."@en ;
                                            skos:prefLabel "DerivedUnit"@en .
 
 
@@ -177,8 +176,8 @@ This is peculiar to EMMO, where quantities (symbolic) are distinct with properti
                                            owl:disjointUnionOf ( :EMMO_3ee80521_3c23_4dd1_935d_9d522614a3e2
                                                                  :EMMO_db716151_6b73_45ff_910c_d182fdcbb4f5
                                                                ) ;
-                                           top:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbol that stands for a single unit."@en ;
-                                           top:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Some examples are \"Pa\", \"m\" and \"J\"."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbol that stands for a single unit."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Some examples are \"Pa\", \"m\" and \"J\"."@en ;
                                            skos:prefLabel "UnitSymbol"@en .
 
 
@@ -202,8 +201,8 @@ SI Brochure"""@en ;
                                                                             ] ;
                                                              owl:someValuesFrom :EMMO_08b308d4_31cd_4779_a784_aa92fc730f39
                                                            ] ;
-                                           top:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A unit symbol that stands for a derived unit."@en ;
-                                           top:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """Pa stands for N/m2
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A unit symbol that stands for a derived unit."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """Pa stands for N/m2
 J stands for N m"""@en ;
                                            rdfs:comment "Special units are semiotic shortcuts to more complex composed symbolic objects."@en ;
                                            skos:prefLabel "SpecialUnit"@en .
@@ -211,7 +210,7 @@ J stands for N m"""@en ;
 
 ###  http://emmo.info/emmo/middle#EMMO_3f15d200_c97b_42c8_8ac0_d81d150361e2
 :EMMO_3f15d200_c97b_42c8_8ac0_d81d150361e2 rdf:type owl:Class ;
-                                           top:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "For a given unit system, measured constants are physical constants that are not used to define the unit system. Hence, these constants have to be measured and will therefore be associated with an uncertainty."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "For a given unit system, measured constants are physical constants that are not used to define the unit system. Hence, these constants have to be measured and will therefore be associated with an uncertainty."@en ;
                                            skos:prefLabel "MeasuredConstant"@en .
 
 
@@ -223,20 +222,20 @@ J stands for N m"""@en ;
                                                                  rdf:type owl:Class
                                                                ] ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty top:EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+                                                             owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
                                                              owl:allValuesFrom [ rdf:type owl:Class ;
                                                                                  owl:complementOf :EMMO_985bec21_989f_4b9e_a4b3_735d88099c3c
                                                                                ]
                                                            ] ;
-                                           top:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbol that stands for a concept in the language of the meterological domain of ISO 80000."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbol that stands for a concept in the language of the meterological domain of ISO 80000."@en ;
                                            skos:prefLabel "MetrologicalSymbol"@en .
 
 
 ###  http://emmo.info/emmo/middle#EMMO_591e02fd_8d37_45a6_9d11_bb21cef391a0
 :EMMO_591e02fd_8d37_45a6_9d11_bb21cef391a0 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ;
-                                           top:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A unit that does not belong to any system of units."@en ;
-                                           top:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """eV
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A unit that does not belong to any system of units."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """eV
 barn"""@en ;
                                            skos:prefLabel "OffSystemUnit"@en .
 
@@ -248,22 +247,22 @@ barn"""@en ;
                                                              owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
                                                              owl:someValuesFrom :EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0
                                                            ] ;
-                                           top:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/UNITLESS" ;
-                                           top:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Represents the number 1, used as an explicit unit to say something has no units."@en ;
-                                           top:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Refractive index or volume fraction."@en ,
+                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/UNITLESS" ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Represents the number 1, used as an explicit unit to say something has no units."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Refractive index or volume fraction."@en ,
                                                                                          "Typically used for ratios of two units whos dimensions cancels out."@en ;
                                            skos:prefLabel "UnitOne"@en .
 
 
 ###  http://emmo.info/emmo/middle#EMMO_62f0d847_3603_45b4_bfc4_dd4511355ff2
 :EMMO_62f0d847_3603_45b4_bfc4_dd4511355ff2 rdf:type owl:Class ;
-                                           top:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Measurement unit obtained by multiplying a given measurement unit by an integer greater than one."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Measurement unit obtained by multiplying a given measurement unit by an integer greater than one."@en ;
                                            skos:prefLabel "MultipleUnit"@en .
 
 
 ###  http://emmo.info/emmo/middle#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3
 :EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3 rdf:type owl:Class ;
-                                           top:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "\"Quantity, in a system of quantities, defined in terms of the base quantities of that system\"."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "\"Quantity, in a system of quantities, defined in terms of the base quantities of that system\"."@en ;
                                            skos:prefLabel "DerivedQuantity"@en .
 
 
@@ -272,7 +271,7 @@ barn"""@en ;
                                            rdfs:subClassOf :EMMO_985bec21_989f_4b9e_a4b3_735d88099c3c ,
                                                            :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ,
                                                            :EMMO_ae15fb4f_8e4d_41de_a0f9_3997f89ba6a2 ;
-                                           top:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Dimensionless multiplicative unit prefix."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Dimensionless multiplicative unit prefix."@en ;
                                            rdfs:seeAlso "https://en.wikipedia.org/wiki/Metric_prefix" ;
                                            skos:prefLabel "MetricPrefix"@en .
 
@@ -290,7 +289,7 @@ barn"""@en ;
                                                                                  owl:complementOf :EMMO_7d2afa66_ae9e_4095_a9bf_421d0be401b6
                                                                                ]
                                                            ] ;
-                                           top:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A measurement unit symbol that do not have a metric prefix as a direct spatial part."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A measurement unit symbol that do not have a metric prefix as a direct spatial part."@en ;
                                            skos:prefLabel "NonPrefixedUnit"@en .
 
 
@@ -303,7 +302,7 @@ barn"""@en ;
 ###  http://emmo.info/emmo/middle#EMMO_985bec21_989f_4b9e_a4b3_735d88099c3c
 :EMMO_985bec21_989f_4b9e_a4b3_735d88099c3c rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_d8d2144e_5c8d_455d_a643_5caf4d8d9df8 ;
-                                           top:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A language object used in metrology."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A language object used in metrology."@en ;
                                            rdfs:comment """Metrology includes all theoretical and practical aspects of measurement, whatever the measurement uncertainty and field of application.
 
 -- International vocabulary of metrology (VIM)"""@en ,
@@ -315,7 +314,7 @@ barn"""@en ;
 :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_985bec21_989f_4b9e_a4b3_735d88099c3c ,
                                                            :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ;
-                                           top:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbol that, following SI specifications, describe the physical dimensionality of a physical quantity and the exponents of the base units in a measurement unit."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbol that, following SI specifications, describe the physical dimensionality of a physical quantity and the exponents of the base units in a measurement unit."@en ;
                                            rdfs:comment """All physical quantities, with the exception of counts, are derived quantities, which may be written in terms of base quantities according to the equations of physics. The dimensions of the derived quantities are written as products of powers of the dimensions of the base quantities using the equations that relate the derived quantities to the base quantities.
 In general the dimension of any quantity Q is written in the form of a dimensional product,
 
@@ -343,7 +342,7 @@ A/m2 -> T0 L0 M-2 I+1 Θ0 N0 J0"""@en ;
 
 ###  http://emmo.info/emmo/middle#EMMO_a2f94f33_71fa_443c_a1fb_d1685fc537ec
 :EMMO_a2f94f33_71fa_443c_a1fb_d1685fc537ec rdf:type owl:Class ;
-                                           top:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Measurement unit obtained by dividing a given measurement unit by an integer greater than one."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Measurement unit obtained by dividing a given measurement unit by an integer greater than one."@en ;
                                            skos:prefLabel "SubMultipleUnit"@en .
 
 
@@ -353,7 +352,7 @@ A/m2 -> T0 L0 M-2 I+1 Θ0 N0 J0"""@en ;
                                                              owl:onProperty :EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296 ;
                                                              owl:allValuesFrom :EMMO_db716151_6b73_45ff_910c_d182fdcbb4f5
                                                            ] ;
-                                           top:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Quantity in a conventionally chosen subset of a given system of quantities, where no quantity in the subset can be expressed in terms of the other quantities within that subset\"
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Quantity in a conventionally chosen subset of a given system of quantities, where no quantity in the subset can be expressed in terms of the other quantities within that subset\"
 ISO 80000-1"""@en ;
                                            skos:prefLabel "BaseQuantity"@en .
 
@@ -361,9 +360,9 @@ ISO 80000-1"""@en ;
 ###  http://emmo.info/emmo/middle#EMMO_acd1a504_ca32_4f30_86ad_0b62cea5bc02
 :EMMO_acd1a504_ca32_4f30_86ad_0b62cea5bc02 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_18ce5200_00f5_45bb_8c6f_6fb128cd41ae ;
-                                           top:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A reference unit provided by a reference material.
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A reference unit provided by a reference material.
 International vocabulary of metrology (VIM)"""@en ;
-                                           top:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Arbitrary amount-of-substance concentration of lutropin in a given sample of plasma (WHO international standard 80/552): 5.0 International Unit/l"@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Arbitrary amount-of-substance concentration of lutropin in a given sample of plasma (WHO international standard 80/552): 5.0 International Unit/l"@en ;
                                            skos:prefLabel "StandardUnit"@en .
 
 
@@ -378,7 +377,7 @@ International vocabulary of metrology (VIM)"""@en ;
                                            owl:disjointUnionOf ( :EMMO_868ae137_4d25_493e_b270_21ea3d94849e
                                                                  :EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e
                                                                ) ;
-                                           top:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A 'Quantity' that stands for the standard reference magnitude of a specific class of measurement processes, defined and adopted by convention or by law.
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A 'Quantity' that stands for the standard reference magnitude of a specific class of measurement processes, defined and adopted by convention or by law.
 
 The numerical quantity value of the 'MeasurementUnit' is conventionally 1 and does not appear.
 
@@ -404,7 +403,7 @@ So, for the EMMO the symbol \"kg\" is not a physical quantity but a 'Measurement
                                            owl:disjointUnionOf ( :EMMO_3f15d200_c97b_42c8_8ac0_d81d150361e2
                                                                  :EMMO_89762966_8076_4f7c_b745_f718d653e8e2
                                                                ) ;
-                                           top:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/List_of_physical_constants" ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/List_of_physical_constants" ;
                                            rdfs:comment """Physical constants are categorised into \"exact\" and measured constants. 
 
 With \"exact\" constants, we refer to physical constants that have an exact numerical value after the revision of the SI system that was enforsed May 2019."""@en ;
@@ -413,9 +412,9 @@ With \"exact\" constants, we refer to physical constants that have an exact nume
 
 ###  http://emmo.info/emmo/middle#EMMO_c46f091c_0420_4c1a_af30_0a2c8ebcf7d7
 :EMMO_c46f091c_0420_4c1a_af30_0a2c8ebcf7d7 rdf:type owl:Class ;
-                                           top:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Quantity, defined by a conventional measurement procedure, for which a total ordering relation can be established, according to magnitude, with other quantities of the same kind, but for which no algebraic operations among those quantities exist\"
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Quantity, defined by a conventional measurement procedure, for which a total ordering relation can be established, according to magnitude, with other quantities of the same kind, but for which no algebraic operations among those quantities exist\"
 International vocabulary of metrology (VIM)"""@en ;
-                                           top:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """Hardness
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """Hardness
 Resilience"""@en ;
                                            rdfs:comment """\"Ordinal quantities, such as Rockwell C hardness, are usually not considered to be part of a system of quantities because they are related to other quantities through empirical relations only.\"
 International vocabulary of metrology (VIM)"""@en ;
@@ -445,21 +444,21 @@ International vocabulary of metrology (VIM)"""@en ;
                                            owl:disjointUnionOf ( :EMMO_62f0d847_3603_45b4_bfc4_dd4511355ff2
                                                                  :EMMO_a2f94f33_71fa_443c_a1fb_d1685fc537ec
                                                                ) ;
-                                           top:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A measurement unit that is made of a metric prefix and a unit symbol."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A measurement unit that is made of a metric prefix and a unit symbol."@en ;
                                            skos:prefLabel "PrefixedUnit"@en .
 
 
 ###  http://emmo.info/emmo/middle#EMMO_c9c8f824_9127_4f93_bc21_69fe78a7f6f2
 :EMMO_c9c8f824_9127_4f93_bc21_69fe78a7f6f2 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_18ce5200_00f5_45bb_8c6f_6fb128cd41ae ;
-                                           top:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A reference unit provided by a measurement procedure."@en ;
-                                           top:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Rockwell C hardness of a given sample (150 kg load): 43.5HRC(150 kg)"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A reference unit provided by a measurement procedure."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Rockwell C hardness of a given sample (150 kg load): 43.5HRC(150 kg)"@en ;
                                            skos:prefLabel "ProcedureUnit"@en .
 
 
 ###  http://emmo.info/emmo/middle#EMMO_db716151_6b73_45ff_910c_d182fdcbb4f5
 :EMMO_db716151_6b73_45ff_910c_d182fdcbb4f5 rdf:type owl:Class ;
-                                           top:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A set of units that correspond to the base quantities in a system of units."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A set of units that correspond to the base quantities in a system of units."@en ;
                                            skos:prefLabel "BaseUnit"@en .
 
 
@@ -484,8 +483,8 @@ International vocabulary of metrology (VIM)"""@en ;
                                            owl:disjointUnionOf ( :EMMO_02c0621e_a527_4790_8a0f_2bb51973c819
                                                                  :EMMO_c46f091c_0420_4c1a_af30_0a2c8ebcf7d7
                                                                ) ;
-                                           top:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbolic that has parts a reference unit and a numerical object separated by a space expressing the value of a quantitative property (expressed as the product of the numerical and the unit)."@en ;
-                                           top:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """6.8 m
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbolic that has parts a reference unit and a numerical object separated by a space expressing the value of a quantitative property (expressed as the product of the numerical and the unit)."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """6.8 m
 0.9 km
 8 K
 6 MeV
