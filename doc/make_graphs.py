@@ -45,7 +45,7 @@ g.save('semiotics.png')
 
 # Visualise module dependencies (requires that we load the non-inferred
 # ontology)
-iri = 'http://emmo.info/emmo/1.0.0-alpha2'
+iri = 'http://emmo.info/emmo/1.0.0-beta'
 onto = get_ontology(iri)
 onto.load()
 
