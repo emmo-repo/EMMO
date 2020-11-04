@@ -37,6 +37,7 @@ fi
 
 # Parse versions.sh and save html table rows in tmpfile
 while read version name; do
+    cd "$rootdir"
     $verbose && echo
     d="$pagesdir/versions/$version"
     if $recreate || [ ! -d "$d" ]; then
@@ -47,12 +48,10 @@ while read version name; do
 
     # Generate inferred ontology
     if $recreate || [ ! -f "$d/emmo-inferred.owl" ]; then
-        # TODO: add tool for automatic generation of inferred ontology
-        echo "Missing inferred ontology: $d/emmo-inferred.owl"
-        echo "Please add this file and rerun this script."
-        exit 1
+        echo "Generate inferred ontology"
+        "$scriptsdir/reason.sh" "$rootdir/emmo.owl" "$d/emmo-inferred.owl"
+        "$scriptsdir/fixinferred.sh" "$d/emmo-inferred.owl" $version
     fi
-    "$scriptsdir/fixinferred.sh" "$d/emmo-inferred.owl"
 
     # Generate documentation
     if $recreate || [ ! -f "$d/emmo.html" ]; then

@@ -20,6 +20,8 @@ versionsfile="$ghdir/versions.txt"
 tmpfile="$tmpdir/versions_html_table.txt"
 
 
+mkdir -p "$tmpfile"
+
 # Initiate github pages
 "$rootdir/.github/scripts/init_pages.sh"
 
@@ -33,7 +35,7 @@ while read version name; do
     [ -z "$name" ] && name=$version
     iri=$emmo_url/$version
     inferred=$pages_url/versions/$version/emmo-inferred.owl
-    inferred_iri=$iri/emmo-inferred.owl
+    inferred_iri=$iri/emmo-inferred
     html=$pages_url/versions/$version/emmo.html
     pdf=$pages_url/versions/$version/emmo.pdf
     echo "  <tr>" >> "$tmpfile"
