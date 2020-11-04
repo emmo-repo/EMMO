@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html$if(lang)$ lang="$lang$"$endif$>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+$for(author)$
+  <meta name="author" content="$author.name$, $author.affiliation$">
+$endfor$
+$if(date)$
+  <meta name="institution" content="$institution$">
+$endif$
+$if(keywords)$
+  <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$">
+$endif$
+$if(date)$
+  <meta name="dcterms.date" content="$date$">
+$endif$
+  <title>$if(title-prefix)$$title-prefix$ - $endif$$pagetitle$</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+$if(quotes)$
+  <style type="text/css">q { quotes: "“" "”" "‘" "’"; }</style>
+$endif$
+$if(highlighting-css)$
+  <style type="text/css">
+$highlighting-css$
+  </style>
+$endif$
+$for(css)$
+  <link rel="stylesheet" href="$css$">
+$endfor$
+$if(math)$
+  $math$
+$endif$
+$for(header-includes)$
+  $header-includes$
+$endfor$
+</head>
+<body>
+$for(include-before)$
+$include-before$
+$endfor$
+
+<header>
+  <center>
+    $if(title)$
+    <h1 class="title">$title$</h1>
+    $endif$
+
+    $if(subtitle)$
+    <h3 class="subtitle">$subtitle$</h3>
+    $endif$
+
+    $if(version)$
+    <h3 class="version">Version $version$</h3>
+    $endif$
+
+    $if(institute)$
+    <h3 class="institute">$institute$</h3>
+    $endif$
+
+    $if(logo)$
+    <img src="$logo$" class="logo" width="128">
+    $endif$
+
+    $if(date)$
+    <h3 class="date">$date$</h3>
+    $endif$
+
+    $if(titlegraphic)$
+    <img class="titlegraphic" src="$titlegraphic$" width="80%">
+    $endif$
+
+    $for(author-meta)$
+    <h5 class="author">$author$</h5>
+    <p class="affilation"><em>$author.affiliation$</em></p>
+    $endfor$
+  </center>
+</header>
+
+$if(abstract)$
+<p class="small"><strong>Abstract:</strong>$abstract$</p>
+$endif$
+
+$if(author)$
+<p class="authors">
+  <br>
+  <strong>Authors:</strong><br>
+  $for(author)$
+  <em>$author.name$, $author.affiliation$</em><br>
+  $endfor$
+</p>
+$endif$
+
+
+$if(toc)$
+<p class="content"><strong>Content</strong>
+<nav id="$idprefix$TOC">$toc$</nav>
+</p>
+$endif$
+
+
+$body$
+
+<!--
+$if(toc)$
+<h2 class="index">Index</h2>
+<nav id="$idprefix$TOC">
+$toc$
+</nav>
+$endif$
+-->
+
+</body>
+</html>
