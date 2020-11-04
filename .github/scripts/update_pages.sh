@@ -44,7 +44,7 @@ fi
 
 
 # Create index.html on GitHub Pages
-"$scriptsdir/makeindex.sh"
+"$scriptsdir/makeindex.sh" $args
 
 
 # Commit changes and push to GitHub Pages
@@ -52,9 +52,9 @@ if ! $noadd; then
     echo
     cd "$pagesdir"
     git add --all
-    git commit -m 'Update github pages'
-        [ -n "$(git status --porcelain -uno)" ] && git commit -m 'Updated releasetable' && git push
-
+    [ -n "$(git status --porcelain -uno)" ] && \
+        git commit -m 'Updated releasetable' && \
+        git push
     if ! $local; then
         git push origin master
     fi
