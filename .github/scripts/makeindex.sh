@@ -20,6 +20,8 @@ versionsfile="$ghdir/versions.txt"
 tmpfile="$tmpdir/versions_html_table.txt"
 
 
+mkdir -p "$tmpfile"
+
 # Initiate github pages
 "$rootdir/.github/scripts/init_pages.sh"
 
