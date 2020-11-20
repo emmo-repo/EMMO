@@ -1,0 +1,1669 @@
+@prefix : <http://emmo.info/emmo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<http://emmo.info/emmo/middle/isq> a owl:Ontology ;
+	owl:versionIRI <http://emmo.info/emmo/1.0.0-beta/middle/isq> ;
+	owl:imports <http://emmo.info/emmo/1.0.0-beta/middle/materials> ,
+	            <http://emmo.info/emmo/1.0.0-beta/middle/metrology> ;
+	dcterms:abstract """European Materials & Modelling Ontology (EMMO)
+
+EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies.
+
+It provides the connection between the physical world, materials characterisation world and materials modelling world.
+
+EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)."""@en ;
+	dcterms:contributor "Access, DE" , "Fraunhofer IWM, DE" , "Goldbeck Consulting Ltd (UK)" , "SINTEF, NO" , "University of Bologna, IT" ;
+	dcterms:creator "Adham Hashibon" , "Emanuele Ghedini" , "Georg Schmitz" , "Gerhard Goldbeck" , "Jesper Friis" ;
+	dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+	dcterms:publisher "EMMC ASBL" ;
+	dcterms:title "European Materials & Modelling Ontology"@en ;
+	rdfs:comment """Contacts:
+Gerhard Goldbeck
+Goldbeck Consulting Ltd (UK)
+email: gerhard@goldbeck-consulting.com
+
+Emanuele Ghedini
+University of Bologna (IT)
+email: emanuele.ghedini@unibo.it"""@en , "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
+	owl:versionInfo "1.0.0-beta" .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://emmo.info/emmo/middle#EMMO_de178b12_5d35_4bca_8efa_a4193162571d
+
+:EMMO_de178b12_5d35_4bca_8efa_a4193162571d a owl:AnnotationProperty ;
+	rdfs:comment """A unique string describing the physical dimensionality of a physical quantity. 
+
+See the comments of PhysicalDimension for a description of this \"regex\" string."""@en ;
+	skos:prefLabel "physicalDimension"@en ;
+	rdfs:subPropertyOf rdfs:comment ;
+	rdfs:range xsd:string .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://emmo.info/emmo/middle#EMMO_02e894c3_b793_4197_b120_3442e08f58d1
+
+:EMMO_02e894c3_b793_4197_b120_3442e08f58d1 a owl:Class ;
+	owl:equivalentClass _:genid1 .
+
+_:genid1 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T+1 L0 M0 I0 Θ0 N0 J0" .
+
+:EMMO_02e894c3_b793_4197_b120_3442e08f58d1 rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "TimeDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_0329f1f5_8339_4ce4_8505_a264c6d606ba
+
+:EMMO_0329f1f5_8339_4ce4_8505_a264c6d606ba a owl:Class ;
+	rdfs:subClassOf :EMMO_81369540_1b0e_471b_9bae_6801af22800e ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-1 L+1 M0 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Velocity" ;
+	:EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=113-01-32" ;
+	:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 """Vector quantity giving the rate of change of a position vector.
+
+-- ISO 80000-3"""@en ;
+	:EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "3‑10.1" ;
+	rdfs:comment """The velocity depends on the choice of the reference frame. Proper transformation between frames must be used: Galilean for non-relativistic description, Lorentzian for relativistic description.
+
+-- IEC, note 2"""@en , """The velocity is related to a point described by its position vector. The point may localize a particle, or be attached to any other object such as a body or a wave.
+
+-- IEC, note 1"""@en ;
+	skos:prefLabel "Velocity"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_04b3300c_98bd_42dc_a3b5_e6c29d69f1ac
+
+:EMMO_04b3300c_98bd_42dc_a3b5_e6c29d69f1ac a owl:Class ;
+	rdfs:subClassOf :EMMO_faab3f84_e475_4a46_af9c_7d249f0b9aef ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L0 M0 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/MoleFraction" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Mole_fraction" ;
+	:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The amount of a constituent divided by the total amount of all constituents in a mixture."@en ;
+	:EMMO_e55f2d7c_9893_48cd_b4a4_fdf38253bd20 "http://www.ontology-of-units-of-measure.org/resource/om-2/AmountOfSubstanceFraction" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.A00296" ;
+	skos:altLabel "MoleFraction"@en ;
+	skos:prefLabel "AmountFraction"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_04cc9451_5306_45d0_8554_22cee4d6e785
+
+:EMMO_04cc9451_5306_45d0_8554_22cee4d6e785 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-2 L+2 M+1 I-2 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Inductance" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Inductance" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A property of an electrical conductor by which a change in current through it induces an electromotive force in both the conductor itself and in any nearby conductors by mutual inductance."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.M04076" ;
+	skos:altLabel "Inductance"@en ;
+	skos:prefLabel "ElectricInductance"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_04cf0295_3e8f_4693_a87f_3130d125cf05
+
+:EMMO_04cf0295_3e8f_4693_a87f_3130d125cf05 a owl:Class ;
+	rdfs:subClassOf :EMMO_1f087811_06cb_42d5_90fb_25d0e7e068ef ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-2 L+1 M+1 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Weight" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Weight" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.W06668" ;
+	rdfs:comment "Force of gravity acting on a body."@en ;
+	skos:prefLabel "Weight"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_06448f64_8db6_4304_8b2c_e785dba82044
+
+:EMMO_06448f64_8db6_4304_8b2c_e785dba82044 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L-3 M+1 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Density" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Density" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.D01590" ;
+	rdfs:comment "Mass per volume."@en ;
+	skos:prefLabel "Density"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_07de47e0_6bb6_45b9_b55a_4f238efbb105
+
+:EMMO_07de47e0_6bb6_45b9_b55a_4f238efbb105 a owl:Class ;
+	rdfs:subClassOf :EMMO_ba882f34_0d71_4e4f_9d92_0c076c633a2c ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L0 M0 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/AtomicNumber" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Atomic_number" ;
+	:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "Number of protons in an atomic nucleus."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.A00499" ;
+	skos:prefLabel "AtomicNumber"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_09663630_1b84_4202_91e6_e641104f579e
+
+:EMMO_09663630_1b84_4202_91e6_e641104f579e a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-2 L+1 M+1 I-2 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/ElectromagneticPermeability" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Permeability_(electromagnetism)" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.P04503" ;
+	rdfs:comment "Measure for how the magnetization of material is affected by the application of an external magnetic field ."@en ;
+	skos:altLabel "ElectromagneticPermeability" ;
+	skos:prefLabel "Permeability"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2
+
+:EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-3 L+2 M+1 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Power" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Power_(physics)" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Rate of transfer of energy per unit time."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.P04792" ;
+	skos:prefLabel "Power"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_0a88be81_343d_4388_92c1_09228ff95ada
+
+:EMMO_0a88be81_343d_4388_92c1_09228ff95ada a owl:Class ;
+	rdfs:subClassOf :EMMO_faab3f84_e475_4a46_af9c_7d249f0b9aef ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L0 M0 I0 Θ0 N0 J0" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Probability is a dimensionless quantity that can attain values between 0 and 1; zero denotes the impossible event and 1 denotes a certain event."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.P04855" ;
+	rdfs:comment "The propability for a certain outcome, is the ratio between the number of events leading to the given outcome and the total number of events."@en ;
+	skos:prefLabel "Probability"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_0ee5779e_d798_4ee5_9bfe_c392d5bea112
+
+:EMMO_0ee5779e_d798_4ee5_9bfe_c392d5bea112 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T+4 L-3 M-1 I+2 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Permittivity" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Permittivity" ;
+	:EMMO_e55f2d7c_9893_48cd_b4a4_fdf38253bd20 "http://www.ontology-of-units-of-measure.org/resource/om-2/Permittivity" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.P04507" ;
+	rdfs:comment "Measure for how the polarization of a material is affected by the application of an external electric field."@en ;
+	skos:prefLabel "Permittivity"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_12d4ba9b_2f89_4ea3_b206_cd376f96c875
+
+:EMMO_12d4ba9b_2f89_4ea3_b206_cd376f96c875 a owl:Class ;
+	rdfs:subClassOf :EMMO_31ec09ba_1713_42cb_83c7_b38bf6f9ced2 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-2 L+2 M+1 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Heat" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.H02752" ;
+	rdfs:comment "Heat is energy in transfer to or from a thermodynamic system, by mechanisms other than thermodynamic work or transfer of matter."@en ;
+	skos:prefLabel "Heat"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_14ff4393_0f28_4fb4_abc7_c2cc00bc761d
+
+:EMMO_14ff4393_0f28_4fb4_abc7_c2cc00bc761d a owl:Class ;
+	owl:equivalentClass _:genid2 .
+
+_:genid2 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T0 L0 M0 I0 Θ0 N0 J+1" .
+
+:EMMO_14ff4393_0f28_4fb4_abc7_c2cc00bc761d rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "LuminousIntensityDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_1604f495_328a_4f28_9962_f4cc210739dd
+
+:EMMO_1604f495_328a_4f28_9962_f4cc210739dd a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T+1 L0 M0 I+1 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/ElectricCharge" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Electric_charge" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The physical property of matter that causes it to experience a force when placed in an electromagnetic field."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.E01923" ;
+	skos:altLabel "Charge"@en ;
+	skos:prefLabel "ElectricCharge"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_16f2fe60_2db7_43ca_8fee_5b3e416bfe87
+
+:EMMO_16f2fe60_2db7_43ca_8fee_5b3e416bfe87 a owl:Class ;
+	rdfs:subClassOf :EMMO_06448f64_8db6_4304_8b2c_e785dba82044 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L-3 M+1 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/MassConcentration" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Mass_concentration_(chemistry)" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.M03713" ;
+	rdfs:comment "Mass of a constituent divided by the volume of the mixture."@en ;
+	skos:prefLabel "MassConcentration"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_176cae33_b83e_4cd2_a6bc_281f42f0ccc8
+
+:EMMO_176cae33_b83e_4cd2_a6bc_281f42f0ccc8 a owl:Class ;
+	rdfs:subClassOf :EMMO_f2ca6dd0_0e5f_4392_a92d_cafdae6cfc95 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L0 M0 I0 Θ0 N-1 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/constant/AvogadroConstant" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The number of constituent particles, usually atoms or molecules, that are contained in the amount of substance given by one mole.
+
+It defines the base unit mole in the SI system."""@en ;
+	:EMMO_a9b3d04c_7ceb_40a2_b8d3_28d514a770a8 "https://physics.nist.gov/cgi-bin/cuu/Value?na" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.A00543" ;
+	rdfs:comment "The DBpedia definition (http://dbpedia.org/page/Avogadro_constant) is outdated as May 20, 2019. It is now an exact quantity."@en ;
+	skos:prefLabel "AvogadroConstant"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_1a179ce4_3724_47f8_bee5_6292e3ac9942
+
+:EMMO_1a179ce4_3724_47f8_bee5_6292e3ac9942 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T+1 L+1 M0 I+1 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/ElectricDipoleMoment" ;
+	:EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=121-11-35" , "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=121-11-36" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Electric_dipole_moment" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An electric dipole, vector quantity of magnitude equal to the product of the positive charge and the distance between the charges and directed from the negative charge to the positive charge."@en ;
+	:EMMO_e55f2d7c_9893_48cd_b4a4_fdf38253bd20 "http://www.ontology-of-units-of-measure.org/resource/om-2/ElectricDipoleMoment" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.E01929" ;
+	skos:prefLabel "ElectricDipoleMoment"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_1a4c1a97_88a7_4d8e_b2f9_2ca58e92dde4
+
+:EMMO_1a4c1a97_88a7_4d8e_b2f9_2ca58e92dde4 a owl:Class ;
+	rdfs:subClassOf :EMMO_acaaa124_3dde_48b6_86e6_6ec6f364f408 , :EMMO_f35cff4d_dc09_44cf_a729_22fb79e3bfb2 ;
+	owl:disjointUnionOf _:genid9 .
+
+_:genid9 a rdf:List ;
+	rdf:first :EMMO_50bf79a6_a48b_424d_9d2c_813bd631231a ;
+	rdf:rest _:genid8 .
+
+_:genid8 a rdf:List ;
+	rdf:first :EMMO_8159c26a_494b_4fa0_9959_10888f152298 ;
+	rdf:rest _:genid7 .
+
+_:genid7 a rdf:List ;
+	rdf:first :EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f ;
+	rdf:rest _:genid6 .
+
+_:genid6 a rdf:List ;
+	rdf:first :EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88 ;
+	rdf:rest _:genid5 .
+
+_:genid5 a rdf:List ;
+	rdf:first :EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac ;
+	rdf:rest _:genid4 .
+
+_:genid4 a rdf:List ;
+	rdf:first :EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7 ;
+	rdf:rest _:genid3 .
+
+_:genid3 a rdf:List ;
+	rdf:first :EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405 ;
+	rdf:rest rdf:nil .
+
+:EMMO_1a4c1a97_88a7_4d8e_b2f9_2ca58e92dde4 :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Base quantities defined in the International System of Quantities (ISQ)."@en ;
+	:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/International_System_of_Quantities" ;
+	skos:prefLabel "ISQBaseQuantity"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_1c2226a9_22f0_40c8_8928_5a01d398f96e
+
+:EMMO_1c2226a9_22f0_40c8_8928_5a01d398f96e a owl:Class ;
+	owl:equivalentClass _:genid10 .
+
+_:genid10 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T+1 L+1 M0 I+1 Θ0 N0 J0" .
+
+:EMMO_1c2226a9_22f0_40c8_8928_5a01d398f96e rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "MagneticDipoleMomentDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_1e7603a7_1365_49b8_b5e5_3711c8e6b904
+
+:EMMO_1e7603a7_1365_49b8_b5e5_3711c8e6b904 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L-1 M0 I0 Θ0 N0 J0" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Vergence" ;
+	rdfs:comment "In geometrical optics, vergence describes the curvature of optical wavefronts."@en ;
+	skos:prefLabel "Vergence"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_1f087811_06cb_42d5_90fb_25d0e7e068ef
+
+:EMMO_1f087811_06cb_42d5_90fb_25d0e7e068ef a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-2 L+1 M+1 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Force" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Force" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Any interaction that, when unopposed, will change the motion of an object."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.F02480" ;
+	skos:prefLabel "Force"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_27367073_ed8a_481a_9b07_f836dfe31f7f
+
+:EMMO_27367073_ed8a_481a_9b07_f836dfe31f7f a owl:Class ;
+	rdfs:subClassOf :EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L0 M+1 I0 Θ0 N0 J0" ;
+	:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The mass of an atom in the ground state."@en ;
+	:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Atomic_mass" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.A00496" ;
+	rdfs:comment "Since the nucleus account for nearly all of the total mass of atoms  (with the electrons and nuclear binding energy making minor contributions), the atomic mass measured in Da has nearly the same value as the mass number."@en , "The atomic mass is often expressed as an average of the commonly found isotopes."@en ;
+	skos:prefLabel "AtomicMass"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064
+
+:EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 a owl:Class ;
+	rdfs:subClassOf :EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3 , :EMMO_f35cff4d_dc09_44cf_a729_22fb79e3bfb2 ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Derived quantities defined in the International System of Quantities (ISQ)."@en ;
+	skos:prefLabel "ISQDerivedQuantity"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_2e7e5796_4a80_4d73_bb84_f31138446c0c
+
+:EMMO_2e7e5796_4a80_4d73_bb84_f31138446c0c a owl:Class ;
+	owl:equivalentClass _:genid11 .
+
+_:genid11 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T-3 L+2 M+1 I-1 Θ0 N0 J0" .
+
+:EMMO_2e7e5796_4a80_4d73_bb84_f31138446c0c rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "ElectricPotentialDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_31ec09ba_1713_42cb_83c7_b38bf6f9ced2
+
+:EMMO_31ec09ba_1713_42cb_83c7_b38bf6f9ced2 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-2 L+2 M+1 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Energy" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Energy" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A property of objects which can be transferred to other objects or converted into different forms."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.E02101" ;
+	rdfs:comment "Energy is often defined as \"ability of a system to perform work\", but it might be misleading since is not necessarily available to do work."@en ;
+	skos:prefLabel "Energy"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_321af35f_f0cc_4a5c_b4fe_8c2c0303fb0c
+
+:EMMO_321af35f_f0cc_4a5c_b4fe_8c2c0303fb0c a owl:Class ;
+	owl:equivalentClass _:genid12 .
+
+_:genid12 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T+3 L-2 M-1 I+2 Θ0 N0 J0" .
+
+:EMMO_321af35f_f0cc_4a5c_b4fe_8c2c0303fb0c rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "ElectricConductanceDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_33433bb1_c68f_45ee_a466_f01e2c57b214
+
+:EMMO_33433bb1_c68f_45ee_a466_f01e2c57b214 a owl:Class ;
+	rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc , _:genid13 .
+
+_:genid13 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T0 L2 M0 I0 Θ0 N0 J0" .
+
+:EMMO_33433bb1_c68f_45ee_a466_f01e2c57b214 skos:prefLabel "AreaDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_3b931698_937e_49be_ab1b_36fa52d91181
+
+:EMMO_3b931698_937e_49be_ab1b_36fa52d91181 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-2 L+2 M+1 I-1 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/MagneticFlux" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Magnetic_flux" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Measure of magnetism, taking account of the strength and the extent of a magnetic field."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.M03684" ;
+	skos:prefLabel "MagneticFlux"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_3df10765_f6ff_4c9e_be3d_10b1809d78bd
+
+:EMMO_3df10765_f6ff_4c9e_be3d_10b1809d78bd a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-2 L+2 M0 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/DoseEquivalent" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Energy" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A dose quantity used in the International Commission on Radiological Protection (ICRP) system of radiological protection."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.E02101" ;
+	skos:prefLabel "DoseEquivalent"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_3ecff38b_b3cf_4a78_b49f_8580abf8715b
+
+:EMMO_3ecff38b_b3cf_4a78_b49f_8580abf8715b a owl:Class ;
+	owl:equivalentClass _:genid14 .
+
+_:genid14 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T-2 L+2 M+1 I0 Θ-1 N0 J0" .
+
+:EMMO_3ecff38b_b3cf_4a78_b49f_8580abf8715b rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "EntropyDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_4091d5ec_a4df_42b9_a073_9a090839279f
+
+:EMMO_4091d5ec_a4df_42b9_a073_9a090839279f a owl:Class ;
+	rdfs:subClassOf :EMMO_31ec09ba_1713_42cb_83c7_b38bf6f9ced2 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-2 L+2 M+1 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Enthalpy" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Enthalpy" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.E02141" ;
+	rdfs:comment "Measurement of energy in a thermodynamic system."@en ;
+	skos:prefLabel "Enthalpy"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_43776fc9_d712_4571_85f0_72183678039a
+
+:EMMO_43776fc9_d712_4571_85f0_72183678039a a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-1 L+1 M+1 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Momentum" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Momentum" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.M04007" ;
+	rdfs:comment "Product of mass and velocity."@en ;
+	skos:prefLabel "Momentum"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_44da6d75_54a4_4aa8_bd3a_156f6e9abb8e
+
+:EMMO_44da6d75_54a4_4aa8_bd3a_156f6e9abb8e a owl:Class ;
+	rdfs:subClassOf :EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L+1 M0 I0 Θ0 N0 J0" ;
+	:EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=113-03-12" ;
+	:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "Vector r characterizing a point P in a point space with a given origin point O."@en ;
+	rdfs:comment """In the usual geometrical three-dimensional space, position vectors are quantities of the dimension length. 
+
+-- IEC"""@en , """Position vectors are so-called bounded vectors, i.e. their magnitude and direction depend on the particular coordinate system used.
+
+-- ISO 80000-3"""@en ;
+	skos:altLabel "Position"@en ;
+	skos:prefLabel "PositionVector"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_44fc8c60_7a9c_49af_a046_e1878c88862c
+
+:EMMO_44fc8c60_7a9c_49af_a046_e1878c88862c a owl:Class ;
+	rdfs:subClassOf :EMMO_3f15d200_c97b_42c8_8ac0_d81d150361e2 , :EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L0 M+1 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/constant/ElectronMass" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Electron_rest_mass" ;
+	:EMMO_a9b3d04c_7ceb_40a2_b8d3_28d514a770a8 "https://physics.nist.gov/cgi-bin/cuu/Value?me" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.E02008" ;
+	rdfs:comment "The rest mass of an electron."@en ;
+	skos:prefLabel "ElectronMass"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_4c151909_6f26_4ef9_b43d_7c9e9514883a
+
+:EMMO_4c151909_6f26_4ef9_b43d_7c9e9514883a a owl:Class ;
+	rdfs:subClassOf :EMMO_31ec09ba_1713_42cb_83c7_b38bf6f9ced2 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-2 L+2 M+1 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/PotentialEnergy" ;
+	:EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=113-03-48" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Potential_energy" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The energy possessed by a body by virtue of its position or orientation in a potential field."@en ;
+	:EMMO_e55f2d7c_9893_48cd_b4a4_fdf38253bd20 "http://www.ontology-of-units-of-measure.org/resource/om-2/PotentialEnergy" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.P04778" ;
+	skos:prefLabel "PotentialEnergy"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_4c49ab58_a6f6_409e_b849_f873ae1dcbee
+
+:EMMO_4c49ab58_a6f6_409e_b849_f873ae1dcbee a owl:Class ;
+	owl:equivalentClass _:genid15 .
+
+_:genid15 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T-2 L+2 M+1 I-1 Θ0 N0 J0" .
+
+:EMMO_4c49ab58_a6f6_409e_b849_f873ae1dcbee rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "MagneticFluxDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_4f2d3939_91b1_4001_b8ab_7d19074bf845
+
+:EMMO_4f2d3939_91b1_4001_b8ab_7d19074bf845 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-3 L+2 M+1 I-1 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Voltage" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Voltage" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Energy required to move a unit charge through an electric field from a reference point."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.A00424" ;
+	skos:altLabel "Voltage"@en ;
+	skos:prefLabel "ElectricPotential"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_4f5c7c54_1c63_4d17_b12b_ea0792c2b187
+
+:EMMO_4f5c7c54_1c63_4d17_b12b_ea0792c2b187 a owl:Class ;
+	owl:equivalentClass _:genid16 .
+
+_:genid16 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T-1 L+1 M0 I0 Θ0 N0 J0" .
+
+:EMMO_4f5c7c54_1c63_4d17_b12b_ea0792c2b187 rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "SpeedDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_501f9b3a_c469_48f7_9281_2e6a8d805d7a
+
+:EMMO_501f9b3a_c469_48f7_9281_2e6a8d805d7a a owl:Class ;
+	owl:equivalentClass _:genid17 .
+
+_:genid17 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T-1 L+2 M+1 I0 Θ0 N0 J0" .
+
+:EMMO_501f9b3a_c469_48f7_9281_2e6a8d805d7a rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "AngularMomentumDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_506f7823_52bc_40cb_be07_b3b1e10cce13
+
+:EMMO_506f7823_52bc_40cb_be07_b3b1e10cce13 a owl:Class ;
+	rdfs:subClassOf :EMMO_f2ca6dd0_0e5f_4392_a92d_cafdae6cfc95 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T+3 L-1 M-1 I0 Θ0 N0 J+1" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The luminous efficacy of monochromatic radiation of frequency 540 × 10 12 Hz, K cd , is a technical constant that gives an exact numerical relationship between the purely physical characteristics of the radiant power stimulating the human eye (W) and its photobiological response defined by the luminous flux due to the spectral responsivity of a standard observer (lm) at a frequency of 540 × 10 12 hertz."@en ;
+	:EMMO_a9b3d04c_7ceb_40a2_b8d3_28d514a770a8 "https://physics.nist.gov/cgi-bin/cuu/Value?kcd" ;
+	rdfs:comment "Defines the Candela base unit in the SI system."@en ;
+	skos:prefLabel "LuminousEfficacyOf540THzRadiation"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989
+
+:EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-2 L-1 M+1 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Pressure" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Pressure" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The force applied perpendicular to the surface of an object per unit area over which that force is distributed."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.P04819" ;
+	skos:prefLabel "Pressure"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_50bf79a6_a48b_424d_9d2c_813bd631231a
+
+:EMMO_50bf79a6_a48b_424d_9d2c_813bd631231a a owl:Class ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L0 M0 I0 Θ0 N0 J+1" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Length" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Luminous_intensity" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A measure of the wavelength-weighted power emitted by a light source in a particular direction per unit solid angle. It is based on the luminosity function, which is a standardized model of the sensitivity of the human eye."@en ;
+	skos:prefLabel "LuminousIntensity"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_515b5579_d526_4842_9e6f_ecc34db6f368
+
+:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 a owl:Class ;
+	owl:equivalentClass _:genid18 .
+
+_:genid18 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T-1 L0 M0 I0 Θ0 N0 J0" .
+
+:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "FrequencyDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b
+
+:EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b a owl:Class ;
+	owl:equivalentClass _:genid19 .
+
+_:genid19 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T-2 L-1 M+1 I0 Θ0 N0 J0" .
+
+:EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "PressureDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_53e825d9_1a09_483c_baa7_37501ebfbe1c
+
+:EMMO_53e825d9_1a09_483c_baa7_37501ebfbe1c a owl:Class ;
+	owl:equivalentClass _:genid20 .
+
+_:genid20 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T-2 L+1 M+1 I0 Θ0 N0 J0" .
+
+:EMMO_53e825d9_1a09_483c_baa7_37501ebfbe1c rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "ForceDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_585e0ff0_9429_4d3c_b578_58abb1ba21d1
+
+:EMMO_585e0ff0_9429_4d3c_b578_58abb1ba21d1 a owl:Class ;
+	owl:equivalentClass _:genid21 .
+
+_:genid21 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T-2 L+2 M+1 I-2 Θ0 N0 J0" .
+
+:EMMO_585e0ff0_9429_4d3c_b578_58abb1ba21d1 rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "InductanceDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_58a650f0_a638_4743_8439_535a325e5c4c
+
+:EMMO_58a650f0_a638_4743_8439_535a325e5c4c a owl:Class ;
+	rdfs:subClassOf :EMMO_1604f495_328a_4f28_9962_f4cc210739dd , :EMMO_f2ca6dd0_0e5f_4392_a92d_cafdae6cfc95 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T+1 L0 M0 I+1 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/ElementaryCharge" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Elementary_charge" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The magnitude of the electric charge carried by a single electron. It defines the base unit Ampere in the SI system."@en ;
+	:EMMO_a9b3d04c_7ceb_40a2_b8d3_28d514a770a8 "https://physics.nist.gov/cgi-bin/cuu/Value?e" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.E02032" ;
+	rdfs:comment "The DBpedia definition (http://dbpedia.org/page/Elementary_charge) is outdated as May 20, 2019. It is now an exact quantity."@en ;
+	skos:prefLabel "ElementaryCharge"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_5c003f53_20a2_4bd7_8445_58187e582578
+
+:EMMO_5c003f53_20a2_4bd7_8445_58187e582578 a owl:Class ;
+	owl:equivalentClass _:genid22 .
+
+_:genid22 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T+3 L-1 M-1 I0 Θ0 N0 J+1" .
+
+:EMMO_5c003f53_20a2_4bd7_8445_58187e582578 rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "LuminousEfficacyDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_5eedba4d_105b_44d8_b1bc_e33606276ea2
+
+:EMMO_5eedba4d_105b_44d8_b1bc_e33606276ea2 a owl:Class ;
+	rdfs:subClassOf :EMMO_faab3f84_e475_4a46_af9c_7d249f0b9aef ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L0 M0 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/RefractiveIndex" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Refractive_index" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.R05240" ;
+	rdfs:comment "Factor by which the phase velocity of light is reduced in a medium."@en ;
+	skos:prefLabel "RefractiveIndex"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_61a32ae9_8200_473a_bd55_59a9899996f4
+
+:EMMO_61a32ae9_8200_473a_bd55_59a9899996f4 a owl:Class ;
+	rdfs:subClassOf :EMMO_0ee5779e_d798_4ee5_9bfe_c392d5bea112 , :EMMO_3f15d200_c97b_42c8_8ac0_d81d150361e2 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T+4 L-3 M-1 I+2 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/constant/PermittivityOfVacuum" ;
+	:EMMO_a9b3d04c_7ceb_40a2_b8d3_28d514a770a8 "https://physics.nist.gov/cgi-bin/cuu/Value?ep0" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.P04508" ;
+	rdfs:comment "The DBpedia definition (http://dbpedia.org/page/Vacuum_permittivity) is outdated since May 20, 2019. It is now a measured constant."@en , "The value of the absolute dielectric permittivity of classical vacuum."@en ;
+	skos:prefLabel "VacuumElectricPermittivity"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_624d72ee_e676_4470_9434_c22b4190d3d5
+
+:EMMO_624d72ee_e676_4470_9434_c22b4190d3d5 a owl:Class ;
+	rdfs:subClassOf :EMMO_31ec09ba_1713_42cb_83c7_b38bf6f9ced2 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-2 L+2 M+1 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Work" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Heat" , "http://dbpedia.org/page/Work_(physics)" ;
+	:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "Product of force and displacement."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.W06684" ;
+	skos:prefLabel "Work"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_668e6ead_1530_40cc_ad5e_24b880edff50
+
+:EMMO_668e6ead_1530_40cc_ad5e_24b880edff50 a owl:Class ;
+	owl:equivalentClass _:genid23 .
+
+_:genid23 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T0 L-2 M0 I0 Θ0 N0 J+1" .
+
+:EMMO_668e6ead_1530_40cc_ad5e_24b880edff50 rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "IlluminanceDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_66bc9029_f473_45ff_bab9_c3509ff37a22
+
+:EMMO_66bc9029_f473_45ff_bab9_c3509ff37a22 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-1 L0 M0 I0 Θ0 N+1 J0" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Temperature" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """An objective comparative measure of hot or cold. 
+
+Temperature is a relative quantity that can be used to express temperature differences. Unlike ThermodynamicTemperature, it cannot express absolute temperatures."""@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.T06261" ;
+	skos:prefLabel "CelsiusTemperature"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_66d01570_36dd_42fd_844d_29b81b029cd5
+
+:EMMO_66d01570_36dd_42fd_844d_29b81b029cd5 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-1 L+2 M+1 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/AngularMomentum" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Angular_momentum" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.A00353" ;
+	rdfs:comment "Measure of the extent and direction an object rotates about a reference point."@en ;
+	skos:prefLabel "AngularMomentum"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_7610efb8_c7c6_4684_abc1_774783c62472
+
+:EMMO_7610efb8_c7c6_4684_abc1_774783c62472 a owl:Class ;
+	owl:equivalentClass _:genid24 .
+
+_:genid24 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T-3 L+2 M+1 I-2 Θ0 N0 J0" .
+
+:EMMO_7610efb8_c7c6_4684_abc1_774783c62472 rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "ElectricResistanceDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_76cc4efc_231e_42b4_be83_2547681caed6
+
+:EMMO_76cc4efc_231e_42b4_be83_2547681caed6 a owl:Class ;
+	rdfs:subClassOf :EMMO_66d01570_36dd_42fd_844d_29b81b029cd5 , :EMMO_f2ca6dd0_0e5f_4392_a92d_cafdae6cfc95 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-1 L+2 M+1 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/constant/PlanckConstant" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Planck_constant" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The quantum of action. It defines the kg base unit in the SI system."@en ;
+	:EMMO_a9b3d04c_7ceb_40a2_b8d3_28d514a770a8 "https://physics.nist.gov/cgi-bin/cuu/Value?h" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.P04685" ;
+	skos:prefLabel "PlanckConstant"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_77e9dc31_5b19_463e_b000_44c6e79f98aa
+
+:EMMO_77e9dc31_5b19_463e_b000_44c6e79f98aa a owl:Class ;
+	owl:equivalentClass _:genid25 .
+
+_:genid25 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T0 L0 M+1 I0 Θ0 N0 J0" .
+
+:EMMO_77e9dc31_5b19_463e_b000_44c6e79f98aa rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "MassDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_79a02de5_b884_4eab_bc18_f67997d597a2
+
+:EMMO_79a02de5_b884_4eab_bc18_f67997d597a2 a owl:Class ;
+	rdfs:subClassOf :EMMO_e88f75d6_9a17_4cfc_bdf7_43d7cea5a9a1 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-3 L+2 M+1 I-2 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Impedance" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Electrical_impedance" ;
+	rdfs:comment "Measure of the opposition that a circuit presents to a current when a voltage is applied."@en ;
+	skos:altLabel "Impedance" ;
+	skos:prefLabel "ElectricImpedance"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_7c055d65_2929_40e1_af4f_4bf10995ad50
+
+:EMMO_7c055d65_2929_40e1_af4f_4bf10995ad50 a owl:Class ;
+	rdfs:subClassOf :EMMO_faab3f84_e475_4a46_af9c_7d249f0b9aef ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L0 M0 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/MassFraction" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Mass_fraction_(chemistry)" ;
+	:EMMO_e55f2d7c_9893_48cd_b4a4_fdf38253bd20 "http://www.ontology-of-units-of-measure.org/resource/om-2/MassFraction" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.M03722" ;
+	rdfs:comment "Mass of a constituent divided by the total mass of all constituents in the mixture."@en ;
+	skos:prefLabel "MassFraction"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_7c8007b0_58a7_4486_bf1c_4772852caca0
+
+:EMMO_7c8007b0_58a7_4486_bf1c_4772852caca0 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L-2 M0 I+1 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/ElectricCurrentDensity" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Current_density" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.E01928" ;
+	rdfs:comment "Electric current divided by the cross-sectional area it is passing through."@en ;
+	skos:prefLabel "CurrentDensity"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_81369540_1b0e_471b_9bae_6801af22800e
+
+:EMMO_81369540_1b0e_471b_9bae_6801af22800e a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-1 L+1 M0 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Speed" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Speed" ;
+	:EMMO_e55f2d7c_9893_48cd_b4a4_fdf38253bd20 "http://www.ontology-of-units-of-measure.org/resource/om-2/Speed" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.S05852" ;
+	rdfs:comment """Length per unit time. 
+
+Speed in the absolute value of the velocity."""@en ;
+	skos:prefLabel "Speed"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_8159c26a_494b_4fa0_9959_10888f152298
+
+:EMMO_8159c26a_494b_4fa0_9959_10888f152298 a owl:Class ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L0 M0 I0 Θ0 N+1 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/AmountOfSubstance" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Amount_of_substance" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The number of elementary entities present."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.A00297" ;
+	rdfs:comment """\"In the name “amount of substance”, the word “substance” will typically be replaced by words to specify the substance concerned in any particular application, for example “amount of hydrogen chloride, HCl”, or “amount of benzene, C6H6 ”. It is important to give a precise definition of the entity involved (as emphasized in the definition of the mole); this should preferably be done by specifying the molecular chemical formula of the material involved. Although the word “amount” has a more general dictionary definition, the abbreviation of the full name “amount of substance” to “amount” may be used for brevity.\"
+
+-- SI Brochure"""@en ;
+	skos:prefLabel "AmountOfSubstance"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_81e767f1_59b1_4d7a_bf69_17f322241831
+
+:EMMO_81e767f1_59b1_4d7a_bf69_17f322241831 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L+2 M0 I+1 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/MagneticDipoleMoment" ;
+	:EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=121-11-55" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Magnetic_moment" ;
+	:EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "10-9.1" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Vector quantity μ causing a change to its energy ΔW in an external magnetic field of field flux density B:
+
+    ΔW = −μ · B"""@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "http://goldbook.iupac.org/terms/view/M03688" ;
+	rdfs:comment """For an atom or nucleus, this energy is quantized and can be written as:
+
+    W = g μ M B
+
+where g is the appropriate g factor, μ is mostly the Bohr magneton or nuclear magneton, M is magnetic quantum number, and B is magnitude of the magnetic flux density.
+
+-- ISO 80000"""@en ;
+	skos:prefLabel "MagneticDipoleMoment"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_830b59f7_d047_438c_90cd_62845749efcb
+
+:EMMO_830b59f7_d047_438c_90cd_62845749efcb a owl:Class ;
+	rdfs:subClassOf :EMMO_31ec09ba_1713_42cb_83c7_b38bf6f9ced2 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-2 L+2 M+1 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/InternalEnergy" ;
+	:EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=113-04-20" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Internal_energy" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A state quantity equal to the difference between the total energy of a system and the sum of the macroscopic kinetic and potential energies of the system."@en ;
+	:EMMO_e55f2d7c_9893_48cd_b4a4_fdf38253bd20 "http://www.ontology-of-units-of-measure.org/resource/om-2/InternalEnergy" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.I03103" ;
+	skos:altLabel "ThermodynamicEnergy"@en ;
+	skos:prefLabel "InternalEnergy"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_847f1d9f_205e_46c1_8cb6_a9e479421f88
+
+:EMMO_847f1d9f_205e_46c1_8cb6_a9e479421f88 a owl:Class ;
+	owl:equivalentClass _:genid26 .
+
+_:genid26 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T-2 L+2 M0 I0 Θ0 N0 J0" .
+
+:EMMO_847f1d9f_205e_46c1_8cb6_a9e479421f88 rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "AbsorbedDoseDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_852b4ab8_fc29_4749_a8c7_b92d4fca7d5a
+
+:EMMO_852b4ab8_fc29_4749_a8c7_b92d4fca7d5a a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-1 L0 M0 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Frequency" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Frequency" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Number of periods per time interval."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.FT07383" ;
+	skos:prefLabel "Frequency"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_88fc5d1b_d3ab_4626_b24c_915ebe7400ca
+
+:EMMO_88fc5d1b_d3ab_4626_b24c_915ebe7400ca a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-2 L+2 M+1 I0 Θ0 N-1 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/ChemicalPotential" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Chemical_potential" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.C01032" ;
+	rdfs:comment "Energy per unit change in amount of substance."@en ;
+	skos:prefLabel "ChemicalPotential"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_8d3da9ac_2265_4382_bee5_db72046722f8
+
+:EMMO_8d3da9ac_2265_4382_bee5_db72046722f8 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-1 L0 M0 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/SpecificActivity" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Decays per unit time."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.A00114" ;
+	skos:prefLabel "Radioactivity"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_8d689295_7d84_421b_bc01_d5cceb2c2086
+
+:EMMO_8d689295_7d84_421b_bc01_d5cceb2c2086 a owl:Class ;
+	rdfs:subClassOf :EMMO_3f15d200_c97b_42c8_8ac0_d81d150361e2 , :EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L0 M+1 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/constant/ProtonMass" ;
+	:EMMO_a9b3d04c_7ceb_40a2_b8d3_28d514a770a8 "https://physics.nist.gov/cgi-bin/cuu/Value?mp" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.P04914" ;
+	rdfs:comment "The rest mass of a proton."@en ;
+	skos:prefLabel "ProtonMass"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_8e5dd473_808b_4a8a_b7cd_63068c12ff57
+
+:EMMO_8e5dd473_808b_4a8a_b7cd_63068c12ff57 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-2 L+2 M0 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/AbsorbedDose" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Absorbed_dose" ;
+	:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "Energy imparted to matter by ionizing radiation in a suitable small element of volume divided by the mass of that element of volume."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.A00031" ;
+	skos:prefLabel "AbsorbedDose"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05
+
+:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 a owl:Class ;
+	owl:equivalentClass _:genid27 .
+
+_:genid27 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T0 L+3 M0 I0 Θ0 N0 J0" .
+
+:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "VolumeDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_92b2fb85_2143_4bc7_bbca_df3e6944bfc1
+
+:EMMO_92b2fb85_2143_4bc7_bbca_df3e6944bfc1 a owl:Class ;
+	rdfs:subClassOf :EMMO_e88f75d6_9a17_4cfc_bdf7_43d7cea5a9a1 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-3 L+2 M+1 I-2 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Reactance" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Electrical_reactance" ;
+	rdfs:comment "The opposition of a circuit element to a change in current or voltage, due to that element's inductance or capacitance."@en ;
+	skos:altLabel "Reactance" ;
+	skos:prefLabel "ElectricReactance"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_961d1aba_f75e_4411_aaa4_457f7516ed6b
+
+:EMMO_961d1aba_f75e_4411_aaa4_457f7516ed6b a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-2 L0 M+1 I-1 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/MagneticFluxDensity" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Magnetic_field" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Strength of the magnetic field."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.M03686" ;
+	rdfs:comment "Often denoted B."@en ;
+	skos:prefLabel "MagneticFluxDensity"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_96f39f77_44dc_491b_8fa7_30d887fe0890
+
+:EMMO_96f39f77_44dc_491b_8fa7_30d887fe0890 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L+2 M0 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Area" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Area" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.A00429" ;
+	rdfs:comment "Extent of a surface."@en ;
+	skos:prefLabel "Area"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_97589322_710c_4af4_9431_1e5027f2be42
+
+:EMMO_97589322_710c_4af4_9431_1e5027f2be42 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L-2 M0 I0 Θ0 N0 J+1" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Luminance" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Luminance" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.L03640" ;
+	rdfs:comment "Measured in cd/m². Not to confuse with Illuminance, which is measured in lux (cd sr/m²)."@en , "a photometric measure of the luminous intensity per unit area of light travelling in a given direction."@en ;
+	skos:prefLabel "Luminance"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_99296e55_53f7_4333_9e06_760ad175a1b9
+
+:EMMO_99296e55_53f7_4333_9e06_760ad175a1b9 a owl:Class ;
+	rdfs:subClassOf :EMMO_81369540_1b0e_471b_9bae_6801af22800e , :EMMO_f2ca6dd0_0e5f_4392_a92d_cafdae6cfc95 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-1 L+1 M0 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/constant/SpeedOfLight_Vacuum" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Speed_of_light" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The speed of light in vacuum. Defines the base unit metre in the SI system."@en ;
+	:EMMO_a9b3d04c_7ceb_40a2_b8d3_28d514a770a8 "https://physics.nist.gov/cgi-bin/cuu/Value?c" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.S05854" ;
+	skos:prefLabel "SpeedOfLightInVacuum"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_99dba333_0dbd_4f75_8841_8c0f97fd58e2
+
+:EMMO_99dba333_0dbd_4f75_8841_8c0f97fd58e2 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T+4 L-2 M-1 I+2 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Capacitance" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Capacitance" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The derivative of the electric charge of a system with respect to the electric potential."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.C00791" ;
+	skos:altLabel "ElectricCapacitance"@en ;
+	skos:prefLabel "Capacitance"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_9bbab0be_f9cc_4f46_9f46_0fd271911b79
+
+:EMMO_9bbab0be_f9cc_4f46_9f46_0fd271911b79 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-2 L+2 M+1 I0 Θ-1 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Entropy" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Entropy" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.E02149" ;
+	rdfs:comment "Logarithmic measure of the number of available states of a system."@en , "May also be referred to as a measure of order of  a system."@en ;
+	skos:prefLabel "Entropy"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_9d8f708a_f291_4d72_80ec_362c6e6bbca6
+
+:EMMO_9d8f708a_f291_4d72_80ec_362c6e6bbca6 a owl:Class ;
+	rdfs:subClassOf :EMMO_44da6d75_54a4_4aa8_bd3a_156f6e9abb8e ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L+1 M0 I0 Θ0 N0 J0" ;
+	:EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=113-03-12" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Center_of_mass" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The unique point where the weighted relative position of the distributed mass of an Item sums to zero. Equivalently, it is the point where if a force is applied to the Item, causes the Item to move in direction of force without rotation."@en ;
+	:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Center_of_mass" ;
+	rdfs:comment "In non-relativistic physics, the centre of mass doesn’t depend on the chosen reference frame."@en ;
+	skos:prefLabel "CentreOfMass"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_a3c78d6f_ae49_47c8_a634_9b6d86b79382
+
+:EMMO_a3c78d6f_ae49_47c8_a634_9b6d86b79382 a owl:Class ;
+	rdfs:subClassOf :EMMO_3f15d200_c97b_42c8_8ac0_d81d150361e2 , :EMMO_d859588d_44dc_4614_bc75_5fcd0058acc8 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L-1 M0 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/constant/RydbergConstant" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Rydberg_constant" ;
+	:EMMO_a9b3d04c_7ceb_40a2_b8d3_28d514a770a8 "https://physics.nist.gov/cgi-bin/cuu/Value?ryd" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.R05430" ;
+	rdfs:comment "The Rydberg constant represents the limiting value of the highest wavenumber (the inverse wavelength) of any photon that can be emitted from the hydrogen atom, or, alternatively, the wavenumber of the lowest-energy photon capable of ionizing the hydrogen atom from its ground state."@en ;
+	skos:prefLabel "RybergConstant"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_a66427d1_9932_4363_9ec5_7d91f2bfda1e
+
+:EMMO_a66427d1_9932_4363_9ec5_7d91f2bfda1e a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L0 M0 I0 Θ0 N0 J0" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Dimensionless_quantity" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A quantity to which no physical dimension is assigned and with a corresponding unit of measurement in the SI of the unit one."@en ;
+	:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Dimensionless_quantity" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.D01742" ;
+	skos:prefLabel "ISQDimensionlessQuantity"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_a77a0a4b_6bd2_42b2_be27_4b63cebbb59e
+
+:EMMO_a77a0a4b_6bd2_42b2_be27_4b63cebbb59e a owl:Class ;
+	owl:equivalentClass _:genid28 .
+
+_:genid28 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T0 L0 M0 I0 Θ+1 N0 J0" .
+
+:EMMO_a77a0a4b_6bd2_42b2_be27_4b63cebbb59e rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "TemperatureDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_a8eb87b5_4d10_4137_a75c_e04ee59ca095
+
+:EMMO_a8eb87b5_4d10_4137_a75c_e04ee59ca095 a owl:Class ;
+	rdfs:subClassOf :EMMO_faab3f84_e475_4a46_af9c_7d249f0b9aef ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L0 M0 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/VolumeFraction" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Volume_fraction"@en ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Volume of a constituent of a mixture divided by the sum of volumes of all constituents prior to mixing."@en ;
+	:EMMO_e55f2d7c_9893_48cd_b4a4_fdf38253bd20 "http://www.ontology-of-units-of-measure.org/resource/om-2/VolumeFraction"@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.V06643"@en ;
+	skos:prefLabel "VolumeFraction"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_aaf9dd7f_0474_40d0_9606_02def8515249
+
+:EMMO_aaf9dd7f_0474_40d0_9606_02def8515249 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-2 L+2 M+1 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Torque" ;
+	:EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=113-03-26" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Torque" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The effectiveness of a force to produce rotation about an axis, measured by the product of the force and the perpendicular distance from the line of action of the force to the axis."@en ;
+	:EMMO_e55f2d7c_9893_48cd_b4a4_fdf38253bd20 "http://www.ontology-of-units-of-measure.org/resource/om-2/Torque" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.T06400" ;
+	rdfs:comment "Even though torque has the same physical dimension as energy, it is not of the same kind and can not be measured with energy units like joule or electron volt."@en ;
+	skos:prefLabel "Torque"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_ab79e92b_5377_454d_be06_d61b50db295a
+
+:EMMO_ab79e92b_5377_454d_be06_d61b50db295a a owl:Class ;
+	owl:equivalentClass _:genid29 .
+
+_:genid29 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T+1 L0 M0 I+1 Θ0 N0 J0" .
+
+:EMMO_ab79e92b_5377_454d_be06_d61b50db295a rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "ElectricChargeDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_ac540a9d_0131_43f6_a33b_17e5cfc432ed
+
+:EMMO_ac540a9d_0131_43f6_a33b_17e5cfc432ed a owl:Class ;
+	rdfs:subClassOf :EMMO_31ec09ba_1713_42cb_83c7_b38bf6f9ced2 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-2 L+2 M+1 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/KineticEnergy" ;
+	:EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=113-03-49" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Kinetic_energy" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The energy of an object due to its motion."@en ;
+	:EMMO_e55f2d7c_9893_48cd_b4a4_fdf38253bd20 "http://www.ontology-of-units-of-measure.org/resource/om-2/KineticEnergy" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.K03402" ;
+	skos:prefLabel "KineticEnergy"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_acf636d4_9ac2_4ce3_960a_d54338e6cae3
+
+:EMMO_acf636d4_9ac2_4ce3_960a_d54338e6cae3 a owl:Class ;
+	rdfs:subClassOf :EMMO_faab3f84_e475_4a46_af9c_7d249f0b9aef ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L0 M0 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Strain" ;
+	:EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=113-03-57" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Change of the relative positions of parts of a body, excluding a displacement of the body as a whole."@en ;
+	:EMMO_e55f2d7c_9893_48cd_b4a4_fdf38253bd20 "http://www.ontology-of-units-of-measure.org/resource/om-2/Strain" ;
+	skos:prefLabel "Strain"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_ad6c76cf_b400_423e_820f_cf0c4e77f455
+
+:EMMO_ad6c76cf_b400_423e_820f_cf0c4e77f455 a owl:Class ;
+	rdfs:subClassOf :EMMO_f2ca6dd0_0e5f_4392_a92d_cafdae6cfc95 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-2 L+2 M+1 I0 Θ-1 N-1 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/constant/MolarGasConstant" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Gas_constant" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Equivalent to the Boltzmann constant, but expressed in units of energy per temperature increment per mole (rather than energy per temperature increment per particle)."@en ;
+	:EMMO_a9b3d04c_7ceb_40a2_b8d3_28d514a770a8 "https://physics.nist.gov/cgi-bin/cuu/Value?r" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.G02579" ;
+	skos:prefLabel "MolarGasConstant"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_af24ae20_8ef2_435a_86a1_2ea44488b318
+
+:EMMO_af24ae20_8ef2_435a_86a1_2ea44488b318 a owl:Class ;
+	owl:equivalentClass _:genid30 .
+
+_:genid30 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T0 L0 M0 I0 Θ0 N-1 J0" .
+
+:EMMO_af24ae20_8ef2_435a_86a1_2ea44488b318 rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "PerAmountDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_afea89af_ef16_4bdb_99d5_f3b2f4c85a6c
+
+:EMMO_afea89af_ef16_4bdb_99d5_f3b2f4c85a6c a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L-2 M+1 I0 Θ0 N0 J0" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Area_density" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.S06167" ;
+	rdfs:comment "Mass per unit area."@en ;
+	skos:prefLabel "AreaDensity"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f
+
+:EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f a owl:Class ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L0 M0 I0 Θ+1 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "qudt.org/vocab/quantitykind/ThermodynamicTemperature" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Thermodynamic_temperature" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Thermodynamic temperature is the absolute measure of temperature. It is defined by the third law of thermodynamics in which the theoretically lowest temperature is the null or zero point."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.T06321" ;
+	skos:prefLabel "ThermodynamicTemperature"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_b14d9be5_f81e_469b_abca_379c2e83feab
+
+:EMMO_b14d9be5_f81e_469b_abca_379c2e83feab a owl:Class ;
+	owl:equivalentClass _:genid31 .
+
+_:genid31 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T+4 L-2 M-1 I+2 Θ0 N0 J0" .
+
+:EMMO_b14d9be5_f81e_469b_abca_379c2e83feab rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "CapacitanceDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc
+
+:EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc a owl:Class ;
+	owl:equivalentClass _:genid32 .
+
+_:genid32 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T0 L+1 M0 I0 Θ0 N0 J0" .
+
+:EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "LengthDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_b4895f75_41c8_4fd9_b6d6_4d5f7c99c423
+
+:EMMO_b4895f75_41c8_4fd9_b6d6_4d5f7c99c423 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L-1 M0 I+1 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/MagneticFieldStrength" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Magnetic_field" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.M03683" ;
+	rdfs:comment "Strength of a magnetic field. Commonly denoted H."@en ;
+	skos:prefLabel "MagneticFieldStrength"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_b51fbd00_a857_4132_9711_0ef70e7bdd20
+
+:EMMO_b51fbd00_a857_4132_9711_0ef70e7bdd20 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L-2 M0 I0 Θ0 N0 J+1" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Illuminance" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Illuminance" ;
+	:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The total luminous flux incident on a surface, per unit area."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.I02941" ;
+	skos:prefLabel "Illuminance"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_ba380bc6_2bfd_4f11_94c7_b3cbaafd1631
+
+:EMMO_ba380bc6_2bfd_4f11_94c7_b3cbaafd1631 a owl:Class ;
+	rdfs:subClassOf :EMMO_f2ca6dd0_0e5f_4392_a92d_cafdae6cfc95 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T+2 L-1 M-1 I+1 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/constant/JosephsonConstant" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Inverse of the magnetic flux quantum."@en ;
+	:EMMO_a9b3d04c_7ceb_40a2_b8d3_28d514a770a8 "https://physics.nist.gov/cgi-bin/cuu/Value?kjos" ;
+	rdfs:comment "The DBpedia definition (http://dbpedia.org/page/Magnetic_flux_quantum) is outdated as May 20, 2019. It is now an exact quantity."@en ;
+	skos:prefLabel "JosephsonConstant"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_ba882f34_0d71_4e4f_9d92_0c076c633a2c
+
+:EMMO_ba882f34_0d71_4e4f_9d92_0c076c633a2c a owl:Class ;
+	rdfs:subClassOf :EMMO_a66427d1_9932_4363_9ec5_7d91f2bfda1e ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L0 M0 I0 Θ0 N0 J0" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A pure number, typically the number of something."@en ;
+	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """1, 
+i, 
+π,
+the number of protons in the nucleus of an atom""" ;
+	rdfs:comment """According to the SI brochure counting does not automatically qualify a quantity as an amount of substance.
+
+This quantity is used only to describe the outcome of a counting process, without regard of the type of entities.
+
+\"There are also some quantities that cannot be described in terms of the seven base quantities of the SI, but have the nature of a count. Examples are a number of molecules, a number of cellular or biomolecular entities (for example copies of a particular nucleic acid sequence), or degeneracy in quantum mechanics. Counting quantities are also quantities with the associated unit one.\""""@en ;
+	skos:prefLabel "PureNumberQuantity"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_bd67d149_24c2_4bc9_833a_c2bc26f98fd3
+
+:EMMO_bd67d149_24c2_4bc9_833a_c2bc26f98fd3 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-1 L0 M0 I0 Θ0 N+1 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/CatalyticActivity" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Increase in the rate of reaction of a specified chemical reaction that an enzyme produces in a specific assay system."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.C00881" ;
+	skos:prefLabel "CatalyticActivity"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_c8d084ad_f88e_4596_8e4d_982c6655ce6f
+
+:EMMO_c8d084ad_f88e_4596_8e4d_982c6655ce6f a owl:Class ;
+	owl:equivalentClass _:genid33 .
+
+_:genid33 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T-3 L+2 M+1 I0 Θ0 N0 J0" .
+
+:EMMO_c8d084ad_f88e_4596_8e4d_982c6655ce6f rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "PowerDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88
+
+:EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88 a owl:Class ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L0 M0 I+1 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/ElectricCurrent" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Electric_current" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A flow of electric charge."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.E01927" ;
+	skos:prefLabel "ElectricCurrent"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_cc01751d_dd05_429b_9d0c_1b7a74d1f277
+
+:EMMO_cc01751d_dd05_429b_9d0c_1b7a74d1f277 a owl:Class ;
+	rdfs:subClassOf :EMMO_1604f495_328a_4f28_9962_f4cc210739dd , :EMMO_f2ca6dd0_0e5f_4392_a92d_cafdae6cfc95 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T+1 L0 M0 I+1 Θ0 N0 J0" ;
+	:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The charge of an electron."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.E01982" ;
+	rdfs:comment "The negative of ElementaryCharge."@en ;
+	skos:prefLabel "ElectronCharge"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac
+
+:EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac a owl:Class ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L+1 M0 I0 Θ0 N0 J0" ;
+	:EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=113-01-19" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Length" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Extend of a spatial dimension."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.L03498" ;
+	rdfs:comment "Length is a non-negative additive quantity attributed to a one-dimensional object in space."@en ;
+	skos:prefLabel "Length"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_cde4368c_1d4d_4c94_8548_604749523c6d
+
+:EMMO_cde4368c_1d4d_4c94_8548_604749523c6d a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T+3 L-3 M-1 I+2 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/ElectricConductivity" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Electrical_resistivity_and_conductivity" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.C01245" ;
+	rdfs:comment """Measure of a material's ability to conduct an electric current. 
+
+Conductivity is equeal to the resiprocal of resistivity."""@en ;
+	skos:altLabel "Conductivity" ;
+	skos:prefLabel "ElectricConductivity"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_ce7d4720_aa20_4a8c_93e8_df41a35b6723
+
+:EMMO_ce7d4720_aa20_4a8c_93e8_df41a35b6723 a owl:Class ;
+	owl:equivalentClass _:genid34 .
+
+_:genid34 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T-1 L0 M0 I0 Θ0 N+1 J0" .
+
+:EMMO_ce7d4720_aa20_4a8c_93e8_df41a35b6723 rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "CatalyticActivityDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_d1917609_db5e_4b8a_9b76_ef1d6f860a81
+
+:EMMO_d1917609_db5e_4b8a_9b76_ef1d6f860a81 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-2 L-1 M+1 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Stress" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Stress_(mechanics)" ;
+	rdfs:comment "Force per unit oriented surface area ."@en , "Measure of the internal forces that neighboring particles of a continuous material exert on each other."@en ;
+	skos:prefLabel "Stress"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7
+
+:EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7 a owl:Class ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T+1 L0 M0 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "qudt.org/vocab/quantitykind/Time" ;
+	:EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=113-01-03" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Time" ;
+	:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "One-dimensional subspace of space-time, which is locally orthogonal to space."@en ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The indefinite continued progress of existence and events that occur in apparently irreversible succession from the past through the present to the future."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.T06375" ;
+	rdfs:comment "Time can be seen as the duration of an event or, more operationally, as \"what clocks read\"."@en ;
+	skos:prefLabel "Time"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_d5be1faf_0c56_4f5a_9b78_581e6dee949f
+
+:EMMO_d5be1faf_0c56_4f5a_9b78_581e6dee949f a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L-3 M0 I0 Θ0 N+1 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/AmountOfSubstanceConcentrationOfB" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Molar_concentration" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.A00295" ;
+	rdfs:comment "The amount of a constituent divided by the volume of the mixture."@en ;
+	skos:altLabel "Concentration"@en , "MolarConcentration"@en , "Molarity"@en ;
+	skos:prefLabel "AmountConcentration"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_d5f3e0e5_fc7d_4e64_86ad_555e74aaff84
+
+:EMMO_d5f3e0e5_fc7d_4e64_86ad_555e74aaff84 a owl:Class ;
+	owl:equivalentClass _:genid35 .
+
+_:genid35 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T0 L0 M0 I+1 Θ0 N0 J0" .
+
+:EMMO_d5f3e0e5_fc7d_4e64_86ad_555e74aaff84 rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "ElectricCurrentDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_d7d2ca25_03e1_4099_9220_c1a58df13ad0
+
+:EMMO_d7d2ca25_03e1_4099_9220_c1a58df13ad0 a owl:Class ;
+	rdfs:subClassOf :EMMO_3f15d200_c97b_42c8_8ac0_d81d150361e2 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L0 M0 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/constant/FineStructureConstant" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Fine-structure_constant" ;
+	:EMMO_a9b3d04c_7ceb_40a2_b8d3_28d514a770a8 "https://physics.nist.gov/cgi-bin/cuu/Value?alph" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.F02389" ;
+	rdfs:comment "A fundamental physical constant characterizing the strength of the electromagnetic interaction between elementary charged particles."@en ;
+	skos:prefLabel "FineStructureConstant"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_d859588d_44dc_4614_bc75_5fcd0058acc8
+
+:EMMO_d859588d_44dc_4614_bc75_5fcd0058acc8 a owl:Class ;
+	rdfs:subClassOf :EMMO_ecec2983_7c26_4f8d_a981_51ca29668baf ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L-1 M0 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Wavenumber" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Wavenumber" ;
+	:EMMO_e55f2d7c_9893_48cd_b4a4_fdf38253bd20 "http://www.ontology-of-units-of-measure.org/resource/om-2/Wavenumber" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.W06664" ;
+	rdfs:comment "The number of waves per unit length along the direction of propagation."@en ;
+	skos:prefLabel "Wavenumber"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_da831168_975a_41f8_baae_279c298569da
+
+:EMMO_da831168_975a_41f8_baae_279c298569da a owl:Class ;
+	rdfs:subClassOf :EMMO_3f15d200_c97b_42c8_8ac0_d81d150361e2 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-2 L+3 M-1 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/constant/NewtonianConstantOfGravitation" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Gravitational_constant" ;
+	:EMMO_a9b3d04c_7ceb_40a2_b8d3_28d514a770a8 "https://physics.nist.gov/cgi-bin/cuu/Value?bg" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.G02695" ;
+	rdfs:comment "Physical constant in Newton's law of gravitation and in Einstein's general theory of relativity."@en ;
+	skos:prefLabel "NewtonianConstantOfGravity"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_dc6c8de0_cfc4_4c66_a7dc_8f720e732d54
+
+:EMMO_dc6c8de0_cfc4_4c66_a7dc_8f720e732d54 a owl:Class ;
+	rdfs:subClassOf :EMMO_ba882f34_0d71_4e4f_9d92_0c076c633a2c ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L0 M0 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/MassNumber" ;
+	:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "Number of nucleons in an atomic nucleus."@en ;
+	skos:altLabel "AtomicMassNumber" , "NucleonNumber" ;
+	skos:prefLabel "MassNumber"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_de021e4f_918f_47ef_a67b_11120f56b9d7
+
+:EMMO_de021e4f_918f_47ef_a67b_11120f56b9d7 a owl:Class ;
+	rdfs:subClassOf :EMMO_09663630_1b84_4202_91e6_e641104f579e , :EMMO_3f15d200_c97b_42c8_8ac0_d81d150361e2 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-2 L+1 M+1 I-2 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/constant/ElectromagneticPermeabilityOfVacuum" ;
+	:EMMO_a9b3d04c_7ceb_40a2_b8d3_28d514a770a8 "https://physics.nist.gov/cgi-bin/cuu/Value?mu0" ;
+	rdfs:comment "The DBpedia and UIPAC Gold Book definitions (http://dbpedia.org/page/Vacuum_permeability,  https://doi.org/10.1351/goldbook.P04504) are outdated since May 20, 2019. It is now a measured constant."@en , "The value of magnetic permeability in a classical vacuum."@en ;
+	skos:prefLabel "VacuumMagneticPermeability"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_e150fa8d_06dc_4bb8_bf95_04e2aea529c1
+
+:EMMO_e150fa8d_06dc_4bb8_bf95_04e2aea529c1 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-3 L+3 M+1 I-2 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Resistivity" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Electrical_resistivity_and_conductivity" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.R05316" ;
+	rdfs:comment "Electric field strength divided by the current density."@en ;
+	skos:altLabel "Resistivity" ;
+	skos:prefLabel "ElectricResistivity"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_e2ee1c98_497a_4f66_b4ed_5711496a848e
+
+:EMMO_e2ee1c98_497a_4f66_b4ed_5711496a848e a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L0 M0 I0 Θ0 N0 J+1" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/LuminousFlux" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Luminous_flux" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Perceived power of light."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.L03646" ;
+	skos:prefLabel "LuminousFlux"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_e37ac288_aa60_415a_8cb7_c375724ac8e1
+
+:EMMO_e37ac288_aa60_415a_8cb7_c375724ac8e1 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-2 L+1 M0 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Acceleration" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Acceleration" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.A00051" ;
+	rdfs:comment "Derivative of velocity with respect to time."@en ;
+	skos:prefLabel "Acceleration"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_e46f3f24_c2ec_4552_8dd4_cfc5c0a89c09
+
+:EMMO_e46f3f24_c2ec_4552_8dd4_cfc5c0a89c09 a owl:Class ;
+	rdfs:subClassOf :EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-3 L+2 M+1 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/RadiantFlux" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Radiant_flux" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.R05046" ;
+	rdfs:comment "The radiant energy emitted, reflected, transmitted or received, per unit time."@en ;
+	skos:prefLabel "RadiantFlux"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_e501069c_34d3_4dc7_ac87_c90c7342192b
+
+:EMMO_e501069c_34d3_4dc7_ac87_c90c7342192b a owl:Class ;
+	owl:equivalentClass _:genid36 .
+
+_:genid36 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T0 L0 M0 I0 Θ0 N+1 J0" .
+
+:EMMO_e501069c_34d3_4dc7_ac87_c90c7342192b rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "AmountDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_e7c9f7fd_e534_4441_88fe_1fec6cb20f26
+
+:EMMO_e7c9f7fd_e534_4441_88fe_1fec6cb20f26 a owl:Class ;
+	rdfs:subClassOf :EMMO_faab3f84_e475_4a46_af9c_7d249f0b9aef ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L0 M0 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/SolidAngle" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Solid_angle" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Ratio of area on a sphere to its radius squared."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.S05732" ;
+	skos:prefLabel "SolidAngle"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_e88f75d6_9a17_4cfc_bdf7_43d7cea5a9a1
+
+:EMMO_e88f75d6_9a17_4cfc_bdf7_43d7cea5a9a1 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-3 L+2 M+1 I-2 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Resistance" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Electrical_resistance_and_conductance" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Measure of the difficulty to pass an electric current through a material."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.E01936" ;
+	rdfs:comment "Inverse of 'ElectricalConductance'."@en ;
+	skos:altLabel "Resistance"@en ;
+	skos:prefLabel "ElectricResistance"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_eb561764_276e_413d_a8cb_3a3154fd9bf8
+
+:EMMO_eb561764_276e_413d_a8cb_3a3154fd9bf8 a owl:Class ;
+	rdfs:subClassOf :EMMO_e88f75d6_9a17_4cfc_bdf7_43d7cea5a9a1 , :EMMO_f2ca6dd0_0e5f_4392_a92d_cafdae6cfc95 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-3 L+2 M+1 I-2 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/constant/VonKlitzingConstant" ;
+	:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The von Klitzing constant is defined as Planck constant divided by the square of the elementary charge."@en ;
+	:EMMO_a9b3d04c_7ceb_40a2_b8d3_28d514a770a8 "https://physics.nist.gov/cgi-bin/cuu/Value?rk" ;
+	rdfs:comment "Resistance quantum."@en ;
+	skos:prefLabel "VonKlitzingConstant"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_ec903946_ddc9_464a_903c_7373e0d1eeb5
+
+:EMMO_ec903946_ddc9_464a_903c_7373e0d1eeb5 a owl:Class ;
+	owl:equivalentClass _:genid37 .
+
+_:genid37 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T-2 L0 M+1 I-1 Θ0 N0 J0" .
+
+:EMMO_ec903946_ddc9_464a_903c_7373e0d1eeb5 rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "MagneticFluxDensityDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_ecec2983_7c26_4f8d_a981_51ca29668baf
+
+:EMMO_ecec2983_7c26_4f8d_a981_51ca29668baf a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L-1 M0 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/InverseLength" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Reciprocal_length" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The inverse of length."@en ;
+	:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Reciprocal_length" ;
+	skos:altLabel "InverseLength" ;
+	skos:prefLabel "ReciprocalLength"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405
+
+:EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405 a owl:Class ;
+	rdfs:subClassOf _:genid38 .
+
+_:genid38 a owl:Restriction ;
+	owl:onProperty _:genid39 .
+
+_:genid39 owl:inverseOf :EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
+
+_:genid38 owl:allValuesFrom :EMMO_5b2222df_4da6_442f_8244_96e9e45887d1 .
+
+:EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405 :EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L0 M+1 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Mass" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Mass" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Property of a physical body that express its resistance to acceleration (a change in its state of motion) when a force is applied."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.M03709" ;
+	skos:prefLabel "Mass"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_f1a51559_aa3d_43a0_9327_918039f0dfed
+
+:EMMO_f1a51559_aa3d_43a0_9327_918039f0dfed a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L-3 M0 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Volume" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Volume" ;
+	rdfs:comment "Extent of an object in space."@en ;
+	skos:prefLabel "Volume"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_f2ca6dd0_0e5f_4392_a92d_cafdae6cfc95
+
+:EMMO_f2ca6dd0_0e5f_4392_a92d_cafdae6cfc95 a owl:Class ;
+	rdfs:subClassOf :EMMO_89762966_8076_4f7c_b745_f718d653e8e2 ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Physical constant that by definition (after the latest revision of the SI system that was enforsed May 2019) has a known exact numerical value when expressed in SI units."@en ;
+	skos:prefLabel "SIExactConstant"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_f35cff4d_dc09_44cf_a729_22fb79e3bfb2
+
+:EMMO_f35cff4d_dc09_44cf_a729_22fb79e3bfb2 a owl:Class ;
+	rdfs:subClassOf :EMMO_02c0621e_a527_4790_8a0f_2bb51973c819 ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Quantities declared under the ISO 80000."@en ;
+	:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/International_System_of_Quantities" ;
+	rdfs:seeAlso "https://www.iso.org/obp/ui/#iso:std:iso:80000:-1:ed-1:v1:en:sec:3.1" ;
+	skos:prefLabel "InternationalSystemOfQuantity"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_f3dd74c0_f480_49e8_9764_33b78638c235
+
+:EMMO_f3dd74c0_f480_49e8_9764_33b78638c235 a owl:Class ;
+	rdfs:subClassOf :EMMO_faab3f84_e475_4a46_af9c_7d249f0b9aef ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L0 M0 I0 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/PlaneAngle" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Angle" ;
+	:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "Ratio of circular arc length to radius."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.A00346" ;
+	skos:altLabel "PlaneAngle"@en ;
+	skos:prefLabel "Angle"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f
+
+:EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f a owl:Class ;
+	owl:equivalentClass _:genid40 .
+
+_:genid40 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T-2 L+2 M+1 I0 Θ0 N0 J0" .
+
+:EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "EnergyDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_f84792eb_ec64_4a6b_941f_c9f3e9ef052c
+
+:EMMO_f84792eb_ec64_4a6b_941f_c9f3e9ef052c a owl:Class ;
+	owl:equivalentClass _:genid41 .
+
+_:genid41 a owl:Restriction ;
+	owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+	owl:hasValue "T-1 L+1 M0 I0 Θ0 N0 J0" .
+
+:EMMO_f84792eb_ec64_4a6b_941f_c9f3e9ef052c rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+	skos:prefLabel "VelocityDimension"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_f96feb3f_4438_4e43_aa44_7458c4d87fc2
+
+:EMMO_f96feb3f_4438_4e43_aa44_7458c4d87fc2 a owl:Class ;
+	rdfs:subClassOf :EMMO_852b4ab8_fc29_4749_a8c7_b92d4fca7d5a , :EMMO_f2ca6dd0_0e5f_4392_a92d_cafdae6cfc95 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-1 L0 M0 I0 Θ0 N0 J0" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The frequency standard in the SI system in which the photon absorption by transitions between the two hyperfine ground states of caesium-133 atoms are used to control the output frequency.
+
+It defines the base unit second in the SI system."""@en ;
+	:EMMO_a9b3d04c_7ceb_40a2_b8d3_28d514a770a8 "https://physics.nist.gov/cgi-bin/cuu/Value?nucs" ;
+	skos:prefLabel "HyperfineTransitionFrequencyOfCs"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_faab3f84_e475_4a46_af9c_7d249f0b9aef
+
+:EMMO_faab3f84_e475_4a46_af9c_7d249f0b9aef a owl:Class ;
+	rdfs:subClassOf :EMMO_a66427d1_9932_4363_9ec5_7d91f2bfda1e ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L0 M0 I0 Θ0 N0 J0" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of quantities that are the ratio of two quantities with the same physical dimensionality."@en ;
+	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """refractive index,
+volume fraction,
+fine structure constant""" ;
+	rdfs:comment """Quantities defined as ratios `Q=A/B` having equal dimensions in numerator and denominator are dimensionless quantities but still have a physical dimension defined as dim(A)/dim(B).
+
+Johansson, Ingvar (2010). \"Metrological thinking needs the notions of parametric quantities, units and dimensions\". Metrologia. 47 (3): 219–230. doi:10.1088/0026-1394/47/3/012. ISSN 0026-1394."""@en ;
+	rdfs:seeAlso "https://iopscience.iop.org/article/10.1088/0026-1394/47/3/012" ;
+	skos:prefLabel "RatioQuantity"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_ffb73b1e_5786_43e4_a964_cb32ac7affb7
+
+:EMMO_ffb73b1e_5786_43e4_a964_cb32ac7affb7 a owl:Class ;
+	rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T+3 L-2 M-1 I+2 Θ0 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Conductance" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Electrical_resistance_and_conductance" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Measure of the ease for electric current to pass through a material."@en ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.E01925" ;
+	rdfs:comment "Inverse of 'ElectricalResistance'."@en ;
+	skos:altLabel "Conductance"@en ;
+	skos:prefLabel "ElectricConductance"@en .
+# 
+# http://emmo.info/emmo/middle#EMMO_ffc7735f_c177_46a4_98e9_a54440d29209
+
+:EMMO_ffc7735f_c177_46a4_98e9_a54440d29209 a owl:Class ;
+	rdfs:subClassOf :EMMO_9bbab0be_f9cc_4f46_9f46_0fd271911b79 , :EMMO_f2ca6dd0_0e5f_4392_a92d_cafdae6cfc95 ;
+	:EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T-2 L+2 M+1 I0 Θ-1 N0 J0" ;
+	:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/constant/BoltzmannConstant" ;
+	:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Boltzmann_constant" ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A physical constant relating energy at the individual particle level with temperature. It is the gas constant R divided by the Avogadro constant.
+
+It defines the Kelvin unit in the SI system."""@en ;
+	:EMMO_a9b3d04c_7ceb_40a2_b8d3_28d514a770a8 "https://physics.nist.gov/cgi-bin/cuu/Value?k" ;
+	:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.B00695" ;
+	rdfs:comment "The DBpedia definition (http://dbpedia.org/page/Boltzmann_constant) is outdated as May 20, 2019. It is now an exact quantity."@en ;
+	skos:prefLabel "BoltzmannConstant"@en .
+# 
+# Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
