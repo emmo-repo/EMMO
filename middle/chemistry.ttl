@@ -1,0 +1,174 @@
+@prefix : <http://emmo.info/emmo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <http://emmo.info/emmo/middle/chemistry> .
+
+<http://emmo.info/emmo/middle/chemistry> rdf:type owl:Ontology ;
+                                          owl:versionIRI <http://emmo.info/emmo/1.0.0-beta/middle/chemistry> ;
+                                          owl:imports <http://emmo.info/emmo/1.0.0-beta/middle/metrology> .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://emmo.info/emmo#EMMO_0eabfde6_c6c5_4b1f_bf10_e4e0e06e9b2e
+:EMMO_0eabfde6_c6c5_4b1f_bf10_e4e0e06e9b2e rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                                             owl:someValuesFrom :EMMO_172e2c96_180b_40f8_a3e7_b624471f40c2
+                                                           ] ;
+                                           skos:prefLabel "TotalComposition"@en .
+
+
+###  http://emmo.info/emmo#EMMO_16a3bd5c_75f0_42b3_b000_cb0d018f840e
+:EMMO_16a3bd5c_75f0_42b3_b000_cb0d018f840e rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_26586828_3b8c_4d8b_9c6c_0bc2502f26ae ,
+                                                           :EMMO_91a0635a_a89a_46de_8928_04a777d145c7 ;
+                                           skos:prefLabel "IUPACName"@en .
+
+
+###  http://emmo.info/emmo#EMMO_172e2c96_180b_40f8_a3e7_b624471f40c2
+:EMMO_172e2c96_180b_40f8_a3e7_b624471f40c2 rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                                             owl:someValuesFrom :EMMO_02c0621e_a527_4790_8a0f_2bb51973c819
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                                             owl:someValuesFrom :EMMO_643d99dd_fae6_4121_a76f_47f486a4480b
+                                                           ] ;
+                                           skos:prefLabel "SingleComponentComposition"@en .
+
+
+###  http://emmo.info/emmo#EMMO_26586828_3b8c_4d8b_9c6c_0bc2502f26ae
+:EMMO_26586828_3b8c_4d8b_9c6c_0bc2502f26ae rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_643d99dd_fae6_4121_a76f_47f486a4480b ;
+                                           skos:prefLabel "ChemicalName"@en .
+
+
+###  http://emmo.info/emmo#EMMO_4208f937_8bad_47cf_af46_4ada75e63adb
+:EMMO_4208f937_8bad_47cf_af46_4ada75e63adb rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_9236d0aa_cb39_43a1_bbdd_6a2a714951c8 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                                             owl:someValuesFrom :EMMO_4f40def1_3cd7_4067_9596_541e9a5134cf
+                                                           ] ;
+                                           skos:prefLabel "MolecularFormula"@en .
+
+
+###  http://emmo.info/emmo#EMMO_4f40def1_3cd7_4067_9596_541e9a5134cf
+:EMMO_4f40def1_3cd7_4067_9596_541e9a5134cf rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_643d99dd_fae6_4121_a76f_47f486a4480b ,
+                                                           :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                             owl:someValuesFrom xsd:string
+                                                           ] ;
+                                           skos:prefLabel "ElementSymbol"@en .
+
+
+###  http://emmo.info/emmo#EMMO_643d99dd_fae6_4121_a76f_47f486a4480b
+:EMMO_643d99dd_fae6_4121_a76f_47f486a4480b rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_abf7efbe_6b04_41b8_8326_4dd0f6be753e ;
+                                           skos:prefLabel "ChemicalNomenclature"@en .
+
+
+###  http://emmo.info/emmo#EMMO_6756e9c2_8b89_40b2_bee7_52cd1dad3395
+:EMMO_6756e9c2_8b89_40b2_bee7_52cd1dad3395 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_4f40def1_3cd7_4067_9596_541e9a5134cf ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                             owl:hasValue "H"
+                                                           ] ;
+                                           skos:prefLabel "HydrogenSymbol"@en .
+
+
+###  http://emmo.info/emmo#EMMO_6afdb7e8_2a0b_444d_bde3_8d67d98180c0
+:EMMO_6afdb7e8_2a0b_444d_bde3_8d67d98180c0 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_9236d0aa_cb39_43a1_bbdd_6a2a714951c8 ;
+                                           skos:prefLabel "EmpiricalFormula"@en .
+
+
+###  http://emmo.info/emmo#EMMO_7efd64d1_05a1_49cd_a7f0_783ca050d4f3
+:EMMO_7efd64d1_05a1_49cd_a7f0_783ca050d4f3 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_89a0c87c_0804_4013_937a_6fe234d9499c ,
+                                                           :EMMO_abf7efbe_6b04_41b8_8326_4dd0f6be753e ;
+                                           owl:disjointUnionOf ( :EMMO_0eabfde6_c6c5_4b1f_bf10_e4e0e06e9b2e
+                                                                 :EMMO_172e2c96_180b_40f8_a3e7_b624471f40c2
+                                                                 :EMMO_90963312_d9a9_4474_8d10_835aef5b168e
+                                                               ) ;
+                                           skos:prefLabel "ChemicalComposition"@en .
+
+
+###  http://emmo.info/emmo#EMMO_844d1ded_2ede_43fd_a3c0_d33f332b2da6
+:EMMO_844d1ded_2ede_43fd_a3c0_d33f332b2da6 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_4f40def1_3cd7_4067_9596_541e9a5134cf ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                             owl:hasValue "U"
+                                                           ] ;
+                                           skos:prefLabel "UraniumSymbol"@en .
+
+
+###  http://emmo.info/emmo#EMMO_86f34276_7ab7_4609_94ea_16a15c0bc9fb
+:EMMO_86f34276_7ab7_4609_94ea_16a15c0bc9fb rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_4f40def1_3cd7_4067_9596_541e9a5134cf ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                             owl:hasValue "Ar"
+                                                           ] ;
+                                           skos:prefLabel "ArgonSymbol"@en .
+
+
+###  http://emmo.info/emmo#EMMO_90963312_d9a9_4474_8d10_835aef5b168e
+:EMMO_90963312_d9a9_4474_8d10_835aef5b168e rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                                             owl:someValuesFrom :EMMO_172e2c96_180b_40f8_a3e7_b624471f40c2
+                                                           ] ;
+                                           skos:prefLabel "PartialComposition"@en .
+
+
+###  http://emmo.info/emmo#EMMO_91a0635a_a89a_46de_8928_04a777d145c7
+:EMMO_91a0635a_a89a_46de_8928_04a777d145c7 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_643d99dd_fae6_4121_a76f_47f486a4480b ;
+                                           skos:prefLabel "IUPACNomencalture"@en .
+
+
+###  http://emmo.info/emmo#EMMO_9236d0aa_cb39_43a1_bbdd_6a2a714951c8
+:EMMO_9236d0aa_cb39_43a1_bbdd_6a2a714951c8 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_643d99dd_fae6_4121_a76f_47f486a4480b ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbolic construct that provides informations about the chemical proportions of the elements that constitute a chemical compound or a specific molecule." ;
+                                           rdfs:comment "A chemical formula may also include other symbols such as parentheses, plus and minus signs, brackets" ;
+                                           skos:prefLabel "ChemicalFormula"@en .
+
+
+###  http://emmo.info/emmo#EMMO_abf7efbe_6b04_41b8_8326_4dd0f6be753e
+:EMMO_abf7efbe_6b04_41b8_8326_4dd0f6be753e rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_d8d2144e_5c8d_455d_a643_5caf4d8d9df8 ;
+                                           skos:prefLabel "Chemical"@en .
+
+
+###  http://emmo.info/emmo#EMMO_d357e0dd_3497_4590_af6f_7954db7fecf7
+:EMMO_d357e0dd_3497_4590_af6f_7954db7fecf7 rdf:type owl:Class ;
+                                           owl:equivalentClass [ owl:intersectionOf ( :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527
+                                                                                      :EMMO_abf7efbe_6b04_41b8_8326_4dd0f6be753e
+                                                                                    ) ;
+                                                                 rdf:type owl:Class
+                                                               ] ;
+                                           skos:prefLabel "ChemicalSymbol"@en .
+
+
+###  http://emmo.info/emmo#EMMO_d74ed682_894f_46c5_87cb_167f60926965
+:EMMO_d74ed682_894f_46c5_87cb_167f60926965 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_91a0635a_a89a_46de_8928_04a777d145c7 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The International Chemical Identifier (InChI) textual identifier proposed by IUPAC to provide a standard encoding for databases of molecular information." ;
+                                           skos:prefLabel "InChI"@en .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
