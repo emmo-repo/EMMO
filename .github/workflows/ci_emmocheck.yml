@@ -26,4 +26,4 @@ jobs:
     - name: Check EMMO
       run: |
         .github/scripts/ontoconvert.py -s emmo.ttl emmo.owl
-        emmocheck --local --verbose --check-imported --configfile=.github/emmocheck_conf.yml emmo.owl
+        emmocheck --local --verbose --check-imported --configfile=.github/emmocheck_conf.yml --skip=test_namespace --skip test_unit_dimension emmo.owl
