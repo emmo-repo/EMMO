@@ -46,10 +46,17 @@ while read version name; do
         cp -f README.md LICENSE.md "$d/."
     fi
 
+    # Generate one-file EMMO in turtle and owl (rfdxml) formats
+    if $recreate || [ ! -d "$d/emmo.owl" ]; then
+        echo "Converting EMMO from turtle to rdfxml"
+        python "$scriptsdir/ontoconvert.py" -s "$rootdir/emmo.ttl" "$d/emmo.owl"
+        python "$scriptsdir/ontoconvert.py" -s "$rootdir/emmo.ttl" "$d/emmo.ttl"
+    fi
+
     # Generate inferred ontology
     if $recreate || [ ! -f "$d/emmo-inferred.owl" ]; then
         echo "Generate inferred ontology"
-        "$scriptsdir/reason.sh" "$rootdir/emmo.owl" "$d/emmo-inferred.owl"
+        "$scriptsdir/reason.sh" "$d/emmo.owl" "$d/emmo-inferred.owl"
         "$scriptsdir/fixinferred.sh" "$d/emmo-inferred.owl" $version
     fi
 
