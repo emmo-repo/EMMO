@@ -21,7 +21,9 @@ jobs:
     - name: Install EMMO-python
       run: |
         pip install EMMO
+        pip install rdflib
 
     - name: Check EMMO
       run: |
-        emmocheck --local --verbose --check-imported --configfile=.github/emmocheck_conf.yml emmo.owl
+        .github/scripts/ontoconvert.py -s emmo.ttl emmo.owl
+        emmocheck --local --verbose --check-imported --configfile=.github/emmocheck_conf.yml --skip=test_namespace --skip test_unit_dimension emmo.owl

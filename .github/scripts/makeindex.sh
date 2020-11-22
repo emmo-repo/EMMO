@@ -44,6 +44,7 @@ rm -rf "$tmpfile"
 while read version name; do
     [ -z "$name" ] && name=$version
     iri=$emmo_url/$version
+    d=$pages_url/versions/$version
     inferred=$pages_url/versions/$version/emmo-inferred.owl
     inferred_iri=$iri/emmo-inferred
     html=$pages_url/versions/$version/emmo.html
@@ -51,7 +52,11 @@ while read version name; do
     echo "  <tr>" >> "$tmpfile"
     echo "    <td>$name</td>" >> "$tmpfile"
     tdlink $iri $iri >> "$tmpfile"
-    tdlink $inferred $inferred_iri >> "$tmpfile"
+    tdlink $d/emmo.owl $version >> "$tmpfile"
+    tdlink $d/emmo.ttl $version >> "$tmpfile"
+    #tdlink $inferred $inferred_iri >> "$tmpfile"
+    tdlink $inferred $version >> "$tmpfile"
+    tdlink $d/emmo-inferred.ttl $version >> "$tmpfile"
     tdlink $html $version >> "$tmpfile"
     tdlink $pdf $version >> "$tmpfile"
     echo "  </tr>" >> "$tmpfile"
