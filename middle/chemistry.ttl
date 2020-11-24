@@ -59,18 +59,6 @@ Note that the name of a compound may refer to the respective molecular entity or
                                            skos:prefLabel "ChemicalName"@en .
 
 
-###  http://emmo.info/emmo#EMMO_29b04a04_9109_4105_998c_2cd50fee9b63
-:EMMO_29b04a04_9109_4105_998c_2cd50fee9b63 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_e024544d_e374_45b7_9340_1982040bc6b7 ;
-                                           skos:prefLabel "Fullerene"@en .
-
-
-###  http://emmo.info/emmo#EMMO_2eb16916_ee0b_47fc_9762_2ce7f0b394b6
-:EMMO_2eb16916_ee0b_47fc_9762_2ce7f0b394b6 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_a14dd591_8b7a_4847_8c91_3a2f421a45b4 ;
-                                           skos:prefLabel "Nanotube"@en .
-
-
 ###  http://emmo.info/emmo#EMMO_3397f270_dfc1_4500_8f6f_4d0d85ac5f71
 :EMMO_3397f270_dfc1_4500_8f6f_4d0d85ac5f71 owl:disjointUnionOf ( :EMMO_50967f46_51f9_462a_b1e4_e63365b4a184
                                                                  :EMMO_e024544d_e374_45b7_9340_1982040bc6b7
@@ -104,6 +92,13 @@ Note that the name of a compound may refer to the respective molecular entity or
                                            owl:disjointUnionOf ( :EMMO_21205421_5783_4d3e_81e5_10c5d894a88a
                                                                  :EMMO_df96cbb6_b5ee_4222_8eab_b3675df24bea
                                                                ) ;
+                                           rdfs:comment """A chemical entity comprises the two different ways to represents matter: as single recognizable particle entity (molecular entity) and as a composition of particle entities (substance).
+
+This distinction is not well assessed in actual chemical nomenclature, in which an element name refers to both the pure elemental substance or the atom.
+
+In the EMMO we force the adoption of a more strict categorization based on mereotopology.
+
+The class Material hosts the subclasses for which a substance can be identified without necessarily considering its nature of molecule/atom or substance (e.g. hydrocarbon is the class of both hydrocarbon molecules or gases).""" ;
                                            skos:prefLabel "ChemicalEntity"@en .
 
 
@@ -117,17 +112,18 @@ Note that the name of a compound may refer to the respective molecular entity or
                                            rdfs:subClassOf :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ,
                                                            :EMMO_abf7efbe_6b04_41b8_8326_4dd0f6be753e ,
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b
-                                                                            ] ;
-                                                             owl:allValuesFrom :EMMO_6916dd75_333e_4a53_b2ab_eaa8dfa9c1ca
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:someValuesFrom xsd:string
                                                            ] ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The symbol for a specific chemical element." ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The symbol for a specific chemical element, that can stand both for an atom or a substance." ;
                                            :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.C01022" ;
-                                           skos:prefLabel "ChemicalElementSymbol"@en .
+                                           rdfs:comment """The IUPAC Gold Book defines the a chemical element both as:
+- a species of atoms; all atoms with the same number of protons in the atomic nucleus
+-  a pure chemical substance composed of atoms with the same number of protons in the atomic nucleus
+
+This qualifies a chemical element as a name and not a matter obejct that can stand for an atom or a substance.""" ;
+                                           rdfs:seeAlso "http://publications.iupac.org/ci/2005/2701/ud.html" ;
+                                           skos:prefLabel "ChemicalElement"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_50967f46_51f9_462a_b1e4_e63365b4a184
@@ -151,19 +147,6 @@ Note that the name of a compound may refer to the respective molecular entity or
                                                              owl:hasValue "H"
                                                            ] ;
                                            skos:prefLabel "HydrogenSymbol"@en .
-
-
-###  http://emmo.info/emmo#EMMO_6916dd75_333e_4a53_b2ab_eaa8dfa9c1ca
-:EMMO_6916dd75_333e_4a53_b2ab_eaa8dfa9c1ca rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_47338839_6cca_4a8e_b565_3c4d5517e2c0 ;
-                                           owl:disjointUnionOf ( :EMMO_436b11bd_1756_4821_9f14_c9ed6b67552e
-                                                                 :EMMO_eb77076b_a104_42ac_a065_798b2d2809ad
-                                                               ) ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The IUPAC Gold Book defines the a chemical element both as:
-- a species of atoms; all atoms with the same number of protons in the atomic nucleus
--  a pure chemical substance composed of atoms with the same number of protons in the atomic nucleus""" ;
-                                           :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "http://goldbook.iupac.org/terms/view/C01022" ;
-                                           skos:prefLabel "ChemicalElement"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_6afdb7e8_2a0b_444d_bde3_8d67d98180c0
@@ -211,6 +194,12 @@ Note that the name of a compound may refer to the respective molecular entity or
                                            skos:prefLabel "ArgonSymbol"@en .
 
 
+###  http://emmo.info/emmo#EMMO_8a41ed1b_64f9_4be7_9b60_01fcece45075
+:EMMO_8a41ed1b_64f9_4be7_9b60_01fcece45075 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ;
+                                           skos:prefLabel "ChemicalMaterial"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_90963312_d9a9_4474_8d10_835aef5b168e
 :EMMO_90963312_d9a9_4474_8d10_835aef5b168e rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
@@ -242,6 +231,12 @@ Note that the name of a compound may refer to the respective molecular entity or
 :EMMO_9fa966c7_5231_409e_841f_b4c5fd33732a rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_21205421_5783_4d3e_81e5_10c5d894a88a ;
                                            skos:prefLabel "PolyatomicEntity"@en .
+
+
+###  http://emmo.info/emmo#EMMO_a086af15_a7c3_404c_b4ce_c8e4466f1b4b
+:EMMO_a086af15_a7c3_404c_b4ce_c8e4466f1b4b rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_8a41ed1b_64f9_4be7_9b60_01fcece45075 ;
+                                           skos:prefLabel "ElementalMaterial"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_a14dd591_8b7a_4847_8c91_3a2f421a45b4
@@ -283,7 +278,7 @@ Note that the name of a compound may refer to the respective molecular entity or
 
 ###  http://emmo.info/emmo#EMMO_cbcf8fe6_6da6_49e0_ab4d_00f737ea9689
 :EMMO_cbcf8fe6_6da6_49e0_ab4d_00f737ea9689 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_df96cbb6_b5ee_4222_8eab_b3675df24bea ;
+                                           rdfs:subClassOf :EMMO_abf7efbe_6b04_41b8_8326_4dd0f6be753e ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Specific form of an element defined as to isotopic composition, electronic or oxidation state, and/or complex or molecular structure.
 
 Chemical species is the macroscopic equivalent of molecular entity and refers to sets or ensembles of molecular entities.""" ;
@@ -318,7 +313,6 @@ Chemical species is the macroscopic equivalent of molecular entity and refers to
 
 ###  http://emmo.info/emmo#EMMO_df96cbb6_b5ee_4222_8eab_b3675df24bea
 :EMMO_df96cbb6_b5ee_4222_8eab_b3675df24bea rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Matter of constant composition best characterized by the entities (molecules, formula units, atoms) it is composed of." ;
                                            :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.C01039" ;
                                            rdfs:comment "A substance is always composed of more than one molecular entity. It lays in the continuum or mesoscopic domain." ;
@@ -332,12 +326,6 @@ Chemical species is the macroscopic equivalent of molecular entity and refers to
                                            skos:prefLabel "Homonuclear"@en .
 
 
-###  http://emmo.info/emmo#EMMO_e0eb781b_19e3_47ff_8482_2f030df356a3
-:EMMO_e0eb781b_19e3_47ff_8482_2f030df356a3 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_a14dd591_8b7a_4847_8c91_3a2f421a45b4 ;
-                                           skos:prefLabel "Graphene"@en .
-
-
 ###  http://emmo.info/emmo#EMMO_e2b11f6a_4191_427e_9844_2e0ac88dfc8b
 :EMMO_e2b11f6a_4191_427e_9844_2e0ac88dfc8b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_df96cbb6_b5ee_4222_8eab_b3675df24bea ;
@@ -347,10 +335,6 @@ Chemical species is the macroscopic equivalent of molecular entity and refers to
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A chemical substance composed of many identical molecules (or molecular entities) composed of atoms from more than one element held together by chemical bonds." ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Chemical_compound" ;
                                            skos:prefLabel "ChemicalCompound"@en .
-
-
-###  http://emmo.info/emmo#EMMO_eb77076b_a104_42ac_a065_798b2d2809ad
-:EMMO_eb77076b_a104_42ac_a065_798b2d2809ad skos:altLabel "ChemicalElement" .
 
 
 ###  http://emmo.info/emmo#EMMO_eb7de1a1_c30e_4f0d_94c6_fe70414d7e61
@@ -365,6 +349,13 @@ Chemical species is the macroscopic equivalent of molecular entity and refers to
                                            rdfs:subClassOf :EMMO_eb7de1a1_c30e_4f0d_94c6_fe70414d7e61 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A representation of objects belonging to the chemistry field." ;
                                            skos:prefLabel "ChemicalRepresentation"@en .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+:EMMO_eb77076b_a104_42ac_a065_798b2d2809ad skos:altLabel "ChemicalElement" .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
