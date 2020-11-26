@@ -24,8 +24,9 @@
 
 ###  http://emmo.info/emmo#EMMO_1aa99265_57f5_4b18_8797_570655c40b91
 :EMMO_1aa99265_57f5_4b18_8797_570655c40b91 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_6a42d593_1b18_4d7d_aa87_f290f9c40496 ;
-                                           skos:prefLabel "ProductModelEntity"@en .
+                                           rdfs:subClassOf :EMMO_6a42d593_1b18_4d7d_aa87_f290f9c40496 ,
+                                                           :EMMO_cbcf8fe6_6da6_49e0_ab4d_00f737ea9689 ;
+                                           skos:prefLabel "ProductSpecies"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_1e95c9c3_f8c1_44b0_ac36_23d479a89d48
@@ -36,7 +37,15 @@
 
 ###  http://emmo.info/emmo#EMMO_2486d1a0_a11b_4250_92f6_59ba8886473f
 :EMMO_2486d1a0_a11b_4250_92f6_59ba8886473f rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_6a42d593_1b18_4d7d_aa87_f290f9c40496 ;
+                                           rdfs:subClassOf :EMMO_6a42d593_1b18_4d7d_aa87_f290f9c40496 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                                             owl:someValuesFrom :EMMO_4805b668_66ab_40d3_bd3c_5dc953409596
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                                             owl:someValuesFrom :EMMO_7bcceaf0_948d_43b2_a4ac_4bfe3a099959
+                                                           ] ;
                                            skos:prefLabel "ChemicalReactionModel"@en .
 
 
@@ -50,6 +59,12 @@
 :EMMO_3737baeb_2632_431b_949c_7b7170e92652 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_6a42d593_1b18_4d7d_aa87_f290f9c40496 ;
                                            skos:prefLabel "RateCoefficients"@en .
+
+
+###  http://emmo.info/emmo#EMMO_4805b668_66ab_40d3_bd3c_5dc953409596
+:EMMO_4805b668_66ab_40d3_bd3c_5dc953409596 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_daf05011_df3f_44a0_bb31_f8d565d7a854 ;
+                                           skos:prefLabel "StoichiometricCoefficient"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_4d0a4c6b_0cd9_4c87_926a_9dfc77902831
@@ -76,6 +91,12 @@
                                            skos:prefLabel "GasPhaseReactionModel"@en .
 
 
+###  http://emmo.info/emmo#EMMO_7bcceaf0_948d_43b2_a4ac_4bfe3a099959
+:EMMO_7bcceaf0_948d_43b2_a4ac_4bfe3a099959 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_daf05011_df3f_44a0_bb31_f8d565d7a854 ;
+                                           skos:prefLabel "ReactionOrder"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_81c75c2a_26f7_4785_92d6_9981a054e1cc
 :EMMO_81c75c2a_26f7_4785_92d6_9981a054e1cc rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_7026ff3e_f4eb_4d0d_be02_26548a9506f1 ;
@@ -96,8 +117,17 @@
 
 ###  http://emmo.info/emmo#EMMO_a9dbcb38_02ed_4a28_8423_889420321f09
 :EMMO_a9dbcb38_02ed_4a28_8423_889420321f09 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_6a42d593_1b18_4d7d_aa87_f290f9c40496 ;
-                                           skos:prefLabel "ReactantModelEntity"@en .
+                                           rdfs:subClassOf :EMMO_6a42d593_1b18_4d7d_aa87_f290f9c40496 ,
+                                                           :EMMO_cbcf8fe6_6da6_49e0_ab4d_00f737ea9689 ;
+                                           skos:prefLabel "ReactantSpecies"@en .
+
+
+###  http://emmo.info/emmo#EMMO_af8613a5_ab95_4979_b5e7_431db192f510
+:EMMO_af8613a5_ab95_4979_b5e7_431db192f510 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_8159c26a_494b_4fa0_9959_10888f152298 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The amount of an element in a molecular entity." ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Given the formula CH4, the number 4 is the element amount." ;
+                                           skos:prefLabel "ElementAmount"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_b93e7959_00a4_429e_b2b5_0d8f3c49aa5f
