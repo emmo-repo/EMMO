@@ -101,7 +101,8 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
                                                              owl:someValuesFrom :EMMO_21f56795_ee72_4858_b571_11cfaa59c1a8
                                                            ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "1-dimensional array who's spatial direct parts are numbers."@en ;
-                                           skos:altLabel "Array1D"@en ;
+                                           skos:altLabel "1DArray"@en ,
+                                                         "LinearArray" ;
                                            skos:prefLabel "Vector"@en .
 
 
@@ -148,7 +149,7 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
                                                              owl:someValuesFrom :EMMO_06658d8d_dcde_4fc9_aae1_17f71c0bcdec
                                                            ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "2-dimensional array who's spatial direct parts are vectors."@en ;
-                                           skos:altLabel "Array2D"@en ;
+                                           skos:altLabel "2DArray"@en ;
                                            skos:prefLabel "Matrix"@en .
 
 
@@ -174,7 +175,7 @@ k"""@en ;
                                                              owl:someValuesFrom :EMMO_1cba0b27_15d0_4326_933f_379d0b3565b6
                                                            ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "3-dimensional array who's spatial direct parts are matrices."@en ;
-                                           skos:prefLabel "Array3D"@en .
+                                           skos:prefLabel "3DArray"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_21f56795_ee72_4858_b571_11cfaa59c1a8
@@ -215,11 +216,7 @@ For these reasons, the EMMO will consider numerals and numbers as the same conce
 ###  http://emmo.info/emmo#EMMO_28fbea28_2204_4613_87ff_6d877b855fcd
 :EMMO_28fbea28_2204_4613_87ff_6d877b855fcd rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_25a3da5e_eab1_42dd_8081_61dd09d34e1b ,
-                                                           :EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0 ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_f68030be_94b8_4c61_a161_886468558054 ;
-                                                             owl:someValuesFrom :EMMO_21f56795_ee72_4858_b571_11cfaa59c1a8
-                                                           ] ;
+                                                           :EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Arrays are ordered mathematical objects who's elementary spatial parts are numbers. Their dimensionality is constructed with spatial direct parthood, where 1-dimensional arrays have spatial direct parts Number and n-dimensional array have spatial direct parts (n-1)-dimensional arrays."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """A Vector is a 1-dimensional Array with Number as spatial direct parts,
 a Matrix is a 2-dimensional Array with Vector as spatial direct parts,
@@ -228,7 +225,7 @@ and so forth..."""@en ;
                                            rdfs:comment """Array subclasses with a specific shape can be constructed with cardinality restrictions.
 
 See Shape4x3Matrix as an example."""@en ,
-                                                        "Arrays are ordered containers, since they are a subclasses of Arrangement."@en ;
+                                                        "Arrays are ordered objects, since they are a subclasses of Arrangement."@en ;
                                            skos:prefLabel "Array"@en .
 
 
@@ -328,6 +325,7 @@ y = f(x)"""@en ;
 :EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_d8d2144e_5c8d_455d_a643_5caf4d8d9df8 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of general mathematical symbolic objects respecting mathematical syntactic rules."@en ;
+                                           rdfs:comment "A mathematical object in this branch is not representing a concept but an actual graphical object built using mathematcal symbols arranged in some way, according to math conventions." ;
                                            skos:prefLabel "Mathematical"@en .
 
 
