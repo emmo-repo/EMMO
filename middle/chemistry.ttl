@@ -40,11 +40,11 @@
 :EMMO_172e2c96_180b_40f8_a3e7_b624471f40c2 rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                                             owl:someValuesFrom :EMMO_643d99dd_fae6_4121_a76f_47f486a4480b
+                                                             owl:someValuesFrom :EMMO_a293f923_954c_4af5_9f97_9600ebd362cb
                                                            ] ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                                             owl:someValuesFrom :EMMO_a293f923_954c_4af5_9f97_9600ebd362cb
+                                                             owl:someValuesFrom :EMMO_cbcf8fe6_6da6_49e0_ab4d_00f737ea9689
                                                            ] ;
                                            skos:prefLabel "SingleComponentComposition"@en .
 
@@ -140,6 +140,7 @@ This qualifies a chemical element as a name and not a matter obejct that can sta
 :EMMO_643d99dd_fae6_4121_a76f_47f486a4480b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_abf7efbe_6b04_41b8_8326_4dd0f6be753e ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A language object following a specific nomenclature rules for defining univocal names of chemical compounds." ;
+                                           rdfs:comment "A chemical numenclature should not be confused with the chemical formula." ;
                                            skos:prefLabel "ChemicalNomenclature"@en .
 
 
@@ -288,18 +289,32 @@ This qualifies a chemical element as a name and not a matter obejct that can sta
 
 ###  http://emmo.info/emmo#EMMO_cbcf8fe6_6da6_49e0_ab4d_00f737ea9689
 :EMMO_cbcf8fe6_6da6_49e0_ab4d_00f737ea9689 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_4f40def1_3cd7_4067_9596_541e9a5134cf
+                                                                               :EMMO_643d99dd_fae6_4121_a76f_47f486a4480b
+                                                                               :EMMO_9236d0aa_cb39_43a1_bbdd_6a2a714951c8
+                                                                             )
+                                                               ] ;
                                            rdfs:subClassOf :EMMO_abf7efbe_6b04_41b8_8326_4dd0f6be753e ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Specific form of an element defined as to isotopic composition, electronic or oxidation state, and/or complex or molecular structure.
 
 Chemical species is the macroscopic equivalent of molecular entity and refers to sets or ensembles of molecular entities.""" ;
                                            :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.CT06859" ;
+                                           rdfs:comment """Following nominalistic approach a species is simply a name that can point to an element name, a chemical formula or a chemical compound.
+
+So everything addressed by these classes of names can be calleded a chemical species.""" ,
+                                                        """N2
+Methane
+CH4
+Fe
+Sodium Chloride""" ;
                                            skos:prefLabel "ChemicalSpecies"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_d2a47cd8_662f_438f_855a_b4378eb992ff
 :EMMO_d2a47cd8_662f_438f_855a_b4378eb992ff rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_643d99dd_fae6_4121_a76f_47f486a4480b ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Chemical Abstact Service registry number for a chemical substance." ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Chemical Abstact Service registry number for a chemical substance from the American Chemical Society" ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Water is 7732-18-5" ;
                                            skos:prefLabel "CASRN"@en .
 
