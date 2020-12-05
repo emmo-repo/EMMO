@@ -69,7 +69,17 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
 
 ###  http://emmo.info/emmo#EMMO_0f6f0120_c079_4d95_bb11_4ddee05e530e
 :EMMO_0f6f0120_c079_4d95_bb11_4ddee05e530e rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_2a888cdf_ec4a_4ec5_af1c_0343372fc978 ;
+                                           rdfs:subClassOf :EMMO_2a888cdf_ec4a_4ec5_af1c_0343372fc978 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                             owl:onClass :EMMO_847724b7_acef_490e_9f0d_67da967f2812
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                             owl:onClass :EMMO_873b0ab3_88e6_4054_b901_5531e01f14a4
+                                                           ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Result of a measurement.
 
 A MeasurementResult is in EMMO expressed as a single MeasurendQuantitativeProperty and a MeasuredUncertainty"""@en ;
@@ -140,6 +150,7 @@ e.g. you cannot evaluate the beauty of a person on objective basis."""@en ;
                                                              owl:someValuesFrom :EMMO_7dea2572_ab42_45bd_9fd7_92448cec762a
                                                            ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An 'observation' that results in a quantitative comparison of a 'property' of an 'object' with a standard reference."@en ;
+                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "measurement"@en ;
                                            rdfs:comment """A measurement is the process of experimentally obtaining one or more measurement results that can reasonably be attributed to a quantity.
 
 -- VIM"""@en ;
