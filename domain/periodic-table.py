@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+"""Python script that generates the periodic table ontology.
+"""
 import os
 import subprocess
 import warnings
@@ -12,6 +15,7 @@ from emmo import World, get_ontology
 
 
 thisdir = os.path.abspath(os.path.dirname(__file__))
+
 
 # Check rdflib version (for preferred turtle serialising)
 if not int(rdflib.__version__.split('.')[0]) >= 5:
@@ -29,6 +33,7 @@ onto = world.get_ontology('http://emmo.info/emmo/domain/periodic-table#')
 onto.base_iri = 'http://emmo.info/emmo#'
 onto.imported_ontologies.append(emmo)
 onto.sync_python_names()
+
 
 # Populate the new ontology
 with onto:
@@ -163,4 +168,5 @@ University of Bologna (IT)
 email: emanuele.ghedini@unibo.it
 ''', lang='en')))
 
+# Store in turtle format
 g.serialize(destination='periodic-table.ttl', format='turtle', base=BASE)
