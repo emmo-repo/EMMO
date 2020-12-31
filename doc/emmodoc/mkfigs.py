@@ -9,11 +9,11 @@ from emmo.graph import (plot_modules, get_module_dependencies,
 
 
 # Plot module dependencies
-iri = 'http://emmo.info/emmo/1.0.0-alpha2'
+iri = 'http://emmo.info/emmo/1.0.0-beta'
 emmo = get_ontology(iri)
 emmo.load()
 modules = get_module_dependencies(emmo)
-plot_modules(iri, filename='genfigs2/modules.png', modules=modules)
+plot_modules(src=modules, filename='genfigs2/modules.png')
 check_module_dependencies(modules)
 
 
