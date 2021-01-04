@@ -1,5 +1,30 @@
 # EMMO Governance
 
+## Content
+* [EMMO basic structure](#emmo-basic-structure)
+  - [Top level](#top-level)
+  - [Middle level](#middle-level)
+  - [Domain level](#domain-level)
+  - [Application level](#application-level)
+* [EMMO IP and licensing](#emmo-ip-and-licensing)
+* [Governance remit](#governance-remit)
+  - [Governance structure](#governance-structure)
+  - [EMMO Governance Committee](#emmo-governance-committee)
+  - [EMMO Editors Group](#emmo-editors-group)
+  - [Domain ontologies governance](#domain-ontologies-governance)
+  - [Organisation of repositories](#organisation-of-repositories)
+    - [EMMO](#emmo)
+    - [Domain Ontologies](#domain-ontologies)
+    - [Tools](#tools)
+    - [Examples](#examples)
+  - [Releases and versioning](#releases-and-versioning)
+  - [Documentation](#documentation)
+  - [EMMO conventions](#emmo-conventions)
+    - [Naming conventions](#naming-conventions)
+    - [Namespace conventions](#namespace-conventions)
+    - [Structural conventions](#structural-conventions)
+* [Community contributions and interactions](#community-contributions-and-interactions)
+
 ## EMMO basic structure
 EMMO is organised in different ontology levels:
 
@@ -42,7 +67,6 @@ It is also strongly encouraged that Domain ontology developments take place with
 
 ### Governance structure
 EMMO governance is organised via [EMMC ASBL](https://emmc.eu); i.e. committees and groups concerned with EMMO governance are constituted within the groups structure of EMMC. EMMO Governance Committee members and Group Leaders are either Individual Full Members of EMMC or belong to an organisational member of EMMC.
-
 
 In particular, all EMMO related governance is part of the EMMC Interest Group on Interoperability and Ontologies. All contributors and users of EMMO, including domain and application ontologies are encouraged to join the EMMC Interoperability and Ontologies Interest Group.
 Based on input by the EMMO Governance Committee and EMMO Domain Ontology Groups, the EMMC Interoperability and Ontologies Interest Group will be responsible for a high level roadmap which includes planned EMMO developments and objectives.
@@ -153,17 +177,21 @@ The GitHub release feature and GitHub Pages https://emmo-repo.github.io/ will be
 EMMO follows a set of conventions that all ontologies published in a repository under https://github.com/emmo-repo/ are expected to follow.
 
 #### Naming conventions
-* All OWL identifiers are unique IRIs of the following form:
+* Use SKOS:prefLabel for human readable names.  Within one ontology (or namespace), all SKOS:prefLabel's should be unique.  Each entity should have one and only one SKOS:prefLabel.
+* Use SKOS:altLabel for alternative labels.  It is good practice to also keep SKOS:altLabel's unique within a namespace.
+* Class labels should be singular nouns and _CamelCase_.
+* Property labels should be _lowerCamelCase_. Object and data properties should (normally) start with “has” followed by a noun.  EMMO top and middle does not explicitely define inverse relations (but uses `inverse(has<Something>)` instead). 
+* Instance labels should be _lowercase_with_underscores_.
 
+#### Namespace conventions
+* All OWL identifiers are globally unique IRIs.
+* Since EMMO version 1.0.0-beta, the recommended naming of OWL identifiers is
 
-        http://emmo.info/<REPO>/<VERSION>/<PATH>#EMMO_<UUID>
+      http://emmo.info/<domain>#EMMO_<UUID>
 
+  where <domain> is the name of the domain ontology (or "emmo" for EMMO top and middle) and <UUID> is a unique universally identifier (UUID) for the entity, usually assigned by Protègè or a similar tool. See Figure 3 for an example for how to configure Protègè to generate correct IRIs for new entities.
 
-where <REPO> is the repository name, <VERSION> is the current version, <PATH> is the path to the owl file in the repository (excluding the .owl file name extension) and <UUID> is a unique UUID for the entity, usually assigned by Protege or a similar tool. See Figure 3 for an example for how to configure Protege to generate correct IRIs for new entities.
-* Class labels should be singular nouns and CamelCase.
-* Labels for relations should be of the form “hasNoun” (i.e. lowerCamelCase and start with “has” followed by a noun).
-
-### Structural conventions
+#### Structural conventions
 * New relations (i.e. object properties) must be either mereotopological or semiotical and be a subrelation of any of the relations defined in EMMO Core.
 
 ![Configuring new entities in Protege](new_entities.png)
