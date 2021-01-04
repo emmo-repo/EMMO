@@ -20,8 +20,9 @@ jobs:
 
     - name: Install EMMO-python
       run: |
+        pip install --upgrade pip
         pip install EMMO
 
     - name: Check EMMO
       run: |
-        emmocheck --local --verbose --check-imported --configfile=.github/emmocheck_conf.yml --skip=test_*_dimension emmo.owl
+        emmocheck --local --url-from-catalog --verbose --check-imported --configfile=.github/emmocheck_conf.yml --skip=test_namespace --skip test_unit_dimension emmo.ttl

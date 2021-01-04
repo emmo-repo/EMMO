@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Usage: fixinferred.sh filename
+# Usage: fixinferred.sh filename version
 #
 # Fix inferred ontology modifying the target file in-place.
 # It is safe to run this script multiple times on the same file.
@@ -10,26 +10,55 @@ rootdir="$(git rev-parse --show-toplevel)"
 ghdir="$rootdir/.github"
 tmpfile="$ghdir/tmp/fixinferred.owl"
 
-
-
 filename=$1
-[ $# -ne 1 ] && echo "Usage: fixinferred.sh filename" && exit 1
+version=$2
+[ $# -ne 2 ] && echo "Usage: fixinferred.sh filename version" && exit 1
 
 
 # Do nothing if filename is already fixed
 grep -q "fixinferred.sh" "$filename" && exit 0
 
 
-# Create temporary file
+# Build temporary file
+
+# -- initial part up to owl:Ontology
 mkdir -p $(dirname "$tmpfile")
-sed -e 's|</rdf:RDF>||p' "$filename" > "$tmpfile"
+sed -e '/<owl:Ontology/q' \
+    -e 's/xmlns:terms=/xmlns:dcterms=/' "$filename" |
+    sed '/<owl:Ontology/s|/>|>|' > "$tmpfile"
+
+# -- add versionIRI
+echo "        <owl:versionIRI rdf:resource=\"http://emmo.info/emmo/$version/emmo-inferred\"/>" >> "$tmpfile"
+
+# -- add ontology-wise annotations from emmo.owl
+sed -n '/<owl:Ontology/,/<\/owl:Ontology/p' "$rootdir/emmo.owl" | \
+    sed -e '/<owl:Ontology/d' \
+        -e '/owl:versionIRI/d' \
+        -e '/owl:imports/d' >> "$tmpfile"
+
+# -- add all axioms
+grep -q '</owl:Ontology' "$filename" && \
+    range='1,/<\/owl:Ontology/d' || \
+    range='1,/<owl:Ontology/d'
+sed -e "$range" \
+    -e '/owl#Nothing -->/,/<\/rdf:Description>/d' \
+    -e '/<\/rdf:RDF>/d' "$filename" >> "$tmpfile"
+
+# -- comment before additional fixes by us
 cat <<EOF >> "$tmpfile"
 
     <!-- Fixes by fixinferred.sh -->
 
 EOF
 
-# Add annotation superproperties
+# -- add ontology-wise annotations
+sed -n -e '/owl:imports/d' \
+    -e '/owl:Ontology/,/owl:Ontology/p' \
+    "$rootdir/emmo.owl" >> "$tmpfile"
+echo "" >> "$tmpfile"
+
+
+# -- add annotation superproperties
 # The table below associates annotation property IRIs with their superproperties
 while read iri superprop; do
     [ -z "$iri" ] && continue
