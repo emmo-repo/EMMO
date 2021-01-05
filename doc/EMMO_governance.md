@@ -175,9 +175,9 @@ EMMO follows a set of conventions that all ontologies published in a repository 
 * All OWL identifiers are globally unique IRIs.
 * Since EMMO version 1.0.0-beta, the recommended naming of OWL identifiers is
 
-      http://emmo.info/<domain>#EMMO_<UUID>
+      http://emmo.info/[DOMAIN]#[DOMAIN]_[UUID]
 
-  where <domain> is the name of the domain ontology (or "emmo" for EMMO top and middle) and <UUID> is a unique universally identifier (UUID) for the entity, usually assigned by Protègè or a similar tool. See Figure 3 for an example for how to configure Protègè to generate correct IRIs for new entities.
+  where [DOMAIN] is the name of the domain ontology (or "EMMO" for EMMO top and middle) and [UUID] is a unique universally identifier (UUID) for the entity, usually assigned by Protègè or a similar tool. See Figure 3 for an example for how to configure Protègè to generate correct IRIs for new entities.
 
 #### Structural conventions
 * New relations (i.e. object properties) must be either mereotopological or semiotical and be a subrelation of any of the relations defined in EMMO Core.
