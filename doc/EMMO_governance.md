@@ -133,9 +133,10 @@ Special cases for EMMO:
 
 * http://emmo.info/emmo/top → https://raw.githubusercontent.com/emmo-repo/EMMO/master/top/top.ttl
 * http://emmo.info/emmo/middle → https://raw.githubusercontent.com/emmo-repo/EMMO/master/middle/middle.ttl
-* http://emmo.info/emmo-inferred → https://emmo-repo.github.io/latest-stable/emmo.ttl
-* http://emmo.info/emmo-inferred/development → https://emmo-repo.github.io/development/emmo.ttl
-* http://emmo.info/emmo-inferred/[VERSION] → https://emmo-repo.github.io/versions/[VERSION]/emmo.ttl
+* http://emmo.info/emmo-inferred → https://emmo-repo.github.io/latest-stable/emmo-inferred.ttl
+* http://emmo.info/emmo-inferred/development → https://emmo-repo.github.io/development/emmo-inferred.ttl
+* http://emmo.info/emmo-inferred/[VERSION] → https://emmo-repo.github.io/versions/[VERSION]/emmo-inferred.ttl
+
 
 ### Branching model
 The branching model applied for EMMO (and strongly suggested for domain ontologies and tools) is illustrated in Figure 2 following a set of rules:
