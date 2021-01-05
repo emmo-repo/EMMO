@@ -18,10 +18,11 @@
     - [Tools](#tools)
     - [Examples](#examples)
   - [Releases and versioning](#releases-and-versioning)
+  - [Branching model](#branching-model)
   - [Documentation](#documentation)
   - [EMMO conventions](#emmo-conventions)
     - [Naming conventions](#naming-conventions)
-    - [Namespace conventions](#namespace-conventions)
+    - [Namespace conventions and global IRIs](#namespace-conventions-and-global-iris)
     - [Structural conventions](#structural-conventions)
 * [Community contributions and interactions](#community-contributions-and-interactions)
 
@@ -122,34 +123,21 @@ The GitHub organisation https://github.com/EMMO-repo/ is the "official" site for
 * EMMO-repo includes a separate repository with application examples. Application examples are managed by a range of contributors and are not generally ‘certified’ by EMMO Editors unless specifically stated.
 
 ### Releases and versioning
-All releases of EMMO will be versioned strictly according to the rules of semantic versioning as described on https://semver.org/. Each version will be addressable via URL as follows
+All releases of EMMO will be versioned strictly according to the rules of semantic versioning as described on https://semver.org/. Each version will be addressable via the following URL redirection rules, where [NAME] and [VERSION] may be substituted by the ontology name and version, respectively:
 
-* EMMO (top and middle) release master\
-   http://emmo.info/emmo
-→  https://raw.githubusercontent.com/emmo-repo/EMMO/master/emmo.owl
-* EMMO (top and middle) version X.Y.Z\
-http://emmo.info/emmo/X.Y.Z
-→ https://raw.githubusercontent.com/emmo-repo/EMMO/X.Y.Z/emmo.owl
-* EMMO top release master\
-http://emmo.info/emmo/top/
-→  https://raw.githubusercontent.com/emmo-repo/EMMO/master/top/
-* EMMO top version X.Y.Z\
-http://emmo.info/emmo/X.Y.Z/top/
-→  https://raw.githubusercontent.com/emmo-repo/EMMO/X.Y.Z/top/
-* EMMO middle release master\
-http://emmo.info/emmo/middle/
-→  https://raw.githubusercontent.com/emmo-repo/EMMO/master/middle/
-* EMMO middle version X.Y.Z\
-http://emmo.info/emmo/X.Y.Z/middle/
-→  https://raw.githubusercontent.com/emmo-repo/EMMO/X.Y.Z/middle/
-* EMMO “my_domain” release master\
-http://emmo.info/my_domain_1/
-→  https://raw.githubusercontent.com/emmo-repo/MY_DOMAIN_1/master/
-* EMMO “my_domain” version X.Y.Z\
-http://emmo.info/my_domain_1/X.Y.Z/
-→ https://raw.githubusercontent.com/emmo-repo/MY_DOMAIN_1/X.Y.Z/
+* http://emmo.info/[NAME] → https://raw.githubusercontent.com/emmo-repo/[NAME]/master/[NAME].ttl
+* http://emmo.info/[NAME]/ → https://raw.githubusercontent.com/emmo-repo/[NAME]/master/
+* http://emmo.info/[NAME]/[VERSION]/ → https://raw.githubusercontent.com/emmo-repo/[NAME]/[VERSION]/
 
+Special cases for EMMO:
 
+* http://emmo.info/emmo/top → https://raw.githubusercontent.com/emmo-repo/EMMO/master/top/top.ttl
+* http://emmo.info/emmo/middle → https://raw.githubusercontent.com/emmo-repo/EMMO/master/middle/middle.ttl
+* http://emmo.info/emmo-inferred → https://emmo-repo.github.io/latest-stable/emmo.ttl
+* http://emmo.info/emmo-inferred/development → https://emmo-repo.github.io/development/emmo.ttl
+* http://emmo.info/emmo-inferred/[VERSION] → https://emmo-repo.github.io/versions/[VERSION]/emmo.ttl
+
+### Branching model
 The branching model applied for EMMO (and strongly suggested for domain ontologies and tools) is illustrated in Figure 2 following a set of rules:
 * Never pull to master. Master is only changed via pull requests from a release branch reviewed by the EMMO Editors Group. The master branch always hosts the current stable version.
 * Each change of the master branch corresponds to a new release, with a unique semantic version number. All versions should be tagged with the version number prefixed with a “v”. For example, the tag for version 1.0.0 should be “v1.0.0”.
@@ -183,7 +171,7 @@ EMMO follows a set of conventions that all ontologies published in a repository 
 * Property labels should be _lowerCamelCase_. Object and data properties should (normally) start with “has” followed by a noun.  EMMO top and middle does not explicitely define inverse relations (but uses `inverse(has<Something>)` instead). 
 * Instance labels should be _lowercase_with_underscores_.
 
-#### Namespace conventions
+#### Namespace conventions and global IRIs
 * All OWL identifiers are globally unique IRIs.
 * Since EMMO version 1.0.0-beta, the recommended naming of OWL identifiers is
 
