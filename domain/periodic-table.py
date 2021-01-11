@@ -13,9 +13,15 @@ from rdflib import URIRef, Literal
 from rdflib.namespace import RDFS, OWL, DCTERMS
 
 from emmo import World, get_ontology
+import owlready2
 
 
 thisdir = os.path.abspath(os.path.dirname(__file__))
+
+
+def en(s):
+    """Returns `s` as an English location string."""
+    return owlready2.locstr(s, lang='en')
 
 
 # Check rdflib version (for preferred turtle serialising)
@@ -75,7 +81,7 @@ with onto:
         lname = name.lower()
 
         AtomClass = types.new_class(name + 'Atom', (onto.Atom, ))
-        AtomClass.elucidation.append('Atom subclass for %s.' % lname)
+        AtomClass.elucidation.append(en('Atom subclass for %s.' % lname))
         AtomClass.is_a.append(hasChemicalSymbol.value(s))
 
         z = onto.Integer(lname + 'AtomicNumberValue',
