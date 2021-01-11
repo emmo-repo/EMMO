@@ -4,6 +4,7 @@
 import os
 import subprocess
 import warnings
+import types
 
 import ase
 
@@ -71,33 +72,35 @@ with onto:
             ase.data.atomic_masses_iupac2016)):
         if not name:
             continue  # skip Z=0
+        lname = name.lower()
 
-        name = name[0].lower() + name[1:]
+        AtomClass = types.new_class(name + 'Atom', (onto.Atom, ))
+        AtomClass.elucidation.append('Atom subclass for %s.' % lname)
+        AtomClass.is_a.append(hasChemicalSymbol.value(s))
 
-        z = onto.Integer(name + 'AtomicNumberValue',
+        z = onto.Integer(lname + 'AtomicNumberValue',
                          hasNumericalData=int(Z))
-        number = EMMOAtomicNumber(name + 'AtomicNumber',
+        number = EMMOAtomicNumber(lname + 'AtomicNumber',
                                   hasReferenceUnit=[unitOne],
                                   hasQuantityValue=[z])
 
-        mval = onto.Real(name + 'AtomicMassValue',
+        mval = onto.Real(lname + 'AtomicMassValue',
                          hasNumericalData=float(m))
-        mass = EMMOAtomicMass(name + 'AtomicMass')
+        mass = EMMOAtomicMass(lname + 'AtomicMass')
         mass.hasReferenceUnit = [dalton]
         mass.hasQuantityValue = [mval]
 
         # TODO: add covalent_radii, ground_state_magnetic_moments,
         #           reference_states, vdw_radii,
 
-        at = onto.Atom(name,
+        at = AtomClass(lname,
                        hasConventionalQuantity=[number, mass],
-                       hasChemicalSymbol=s,
         )
 
         assignment = EMMOConventionalQuantityAssignment(
-            name + 'AtomicAtomicNumberAssignment')
+            lname + 'AtomicAtomicNumberAssignment')
         assignment.hasParticipant = [EMMOCommittee, at, number]
-        print(Z, s, name, m)
+        print(Z, s, lname, m)
 
 # Save new ontology as owl
 onto.sync_attributes(name_policy='uuid', name_prefix='EMMO_')
