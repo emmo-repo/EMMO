@@ -80,8 +80,15 @@ while read version name; do
         "$scriptsdir/fixinferred.sh" "$d/emmo-inferred.owl" $version
     fi
     if $recreate || [ ! -f "$d/emmo-inferred.ttl" ]; then
+        if [ ! -d "$tmpdir" ]; then
+            tmpdir="$(mktemp -d)"
+        fi
         python "$scriptsdir/ontoconvert.py" -s \
-               "$d/emmo-inferred.owl" "$d/emmo-inferred.ttl"
+               "$d/emmo-inferred.owl" "$tmpdir/emmo-inferred.ttl"
+        # Hmm, for some reason floats are written like "1.0E-09.0" - strip
+        # off the final ".0"
+        sed 's/\([0-9][eE][+-][0-9]*\)\.[0-9]*\(.*\)/\1\2/' \
+            "$tmpdir/emmo-inferred.ttl" > "$d/emmo-inferred.ttl"
     fi
 
     # Generate documentation
