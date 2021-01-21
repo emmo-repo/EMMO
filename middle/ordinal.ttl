@@ -6,215 +6,209 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@base <http://emmo.info/emmo/middle/ordinal> .
 
-<http://emmo.info/emmo/middle/ordinal> a owl:Ontology ;
-	owl:versionIRI <http://emmo.info/emmo/1.0.0-beta/middle/ordinal> ;
-	owl:imports <http://emmo.info/emmo/1.0.0-beta/middle/reductionistic> ;
-	dcterms:abstract "The ordinal module defines ordering based on direct parthood. It allows EMMO to describe arrays and data structures in programming languages enabling low-level semantic interoperability."@en ;
-	dcterms:contributor "SINTEF, NO" , "University of Bologna, IT" ;
-	dcterms:creator "Emanuele Ghedini" , "Jesper Friis" ;
-	dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
-	dcterms:publisher "EMMC ASBL" ;
-	dcterms:title "Ordinal"@en ;
-	rdfs:comment """Contacts:
+<http://emmo.info/emmo/middle/ordinal> rdf:type owl:Ontology ;
+                                        owl:versionIRI <http://emmo.info/emmo/1.0.0-beta/middle/ordinal> ;
+                                        owl:imports <http://emmo.info/emmo/1.0.0-beta/middle/reductionistic> ;
+                                        dcterms:abstract "The ordinal module defines ordering based on direct parthood. It allows EMMO to describe arrays and data structures in programming languages enabling low-level semantic interoperability."@en ;
+                                        dcterms:contributor "Jesper Friis, SINTEF, NO" ;
+                                        dcterms:creator "Emanuele Ghedini, University of Bologna, IT" ;
+                                        dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+                                        dcterms:publisher "EMMC ASBL" ;
+                                        dcterms:title "Ordinal"@en ;
+                                        rdfs:comment """Contacts:
 Gerhard Goldbeck
 Goldbeck Consulting Ltd (UK)
 email: gerhard@goldbeck-consulting.com
 
 Emanuele Ghedini
 University of Bologna (IT)
-email: emanuele.ghedini@unibo.it"""@en , "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-	owl:versionInfo "1.0.0-beta" .
-# 
-# 
-# #################################################################
-# #
-# #    Object Properties
-# #
-# #################################################################
-# 
-# 
-# http://emmo.info/emmo#EMMO_050b47b6_2583_43f7_95eb_a216b41cd5f6
+email: emanuele.ghedini@unibo.it"""@en ,
+                                                     "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
+                                        owl:versionInfo "1.0.0-beta" .
 
-:EMMO_050b47b6_2583_43f7_95eb_a216b41cd5f6 a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-	a owl:FunctionalProperty , owl:AsymmetricProperty , owl:IrreflexiveProperty ;
-	rdfs:domain :EMMO_25a3da5e_eab1_42dd_8081_61dd09d34e1b ;
-	rdfs:range :EMMO_42fc460a_4bf3_4d0b_8dee_3c7efcefebb5 ;
-	skos:prefLabel "hasSpatialLast"@en .
-# 
-# http://emmo.info/emmo#EMMO_2a9fcd79_bc67_4b1a_8e64_9dfe505a0007
+#################################################################
+#    Object Properties
+#################################################################
 
-:EMMO_2a9fcd79_bc67_4b1a_8e64_9dfe505a0007 a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-	a owl:FunctionalProperty , owl:AsymmetricProperty , owl:IrreflexiveProperty ;
-	rdfs:domain :EMMO_25a3da5e_eab1_42dd_8081_61dd09d34e1b ;
-	rdfs:range :EMMO_42fc460a_4bf3_4d0b_8dee_3c7efcefebb5 ;
-	skos:prefLabel "hasSpatialFirst"@en .
-# 
-# http://emmo.info/emmo#EMMO_499e24a5_5072_4c83_8625_fe3f96ae4a8d
+###  http://emmo.info/emmo#EMMO_050b47b6_2583_43f7_95eb_a216b41cd5f6
+:EMMO_050b47b6_2583_43f7_95eb_a216b41cd5f6 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                           rdf:type owl:FunctionalProperty ,
+                                                    owl:AsymmetricProperty ,
+                                                    owl:IrreflexiveProperty ;
+                                           rdfs:domain :EMMO_25a3da5e_eab1_42dd_8081_61dd09d34e1b ;
+                                           rdfs:range :EMMO_42fc460a_4bf3_4d0b_8dee_3c7efcefebb5 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between the whole and the last direct spatial part of an arrangement." ;
+                                           skos:prefLabel "hasSpatialLast"@en .
 
-:EMMO_499e24a5_5072_4c83_8625_fe3f96ae4a8d a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_52d08d7d_e9e4_43e5_8508_d353e7e3a23a ;
-	a owl:AsymmetricProperty , owl:IrreflexiveProperty ;
-	rdfs:domain :EMMO_e0954911_fc88_492a_9830_fdb238e28cc2 ;
-	rdfs:range :EMMO_e0954911_fc88_492a_9830_fdb238e28cc2 ;
-	skos:prefLabel "hasTemporalNext"@en .
-# 
-# http://emmo.info/emmo#EMMO_52d08d7d_e9e4_43e5_8508_d353e7e3a23a
 
-:EMMO_52d08d7d_e9e4_43e5_8508_d353e7e3a23a a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 ;
-	a owl:AsymmetricProperty , owl:IrreflexiveProperty ;
-	rdfs:domain :EMMO_2e9ace8a_1155_45b5_a066_d5fd9774e76c ;
-	rdfs:range :EMMO_2e9ace8a_1155_45b5_a066_d5fd9774e76c ;
-	skos:prefLabel "hasNext"@en .
-# 
-# http://emmo.info/emmo#EMMO_651013cf_00ee_4e66_9d4e_fdfb20d991d2
+###  http://emmo.info/emmo#EMMO_2a9fcd79_bc67_4b1a_8e64_9dfe505a0007
+:EMMO_2a9fcd79_bc67_4b1a_8e64_9dfe505a0007 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                           rdf:type owl:FunctionalProperty ,
+                                                    owl:AsymmetricProperty ,
+                                                    owl:IrreflexiveProperty ;
+                                           rdfs:domain :EMMO_25a3da5e_eab1_42dd_8081_61dd09d34e1b ;
+                                           rdfs:range :EMMO_42fc460a_4bf3_4d0b_8dee_3c7efcefebb5 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between the whole and the first direct spatial part of an arrangement." ;
+                                           skos:prefLabel "hasSpatialFirst"@en .
 
-:EMMO_651013cf_00ee_4e66_9d4e_fdfb20d991d2 a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 ;
-	a owl:AsymmetricProperty , owl:IrreflexiveProperty ;
-	skos:prefLabel "hasRest"@en .
-# 
-# http://emmo.info/emmo#EMMO_66873eb5_7e42_4566_a906_bd97a832f19b
 
-:EMMO_66873eb5_7e42_4566_a906_bd97a832f19b a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_651013cf_00ee_4e66_9d4e_fdfb20d991d2 ;
-	a owl:AsymmetricProperty , owl:IrreflexiveProperty ;
-	rdfs:domain :EMMO_42fc460a_4bf3_4d0b_8dee_3c7efcefebb5 ;
-	rdfs:range :EMMO_25a3da5e_eab1_42dd_8081_61dd09d34e1b ;
-	skos:prefLabel "hasSpatialRest"@en .
-# 
-# http://emmo.info/emmo#EMMO_8785be5a_2493_4b12_8f39_31907ab11748
+###  http://emmo.info/emmo#EMMO_499e24a5_5072_4c83_8625_fe3f96ae4a8d
+:EMMO_499e24a5_5072_4c83_8625_fe3f96ae4a8d rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_52d08d7d_e9e4_43e5_8508_d353e7e3a23a ;
+                                           rdf:type owl:AsymmetricProperty ,
+                                                    owl:IrreflexiveProperty ;
+                                           rdfs:domain :EMMO_e0954911_fc88_492a_9830_fdb238e28cc2 ;
+                                           rdfs:range :EMMO_e0954911_fc88_492a_9830_fdb238e28cc2 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that specifies the order in time between two items." ;
+                                           skos:prefLabel "hasTemporalNext"@en .
 
-:EMMO_8785be5a_2493_4b12_8f39_31907ab11748 a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_52d08d7d_e9e4_43e5_8508_d353e7e3a23a ;
-	a owl:AsymmetricProperty , owl:IrreflexiveProperty ;
-	rdfs:domain :EMMO_42fc460a_4bf3_4d0b_8dee_3c7efcefebb5 ;
-	rdfs:range :EMMO_42fc460a_4bf3_4d0b_8dee_3c7efcefebb5 ;
-	skos:prefLabel "hasSpatialNext"@en .
-# 
-# http://emmo.info/emmo#EMMO_c0f48dc6_4a32_4d9a_a956_d68415954a8e
 
-:EMMO_c0f48dc6_4a32_4d9a_a956_d68415954a8e a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d ;
-	a owl:FunctionalProperty , owl:AsymmetricProperty , owl:IrreflexiveProperty ;
-	rdfs:domain :EMMO_406f9b74_c927_4e05_b9af_5edbe5e280c5 ;
-	rdfs:range :EMMO_e0954911_fc88_492a_9830_fdb238e28cc2 ;
-	skos:prefLabel "hasTemporalLast"@en .
-# 
-# http://emmo.info/emmo#EMMO_fb168b10_a27b_4409_a002_35671319d170
+###  http://emmo.info/emmo#EMMO_52d08d7d_e9e4_43e5_8508_d353e7e3a23a
+:EMMO_52d08d7d_e9e4_43e5_8508_d353e7e3a23a rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 ;
+                                           rdf:type owl:AsymmetricProperty ,
+                                                    owl:IrreflexiveProperty ;
+                                           rdfs:domain :EMMO_2e9ace8a_1155_45b5_a066_d5fd9774e76c ;
+                                           rdfs:range :EMMO_2e9ace8a_1155_45b5_a066_d5fd9774e76c ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that specifies the order between two items." ;
+                                           skos:prefLabel "hasNext"@en .
 
-:EMMO_fb168b10_a27b_4409_a002_35671319d170 a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_651013cf_00ee_4e66_9d4e_fdfb20d991d2 ;
-	a owl:AsymmetricProperty , owl:IrreflexiveProperty ;
-	rdfs:domain :EMMO_e0954911_fc88_492a_9830_fdb238e28cc2 ;
-	rdfs:range :EMMO_406f9b74_c927_4e05_b9af_5edbe5e280c5 ;
-	skos:prefLabel "hasTemporalRest"@en .
-# 
-# http://emmo.info/emmo#EMMO_fe63194f_7c04_4dbd_a244_524b38b6699b
 
-:EMMO_fe63194f_7c04_4dbd_a244_524b38b6699b a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d ;
-	a owl:FunctionalProperty , owl:AsymmetricProperty , owl:IrreflexiveProperty ;
-	rdfs:domain :EMMO_406f9b74_c927_4e05_b9af_5edbe5e280c5 ;
-	rdfs:range :EMMO_e0954911_fc88_492a_9830_fdb238e28cc2 ;
-	skos:prefLabel "hasTemporalFirst"@en .
-# 
-# 
-# 
-# #################################################################
-# #
-# #    Classes
-# #
-# #################################################################
-# 
-# 
-# http://emmo.info/emmo#EMMO_25a3da5e_eab1_42dd_8081_61dd09d34e1b
+###  http://emmo.info/emmo#EMMO_651013cf_00ee_4e66_9d4e_fdfb20d991d2
+:EMMO_651013cf_00ee_4e66_9d4e_fdfb20d991d2 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 ;
+                                           rdf:type owl:AsymmetricProperty ,
+                                                    owl:IrreflexiveProperty ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that specifies the overall object that follows an item according to an order." ;
+                                           skos:prefLabel "hasRest"@en .
 
-:EMMO_25a3da5e_eab1_42dd_8081_61dd09d34e1b a owl:Class ;
-	rdfs:subClassOf _:genid1 .
 
-_:genid1 a owl:Restriction ;
-	owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-	owl:someValuesFrom :EMMO_42fc460a_4bf3_4d0b_8dee_3c7efcefebb5 .
+###  http://emmo.info/emmo#EMMO_66873eb5_7e42_4566_a906_bd97a832f19b
+:EMMO_66873eb5_7e42_4566_a906_bd97a832f19b rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_651013cf_00ee_4e66_9d4e_fdfb20d991d2 ;
+                                           rdf:type owl:AsymmetricProperty ,
+                                                    owl:IrreflexiveProperty ;
+                                           rdfs:domain :EMMO_42fc460a_4bf3_4d0b_8dee_3c7efcefebb5 ;
+                                           rdfs:range :EMMO_25a3da5e_eab1_42dd_8081_61dd09d34e1b ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that specifies the overall object that follows an item in according to a spatial ordering." ;
+                                           skos:prefLabel "hasSpatialRest"@en .
 
-:EMMO_25a3da5e_eab1_42dd_8081_61dd09d34e1b rdfs:subClassOf _:genid2 .
 
-_:genid2 a owl:Restriction ;
-	owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-	owl:allValuesFrom :EMMO_42fc460a_4bf3_4d0b_8dee_3c7efcefebb5 .
+###  http://emmo.info/emmo#EMMO_8785be5a_2493_4b12_8f39_31907ab11748
+:EMMO_8785be5a_2493_4b12_8f39_31907ab11748 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_52d08d7d_e9e4_43e5_8508_d353e7e3a23a ;
+                                           rdf:type owl:AsymmetricProperty ,
+                                                    owl:IrreflexiveProperty ;
+                                           rdfs:domain :EMMO_42fc460a_4bf3_4d0b_8dee_3c7efcefebb5 ;
+                                           rdfs:range :EMMO_42fc460a_4bf3_4d0b_8dee_3c7efcefebb5 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that specifies the order in space between two items." ;
+                                           skos:prefLabel "hasSpatialNext"@en .
 
-:EMMO_25a3da5e_eab1_42dd_8081_61dd09d34e1b :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A State whose spatial direct parts are all SpatialOrdered objects." ;
-	skos:prefLabel "Arrangement"@en .
-# 
-# http://emmo.info/emmo#EMMO_2e9ace8a_1155_45b5_a066_d5fd9774e76c
 
-:EMMO_2e9ace8a_1155_45b5_a066_d5fd9774e76c a owl:Class ;
-	owl:equivalentClass _:genid3 .
+###  http://emmo.info/emmo#EMMO_c0f48dc6_4a32_4d9a_a956_d68415954a8e
+:EMMO_c0f48dc6_4a32_4d9a_a956_d68415954a8e rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d ;
+                                           rdf:type owl:FunctionalProperty ,
+                                                    owl:AsymmetricProperty ,
+                                                    owl:IrreflexiveProperty ;
+                                           rdfs:domain :EMMO_406f9b74_c927_4e05_b9af_5edbe5e280c5 ;
+                                           rdfs:range :EMMO_e0954911_fc88_492a_9830_fdb238e28cc2 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between the whole and the last direct temporal part of a sequence." ;
+                                           skos:prefLabel "hasTemporalLast"@en .
 
-_:genid3 a owl:Class ;
-	owl:unionOf _:genid5 .
 
-_:genid5 a rdf:List ;
-	rdf:first :EMMO_42fc460a_4bf3_4d0b_8dee_3c7efcefebb5 ;
-	rdf:rest _:genid4 .
+###  http://emmo.info/emmo#EMMO_fb168b10_a27b_4409_a002_35671319d170
+:EMMO_fb168b10_a27b_4409_a002_35671319d170 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_651013cf_00ee_4e66_9d4e_fdfb20d991d2 ;
+                                           rdf:type owl:AsymmetricProperty ,
+                                                    owl:IrreflexiveProperty ;
+                                           rdfs:domain :EMMO_e0954911_fc88_492a_9830_fdb238e28cc2 ;
+                                           rdfs:range :EMMO_406f9b74_c927_4e05_b9af_5edbe5e280c5 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that specifies the overall object that follows an item in according to a temporal ordering." ;
+                                           skos:prefLabel "hasTemporalRest"@en .
 
-_:genid4 a rdf:List ;
-	rdf:first :EMMO_e0954911_fc88_492a_9830_fdb238e28cc2 ;
-	rdf:rest rdf:nil .
 
-:EMMO_2e9ace8a_1155_45b5_a066_d5fd9774e76c rdfs:subClassOf :EMMO_15db234d_ecaf_4715_9838_4b4ec424fb13 ;
-	skos:prefLabel "OrderedElement"@en .
-# 
-# http://emmo.info/emmo#EMMO_406f9b74_c927_4e05_b9af_5edbe5e280c5
+###  http://emmo.info/emmo#EMMO_fe63194f_7c04_4dbd_a244_524b38b6699b
+:EMMO_fe63194f_7c04_4dbd_a244_524b38b6699b rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d ;
+                                           rdf:type owl:FunctionalProperty ,
+                                                    owl:AsymmetricProperty ,
+                                                    owl:IrreflexiveProperty ;
+                                           rdfs:domain :EMMO_406f9b74_c927_4e05_b9af_5edbe5e280c5 ;
+                                           rdfs:range :EMMO_e0954911_fc88_492a_9830_fdb238e28cc2 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between the whole and the first direct temporal part of a sequence." ;
+                                           skos:prefLabel "hasTemporalFirst"@en .
 
-:EMMO_406f9b74_c927_4e05_b9af_5edbe5e280c5 a owl:Class ;
-	rdfs:subClassOf _:genid6 .
 
-_:genid6 a owl:Restriction ;
-	owl:onProperty :EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d ;
-	owl:someValuesFrom :EMMO_e0954911_fc88_492a_9830_fdb238e28cc2 .
+#################################################################
+#    Classes
+#################################################################
 
-:EMMO_406f9b74_c927_4e05_b9af_5edbe5e280c5 rdfs:subClassOf _:genid7 .
+###  http://emmo.info/emmo#EMMO_25a3da5e_eab1_42dd_8081_61dd09d34e1b
+:EMMO_25a3da5e_eab1_42dd_8081_61dd09d34e1b rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                                             owl:someValuesFrom :EMMO_42fc460a_4bf3_4d0b_8dee_3c7efcefebb5
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                                             owl:allValuesFrom :EMMO_42fc460a_4bf3_4d0b_8dee_3c7efcefebb5
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A State whose spatial direct parts are all SpatialOrdered objects." ;
+                                           skos:altLabel "Disposition" ;
+                                           skos:prefLabel "Arrangement"@en .
 
-_:genid7 a owl:Restriction ;
-	owl:onProperty :EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d ;
-	owl:allValuesFrom :EMMO_e0954911_fc88_492a_9830_fdb238e28cc2 .
 
-:EMMO_406f9b74_c927_4e05_b9af_5edbe5e280c5 :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An Existent whose temporal direct parts are all TemporalOrdered." ;
-	skos:prefLabel "Sequence"@en .
-# 
-# http://emmo.info/emmo#EMMO_42fc460a_4bf3_4d0b_8dee_3c7efcefebb5
+###  http://emmo.info/emmo#EMMO_2e9ace8a_1155_45b5_a066_d5fd9774e76c
+:EMMO_2e9ace8a_1155_45b5_a066_d5fd9774e76c rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_42fc460a_4bf3_4d0b_8dee_3c7efcefebb5
+                                                                               :EMMO_e0954911_fc88_492a_9830_fdb238e28cc2
+                                                                             )
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_15db234d_ecaf_4715_9838_4b4ec424fb13 ;
+                                           skos:prefLabel "OrderedElement"@en .
 
-:EMMO_42fc460a_4bf3_4d0b_8dee_3c7efcefebb5 a owl:Class ;
-	rdfs:subClassOf :EMMO_2e9ace8a_1155_45b5_a066_d5fd9774e76c ;
-	skos:prefLabel "SpatialOrderedElement"@en .
-# 
-# http://emmo.info/emmo#EMMO_c03bab53_fed3_4142_9741_cc7fc806f0a6
 
-:EMMO_c03bab53_fed3_4142_9741_cc7fc806f0a6 a owl:Class ;
-	owl:equivalentClass _:genid8 .
+###  http://emmo.info/emmo#EMMO_406f9b74_c927_4e05_b9af_5edbe5e280c5
+:EMMO_406f9b74_c927_4e05_b9af_5edbe5e280c5 rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d ;
+                                                             owl:someValuesFrom :EMMO_e0954911_fc88_492a_9830_fdb238e28cc2
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d ;
+                                                             owl:allValuesFrom :EMMO_e0954911_fc88_492a_9830_fdb238e28cc2
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An Existent whose temporal direct parts are all TemporalOrdered." ;
+                                           skos:prefLabel "Sequence"@en .
 
-_:genid8 a owl:Class ;
-	owl:unionOf _:genid10 .
 
-_:genid10 a rdf:List ;
-	rdf:first :EMMO_25a3da5e_eab1_42dd_8081_61dd09d34e1b ;
-	rdf:rest _:genid9 .
+###  http://emmo.info/emmo#EMMO_42fc460a_4bf3_4d0b_8dee_3c7efcefebb5
+:EMMO_42fc460a_4bf3_4d0b_8dee_3c7efcefebb5 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_2e9ace8a_1155_45b5_a066_d5fd9774e76c ;
+                                           skos:prefLabel "SpatialOrderedElement"@en .
 
-_:genid9 a rdf:List ;
-	rdf:first :EMMO_406f9b74_c927_4e05_b9af_5edbe5e280c5 ;
-	rdf:rest rdf:nil .
 
-:EMMO_c03bab53_fed3_4142_9741_cc7fc806f0a6 :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The union of Arrangement and Sequence." ;
-	skos:prefLabel "Ordered"@en .
-# 
-# http://emmo.info/emmo#EMMO_e0954911_fc88_492a_9830_fdb238e28cc2
+###  http://emmo.info/emmo#EMMO_c03bab53_fed3_4142_9741_cc7fc806f0a6
+:EMMO_c03bab53_fed3_4142_9741_cc7fc806f0a6 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_25a3da5e_eab1_42dd_8081_61dd09d34e1b
+                                                                               :EMMO_406f9b74_c927_4e05_b9af_5edbe5e280c5
+                                                                             )
+                                                               ] ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The union of Arrangement and Sequence." ;
+                                           skos:prefLabel "Ordered"@en .
 
-:EMMO_e0954911_fc88_492a_9830_fdb238e28cc2 a owl:Class ;
-	rdfs:subClassOf :EMMO_2e9ace8a_1155_45b5_a066_d5fd9774e76c ;
-	skos:prefLabel "TemporalOrderedElement"@en .
-# 
-# Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+
+###  http://emmo.info/emmo#EMMO_e0954911_fc88_492a_9830_fdb238e28cc2
+:EMMO_e0954911_fc88_492a_9830_fdb238e28cc2 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_2e9ace8a_1155_45b5_a066_d5fd9774e76c ;
+                                           skos:prefLabel "TemporalOrderedElement"@en .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
