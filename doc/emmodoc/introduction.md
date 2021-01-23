@@ -172,10 +172,10 @@ here is an incomplete list:
   is the inverse of `hasChild`.
 
 * _functional_; means that a property links every individual in its
-  domain to at most one other individual.
+  domain to at most one other individual.  Ex. `hasBiologicalFather`.
 
 * _inverse functional_; means that the inverse of a property is
-  functional.
+  functional.  Ex. `isBiologicalFatherOf`.
 
 * _transitive_; a property is transitive if it connects A to B and B
   to C, implies that it connects A to C. Ex. `hasAncestor`.
