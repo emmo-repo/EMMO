@@ -50,6 +50,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                                     owl:IrreflexiveProperty ;
                                            rdfs:domain :EMMO_52211e5e_d767_4812_845e_eb6b402c476a ;
                                            rdfs:range :EMMO_36c79456_e29c_400d_8bd3_0eedddb82652 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "hasTemporalDirectPart refer to an object in the very next lower level of temporal granularity that shares the same spatial extend as the original object."@en ;
                                            skos:prefLabel "hasTemporalDirectPart"@en .
 
 
@@ -59,6 +60,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            rdf:type owl:InverseFunctionalProperty ,
                                                     owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "hasSpatioTemporalDirectPart refer to an object in the very next lower level of spatial granularity in both space and time."@en ;
                                            skos:prefLabel "hasSpatioTemporalDirectPart"@en .
 
 
@@ -69,6 +71,11 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                                     owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
                                            rdfs:domain :EMMO_36c79456_e29c_400d_8bd3_0eedddb82652 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "hasSpatialDirectPart refer to an object in the very next lower level of spatial granularity that shares the same temporal extend as the original object."@en ;
+                                           rdfs:comment "Direct parthood is the key relation underlying the reductionistic perspective. It is a non-transitive proper part, that specifies elements in the very next lower level of granularity. This allows to build strict granularity hirarchies."@en ,
+                                                        """Note that EMMO does not provide a hasDirectPart relation.
+The reason for this is that direct parthood can either be decomposed into space or time independently of each other. Adding a common superclass for hasSpatialDirectPart and hasTemporalDirectPart would exclude the subclass SpatioTemporalDirectPart."""@en ,
+                                                        "hasSpatialDirectPart is non-transitive, irreflexive, asymmetric and inverse functional."@en ;
                                            skos:prefLabel "hasSpatialDirectPart"@en .
 
 

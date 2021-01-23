@@ -55,6 +55,10 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            rdfs:subPropertyOf :EMMO_8c898653_1118_4682_9bbf_6cc334d16a99 ,
                                                               :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 ;
                                            rdf:type owl:TransitiveProperty ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "If an object A is enclosed by another object B"@en ;
+                                           rdfs:comment """hasPart is transitive, asymmetric and reflexive.
+
+Asymmetric and reflexive are not axiomatised since they would slow down the reasoner."""@en ;
                                            skos:prefLabel "hasPart"@en .
 
 
@@ -62,13 +66,17 @@ email: emanuele.ghedini@unibo.it"""@en ,
 :EMMO_4d6504f1_c470_4ce9_b941_bbbebc9ab05d rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 ;
                                            rdf:type owl:SymmetricProperty ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Two objects are in contact if they share a lower dimensionality part (like a corner, edge or face) without actualy overlap."@en ;
                                            skos:prefLabel "hasContactWith"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_517dfaf9_4970_41ac_81ee_d031627d2c7c
 :EMMO_517dfaf9_4970_41ac_81ee_d031627d2c7c rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_03212fd7_abfd_4828_9c8e_62c293052d4b ;
-                                           rdf:type owl:SymmetricProperty ;
+                                           rdf:type owl:SymmetricProperty ,
+                                                    owl:IrreflexiveProperty ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Two objects are disconnected if they do not share any common portion of spacetime."@en ;
+                                           rdfs:comment "Disconnected is a topological relation."@en ;
                                            skos:prefLabel "disconnected"@en .
 
 
@@ -76,8 +84,11 @@ email: emanuele.ghedini@unibo.it"""@en ,
 :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_03212fd7_abfd_4828_9c8e_62c293052d4b ;
                                            rdf:type owl:SymmetricProperty ;
-                                           rdfs:comment "Causality is a topological property between connected items."@en ,
-                                                        "Items being connected means that there is a topological contact or \"interaction\" between them."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Causality is a topological property between connected items."@en ;
+                                           rdfs:comment "Items being connected means that there is a topological contact or \"interaction\" between them."@en ,
+                                                        """connected is symmetric and reflexive.
+
+Reflexive is not axiomatised since that would slow down the reasoner."""@en ;
                                            skos:prefLabel "connected"@en .
 
 
@@ -95,7 +106,13 @@ email: emanuele.ghedini@unibo.it"""@en ,
 :EMMO_8c898653_1118_4682_9bbf_6cc334d16a99 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 ;
                                            rdf:type owl:TransitiveProperty ;
-                                           rdfs:comment "Enclosure is reflexive and transitive."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Encloses is a topological relation. The statement \"x encloses y\" means that the spacetime occupied by y is fully embedded in x. 
+
+In FOL, \"x encloses y\" it may be written 'Exy'."""@en ;
+                                           rdfs:comment """Enclosure is reflexive and transitive.
+
+Reflexive is not axiomatised since it would slow down the reasoner."""@en ,
+                                                        "Note that x and y may be the same object (hence reflectivity)."@en ;
                                            skos:prefLabel "encloses"@en .
 
 
@@ -103,6 +120,10 @@ email: emanuele.ghedini@unibo.it"""@en ,
 :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
                                            rdf:type owl:TransitiveProperty ;
+                                           rdfs:comment "The statement \"x hasProperPart y\" means that y is a part of x, excluding the case that x and y are the same object (hence irrevlexivity)."@en ,
+                                                        """hasProperPart is transitive, asymmetric and irreflexive.
+
+Asymmetric and irreflexive are not axiomatised since they would slow down the reasoner."""@en ;
                                            skos:prefLabel "hasProperPart"@en .
 
 
@@ -110,6 +131,8 @@ email: emanuele.ghedini@unibo.it"""@en ,
 :EMMO_9cb984ca_48ad_4864_b09e_50d3fff19420 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 ;
                                            rdf:type owl:SymmetricProperty ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The statement \"x overcrosses y\" means that x and y are overlapping, but also that neither is enclosed by the other."@en ;
+                                           rdfs:comment "overcrosses is a topological relation."@en ;
                                            skos:prefLabel "overcrosses"@en .
 
 
@@ -117,6 +140,8 @@ email: emanuele.ghedini@unibo.it"""@en ,
 :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 ;
                                            rdf:type owl:SymmetricProperty ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Overlap is a topological relation."@en ,
+                                                                                      "Two objects overlap if they share a common portion of spacetime."@en ;
                                            skos:prefLabel "hasOverlapWith"@en .
 
 
