@@ -180,7 +180,7 @@ here is an incomplete list:
 * _transitive_; a property is transitive if it connects A to B and B
   to C, implies that it connects A to C. Ex. `hasAncestor`.
 
-* _symmetric_; when a property coinside with its inverse, i.e. if it
+* _symmetric_; when a property coincides with its inverse, i.e. if it
   connects A with B also means that it connects B with A.
   Ex. `hasSpouse`.
 
@@ -191,11 +191,11 @@ here is an incomplete list:
   to) to itself, i.e. that its domain is a subclass of its range.
   Ex. `hasRelative` (given that everybody has themselves as relative).
 
-* _ireflexive_; means that a property cannot relate any invividual to
+* _irreflexive_; means that a property cannot relate any invividual to
   itself. Ex. `hasParent` (nobody can be their own parent).
 
 #### Data property axioms
-Data properties expresses relations between individuals and literals.
+Data properties express relations between individuals and literals.
 Axioms for data properties include _subproperty_, _domain_, _range_
 _equivalence_, _disjointness_ and _functional_ with the same meaning
 as for object properties.
