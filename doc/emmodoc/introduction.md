@@ -120,6 +120,8 @@ Axioms are propositions in a logical framework that define the
 relations between the individuals and classes.  They are used to
 categorise individuals in classes and to define the *defined* classes.
 
+
+#### Class axioms
 The simplest form of a class axiom is a class description that just
 states the existence of the class and gives it an unique identifier.
 In order to provide more knowledge about the class, class axioms
@@ -145,6 +147,58 @@ information about these language constructs.  Axioms are also used to
 define relations between relations. These are further detailed in the
 chapter on [Relations](#emmo-relations).
 
+#### Object property axioms
+Object properties express relationships between classes or
+individuals.  There exists a range of axioms for object properties,
+here is an incomplete list:
+
+* _subproperty_; is used to defined a hierarchy of properties.
+
+* _domain_; is the class that a property applies to (the
+  individuals that can be a subject in a (subject, property,
+  object) relation).
+
+* _range_; is the class that a property relates to (the
+  individuals that can be an object in a (subject, property,
+  object) relation).
+
+* _equivalence_; allows to declare equivalent properties.
+
+* _disjointness_; two properties are disjoint if there are no
+  two individuals that are interlinked by both properties.
+
+* _inverse_; when one property can be obtained by changing the
+  direction of another property, i.e. inverting it.  E.g. `hasParent`
+  is the inverse of `hasChild`.
+
+* _functional_; means that a property links every individual in its
+  domain to at most one other individual.  Ex. `hasBiologicalFather`.
+
+* _inverse functional_; means that the inverse of a property is
+  functional.  Ex. `isBiologicalFatherOf`.
+
+* _transitive_; a property is transitive if it connects A to B and B
+  to C, implies that it connects A to C. Ex. `hasAncestor`.
+
+* _symmetric_; when a property coincides with its inverse, i.e. if it
+  connects A with B also means that it connects B with A.
+  Ex. `hasSpouse`.
+
+* _asymmetric_; means that a property that connects A with B, never
+  connects B with A. Ex. `hasChild`.
+
+* _reflexive_; means that a property can relate everything (it applies
+  to) to itself, i.e. that its domain is a subclass of its range.
+  Ex. `hasRelative` (given that everybody has themselves as relative).
+
+* _irreflexive_; means that a property cannot relate any invividual to
+  itself. Ex. `hasParent` (nobody can be their own parent).
+
+#### Data property axioms
+Data properties express relations between individuals and literals.
+Axioms for data properties include _subproperty_, _domain_, _range_
+_equivalence_, _disjointness_ and _functional_ with the same meaning
+as for object properties.
 
 
 
@@ -250,83 +304,86 @@ the open source [Owlready2][Owlready2] Python package.  The [Python API
 for EMMO][EMMO-python] is also based on Owlready2.
 
 
-----------------------------------------------------------------------------------------------------------------------------------
-DL                 Manchester         [Python + Owlready2        Read                  Meaning
-                                      ][Owlready2]
----------------    -----------------  -------------------        -------------------   --------------------
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+DL               RDF                   Manchester         [Python + Owlready2        Read                  Meaning
+                                                          ][Owlready2]
+---------------  --------------------  -----------------  -------------------        -------------------   --------------------
 **Constants**
 
-$\top$                                Thing                      top                   A special class with every individual as an instance
+$\top$           owl:Thing                                 Thing                      top                   A special class with every individual as an instance
 
-$\bot$                                Nothing                    bottom                The empty class
+$\bot$           owl:Nothing                               Nothing                    bottom                The empty class
 
 **Axioms**
 
-$A\doteq B$                                                      A is defined to be    Class *definition*
-                                                                 equal to B
+$A\doteq B$                                                                           A is defined to be    Class *definition*
+                                                                                      equal to B
 
-$A\sqsubseteq B$   A subclass_of B    class A(B): ...            all A are B           Class *inclusion*
+$A\sqsubseteq B$ A rdf:subclassOf B     A subclass_of B    class A(B): ...            all A are B           Class *inclusion*
 
-                                      issubclass(A, B)                                 Test for *inclusion*
+                                                           issubclass(A, B)                                 Test for *inclusion*
 
-$A\equiv B$        A equivalent_to B  A.equivalent_to.append(B)  A is equivalent to B  Class *equivalence*
+$A\equiv B$      A owl:equivalentTo B   A equivalent_to B  A.equivalent_to.append(B)  A is equivalent to B  Class *equivalence*
 
-                                      B in A.equivalent_to                             Test for equivalence
+                                                           B in A.equivalent_to                             Test for equivalence
 
-$a:A$              a is_a A           a = A()                    a is a A              Class *assertion* (*instantiation*)
+$a:A$            a rdf:type A           a is_a A           a = A()                    a is a A              Class *assertion* (*instantiation*)
 
-                                      isinstance(a, A)                                 Test for instance of
+                                                           isinstance(a, A)                                 Test for instance of
 
-$(a,b):R$          a object property  a.R.append(b)              a is R-related to b   Property *assertion*
-                   assertion b
+$(a,b):R$        a R b                  a object property  a.R.append(b)              a is R-related to b   Property *assertion*
+                                        assertion b
 
-$(a,n):R$          a data property    a.R.append(n)              a is R-related to n   Data *assertion*
-                   assertion n
+$(a,n):R$        a R n                  a data property    a.R.append(n)              a is R-related to n   Data *assertion*
+                                        assertion n
 
 **Constructions**
 
-$A\sqcap B$        A and B            A & B                      A and B               Class *intersection* (*conjunction*)
+$A\sqcap B$      owl:intersectionOf     A and B            A & B                      A and B               Class *intersection* (*conjunction*)
 
-$A\sqcup B$        A or B             A | B                      A or B                Class *union* (*disjunction*)
+$A\sqcup B$      owl:unionOf            A or B             A | B                      A or B                Class *union* (*disjunction*)
 
-$\lnot A$          not A              Not(A)                     not A                 Class *complement* (*negation*)
+$\lnot A$        owl:complementOf       not A              Not(A)                     not A                 Class *complement* (*negation*)
 
-$\{a, b, ...\}$    {a, b, ...}        OneOf([a, b, ...])         one of a, b, ...      Class *enumeration*
+$\{a, b, ...\}$  owl:oneOf              {a, b, ...}        OneOf([a, b, ...])         one of a, b, ...      Class *enumeration*
 
-$S\equiv R^-$      S inverse_of R     Inverse(R)                 S is inverse of R     Property *inverse*
+$S\equiv R^-$    owl:inverseOf          S inverse_of R     Inverse(R)                 S is inverse of R     Property *inverse*
 
-                                      S.inverse == R                                   Test for *inverse*
+                                                           S.inverse == R                                   Test for *inverse*
 
-$\forall R.A$      R only A           R.only(A)                  all A with R          [*Universal restriction*][universal_restriction]
+$\forall R.A$    owl:allValuesFrom      R only A           R.only(A)                  all A with R          [*Universal restriction*][universal_restriction]
 
-$\exists R.A$      R some A           R.some(A)                  some A with R         [*Existential restriction*][existential_restriction]
+$\exists R.A$    owl:someValuesFrom     R some A           R.some(A)                  some A with R         [*Existential restriction*][existential_restriction]
 
-$=n R.A$           R exactly n A      R.exactly(n, A)                                  *Cardinality restriction*
+$=n R.A$         owl:Cardinality        R exactly n A      R.exactly(n, A)                                  *Cardinality restriction*
 
-$\leq n R.A$       R min n A          R.min(n, A)                                      *Minimum cardinality restriction*
+$\leq n R.A$     owl:minCardinality     R min n A          R.min(n, A)                                      *Minimum cardinality restriction*
 
-$\geq n R.A$       R max n A          R.max(n, A)                                      *Minimum cardinality restriction*
+$\geq n R.A$     owl:maxCardinality     R max n A          R.max(n, A)                                      *Maximum cardinality restriction*
 
-$\exists R\{a\}$   R value a          R.value(a)                                       *Value restriction*
+$\exists R\{a\}$ owl:hasValue           R value a          R.value(a)                                       *Value restriction*
 
 **Decompositions**
 
-$A\sqcup B         A disjoint with B  AllDisjoint([A, B])        A disjoint with B     Disjoint
+$A\sqcup B       A owl:disjointWith B   A disjoint with B  AllDisjoint([A, B])        A disjoint with B     Disjoint
 \sqsubseteq\bot$
 
-                                      B in A.disjoints()                               Test for disjointness
+                                                           B in A.disjoints()                               Test for disjointness
 
-$\exists R.\top    R domain A         R.domain = [A]                                   Classes that the restriction applies to
+$\exists R.\top  R rdfs:domain A        R domain A         R.domain = [A]                                   Classes that the restriction applies to
 \sqsubseteq A$
 
-$\top\sqsubseteq   R range B          R.range = [B]                                    All classes that can be the value of the restriction
+$\top\sqsubseteq R rdfs:range B         R range B          R.range = [B]                                    All classes that can be the value of the restriction
 \forall R.B$
 
-----------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Table: Notation for DL and Protege. _A_ and _B_ are classes, _R_ is an active
 relation, _S_ is an passive relation, _a_ and _b_ are individuals and _n_ is a
 literal.  Inspired by the [Great table of Description Logics][Great_table_of_DL].
+
+
 
 #### Examples
 Here are some examples of different class descriptions using both
