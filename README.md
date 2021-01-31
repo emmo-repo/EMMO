@@ -12,16 +12,16 @@ The EMMO ontology is structured in shells, expressed by specific ontology fragme
 
 
 ### Top Level
-The [EMMO top level](top/top.owl) is the group of fundamental axioms that constitute the philosophical foundation of the EMMO.  Adopting a physicalistic/nominalistic perspective, the EMMO defines real world objects as 4D objects that are always extended in space and time (i.e. real world objects cannot be spaceless nor timeless).  For this reason abstract objects, i.e. objects that does not extend in space and time, are forbidden in the EMMO.
+The [EMMO top level](top/top.ttl) is the group of fundamental axioms that constitute the philosophical foundation of the EMMO.  Adopting a physicalistic/nominalistic perspective, the EMMO defines real world objects as 4D objects that are always extended in space and time (i.e. real world objects cannot be spaceless nor timeless).  For this reason abstract objects, i.e. objects that does not extend in space and time, are forbidden in the EMMO.
 
 EMMO is strongly based on the analytical philosophy dicipline semiotic.
 The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. real world objects (e.g. symbol or sign) that stand for other real world objects that are to be interpreted by an agent. These symbols appear in actions (semiotic processes) meant to communicate meaning by establishing relationships between symbols (signs).
 
 Another important building block of from analytical philosophy is atomistic mereology applied to 4D objects.  The EMMO calls it 'quantum mereology', since the there is a epistemological limit to how fine we can resolve space and time due to the uncertanity principles.
 
-The [mereotopology](top/mereotopology.owl) module introduces the fundamental mereotopological concepts and their relations with the real world objects that they represent.  The EMMO uses mereotopology as the ground for all the subsequent ontology modules.  The concept of topological connection is used to define the first distinction between ontology entities namely the *Item* and *Collection* classes.  Items are causally self-connected objects, while collections are causally disconnected.  Quantum mereology is represented by the *Quantum* class. This module introduces also the fundamental mereotopological relations used to distinguish between space and time dimensions.
+The [mereotopology](top/mereotopology.ttl) module introduces the fundamental mereotopological concepts and their relations with the real world objects that they represent.  The EMMO uses mereotopology as the ground for all the subsequent ontology modules.  The concept of topological connection is used to define the first distinction between ontology entities namely the *Item* and *Collection* classes.  Items are causally self-connected objects, while collections are causally disconnected.  Quantum mereology is represented by the *Quantum* class. This module introduces also the fundamental mereotopological relations used to distinguish between space and time dimensions.
 
-The [physical](top/physical.owl) module, defines the *Physical* objects and the concept of *Void* that plays a fundamental role in the description of multiscale objects and quantum systems. It also define the *Elementary* class, that restricts mereological atomism in space.
+The [physical](top/physical.ttl) module, defines the *Physical* objects and the concept of *Void* that plays a fundamental role in the description of multiscale objects and quantum systems. It also define the *Elementary* class, that restricts mereological atomism in space.
 
 ![Figure 1. The EMMO top level.](doc/top.png)
 
@@ -41,11 +41,12 @@ The *Holistic* perspective class introduces the concept of real world objects th
 
 The *Perceptual* perspective class introduces the concept of real world objects that can be perceived by the user as a recognisable pattern in space or time. Under this class the EMMO categorises e.g. formal languages, pictures, geometry, mathematics and sounds. Phenomenic objects can be used in a semiotic process as signs.
 
-The *Physicalistic* perspective class introduces the concept of real world objects that have a meaning for the under applied physics perspective.
+The *Physicalistic* perspective class introduces the concept of real world objects that have a meaning for the ontologist under an applied physics perspective.
 
-The [semiotics](middle/semiotics.owl) module introduces the concepts of semiotics and the *Semiosis* process that has a *Sign*, an *Object* and an *Interpreter* as participants.  This forms the basis in EMMO to represent e.g. models, formal languages, theories, information and properties.
+The [semiotics](middle/semiotics.ttl) module introduces the concepts of semiotics and the *Semiosis* process that has a *Sign*, an *Object* and an *Interpreter* as participants.  This forms the basis in EMMO to represent e.g. models, formal languages, theories, information and properties.
 
 ![Figure 3. The semiotic level.](doc/semiotics.png)
+
 
 ### EMMO relations
 All EMMO relations are subrelations of the relations found in the two roots: *mereotopological* and *semiotical*. The relation hierarchy extends more vertically (i.e. more subrelations) than horizontally (i.e. less sibling relations), facilitating the categorisation and inferencing of individuals.
@@ -54,11 +55,13 @@ Imposing all relations to fall under mereotopology or semiotics is how the EMMO 
 
 
 ## Repository Description
-You can find the EMMO ontology at [http://emmo.info/emmo](http://emmo.info/emmo).  The basic structure of the EMMO is collected by the [top](top/top.owl) ontology.
+You can find the EMMO ontology at [http://emmo.info/emmo](http://emmo.info/emmo).  The basic structure of the EMMO is collected by the [top](top/top.ttl) ontology.
 
-The overall middle level ontologies are collected by the [emmo](emmo.owl) ontology.
+The overall middle level ontologies are collected by the [emmo](emmo.ttl) ontology.
 
-The OWL2-DL sources are available in RDF/XML format.
+Examples of common extensions of EMMO middle can be found in the [domain](domain) sub-directory.
+
+The OWL2-DL sources are available in turtle format.  Other formats are available from [https://emmo-repo.github.io/](https://emmo-repo.github.io/).
 
 A description of the EMMO Governance, organisation of related repositories,
 conventions and how to contribute can be found [here](doc/EMMO_governance.md).
@@ -79,7 +82,7 @@ To access EMMO from Python, we recommend [EMMO-python](https://github.com/emmo-r
 
 
 ## Pre-inferred ontology and documentation
-Browsable documentation and pre-inferred versions of EMMO are available on [GitHub Pages](https://emmo-repo.github.io/).
+Browsable documentation and pre-inferred versions of EMMO are available on [https://emmo-repo.github.io/](https://emmo-repo.github.io/).
 
 ---
 
@@ -102,5 +105,6 @@ This work has been supported by several European projects, including:
   - [VIMMP](https://www.vimmp.eu) (2018-2021) that receives funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 760907.
   - [OntoTrans](https://cordis.europa.eu/project/id/862136) (2020-2024) that receives funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 862136.
   - [ReaxPro](https://cordis.europa.eu/project/id/814416) (2019-2023) that receives funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 814416.
+  - [OntoCommons](https://cordis.europa.eu/project/id/958371) (2020-2023) that receives funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 958371.
 
 This work was conducted using the Protégé resource, which is supported by grant GM10331601 from the National Institute of General Medical Sciences of the United States National Institutes of Health.
