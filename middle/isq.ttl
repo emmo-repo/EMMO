@@ -12,13 +12,13 @@
                                     owl:versionIRI <http://emmo.info/emmo/1.0.0-beta/middle/isq> ;
                                     owl:imports <http://emmo.info/emmo/1.0.0-beta/middle/materials> ,
                                                 <http://emmo.info/emmo/1.0.0-beta/middle/metrology> ;
-                                    dcterms:abstract """European Materials & Modelling Ontology (EMMO)
+                                    dcterms:abstract """Defines physical quantities in the International System of Quantities (ISQ). ISQ was made an official ISO standard in 2009 and is defined in the ISO/IEC 80000 standard.
 
-EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies.
+ISQ underlines the SI system and defines physical quanties that are measured with SI units.
 
-It provides the connection between the physical world, materials characterisation world and materials modelling world.
+ISQ has 7 base quantities and many derived quantities defined in terms of the 7 base quantities.
 
-EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)."""@en ;
+The number of derived quantities not closed and may increase based on the need by domain ontologies."""@en ;
                                     dcterms:contributor "Access, DE" ,
                                                         "Fraunhofer IWM, DE" ,
                                                         "Goldbeck Consulting Ltd (UK)" ,
@@ -31,7 +31,7 @@ EMMO is released under a Creative Commons license Attribution 4.0 International 
                                                     "Jesper Friis" ;
                                     dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                     dcterms:publisher "EMMC ASBL" ;
-                                    dcterms:title "European Materials & Modelling Ontology"@en ;
+                                    dcterms:title "International System of Quantities (ISQ)"@en ;
                                     rdfs:comment """Contacts:
 Gerhard Goldbeck
 Goldbeck Consulting Ltd (UK)
@@ -39,9 +39,20 @@ email: gerhard@goldbeck-consulting.com
 
 Emanuele Ghedini
 University of Bologna (IT)
-email: emanuele.ghedini@unibo.it"""@en ,
-                                                 "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                    owl:versionInfo "1.0.0-beta" .
+email: emanuele.ghedini@unibo.it"""@en ;
+                                    dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+                                    owl:versionInfo "1.0.0-beta" ;
+                                    dcterms:abstract """European Materials & Modelling Ontology (EMMO)
+
+EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies.
+
+It provides the connection between the physical world, materials characterisation world and materials modelling world.
+
+EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)."""@en ;
+                                    dcterms:contributor "Access, DE" ;
+                                    dcterms:creator "Gerhard Goldbeck" ,
+                                                    "Jesper Friis" ;
+                                    rdfs:comment "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en .
 
 #################################################################
 #    Annotation properties
@@ -143,7 +154,11 @@ See the comments of PhysicalDimension for a description of this \"regex\" string
 
 ###  http://emmo.info/emmo#EMMO_07de47e0_6bb6_45b9_b55a_4f238efbb105
 :EMMO_07de47e0_6bb6_45b9_b55a_4f238efbb105 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_ba882f34_0d71_4e4f_9d92_0c076c633a2c ;
+                                           rdfs:subClassOf :EMMO_ba882f34_0d71_4e4f_9d92_0c076c633a2c ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
+                                                             owl:someValuesFrom :EMMO_f8bd64d5_5d3e_4ad4_a46e_c30714fecb7f
+                                                           ] ;
                                            :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/AtomicNumber" ;
                                            :EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Atomic_number" ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "Number of protons in an atomic nucleus."@en ;
@@ -1184,7 +1199,7 @@ the number of protons in the nucleus of an atom""" ;
 
 This quantity is used only to describe the outcome of a counting process, without regard of the type of entities.
 
-\"There are also some quantities that cannot be described in terms of the seven base quantities of the SI, but have the nature of a count. Examples are a number of molecules, a number of cellular or biomolecular entities (for example copies of a particular nucleic acid sequence), or degeneracy in quantum mechanics. Counting quantities are also quantities with the associated unit one.\""""@en ;
+There are also some quantities that cannot be described in terms of the seven base quantities of the SI, but have the nature of a count. Examples are a number of molecules, a number of cellular or biomolecular entities (for example copies of a particular nucleic acid sequence), or degeneracy in quantum mechanics. Counting quantities are also quantities with the associated unit one."""@en ;
                                            skos:prefLabel "PureNumberQuantity"@en .
 
 
