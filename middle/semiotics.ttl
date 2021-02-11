@@ -86,10 +86,19 @@ email: emanuele.ghedini@unibo.it"""@en ,
 
 ###  http://emmo.info/emmo#EMMO_008fd3b2_4013_451f_8827_52bceab11841
 :EMMO_008fd3b2_4013_451f_8827_52bceab11841 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ,
-                                                           [ rdf:type owl:Restriction ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_39a4e2a4_d835_426d_b497_182d06e1caff
+                                                                               :EMMO_47bf3513_4ae6_4858_9c45_76e23230d68d
+                                                                               :EMMO_7cdc375d_d371_4d78_acd5_d51732f52126
+                                                                             )
+                                                               ] ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1 ;
                                                              owl:someValuesFrom :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1 ;
+                                                             owl:someValuesFrom :EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b
                                                            ] ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1 ;
@@ -111,10 +120,21 @@ the cat perceived by my mind -> interpretant
 
 ###  http://emmo.info/emmo#EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee
 :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_19608340_178c_4bfd_bd4d_0d3b935c6fec
+                                                                               :EMMO_2d72e38c_d587_437f_98f6_f2718fb130eb
+                                                                               :EMMO_36a4c1ca_5085_49ca_9e13_4c70d00c50a5
+                                                                             )
+                                                               ] ;
                                            rdfs:subClassOf :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_f68030be_94b8_4c61_a161_886468558054 ;
                                                              owl:someValuesFrom :EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_008fd3b2_4013_451f_8827_52bceab11841
                                                            ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The entity (or agent, or observer, or cognitive entity) who connects 'Sign', 'Interpretant' and 'Object'."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """For example, the ontologist may be interest in cataloguing in the EMMO how the same object (e.g. a cat) is addressed using different signs (e.g. cat, gatto, chat) by different interpreters (e.g. english, italian or french people).
@@ -135,6 +155,11 @@ On the contrary, the interpreter is an agent recognized by the ontologist. The s
 
 ###  http://emmo.info/emmo#EMMO_0cd58641_824c_4851_907f_f4c3be76630c
 :EMMO_0cd58641_824c_4851_907f_f4c3be76630c rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_39a4e2a4_d835_426d_b497_182d06e1caff
+                                                           ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Sign' that stands for an 'Object' due to causal continguity."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """Smoke stands for a combustion process (a fire).
 My facial expression stands for my emotional status."""@en ;
@@ -143,20 +168,36 @@ My facial expression stands for my emotional status."""@en ;
 
 ###  http://emmo.info/emmo#EMMO_19608340_178c_4bfd_bd4d_0d3b935c6fec
 :EMMO_19608340_178c_4bfd_bd4d_0d3b935c6fec rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_7cdc375d_d371_4d78_acd5_d51732f52126
+                                                           ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An interpreter who establish the connection between an icon an an object recognizing their resemblance (e.g. logical, pictorial)"@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "The scientist that connects an equation to a physical phenomenon." ;
                                            skos:prefLabel "Cogniser"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_2d72e38c_d587_437f_98f6_f2718fb130eb
 :EMMO_2d72e38c_d587_437f_98f6_f2718fb130eb rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_47bf3513_4ae6_4858_9c45_76e23230d68d
+                                                           ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An interpreter who establish the connection between an conventional sign and an object according to a specific convention."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A scientist that assigns a quantity to a physical objects without actually measuring it but taking it for granted due to its previous experience (e.g. considering an electron charge as 1.6027663e-19 C, assigning a molecular mass to a gas only by the fact of a name on the bottle)." ,
+                                                                                      "Someone who assigns a name to an object." ;
                                            skos:prefLabel "Declarer"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9
 :EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9 rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_47bf3513_4ae6_4858_9c45_76e23230d68d
+                                                           ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Sign' that stands for an 'Object' through convention, norm or habit, without any resemblance to it."@en ;
                                            rdfs:comment "In Peirce semiotics this kind of sign category is called symbol. However, since symbol is also used in formal languages, the name is changed in conventional."@en ;
                                            skos:prefLabel "Conventional"@en .
@@ -164,25 +205,33 @@ My facial expression stands for my emotional status."""@en ;
 
 ###  http://emmo.info/emmo#EMMO_36a4c1ca_5085_49ca_9e13_4c70d00c50a5
 :EMMO_36a4c1ca_5085_49ca_9e13_4c70d00c50a5 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_39a4e2a4_d835_426d_b497_182d06e1caff
+                                                           ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An interpreter who establish the connection between an index sign and an object according to a causal contiguity."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Someone who deduces an emotional status of a persona according to facial expression." ,
+                                                                                      "Someone who deduces the occurring of a physical phenomenon through other phenomena." ;
                                            skos:prefLabel "Deducer"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_39a4e2a4_d835_426d_b497_182d06e1caff
 :EMMO_39a4e2a4_d835_426d_b497_182d06e1caff rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_008fd3b2_4013_451f_8827_52bceab11841 ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1 ;
+                                                             owl:someValuesFrom :EMMO_0cd58641_824c_4851_907f_f4c3be76630c
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1 ;
+                                                             owl:someValuesFrom :EMMO_36a4c1ca_5085_49ca_9e13_4c70d00c50a5
+                                                           ] ;
                                            skos:prefLabel "IndexSemiosis"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_47bf3513_4ae6_4858_9c45_76e23230d68d
 :EMMO_47bf3513_4ae6_4858_9c45_76e23230d68d rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_008fd3b2_4013_451f_8827_52bceab11841 ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1 ;
-                                                             owl:someValuesFrom :EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1 ;
                                                              owl:someValuesFrom :EMMO_2d72e38c_d587_437f_98f6_f2718fb130eb
                                                            ] ,
@@ -196,7 +245,7 @@ My facial expression stands for my emotional status."""@en ;
 ###  http://emmo.info/emmo#EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b
 :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The object, in Peirce semiotics."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The object, in Peirce semiotics, as participant to a semiotic process."@en ;
                                            rdfs:comment """Here is assumed that the concept of 'object' is always relative to a 'semiotic' process. An 'object' does not exists per se, but it's always part of an interpretation.
 
 The EMMO relies on strong reductionism, i.e. everything real is a formless collection of elementary particles: we give a meaning to real world entities only by giving them boundaries and defining them using 'sign'-s.
@@ -207,7 +256,14 @@ In this way the 'sign'-ed entity becomes an 'object', and the 'object' is the ba
 
 ###  http://emmo.info/emmo#EMMO_7cdc375d_d371_4d78_acd5_d51732f52126
 :EMMO_7cdc375d_d371_4d78_acd5_d51732f52126 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_008fd3b2_4013_451f_8827_52bceab11841 ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1 ;
+                                                             owl:someValuesFrom :EMMO_19608340_178c_4bfd_bd4d_0d3b935c6fec
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1 ;
+                                                             owl:someValuesFrom :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168
+                                                           ] ;
                                            skos:prefLabel "IconSemiosis"@en .
 
 
@@ -250,8 +306,7 @@ Just like an 'Elementary' in the 'Physical' branch, each 'Sign' branch should ha
                                                                                :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d
                                                                              )
                                                                ] ;
-                                           rdfs:subClassOf :EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d ,
-                                                           [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
                                                              owl:onProperty [ owl:inverseOf :EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1
                                                                             ] ;
                                                              owl:someValuesFrom :EMMO_008fd3b2_4013_451f_8827_52bceab11841
@@ -272,10 +327,14 @@ This class includes also the 'interpeter' i.e. the entity that connects the 'sig
 
 ###  http://emmo.info/emmo#EMMO_d7788d1a_020d_4c78_85a1_13563fcec168
 :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_7cdc375d_d371_4d78_acd5_d51732f52126
+                                                           ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Sign' that stands for an 'Object' by resembling or imitating it, in shape or by sharing a similar logical structure."@en ;
-                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """A picture that reproduces the aspect of a person.
-
-An equation that reproduces the logical connection of the properties of a physical entity."""@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A picture that reproduces the aspect of a person."@en ,
+                                                                                      "An equation that reproduces the logical connection of the properties of a physical entity." ;
                                            rdfs:comment """Three subtypes of icon are possible:
 
 (a) the image, which depends on a simple quality (e.g. picture)
