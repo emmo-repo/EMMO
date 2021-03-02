@@ -69,9 +69,6 @@ with onto:
 
     EMMOCommittee = onto.Interpreter('EMMOCommittee')
 
-    unitOne = onto.UnitOne('unitOne')
-    dalton = onto.Dalton('dalton')
-
     for Z, (s, name, m) in enumerate(zip(
             ase.data.chemical_symbols,
             ase.data.atomic_names,
@@ -87,13 +84,13 @@ with onto:
         z = onto.Integer(lname + 'AtomicNumberValue',
                          hasNumericalData=int(Z))
         number = EMMOAtomicNumber(lname + 'AtomicNumber',
-                                  hasReferenceUnit=[unitOne],
+                                  hasReferenceUnit=[onto.UnitOne],
                                   hasQuantityValue=[z])
 
         mval = onto.Real(lname + 'AtomicMassValue',
                          hasNumericalData=float(m))
         mass = EMMOAtomicMass(lname + 'AtomicMass')
-        mass.hasReferenceUnit = [dalton]
+        mass.hasReferenceUnit = [onto.Dalton]
         mass.hasQuantityValue = [mval]
 
         # TODO: add covalent_radii, ground_state_magnetic_moments,
