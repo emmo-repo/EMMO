@@ -8,7 +8,7 @@ EMMO is a multidisciplinary effort to develop a standard representational framew
 
 
 ## Use of EMMO in domain ontologies
-Currently there are several domain ontologies in development that uses EMMO as the top and middle level ontology.
+Currently there are several domain ontologies in development that use EMMO as the top and middle level ontology.
 Typically they import one of the versions of EMMO listed on [https://emmo-repo.github.io/](https://emmo-repo.github.io/).
 The following table lists the public EMMO-based domain ontologies that we are aware of.
 Please create an issue if you have a public domain ontology that you think should be listed here.
