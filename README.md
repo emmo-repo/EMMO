@@ -15,6 +15,7 @@ Please create an issue if you have a public domain ontology that you think shoul
 
 | Domain ontology                           | Link                                                                                                                                      |
 | ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Example domain ontologies                 | [https://github.com/emmo-repo/EMMO/tree/master/domain](https://github.com/emmo-repo/EMMO/tree/master/domain)                              |
 | Crystallography                           | [https://github.com/emmo-repo/domain-crystallography](https://github.com/emmo-repo/domain-crystallography)                                |
 | Mechanical Testing                        | [https://github.com/emmo-repo/domain-mechanical-testing](https://github.com/emmo-repo/domain-mechanical-testing)                          |
 | Cultural Heritage Preservation            | [https://github.com/emmo-repo/domain-cultural-heritage-preservation](https://github.com/emmo-repo/domain-cultural-heritage-preservation)  |
