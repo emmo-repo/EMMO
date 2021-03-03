@@ -4,7 +4,7 @@ on: [push]
 jobs:
 
   build:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-18.04
     strategy:
       max-parallel: 1
       matrix:
@@ -20,8 +20,10 @@ jobs:
 
     - name: Install EMMO-python
       run: |
+        pip install --upgrade pip
         pip install EMMO
 
     - name: Check EMMO
       run: |
-        emmocheck --local --verbose --check-imported --configfile=.github/emmocheck_conf.yml --skip=test_namespace --skip=test_class_label emmo.owl
+        emmocheck --local --url-from-catalog --verbose --check-imported --configfile=.github/emmocheck_conf.yml --skip=test_namespace emmo.owl
+        #emmocheck --local --verbose --check-imported --configfile=.github/emmocheck_conf.yml --skip=test_namespace --skip=test_class_label emmo.owl
