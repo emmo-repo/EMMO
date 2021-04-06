@@ -18,7 +18,14 @@ ISQ underlines the SI system and defines physical quanties that are measured wit
 
 ISQ has 7 base quantities and many derived quantities defined in terms of the 7 base quantities.
 
-The number of derived quantities not closed and may increase based on the need by domain ontologies."""@en ;
+The number of derived quantities is not closed and may increase based on the need by domain ontologies."""@en ,
+                                                     """European Materials & Modelling Ontology (EMMO)
+
+EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies.
+
+It provides the connection between the physical world, materials characterisation world and materials modelling world.
+
+EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)."""@en ;
                                     dcterms:contributor "Access, DE" ,
                                                         "Fraunhofer IWM, DE" ,
                                                         "Goldbeck Consulting Ltd (UK)" ,
@@ -39,50 +46,21 @@ email: gerhard@goldbeck-consulting.com
 
 Emanuele Ghedini
 University of Bologna (IT)
-email: emanuele.ghedini@unibo.it"""@en ;
-                                    dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
-                                    owl:versionInfo "1.0.0-beta" ;
-                                    dcterms:abstract """European Materials & Modelling Ontology (EMMO)
-
-EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) based on current materials modelling knowledge, including physical sciences, analytical philosophy and information and communication technologies.
-
-It provides the connection between the physical world, materials characterisation world and materials modelling world.
-
-EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)."""@en ;
-                                    dcterms:contributor "Access, DE" ;
-                                    dcterms:creator "Gerhard Goldbeck" ,
-                                                    "Jesper Friis" ;
-                                    rdfs:comment "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en .
+email: emanuele.ghedini@unibo.it"""@en ,
+                                                 "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
+                                    owl:versionInfo "1.0.0-beta" .
 
 #################################################################
 #    Annotation properties
 #################################################################
 
-###  http://emmo.info/emmo#EMMO_de178b12_5d35_4bca_8efa_a4193162571d
-:EMMO_de178b12_5d35_4bca_8efa_a4193162571d rdf:type owl:AnnotationProperty ;
-                                           rdfs:comment """A unique string describing the physical dimensionality of a physical quantity.
-
-See the comments of PhysicalDimension for a description of this \"regex\" string."""@en ;
-                                           skos:prefLabel "physicalDimension"@en ;
-                                           rdfs:subPropertyOf rdfs:comment ;
-                                           rdfs:range xsd:string .
-                                           
-                                           ###  http://emmo.info/emmo#EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f
+###  http://emmo.info/emmo#EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f
 :EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f rdf:type owl:AnnotationProperty ;
                                            rdfs:comment "URL to corresponding entry in the IEC Electropedia online database of ISO 80000 terms and definitions of quantities and units available at http://www.electropedia.org/."@en ;
                                            rdfs:seeAlso "http://www.electropedia.org/"^^xsd:anyURI ;
                                            skos:prefLabel "IECEntry"@en ;
                                            rdfs:subPropertyOf rdfs:isDefinedBy ;
                                            rdfs:range xsd:anyURI .
-                                           
-                                           ###  http://emmo.info/emmo#EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578
-:EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 rdf:type owl:AnnotationProperty ;
-                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "3‑1.1  (refers to length)"@en ;
-                                           rdfs:comment "Corresponding item number in ISO 80 000."@en ;
-                                           rdfs:seeAlso "https://www.iso.org/obp/ui/#iso:std:iso:80000:-1:ed-1:v1:en"^^xsd:anyURI ;
-                                           skos:prefLabel "ISO80000Ref"@en ;
-                                           rdfs:subPropertyOf rdfs:isDefinedBy ;
-                                           rdfs:range rdf:PlainLiteral .
 
 
 ###  http://emmo.info/emmo#EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25
@@ -92,6 +70,36 @@ See the comments of PhysicalDimension for a description of this \"regex\" string
                                            skos:prefLabel "dbpediaEntry"@en ;
                                            rdfs:subPropertyOf rdfs:seeAlso ;
                                            rdfs:range xsd:anyURI .
+
+
+###  http://emmo.info/emmo#EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578
+:EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 rdf:type owl:AnnotationProperty ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "3‑1.1  (refers to length)"@en ;
+                                           rdfs:comment "Corresponding item number in ISO 80 000."@en ;
+                                           rdfs:seeAlso "https://www.iso.org/obp/ui/#iso:std:iso:80000:-1:ed-1:v1:en"^^xsd:anyURI ;
+                                           skos:prefLabel "ISO80000Ref"@en ;
+                                           rdfs:subPropertyOf rdfs:isDefinedBy ;
+                                           rdfs:range rdf:PlainLiteral .
+
+
+###  http://emmo.info/emmo#EMMO_a9b3d04c_7ceb_40a2_b8d3_28d514a770a8
+:EMMO_a9b3d04c_7ceb_40a2_b8d3_28d514a770a8 rdf:type owl:AnnotationProperty .
+
+
+###  http://emmo.info/emmo#EMMO_de178b12_5d35_4bca_8efa_a4193162571d
+:EMMO_de178b12_5d35_4bca_8efa_a4193162571d rdf:type owl:AnnotationProperty ;
+                                           rdfs:comment """A unique string describing the physical dimensionality of a physical quantity.
+
+See the comments of PhysicalDimension for a description of this \"regex\" string."""@en ;
+                                           skos:prefLabel "physicalDimension"@en ;
+                                           rdfs:subPropertyOf rdfs:comment ;
+                                           rdfs:range xsd:string .
+
+
+###  http://emmo.info/emmo#EMMO_e55f2d7c_9893_48cd_b4a4_fdf38253bd20
+:EMMO_e55f2d7c_9893_48cd_b4a4_fdf38253bd20 rdf:type owl:AnnotationProperty .
+
+
 #################################################################
 #    Classes
 #################################################################
@@ -108,11 +116,7 @@ See the comments of PhysicalDimension for a description of this \"regex\" string
 
 ###  http://emmo.info/emmo#EMMO_0329f1f5_8339_4ce4_8505_a264c6d606ba
 :EMMO_0329f1f5_8339_4ce4_8505_a264c6d606ba rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
-                                                             owl:someValuesFrom :EMMO_2ff07b07_c447_490f_903a_f6a72a12d7bf
-                                                           ] ;
+                                           rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
                                            :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Velocity" ;
                                            :EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=113-01-32" ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 """Vector quantity giving the rate of change of a position vector.
@@ -472,11 +476,7 @@ It defines the base unit mole in the SI system."""@en ;
 
 ###  http://emmo.info/emmo#EMMO_44da6d75_54a4_4aa8_bd3a_156f6e9abb8e
 :EMMO_44da6d75_54a4_4aa8_bd3a_156f6e9abb8e rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
-                                                             owl:someValuesFrom :EMMO_2ff07b07_c447_490f_903a_f6a72a12d7bf
-                                                           ] ;
+                                           rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
                                            :EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=113-03-12" ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "Vector r characterizing a point P in a point space with a given origin point O."@en ;
                                            :EMMO_de178b12_5d35_4bca_8efa_a4193162571d "T0 L+1 M0 I0 Θ0 N0 J0" ;
@@ -1673,4 +1673,4 @@ It defines the Kelvin unit in the SI system."""@en ;
                                            skos:prefLabel "BoltzmannConstant"@en .
 
 
-###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
