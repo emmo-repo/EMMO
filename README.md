@@ -7,6 +7,23 @@
 EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) for applied sciences.  It is based on physics, analytical philosophy and information and communication technologies. It has been instigated by materials science and provides the connection between the physical world, the experimental world (materials characterisation) and the simulation world (materials modelling).  It is released under a Creative Commons [CC BY 4.0](LICENSE.md) license.
 
 
+## Use of EMMO in domain ontologies
+Currently there are several domain ontologies in development that use EMMO as the top and middle level ontology.
+Typically they import one of the versions of EMMO listed on [https://emmo-repo.github.io/](https://emmo-repo.github.io/).
+The following table lists the public EMMO-based domain ontologies that we are aware of.
+Please create an issue if you have a public domain ontology that you think should be listed here.
+
+| Domain ontology                           | Link                                                                                                                                      |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Example domain ontologies                 | [https://github.com/emmo-repo/EMMO/tree/master/domain](https://github.com/emmo-repo/EMMO/tree/master/domain)                              |
+| Crystallography                           | [https://github.com/emmo-repo/domain-crystallography](https://github.com/emmo-repo/domain-crystallography)                                |
+| Mechanical Testing                        | [https://github.com/emmo-repo/domain-mechanical-testing](https://github.com/emmo-repo/domain-mechanical-testing)                          |
+| Cultural Heritage Preservation            | [https://github.com/emmo-repo/domain-cultural-heritage-preservation](https://github.com/emmo-repo/domain-cultural-heritage-preservation)  |
+| Atomistic and Electronic Modelling        | [https://github.com/emmo-repo/domain-atomistic](https://github.com/emmo-repo/domain-atomistic)                                            |
+| Battery Interface Ontology (BattINFO)     | [https://github.com/BIG-MAP/BattINFO](https://github.com/BIG-MAP/BattINFO)                                                                |
+
+
+
 ## EMMO in a Nutshell
 The EMMO ontology is structured in shells, expressed by specific ontology fragments, that extends from fundamental concepts to the application domains, following the dependency flow.
 
