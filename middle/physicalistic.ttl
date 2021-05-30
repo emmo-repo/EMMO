@@ -6,176 +6,519 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <http://emmo.info/emmo/middle/physicalistic> .
 
-<http://emmo.info/emmo/middle/physicalistic> rdf:type owl:Ontology ;
-                                              owl:versionIRI <http://emmo.info/emmo/1.0.0-beta/middle/physicalistic> ;
-                                              owl:imports <http://emmo.info/emmo/1.0.0-beta/middle/perspective> ;
-                                              dcterms:abstract "Defines the root of the physicalistic perspective that introduces the concept of real world objects that have a meaning for the ontologist under an applied physics perspective."@en ;
-                             dcterms:contributor "Adham Hashibon, Fraunhofer IWM, DE" ,
-                                                 "Georg Schmitz, Access, DE" ,
-                                                 "Gerhard Goldbeck, Goldbeck Consulting Ltd (UK)" ,
-                                                 "Jesper Friis, SINTEF, NO" ;
-                             dcterms:creator "Emanuele Ghedini, University of Bologna, IT" ;
-                             dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
-                             dcterms:publisher "EMMC ASBL" ;
-                             dcterms:title "Physicalistic"@en ;
-                             rdfs:comment """Contacts:
+<http://emmo.info/emmo/middle/physicalistic> a owl:Ontology ;
+	owl:versionIRI <http://emmo.info/emmo/1.0.0-beta/middle/physicalistic> ;
+	owl:imports <http://emmo.info/emmo/1.0.0-beta/middle/perspective> ;
+	dcterms:abstract "Defines the root of the physicalistic perspective that introduces the concept of real world objects that have a meaning for the ontologist under an applied physics perspective."@en ;
+	dcterms:contributor "Adham Hashibon, Fraunhofer IWM, DE" , "Georg Schmitz, Access, DE" , "Gerhard Goldbeck, Goldbeck Consulting Ltd (UK)" , "Jesper Friis, SINTEF, NO" ;
+	dcterms:creator "Emanuele Ghedini, University of Bologna, IT" ;
+	dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+	dcterms:publisher "EMMC ASBL" ;
+	dcterms:title "Physicalistic"@en ;
+	rdfs:comment """Contacts:
 Gerhard Goldbeck
 Goldbeck Consulting Ltd (UK)
 email: gerhard@goldbeck-consulting.com
 
 Emanuele Ghedini
 University of Bologna (IT)
-email: emanuele.ghedini@unibo.it"""@en ,
-                                          "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                             owl:versionInfo "1.0.0-beta" .
+email: emanuele.ghedini@unibo.it"""@en , "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
+	owl:versionInfo "1.0.0-beta" .
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://emmo.info/emmo#EMMO_0a3f04a6_ba3a_49d9_99da_08b0e26f51f0
 
-#################################################################
-#    Classes
-#################################################################
+:EMMO_0a3f04a6_ba3a_49d9_99da_08b0e26f51f0 a owl:Class ;
+	skos:prefLabel "UpQuark"@en .
+# 
+# http://emmo.info/emmo#EMMO_14118f5d_512b_484f_888e_49de3d792238
 
-###  http://emmo.info/emmo#EMMO_25f8b804_9a0b_4387_a3e7_b35bce5365ee
-:EMMO_25f8b804_9a0b_4387_a3e7_b35bce5365ee rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals that stand for photons elementary particles."@en ;
-                                           skos:prefLabel "Photon"@en .
+:EMMO_14118f5d_512b_484f_888e_49de3d792238 a owl:Class ;
+	skos:prefLabel "Neutron"@en .
+# 
+# http://emmo.info/emmo#EMMO_1d5305d7_5690_4e5a_92de_4611e8c356ef
 
+:EMMO_1d5305d7_5690_4e5a_92de_4611e8c356ef a owl:Class ;
+	skos:prefLabel "ElectronNeutrino"@en .
+# 
+# http://emmo.info/emmo#EMMO_1ea2f3fc_da94_4685_99b4_352922fbc461
 
-###  http://emmo.info/emmo#EMMO_385b8f6e_43ac_4596_ad76_ac322c68b7ca
-:EMMO_385b8f6e_43ac_4596_ad76_ac322c68b7ca rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_72d53756_7fb1_46ed_980f_83f47efbe105
-                                                                               :EMMO_8043d3c6_a4c1_4089_ba34_9744e28e5b3d
-                                                                             )
-                                                               ] ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The union of classes of elementary particles that possess mass."@en ;
-                                           skos:prefLabel "Massive"@en .
+:EMMO_1ea2f3fc_da94_4685_99b4_352922fbc461 a owl:Class ;
+	skos:prefLabel "CharmQuark"@en .
+# 
+# http://emmo.info/emmo#EMMO_21a13e48_e4e2_450b_ad03_d9a112daee87
 
+:EMMO_21a13e48_e4e2_450b_ad03_d9a112daee87 a owl:Class ;
+	skos:prefLabel "WBoson"@en .
+# 
+# http://emmo.info/emmo#EMMO_22a6f189_7ad7_424d_af15_5efe002c1365
 
-###  http://emmo.info/emmo#EMMO_3c218fbe_60c9_4597_8bcf_41eb1773af1f
-:EMMO_3c218fbe_60c9_4597_8bcf_41eb1773af1f rdf:type owl:Class ;
-                                           owl:equivalentClass [ owl:intersectionOf ( :EMMO_70dac51e_bddd_48c2_8a98_7d8395e91fc2
-                                                                                      [ rdf:type owl:Class ;
-                                                                                        owl:complementOf :EMMO_5b2222df_4da6_442f_8244_96e9e45887d1
-                                                                                      ]
-                                                                                    ) ;
-                                                                 rdf:type owl:Class
-                                                               ] ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Physical' with no 'Massive' parts."@en ;
-                                           skos:prefLabel "Vacuum"@en .
+:EMMO_22a6f189_7ad7_424d_af15_5efe002c1365 a owl:Class ;
+	skos:prefLabel "StrangeQuark"@en .
+# 
+# http://emmo.info/emmo#EMMO_24dda193_ada8_433b_bb74_6ca4a0b89a20
 
+:EMMO_24dda193_ada8_433b_bb74_6ca4a0b89a20 a owl:Class ;
+	rdfs:subClassOf :EMMO_53dced52_34f6_4cf0_8a99_ddf451861543 , _:genid1 .
 
-###  http://emmo.info/emmo#EMMO_4207e895_8b83_4318_996a_72cfb32acd94
-:EMMO_4207e895_8b83_4318_996a_72cfb32acd94 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_5b2222df_4da6_442f_8244_96e9e45887d1 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A matter individual that stands for a real world object representing an amount of a physical substance (or mixture of substances) in different states of matter or phases."@en ;
-                                           rdfs:comment "A instance of a material (e.g. nitrogen) can represent different states of matter. The fact that the individual also belongs to other classes (e.g. Gas) would reveal the actual form in which the material is found."@en ,
-                                                        "Material usually means some definite kind, quality, or quantity of matter, especially as intended for use."@en ;
-                                           skos:prefLabel "Material"@en .
+_:genid1 a owl:Restriction ;
+	owl:onProperty :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
+	owl:someValuesFrom :EMMO_72d53756_7fb1_46ed_980f_83f47efbe105 .
 
+:EMMO_24dda193_ada8_433b_bb74_6ca4a0b89a20 skos:prefLabel "Baryon"@en .
+# 
+# http://emmo.info/emmo#EMMO_2531fe94_1cdf_4f36_9abc_7ab7574310db
 
-###  http://emmo.info/emmo#EMMO_5b2222df_4da6_442f_8244_96e9e45887d1
-:EMMO_5b2222df_4da6_442f_8244_96e9e45887d1 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
-                                                             owl:someValuesFrom :EMMO_385b8f6e_43ac_4596_ad76_ac322c68b7ca
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 ;
-                                                             owl:allValuesFrom :EMMO_5b2222df_4da6_442f_8244_96e9e45887d1
-                                                           ] ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Physical' that possesses some 'Massive' parts."@en ;
-                                           skos:prefLabel "Matter"@en .
+:EMMO_2531fe94_1cdf_4f36_9abc_7ab7574310db a owl:Class ;
+	skos:prefLabel "Muon"@en .
+# 
+# http://emmo.info/emmo#EMMO_25f8b804_9a0b_4387_a3e7_b35bce5365ee
 
+:EMMO_25f8b804_9a0b_4387_a3e7_b35bce5365ee a owl:Class ;
+	rdfs:subClassOf :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals that stand for photons elementary particles."@en ;
+	skos:prefLabel "Photon"@en .
+# 
+# http://emmo.info/emmo#EMMO_385b8f6e_43ac_4596_ad76_ac322c68b7ca
 
-###  http://emmo.info/emmo#EMMO_70dac51e_bddd_48c2_8a98_7d8395e91fc2
-:EMMO_70dac51e_bddd_48c2_8a98_7d8395e91fc2 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
-                                                             owl:someValuesFrom :EMMO_e5488299_8dab_4ebb_900a_26d2abed8396
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 ;
-                                                             owl:allValuesFrom :EMMO_70dac51e_bddd_48c2_8a98_7d8395e91fc2
-                                                           ] ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Physical' with 'Massless' parts that are mediators of interactions."@en ;
-                                           rdfs:comment """The concepts of matter and field for classical physics, upon which we can categorize physical entities, are replaced in quantum physics by the more general concepts of quantum field.
+:EMMO_385b8f6e_43ac_4596_ad76_ac322c68b7ca a owl:Class ;
+	owl:equivalentClass _:genid2 .
+
+_:genid2 a owl:Class ;
+	owl:unionOf _:genid7 .
+
+_:genid7 a rdf:List ;
+	rdf:first :EMMO_21a13e48_e4e2_450b_ad03_d9a112daee87 ;
+	rdf:rest _:genid6 .
+
+_:genid6 a rdf:List ;
+	rdf:first :EMMO_676a29e6_d4e1_4b54_8961_25947bd20861 ;
+	rdf:rest _:genid5 .
+
+_:genid5 a rdf:List ;
+	rdf:first :EMMO_72d53756_7fb1_46ed_980f_83f47efbe105 ;
+	rdf:rest _:genid4 .
+
+_:genid4 a rdf:List ;
+	rdf:first :EMMO_d324ae63_7574_4d73_b25b_96479e2626f2 ;
+	rdf:rest _:genid3 .
+
+_:genid3 a rdf:List ;
+	rdf:first :EMMO_f8e436fb_61ed_4512_a5a5_bee90f0cec2f ;
+	rdf:rest rdf:nil .
+
+:EMMO_385b8f6e_43ac_4596_ad76_ac322c68b7ca :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The union of classes of elementary particles that possess mass."@en ;
+	skos:prefLabel "Massive"@en .
+# 
+# http://emmo.info/emmo#EMMO_3a948fa6_033a_4bb2_a319_36a45741d832
+
+:EMMO_3a948fa6_033a_4bb2_a319_36a45741d832 a owl:Class ;
+	skos:prefLabel "Tau"@en .
+# 
+# http://emmo.info/emmo#EMMO_3c218fbe_60c9_4597_8bcf_41eb1773af1f
+
+:EMMO_3c218fbe_60c9_4597_8bcf_41eb1773af1f a owl:Class ;
+	owl:equivalentClass _:genid8 .
+
+_:genid8 owl:intersectionOf _:genid11 .
+
+_:genid11 a rdf:List ;
+	rdf:first :EMMO_70dac51e_bddd_48c2_8a98_7d8395e91fc2 ;
+	rdf:rest _:genid9 .
+
+_:genid9 a rdf:List ;
+	rdf:first _:genid10 .
+
+_:genid10 a owl:Class ;
+	owl:complementOf :EMMO_5b2222df_4da6_442f_8244_96e9e45887d1 .
+
+_:genid9 rdf:rest rdf:nil .
+
+_:genid8 a owl:Class .
+
+:EMMO_3c218fbe_60c9_4597_8bcf_41eb1773af1f :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Physical' with no 'Massive' parts."@en ;
+	skos:prefLabel "Vacuum"@en .
+# 
+# http://emmo.info/emmo#EMMO_4207e895_8b83_4318_996a_72cfb32acd94
+
+:EMMO_4207e895_8b83_4318_996a_72cfb32acd94 a owl:Class ;
+	rdfs:subClassOf :EMMO_5b2222df_4da6_442f_8244_96e9e45887d1 ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A matter individual that stands for a real world object representing an amount of a physical substance (or mixture of substances) in different states of matter or phases."@en ;
+	rdfs:comment "A instance of a material (e.g. nitrogen) can represent different states of matter. The fact that the individual also belongs to other classes (e.g. Gas) would reveal the actual form in which the material is found."@en , "Material usually means some definite kind, quality, or quantity of matter, especially as intended for use."@en ;
+	skos:prefLabel "Material"@en .
+# 
+# http://emmo.info/emmo#EMMO_451418fa_68c8_4c65_b575_e212880bdf67
+
+:EMMO_451418fa_68c8_4c65_b575_e212880bdf67 a owl:Class ;
+	skos:prefLabel "Proton"@en .
+# 
+# http://emmo.info/emmo#EMMO_53dced52_34f6_4cf0_8a99_ddf451861543
+
+:EMMO_53dced52_34f6_4cf0_8a99_ddf451861543 a owl:Class ;
+	rdfs:subClassOf :EMMO_9e704018_8e4b_4adc_a471_32f3abb5e910 ;
+	skos:prefLabel "Fermion"@en .
+# 
+# http://emmo.info/emmo#EMMO_5b2222df_4da6_442f_8244_96e9e45887d1
+
+:EMMO_5b2222df_4da6_442f_8244_96e9e45887d1 a owl:Class ;
+	rdfs:subClassOf :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d , _:genid12 .
+
+_:genid12 a owl:Restriction ;
+	owl:onProperty :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
+	owl:someValuesFrom :EMMO_385b8f6e_43ac_4596_ad76_ac322c68b7ca .
+
+:EMMO_5b2222df_4da6_442f_8244_96e9e45887d1 rdfs:subClassOf _:genid13 .
+
+_:genid13 a owl:Restriction ;
+	owl:onProperty :EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 ;
+	owl:allValuesFrom :EMMO_5b2222df_4da6_442f_8244_96e9e45887d1 .
+
+:EMMO_5b2222df_4da6_442f_8244_96e9e45887d1 :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Physical' that possesses some 'Massive' parts in each of its temporal parts."@en ;
+	skos:prefLabel "Matter"@en .
+# 
+# http://emmo.info/emmo#EMMO_676a29e6_d4e1_4b54_8961_25947bd20861
+
+:EMMO_676a29e6_d4e1_4b54_8961_25947bd20861 a owl:Class ;
+	rdfs:subClassOf :EMMO_cc1b6be1_3102_4376_b33b_d8dd13f9be2f ;
+	skos:prefLabel "HIggsBoson"@en .
+# 
+# http://emmo.info/emmo#EMMO_6c228d96_ed6c_4029_8acb_b88c93594f1a
+
+:EMMO_6c228d96_ed6c_4029_8acb_b88c93594f1a a owl:Class ;
+	rdfs:subClassOf :EMMO_9e704018_8e4b_4adc_a471_32f3abb5e910 ;
+	skos:prefLabel "Antiparticle"@en .
+# 
+# http://emmo.info/emmo#EMMO_70dac51e_bddd_48c2_8a98_7d8395e91fc2
+
+:EMMO_70dac51e_bddd_48c2_8a98_7d8395e91fc2 a owl:Class ;
+	rdfs:subClassOf :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d , _:genid14 .
+
+_:genid14 a owl:Restriction ;
+	owl:onProperty :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
+	owl:someValuesFrom :EMMO_e5488299_8dab_4ebb_900a_26d2abed8396 .
+
+:EMMO_70dac51e_bddd_48c2_8a98_7d8395e91fc2 rdfs:subClassOf _:genid15 .
+
+_:genid15 a owl:Restriction ;
+	owl:onProperty :EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 ;
+	owl:allValuesFrom :EMMO_70dac51e_bddd_48c2_8a98_7d8395e91fc2 .
+
+:EMMO_70dac51e_bddd_48c2_8a98_7d8395e91fc2 :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Physical' with 'Massless' parts that are mediators of interactions."@en ;
+	rdfs:comment """The concepts of matter and field for classical physics, upon which we can categorize physical entities, are replaced in quantum physics by the more general concepts of quantum field.
 
 Here the class 'Field' refers to the quantum field of massless bosonic particles (i.e. photons, gluons), while the class 'Matter' refers to the quantum field of massive fermionic or bosonic particles (e.g. quarks, electrons)."""@en ;
-                                           skos:prefLabel "Field"@en .
+	skos:prefLabel "Field"@en .
+# 
+# http://emmo.info/emmo#EMMO_72d53756_7fb1_46ed_980f_83f47efbe105
 
+:EMMO_72d53756_7fb1_46ed_980f_83f47efbe105 a owl:Class ;
+	rdfs:subClassOf :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 , :EMMO_53dced52_34f6_4cf0_8a99_ddf451861543 ;
+	owl:disjointUnionOf _:genid21 .
 
-###  http://emmo.info/emmo#EMMO_72d53756_7fb1_46ed_980f_83f47efbe105
-:EMMO_72d53756_7fb1_46ed_980f_83f47efbe105 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals that stand for quarks elementary particles."@en ;
-                                           skos:prefLabel "Quark"@en .
+_:genid21 a rdf:List ;
+	rdf:first :EMMO_0a3f04a6_ba3a_49d9_99da_08b0e26f51f0 ;
+	rdf:rest _:genid20 .
 
+_:genid20 a rdf:List ;
+	rdf:first :EMMO_1ea2f3fc_da94_4685_99b4_352922fbc461 ;
+	rdf:rest _:genid19 .
 
-###  http://emmo.info/emmo#EMMO_7db59e56_f68b_48b7_ae99_891c35ae5c3b
-:EMMO_7db59e56_f68b_48b7_ae99_891c35ae5c3b rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals that stand for gluons elementary particles."@en ;
-                                           skos:prefLabel "Gluon"@en .
+_:genid19 a rdf:List ;
+	rdf:first :EMMO_22a6f189_7ad7_424d_af15_5efe002c1365 ;
+	rdf:rest _:genid18 .
 
+_:genid18 a rdf:List ;
+	rdf:first :EMMO_a4edc1d4_bb38_4897_ba1e_f87e7aa31c5b ;
+	rdf:rest _:genid17 .
 
-###  http://emmo.info/emmo#EMMO_8043d3c6_a4c1_4089_ba34_9744e28e5b3d
-:EMMO_8043d3c6_a4c1_4089_ba34_9744e28e5b3d rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals that stand for electrons elemntary particles."@en ;
-                                           skos:prefLabel "Electron"@en .
+_:genid17 a rdf:List ;
+	rdf:first :EMMO_a589e6b8_2f5b_4118_8522_cdc4c89578dc ;
+	rdf:rest _:genid16 .
 
+_:genid16 a rdf:List ;
+	rdf:first :EMMO_d37eeb84_895f_4c30_bf60_387b3314a1a6 ;
+	rdf:rest rdf:nil .
 
-###  http://emmo.info/emmo#EMMO_98ada9d8_f1c8_4f13_99b5_d890f5354152
-:EMMO_98ada9d8_f1c8_4f13_99b5_d890f5354152 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_5b2222df_4da6_442f_8244_96e9e45887d1
-                                                                               :EMMO_70dac51e_bddd_48c2_8a98_7d8395e91fc2
-                                                                             )
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_49267eba_5548_4163_8f36_518d65b583f9 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The perspective for which physical objects are categorized only by concepts coming from applied physical sciences."@en ;
-                                           skos:prefLabel "Physicalistic"@en .
+:EMMO_72d53756_7fb1_46ed_980f_83f47efbe105 :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals that stand for quarks elementary particles."@en ;
+	skos:prefLabel "Quark"@en .
+# 
+# http://emmo.info/emmo#EMMO_7b42954f_0b91_4b3a_a65e_2470202cf548
 
+:EMMO_7b42954f_0b91_4b3a_a65e_2470202cf548 a owl:Class ;
+	rdfs:subClassOf :EMMO_8b1367d6_0133_4b56_acc1_fa8b058169e3 ;
+	owl:disjointUnionOf _:genid23 .
 
-###  http://emmo.info/emmo#EMMO_c26a0340_d619_4928_b1a1_1a04e88bb89d
-:EMMO_c26a0340_d619_4928_b1a1_1a04e88bb89d rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 ,
-                                                           :EMMO_98ada9d8_f1c8_4f13_99b5_d890f5354152 ;
-                                           owl:disjointUnionOf ( :EMMO_25f8b804_9a0b_4387_a3e7_b35bce5365ee
-                                                                 :EMMO_72d53756_7fb1_46ed_980f_83f47efbe105
-                                                                 :EMMO_7db59e56_f68b_48b7_ae99_891c35ae5c3b
-                                                                 :EMMO_8043d3c6_a4c1_4089_ba34_9744e28e5b3d
-                                                                 :EMMO_eb3c61f0_3983_4346_a0c6_e7f6b90a67a8
-                                                               ) ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The union of all classes categorizing elementary particles according to the Standard Model."@en ;
-                                           rdfs:comment "Only a subset of elementary particles from the Standard Model are here included for the sake of simplicity."@en ;
-                                           skos:prefLabel "ElementaryParticle"@en .
+_:genid23 a rdf:List ;
+	rdf:first :EMMO_24dda193_ada8_433b_bb74_6ca4a0b89a20 ;
+	rdf:rest _:genid22 .
 
+_:genid22 a rdf:List ;
+	rdf:first :EMMO_be0a7278_b4e6_4bca_88ba_de3f67a478e2 ;
+	rdf:rest rdf:nil .
 
-###  http://emmo.info/emmo#EMMO_e5488299_8dab_4ebb_900a_26d2abed8396
-:EMMO_e5488299_8dab_4ebb_900a_26d2abed8396 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_25f8b804_9a0b_4387_a3e7_b35bce5365ee
-                                                                               :EMMO_7db59e56_f68b_48b7_ae99_891c35ae5c3b
-                                                                               :EMMO_eb3c61f0_3983_4346_a0c6_e7f6b90a67a8
-                                                                             )
-                                                               ] ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The union of classes of elementary particles that do not possess mass."@en ;
-                                           skos:prefLabel "Massless"@en .
+:EMMO_7b42954f_0b91_4b3a_a65e_2470202cf548 skos:prefLabel "Hadron"@en .
+# 
+# http://emmo.info/emmo#EMMO_7db59e56_f68b_48b7_ae99_891c35ae5c3b
 
+:EMMO_7db59e56_f68b_48b7_ae99_891c35ae5c3b a owl:Class ;
+	rdfs:subClassOf :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals that stand for gluons elementary particles."@en ;
+	skos:prefLabel "Gluon"@en .
+# 
+# http://emmo.info/emmo#EMMO_8043d3c6_a4c1_4089_ba34_9744e28e5b3d
 
-###  http://emmo.info/emmo#EMMO_eb3c61f0_3983_4346_a0c6_e7f6b90a67a8
-:EMMO_eb3c61f0_3983_4346_a0c6_e7f6b90a67a8 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals that stand for gravitons elementary particles."@en ;
-                                           rdfs:comment """While this particle is only supposed to exist, the EMMO approach to classical and quantum systems represents fields as made of particles.
+:EMMO_8043d3c6_a4c1_4089_ba34_9744e28e5b3d a owl:Class ;
+	rdfs:subClassOf :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals that stand for electrons elemntary particles."@en ;
+	skos:prefLabel "Electron"@en .
+# 
+# http://emmo.info/emmo#EMMO_83550665_c68c_4015_86a7_308c9dd2fb4b
+
+:EMMO_83550665_c68c_4015_86a7_308c9dd2fb4b a owl:Class ;
+	skos:prefLabel "MuonNeutrino"@en .
+# 
+# http://emmo.info/emmo#EMMO_8b1367d6_0133_4b56_acc1_fa8b058169e3
+
+:EMMO_8b1367d6_0133_4b56_acc1_fa8b058169e3 a owl:Class ;
+	rdfs:subClassOf :EMMO_9e704018_8e4b_4adc_a471_32f3abb5e910 ;
+	skos:prefLabel "CompositeParticle"@en .
+# 
+# http://emmo.info/emmo#EMMO_98ada9d8_f1c8_4f13_99b5_d890f5354152
+
+:EMMO_98ada9d8_f1c8_4f13_99b5_d890f5354152 a owl:Class ;
+	owl:equivalentClass _:genid24 .
+
+_:genid24 a owl:Class ;
+	owl:unionOf _:genid26 .
+
+_:genid26 a rdf:List ;
+	rdf:first :EMMO_5b2222df_4da6_442f_8244_96e9e45887d1 ;
+	rdf:rest _:genid25 .
+
+_:genid25 a rdf:List ;
+	rdf:first :EMMO_70dac51e_bddd_48c2_8a98_7d8395e91fc2 ;
+	rdf:rest rdf:nil .
+
+:EMMO_98ada9d8_f1c8_4f13_99b5_d890f5354152 rdfs:subClassOf :EMMO_49267eba_5548_4163_8f36_518d65b583f9 ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The perspective for which physical objects are categorized only by concepts coming from applied physical sciences."@en ;
+	skos:prefLabel "Physicalistic"@en .
+# 
+# http://emmo.info/emmo#EMMO_9ce8c323_150b_4b5e_8add_3ece7f5e0b64
+
+:EMMO_9ce8c323_150b_4b5e_8add_3ece7f5e0b64 a owl:Class ;
+	rdfs:subClassOf :EMMO_24dda193_ada8_433b_bb74_6ca4a0b89a20 ;
+	owl:disjointUnionOf _:genid28 .
+
+_:genid28 a rdf:List ;
+	rdf:first :EMMO_14118f5d_512b_484f_888e_49de3d792238 ;
+	rdf:rest _:genid27 .
+
+_:genid27 a rdf:List ;
+	rdf:first :EMMO_451418fa_68c8_4c65_b575_e212880bdf67 ;
+	rdf:rest rdf:nil .
+
+:EMMO_9ce8c323_150b_4b5e_8add_3ece7f5e0b64 skos:prefLabel "Nucleon"@en .
+# 
+# http://emmo.info/emmo#EMMO_9e704018_8e4b_4adc_a471_32f3abb5e910
+
+:EMMO_9e704018_8e4b_4adc_a471_32f3abb5e910 a owl:Class ;
+	rdfs:subClassOf :EMMO_98ada9d8_f1c8_4f13_99b5_d890f5354152 ;
+	skos:prefLabel "PhysicsParticle"@en .
+# 
+# http://emmo.info/emmo#EMMO_a4edc1d4_bb38_4897_ba1e_f87e7aa31c5b
+
+:EMMO_a4edc1d4_bb38_4897_ba1e_f87e7aa31c5b a owl:Class ;
+	skos:prefLabel "DownQuark"@en .
+# 
+# http://emmo.info/emmo#EMMO_a589e6b8_2f5b_4118_8522_cdc4c89578dc
+
+:EMMO_a589e6b8_2f5b_4118_8522_cdc4c89578dc a owl:Class ;
+	skos:prefLabel "TopQuark"@en .
+# 
+# http://emmo.info/emmo#EMMO_b5a5494c_83bf_44aa_a9a6_49b948e68939
+
+:EMMO_b5a5494c_83bf_44aa_a9a6_49b948e68939 a owl:Class ;
+	rdfs:subClassOf :EMMO_9e704018_8e4b_4adc_a471_32f3abb5e910 ;
+	skos:prefLabel "Boson"@en .
+# 
+# http://emmo.info/emmo#EMMO_be0a7278_b4e6_4bca_88ba_de3f67a478e2
+
+:EMMO_be0a7278_b4e6_4bca_88ba_de3f67a478e2 a owl:Class ;
+	rdfs:subClassOf :EMMO_b5a5494c_83bf_44aa_a9a6_49b948e68939 , _:genid29 .
+
+_:genid29 a owl:Restriction ;
+	owl:onProperty :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
+	owl:someValuesFrom :EMMO_72d53756_7fb1_46ed_980f_83f47efbe105 .
+
+:EMMO_be0a7278_b4e6_4bca_88ba_de3f67a478e2 skos:prefLabel "Meson"@en .
+# 
+# http://emmo.info/emmo#EMMO_c26a0340_d619_4928_b1a1_1a04e88bb89d
+
+:EMMO_c26a0340_d619_4928_b1a1_1a04e88bb89d a owl:Class ;
+	rdfs:subClassOf :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 , :EMMO_9e704018_8e4b_4adc_a471_32f3abb5e910 ;
+	owl:disjointUnionOf _:genid33 .
+
+_:genid33 a rdf:List ;
+	rdf:first :EMMO_72d53756_7fb1_46ed_980f_83f47efbe105 ;
+	rdf:rest _:genid32 .
+
+_:genid32 a rdf:List ;
+	rdf:first :EMMO_cc1b6be1_3102_4376_b33b_d8dd13f9be2f ;
+	rdf:rest _:genid31 .
+
+_:genid31 a rdf:List ;
+	rdf:first :EMMO_d324ae63_7574_4d73_b25b_96479e2626f2 ;
+	rdf:rest _:genid30 .
+
+_:genid30 a rdf:List ;
+	rdf:first :EMMO_fd6559e8_ef94_460c_9dfc_bad5c68d63b4 ;
+	rdf:rest rdf:nil .
+
+:EMMO_c26a0340_d619_4928_b1a1_1a04e88bb89d :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The union of all classes categorizing elementary particles according to the Standard Model."@en ;
+	skos:prefLabel "ElementaryParticle"@en .
+# 
+# http://emmo.info/emmo#EMMO_cc1b6be1_3102_4376_b33b_d8dd13f9be2f
+
+:EMMO_cc1b6be1_3102_4376_b33b_d8dd13f9be2f a owl:Class ;
+	rdfs:subClassOf :EMMO_b5a5494c_83bf_44aa_a9a6_49b948e68939 ;
+	skos:prefLabel "ScalarBoson"@en .
+# 
+# http://emmo.info/emmo#EMMO_d324ae63_7574_4d73_b25b_96479e2626f2
+
+:EMMO_d324ae63_7574_4d73_b25b_96479e2626f2 a owl:Class ;
+	rdfs:subClassOf :EMMO_53dced52_34f6_4cf0_8a99_ddf451861543 ;
+	owl:disjointUnionOf _:genid39 .
+
+_:genid39 a rdf:List ;
+	rdf:first :EMMO_1d5305d7_5690_4e5a_92de_4611e8c356ef ;
+	rdf:rest _:genid38 .
+
+_:genid38 a rdf:List ;
+	rdf:first :EMMO_2531fe94_1cdf_4f36_9abc_7ab7574310db ;
+	rdf:rest _:genid37 .
+
+_:genid37 a rdf:List ;
+	rdf:first :EMMO_3a948fa6_033a_4bb2_a319_36a45741d832 ;
+	rdf:rest _:genid36 .
+
+_:genid36 a rdf:List ;
+	rdf:first :EMMO_8043d3c6_a4c1_4089_ba34_9744e28e5b3d ;
+	rdf:rest _:genid35 .
+
+_:genid35 a rdf:List ;
+	rdf:first :EMMO_83550665_c68c_4015_86a7_308c9dd2fb4b ;
+	rdf:rest _:genid34 .
+
+_:genid34 a rdf:List ;
+	rdf:first :EMMO_eb95a619_ca07_4678_a809_10021b25a13f ;
+	rdf:rest rdf:nil .
+
+:EMMO_d324ae63_7574_4d73_b25b_96479e2626f2 skos:prefLabel "Lepton"@en .
+# 
+# http://emmo.info/emmo#EMMO_d37eeb84_895f_4c30_bf60_387b3314a1a6
+
+:EMMO_d37eeb84_895f_4c30_bf60_387b3314a1a6 a owl:Class ;
+	skos:prefLabel "BottomQuark"@en .
+# 
+# http://emmo.info/emmo#EMMO_dbb2ae7f_9f47_41b3_bf68_d9bece864e2c
+
+:EMMO_dbb2ae7f_9f47_41b3_bf68_d9bece864e2c a owl:Class ;
+	rdfs:subClassOf :EMMO_d324ae63_7574_4d73_b25b_96479e2626f2 ;
+	owl:disjointUnionOf _:genid42 .
+
+_:genid42 a rdf:List ;
+	rdf:first :EMMO_1d5305d7_5690_4e5a_92de_4611e8c356ef ;
+	rdf:rest _:genid41 .
+
+_:genid41 a rdf:List ;
+	rdf:first :EMMO_83550665_c68c_4015_86a7_308c9dd2fb4b ;
+	rdf:rest _:genid40 .
+
+_:genid40 a rdf:List ;
+	rdf:first :EMMO_eb95a619_ca07_4678_a809_10021b25a13f ;
+	rdf:rest rdf:nil .
+
+:EMMO_dbb2ae7f_9f47_41b3_bf68_d9bece864e2c skos:prefLabel "Neutrino"@en .
+# 
+# http://emmo.info/emmo#EMMO_e5488299_8dab_4ebb_900a_26d2abed8396
+
+:EMMO_e5488299_8dab_4ebb_900a_26d2abed8396 a owl:Class ;
+	owl:equivalentClass _:genid43 .
+
+_:genid43 a owl:Class ;
+	owl:unionOf _:genid46 .
+
+_:genid46 a rdf:List ;
+	rdf:first :EMMO_25f8b804_9a0b_4387_a3e7_b35bce5365ee ;
+	rdf:rest _:genid45 .
+
+_:genid45 a rdf:List ;
+	rdf:first :EMMO_7db59e56_f68b_48b7_ae99_891c35ae5c3b ;
+	rdf:rest _:genid44 .
+
+_:genid44 a rdf:List ;
+	rdf:first :EMMO_eb3c61f0_3983_4346_a0c6_e7f6b90a67a8 ;
+	rdf:rest rdf:nil .
+
+:EMMO_e5488299_8dab_4ebb_900a_26d2abed8396 :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The union of classes of elementary particles that do not possess mass."@en ;
+	skos:prefLabel "Massless"@en .
+# 
+# http://emmo.info/emmo#EMMO_eb3c61f0_3983_4346_a0c6_e7f6b90a67a8
+
+:EMMO_eb3c61f0_3983_4346_a0c6_e7f6b90a67a8 a owl:Class ;
+	rdfs:subClassOf :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals that stand for gravitons elementary particles."@en ;
+	rdfs:comment """While this particle is only supposed to exist, the EMMO approach to classical and quantum systems represents fields as made of particles.
 
 For this reason graviton is an useful concept to homogenize the approach between different fields."""@en ;
-                                           skos:prefLabel "Graviton"@en .
+	skos:prefLabel "Graviton"@en .
+# 
+# http://emmo.info/emmo#EMMO_eb95a619_ca07_4678_a809_10021b25a13f
 
+:EMMO_eb95a619_ca07_4678_a809_10021b25a13f a owl:Class ;
+	skos:prefLabel "TauNeutrino"@en .
+# 
+# http://emmo.info/emmo#EMMO_f87e79eb_f549_4a06_9c27_a3d1412444c6
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+:EMMO_f87e79eb_f549_4a06_9c27_a3d1412444c6 a owl:Class ;
+	rdfs:subClassOf :EMMO_24dda193_ada8_433b_bb74_6ca4a0b89a20 ;
+	skos:prefLabel "Hyperon"@en .
+# 
+# http://emmo.info/emmo#EMMO_f8e436fb_61ed_4512_a5a5_bee90f0cec2f
+
+:EMMO_f8e436fb_61ed_4512_a5a5_bee90f0cec2f a owl:Class ;
+	skos:prefLabel "ZBoson"@en .
+# 
+# http://emmo.info/emmo#EMMO_fd6559e8_ef94_460c_9dfc_bad5c68d63b4
+
+:EMMO_fd6559e8_ef94_460c_9dfc_bad5c68d63b4 a owl:Class ;
+	rdfs:subClassOf :EMMO_b5a5494c_83bf_44aa_a9a6_49b948e68939 ;
+	owl:disjointUnionOf _:genid50 .
+
+_:genid50 a rdf:List ;
+	rdf:first :EMMO_21a13e48_e4e2_450b_ad03_d9a112daee87 ;
+	rdf:rest _:genid49 .
+
+_:genid49 a rdf:List ;
+	rdf:first :EMMO_25f8b804_9a0b_4387_a3e7_b35bce5365ee ;
+	rdf:rest _:genid48 .
+
+_:genid48 a rdf:List ;
+	rdf:first :EMMO_7db59e56_f68b_48b7_ae99_891c35ae5c3b ;
+	rdf:rest _:genid47 .
+
+_:genid47 a rdf:List ;
+	rdf:first :EMMO_f8e436fb_61ed_4512_a5a5_bee90f0cec2f ;
+	rdf:rest rdf:nil .
+
+:EMMO_fd6559e8_ef94_460c_9dfc_bad5c68d63b4 skos:prefLabel "VectorBoson"@en .
+# 
+# Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

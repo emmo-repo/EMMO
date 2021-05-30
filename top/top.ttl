@@ -6,428 +6,451 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <http://emmo.info/emmo/top> .
 
-<http://emmo.info/emmo/top> rdf:type owl:Ontology ;
-                             owl:versionIRI <http://emmo.info/emmo/1.0.0-beta/top> ;
-                             dcterms:abstract """Introduces the fundamental mereotopological concepts of EMMO and their relations with the real world objects that they represent.  EMMO uses mereotopology as the ground for all the subsequent ontology modules.  
+<http://emmo.info/emmo/top> a owl:Ontology ;
+	owl:versionIRI <http://emmo.info/emmo/1.0.0-beta/top> ;
+	dcterms:abstract """Introduces the fundamental mereotopological concepts of EMMO and their relations with the real world objects that they represent.  EMMO uses mereotopology as the ground for all the subsequent ontology modules.  
 
 The concept of topological connection is used to define the first distinction between ontology entities namely the 'Item' and 'Collection' classes.  Items are causally self-connected objects, while collections are causally disconnected.  
 
 Quantum mereology is represented by the 'Quantum' class. This module introduces also the fundamental mereotopological relations used to distinguish between space and time dimensions.
 
 Defines 'Physical', which is the superclass for all real world objects and its complement, 'Void'. It also define the 'Elementary' class, that restricts mereological atomism in space."""@en ;
-                             dcterms:contributor "Adham Hashibon, Fraunhofer IWM, DE" ,
-                                                 "Georg Schmitz, Access, DE" ,
-                                                 "Gerhard Goldbeck, Goldbeck Consulting Ltd (UK)" ,
-                                                 "Jesper Friis, SINTEF, NO" ;
-                             dcterms:creator "Emanuele Ghedini, University of Bologna, IT" ;
-                             dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
-                             dcterms:publisher "EMMC ASBL" ;
-                             dcterms:title "Top"@en ;
-                             rdfs:comment """Contacts:
+	dcterms:contributor "Adham Hashibon, Fraunhofer IWM, DE" , "Georg Schmitz, Access, DE" , "Gerhard Goldbeck, Goldbeck Consulting Ltd (UK)" , "Jesper Friis, SINTEF, NO" ;
+	dcterms:creator "Emanuele Ghedini, University of Bologna, IT" ;
+	dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+	dcterms:publisher "EMMC ASBL" ;
+	dcterms:title "Top"@en ;
+	rdfs:comment """Contacts:
 Gerhard Goldbeck
 Goldbeck Consulting Ltd (UK)
 email: gerhard@goldbeck-consulting.com
 
 Emanuele Ghedini
 University of Bologna (IT)
-email: emanuele.ghedini@unibo.it"""@en ,
-                                          "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                             owl:versionInfo "1.0.0-beta" .
+email: emanuele.ghedini@unibo.it"""@en , "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
+	owl:versionInfo "1.0.0-beta" .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://emmo.info/emmo#EMMO_21ae69b4_235e_479d_8dd8_4f756f694c1b
 
-#################################################################
-#    Annotation properties
-#################################################################
+:EMMO_21ae69b4_235e_479d_8dd8_4f756f694c1b a owl:AnnotationProperty ;
+	owl:deprecated "Replaced by skos:altLabel" ;
+	skos:prefLabel "altLabel"@en ;
+	rdfs:subPropertyOf rdfs:comment .
+# 
+# http://emmo.info/emmo#EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc
 
-###  http://emmo.info/emmo#EMMO_21ae69b4_235e_479d_8dd8_4f756f694c1b
-:EMMO_21ae69b4_235e_479d_8dd8_4f756f694c1b rdf:type owl:AnnotationProperty ;
-                                           owl:deprecated "Replaced by skos:altLabel" ;
-                                           skos:prefLabel "altLabel"@en ;
-                                           rdfs:subPropertyOf rdfs:comment .
+:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc a owl:AnnotationProperty ;
+	owl:deprecated "Replaced by dcterms:license" ;
+	skos:prefLabel "license"@en ;
+	rdfs:subPropertyOf rdfs:comment .
+# 
+# http://emmo.info/emmo#EMMO_705f27ae_954c_4f13_98aa_18473fc52b25
 
+:EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 a owl:AnnotationProperty ;
+	skos:prefLabel "etymology"@en ;
+	rdfs:subPropertyOf rdfs:comment ;
+	rdfs:range xsd:string .
+# 
+# http://emmo.info/emmo#EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84
 
-###  http://emmo.info/emmo#EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc
-:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc rdf:type owl:AnnotationProperty ;
-                                           owl:deprecated "Replaced by dcterms:license" ;
-                                           skos:prefLabel "license"@en ;
-                                           rdfs:subPropertyOf rdfs:comment .
-
-
-###  http://emmo.info/emmo#EMMO_705f27ae_954c_4f13_98aa_18473fc52b25
-:EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 rdf:type owl:AnnotationProperty ;
-                                           skos:prefLabel "etymology"@en ;
-                                           rdfs:subPropertyOf rdfs:comment ;
-                                           rdfs:range xsd:string .
-
-
-###  http://emmo.info/emmo#EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84
-:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 rdf:type owl:AnnotationProperty ;
-                                           rdfs:comment """Precise and univocal description of an ontological entity in the framework of an axiomatic system.
+:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 a owl:AnnotationProperty ;
+	rdfs:comment """Precise and univocal description of an ontological entity in the framework of an axiomatic system.
 
 A definition uses entities in an ontological system to identify other derivate ontological entities within the same system."""@en ;
-                                           skos:prefLabel "definition"@en ;
-                                           rdfs:subPropertyOf rdfs:comment ;
-                                           rdfs:range xsd:string .
+	skos:prefLabel "definition"@en ;
+	rdfs:subPropertyOf rdfs:comment ;
+	rdfs:range xsd:string .
+# 
+# http://emmo.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9
 
-
-###  http://emmo.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9
-:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 rdf:type owl:AnnotationProperty ;
-                                           rdfs:comment """Short enlightening explanation of an ontological entity aimed to facilitate the connection between the ontological concept and a real-world object.
+:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 a owl:AnnotationProperty ;
+	rdfs:comment """Short enlightening explanation of an ontological entity aimed to facilitate the connection between the ontological concept and a real-world object.
 
 An elucidation provides the meta-ontological semiotic relation that connects an entity within the ontology, to a real-world entity outside the ontology. 
 
 This process is subjective, depends on the agent that draws this connection (e.g. the EMMO user, a machine), and is independent (outside) from the ontology representational capabilities."""@en ;
-                                           skos:prefLabel "elucidation"@en ;
-                                           rdfs:subPropertyOf rdfs:comment ;
-                                           rdfs:range xsd:string .
+	skos:prefLabel "elucidation"@en ;
+	rdfs:subPropertyOf rdfs:comment ;
+	rdfs:range xsd:string .
+# 
+# http://emmo.info/emmo#EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a
 
+:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a a owl:AnnotationProperty ;
+	rdfs:comment "Illustrative example of how the entity is used."@en ;
+	skos:prefLabel "example"@en ;
+	rdfs:subPropertyOf rdfs:comment ;
+	rdfs:range xsd:string .
+# 
+# http://emmo.info/emmo#EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d
 
-###  http://emmo.info/emmo#EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a
-:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a rdf:type owl:AnnotationProperty ;
-                                           rdfs:comment "Illustrative example of how the entity is used."@en ;
-                                           skos:prefLabel "example"@en ;
-                                           rdfs:subPropertyOf rdfs:comment ;
-                                           rdfs:range xsd:string .
+:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d a owl:AnnotationProperty ;
+	rdfs:comment "URL to corresponding Wikipedia entry."@en ;
+	rdfs:seeAlso "https://www.wikipedia.org/" ;
+	skos:prefLabel "wikipediaEntry"@en ;
+	rdfs:subPropertyOf rdfs:seeAlso ;
+	rdfs:range xsd:anyURI .
+# 
+# http://emmo.info/emmo#EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab
 
+:EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab a owl:AnnotationProperty ;
+	owl:deprecated "Replaced by dcterms:creator" ;
+	skos:prefLabel "author"@en ;
+	rdfs:subPropertyOf rdfs:comment .
+# 
+# http://purl.org/dc/terms/abstract
 
-###  http://emmo.info/emmo#EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d
-:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d rdf:type owl:AnnotationProperty ;
-                                           rdfs:comment "URL to corresponding Wikipedia entry."@en ;
-                                           rdfs:seeAlso "https://www.wikipedia.org/" ;
-                                           skos:prefLabel "wikipediaEntry"@en ;
-                                           rdfs:subPropertyOf rdfs:seeAlso ;
-                                           rdfs:range xsd:anyURI .
+dcterms:abstract a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/contributor
 
+dcterms:contributor a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/creator
 
-###  http://emmo.info/emmo#EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab
-:EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab rdf:type owl:AnnotationProperty ;
-                                           owl:deprecated "Replaced by dcterms:creator" ;
-                                           skos:prefLabel "author"@en ;
-                                           rdfs:subPropertyOf rdfs:comment .
+dcterms:creator a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/license
 
+dcterms:license a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/publisher
 
-###  http://purl.org/dc/terms/abstract
-dcterms:abstract rdf:type owl:AnnotationProperty .
+dcterms:publisher a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/title
 
+dcterms:title a owl:AnnotationProperty .
+# 
+# http://www.w3.org/2000/01/rdf-schema#comment
 
-###  http://purl.org/dc/terms/contributor
-dcterms:contributor rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/creator
-dcterms:creator rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/license
-dcterms:license rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/publisher
-dcterms:publisher rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/title
-dcterms:title rdf:type owl:AnnotationProperty .
-
-
-###  http://www.w3.org/2000/01/rdf-schema#comment
 rdfs:comment rdfs:range rdfs:Literal .
+# 
+# http://www.w3.org/2000/01/rdf-schema#isDefinedBy
 
-
-###  http://www.w3.org/2000/01/rdf-schema#isDefinedBy
 rdfs:isDefinedBy rdfs:subPropertyOf rdfs:seeAlso .
+# 
+# http://www.w3.org/2000/01/rdf-schema#label
 
-
-###  http://www.w3.org/2000/01/rdf-schema#label
 rdfs:label rdfs:range rdfs:Literal .
+# 
+# http://www.w3.org/2000/01/rdf-schema#seeAlso
 
-
-###  http://www.w3.org/2000/01/rdf-schema#seeAlso
 rdfs:seeAlso rdfs:comment """EMMO applies the naming convension to its sub-properties of rdfs:seeAlso that their label must end with one of the following terms:
   - 'Match': resolvable URLs to corresponding entity in another ontology
   - 'Entry': resolvable URLs to a human readable resource describing the subject
-  - 'Ref': non-resolvable reference to a human readable resource describing the subject"""@en ,
-                          "Indicate a resource that might provide additional information about the subject resource."@en .
+  - 'Ref': non-resolvable reference to a human readable resource describing the subject"""@en , "Indicate a resource that might provide additional information about the subject resource."@en .
+# 
+# http://www.w3.org/2004/02/skos/core#altLabel
 
+skos:altLabel a owl:AnnotationProperty ;
+	rdfs:subPropertyOf rdfs:label ;
+	rdfs:range rdf:PlainLiteral .
+# 
+# http://www.w3.org/2004/02/skos/core#hiddenLabel
 
-###  http://www.w3.org/2004/02/skos/core#altLabel
-skos:altLabel rdf:type owl:AnnotationProperty ;
-              rdfs:subPropertyOf rdfs:label ;
-              rdfs:range rdf:PlainLiteral .
+skos:hiddenLabel a owl:AnnotationProperty ;
+	rdfs:subPropertyOf rdfs:label ;
+	rdfs:range rdf:PlainLiteral .
+# 
+# http://www.w3.org/2004/02/skos/core#prefLabel
 
+skos:prefLabel a owl:AnnotationProperty ;
+	rdfs:subPropertyOf rdfs:label ;
+	rdfs:range rdf:PlainLiteral .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://emmo.info/emmo#EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f
 
-###  http://www.w3.org/2004/02/skos/core#hiddenLabel
-skos:hiddenLabel rdf:type owl:AnnotationProperty ;
-                 rdfs:subPropertyOf rdfs:label ;
-                 rdfs:range rdf:PlainLiteral .
+:EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f a owl:ObjectProperty ;
+	rdfs:subPropertyOf :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 ;
+	a owl:TransitiveProperty ;
+	skos:prefLabel "hasPart"@en .
+# 
+# http://emmo.info/emmo#EMMO_3f2e4ac2_8ef3_4a14_b826_60d37f15f8ee
 
+:EMMO_3f2e4ac2_8ef3_4a14_b826_60d37f15f8ee a owl:ObjectProperty ;
+	rdfs:subPropertyOf :EMMO_ec2472ae_cf4a_46a5_8555_1556f5a6c3c5 ;
+	rdfs:comment "The EMMO adheres to Atomistic General Extensional Mereology (AGEM)." ;
+	skos:prefLabel "mereological"@en .
+# 
+# http://emmo.info/emmo#EMMO_517dfaf9_4970_41ac_81ee_d031627d2c7c
 
-###  http://www.w3.org/2004/02/skos/core#prefLabel
-skos:prefLabel rdf:type owl:AnnotationProperty ;
-               rdfs:subPropertyOf rdfs:label ;
-               rdfs:range rdf:PlainLiteral .
+:EMMO_517dfaf9_4970_41ac_81ee_d031627d2c7c a owl:ObjectProperty ;
+	rdfs:subPropertyOf :EMMO_ad0e72fc_dcaa_490d_8371_b4d814dcda2c ;
+	a owl:SymmetricProperty ;
+	skos:prefLabel "isDisconnectedWith"@en .
+# 
+# http://emmo.info/emmo#EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8
 
+:EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 a owl:ObjectProperty ;
+	rdfs:subPropertyOf :EMMO_ad0e72fc_dcaa_490d_8371_b4d814dcda2c ;
+	a owl:SymmetricProperty ;
+	rdfs:comment "Causality is a topological property between connected items."@en , "Items being connected means that there is a topological contact or \"interaction\" between them."@en ;
+	skos:prefLabel "isConnectedWith"@en .
+# 
+# http://emmo.info/emmo#EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4
 
-#################################################################
-#    Object Properties
-#################################################################
+:EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4 a owl:ObjectProperty ;
+	rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+	a owl:AsymmetricProperty , owl:IrreflexiveProperty ;
+	rdfs:domain :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ;
+	rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between a collection and one of its items." ;
+	skos:prefLabel "hasMember"@en .
+# 
+# http://emmo.info/emmo#EMMO_6e046dd0_9634_4013_b2b1_9cc468087c83
 
-###  http://emmo.info/emmo#EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f
-:EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 ;
-                                           rdf:type owl:TransitiveProperty ;
-                                           skos:prefLabel "hasPart"@en .
+:EMMO_6e046dd0_9634_4013_b2b1_9cc468087c83 a owl:ObjectProperty ;
+	rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+	a owl:TransitiveProperty ;
+	rdfs:domain :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
+	rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A proper part of the whole that is not Spatial or Temporal." ;
+	skos:prefLabel "hasSpatioTemporalPart"@en .
+# 
+# http://emmo.info/emmo#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6
 
+:EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 a owl:ObjectProperty ;
+	rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+	a owl:TransitiveProperty ;
+	rdfs:domain :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
+	rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that identify a proper item part of the whole, whose parts always cover the full spatial extension of the whole within a time interval." ;
+	skos:prefLabel "hasTemporalPart"@en .
+# 
+# http://emmo.info/emmo#EMMO_8c898653_1118_4682_9bbf_6cc334d16a99
 
-###  http://emmo.info/emmo#EMMO_3f2e4ac2_8ef3_4a14_b826_60d37f15f8ee
-:EMMO_3f2e4ac2_8ef3_4a14_b826_60d37f15f8ee rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_ec2472ae_cf4a_46a5_8555_1556f5a6c3c5 ;
-                                           rdfs:comment "The EMMO adheres to Atomistic General Extensional Mereology (AGEM)." ;
-                                           skos:prefLabel "mereological"@en .
+:EMMO_8c898653_1118_4682_9bbf_6cc334d16a99 a owl:ObjectProperty ;
+	rdfs:subPropertyOf :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 ;
+	a owl:TransitiveProperty ;
+	rdfs:comment "Enclosure is transitive."@en ;
+	skos:prefLabel "isEnclosedBy"@en .
+# 
+# http://emmo.info/emmo#EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
 
+:EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 a owl:ObjectProperty ;
+	rdfs:subPropertyOf :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
+	a owl:TransitiveProperty ;
+	skos:prefLabel "hasProperPart"@en .
+# 
+# http://emmo.info/emmo#EMMO_9cb984ca_48ad_4864_b09e_50d3fff19420
 
-###  http://emmo.info/emmo#EMMO_517dfaf9_4970_41ac_81ee_d031627d2c7c
-:EMMO_517dfaf9_4970_41ac_81ee_d031627d2c7c rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_ad0e72fc_dcaa_490d_8371_b4d814dcda2c ;
-                                           rdf:type owl:SymmetricProperty ;
-                                           skos:prefLabel "isDisconnectedWith"@en .
+:EMMO_9cb984ca_48ad_4864_b09e_50d3fff19420 a owl:ObjectProperty ;
+	rdfs:subPropertyOf :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 ;
+	a owl:SymmetricProperty ;
+	skos:prefLabel "overcrosses"@en .
+# 
+# http://emmo.info/emmo#EMMO_ad0e72fc_dcaa_490d_8371_b4d814dcda2c
 
+:EMMO_ad0e72fc_dcaa_490d_8371_b4d814dcda2c a owl:ObjectProperty ;
+	rdfs:subPropertyOf :EMMO_ec2472ae_cf4a_46a5_8555_1556f5a6c3c5 ;
+	skos:prefLabel "topological"@en .
+# 
+# http://emmo.info/emmo#EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6
 
-###  http://emmo.info/emmo#EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8
-:EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_ad0e72fc_dcaa_490d_8371_b4d814dcda2c ;
-                                           rdf:type owl:SymmetricProperty ;
-                                           rdfs:comment "Causality is a topological property between connected items."@en ,
-                                                        "Items being connected means that there is a topological contact or \"interaction\" between them."@en ;
-                                           skos:prefLabel "isConnectedWith"@en .
+:EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 a owl:ObjectProperty ;
+	rdfs:subPropertyOf :EMMO_3f2e4ac2_8ef3_4a14_b826_60d37f15f8ee ;
+	a owl:SymmetricProperty ;
+	skos:prefLabel "hasOverlapWith"@en .
+# 
+# http://emmo.info/emmo#EMMO_ec2472ae_cf4a_46a5_8555_1556f5a6c3c5
 
+:EMMO_ec2472ae_cf4a_46a5_8555_1556f5a6c3c5 a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	a owl:SymmetricProperty , owl:TransitiveProperty ;
+	rdfs:domain :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf ;
+	rdfs:range :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for all relations used by the EMMO."@en ;
+	skos:prefLabel "EMMORelation"@en .
+# 
+# http://emmo.info/emmo#EMMO_f68030be_94b8_4c61_a161_886468558054
 
-###  http://emmo.info/emmo#EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4
-:EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
-                                           rdf:type owl:AsymmetricProperty ,
-                                                    owl:IrreflexiveProperty ;
-                                           rdfs:domain :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ;
-                                           rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between a collection and one of its items." ;
-                                           skos:prefLabel "hasMember"@en .
+:EMMO_f68030be_94b8_4c61_a161_886468558054 a owl:ObjectProperty ;
+	rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+	a owl:TransitiveProperty ;
+	rdfs:domain :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
+	rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that identify a proper part of the whole that extends itself in time along the overall lifetime of the whole, and whose parts never cover the full spatial extension of the 4D whole." ;
+	skos:prefLabel "hasSpatialPart"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://emmo.info/emmo#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360
 
+:EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 a owl:Class ;
+	rdfs:subClassOf :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d , _:genid1 .
 
-###  http://emmo.info/emmo#EMMO_6e046dd0_9634_4013_b2b1_9cc468087c83
-:EMMO_6e046dd0_9634_4013_b2b1_9cc468087c83 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
-                                           rdf:type owl:TransitiveProperty ;
-                                           rdfs:domain :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
-                                           rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A proper part of the whole that is not Spatial or Temporal." ;
-                                           skos:prefLabel "hasSpatioTemporalPart"@en .
+_:genid1 a owl:Restriction ;
+	owl:onProperty :EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 ;
+	owl:allValuesFrom :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 .
 
+:EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 rdfs:subClassOf _:genid2 .
 
-###  http://emmo.info/emmo#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6
-:EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
-                                           rdf:type owl:TransitiveProperty ;
-                                           rdfs:domain :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
-                                           rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that identify a proper item part of the whole, whose parts always cover the full spatial extension of the whole within a time interval." ;
-                                           skos:prefLabel "hasTemporalPart"@en .
+_:genid2 a owl:Restriction ;
+	owl:onProperty :EMMO_f68030be_94b8_4c61_a161_886468558054 ;
+	owl:allValuesFrom owl:Nothing .
 
-
-###  http://emmo.info/emmo#EMMO_8c898653_1118_4682_9bbf_6cc334d16a99
-:EMMO_8c898653_1118_4682_9bbf_6cc334d16a99 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 ;
-                                           rdf:type owl:TransitiveProperty ;
-                                           rdfs:comment "Enclosure is transitive."@en ;
-                                           skos:prefLabel "isEnclosedBy"@en .
-
-
-###  http://emmo.info/emmo#EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
-:EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
-                                           rdf:type owl:TransitiveProperty ;
-                                           skos:prefLabel "hasProperPart"@en .
-
-
-###  http://emmo.info/emmo#EMMO_9cb984ca_48ad_4864_b09e_50d3fff19420
-:EMMO_9cb984ca_48ad_4864_b09e_50d3fff19420 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 ;
-                                           rdf:type owl:SymmetricProperty ;
-                                           skos:prefLabel "overcrosses"@en .
-
-
-###  http://emmo.info/emmo#EMMO_ad0e72fc_dcaa_490d_8371_b4d814dcda2c
-:EMMO_ad0e72fc_dcaa_490d_8371_b4d814dcda2c rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_ec2472ae_cf4a_46a5_8555_1556f5a6c3c5 ;
-                                           skos:prefLabel "topological"@en .
-
-
-###  http://emmo.info/emmo#EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6
-:EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_3f2e4ac2_8ef3_4a14_b826_60d37f15f8ee ;
-                                           rdf:type owl:SymmetricProperty ;
-                                           skos:prefLabel "hasOverlapWith"@en .
-
-
-###  http://emmo.info/emmo#EMMO_ec2472ae_cf4a_46a5_8555_1556f5a6c3c5
-:EMMO_ec2472ae_cf4a_46a5_8555_1556f5a6c3c5 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf owl:topObjectProperty ;
-                                           rdf:type owl:SymmetricProperty ,
-                                                    owl:TransitiveProperty ;
-                                           rdfs:domain :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf ;
-                                           rdfs:range :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for all relations used by the EMMO."@en ;
-                                           skos:prefLabel "EMMORelation"@en .
-
-
-###  http://emmo.info/emmo#EMMO_f68030be_94b8_4c61_a161_886468558054
-:EMMO_f68030be_94b8_4c61_a161_886468558054 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
-                                           rdf:type owl:TransitiveProperty ;
-                                           rdfs:domain :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
-                                           rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that identify a proper part of the whole that extends itself in time along the overall lifetime of the whole, and whose parts never cover the full spatial extension of the 4D whole." ;
-                                           skos:prefLabel "hasSpatialPart"@en .
-
-
-#################################################################
-#    Classes
-#################################################################
-
-###  http://emmo.info/emmo#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360
-:EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 ;
-                                                             owl:allValuesFrom :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_f68030be_94b8_4c61_a161_886468558054 ;
-                                                             owl:allValuesFrom owl:Nothing
-                                                           ] ;
-                                           :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin elementārius (“elementary”), from elementum (“one of the four elements of antiquity; fundamentals”)."@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The basic constituent of 'item'-s that can be proper partitioned only in time up to quantum level."@en ;
-                                           rdfs:comment """According to mereology, this should be call 'a-tomistic' in the strict etimological sense of the word (from greek, a-tomos: un-divisible).
+:EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin elementārius (“elementary”), from elementum (“one of the four elements of antiquity; fundamentals”)."@en ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The basic constituent of 'item'-s that can be proper partitioned only in time up to quantum level."@en ;
+	rdfs:comment """According to mereology, this should be call 'a-tomistic' in the strict etimological sense of the word (from greek, a-tomos: un-divisible).
 
 Mereology based on such items is called atomistic mereology.
 
-However, in order not to confuse the lexicon between mereology and physics (in which an atom is a divisible physical entity) we prefer to call it 'elementary', recalling the concept of elementary particle coming from the standard particles model."""@en ,
-                                                        "While a 'Quantum' is a-tomistic in time and space, an 'elementary' is a-tomistic only in space, recalling the concept of elementary particle."@en ;
-                                           skos:prefLabel "Elementary"@en .
+However, in order not to confuse the lexicon between mereology and physics (in which an atom is a divisible physical entity) we prefer to call it 'elementary', recalling the concept of elementary particle coming from the standard particles model."""@en , "While a 'Quantum' is a-tomistic in time and space, an 'elementary' is a-tomistic only in space, recalling the concept of elementary particle."@en ;
+	skos:prefLabel "Elementary"@en .
+# 
+# http://emmo.info/emmo#EMMO_29072ec4_ffcb_42fb_bdc7_26f05a2e9873
 
+:EMMO_29072ec4_ffcb_42fb_bdc7_26f05a2e9873 a owl:Class ;
+	rdfs:subClassOf _:genid3 .
 
-###  http://emmo.info/emmo#EMMO_29072ec4_ffcb_42fb_bdc7_26f05a2e9873
-:EMMO_29072ec4_ffcb_42fb_bdc7_26f05a2e9873 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
-                                                             owl:allValuesFrom :EMMO_29072ec4_ffcb_42fb_bdc7_26f05a2e9873
-                                                           ] ;
-                                           :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin vacuus, “empty”."@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Item' that has no 'Physical' parts."@en ;
-                                           rdfs:comment "The void concept is paramount for the representation of physical systems according to quantum theory."@en ;
-                                           skos:prefLabel "Void"@en .
+_:genid3 a owl:Restriction ;
+	owl:onProperty :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
+	owl:allValuesFrom :EMMO_29072ec4_ffcb_42fb_bdc7_26f05a2e9873 .
 
+:EMMO_29072ec4_ffcb_42fb_bdc7_26f05a2e9873 :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin vacuus, “empty”."@en ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Item' that has no 'Physical' parts."@en ;
+	rdfs:comment "The void concept is paramount for the representation of physical systems according to quantum theory."@en ;
+	skos:prefLabel "Void"@en .
+# 
+# http://emmo.info/emmo#EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31
 
-###  http://emmo.info/emmo#EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31
-:EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4 ;
-                                                             owl:someValuesFrom :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de
-                                                           ] ;
-                                           :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin collectio, from colligere ‘gather together’."@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of all individuals that stand for a real world not self-connected object."@en ;
-                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "The collection of users of a particular software, the collection of atoms that have been part of that just dissociated molecule, or even the collection of atoms that are part of a molecule considered as single individual non-connected objects and not as a mereotopological self-connected fusion."@en ;
-                                           rdfs:comment """A 'Collection' individual stands for a non-self-connected real world object.
+:EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 a owl:Class ;
+	rdfs:subClassOf _:genid4 .
+
+_:genid4 a owl:Restriction ;
+	owl:onProperty :EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4 ;
+	owl:someValuesFrom :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de .
+
+:EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin collectio, from colligere ‘gather together’."@en ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of all individuals that stand for a real world not self-connected object."@en ;
+	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "The collection of users of a particular software, the collection of atoms that have been part of that just dissociated molecule, or even the collection of atoms that are part of a molecule considered as single individual non-connected objects and not as a mereotopological self-connected fusion."@en ;
+	rdfs:comment """A 'Collection' individual stands for a non-self-connected real world object.
 
 A 'Collection' individual is related to each 'Item' individuals of the collection (i.e. the members) through the membership relation.
 
-An 'Item' individual stands for a real world self-connected object which can be represented as a whole made of connected parts (e.g. a car made of components)."""@en ,
-                                                        """Formally, 'Collection' is axiomatized as the class of individuals that hasMember some 'Item'.
+An 'Item' individual stands for a real world self-connected object which can be represented as a whole made of connected parts (e.g. a car made of components)."""@en , """Formally, 'Collection' is axiomatized as the class of individuals that hasMember some 'Item'.
 
 A 'Collection' cannot have as member another 'Collection'."""@en ;
-                                           skos:prefLabel "Collection"@en .
+	skos:prefLabel "Collection"@en .
+# 
+# http://emmo.info/emmo#EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68
 
+:EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68 a owl:Class ;
+	rdfs:subClassOf :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf , _:genid5 .
 
-###  http://emmo.info/emmo#EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68
-:EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
-                                                             owl:allValuesFrom owl:Nothing
-                                                           ] ;
-                                           :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin quantum (plural quanta) \"as much as, so much as;\", introduced in physics directly from Latin by Max Planck, 1900."@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of 'EMMO' individuals that stand for real world objects that can't be further divided in time nor in space."@en ;
-                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """For a physics based ontology the 'Quantum' can stand for the smallest identifiable portion of spacetime defined by the Planck limit in length (1.616e-35 m) and time (5.39e-44 s).
+_:genid5 a owl:Restriction ;
+	owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+	owl:allValuesFrom owl:Nothing .
+
+:EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68 :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin quantum (plural quanta) \"as much as, so much as;\", introduced in physics directly from Latin by Max Planck, 1900."@en ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of 'EMMO' individuals that stand for real world objects that can't be further divided in time nor in space."@en ;
+	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """For a physics based ontology the 'Quantum' can stand for the smallest identifiable portion of spacetime defined by the Planck limit in length (1.616e-35 m) and time (5.39e-44 s).
 
 However, the quantum mereotopology approach is not restricted only to physics. For example, in a manpower management ontology, a 'Quantum' can stand for an hour (time) of a worker (space) activity."""@en ;
-                                           rdfs:comment """A 'Quantum' is the most fundamental subclass of 'Item', since its individuals stand for the smallest possible self-connected 4D real world objects.
+	rdfs:comment """A 'Quantum' is the most fundamental subclass of 'Item', since its individuals stand for the smallest possible self-connected 4D real world objects.
 
-The quantum concept recalls the fact that there is lower epistemological limit to our knowledge of the universe, related to the uncertainity principle."""@en ,
-                                                        "A 'Quantum' stands for a 4D real world object."@en ,
-                                                        """A quantum is the EMMO mereological 4D a-tomic entity. 
+The quantum concept recalls the fact that there is lower epistemological limit to our knowledge of the universe, related to the uncertainity principle."""@en , "A 'Quantum' stands for a 4D real world object."@en , """A quantum is the EMMO mereological 4D a-tomic entity. 
 
 To avoid confusion with the concept of atom coming from physics, we will use the expression quantum mereology, instead of a-tomistic mereology."""@en ;
-                                           skos:prefLabel "Quantum"@en .
+	skos:prefLabel "Quantum"@en .
+# 
+# http://emmo.info/emmo#EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf
 
+:EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf a owl:Class ;
+	owl:equivalentClass _:genid6 .
 
-###  http://emmo.info/emmo#EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf
-:EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
-                                                                 owl:someValuesFrom :EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68
-                                                               ] ,
-                                                               [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty [ owl:inverseOf :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f
-                                                                                ] ;
-                                                                 owl:hasValue :EMMO_08cb807c_e626_447b_863f_e2835540e918
-                                                               ] ;
-                                           owl:disjointUnionOf ( :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31
-                                                                 :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de
-                                                               ) ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class representing the collection of all the individuals declared in this ontology standing for real world objects."@en ;
-                                           rdfs:comment """'EMMO' is the disjoint union of 'Item' and 'Collection' (covering axiom).
+_:genid6 a owl:Restriction ;
+	owl:onProperty :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
+	owl:someValuesFrom :EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68 .
+
+:EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf owl:equivalentClass _:genid7 .
+
+_:genid7 a owl:Restriction ;
+	owl:onProperty _:genid8 .
+
+_:genid8 owl:inverseOf :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f .
+
+_:genid7 owl:hasValue :EMMO_08cb807c_e626_447b_863f_e2835540e918 .
+
+:EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf owl:disjointUnionOf _:genid10 .
+
+_:genid10 a rdf:List ;
+	rdf:first :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ;
+	rdf:rest _:genid9 .
+
+_:genid9 a rdf:List ;
+	rdf:first :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
+	rdf:rest rdf:nil .
+
+:EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class representing the collection of all the individuals declared in this ontology standing for real world objects."@en ;
+	rdfs:comment """'EMMO' is the disjoint union of 'Item' and 'Collection' (covering axiom).
 
 The union implies that 'EMMO' individuals can only be 'Item' individuals (standing for self-connected real world objects) or 'Collection' individuals (standing for a collection of disconnected items).
 
-Disjointness means that a 'Collection' individual cannot be an 'Item' individual and viceversa, representing the fact that a real world object cannot be self-connected and non-self connected at the same time."""@en ,
-                                                        """For the EMMO ontologist the whole universe is represented as a 4D path-connected topological manifold (i.e. the spacetime).
+Disjointness means that a 'Collection' individual cannot be an 'Item' individual and viceversa, representing the fact that a real world object cannot be self-connected and non-self connected at the same time."""@en , """For the EMMO ontologist the whole universe is represented as a 4D path-connected topological manifold (i.e. the spacetime).
 
 A real world object is then a 4D topological sub-region of the universe. 
 
 A universe sub-region is isolated and defined as a real world object by the ontologist. Then, through a semiotic process that occurs at meta-ontological level (i.e. outside the ontology). an EMMO ontology entity (e.g. an OWL individual) is assigned to represent that real world object.
 
-The fundamental distinction between real world objects, upon which the EMMO is based, is self-connectedness: a real world object can be self-connected xor not self-connected."""@en ,
-                                                        "In the EMMO we will refer to the universe as a Minkowski space, restricting the ontology to special relativity only. However, exension to general relativity, will adding more complexity, should not change the overall approach."@en ,
-                                                        """Mereotopology is the fundamental logical representation used by the EMMO ontologist to characterize the universe and to provide the definitions to connect real world objects to the EMMO concepts.
+The fundamental distinction between real world objects, upon which the EMMO is based, is self-connectedness: a real world object can be self-connected xor not self-connected."""@en , "In the EMMO we will refer to the universe as a Minkowski space, restricting the ontology to special relativity only. However, exension to general relativity, will adding more complexity, should not change the overall approach."@en , """Mereotopology is the fundamental logical representation used by the EMMO ontologist to characterize the universe and to provide the definitions to connect real world objects to the EMMO concepts.
 
 Parthood relations do not change dimensionality of the real world object referred by an 'EMMO' individual, i.e. every part of a real world object always retains its 4D dimensionality. 
 
 The smallest part of a real world object (i.e. a part that has no proper parts) is referred in the EMMO by a 'Quantum' individual.
 
 It follows that, for the EMMO, real world objects of dimensionality lower than 4D (e.g. surfaces, lines) do not exist."""@en ;
-                                           skos:prefLabel "EMMO"@en .
+	skos:prefLabel "EMMO"@en .
+# 
+# http://emmo.info/emmo#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d
 
+:EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d a owl:Class ;
+	rdfs:subClassOf _:genid11 .
 
-###  http://emmo.info/emmo#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d
-:EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
-                                                             owl:someValuesFrom :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 ;
-                                                             owl:allValuesFrom :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d
-                                                           ] ;
-                                           :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 """From Latin physica \"study of nature\" (and Ancient Greek φυσικός, “natural”). 
+_:genid11 a owl:Restriction ;
+	owl:onProperty :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
+	owl:someValuesFrom :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 .
+
+:EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d rdfs:subClassOf _:genid12 .
+
+_:genid12 a owl:Restriction ;
+	owl:onProperty :EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 ;
+	owl:allValuesFrom :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d .
+
+:EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 """From Latin physica \"study of nature\" (and Ancient Greek φυσικός, “natural”). 
 
 Here the word relates to things perceived through the senses as opposed to the mind; tangible or concrete."""@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Item' that has part some 'Elementary' and whose temporal proper parts are only 'Physical'-s (i.e. it can be perceived without interruptions in time)."@en ;
-                                           rdfs:comment """A 'Physical' is the class that contains all the individuals that stand for real world objects that interact physically with the ontologist, i.e. physical objects.
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Item' that has part some 'Elementary' and whose temporal proper parts are only 'Physical'-s (i.e. it can be perceived without interruptions in time)."@en ;
+	rdfs:comment """A 'Physical' is the class that contains all the individuals that stand for real world objects that interact physically with the ontologist, i.e. physical objects.
 
 A physical object must be perceived through physical interaction by the ontologist. Then the ontologist can declare an individual standing for the physical object just perceived.
 
-Perception is a subcategory of physical interactions. It is an interaction that stimulate a representation of the physical object within the ontologist (the agent)."""@en ,
-                                                        """A 'Physical' must include at least an 'Elementary' part, and can include 'Void' parts.
+Perception is a subcategory of physical interactions. It is an interaction that stimulate a representation of the physical object within the ontologist (the agent)."""@en , """A 'Physical' must include at least an 'Elementary' part, and can include 'Void' parts.
 
 A 'Physical' may include as part also the 'Void' surrounding or enclosed by its 'Physical' sub parts.
 
@@ -435,14 +458,11 @@ There are no particular criteria for 'Physical'-s structure, except that is made
 
 This is done in order to take into account the quantum nature of physical systems, in which the actual position of sub-components (e.g. electrons in an atom) is not known except for its probability distribution function (according to the Copenhagen interpretation.)
 
-e.g. a real world object that has spatial parts an atom and a cubic light year of void, extending for some time, can be a physical object."""@en ,
-                                                        """A 'Physical' with dimensions other than 4D cannot exist, following the restriction of the parent 'EMMO' class.
+e.g. a real world object that has spatial parts an atom and a cubic light year of void, extending for some time, can be a physical object."""@en , """A 'Physical' with dimensions other than 4D cannot exist, following the restriction of the parent 'EMMO' class.
 
 It follows from the fact that perception is always unfolding in time.
 
-e.g. you always have an aperture time when you take a picture or measure a property. Instantaneous perceptions are idealizations (abstractions) or a very small time measurement."""@en ,
-                                                        "In the EMMO there are no relations such as occupiesSpace, since 'Physical'-s are themselves the 4D regions."@en ,
-                                                        """The EMMO can be used to represent real world entities as 'Physical'-s that are easy to connect to classical or quantum mechanical based models.
+e.g. you always have an aperture time when you take a picture or measure a property. Instantaneous perceptions are idealizations (abstractions) or a very small time measurement."""@en , "In the EMMO there are no relations such as occupiesSpace, since 'Physical'-s are themselves the 4D regions."@en , """The EMMO can be used to represent real world entities as 'Physical'-s that are easy to connect to classical or quantum mechanical based models.
 
 Classical mechanics poses no representational issues, for the EMMO: the 4D representation of 'Physical'-s is consistent with classical physics systems.
 
@@ -482,42 +502,50 @@ e.g. the double slit experiment can be represent in the EMMO as:
 a) before the slit: a 'physical' that extend in space and has parts 'electron' and 'void', called 'single_electron_wave_function'. 'electron' and 'void' are only in the axioms and not decalred individuals.
 b) during slit passage: a 'physical' made of one declared individual, the 'electron'.
 c) after the slit: again 'single_electron_wave_function'
-d) upon collision with the detector:  'physical' made of one declared individual, the 'electron'."""@en ,
-                                                        """The purpose of the 'Physical' branch is to provide a representation of the real world objects, while the models used to name, explain or predict the behaviour of the real world objects lay under the 'Semiotic' branch.
+d) upon collision with the detector:  'physical' made of one declared individual, the 'electron'."""@en , """The purpose of the 'Physical' branch is to provide a representation of the real world objects, while the models used to name, explain or predict the behaviour of the real world objects lay under the 'Semiotic' branch.
 
 More than one semiotic representation can be connected to the same 'Physical'.
 
 e.g. Navier-Stokes or Euler equation applied to the same fluid are an example of mathematical model used to represent a physical object for some specific interpreter."""@en ;
-                                           skos:prefLabel "Physical"@en .
+	skos:prefLabel "Physical"@en .
+# 
+# http://emmo.info/emmo#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de
 
+:EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de a owl:Class ;
+	owl:disjointUnionOf _:genid14 .
 
-###  http://emmo.info/emmo#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de
-:EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de rdf:type owl:Class ;
-                                           owl:disjointUnionOf ( :EMMO_29072ec4_ffcb_42fb_bdc7_26f05a2e9873
-                                                                 :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d
-                                                               ) ;
-                                           :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin item, \"likewise, just so, moreover\"."@en ;
-                                           rdfs:comment """A real world object is self-connected if any two parts that make up the whole are connected to each other (here the concept of connection is primitive). 
+_:genid14 a rdf:List ;
+	rdf:first :EMMO_29072ec4_ffcb_42fb_bdc7_26f05a2e9873 ;
+	rdf:rest _:genid13 .
 
-Alternatively, using the primitive path-connectivity concept we can define a self-connected real world object as an object for which each couple of points is path-connected."""@en ,
-                                                        """An 'Item' individual stands for a real world self-connected object which can be represented as a whole made of connected parts (e.g. a car made of components).
+_:genid13 a rdf:List ;
+	rdf:first :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d ;
+	rdf:rest rdf:nil .
+
+:EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin item, \"likewise, just so, moreover\"."@en ;
+	rdfs:comment """A real world object is self-connected if any two parts that make up the whole are connected to each other (here the concept of connection is primitive). 
+
+Alternatively, using the primitive path-connectivity concept we can define a self-connected real world object as an object for which each couple of points is path-connected."""@en , """An 'Item' individual stands for a real world self-connected object which can be represented as a whole made of connected parts (e.g. a car made of components).
 
 In the EMMO, connectivity is the topological foundation of causality.
 
 All physical systems, i.e. systems whose behaviour is explained by physics laws, are represented only by 'Item'-s.
 
 Members of a 'Collection' lack of causality connection, i.e. they do not constitute a physical system as a whole."""@en ;
-                                           skos:prefLabel "Item"@en .
+	skos:prefLabel "Item"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# http://emmo.info/emmo#EMMO_08cb807c_e626_447b_863f_e2835540e918
 
-
-#################################################################
-#    Individuals
-#################################################################
-
-###  http://emmo.info/emmo#EMMO_08cb807c_e626_447b_863f_e2835540e918
-:EMMO_08cb807c_e626_447b_863f_e2835540e918 rdf:type owl:NamedIndividual ,
-                                                    :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
-                                           skos:prefLabel "Universe"@en .
-
-
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+:EMMO_08cb807c_e626_447b_863f_e2835540e918 a owl:NamedIndividual , :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
+	skos:prefLabel "Universe"@en .
+# 
+# Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
