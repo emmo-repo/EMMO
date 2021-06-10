@@ -50,7 +50,9 @@ email: emanuele.ghedini@unibo.it"""@en , "The EMMO requires FacT++ reasoner plug
 	rdfs:domain :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
 	rdfs:range :EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d ;
 	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between a process and an object participating to it."@en ;
-	rdfs:comment "Participation is a parthood relation: you must be intersect the process to contribute to it."@en , "Participation is not under direct parthood since a process is not strictly related to reductionism, but it's a way to categorize temporal regions by the interpreters."@en ;
+	rdfs:comment """Participation is a parthood relation: you must be intersect the process to contribute to it.
+
+Participation is not under direct parthood since a process is not strictly related to reductionism, but it's a way to categorize temporal regions by the interpreters."""@en ;
 	skos:prefLabel "hasParticipant"@en .
 # 
 # http://emmo.info/emmo#EMMO_af9752c8_b6ec_4c03_b6a4_a581f306e089
@@ -97,20 +99,26 @@ _:genid2 a rdf:List ;
 
 A molecule of a body can have role in the body evolution, without caring if its part of a specific organ and without specifying the time interval in which this role occurred.
 
-This class allows the picking of parts without necessarily going trough a rigid hierarchy of spatial compositions (e.g. body -> organ -> cell -> molecule) or temporal composition."""@en , "Holism (from Greek ὅλος holos \"all, whole, entire\")."@en ;
+This class allows the picking of parts without necessarily going trough a rigid hierarchy of spatial compositions (e.g. body -> organ -> cell -> molecule) or temporal composition."""@en ;
 	skos:prefLabel "Holistic"@en .
+
+_:genid4 a owl:Axiom ;
+	owl:annotatedSource :EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62 ;
+	owl:annotatedProperty skos:prefLabel ;
+	owl:annotatedTarget "Holistic"@en ;
+	:EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "Holism (from Greek ὅλος holos \"all, whole, entire\")."@en .
 # 
 # http://emmo.info/emmo#EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce
 
 :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce a owl:Class ;
-	rdfs:subClassOf :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d , _:genid4 .
+	rdfs:subClassOf :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d , _:genid5 .
 
-_:genid4 a owl:Restriction ;
+_:genid5 a owl:Restriction ;
 	owl:onProperty :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
 	owl:someValuesFrom :EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d .
 
 :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A temporal part of a physical that identifies a particular type of evolution in time."@en ;
-	rdfs:comment "A 'Process' is always a 'Physical', since a 'Void' does not have elements that evolves in time."@en , """Following the common definition of process, the reader may think that every 'Physical' should be a process, since every 4D object always has a time dimension. 
+	rdfs:comment """Following the common definition of process, the reader may think that every 'Physical' should be a process, since every 4D object always has a time dimension. 
 
 However, in the EMMO we restrict the meaning of the word process to 'Physical'-s whose evolution in time have a particular meaning for the ontologist (i.e. every 4D object unfolds in time, but not every 4D object may be of interest for the ontologist). 
 
@@ -120,14 +128,14 @@ A 'Process' is not only something that unfolds in time (which is automatically r
 # http://emmo.info/emmo#EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d
 
 :EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d a owl:Class ;
-	rdfs:subClassOf :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d , _:genid5 .
+	rdfs:subClassOf :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d , _:genid6 .
 
-_:genid5 a owl:Restriction ;
-	owl:onProperty _:genid6 .
+_:genid6 a owl:Restriction ;
+	owl:onProperty _:genid7 .
 
-_:genid6 owl:inverseOf :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a .
+_:genid7 owl:inverseOf :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a .
 
-_:genid5 owl:someValuesFrom :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce .
+_:genid6 owl:someValuesFrom :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce .
 
 :EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A portion of a 'Process' that participates to the process with a specific role."@en ;
 	rdfs:comment """In the EMMO the relation of participation to a process falls under mereotopology.
