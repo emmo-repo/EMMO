@@ -43,7 +43,6 @@ email: emanuele.ghedini@unibo.it"""@en ,
 
 ###  http://emmo.info/emmo#EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840
 :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_3d88eccc_c9fc_498e_b6e2_c8a0984c9505 ;
                                            rdfs:range :EMMO_82fc8506_1f84_4add_9683_abea077bd1e3 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The outcome of a process."@en ;
                                            rdfs:comment "The partial overlapping is required since the creating process is distinct with the process in which the product is used or consumed."@en ;
@@ -53,7 +52,6 @@ email: emanuele.ghedini@unibo.it"""@en ,
 
 ###  http://emmo.info/emmo/middle/manufacturing#36e69413_8c59_4799_946c_10b05d266e22
 <http://emmo.info/emmo/middle/manufacturing#36e69413_8c59_4799_946c_10b05d266e22> rdf:type owl:ObjectProperty ;
-                                                                                  rdfs:subPropertyOf :EMMO_3d88eccc_c9fc_498e_b6e2_c8a0984c9505 ;
                                                                                   skos:prefLabel "hasProcessInput"@en .
 
 
@@ -109,7 +107,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
 
 ###  http://emmo.info/emmo#EMMO_82fc8506_1f84_4add_9683_abea077bd1e3
 :EMMO_82fc8506_1f84_4add_9683_abea077bd1e3 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62 ,
+                                           rdfs:subClassOf <http://emmo.info/emmo#1efe8b96_e006_4a33_bc9a_421406cbb9f0> ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty [ owl:inverseOf :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840
                                                                             ] ;
@@ -176,16 +174,16 @@ It can be the result of a natural or an artificially driven process."""@en ;
 :EMMO_a4d66059_5dd3_4b90_b4cb_10960559441b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ,
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 ;
-                                                             owl:someValuesFrom :EMMO_82fc8506_1f84_4add_9683_abea077bd1e3
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1 ;
+                                                             owl:onProperty :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
                                                              owl:someValuesFrom :EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad
                                                            ] ,
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1 ;
+                                                             owl:onProperty :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
                                                              owl:someValuesFrom :c0afb341_7d31_4883_a307_ae4606df2a1b
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 ;
+                                                             owl:someValuesFrom :EMMO_82fc8506_1f84_4add_9683_abea077bd1e3
                                                            ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The process of transforming an precursor object (e.g. raw materials) into a product by the use of manual labor, machinery or chemical/biological processes."@en ;
                                            skos:prefLabel "Manufacturing"@en .
@@ -203,7 +201,7 @@ It can be the result of a natural or an artificially driven process."""@en ;
                                            rdfs:subClassOf :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ,
                                                            :EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad ,
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_c5aae418_1622_4d02_93c5_21159e28e6c1
+                                                             owl:onProperty [ owl:inverseOf :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a
                                                                             ] ;
                                                              owl:someValuesFrom :EMMO_71d1c8f0_c6e3_44b5_a4b6_1b74ff35698a
                                                            ] ;
@@ -211,6 +209,12 @@ It can be the result of a natural or an artificially driven process."""@en ;
                                            skos:altLabel "EngineeredMaterial"@en ,
                                                          "ProcessedMaterial"@en ;
                                            skos:prefLabel "ManufacturedMaterial"@en .
+
+
+###  http://emmo.info/emmo#a9716dcb_3cc6_420b_9e0d_611131a89730
+:a9716dcb_3cc6_420b_9e0d_611131a89730 rdf:type owl:Class ;
+                                      rdfs:subClassOf :EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d ;
+                                      skos:prefLabel "Operator"@en .
 
 
 ###  http://emmo.info/emmo#b9522e56_1fac_4766_97e6_428605fabd3e
@@ -241,6 +245,18 @@ It can be the result of a natural or an artificially driven process."""@en ;
 :f93fe78b_9646_4a15_b88b_1c93686a764d rdf:type owl:Class ;
                                       rdfs:subClassOf <http://emmo.info/emmo#65a007dc_2550_46b0_b394_3346c67fbb69> ;
                                       skos:prefLabel "Network"@en .
+
+
+###  http://emmo.info/emmo#127594de_4802_4ad6_b09d_d05b340394dd
+<http://emmo.info/emmo#127594de_4802_4ad6_b09d_d05b340394dd> rdf:type owl:Class ;
+                                                             rdfs:subClassOf :EMMO_82fc8506_1f84_4add_9683_abea077bd1e3 ;
+                                                             skos:prefLabel "Service"@en .
+
+
+###  http://emmo.info/emmo#69d142d2_bc96_452f_8e2a_9fcf816d49af
+<http://emmo.info/emmo#69d142d2_bc96_452f_8e2a_9fcf816d49af> rdf:type owl:Class ;
+                                                             rdfs:subClassOf :EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d ;
+                                                             skos:prefLabel "Operand"@en .
 
 
 ###  http://emmo.info/emmo/middle/manufacturing#0c7ad550_00ae_45ff_a4e2_58d6a61f48eb
