@@ -1,10 +1,48 @@
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 ![CI tests](https://github.com/emmo-repo/EMMO/workflows/Check%20conventions/badge.svg)
 
-# The European Materials & Modelling Ontology (EMMO)
+# Elementary Multiperspective Material Ontology (EMMO)
+
+<!-- LOGO -->
+<p align="center">
+  <a href="https://github.com/emmo-repo/EMMO">
+    <img src="doc/emmo-logo.png" alt="EMMO logo" width="280">
+  </a>
+</p>
+
+
+## Table of content
+  * [About](#about)
+  * [Some words about the new name and logo](#some-words-about-the-new-name-and-logo)
+  * [EMMO in a Nutshell](#emmo-in-a-nutshell)
+      * [Top Level](#top-level)
+      * [Middle Level](#middle-level)
+      * [EMMO relations](#emmo-relations)
+  * [Repository Description](#repository-description)
+  * [How to Use It](#how-to-use-it)
+      * [Pre-inferred ontology and documentation](#pre-inferred-ontology-and-documentation)
+  * [Contacts](#contacts)
+  * [Acknowledgement](#acknowledgement)
+
 
 ## About
 EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) for applied sciences.  It is based on physics, analytical philosophy and information and communication technologies. It has been instigated by materials science and provides the connection between the physical world, the experimental world (materials characterisation) and the simulation world (materials modelling).  It is released under a Creative Commons [CC BY 4.0](LICENSE.md) license.
+
+### Some words about the new name and logo
+The name _Elementary Multiperspective Material Ontology_ should be understod as follows:
+- **Elementary** refers to, among others, that EMMO is a descrete ontology assuming that there exists a smalles possible 4D world objet in space and time.  The term _Elementary_ refer in EMMO, to an object that cannot be divided further in space.  Elementary also reflect that EMMO is a fundamental toplevel ontology.
+- **Multiperspective** highlights a very important aspect of EMMO - that it is possible to describe the world from different perspectives.  This makes the ontology both flexible and expressive.
+- **Material** (as the opposite of immaterial) emphasises that EMMO is strict nominalistic, that is that it assumes that that abstracts does not exists.  _Material_ also refer to that EMMO originally was developed to describe materials and to cover the needs of physicists and applied scientists.
+- **Ontology**, yes EMMO is an ontology.
+
+A lot can be said about the logo:
+* The circles refers to Pears semiotics with the triadic relation between sign, object and interpretant with the interpreater in the middle.
+* The symmetry indicates that EMMO supports multiple perspectives.
+* The E-like signs can be seen from different perspectives (angles), making it possible to read it as **E** **M** **M** **ⵔ** as well as **∃** (there exists) a **Ш**hole **Ш**orld **ⵔ**ntology (with the circle in the middle).
+* The 3+1 circles emphasises that EMMO is a 4D ontology with three spatial plus one time dimension.
+* The lines connecting the circles may refer to graph theory and knowledge graphs.
+* A triangle is a common way to represent a ternary phase diagram showing the close connection to physics.
+
 
 
 ## EMMO in a Nutshell
