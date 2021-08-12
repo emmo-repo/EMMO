@@ -12,7 +12,7 @@
 
 
 ## Table of content
-  * [About](#about)
+  * [About EMMO](#about-emmo)
   * [Some words about the new name and logo](#some-words-about-the-new-name-and-logo)
   * [EMMO in a Nutshell](#emmo-in-a-nutshell)
       * [Top Level](#top-level)
@@ -25,7 +25,7 @@
   * [Acknowledgement](#acknowledgement)
 
 
-## About
+## About EMMO
 EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) for applied sciences.  It is based on physics, analytical philosophy and information and communication technologies. It has been instigated by materials science and provides the connection between the physical world, the experimental world (materials characterisation) and the simulation world (materials modelling).  It is released under a Creative Commons [CC BY 4.0](LICENSE.md) license.
 
 ### Some words about the new name and logo
