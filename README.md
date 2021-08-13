@@ -30,9 +30,9 @@ EMMO is a multidisciplinary effort to develop a standard representational framew
 
 ### Some words about the new name and logo
 The name _Elementary Multiperspective Material Ontology_ should be understood as follows:
-- **Elementary** means to, amongst others, that EMMO is a discrete ontology assuming the existence of a smallest possible 4D world object in space and time.  The term _Elementary_ in EMMO refers object that cannot be divided further in space.  Elementary also emphasizes EMMO being a fundamental top-level ontology.
+- **Elementary** means, amongst others, that EMMO is a discrete ontology assuming the existence of a smallest possible 4D world object in space and time.  The term _Elementary_ in EMMO refers object that cannot be divided further in space.  Elementary also emphasizes EMMO being a fundamental top-level ontology.
 - **Multiperspective** highlights a very important aspect of EMMO - that it is possible to describe the world from different perspectives.  This makes the ontology both flexible and expressive.
-- **Material** (as the opposite of immaterial) emphasises that EMMO is strict nominalistic, that is that it assumes that that abstracts does not exists.  _Material_ also refers to the historical scope of EMMO aiming at the description of materials and thus to cover the needs of physicists and applied scientists.
+- **Material** (as the opposite of immaterial) emphasises that EMMO is strict nominalistic, meaning that it assumes that abstracts do not exist.  _Material_ also refers to the historical scope of EMMO aiming at the description of materials and thus to cover the needs of physicists and applied scientists.
 - **Ontology**, yes EMMO is an ontology.  It is based on fundamental philosophical concepts like semiosis, mereology and topology.
 
 A lot can be said about the logo:
