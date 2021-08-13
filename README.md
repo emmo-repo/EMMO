@@ -30,13 +30,13 @@ EMMO is a multidisciplinary effort to develop a standard representational framew
 
 ### Some words about the new name and logo
 The name _Elementary Multiperspective Material Ontology_ should be understod as follows:
-- **Elementary** refers to, among others, that EMMO is a descrete ontology assuming that there exists a smalles possible 4D world objet in space and time.  The term _Elementary_ refer in EMMO, to an object that cannot be divided further in space.  Elementary also reflect that EMMO is a fundamental toplevel ontology.
+- **Elementary** means to, amongst others, that EMMO is a discrete ontology assuming the existence of a smallest possible 4D world object in space and time.  The term _Elementary_ in EMMO refers object that cannot be divided further in space.  Elementary also emphasizes EMMO being a fundamental top-level ontology.
 - **Multiperspective** highlights a very important aspect of EMMO - that it is possible to describe the world from different perspectives.  This makes the ontology both flexible and expressive.
-- **Material** (as the opposite of immaterial) emphasises that EMMO is strict nominalistic, that is that it assumes that that abstracts does not exists.  _Material_ also refer to that EMMO originally was developed to describe materials and to cover the needs of physicists and applied scientists.
-- **Ontology**, yes EMMO is an ontology.
+- **Material** (as the opposite of immaterial) emphasises that EMMO is strict nominalistic, that is that it assumes that that abstracts does not exists.  _Material_ also refers to the historical scope of EMMO aiming at the description of materials and thus to cover the needs of physicists and applied scientists.
+- **Ontology**, yes EMMO is an ontology.  It is based on fundamental philosophical concepts like semiosis, mereology and topology.
 
 A lot can be said about the logo:
-* The circles refers to Pears semiotics with the triadic relation between sign, object and interpretant with the interpreater in the middle.
+* The circles refer to Peirce's semiotics with the triadic relation between sign, object and interpretant with the interpreter in the middle.
 * The symmetry indicates that EMMO supports multiple perspectives.
 * The E-like signs can be seen from different perspectives (angles), making it possible to read it as **E** **M** **M** **ⵔ** as well as **∃** (there exists) a **Ш**hole **Ш**orld **ⵔ**ntology (with the circle in the middle).
 * The 3+1 circles emphasises that EMMO is a 4D ontology with three spatial plus one time dimension.
