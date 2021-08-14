@@ -38,31 +38,13 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                               owl:versionInfo "1.0.0-beta" .
 
 #################################################################
-#    Object Properties
-#################################################################
-
-###  http://emmo.info/emmo#EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840
-:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 rdf:type owl:ObjectProperty ;
-                                           rdfs:range :EMMO_82fc8506_1f84_4add_9683_abea077bd1e3 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The outcome of a process."@en ;
-                                           rdfs:comment "The partial overlapping is required since the creating process is distinct with the process in which the product is used or consumed."@en ;
-                                           skos:altLabel "hasProduct"@en ;
-                                           skos:prefLabel "hasProcessOutput"@en .
-
-
-###  http://emmo.info/emmo/middle/manufacturing#36e69413_8c59_4799_946c_10b05d266e22
-<http://emmo.info/emmo/middle/manufacturing#36e69413_8c59_4799_946c_10b05d266e22> rdf:type owl:ObjectProperty ;
-                                                                                  skos:prefLabel "hasProcessInput"@en .
-
-
-#################################################################
 #    Classes
 #################################################################
 
 ###  http://emmo.info/emmo#EMMO_00b85655_f20c_4e83_b90e_094e8ea7e48f
 :EMMO_00b85655_f20c_4e83_b90e_094e8ea7e48f rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_82fc8506_1f84_4add_9683_abea077bd1e3 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An object that is manufactured or refined for sale."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An product that is manufactured or refined for sale."@en ;
                                            skos:altLabel "Product"@en ;
                                            skos:prefLabel "CommercialProduct"@en .
 
@@ -105,28 +87,6 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            skos:prefLabel "ContinuumManufacturing"@en .
 
 
-###  http://emmo.info/emmo#EMMO_82fc8506_1f84_4add_9683_abea077bd1e3
-:EMMO_82fc8506_1f84_4add_9683_abea077bd1e3 rdf:type owl:Class ;
-                                           rdfs:subClassOf <http://emmo.info/emmo#1efe8b96_e006_4a33_bc9a_421406cbb9f0> ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840
-                                                                            ] ;
-                                                             owl:someValuesFrom :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce
-                                                           ] ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The result of a process."@en ;
-                                           rdfs:comment """A product can be a tangible object (e.g. a manufactured object), a process (e.g. service), a temporal part of more comprehensive whole (e.g. a physical status change).
-
-It can be the result of a natural or an artificially driven process."""@en ;
-                                           skos:prefLabel "Product"@en .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_82fc8506_1f84_4add_9683_abea077bd1e3 ;
-   owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "Product"@en ;
-   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin productum ‘something produced’, derived from Latin producere, from pro- ‘forward’ + ducere ‘to lead’."@en
- ] .
-
-
 ###  http://emmo.info/emmo#EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad
 :EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
@@ -143,6 +103,13 @@ It can be the result of a natural or an artificially driven process."""@en ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad ;
    owl:annotatedProperty skos:altLabel ;
+   owl:annotatedTarget "Artifact"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin arte ‘by or using art’ + factum ‘something made’."@en
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad ;
+   owl:annotatedProperty skos:altLabel ;
    owl:annotatedTarget "Engineered"@en ;
    :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin ingenium \"innate qualities, ability; inborn character,\" in Late Latin \"a war engine, battering ram\"; literally \"that which is inborn,\" from in- (\"in\") + gignere (\"give birth, beget\")."@en
  ] .
@@ -152,13 +119,6 @@ It can be the result of a natural or an artificially driven process."""@en ;
    owl:annotatedProperty skos:prefLabel ;
    owl:annotatedTarget "Manufactured"@en ;
    :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin manufacture: \"made by hand\"."@en
- ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad ;
-   owl:annotatedProperty skos:altLabel ;
-   owl:annotatedTarget "Artifact"@en ;
-   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin arte ‘by or using art’ + factum ‘something made’."@en
  ] .
 
 
@@ -172,7 +132,7 @@ It can be the result of a natural or an artificially driven process."""@en ;
 
 ###  http://emmo.info/emmo#EMMO_a4d66059_5dd3_4b90_b4cb_10960559441b
 :EMMO_a4d66059_5dd3_4b90_b4cb_10960559441b rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ,
+                                           rdfs:subClassOf :bafc17b5_9be4_4823_8bbe_ab4e90b6738c ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
                                                              owl:someValuesFrom :EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad
@@ -348,7 +308,7 @@ It can be the result of a natural or an artificially driven process."""@en ;
 
 ###  http://emmo.info/emmo/middle/manufacturing#912ac3a2_a124_4233_92dd_06c9aebea46c
 <http://emmo.info/emmo/middle/manufacturing#912ac3a2_a124_4233_92dd_06c9aebea46c> rdf:type owl:Class ;
-                                                                                  rdfs:subClassOf :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
+                                                                                  rdfs:subClassOf :bafc17b5_9be4_4823_8bbe_ab4e90b6738c ;
                                                                                   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The act of connecting together the parts of something"@en ;
                                                                                   skos:prefLabel "Assemblying"@en .
 
