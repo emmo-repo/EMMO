@@ -13,7 +13,8 @@
 
 ## Table of content
   * [About EMMO](#about-emmo)
-  * [Some words about the new name and logo](#some-words-about-the-new-name-and-logo)
+      * [Some words about the new name and logo](#some-words-about-the-new-name-and-logo)
+      * [Use of EMMO in domain ontologies](use-of-emmo-in-domain-ontologies)
   * [EMMO in a Nutshell](#emmo-in-a-nutshell)
       * [Top Level](#top-level)
       * [Middle Level](#middle-level)
@@ -45,7 +46,7 @@ A lot can be said about the logo:
 
 
 
-## Use of EMMO in domain ontologies
+### Use of EMMO in domain ontologies
 Currently there are several domain ontologies in development that use EMMO as the top and middle level ontology.
 Typically they import one of the versions of EMMO listed on [https://emmo-repo.github.io/](https://emmo-repo.github.io/).
 The following table lists the public EMMO-based domain ontologies that we are aware of.
@@ -59,7 +60,9 @@ Please create an issue if you have a public domain ontology that you think shoul
 | Cultural Heritage Preservation            | [https://github.com/emmo-repo/domain-cultural-heritage-preservation](https://github.com/emmo-repo/domain-cultural-heritage-preservation)  |
 | Atomistic and Electronic Modelling        | [https://github.com/emmo-repo/domain-atomistic](https://github.com/emmo-repo/domain-atomistic)                                            |
 | Battery Interface Ontology (BattINFO)     | [https://github.com/BIG-MAP/BattINFO](https://github.com/BIG-MAP/BattINFO)                                                                |
-
+| Microstructure domain ontology            | [https://github.com/emmo-repo/domain-ontology](https://github.com/emmo-repo/domain-ontology)                                              |
+| Datamodel ontology                        | [https://github.com/emmo-repo/datamodel-ontology](https://github.com/emmo-repo/datamodel-ontology)                                        |
+| Mappings ontology                         | [https://github.com/emmo-repo/domain-mappings](https://github.com/emmo-repo/domain-mappings)                                              |
 
 
 ## EMMO in a Nutshell
