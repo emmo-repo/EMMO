@@ -53,16 +53,15 @@ The following table lists the public EMMO-based domain ontologies that we are aw
 Please create an issue if you have a public domain ontology that you think should be listed here.
 
 | Domain ontology                           | Link                                                                                                                                      |
-| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| Example domain ontologies                 | [https://github.com/emmo-repo/EMMO/tree/master/domain](https://github.com/emmo-repo/EMMO/tree/master/domain)                              |
+| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Battery Interface Ontology (BattINFO)     | [https://github.com/BIG-MAP/BattINFO](https://github.com/BIG-MAP/BattINFO)                                                                |
 | Crystallography                           | [https://github.com/emmo-repo/domain-crystallography](https://github.com/emmo-repo/domain-crystallography)                                |
 | Mechanical Testing                        | [https://github.com/emmo-repo/domain-mechanical-testing](https://github.com/emmo-repo/domain-mechanical-testing)                          |
-| Cultural Heritage Preservation            | [https://github.com/emmo-repo/domain-cultural-heritage-preservation](https://github.com/emmo-repo/domain-cultural-heritage-preservation)  |
-| Atomistic and Electronic Modelling        | [https://github.com/emmo-repo/domain-atomistic](https://github.com/emmo-repo/domain-atomistic)                                            |
-| Battery Interface Ontology (BattINFO)     | [https://github.com/BIG-MAP/BattINFO](https://github.com/BIG-MAP/BattINFO)                                                                |
 | Microstructure domain ontology            | [https://github.com/emmo-repo/domain-ontology](https://github.com/emmo-repo/domain-ontology)                                              |
 | Datamodel ontology                        | [https://github.com/emmo-repo/datamodel-ontology](https://github.com/emmo-repo/datamodel-ontology)                                        |
 | Mappings ontology                         | [https://github.com/emmo-repo/domain-mappings](https://github.com/emmo-repo/domain-mappings)                                              |
+| Atomistic and Electronic Modelling        | [https://github.com/emmo-repo/domain-atomistic](https://github.com/emmo-repo/domain-atomistic)                                            |
+| EMMO example domain ontologies            | [https://github.com/emmo-repo/EMMO/tree/master/domain](https://github.com/emmo-repo/EMMO/tree/master/domain)                              |
 
 
 ## EMMO in a Nutshell
