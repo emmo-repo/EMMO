@@ -1,0 +1,252 @@
+@prefix : <http://emmo.info/emmo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <http://emmo.info/emmo/top/annotations> .
+
+<http://emmo.info/emmo/top/annotations> rdf:type owl:Ontology ;
+                                         owl:versionIRI <http://emmo.info/emmo/1.0.0-beta/top/annotations> ;
+                                         dcterms:abstract "Defines annotations used in EMMO."@en ;
+                                         dcterms:contributor "Access, DE" ,
+                                                             "Fraunhofer IWM, DE" ,
+                                                             "Goldbeck Consulting Ltd (UK)" ,
+                                                             "SINTEF, NO" ,
+                                                             "University of Bologna, IT" ;
+                                         dcterms:creator "Adham Hashibon" ,
+                                                         "Emanuele Ghedini" ,
+                                                         "Georg Schmitz" ,
+                                                         "Gerhard Goldbeck" ,
+                                                         "Jesper Friis" ;
+                                         dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+                                         dcterms:publisher "EMMC ASBL" ;
+                                         dcterms:title "Annotations"@en ;
+                                         rdfs:comment """Contacts:
+Gerhard Goldbeck
+Goldbeck Consulting Ltd (UK)
+email: gerhard@goldbeck-consulting.com
+
+Emanuele Ghedini
+University of Bologna (IT)
+email: emanuele.ghedini@unibo.it"""@en ,
+                                                      "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
+                                         owl:versionInfo "1.0.0-beta" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://emmo.info/emmo#EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc
+:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc rdf:type owl:AnnotationProperty ;
+                                           rdfs:comment "URL to corresponing entity in QUDT."@en ;
+                                           rdfs:seeAlso "http://www.qudt.org/2.1/catalog/qudt-catalog.html"^^xsd:anyURI ;
+                                           skos:prefLabel "qudtEntry"@en ;
+                                           rdfs:subPropertyOf rdfs:seeAlso ;
+                                           rdfs:range xsd:anyURI .
+
+
+###  http://emmo.info/emmo#EMMO_21ae69b4_235e_479d_8dd8_4f756f694c1b
+:EMMO_21ae69b4_235e_479d_8dd8_4f756f694c1b rdf:type owl:AnnotationProperty ;
+                                           owl:deprecated "Replaced by skos:altLabel" ;
+                                           skos:prefLabel "altLabel"@en ;
+                                           rdfs:subPropertyOf rdfs:comment .
+
+
+###  http://emmo.info/emmo#EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f
+:EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f rdf:type owl:AnnotationProperty ;
+                                           rdfs:comment "URL to corresponding entry in the IEC Electropedia online database of ISO 80000 terms and definitions of quantities and units available at http://www.electropedia.org/."@en ;
+                                           rdfs:seeAlso "http://www.electropedia.org/"^^xsd:anyURI ;
+                                           skos:prefLabel "IECEntry"@en ;
+                                           rdfs:subPropertyOf rdfs:isDefinedBy ;
+                                           rdfs:range xsd:anyURI .
+
+
+###  http://emmo.info/emmo#EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc
+:EMMO_5525a055_dda5_4556_8b91_f0d22fa676cc rdf:type owl:AnnotationProperty ;
+                                           owl:deprecated "Replaced by dcterms:license" ;
+                                           skos:prefLabel "license"@en ;
+                                           rdfs:subPropertyOf rdfs:comment .
+
+
+###  http://emmo.info/emmo#EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25
+:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 rdf:type owl:AnnotationProperty ;
+                                           rdfs:comment "URL to corresponding concept in DBpedia."@en ;
+                                           rdfs:seeAlso "https://wiki.dbpedia.org/"^^xsd:anyURI ;
+                                           skos:prefLabel "dbpediaEntry"@en ;
+                                           rdfs:subPropertyOf rdfs:seeAlso ;
+                                           rdfs:range xsd:anyURI .
+
+
+###  http://emmo.info/emmo#EMMO_705f27ae_954c_4f13_98aa_18473fc52b25
+:EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 rdf:type owl:AnnotationProperty ;
+                                           skos:prefLabel "etymology"@en ;
+                                           rdfs:subPropertyOf rdfs:comment .
+
+
+###  http://emmo.info/emmo#EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84
+:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 rdf:type owl:AnnotationProperty ;
+                                           rdfs:comment """Precise and univocal description of an ontological entity in the framework of an axiomatic system.
+
+A definition uses entities in an ontological system to identify other derivate ontological entities within the same system."""@en ;
+                                           skos:prefLabel "definition"@en ;
+                                           rdfs:subPropertyOf rdfs:comment ;
+                                           rdfs:range xsd:string .
+
+
+###  http://emmo.info/emmo#EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578
+:EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 rdf:type owl:AnnotationProperty ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "3‑1.1  (refers to length)"@en ;
+                                           rdfs:comment "Corresponding item number in ISO 80 000."@en ;
+                                           rdfs:seeAlso "https://www.iso.org/obp/ui/#iso:std:iso:80000:-1:ed-1:v1:en"^^xsd:anyURI ;
+                                           skos:prefLabel "ISO80000Ref"@en ;
+                                           rdfs:subPropertyOf rdfs:isDefinedBy ;
+                                           rdfs:range rdf:PlainLiteral .
+
+
+###  http://emmo.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9
+:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 rdf:type owl:AnnotationProperty ;
+                                           rdfs:comment """Short enlightening explanation of an ontological entity aimed to facilitate the connection between the ontological concept and a real-world object.
+
+An elucidation provides the meta-ontological semiotic relation that connects an entity within the ontology, to a real-world entity outside the ontology. 
+
+This process is subjective, depends on the agent that draws this connection (e.g. the EMMO user, a machine), and is independent (outside) from the ontology representational capabilities."""@en ;
+                                           skos:prefLabel "elucidation"@en ;
+                                           rdfs:subPropertyOf rdfs:comment ;
+                                           rdfs:range xsd:string .
+
+
+###  http://emmo.info/emmo#EMMO_a9b3d04c_7ceb_40a2_b8d3_28d514a770a8
+:EMMO_a9b3d04c_7ceb_40a2_b8d3_28d514a770a8 rdf:type owl:AnnotationProperty ;
+                                           rdfs:comment "URL to CODATA Internationally recommended 2018 values of physical constants."@en ;
+                                           rdfs:seeAlso "https://physics.nist.gov/cuu/Constants/index.html"^^xsd:anyURI ;
+                                           skos:prefLabel "codataEntry"@en ;
+                                           rdfs:subPropertyOf rdfs:seeAlso ;
+                                           rdfs:range xsd:anyURI .
+
+
+###  http://emmo.info/emmo#EMMO_b306ae38_938e_48fe_83e9_6141e08b596f
+:EMMO_b306ae38_938e_48fe_83e9_6141e08b596f rdf:type owl:AnnotationProperty ;
+                                           rdfs:comment "URL to corresponding concept in the Basic Datatype Ontology (DBO)"@en ;
+                                           rdfs:seeAlso "https://github.com/TechnicalBuildingSystems/Ontologies/blob/master/BasicDataTypeOntology/ontology.ttl"^^xsd:anyURI ;
+                                           skos:prefLabel "bdoMatch"@en ;
+                                           rdfs:subPropertyOf rdfs:seeAlso ;
+                                           rdfs:range xsd:anyURI .
+
+
+###  http://emmo.info/emmo#EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a
+:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a rdf:type owl:AnnotationProperty ;
+                                           rdfs:comment "Illustrative example of how the entity is used."@en ;
+                                           skos:prefLabel "example"@en ;
+                                           rdfs:subPropertyOf rdfs:comment ;
+                                           rdfs:range xsd:string .
+
+
+###  http://emmo.info/emmo#EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6
+:EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 rdf:type owl:AnnotationProperty ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "quantity value (term in VIM that corresponds to Quantity in EMMO)"@en ;
+                                           rdfs:comment "The term in the International vocabulary of metrology (VIM) (JCGM 200:2008) that corresponds to the annotated term in EMMO."@en ;
+                                           skos:prefLabel "VIMTerm"@en ;
+                                           rdfs:subPropertyOf rdfs:isDefinedBy .
+
+
+###  http://emmo.info/emmo#EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d
+:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d rdf:type owl:AnnotationProperty ;
+                                           rdfs:comment "URL to corresponding Wikipedia entry."@en ;
+                                           rdfs:seeAlso "https://www.wikipedia.org/" ;
+                                           skos:prefLabel "wikipediaEntry"@en ;
+                                           rdfs:subPropertyOf rdfs:seeAlso ;
+                                           rdfs:range xsd:anyURI .
+
+
+###  http://emmo.info/emmo#EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab
+:EMMO_cd5fb112_7ee7_4120_a35d_3ca3e6c3f4ab rdf:type owl:AnnotationProperty ;
+                                           owl:deprecated "Replaced by dcterms:creator" ;
+                                           skos:prefLabel "author"@en ;
+                                           rdfs:subPropertyOf rdfs:comment .
+
+
+###  http://emmo.info/emmo#EMMO_e55f2d7c_9893_48cd_b4a4_fdf38253bd20
+:EMMO_e55f2d7c_9893_48cd_b4a4_fdf38253bd20 rdf:type owl:AnnotationProperty ;
+                                           rdfs:comment "IRI to corresponding concept in the Ontology of units of Measure"@en ;
+                                           rdfs:seeAlso "https://enterpriseintegrationlab.github.io/icity/OM/doc/index-en.html"^^xsd:anyURI ,
+                                                        "https://github.com/HajoRijgersberg/OM"^^xsd:anyURI ;
+                                           skos:prefLabel "omMatch"@en ;
+                                           rdfs:subPropertyOf rdfs:seeAlso ;
+                                           rdfs:range xsd:anyURI .
+
+
+###  http://emmo.info/emmo#EMMO_fe015383_afb3_44a6_ae86_043628697aa2
+:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 rdf:type owl:AnnotationProperty ;
+                                           rdfs:comment "DOI to corresponding concept in IUPAC"@en ;
+                                           rdfs:seeAlso "https://goldbook.iupac.org/"^^xsd:anyURI ;
+                                           skos:prefLabel "iupacEntry"@en ;
+                                           rdfs:subPropertyOf rdfs:seeAlso ;
+                                           rdfs:range xsd:anyURI .
+
+
+###  http://purl.org/dc/terms/abstract
+dcterms:abstract rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/contributor
+dcterms:contributor rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+dcterms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+dcterms:license rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/publisher
+dcterms:publisher rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+dcterms:title rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#comment
+rdfs:comment rdfs:range rdfs:Literal .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#isDefinedBy
+rdfs:isDefinedBy rdfs:subPropertyOf rdfs:seeAlso .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#label
+rdfs:label rdfs:range rdfs:Literal .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#seeAlso
+rdfs:seeAlso rdfs:comment """EMMO applies the naming convension to its sub-properties of rdfs:seeAlso that their label must end with one of the following terms:
+  - 'Match': resolvable URLs to corresponding entity in another ontology
+  - 'Entry': resolvable URLs to a human readable resource describing the subject
+  - 'Ref': non-resolvable reference to a human readable resource describing the subject"""@en ,
+                          "Indicate a resource that might provide additional information about the subject resource."@en .
+
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+skos:altLabel rdf:type owl:AnnotationProperty ;
+              rdfs:subPropertyOf rdfs:label ;
+              rdfs:range rdf:PlainLiteral .
+
+
+###  http://www.w3.org/2004/02/skos/core#hiddenLabel
+skos:hiddenLabel rdf:type owl:AnnotationProperty ;
+                 rdfs:subPropertyOf rdfs:label ;
+                 rdfs:range rdf:PlainLiteral .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:AnnotationProperty ;
+               rdfs:subPropertyOf rdfs:label ;
+               rdfs:range rdf:PlainLiteral .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

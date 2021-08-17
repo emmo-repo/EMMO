@@ -18,13 +18,8 @@ version=$2
 outdir=$3
 [ $# -ne 3 ] && echo "Usage: makedoc.sh inferred version outdir" && exit 1
 
-emmodir=$(python -c 'import os, emmo; print(os.path.dirname(emmo.__file__))')
-[ -d "$emmodir/examples" ] && ex="$emmodir/examples" || \
-        ex="$emmodir/../examples"
-cd "$ex/emmodoc"
-
-
 set -x
+cd "$rootdir/doc/emmodoc"
 ontodoc --template=emmo.md --format=html -p variable=version:$version \
         "$inferred" "$outdir/emmo.html"
 

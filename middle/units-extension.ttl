@@ -1,0 +1,592 @@
+@prefix : <http://emmo.info/emmo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <http://emmo.info/emmo/middle/units-extension> .
+
+<http://emmo.info/emmo/middle/units-extension> rdf:type owl:Ontology ;
+                                                owl:versionIRI <http://emmo.info/emmo/1.0.0-beta/middle/units-extension> ;
+                                                owl:imports <http://emmo.info/emmo/1.0.0-beta/middle/siunits> ;
+                                                dcterms:abstract "The module 'units-extension' defines all units in EMMO middle that are not included in the 'siumits' module."@en ;
+                                                dcterms:contributor "Access, DE" ,
+                                                                    "Fraunhofer IWM, DE" ,
+                                                                    "Goldbeck Consulting Ltd (UK)" ,
+                                                                    "SINTEF, NO" ,
+                                                                    "University of Bologna, IT" ;
+                                                dcterms:creator "Adham Hashibon" ,
+                                                                "Emanuele Ghedini" ,
+                                                                "Georg Schmitz" ,
+                                                                "Gerhard Goldbeck" ,
+                                                                "Jesper Friis" ;
+                                                dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+                                                dcterms:publisher "EMMC ASBL" ;
+                                                dcterms:title "Units extension"@en ;
+                                                rdfs:comment """Contacts:
+Gerhard Goldbeck
+Goldbeck Consulting Ltd (UK)
+email: gerhard@goldbeck-consulting.com
+
+Emanuele Ghedini
+University of Bologna (IT)
+email: emanuele.ghedini@unibo.it"""@en ,
+                                                             "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
+                                                owl:versionInfo "1.0.0-beta" .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://emmo.info/emmo#EMMO_00dd79e0_31a6_427e_9b9c_90f3097e4a96
+:EMMO_00dd79e0_31a6_427e_9b9c_90f3097e4a96 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_591e02fd_8d37_45a6_9d11_bb21cef391a0 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                             owl:someValuesFrom :EMMO_77e9dc31_5b19_463e_b000_44c6e79f98aa
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                             owl:hasValue "Da"
+                                                           ] ;
+                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/Dalton" ;
+                                           :EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Unified_atomic_mass_unit" ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "One dalton is defined as one twelfth of the mass of an unbound neutral atom of carbon-12 in its nuclear and electronic ground state."@en ;
+                                           :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.D01514" ;
+                                           skos:prefLabel "Dalton"@en .
+
+
+###  http://emmo.info/emmo#EMMO_04b3300c_98bd_42dc_a3b5_e6c29d69f1ac
+:EMMO_04b3300c_98bd_42dc_a3b5_e6c29d69f1ac rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296 ;
+                                                             owl:allValuesFrom :EMMO_f76f5a24_d703_4e8c_b368_f9a7777cb73a
+                                                           ] .
+
+
+###  http://emmo.info/emmo#EMMO_053648ea_3c0a_468c_89cb_eb009239323a
+:EMMO_053648ea_3c0a_468c_89cb_eb009239323a rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_591e02fd_8d37_45a6_9d11_bb21cef391a0 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                             owl:someValuesFrom :EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                             owl:hasValue "au"
+                                                           ] ;
+                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PARSEC" ;
+                                           :EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Astronomical_unit" ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "One astronomical unit is defined as exactly 149597870700 m, which is roughly the distance from earth to sun."@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Astronomical_unit" ;
+                                           skos:prefLabel "AstronomicalUnit"@en .
+
+
+###  http://emmo.info/emmo#EMMO_0a88be81_343d_4388_92c1_09228ff95ada
+:EMMO_0a88be81_343d_4388_92c1_09228ff95ada rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296 ;
+                                                             owl:allValuesFrom :EMMO_5ebd5e01_0ed3_49a2_a30d_cd05cbe72978
+                                                           ] .
+
+
+###  http://emmo.info/emmo#EMMO_1273eb34_de48_43a9_925f_104110469dd2
+:EMMO_1273eb34_de48_43a9_925f_104110469dd2 rdf:type owl:Class .
+
+
+###  http://emmo.info/emmo#EMMO_15d62b55_38ea_4aec_b7c4_25db1a2e5a01
+:EMMO_15d62b55_38ea_4aec_b7c4_25db1a2e5a01 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_5ebd5e01_0ed3_49a2_a30d_cd05cbe72978 ;
+                                           owl:disjointWith :EMMO_c2f5ee66_579c_44c6_a2e9_fa2eaa9fa4da ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Unit for dimensionless units that cannot be expressed as a 'FractionUnit'."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Unit of AtomicNumber"@en ;
+                                           skos:prefLabel "PureNumberUnit"@en .
+
+
+###  http://emmo.info/emmo#EMMO_18448443_dcf1_49b8_a321_cf46e2c393e1
+:EMMO_18448443_dcf1_49b8_a321_cf46e2c393e1 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_c2f5ee66_579c_44c6_a2e9_fa2eaa9fa4da ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Unit for quantities of dimension one that are the fraction of two masses."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Unit for mass fraction."@en ;
+                                           skos:prefLabel "MassFractionUnit"@en .
+
+
+###  http://emmo.info/emmo#EMMO_1e0b665d_db6c_4752_a6d4_262d3a8dbb46
+:EMMO_1e0b665d_db6c_4752_a6d4_262d3a8dbb46 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_591e02fd_8d37_45a6_9d11_bb21cef391a0 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                             owl:someValuesFrom :EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                             owl:hasValue "′"
+                                                           ] ;
+                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/ARCMIN" ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "Measure of plane angle defined as 1/60 or a degree."@en ;
+                                           skos:altLabel "MinuteOfArc"@en ;
+                                           skos:prefLabel "ArcMinute"@en .
+
+
+###  http://emmo.info/emmo#EMMO_21ef2ed6_c086_4d24_8a75_980d2bcc9282
+:EMMO_21ef2ed6_c086_4d24_8a75_980d2bcc9282 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_591e02fd_8d37_45a6_9d11_bb21cef391a0 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                             owl:someValuesFrom :EMMO_02e894c3_b793_4197_b120_3442e08f58d1
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                             owl:hasValue "h"
+                                                           ] ;
+                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/HR" ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "Measure of time defined as 3600 seconds."@en ;
+                                           :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.H02866" ;
+                                           skos:prefLabel "Hour"@en .
+
+
+###  http://emmo.info/emmo#EMMO_27c530c4_dfcd_486e_b324_54ad4448cd26
+:EMMO_27c530c4_dfcd_486e_b324_54ad4448cd26 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_591e02fd_8d37_45a6_9d11_bb21cef391a0 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                             owl:someValuesFrom :EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                             owl:hasValue "Å"
+                                                           ] ;
+                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/ANGSTROM" ;
+                                           :EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/%C3%85ngstr%C3%B6m" ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "Measure of length defined as 1e-10 metres."@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Angstrom" ;
+                                           :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.N00350" ;
+                                           rdfs:comment """Ångström is not mentioned in the SI system and deprecated by the International Bureau of Weights and Measures (BIPM).
+
+Dispite of that, it is often used in the natural sciences and technology."""@en ;
+                                           skos:altLabel "Angstrom"@en ;
+                                           skos:prefLabel "Ångström"@en .
+
+
+###  http://emmo.info/emmo#EMMO_28ef05a7_ecc1_4df6_8116_c53251fbd4a8
+:EMMO_28ef05a7_ecc1_4df6_8116_c53251fbd4a8 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_591e02fd_8d37_45a6_9d11_bb21cef391a0 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                             owl:someValuesFrom :EMMO_02e894c3_b793_4197_b120_3442e08f58d1
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                             owl:hasValue "d"
+                                                           ] ;
+                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DAY" ;
+                                           :EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Day" ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A measure of time defined as 86 400 seconds."@en ;
+                                           :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.D01527" ;
+                                           skos:prefLabel "Day"@en .
+
+
+###  http://emmo.info/emmo#EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0
+:EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0 rdf:type owl:Class .
+
+
+###  http://emmo.info/emmo#EMMO_3ee80521_3c23_4dd1_935d_9d522614a3e2
+:EMMO_3ee80521_3c23_4dd1_935d_9d522614a3e2 rdf:type owl:Class .
+
+
+###  http://emmo.info/emmo#EMMO_4a27950a_0d31_4175_bd4e_14995aa94702
+:EMMO_4a27950a_0d31_4175_bd4e_14995aa94702 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                             owl:someValuesFrom :EMMO_f84792eb_ec64_4a6b_941f_c9f3e9ef052c
+                                                           ] ;
+                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M-PER-SEC" ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "SI coherent measurement unit for speed."@en ;
+                                           :EMMO_e55f2d7c_9893_48cd_b4a4_fdf38253bd20 "http://www.ontology-of-units-of-measure.org/resource/om-2/metrePerSecond-Time" ;
+                                           skos:prefLabel "MetrePerSecond"@en .
+
+
+###  http://emmo.info/emmo#EMMO_52e4cb25_da39_45e2_a6db_063ec5730499
+:EMMO_52e4cb25_da39_45e2_a6db_063ec5730499 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The centimetre–gram–second (CGS) system of units."@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Centimetre%E2%80%93gram%E2%80%93second_system_of_units" ;
+                                           rdfs:comment "CGS is a variant of the metric system."@en ;
+                                           skos:prefLabel "CGSUnit"@en .
+
+
+###  http://emmo.info/emmo#EMMO_591e02fd_8d37_45a6_9d11_bb21cef391a0
+:EMMO_591e02fd_8d37_45a6_9d11_bb21cef391a0 rdf:type owl:Class .
+
+
+###  http://emmo.info/emmo#EMMO_5ebd5e01_0ed3_49a2_a30d_cd05cbe72978
+:EMMO_5ebd5e01_0ed3_49a2_a30d_cd05cbe72978 rdf:type owl:Class .
+
+
+###  http://emmo.info/emmo#EMMO_5eedba4d_105b_44d8_b1bc_e33606276ea2
+:EMMO_5eedba4d_105b_44d8_b1bc_e33606276ea2 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296 ;
+                                                             owl:allValuesFrom :EMMO_e7bc8939_7ff8_4917_beb5_c42730b390f3
+                                                           ] .
+
+
+###  http://emmo.info/emmo#EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac
+:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_3ee80521_3c23_4dd1_935d_9d522614a3e2 ;
+                                           owl:disjointUnionOf ( :EMMO_00dd79e0_31a6_427e_9b9c_90f3097e4a96
+                                                                 :EMMO_053648ea_3c0a_468c_89cb_eb009239323a
+                                                                 :EMMO_1e0b665d_db6c_4752_a6d4_262d3a8dbb46
+                                                                 :EMMO_21ef2ed6_c086_4d24_8a75_980d2bcc9282
+                                                                 :EMMO_28ef05a7_ecc1_4df6_8116_c53251fbd4a8
+                                                                 :EMMO_6a4547ab_3abb_430d_b81b_ce32d47729f5
+                                                                 :EMMO_6c7160fc_cc64_46f0_b43b_aba65e9952e3
+                                                                 :EMMO_a155dc93_d266_487e_b5e7_2a2c72d5ebf9
+                                                                 :EMMO_b41515a9_28d8_4d78_8165_74b2fc72f89e
+                                                                 :EMMO_b8830065_3809_41b7_be3c_e33795567fd9
+                                                                 :EMMO_cabb20f0_05c7_448f_9485_e129725f15a4
+                                                                 :EMMO_d6eb0176_a0d7_4b4e_8df0_50e912be2342
+                                                                 :EMMO_e29f84db_4c1c_46ae_aa38_c4d47536b972
+                                                                 :EMMO_f8b92999_3cde_46e3_99d5_664da3090a02
+                                                               ) ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Non-SI units mentioned in the SI."@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Non-SI_units_mentioned_in_the_SI" ;
+                                           rdfs:comment "This is a list of units that are not defined as part of the International System of Units (SI), but are otherwise mentioned in the SI brouchure, because either the General Conference on Weights and Measures (CGPM) accepts their use as being multiples or submultiples of SI-units, they have important contemporary application worldwide, or are otherwise commonly encountered worldwide."@en ;
+                                           skos:prefLabel "SIAcceptedSpecialUnit"@en .
+
+
+###  http://emmo.info/emmo#EMMO_6a4547ab_3abb_430d_b81b_ce32d47729f5
+:EMMO_6a4547ab_3abb_430d_b81b_ce32d47729f5 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_591e02fd_8d37_45a6_9d11_bb21cef391a0 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                             owl:someValuesFrom :EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                             owl:hasValue "″"
+                                                           ] ;
+                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/ARCSEC" ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "Measure of plane angle defined as 1/3600 or a degree."@en ;
+                                           skos:altLabel "SecondOfArc"@en ;
+                                           skos:prefLabel "ArcSecond"@en .
+
+
+###  http://emmo.info/emmo#EMMO_6c7160fc_cc64_46f0_b43b_aba65e9952e3
+:EMMO_6c7160fc_cc64_46f0_b43b_aba65e9952e3 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_591e02fd_8d37_45a6_9d11_bb21cef391a0 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                             owl:someValuesFrom :EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                             owl:hasValue "B"
+                                                           ] ;
+                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/B" ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "One bel is defined as `1⁄2 ln(10) neper`."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Unit of measurement for quantities of type level or level difference."@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Decibel" ;
+                                           rdfs:comment "Today decibel (one tenth of a bel) is commonly used instead of bel."@en ,
+                                                        "bel is used to express the ratio of one value of a power or field quantity to another, on a logarithmic scale, the logarithmic quantity being called the power level or field level, respectively."@en ;
+                                           skos:prefLabel "Bel"@en .
+
+
+###  http://emmo.info/emmo#EMMO_6f4d704a_a7c6_4c07_b8a7_ea0bab04128f
+:EMMO_6f4d704a_a7c6_4c07_b8a7_ea0bab04128f rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_c2f5ee66_579c_44c6_a2e9_fa2eaa9fa4da ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Unit for quantities of dimension one that are the fraction of two areas."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Unit for solid angle."@en ;
+                                           skos:prefLabel "AreaFractionUnit"@en .
+
+
+###  http://emmo.info/emmo#EMMO_7c055d65_2929_40e1_af4f_4bf10995ad50
+:EMMO_7c055d65_2929_40e1_af4f_4bf10995ad50 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296 ;
+                                                             owl:allValuesFrom :EMMO_18448443_dcf1_49b8_a321_cf46e2c393e1
+                                                           ] .
+
+
+###  http://emmo.info/emmo#EMMO_9fd1e79d_41d1_44f8_8142_66dbdf0fc7ad
+:EMMO_9fd1e79d_41d1_44f8_8142_66dbdf0fc7ad rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_c2f5ee66_579c_44c6_a2e9_fa2eaa9fa4da ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Unit for quantities of dimension one that are the fraction of two volumes."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Unit for volume fraction."@en ;
+                                           skos:prefLabel "VolumeFractionUnit"@en .
+
+
+###  http://emmo.info/emmo#EMMO_a055d311_9990_40a5_b2f2_288412f5d6a5
+:EMMO_a055d311_9990_40a5_b2f2_288412f5d6a5 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                             owl:someValuesFrom :EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05
+                                                           ] ;
+                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M3" ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "SI coherent measurement unit for volume."@en ;
+                                           :EMMO_e55f2d7c_9893_48cd_b4a4_fdf38253bd20 "http://www.ontology-of-units-of-measure.org/resource/om-2/cubicMetre" ;
+                                           skos:prefLabel "CubicMetre"@en .
+
+
+###  http://emmo.info/emmo#EMMO_a121bb1d_5225_4c78_809b_0268c3012208
+:EMMO_a121bb1d_5225_4c78_809b_0268c3012208 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_cdc962d8_f3ea_4764_a57a_c7caa4859179 .
+
+
+###  http://emmo.info/emmo#EMMO_a155dc93_d266_487e_b5e7_2a2c72d5ebf9
+:EMMO_a155dc93_d266_487e_b5e7_2a2c72d5ebf9 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_591e02fd_8d37_45a6_9d11_bb21cef391a0 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                             owl:someValuesFrom :EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                             owl:hasValue "l"
+                                                           ] ;
+                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/L" ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A non-SI unit of volume defined as 1 cubic decimetre (dm3),"@en ;
+                                           :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.L03594" ;
+                                           skos:prefLabel "Litre"@en .
+
+
+###  http://emmo.info/emmo#EMMO_a8eb87b5_4d10_4137_a75c_e04ee59ca095
+:EMMO_a8eb87b5_4d10_4137_a75c_e04ee59ca095 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296 ;
+                                                             owl:allValuesFrom :EMMO_9fd1e79d_41d1_44f8_8142_66dbdf0fc7ad
+                                                           ] .
+
+
+###  http://emmo.info/emmo#EMMO_acf636d4_9ac2_4ce3_960a_d54338e6cae3
+:EMMO_acf636d4_9ac2_4ce3_960a_d54338e6cae3 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296 ;
+                                                             owl:allValuesFrom :EMMO_cdc962d8_f3ea_4764_a57a_c7caa4859179
+                                                           ] .
+
+
+###  http://emmo.info/emmo#EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4
+:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 rdf:type owl:Class .
+
+
+###  http://emmo.info/emmo#EMMO_b0d1c460_d06b_4c7f_8832_148bc1c8e7dc
+:EMMO_b0d1c460_d06b_4c7f_8832_148bc1c8e7dc rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                             owl:someValuesFrom :EMMO_33433bb1_c68f_45ee_a466_f01e2c57b214
+                                                           ] ;
+                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M2" ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "SI coherent measurement unit for area."@en ;
+                                           :EMMO_e55f2d7c_9893_48cd_b4a4_fdf38253bd20 "http://www.ontology-of-units-of-measure.org/resource/om-2/squareMetre" ;
+                                           skos:prefLabel "SquareMetre"@en .
+
+
+###  http://emmo.info/emmo#EMMO_b41515a9_28d8_4d78_8165_74b2fc72f89e
+:EMMO_b41515a9_28d8_4d78_8165_74b2fc72f89e rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_591e02fd_8d37_45a6_9d11_bb21cef391a0 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                             owl:someValuesFrom :EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                             owl:hasValue "Np"
+                                                           ] ;
+                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/NP" ;
+                                           :EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Neper" ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 """Unit of measurement for quantities of type level or level difference, which are defined as the natural logarithm of the ratio of power- or field-type quantities.
+
+The value of a ratio in nepers is given by `ln(x1/x2)` where `x1` and `x2` are the values of interest (amplitudes), and ln is the natural logarithm. When the values are quadratic in the amplitude (e.g. power), they are first linearised by taking the square root before the logarithm is taken, or equivalently the result is halved.
+
+Wikipedia"""@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Neper" ;
+                                           :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.N04106" ;
+                                           skos:prefLabel "Neper"@en .
+
+
+###  http://emmo.info/emmo#EMMO_b8830065_3809_41b7_be3c_e33795567fd9
+:EMMO_b8830065_3809_41b7_be3c_e33795567fd9 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_591e02fd_8d37_45a6_9d11_bb21cef391a0 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                             owl:someValuesFrom :EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                             owl:hasValue "°"
+                                                           ] ;
+                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DEG" ;
+                                           :EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Degree_(angle)" ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "Degree is a measurement of plane angle, defined by representing a full rotation as 360 degrees."@en ;
+                                           :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.D01560" ;
+                                           skos:prefLabel "Degree"@en .
+
+
+###  http://emmo.info/emmo#EMMO_c10b7090_7284_4719_8e15_c743b13ca6ad
+:EMMO_c10b7090_7284_4719_8e15_c743b13ca6ad rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                             owl:someValuesFrom :EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f
+                                                           ] ;
+                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/N-M" ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "SI coherent measurement unit for torque."@en ;
+                                           :EMMO_e55f2d7c_9893_48cd_b4a4_fdf38253bd20 "http://www.ontology-of-units-of-measure.org/resource/om-2/newtonMetre" ;
+                                           rdfs:comment "Note that the physical dimension is the same as for Joule."@en ;
+                                           skos:prefLabel "NewtonMetre"@en .
+
+
+###  http://emmo.info/emmo#EMMO_c2f5ee66_579c_44c6_a2e9_fa2eaa9fa4da
+:EMMO_c2f5ee66_579c_44c6_a2e9_fa2eaa9fa4da rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_5ebd5e01_0ed3_49a2_a30d_cd05cbe72978 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Unit for fractions of quantities of the same kind, to aid the understanding of the quantity being expressed."@en ;
+                                           rdfs:comment """Quantities that are ratios of quantities of the same kind (for example length ratios and amount fractions) have the option of being expressed with units (m/m, mol/mol to aid the understanding of the quantity being expressed and also allow the use of SI prefixes, if this
+is desirable (μm/m, nmol/mol).
+-- SI Brochure"""@en ;
+                                           skos:prefLabel "FractionUnit"@en .
+
+
+###  http://emmo.info/emmo#EMMO_cabb20f0_05c7_448f_9485_e129725f15a4
+:EMMO_cabb20f0_05c7_448f_9485_e129725f15a4 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_591e02fd_8d37_45a6_9d11_bb21cef391a0 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                             owl:someValuesFrom :EMMO_02e894c3_b793_4197_b120_3442e08f58d1
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                             owl:hasValue "min"
+                                                           ] ;
+                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MIN" ;
+                                           :EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Minute" ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "Non-SI time unit defined as 60 seconds."@en ;
+                                           skos:prefLabel "Minute"@en .
+
+
+###  http://emmo.info/emmo#EMMO_cdc962d8_f3ea_4764_a57a_c7caa4859179
+:EMMO_cdc962d8_f3ea_4764_a57a_c7caa4859179 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_c2f5ee66_579c_44c6_a2e9_fa2eaa9fa4da ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Unit for quantities of dimension one that are the fraction of two lengths."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Unit for plane angle."@en ;
+                                           skos:prefLabel "LengthFractionUnit"@en .
+
+
+###  http://emmo.info/emmo#EMMO_cf3dd6cc_c5d6_4b3d_aef4_82f3b7a361af
+:EMMO_cf3dd6cc_c5d6_4b3d_aef4_82f3b7a361af rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_6f4d704a_a7c6_4c07_b8a7_ea0bab04128f .
+
+
+###  http://emmo.info/emmo#EMMO_d6eb0176_a0d7_4b4e_8df0_50e912be2342
+:EMMO_d6eb0176_a0d7_4b4e_8df0_50e912be2342 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_591e02fd_8d37_45a6_9d11_bb21cef391a0 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                             owl:someValuesFrom :EMMO_33433bb1_c68f_45ee_a466_f01e2c57b214
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                             owl:hasValue "ha"
+                                                           ] ;
+                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/HA" ;
+                                           :EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Hectare" ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A non-SI metric unit of area defined as the square with 100-metre sides."@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Hectare" ;
+                                           skos:prefLabel "Hectare"@en .
+
+
+###  http://emmo.info/emmo#EMMO_e29f84db_4c1c_46ae_aa38_c4d47536b972
+:EMMO_e29f84db_4c1c_46ae_aa38_c4d47536b972 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_591e02fd_8d37_45a6_9d11_bb21cef391a0 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                             owl:someValuesFrom :EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                             owl:hasValue "eV"
+                                                           ] ;
+                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/EV" ;
+                                           :EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Electronvolt" ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The amount of energy gained (or lost) by the charge of a single electron moving across an electric potential difference of one volt."@en ;
+                                           :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.E02014" ;
+                                           skos:prefLabel "ElectronVolt"@en .
+
+
+###  http://emmo.info/emmo#EMMO_e7bc8939_7ff8_4917_beb5_c42730b390f3
+:EMMO_e7bc8939_7ff8_4917_beb5_c42730b390f3 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_c2f5ee66_579c_44c6_a2e9_fa2eaa9fa4da ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Unit for quantities of dimension one that are the fraction of two speeds."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Unit for refractive index."@en ;
+                                           skos:prefLabel "SpeedFractionUnit"@en .
+
+
+###  http://emmo.info/emmo#EMMO_e7c9f7fd_e534_4441_88fe_1fec6cb20f26
+:EMMO_e7c9f7fd_e534_4441_88fe_1fec6cb20f26 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296 ;
+                                                             owl:allValuesFrom :EMMO_6f4d704a_a7c6_4c07_b8a7_ea0bab04128f
+                                                           ] .
+
+
+###  http://emmo.info/emmo#EMMO_e9eaeeb5_620c_4dab_8f72_269ff85d0634
+:EMMO_e9eaeeb5_620c_4dab_8f72_269ff85d0634 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                             owl:someValuesFrom :EMMO_1c2226a9_22f0_40c8_8928_5a01d398f96e
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Measurement unit for electric dipole moment."@en ;
+                                           skos:prefLabel "CoulombMetre"@en .
+
+
+###  http://emmo.info/emmo#EMMO_f3dd74c0_f480_49e8_9764_33b78638c235
+:EMMO_f3dd74c0_f480_49e8_9764_33b78638c235 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296 ;
+                                                             owl:allValuesFrom :EMMO_cdc962d8_f3ea_4764_a57a_c7caa4859179
+                                                           ] .
+
+
+###  http://emmo.info/emmo#EMMO_f76f5a24_d703_4e8c_b368_f9a7777cb73a
+:EMMO_f76f5a24_d703_4e8c_b368_f9a7777cb73a rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_c2f5ee66_579c_44c6_a2e9_fa2eaa9fa4da ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Unit for quantities of dimension one that are the fraction of two amount of substance."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Unit for amount fraction."@en ;
+                                           skos:prefLabel "AmountFractionUnit"@en .
+
+
+###  http://emmo.info/emmo#EMMO_f8b92999_3cde_46e3_99d5_664da3090a02
+:EMMO_f8b92999_3cde_46e3_99d5_664da3090a02 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_591e02fd_8d37_45a6_9d11_bb21cef391a0 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                             owl:someValuesFrom :EMMO_77e9dc31_5b19_463e_b000_44c6e79f98aa
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                             owl:hasValue "t"
+                                                           ] ;
+                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/TON_M" ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A non-SI unit defined as 1000 kg."@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Tonne" ;
+                                           :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.T06394" ;
+                                           skos:prefLabel "Tonne"@en .
+
+
+###  http://emmo.info/emmo#EMMO_f992dc76_f9a6_45f6_8873_c8e20d16fbbe
+:EMMO_f992dc76_f9a6_45f6_8873_c8e20d16fbbe rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_52e4cb25_da39_45e2_a6db_063ec5730499 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                             owl:someValuesFrom :EMMO_77e9dc31_5b19_463e_b000_44c6e79f98aa
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                             owl:hasValue "g"
+                                                           ] ;
+                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/GM" ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "Gram is defined as one thousandth of the SI unit kilogram."@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Gram" ;
+                                           :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.G02680" ;
+                                           skos:prefLabel "Gram"@en .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

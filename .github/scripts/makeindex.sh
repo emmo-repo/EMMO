@@ -4,7 +4,11 @@
 #
 # Parse $rootdir/.github/versions.txt and generate index.html file on
 # github pages.
+#
+# Options:
+#   -v  Verbose.  Print commands as they are executed.
 set -e
+
 
 # Configurations
 pages_url="https://emmo-repo.github.io"
@@ -19,7 +23,14 @@ pagesdir="$ghdir/pages"
 versionsfile="$ghdir/versions.txt"
 tmpfile="$tmpdir/versions_html_table.txt"
 
-mkdir -p "$tmpdir"
+# Parse options
+while getopts "rv" arg; do
+    case $arg in
+        v)  set -x;;
+    esac
+done
+
+[ -d "$tmpdir" ] || mkdir -p "$tmpdir"
 
 # Initiate github pages
 "$rootdir/.github/scripts/init_pages.sh"
@@ -33,14 +44,19 @@ rm -rf "$tmpfile"
 while read version name; do
     [ -z "$name" ] && name=$version
     iri=$emmo_url/$version
+    d=$pages_url/versions/$version
     inferred=$pages_url/versions/$version/emmo-inferred.owl
-    inferred_iri=$iri/emmo-inferred.owl
+    inferred_iri=$iri/emmo-inferred
     html=$pages_url/versions/$version/emmo.html
     pdf=$pages_url/versions/$version/emmo.pdf
     echo "  <tr>" >> "$tmpfile"
     echo "    <td>$name</td>" >> "$tmpfile"
     tdlink $iri $iri >> "$tmpfile"
-    tdlink $inferred $inferred_iri >> "$tmpfile"
+    tdlink $d/emmo.owl $version >> "$tmpfile"
+    tdlink $d/emmo.ttl $version >> "$tmpfile"
+    #tdlink $inferred $inferred_iri >> "$tmpfile"
+    tdlink $inferred $version >> "$tmpfile"
+    tdlink $d/emmo-inferred.ttl $version >> "$tmpfile"
     tdlink $html $version >> "$tmpfile"
     tdlink $pdf $version >> "$tmpfile"
     echo "  </tr>" >> "$tmpfile"

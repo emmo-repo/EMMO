@@ -1,0 +1,363 @@
+@prefix : <http://emmo.info/emmo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <http://emmo.info/emmo/middle/properties> .
+
+<http://emmo.info/emmo/middle/properties> rdf:type owl:Ontology ;
+                                           owl:versionIRI <http://emmo.info/emmo/1.0.0-beta/middle/properties> ;
+                                           owl:imports <http://emmo.info/emmo/1.0.0-beta/middle/perceptual> ,
+                                                       <http://emmo.info/emmo/1.0.0-beta/middle/semiotics> ;
+                                           dcterms:abstract """Defines properties as the result of an observation process. Observation is a semiotic process that stimulate an interpretant within the interpreter who communicates the perception result to other interpreters through a sign, which is the property.
+
+Hence, properties creates a link between the holistic and the perceptual perspectives.
+
+Subclasses of property are subclasses that spesialise the type of observation process."""@en ;
+                                           dcterms:contributor "Access, DE" ,
+                                                               "Fraunhofer IWM, DE" ,
+                                                               "Goldbeck Consulting Ltd (UK)" ,
+                                                               "SINTEF, NO" ,
+                                                               "University of Bologna, IT" ;
+                                           dcterms:creator "Adham Hashibon" ,
+                                                           "Emanuele Ghedini" ,
+                                                           "Georg Schmitz" ,
+                                                           "Gerhard Goldbeck" ,
+                                                           "Jesper Friis" ;
+                                           dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+                                           dcterms:publisher "EMMC ASBL" ;
+                                           dcterms:title "Properties"@en ;
+                                           rdfs:comment """Contacts:
+Gerhard Goldbeck
+Goldbeck Consulting Ltd (UK)
+email: gerhard@goldbeck-consulting.com
+
+Emanuele Ghedini
+University of Bologna (IT)
+email: emanuele.ghedini@unibo.it"""@en ,
+                                                        "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
+                                           owl:versionInfo "1.0.0-beta" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2002/07/owl#qualifiedCardinality
+owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://emmo.info/emmo#EMMO_0aa934ee_1ad4_4345_8a7f_bc73ec67c7e5
+:EMMO_0aa934ee_1ad4_4345_8a7f_bc73ec67c7e5 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_e1097637_70d2_4895_973f_2396f04fa204 ;
+                                           rdfs:range :EMMO_dd4a7f3e_ef56_466c_ac1a_d2716b5f87ec ;
+                                           skos:prefLabel "hasQuantitativeProperty"@en .
+
+
+###  http://emmo.info/emmo#EMMO_16b510a6_0584_4134_bdb6_3bc185c17860
+:EMMO_16b510a6_0584_4134_bdb6_3bc185c17860 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_0aa934ee_1ad4_4345_8a7f_bc73ec67c7e5 ;
+                                           rdfs:range :EMMO_d8aa8e1f_b650_416d_88a0_5118de945456 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Assigns a quantity to an object by convention."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "An Hydrogen atom has the quantity atomic number Z = 1 as its conventional property."@en ;
+                                           rdfs:comment """An object can be represented by a quantity for the fact that it has been recognized to belong to a specific class.
+
+The quantity is selected without an observation aimed to measure its actual value, but by convention.""" ;
+                                           skos:prefLabel "hasConventionalQuantity"@en .
+
+
+###  http://emmo.info/emmo#EMMO_b8f79e53_2ad4_441d_87ff_284a5c419e46
+:EMMO_b8f79e53_2ad4_441d_87ff_284a5c419e46 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_0aa934ee_1ad4_4345_8a7f_bc73ec67c7e5 ;
+                                           rdfs:range :EMMO_d0200cf1_e4f4_45ae_873f_b9359daea3cd ;
+                                           skos:prefLabel "hasModelledQuantity"@en .
+
+
+###  http://emmo.info/emmo#EMMO_e1097637_70d2_4895_973f_2396f04fa204
+:EMMO_e1097637_70d2_4895_973f_2396f04fa204 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b ;
+                                           rdfs:domain :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b ;
+                                           rdfs:range :EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba ;
+                                           skos:prefLabel "hasProperty"@en .
+
+
+###  http://emmo.info/emmo#EMMO_fd689787_31b0_41cf_bf03_0d69af76469d
+:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_0aa934ee_1ad4_4345_8a7f_bc73ec67c7e5 ;
+                                           rdfs:range :EMMO_873b0ab3_88e6_4054_b901_5531e01f14a4 ;
+                                           skos:prefLabel "hasMeasuredQuantity"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://emmo.info/emmo#EMMO_0f6f0120_c079_4d95_bb11_4ddee05e530e
+:EMMO_0f6f0120_c079_4d95_bb11_4ddee05e530e rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_2a888cdf_ec4a_4ec5_af1c_0343372fc978 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Result of a measurement.
+
+A MeasurementResult is in EMMO expressed as a single MeasurendQuantitativeProperty and a MeasuredUncertainty"""@en ;
+                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "measurement result"@en ;
+                                           rdfs:comment "A measurement result generally contains “relevant information” about the set of measured quantity properties, such that some may be more representative of the measured quantity than others. This may be expressed in the form of a probability density function (pdf)."@en ;
+                                           skos:prefLabel "MeasurementResult"@en .
+
+
+###  http://emmo.info/emmo#EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069
+:EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_008fd3b2_4013_451f_8827_52bceab11841 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
+                                                             owl:someValuesFrom :EMMO_1b52ee70_121e_4d8d_8419_3f97cd0bd89c
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
+                                                             owl:someValuesFrom :EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Semiosis' that involves an 'Observer' that perceives another 'Physical' (the 'Object') through a specific perception mechanism and produces a 'Property' (the 'Sign') that stands for the result of that particular perception."@en ;
+                                           skos:prefLabel "Observation"@en .
+
+
+###  http://emmo.info/emmo#EMMO_1b52ee70_121e_4d8d_8419_3f97cd0bd89c
+:EMMO_1b52ee70_121e_4d8d_8419_3f97cd0bd89c rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An 'interpreter' that perceives another 'entity' (the 'object') through a specific perception mechanism and produces a 'property' (the 'sign') that stands for the result of that particular perception."@en ;
+                                           skos:prefLabel "Observer"@en .
+
+
+###  http://emmo.info/emmo#EMMO_251cfb4f_5c75_4778_91ed_6c8395212fd8
+:EMMO_251cfb4f_5c75_4778_91ed_6c8395212fd8 rdf:type owl:Class ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Property' that cannot be univocally determined and depends on an agent (e.g. a human individual, a community) acting as black-box."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """The beauty of that girl.
+The style of your clothing."""@en ;
+                                           rdfs:comment """The word subjective means that a non-well defined or an unknown procedure is used for the definition of the property.
+
+This happens due to e.g. the complexity of the object, the lack of a underlying model for the representation of the object, the non-well specified meaning of the property symbols.
+
+A 'SubjectiveProperty' cannot be used to univocally compare 'Object'-s.
+
+e.g. you cannot evaluate the beauty of a person on objective basis."""@en ;
+                                           skos:prefLabel "SubjectiveProperty"@en .
+
+
+###  http://emmo.info/emmo#EMMO_2a888cdf_ec4a_4ec5_af1c_0343372fc978
+:EMMO_2a888cdf_ec4a_4ec5_af1c_0343372fc978 rdf:type owl:Class ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Property' that is determined by each 'Observer' following a well defined 'Observation' procedure through a specific perception channel."@en ;
+                                           rdfs:comment "The word objective does not mean that each observation will provide the same results. It means that the observation followed a well defined procedure."@en ,
+                                                        "This class refers to what is commonly known as physical property, i.e. a measurable property of physical system, whether is quantifiable or not."@en ;
+                                           skos:prefLabel "ObjectiveProperty"@en .
+
+
+###  http://emmo.info/emmo#EMMO_463bcfda_867b_41d9_a967_211d4d437cfb
+:EMMO_463bcfda_867b_41d9_a967_211d4d437cfb rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
+                                                             owl:someValuesFrom :EMMO_0f6f0120_c079_4d95_bb11_4ddee05e530e
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
+                                                             owl:someValuesFrom :EMMO_7dea2572_ab42_45bd_9fd7_92448cec762a
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An 'observation' that results in a quantitative comparison of a 'property' of an 'object' with a standard reference."@en ;
+                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "measurement"@en ;
+                                           rdfs:comment """A measurement is the process of experimentally obtaining one or more measurement results that can reasonably be attributed to a quantity.
+
+-- VIM"""@en ;
+                                           skos:prefLabel "Measurement"@en .
+
+
+###  http://emmo.info/emmo#EMMO_7dea2572_ab42_45bd_9fd7_92448cec762a
+:EMMO_7dea2572_ab42_45bd_9fd7_92448cec762a rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_1b52ee70_121e_4d8d_8419_3f97cd0bd89c ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
+                                                             owl:someValuesFrom :EMMO_f2d5d3ad_2e00_417f_8849_686f3988d929
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A set of one or more 'MeasuringInstruments' and often other devices, including any reagent and supply, assembled and adapted to give information used to generate 'MeasuredQuantityProperty' within specified intervals for quantities of specified kinds.
+
+-- VIM"""@en ;
+                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "measuring system"@en ;
+                                           skos:prefLabel "MeasuringSystem"@en .
+
+
+###  http://emmo.info/emmo#EMMO_847724b7_acef_490e_9f0d_67da967f2812
+:EMMO_847724b7_acef_490e_9f0d_67da967f2812 rdf:type owl:Class ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A non-negative parameter characterising the dispersion of the quantity being measured."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """- Standard deviation
+
+- Half-width of an interval with a stated coverage probability"""@en ;
+                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "measured uncertainty"@en ;
+                                           rdfs:comment "In general, for a given set of information, it is understood that the measurement uncertainty is associated with a stated quantity value. A modification of this value results in a modification of the associated uncertainty."@en ,
+                                                        "Measurement uncertainty includes components arising from systematic effects, such as components associated with corrections and the assigned quantity values of measurement standards, as well as the definitional uncertainty. Sometimes estimated systematic effects are not corrected for but, instead, associated measurement uncertainty components are incorporated."@en ;
+                                           skos:prefLabel "MeasuredUncertainty"@en .
+
+
+###  http://emmo.info/emmo#EMMO_873b0ab3_88e6_4054_b901_5531e01f14a4
+:EMMO_873b0ab3_88e6_4054_b901_5531e01f14a4 rdf:type owl:Class ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Measured value of a quantity representing a 'MeasurementResult'.
+
+-- VIM"""@en ;
+                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "measured quantity value"@en ;
+                                           rdfs:comment """For a measurement involving replicate indications, each indication can be used to provide a corresponding 'MeasuredQuantityProperty'. This set of individual measured quantity properties can be used to
+calculate a resulting measured quantity property, such as an average or median, usually with a decreased associated 'MeasuredUncertainty'.
+
+-- VIM"""@en ;
+                                           skos:altLabel "MeasuredQuantityValue"@en ;
+                                           skos:prefLabel "MeasuredQuantitativeProperty"@en .
+
+
+###  http://emmo.info/emmo#EMMO_909415d1_7c43_4d5e_bbeb_7e1910159f66
+:EMMO_909415d1_7c43_4d5e_bbeb_7e1910159f66 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_2a888cdf_ec4a_4ec5_af1c_0343372fc978 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An 'ObjectiveProperty' that cannot be quantified."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """CFC is a 'sign' that stands for the fact that the morphology of atoms composing the microstructure of an entity is predominantly Cubic Face Centered
+
+A color is a nominal property.
+
+Sex of a human being."""@en ;
+                                           rdfs:comment """\"Property of a phenomenon, body, or substance, where the property has no magnitude.\"
+
+\"A nominal property has a value, which can be expressed in words, by alphanumerical codes, or by other means.\"
+
+International vocabulary of metrology (VIM)"""@en ;
+                                           skos:prefLabel "NominalProperty"@en .
+
+
+###  http://emmo.info/emmo#EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba
+:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_e1097637_70d2_4895_973f_2396f04fa204
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b
+                                                           ] ;
+                                           owl:disjointUnionOf ( :EMMO_251cfb4f_5c75_4778_91ed_6c8395212fd8
+                                                                 :EMMO_2a888cdf_ec4a_4ec5_af1c_0343372fc978
+                                                               ) ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A 'Perceptual' referring to a specific code that is used as 'Conventional' sign to represent an 'Object' according to a specific interaction mechanism by an 'Observer'.
+
+(A property is always a partial representation of an 'Object' since it reflects the 'Object' capability to be part of a specific 'Observation' process)"""@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """Hardness is a subclass of properties.
+
+Vickers hardness is a subclass of hardness that involves the procedures and instruments defined by the standard hardness test."""@en ,
+                                                                                      """Let's define the class 'colour' as the subclass of the properties that involve photon emission and an electromagnetic radiation sensible observer.
+
+An individual C of this class 'colour' can be defined be declaring the process individual (e.g. daylight illumination) and the observer (e.g. my eyes)
+
+Stating that an entity E hasProperty C, we mean that it can be observed by such setup of process + observer (i.e. observed by my eyes under daylight).
+
+This definition can be generalized by using a generic human eye, so that the observer can be a generic human.
+
+This can be used in material characterization, to define exactly the type of measurement done, including the instrument type."""@en ;
+                                           rdfs:comment """A 'Property' is a sort of name or label that we put upon objects that interact with an observer in the same specific way.
+
+e.g. \"hot\" objects are objects that interact with an observer through a perception mechanism aimed to perceive an heat source."""@en ,
+                                                        """We know real world entities through observation/perception.
+
+A non-perceivable real world entity does not exist (or it exists on a plane of existance that has no intersection with us and we can say nothing about it).
+
+Perception/observation of a real wolrd entity occurs when the entity stimulate an observer in a peculiar way through a well defined perception channel.
+
+For this reason each property is related to a specific observation process which involves a specific observer with its own perception mechanisms.
+
+The observation process (e.g. a look, a photo shot, a measurement) is performed  by an observer (e.g. you, a camera, an instrument) through a specific perception mechanism (e.g. retina impression, CMOS excitation, piezoelectric sensor activation) and involves an observed entity.
+
+An observation is a semiotic process, since it stimulate an interpretant within the interpreter who can communicate the perception result to other interpreters through a sign which is the property.
+
+Property subclasses are specializations that depend on the type of observation processes.
+
+e.g. the property 'colour' is related to a process that involves emission or interaction of photon and an observer who can perceive electromagnetic radiation in the visible frequency range.
+
+Properties usually relies on symbolic systems (e.g. for colour it can be palette or RGB)."""@en ;
+                                           skos:prefLabel "Property"@en .
+
+
+###  http://emmo.info/emmo#EMMO_d0200cf1_e4f4_45ae_873f_b9359daea3cd
+:EMMO_d0200cf1_e4f4_45ae_873f_b9359daea3cd rdf:type owl:Class ;
+                                           skos:prefLabel "ModelledQuantitativeProperty"@en .
+
+
+###  http://emmo.info/emmo#EMMO_d8aa8e1f_b650_416d_88a0_5118de945456
+:EMMO_d8aa8e1f_b650_416d_88a0_5118de945456 rdf:type owl:Class ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A quantitative property attributed by agreement to a quantity for a given purpose."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """The thermal conductivity of a copper sample in my laboratory can be assumed to be the conductivity that appears in the vendor specification. This value has been obtained by measurement of a sample which is not the one I have in my laboratory. This conductivity value is then a conventional quantitiative property assigned to my sample through a semiotic process in which no actual measurement is done by my laboratory.
+
+If I don't believe the vendor, then I can measure the actual thermal conductivity. I then perform a measurement process that semiotically assign another value for the conductivity, which is a measured property, since is part of a measurement process.
+
+Then I have two different physical quantities that are properties thanks to two different semiotic processes."""@en ;
+                                           rdfs:comment "A property that is associated to an object by convention, or assumption."@en ;
+                                           skos:prefLabel "ConventionalQuantitativeProperty"@en .
+
+
+###  http://emmo.info/emmo#EMMO_dd4a7f3e_ef56_466c_ac1a_d2716b5f87ec
+:EMMO_dd4a7f3e_ef56_466c_ac1a_d2716b5f87ec rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_847724b7_acef_490e_9f0d_67da967f2812
+                                                                               :EMMO_873b0ab3_88e6_4054_b901_5531e01f14a4
+                                                                               :EMMO_d0200cf1_e4f4_45ae_873f_b9359daea3cd
+                                                                               :EMMO_d8aa8e1f_b650_416d_88a0_5118de945456
+                                                                             )
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_2a888cdf_ec4a_4ec5_af1c_0343372fc978 ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 """\"A property of a phenomenon, body, or substance, where the property has a magnitude that can be expressed by means of a number and a reference\"
+ISO 80000-1
+
+\"A reference can be a measurement unit, a measurement procedure, a reference material, or a combination of such.\"
+International vocabulary of metrology (VIM)"""@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Quantity' that can be quantified with respect to a standardized reference physical instance (e.g. the prototype meter bar, the kg prototype) or method (e.g. resilience) through a measurement process."@en ;
+                                           rdfs:comment """A quantitative property is always expresssed as a quantity (i.e. a number and a reference unit). For the EMMO, a nominalistic ontology, there is no property as abstract object.
+
+A property is a sign that stands for an object according to a specific code shared by some observers.
+
+For quantititative properties, one possible code that is shared between the scientific community (the observers) is the SI system of units."""@en ,
+                                                        "Subclasses of 'QuantitativeProperty' classify objects according to the type semiosis that is used to connect the property to the object (e.g. by measurement, by convention, by modelling)."@en ;
+                                           skos:prefLabel "QuantitativeProperty"@en .
+
+
+###  http://emmo.info/emmo#EMMO_f2d5d3ad_2e00_417f_8849_686f3988d929
+:EMMO_f2d5d3ad_2e00_417f_8849_686f3988d929 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_1b52ee70_121e_4d8d_8419_3f97cd0bd89c ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Device used for making measurements, alone or in conjunction with one or more supplementary devices.
+
+-- VIM"""@en ;
+                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "measuring instrument"@en ;
+                                           rdfs:comment "A measuring instrument that can be used alone is a measuring system."@en ;
+                                           skos:prefLabel "MeasuringInstrument"@en .
+
+
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+] .
+
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
