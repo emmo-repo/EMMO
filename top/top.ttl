@@ -56,6 +56,8 @@ email: emanuele.ghedini@unibo.it"""@en , "The EMMO requires FacT++ reasoner plug
 # http://emmo.info/emmo#EMMO_705f27ae_954c_4f13_98aa_18473fc52b25
 
 :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 a owl:AnnotationProperty ;
+	rdfs:comment "Definitions are usually taken from Wiktionary"@en ;
+	rdfs:seeAlso "https://en.wiktionary.org/wiki/Wiktionary"@en ;
 	skos:prefLabel "etymology"@en ;
 	rdfs:subPropertyOf rdfs:comment ;
 	rdfs:range xsd:string .
@@ -229,13 +231,13 @@ Items being connected means that there is a topological contact or \"interaction
 # http://emmo.info/emmo#EMMO_6e046dd0_9634_4013_b2b1_9cc468087c83
 
 :EMMO_6e046dd0_9634_4013_b2b1_9cc468087c83 a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+	rdfs:subPropertyOf :dc57d998_23db_4d8e_b2cd_f346b195b846 ;
 	a owl:TransitiveProperty ;
 	rdfs:domain :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
 	rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
 	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A proper part of the whole that is not Spatial or Temporal."@en ;
 	rdfs:comment "This relation catche generic parts of a 4D object that does not fully cover the lifetime extent of the whole (spatial) nor the full spatial extent (temporal)."@en ;
-	skos:prefLabel "hasSpatioTemporalPart"@en .
+	skos:prefLabel "hasIncidentalSpatialPart"@en .
 # 
 # http://emmo.info/emmo#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6
 
@@ -327,12 +329,18 @@ Items being connected means that there is a topological contact or \"interaction
 # http://emmo.info/emmo#EMMO_f68030be_94b8_4c61_a161_886468558054
 
 :EMMO_f68030be_94b8_4c61_a161_886468558054 a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+	rdfs:subPropertyOf :dc57d998_23db_4d8e_b2cd_f346b195b846 ;
 	a owl:TransitiveProperty ;
 	rdfs:domain :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
 	rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
 	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that identify a proper part of the whole that extends itself in time along the overall lifetime of the whole, and whose parts never cover the full spatial extension of the 4D whole."@en ;
 	rdfs:comment "In EMMO FOL this is a defined property. In OWL spatial relations are primitive."@en ;
+	skos:prefLabel "hasEssentialSpatialPart"@en .
+# 
+# http://emmo.info/emmo#dc57d998_23db_4d8e_b2cd_f346b195b846
+
+:dc57d998_23db_4d8e_b2cd_f346b195b846 a owl:ObjectProperty ;
+	rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
 	skos:prefLabel "hasSpatialPart"@en .
 # 
 # 
