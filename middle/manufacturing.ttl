@@ -38,6 +38,32 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                               owl:versionInfo "1.0.0-beta" .
 
 #################################################################
+#    Object Properties
+#################################################################
+
+###  http://emmo.info/emmo#0e86a108_9d4d_4582_8126_f0c527d81901
+<http://emmo.info/emmo#0e86a108_9d4d_4582_8126_f0c527d81901> rdf:type owl:ObjectProperty ;
+                                                             rdfs:subPropertyOf <http://emmo.info/emmo#0ee9e6a2_9240_4b1d_ac9a_f72416c7dc70> ;
+                                                             rdfs:domain :bafc17b5_9be4_4823_8bbe_ab4e90b6738c ;
+                                                             rdfs:range :EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad ;
+                                                             skos:prefLabel "hasManufacturedOutput"@en .
+
+
+###  http://emmo.info/emmo#0ee9e6a2_9240_4b1d_ac9a_f72416c7dc70
+<http://emmo.info/emmo#0ee9e6a2_9240_4b1d_ac9a_f72416c7dc70> rdf:type owl:ObjectProperty ;
+                                                             rdfs:subPropertyOf :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 ;
+                                                             rdfs:range :EMMO_82fc8506_1f84_4add_9683_abea077bd1e3 ;
+                                                             skos:prefLabel "hasProductOutput"@en .
+
+
+###  http://emmo.info/emmo#44d5f29a_6a9b_4f5d_9405_20ca553cd4d3
+<http://emmo.info/emmo#44d5f29a_6a9b_4f5d_9405_20ca553cd4d3> rdf:type owl:ObjectProperty ;
+                                                             rdfs:subPropertyOf <http://emmo.info/emmo#0ee9e6a2_9240_4b1d_ac9a_f72416c7dc70> ;
+                                                             rdfs:range <http://emmo.info/emmo#127594de_4802_4ad6_b09d_d05b340394dd> ;
+                                                             skos:prefLabel "hasServiceOutput"@en .
+
+
+#################################################################
 #    Classes
 #################################################################
 
@@ -85,6 +111,30 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A manufacturing process whose product is the result of the combination of more substances."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Synthesis of materials, the preparation of a cake."@en ;
                                            skos:prefLabel "ContinuumManufacturing"@en .
+
+
+###  http://emmo.info/emmo#EMMO_82fc8506_1f84_4add_9683_abea077bd1e3
+:EMMO_82fc8506_1f84_4add_9683_abea077bd1e3 rdf:type owl:Class ;
+                                           rdfs:subClassOf :aaad78a9_abaf_4f97_9c1a_d763a94c4ba3 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The overall lifetime of an holistic that has been the output of an intentional process."@en ;
+                                           <http://emmo.info/emmo#3aa37f92_8dc5_4ee4_8438_e41e6ae20c62> "https://www.iso.org/obp/ui/#iso:std:iso:14040:ed-2:v1:en:term:3.9"@en ,
+                                                                                                        "https://www.iso.org/obp/ui/#iso:std:iso:9000:ed-3:v1:en:term:3.4.2"@en ;
+                                           rdfs:comment """This concepts encompass the overall lifetime of a product.
+
+Is temporaly fundamental, meaning that it can have other products as holistic spatial parts, but its holistic temporal parts are not products. In other words, the individual must encompass the whole lifetime from creation to disposal.
+
+A product can be a tangible object (e.g. a manufactured object), a process (e.g. service). It can be the outcome of a natural or an artificially driven process.
+
+It must have and initial stage of its life that is also an outcome of a intentional process."""@en ;
+                                           skos:altLabel "Output"@en ;
+                                           skos:prefLabel "Product"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_82fc8506_1f84_4add_9683_abea077bd1e3 ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "Product"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin productum ‘something produced’, derived from Latin producere, from pro- ‘forward’ + ducere ‘to lead’."@en
+ ] .
 
 
 ###  http://emmo.info/emmo#EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad
