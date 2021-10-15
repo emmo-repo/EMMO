@@ -10,7 +10,9 @@
 
 <http://emmo.info/emmo/domain/metrology> rdf:type owl:Ontology ;
                                           owl:versionIRI <http://emmo.info/emmo/1.0.0-beta/domain/metrology> ;
-                                          owl:imports <http://emmo.info/emmo/1.0.0-beta/middle/physicalistic> ,
+                                          owl:imports <http://emmo.info/emmo/1.0.0-beta/domain/math> ,
+                                                      <http://emmo.info/emmo/1.0.0-beta/middle/persholistic> ,
+                                                      <http://emmo.info/emmo/1.0.0-beta/middle/physicalistic> ,
                                                       <http://emmo.info/emmo/1.0.0-beta/middle/properties> ,
                                                       <http://emmo.info/emmo/1.0.0-beta/middle/symbolic> ;
                                           dcterms:abstract """Defines the formal language of metrology, including theoretical and practical aspects of measurements.
@@ -62,7 +64,11 @@ email: emanuele.ghedini@unibo.it"""@en ,
 
 
 ###  http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc
-<http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> rdf:type owl:AnnotationProperty .
+<http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> rdf:type owl:AnnotationProperty ;
+                                                             <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "URL to corresponing entity in QUDT."@en ;
+                                                             rdfs:seeAlso "http://www.qudt.org/2.1/catalog/qudt-catalog.html"@en ;
+                                                             skos:prefLabel "qudtEntry"@en ;
+                                                             rdfs:subPropertyOf rdfs:seeAlso .
 
 
 #################################################################
@@ -228,7 +234,7 @@ So, for the EMMO the symbol \"kg\" is not a physical quantity but a 'Measurement
                                                             <http://emmo.info/emmo#89762966_8076_4f7c_b745_f718d653e8e2>
                                                           ) ;
                                       :c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/List_of_physical_constants" ;
-                                      rdfs:comment """Physical constants are categorised into \"exact\" and measured constants. 
+                                      <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> """Physical constants are categorised into \"exact\" and measured constants.
 
 With \"exact\" constants, we refer to physical constants that have an exact numerical value after the revision of the SI system that was enforsed May 2019."""@en ;
                                       skos:prefLabel "PhysicalConstant"@en .
@@ -299,12 +305,6 @@ Then I have two different physical quantities that are properties thanks to two 
                                       skos:prefLabel "ConventionalQuantitativeProperty"@en .
 
 
-###  http://emmo.info/emmo#daf05011_df3f_44a0_bb31_f8d565d7a854
-:daf05011_df3f_44a0_bb31_f8d565d7a854 rdf:type owl:Class ;
-                                      rdfs:subClassOf <http://emmo.info/emmo#79751276_b2d0_4e2f_bbd4_99d412f43d55> ;
-                                      skos:prefLabel "PhysicoChemical"@en .
-
-
 ###  http://emmo.info/emmo#db716151_6b73_45ff_910c_d182fdcbb4f5
 :db716151_6b73_45ff_910c_d182fdcbb4f5 rdf:type owl:Class ;
                                       <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "A set of units that correspond to the base quantities in a system of units."@en ;
@@ -328,12 +328,6 @@ A property is a sign that stands for an object according to a specific code shar
 For quantititative properties, one possible code that is shared between the scientific community (the observers) is the SI system of units."""@en ,
                                                    "Subclasses of 'QuantitativeProperty' classify objects according to the type semiosis that is used to connect the property to the object (e.g. by measurement, by convention, by modelling)."@en ;
                                       skos:prefLabel "QuantitativeProperty"@en .
-
-
-###  http://emmo.info/emmo#dd60a650_1b2f_4080_8f8d_96e87edabea9
-:dd60a650_1b2f_4080_8f8d_96e87edabea9 rdf:type owl:Class ;
-                                      rdfs:subClassOf <http://emmo.info/emmo#79751276_b2d0_4e2f_bbd4_99d412f43d55> ;
-                                      skos:prefLabel "Universal"@en .
 
 
 ###  http://emmo.info/emmo#f2d5d3ad_2e00_417f_8849_686f3988d929
@@ -374,7 +368,7 @@ For quantititative properties, one possible code that is shared between the scie
 
 However, a quantitative property is always a quantity."""@en ,
                                                    "Referred as Quantity Value in International vocabulary of metrology (VIM)"@en ,
-                                                   """SI distinguishes between a quantity (an abstract concept) and the quantity value (a number and a reference). 
+                                                   """SI distinguishes between a quantity (an abstract concept) and the quantity value (a number and a reference).
 
 The EMMO, following strict nominalism, denies the existence of abstract objects and then collapses the two concepts of SI quantity and SI quantity value into a single one: the 'Quantity'.
 
@@ -382,18 +376,6 @@ So, for the EMMO the symbol \"kg\" is not a physical quantity but simply a 'Symb
 
 While the string \"1 kg\" is a 'Physical Quantity'."""@en ;
                                       skos:prefLabel "Quantity"@en .
-
-
-###  http://emmo.info/emmo#f68728e9_10a9_4d56_8d9f_e1f15d4c34a9
-:f68728e9_10a9_4d56_8d9f_e1f15d4c34a9 rdf:type owl:Class ;
-                                      rdfs:subClassOf <http://emmo.info/emmo#79751276_b2d0_4e2f_bbd4_99d412f43d55> ;
-                                      skos:prefLabel "FrequentlyUsed"@en .
-
-
-###  http://emmo.info/emmo#ff7ac91b_1b4b_483e_b51b_44c9164dbb9f
-:ff7ac91b_1b4b_483e_b51b_44c9164dbb9f rdf:type owl:Class ;
-                                      rdfs:subClassOf <http://emmo.info/emmo#79751276_b2d0_4e2f_bbd4_99d412f43d55> ;
-                                      skos:prefLabel "Defined"@en .
 
 
 ###  http://emmo.info/emmo#0f6f0120_c079_4d95_bb11_4ddee05e530e
@@ -423,13 +405,13 @@ ISO 80000-1"""@en ,
                                                                           """Measured or simulated 'physical propertiy'-s are always defined by a physical law, connected to a physical entity through a model perspective and measurement is done according to the same model.
 
 Systems of units suggests that this is the correct approach, since except for the fundamental units (length, time, charge) every other unit is derived by mathematical relations between these fundamental units, implying a physical laws or definitions."""@en ,
-                                                                          """Measurement units of quantities of the same quantity dimension may be designated by the same name and symbol even when the quantities are not of the same kind. 
+                                                                          """Measurement units of quantities of the same quantity dimension may be designated by the same name and symbol even when the quantities are not of the same kind.
 
-For example, joule per kelvin and J/K are respectively the name and symbol of both a measurement unit of heat capacity and a measurement unit of entropy, which are generally not considered to be quantities of the same kind. 
+For example, joule per kelvin and J/K are respectively the name and symbol of both a measurement unit of heat capacity and a measurement unit of entropy, which are generally not considered to be quantities of the same kind.
 
-However, in some cases special measurement unit names are restricted to be used with quantities of specific kind only. 
+However, in some cases special measurement unit names are restricted to be used with quantities of specific kind only.
 
-For example, the measurement unit ‘second to the power minus one’ (1/s) is called hertz (Hz) when used for frequencies and becquerel (Bq) when used for activities of radionuclides. 
+For example, the measurement unit ‘second to the power minus one’ (1/s) is called hertz (Hz) when used for frequencies and becquerel (Bq) when used for activities of radionuclides.
 
 As another example, the joule (J) is used as a unit of energy, but never as a unit of moment of force, i.e. the newton metre (N · m)."""@en ,
                                                                           """— quantities of the same kind have the same quantity dimension,
@@ -448,9 +430,9 @@ ISO 80000-1"""@en ;
 ###  http://emmo.info/emmo#18ce5200_00f5_45bb_8c6f_6fb128cd41ae
 <http://emmo.info/emmo#18ce5200_00f5_45bb_8c6f_6fb128cd41ae> rdf:type owl:Class ;
                                                              rdfs:subClassOf <http://emmo.info/emmo#985bec21_989f_4b9e_a4b3_735d88099c3c> ;
-                                                             rdfs:comment """A reference can be a measurement unit, a measurement procedure, a reference material, or a combination of such.
-International vocabulary of metrology (VIM)"""@en ,
-                                                                          """A symbolic is recognized as reference unit also if it is not part of a quatity (e.g. as in the sentence \"the Bq is the reference unit of Becquerel\").
+                                                             <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> """A reference can be a measurement unit, a measurement procedure, a reference material, or a combination of such.
+International vocabulary of metrology (VIM)"""@en ;
+                                                             rdfs:comment """A symbolic is recognized as reference unit also if it is not part of a quatity (e.g. as in the sentence \"the Bq is the reference unit of Becquerel\").
 
 For this reason we can't declare the axiom:
 ReferenceUnit SubClassOf: inverse(hasReferenceUnit) some Quantity
@@ -473,12 +455,6 @@ This is peculiar to EMMO, where quantities (symbolic) are distinct with properti
                                                              :b432d2d5_25f4_4165_99c5_5935a7763c1a "Some examples are \"Pa\", \"m\" and \"J\"."@en ;
                                                              <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "A symbol that stands for a single unit."@en ;
                                                              skos:prefLabel "UnitSymbol"@en .
-
-
-###  http://emmo.info/emmo#3a591c4c_4cac_481e_b664_e2fef2312be8
-<http://emmo.info/emmo#3a591c4c_4cac_481e_b664_e2fef2312be8> rdf:type owl:Class ;
-                                                             rdfs:subClassOf <http://emmo.info/emmo#79751276_b2d0_4e2f_bbd4_99d412f43d55> ;
-                                                             skos:prefLabel "AtomicAndNuclear"@en .
 
 
 ###  http://emmo.info/emmo#3ee80521_3c23_4dd1_935d_9d522614a3e2
@@ -509,13 +485,9 @@ J stands for N m"""@en ;
                                                                                    owl:hasValue "T0 L0 M0 I0 Θ0 N0 J0"
                                                                                  ] ;
                                                              rdfs:subClassOf <http://emmo.info/emmo#9895a1b4_f0a5_4167_ac5e_97db40b8bfcc> ;
-                                                             rdfs:comment """\"The unit one is the neutral element of any system of units – necessary and present automatically.\"
+                                                             <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> """\"The unit one is the neutral element of any system of units – necessary and present automatically.\"
 SI Brochure"""@en ;
                                                              skos:prefLabel "DimensionOne"@en .
-
-
-###  http://emmo.info/emmo#4ce76d7f_03f8_45b6_9003_90052a79bfaa
-<http://emmo.info/emmo#4ce76d7f_03f8_45b6_9003_90052a79bfaa> rdf:type owl:Class .
 
 
 ###  http://emmo.info/emmo#463bcfda_867b_41d9_a967_211d4d437cfb
@@ -566,12 +538,6 @@ SI Brochure"""@en ;
                                                                              ] ;
                                                              <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "A symbol that stands for a concept in the language of the meterological domain of ISO 80000."@en ;
                                                              skos:prefLabel "MetrologicalSymbol"@en .
-
-
-###  http://emmo.info/emmo#523838e8_2af3_415c_855e_cb0283c3ac5e
-<http://emmo.info/emmo#523838e8_2af3_415c_855e_cb0283c3ac5e> rdf:type owl:Class ;
-                                                             rdfs:subClassOf <http://emmo.info/emmo#79751276_b2d0_4e2f_bbd4_99d412f43d55> ;
-                                                             skos:prefLabel "NonSIUnits"@en .
 
 
 ###  http://emmo.info/emmo#54ee6b5e_5261_44a8_86eb_5717e7fdb9d0
@@ -678,7 +644,7 @@ calculate a resulting measured quantity property, such as an average or median, 
 
 ###  http://emmo.info/emmo#89762966_8076_4f7c_b745_f718d653e8e2
 <http://emmo.info/emmo#89762966_8076_4f7c_b745_f718d653e8e2> rdf:type owl:Class ;
-                                                             rdfs:comment "Physical constant used to define a unit system. Hence, when expressed in that unit system they have an exact value with no associated uncertainty."@en ;
+                                                             <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "Physical constant used to define a unit system. Hence, when expressed in that unit system they have an exact value with no associated uncertainty."@en ;
                                                              skos:prefLabel "ExactConstant"@en .
 
 
@@ -704,12 +670,6 @@ Sex of a human being."""@en ;
 
 International vocabulary of metrology (VIM)"""@en ;
                                                              skos:prefLabel "NominalProperty"@en .
-
-
-###  http://emmo.info/emmo#96d5d42d_4f76_42f7_aa4b_720c39184fac
-<http://emmo.info/emmo#96d5d42d_4f76_42f7_aa4b_720c39184fac> rdf:type owl:Class ;
-                                                             rdfs:subClassOf <http://emmo.info/emmo#79751276_b2d0_4e2f_bbd4_99d412f43d55> ;
-                                                             skos:prefLabel "Electromagnetic"@en .
 
 
 ###  http://emmo.info/emmo#985bec21_989f_4b9e_a4b3_735d88099c3c
@@ -738,7 +698,7 @@ where the exponents α, β, γ, δ, ε, ζ and η, which are generally small int
                                                                           """The conventional symbolic representation of the dimension of a base quantity is a single upper case letter in roman (upright) type. The conventional symbolic representation of the dimension of a derived quantity is the product of powers of the dimensions of the base quantities according to the definition of the derived quantity. The dimension of a quantity Q is denoted by dim Q.
 ISO 80000-1"""@en ,
                                                                           """The expression used by the EMMO for physical dimensions is a metrological symbol (but a string at meta level, i.e. the ontologist level) like this:
- 
+
 Ta Lb Mc Id Θe Nf Jg
 
 where a, b, c, d, e, f and g are 0 or signed integers.
