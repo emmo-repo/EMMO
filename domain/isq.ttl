@@ -103,11 +103,49 @@ See the comments of PhysicalDimension for a description of this \"regex\" string
 
 ###  http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578
 <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> rdf:type owl:AnnotationProperty ;
+                                                             :b432d2d5_25f4_4165_99c5_5935a7763c1a "3-1.1  (ISO80000 reference to length)"@en ;
                                                              <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "Corresponding item number in ISO 80 000."@en ;
                                                              rdfs:seeAlso "https://www.iso.org/obp/ui/#iso:std:iso:80000:-1:ed-1:v1:en"@en ;
                                                              skos:prefLabel "ISO80000Reference"@en ;
-                                                             rdfs:subPropertyOf <http://emmo.info/emmo#3aa37f92_8dc5_4ee4_8438_e41e6ae20c62> ;
-                                                             rdfs:range xsd:anyURI .
+                                                             rdfs:subPropertyOf <http://emmo.info/emmo#3aa37f92_8dc5_4ee4_8438_e41e6ae20c62> .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://emmo.info/emmo/domain/isq#0f7fa54b_1642_44cc_aa1d_f613b6017d5e
+<http://emmo.info/emmo/domain/isq#0f7fa54b_1642_44cc_aa1d_f613b6017d5e> rdf:type owl:DatatypeProperty ;
+                                                                        rdfs:domain [ rdf:type owl:Class ;
+                                                                                      owl:unionOf ( :b081b346_7279_46ef_9a3d_2c088fcd79f4
+                                                                                                    <http://emmo.info/emmo#02c0621e_a527_4790_8a0f_2bb51973c819>
+                                                                                                  )
+                                                                                    ] ;
+                                                                        rdfs:range xsd:string ;
+                                                                        <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "A symbol that, following SI specifications, describe the physical dimensionality of a physical quantity and the exponents of the SI base units."@en ;
+                                                                        rdfs:comment """All physical quantities, with the exception of counts, are derived quantities, which may be written in terms of base quantities according to the equations of physics. The dimensions of the derived quantities are written as products of powers of the dimensions of the base quantities using the equations that relate the derived quantities to the base quantities.
+In general the dimension of any quantity Q is written in the form of a dimensional product,
+
+dim Q = T^α L^β M^γ I^δ Θ^ε N^ζ J^η
+
+where the exponents α, β, γ, δ, ε, ζ and η, which are generally small integers, which can be positive, negative, or zero, are called the dimensional exponents.
+(SI brochure)"""@en ,
+                                                                                     """The conventional symbolic representation of the dimension of a base quantity is a single upper case letter in roman (upright) type. The conventional symbolic representation of the dimension of a derived quantity is the product of powers of the dimensions of the base quantities according to the definition of the derived quantity. The dimension of a quantity Q is denoted by dim Q.
+ISO 80000-1"""@en ,
+                                                                                     """The expression used by the EMMO for physical dimensions is a metrological symbol (but a string at meta level, i.e. the ontologist level) like this:
+
+Ta Lb Mc Id Θe Nf Jg
+
+where a, b, c, d, e, f and g are 0 or signed integers.
+
+Regex for the physical dimension symbol for the EMMO is:
+^T([+-][1-9]|0) L([+-][1-9]|0) M([+-][1-9]|0) I([+-][1-9]|0) Θ([+-][1-9]|0) N([+-][1-9]|0) J([+-][1-9]|0)$
+
+Examples of correspondance between base units and physical dimensions are:
+mol -> T0 L0 M0 I0 Θ0 N+1 J0
+s -> T+1 L0 M0 I0 Θ0 N0 J0
+A/m2 -> T0 L0 M-2 I+1 Θ0 N0 J0"""@en ;
+                                                                        skos:prefLabel "hasPhysicalDimensionData"@en .
 
 
 #################################################################
@@ -156,6 +194,7 @@ See the comments of PhysicalDimension for a description of this \"regex\" string
                                       :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.V06643"@en ;
                                       <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/VolumeFraction" ;
                                       <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Volume_fraction"@en ;
+                                      <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "9-14" ;
                                       <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "Volume of a constituent of a mixture divided by the sum of volumes of all constituents prior to mixing."@en ;
                                       skos:prefLabel "VolumeFraction"@en .
 
@@ -169,6 +208,7 @@ See the comments of PhysicalDimension for a description of this \"regex\" string
                                       <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Torque" ;
                                       <http://emmo.info/emmo#50c298c2_55a2_4068_b3ac_4e948c33181f> "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=113-03-26" ;
                                       <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Torque" ;
+                                      <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "4-12.2" ;
                                       <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "The effectiveness of a force to produce rotation about an axis, measured by the product of the force and the perpendicular distance from the line of action of the force to the axis."@en ;
                                       rdfs:comment "Even though torque has the same physical dimension as energy, it is not of the same kind and can not be measured with energy units like joule or electron volt."@en ;
                                       skos:prefLabel "Torque"@en .
@@ -193,6 +233,7 @@ See the comments of PhysicalDimension for a description of this \"regex\" string
                                       <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/KineticEnergy" ;
                                       <http://emmo.info/emmo#50c298c2_55a2_4068_b3ac_4e948c33181f> "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=113-03-49" ;
                                       <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Kinetic_energy" ;
+                                      <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "4-28.2" ;
                                       <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "The energy of an object due to its motion."@en ;
                                       skos:prefLabel "KineticEnergy"@en .
 
@@ -204,6 +245,7 @@ See the comments of PhysicalDimension for a description of this \"regex\" string
                                       :e55f2d7c_9893_48cd_b4a4_fdf38253bd20 "http://www.ontology-of-units-of-measure.org/resource/om-2/Strain" ;
                                       <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Strain" ;
                                       <http://emmo.info/emmo#50c298c2_55a2_4068_b3ac_4e948c33181f> "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=113-03-57" ;
+                                      <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "4-17.1" ;
                                       <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "Change of the relative positions of parts of a body, excluding a displacement of the body as a whole."@en ;
                                       skos:prefLabel "Strain"@en .
 
@@ -216,6 +258,7 @@ See the comments of PhysicalDimension for a description of this \"regex\" string
                                       :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.G02579" ;
                                       <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/constant/MolarGasConstant" ;
                                       <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Gas_constant" ;
+                                      <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "9-37.1" ;
                                       <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "Equivalent to the Boltzmann constant, but expressed in units of energy per temperature increment per mole (rather than energy per temperature increment per particle)."@en ;
                                       skos:prefLabel "MolarGasConstant"@en .
 
@@ -252,6 +295,7 @@ See the comments of PhysicalDimension for a description of this \"regex\" string
                                       :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.T06321" ;
                                       <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "qudt.org/vocab/quantitykind/ThermodynamicTemperature" ;
                                       <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Thermodynamic_temperature" ;
+                                      <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "5-1" ;
                                       <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "Thermodynamic temperature is the absolute measure of temperature. It is defined by the third law of thermodynamics in which the theoretically lowest temperature is the null or zero point."@en ;
                                       skos:prefLabel "ThermodynamicTemperature"@en .
 
@@ -283,6 +327,7 @@ See the comments of PhysicalDimension for a description of this \"regex\" string
                                       :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.M03683" ;
                                       <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/MagneticFieldStrength" ;
                                       <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Magnetic_field" ;
+                                      <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "6-25" ;
                                       rdfs:comment "Strength of a magnetic field. Commonly denoted H."@en ;
                                       skos:prefLabel "MagneticFieldStrength"@en .
 
@@ -351,10 +396,15 @@ There are also some quantities that cannot be described in terms of the seven ba
                                       rdfs:subClassOf [ rdf:type owl:Restriction ;
                                                         owl:onProperty :bed1d005_b04e_4a90_94cf_02bc678a8569 ;
                                                         owl:someValuesFrom :d5f3e0e5_fc7d_4e64_86ad_555e74aaff84
+                                                      ] ,
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <http://emmo.info/emmo/domain/isq#0f7fa54b_1642_44cc_aa1d_f613b6017d5e> ;
+                                                        owl:hasValue "T0 L0 M0 I+1 Θ0 N0 J0"
                                                       ] ;
                                       :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.E01927" ;
                                       <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/ElectricCurrent" ;
                                       <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Electric_current" ;
+                                      <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "6-1" ;
                                       <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "A flow of electric charge."@en ;
                                       skos:prefLabel "ElectricCurrent"@en .
 
@@ -375,10 +425,15 @@ There are also some quantities that cannot be described in terms of the seven ba
                                       rdfs:subClassOf [ rdf:type owl:Restriction ;
                                                         owl:onProperty :bed1d005_b04e_4a90_94cf_02bc678a8569 ;
                                                         owl:someValuesFrom :b3600e73_3e05_479d_9714_c041c3acf5cc
+                                                      ] ,
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <http://emmo.info/emmo/domain/isq#0f7fa54b_1642_44cc_aa1d_f613b6017d5e> ;
+                                                        owl:hasValue "T0 L+1 M0 I0 Θ0 N0 J0"
                                                       ] ;
                                       :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.L03498" ;
                                       <http://emmo.info/emmo#50c298c2_55a2_4068_b3ac_4e948c33181f> "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=113-01-19" ;
                                       <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Length" ;
+                                      <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "3-1.1" ;
                                       <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "Extend of a spatial dimension."@en ;
                                       rdfs:comment "Length is a non-negative additive quantity attributed to a one-dimensional object in space."@en ;
                                       skos:prefLabel "Length"@en .
@@ -391,6 +446,7 @@ There are also some quantities that cannot be described in terms of the seven ba
                                       :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.C01245" ;
                                       <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/ElectricConductivity" ;
                                       <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Electrical_resistivity_and_conductivity" ;
+                                      <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "6-43" ;
                                       rdfs:comment """Measure of a material's ability to conduct an electric current.
 
 Conductivity is equeal to the resiprocal of resistivity."""@en ;
@@ -414,6 +470,7 @@ Conductivity is equeal to the resiprocal of resistivity."""@en ;
                                       :de178b12_5d35_4bca_8efa_a4193162571d "T-2 L-1 M+1 I0 Θ0 N0 J0" ;
                                       <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Stress" ;
                                       <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Stress_(mechanics)" ;
+                                      <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "4-15" ;
                                       rdfs:comment "Force per unit oriented surface area ."@en ,
                                                    "Measure of the internal forces that neighboring particles of a continuous material exert on each other."@en ;
                                       skos:prefLabel "Stress"@en .
@@ -430,6 +487,7 @@ Conductivity is equeal to the resiprocal of resistivity."""@en ;
                                       <http://emmo.info/emmo#50c298c2_55a2_4068_b3ac_4e948c33181f> "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=113-01-03" ;
                                       <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Time" ;
                                       <http://emmo.info/emmo#70fe84ff_99b6_4206_a9fc_9a8931836d84> "One-dimensional subspace of space-time, which is locally orthogonal to space."@en ;
+                                      <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "3-7" ;
                                       <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "The indefinite continued progress of existence and events that occur in apparently irreversible succession from the past through the present to the future."@en ;
                                       rdfs:comment "Time can be seen as the duration of an event or, more operationally, as \"what clocks read\"."@en ;
                                       skos:prefLabel "Time"@en .
@@ -482,6 +540,7 @@ Conductivity is equeal to the resiprocal of resistivity."""@en ;
                                       :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.W06664" ;
                                       <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Wavenumber" ;
                                       <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Wavenumber" ;
+                                      <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "3-18" ;
                                       rdfs:comment "The number of waves per unit length along the direction of propagation."@en ;
                                       skos:prefLabel "Wavenumber"@en .
 
@@ -516,8 +575,10 @@ Conductivity is equeal to the resiprocal of resistivity."""@en ;
                                       :a9b3d04c_7ceb_40a2_b8d3_28d514a770a8 "https://physics.nist.gov/cgi-bin/cuu/Value?mu0" ;
                                       :de178b12_5d35_4bca_8efa_a4193162571d "T-2 L+1 M+1 I-2 Θ0 N0 J0" ;
                                       <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/constant/ElectromagneticPermeabilityOfVacuum" ;
+                                      <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "6-26.1" ;
                                       rdfs:comment "The DBpedia and UIPAC Gold Book definitions (http://dbpedia.org/page/Vacuum_permeability,  https://doi.org/10.1351/goldbook.P04504) are outdated since May 20, 2019. It is now a measured constant."@en ,
                                                    "The value of magnetic permeability in a classical vacuum."@en ;
+                                      skos:altLabel "PermeabilityOfVacuum" ;
                                       skos:prefLabel "VacuumMagneticPermeability"@en .
 
 
@@ -528,6 +589,7 @@ Conductivity is equeal to the resiprocal of resistivity."""@en ;
                                       :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.R05316" ;
                                       <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Resistivity" ;
                                       <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Electrical_resistivity_and_conductivity" ;
+                                      <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "6-44" ;
                                       rdfs:comment "Electric field strength divided by the current density."@en ;
                                       skos:altLabel "Resistivity" ;
                                       skos:prefLabel "ElectricResistivity"@en .
@@ -540,6 +602,7 @@ Conductivity is equeal to the resiprocal of resistivity."""@en ;
                                       :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.L03646" ;
                                       <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/LuminousFlux" ;
                                       <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Luminous_flux" ;
+                                      <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "7-13" ;
                                       <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "Perceived power of light."@en ;
                                       skos:prefLabel "LuminousFlux"@en .
 
@@ -554,6 +617,7 @@ Conductivity is equeal to the resiprocal of resistivity."""@en ;
                                       :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.A00051" ;
                                       <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Acceleration" ;
                                       <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Acceleration" ;
+                                      <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "3-9.1" ;
                                       rdfs:comment "Derivative of velocity with respect to time."@en ;
                                       skos:prefLabel "Acceleration"@en .
 
@@ -586,6 +650,7 @@ Conductivity is equeal to the resiprocal of resistivity."""@en ;
                                       :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.S05732" ;
                                       <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/SolidAngle" ;
                                       <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Solid_angle" ;
+                                      <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "3-6" ;
                                       <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "Ratio of area on a sphere to its radius squared."@en ;
                                       skos:prefLabel "SolidAngle"@en .
 
@@ -597,6 +662,7 @@ Conductivity is equeal to the resiprocal of resistivity."""@en ;
                                       :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.E01936" ;
                                       <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Resistance" ;
                                       <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Electrical_resistance_and_conductance" ;
+                                      <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "6-46" ;
                                       <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "Measure of the difficulty to pass an electric current through a material."@en ;
                                       rdfs:comment "Inverse of 'ElectricalConductance'."@en ;
                                       skos:altLabel "Resistance"@en ;
@@ -661,6 +727,7 @@ Conductivity is equeal to the resiprocal of resistivity."""@en ;
                                       :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.M03709" ;
                                       <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Mass" ;
                                       <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Mass" ;
+                                      <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "4-1" ;
                                       <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "Property of a physical body that express its resistance to acceleration (a change in its state of motion) when a force is applied."@en ;
                                       skos:prefLabel "Mass"@en .
 
@@ -685,6 +752,7 @@ Conductivity is equeal to the resiprocal of resistivity."""@en ;
                                       :de178b12_5d35_4bca_8efa_a4193162571d "T0 L-3 M0 I0 Θ0 N0 J0" ;
                                       <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Volume" ;
                                       <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Volume" ;
+                                      <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "3-4" ;
                                       rdfs:comment "Extent of an object in space."@en ;
                                       skos:prefLabel "Volume"@en .
 
@@ -713,6 +781,7 @@ Conductivity is equeal to the resiprocal of resistivity."""@en ;
                                       <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/PlaneAngle" ;
                                       <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Angle" ;
                                       <http://emmo.info/emmo#70fe84ff_99b6_4206_a9fc_9a8931836d84> "Ratio of circular arc length to radius."@en ;
+                                      <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "3-5" ;
                                       skos:altLabel "PlaneAngle"@en ;
                                       skos:prefLabel "Angle"@en .
 
@@ -771,6 +840,7 @@ Johansson, Ingvar (2010). \"Metrological thinking needs the notions of parametri
                                       :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.E01925" ;
                                       <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Conductance" ;
                                       <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Electrical_resistance_and_conductance" ;
+                                      <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "6-47" ;
                                       <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "Measure of the ease for electric current to pass through a material."@en ;
                                       rdfs:comment "Inverse of 'ElectricalResistance'."@en ;
                                       skos:altLabel "Conductance"@en ;
@@ -811,6 +881,8 @@ It defines the Kelvin unit in the SI system."""@en ;
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.P04507" ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Permittivity" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Permittivity" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "6-14.1" ,
+                                                                                                                          "6-14.2" ;
                                                              rdfs:comment "Measure for how the polarization of a material is affected by the application of an external electric field."@en ;
                                                              skos:prefLabel "Permittivity"@en .
 
@@ -838,7 +910,8 @@ It defines the Kelvin unit in the SI system."""@en ;
                                                              <http://emmo.info/emmo#70fe84ff_99b6_4206_a9fc_9a8931836d84> """Vector quantity giving the rate of change of a position vector.
 
 -- ISO 80000-3"""@en ;
-                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "3‑10.1" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "3-8.1" ,
+                                                                                                                          "3‑10.1" ;
                                                              rdfs:comment """The velocity depends on the choice of the reference frame. Proper transformation between frames must be used: Galilean for non-relativistic description, Lorentzian for relativistic description.
 
 -- IEC, note 2"""@en ,
@@ -880,6 +953,7 @@ It defines the Kelvin unit in the SI system."""@en ;
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.W06668" ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Weight" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Weight" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "4-9.2" ;
                                                              rdfs:comment "Force of gravity acting on a body."@en ;
                                                              skos:prefLabel "Weight"@en .
 
@@ -891,7 +965,12 @@ It defines the Kelvin unit in the SI system."""@en ;
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.D01590" ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Density" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Density" ;
-                                                             rdfs:comment "Mass per volume."@en ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "4-2" ,
+                                                                                                                          "9-10" ,
+                                                                                                                          "Mass per volume."@en ;
+                                                             rdfs:comment "Quantity representing the spatial distribution of mass in a continuous material."@en ;
+                                                             skos:altLabel "MassConcentration"@en ,
+                                                                           "MassDensity"@en ;
                                                              skos:prefLabel "Density"@en .
 
 
@@ -907,6 +986,7 @@ It defines the Kelvin unit in the SI system."""@en ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/AtomicNumber" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Atomic_number" ;
                                                              <http://emmo.info/emmo#70fe84ff_99b6_4206_a9fc_9a8931836d84> "Number of protons in an atomic nucleus."@en ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "10-1.1" ;
                                                              skos:prefLabel "AtomicNumber"@en .
 
 
@@ -917,6 +997,8 @@ It defines the Kelvin unit in the SI system."""@en ;
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.P04792" ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Power" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Power_(physics)" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "4-27" ,
+                                                                                                                          "6-45" ;
                                                              <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "Rate of transfer of energy per unit time."@en ;
                                                              skos:prefLabel "Power"@en .
 
@@ -928,6 +1010,7 @@ It defines the Kelvin unit in the SI system."""@en ;
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.P04503" ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/ElectromagneticPermeability" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Permeability_(electromagnetism)" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "6-26.2" ;
                                                              rdfs:comment "Measure for how the magnetization of material is affected by the application of an external magnetic field ."@en ;
                                                              skos:altLabel "ElectromagneticPermeability" ;
                                                              skos:prefLabel "Permeability"@en .
@@ -943,6 +1026,7 @@ It defines the Kelvin unit in the SI system."""@en ;
                                                              <http://emmo.info/emmo#50c298c2_55a2_4068_b3ac_4e948c33181f> "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=121-11-35" ,
                                                                                                                           "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=121-11-36" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Electric_dipole_moment" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "6-6" ;
                                                              <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "An electric dipole, vector quantity of magnitude equal to the product of the positive charge and the distance between the charges and directed from the negative charge to the positive charge."@en ;
                                                              skos:prefLabel "ElectricDipoleMoment"@en .
 
@@ -990,6 +1074,7 @@ It defines the Kelvin unit in the SI system."""@en ;
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.F02480" ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Force" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Force" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "4-9.1" ;
                                                              <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "Any interaction that, when unopposed, will change the motion of an object"@en ;
                                                              skos:prefLabel "Force"@en .
 
@@ -1000,7 +1085,9 @@ It defines the Kelvin unit in the SI system."""@en ;
                                                              :de178b12_5d35_4bca_8efa_a4193162571d "T-2 L+2 M+1 I0 Θ0 N0 J0" ;
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.H02752" ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Heat" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "5-6.1" ;
                                                              rdfs:comment "Heat is energy in transfer to or from a thermodynamic system, by mechanisms other than thermodynamic work or transfer of matter."@en ;
+                                                             skos:altLabel "AmountOfHeat" ;
                                                              skos:prefLabel "Heat"@en .
 
 
@@ -1032,6 +1119,7 @@ It defines the Kelvin unit in the SI system."""@en ;
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.E01923" ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/ElectricCharge" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Electric_charge" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "6-2" ;
                                                              <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "The physical property of matter that causes it to experience a force when placed in an electromagnetic field."@en ;
                                                              skos:altLabel "Charge"@en ;
                                                              skos:prefLabel "ElectricCharge"@en .
@@ -1067,6 +1155,7 @@ It defines the base unit mole in the SI system."""@en ;
                                                              :c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Atomic_mass" ;
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.A00496" ;
                                                              <http://emmo.info/emmo#70fe84ff_99b6_4206_a9fc_9a8931836d84> "The mass of an atom in the ground state."@en ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "10-4.1" ;
                                                              rdfs:comment "Since the nucleus account for nearly all of the total mass of atoms  (with the electrons and nuclear binding energy making minor contributions), the atomic mass measured in Da has nearly the same value as the mass number."@en ,
                                                                           "The atomic mass is often expressed as an average of the commonly found isotopes."@en ;
                                                              skos:prefLabel "AtomicMass"@en .
@@ -1087,6 +1176,7 @@ It defines the base unit mole in the SI system."""@en ;
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.M03684" ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/MagneticFlux" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Magnetic_flux" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "6-22.1" ;
                                                              <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "Measure of magnetism, taking account of the strength and the extent of a magnetic field."@en ;
                                                              skos:prefLabel "MagneticFlux"@en .
 
@@ -1098,6 +1188,7 @@ It defines the base unit mole in the SI system."""@en ;
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.E02101" ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/DoseEquivalent" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Energy" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "10-83.1" ;
                                                              <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "A dose quantity used in the International Commission on Radiological Protection (ICRP) system of radiological protection."@en ;
                                                              skos:prefLabel "DoseEquivalent"@en .
 
@@ -1119,6 +1210,7 @@ It defines the base unit mole in the SI system."""@en ;
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.E02101" ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Energy" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Energy" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "5-20-1" ;
                                                              <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "A property of objects which can be transferred to other objects or converted into different forms."@en ;
                                                              rdfs:comment "Energy is often defined as \"ability of a system to perform work\", but it might be misleading since is not necessarily available to do work."@en ;
                                                              skos:prefLabel "Energy"@en .
@@ -1153,6 +1245,7 @@ It defines the base unit mole in the SI system."""@en ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/PotentialEnergy" ;
                                                              <http://emmo.info/emmo#50c298c2_55a2_4068_b3ac_4e948c33181f> "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=113-03-48" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Potential_energy" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "4-28.1" ;
                                                              <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "The energy possessed by a body by virtue of its position or orientation in a potential field."@en ;
                                                              skos:prefLabel "PotentialEnergy"@en .
 
@@ -1171,11 +1264,12 @@ It defines the base unit mole in the SI system."""@en ;
 <http://emmo.info/emmo#4f2d3939_91b1_4001_b8ab_7d19074bf845> rdf:type owl:Class ;
                                                              rdfs:subClassOf <http://emmo.info/emmo#2946d40b_24a1_47fa_8176_e3f79bb45064> ;
                                                              :de178b12_5d35_4bca_8efa_a4193162571d "T-3 L+2 M+1 I-1 Θ0 N0 J0" ;
-                                                             :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.A00424" ;
-                                                             <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Voltage" ;
-                                                             <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Voltage" ;
+                                                             :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.E01935" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "6-11.1" ;
                                                              <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "Energy required to move a unit charge through an electric field from a reference point."@en ;
-                                                             skos:altLabel "Voltage"@en ;
+                                                             rdfs:comment """The electric potential is not unique, since any constant scalar
+field quantity can be added to it without changing its gradient.""" ;
+                                                             skos:altLabel "ElectroStaticPotential"@en ;
                                                              skos:prefLabel "ElectricPotential"@en .
 
 
@@ -1196,6 +1290,7 @@ It defines the base unit mole in the SI system."""@en ;
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.E02141" ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Enthalpy" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Enthalpy" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "5.20-3" ;
                                                              rdfs:comment "Measurement of energy in a thermodynamic system."@en ;
                                                              skos:prefLabel "Enthalpy"@en .
 
@@ -1207,6 +1302,7 @@ It defines the base unit mole in the SI system."""@en ;
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.M04007" ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Momentum" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Momentum" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "4-8" ;
                                                              rdfs:comment "Product of mass and velocity."@en ;
                                                              skos:prefLabel "Momentum"@en .
 
@@ -1271,6 +1367,7 @@ It defines the base unit mole in the SI system."""@en ;
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.P04819" ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Pressure" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Pressure" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "4-14.1" ;
                                                              <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "The force applied perpendicular to the surface of an object per unit area over which that force is distributed."@en ;
                                                              skos:prefLabel "Pressure"@en .
 
@@ -1283,6 +1380,7 @@ It defines the base unit mole in the SI system."""@en ;
                                                                              ] ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Length" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Luminous_intensity" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "7-14" ;
                                                              <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "A measure of the wavelength-weighted power emitted by a light source in a particular direction per unit solid angle. It is based on the luminosity function, which is a standardized model of the sensitivity of the human eye."@en ;
                                                              skos:prefLabel "LuminousIntensity"@en .
 
@@ -1346,6 +1444,7 @@ It defines the base unit mole in the SI system."""@en ;
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.E02032" ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/ElementaryCharge" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Elementary_charge" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "10-5.1" ;
                                                              <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "The magnitude of the electric charge carried by a single electron. It defines the base unit Ampere in the SI system."@en ;
                                                              rdfs:comment "The DBpedia definition (http://dbpedia.org/page/Elementary_charge) is outdated as May 20, 2019. It is now an exact quantity."@en ;
                                                              skos:prefLabel "ElementaryCharge"@en .
@@ -1369,8 +1468,10 @@ It defines the base unit mole in the SI system."""@en ;
                                                              :de178b12_5d35_4bca_8efa_a4193162571d "T+4 L-3 M-1 I+2 Θ0 N0 J0" ;
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.P04508" ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/constant/PermittivityOfVacuum" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "6-14.1" ;
                                                              rdfs:comment "The DBpedia definition (http://dbpedia.org/page/Vacuum_permittivity) is outdated since May 20, 2019. It is now a measured constant."@en ,
                                                                           "The value of the absolute dielectric permittivity of classical vacuum."@en ;
+                                                             skos:altLabel "PermittivityOfVacuum"@en ;
                                                              skos:prefLabel "VacuumElectricPermittivity"@en .
 
 
@@ -1383,6 +1484,7 @@ It defines the base unit mole in the SI system."""@en ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Heat" ,
                                                                                                                           "http://dbpedia.org/page/Work_(physics)" ;
                                                              <http://emmo.info/emmo#70fe84ff_99b6_4206_a9fc_9a8931836d84> "Product of force and displacement."@en ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "4-28.4" ;
                                                              skos:prefLabel "Work"@en .
 
 
@@ -1392,6 +1494,7 @@ It defines the base unit mole in the SI system."""@en ;
                                                              :de178b12_5d35_4bca_8efa_a4193162571d "T0 L0 M0 I0 Θ+1 N0 J0" ;
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.T06261" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Temperature" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "5-2" ;
                                                              <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> """An objective comparative measure of hot or cold.
 
 Temperature is a relative quantity that can be used to express temperature differences. Unlike ThermodynamicTemperature, it cannot express absolute temperatures."""@en ;
@@ -1408,6 +1511,7 @@ Temperature is a relative quantity that can be used to express temperature diffe
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.A00353" ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/AngularMomentum" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Angular_momentum" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "4-11" ;
                                                              rdfs:comment "Measure of the extent and direction an object rotates about a reference point."@en ;
                                                              skos:prefLabel "AngularMomentum"@en .
 
@@ -1430,6 +1534,7 @@ Temperature is a relative quantity that can be used to express temperature diffe
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.M03722" ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/MassFraction" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Mass_fraction_(chemistry)" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "9-11" ;
                                                              rdfs:comment "Mass of a constituent divided by the total mass of all constituents in the mixture."@en ;
                                                              skos:prefLabel "MassFraction"@en .
 
@@ -1442,7 +1547,8 @@ Temperature is a relative quantity that can be used to express temperature diffe
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/ElectricCurrentDensity" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Current_density" ;
                                                              rdfs:comment "Electric current divided by the cross-sectional area it is passing through."@en ;
-                                                             skos:prefLabel "CurrentDensity"@en .
+                                                             skos:altLabel "CurrentDensity"@en ;
+                                                             skos:prefLabel "ElectricCurrentDensity"@en .
 
 
 ###  http://emmo.info/emmo#76cc4efc_231e_42b4_be83_2547681caed6
@@ -1521,6 +1627,7 @@ Temperature is a relative quantity that can be used to express temperature diffe
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/AbsorbedDose" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Absorbed_dose" ;
                                                              <http://emmo.info/emmo#70fe84ff_99b6_4206_a9fc_9a8931836d84> "Energy imparted to matter by ionizing radiation in a suitable small element of volume divided by the mass of that element of volume."@en ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "10-81.1" ;
                                                              skos:prefLabel "AbsorbedDose"@en .
 
 
@@ -1532,7 +1639,8 @@ Temperature is a relative quantity that can be used to express temperature diffe
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/MagneticDipoleMoment" ;
                                                              <http://emmo.info/emmo#50c298c2_55a2_4068_b3ac_4e948c33181f> "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=121-11-55" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Magnetic_moment" ;
-                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "10-9.1" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "10-9.1" ,
+                                                                                                                          "6-30" ;
                                                              <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> """Vector quantity μ causing a change to its energy ΔW in an external magnetic field of field flux density B:
 
     ΔW = −μ · B"""@en ;
@@ -1554,6 +1662,7 @@ where g is the appropriate g factor, μ is mostly the Bohr magneton or nuclear m
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.S05852" ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Speed" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Speed" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "3-8.2" ;
                                                              rdfs:comment """Length per unit time.
 
 Speed in the absolute value of the velocity."""@en ;
@@ -1565,10 +1674,15 @@ Speed in the absolute value of the velocity."""@en ;
                                                              rdfs:subClassOf [ rdf:type owl:Restriction ;
                                                                                owl:onProperty :bed1d005_b04e_4a90_94cf_02bc678a8569 ;
                                                                                owl:someValuesFrom :e501069c_34d3_4dc7_ac87_c90c7342192b
+                                                                             ] ,
+                                                                             [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty <http://emmo.info/emmo/domain/isq#0f7fa54b_1642_44cc_aa1d_f613b6017d5e> ;
+                                                                               owl:hasValue "T0 L0 M0 I0 Θ0 N+1 J0"
                                                                              ] ;
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.A00297" ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/AmountOfSubstance" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Amount_of_substance" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "9-2" ;
                                                              <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "The number of elementary entities present."@en ;
                                                              rdfs:comment """\"In the name “amount of substance”, the word “substance” will typically be replaced by words to specify the substance concerned in any particular application, for example “amount of hydrogen chloride, HCl”, or “amount of benzene, C6H6 ”. It is important to give a precise definition of the entity involved (as emphasized in the definition of the mole); this should preferably be done by specifying the molecular chemical formula of the material involved. Although the word “amount” has a more general dictionary definition, the abbreviation of the full name “amount of substance” to “amount” may be used for brevity.\"
 
@@ -1585,6 +1699,7 @@ Speed in the absolute value of the velocity."""@en ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/InternalEnergy" ;
                                                              <http://emmo.info/emmo#50c298c2_55a2_4068_b3ac_4e948c33181f> "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=113-04-20" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Internal_energy" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "5.20-2" ;
                                                              <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "A state quantity equal to the difference between the total energy of a system and the sum of the macroscopic kinetic and potential energies of the system."@en ;
                                                              skos:altLabel "ThermodynamicEnergy"@en ;
                                                              skos:prefLabel "InternalEnergy"@en .
@@ -1607,6 +1722,7 @@ Speed in the absolute value of the velocity."""@en ;
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.FT07383" ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Frequency" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Frequency" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "3-15.1" ;
                                                              <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "Number of periods per time interval."@en ;
                                                              skos:prefLabel "Frequency"@en .
 
@@ -1618,6 +1734,7 @@ Speed in the absolute value of the velocity."""@en ;
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.C01032" ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/ChemicalPotential" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Chemical_potential" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "9-17" ;
                                                              rdfs:comment "Energy per unit change in amount of substance."@en ;
                                                              skos:prefLabel "ChemicalPotential"@en .
 
@@ -1629,6 +1746,7 @@ Speed in the absolute value of the velocity."""@en ;
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.E02149" ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Entropy" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Entropy" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "5-18" ;
                                                              rdfs:comment "Logarithmic measure of the number of available states of a system."@en ,
                                                                           "May also be referred to as a measure of order of  a system."@en ;
                                                              skos:prefLabel "Entropy"@en .
@@ -1677,6 +1795,7 @@ Speed in the absolute value of the velocity."""@en ;
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.A00429" ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Area" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Area" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "3-3" ;
                                                              rdfs:comment "Extent of a surface."@en ;
                                                              skos:prefLabel "Area"@en .
 
@@ -1688,6 +1807,7 @@ Speed in the absolute value of the velocity."""@en ;
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.M03686" ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/MagneticFluxDensity" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Magnetic_field" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "6-21" ;
                                                              <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "Strength of the magnetic field."@en ;
                                                              rdfs:comment "Often denoted B."@en ;
                                                              skos:prefLabel "MagneticFluxDensity"@en .
@@ -1712,6 +1832,7 @@ Speed in the absolute value of the velocity."""@en ;
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.C00791" ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Capacitance" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Capacitance" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "6-13" ;
                                                              <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "The derivative of the electric charge of a system with respect to the electric potential."@en ;
                                                              skos:altLabel "ElectricCapacitance"@en ;
                                                              skos:prefLabel "Capacitance"@en .
@@ -1726,8 +1847,24 @@ Speed in the absolute value of the velocity."""@en ;
                                                              :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.S05854" ;
                                                              <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/constant/SpeedOfLight_Vacuum" ;
                                                              <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Speed_of_light" ;
+                                                             <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "6-35.2" ;
                                                              <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "The speed of light in vacuum. Defines the base unit metre in the SI system."@en ;
                                                              skos:prefLabel "SpeedOfLightInVacuum"@en .
+
+
+###  http://emmo.info/emmo/domain/isq#17b031fb_4695_49b6_bb69_189ec63df3ee
+<http://emmo.info/emmo/domain/isq#17b031fb_4695_49b6_bb69_189ec63df3ee> rdf:type owl:Class ;
+                                                                        rdfs:subClassOf <http://emmo.info/emmo#4f2d3939_91b1_4001_b8ab_7d19074bf845> ;
+                                                                        :fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.A00424" ,
+                                                                                                              "https://doi.org/10.1351/goldbook.V06635"@en ;
+                                                                        <http://emmo.info/emmo#1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Voltage"@en ;
+                                                                        <http://emmo.info/emmo#6dd685dd_1895_46e4_b227_be9f7d643c25> "http://dbpedia.org/page/Voltage" ;
+                                                                        <http://emmo.info/emmo#8de5d5bf_db1c_40ac_b698_095ba3b18578> "6-11.3" ;
+                                                                        <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "The difference in electric potential between two points."@en ;
+                                                                        rdfs:comment "Correspond to the work needed per unit of charge to move a test charge between two points in a static electric field."@en ;
+                                                                        skos:altLabel "ElectricPotentialDifference"@en ,
+                                                                                      "ElectricTension"@en ;
+                                                                        skos:prefLabel "Voltage"@en .
 
 
 ###  http://emmo.info/emmo/domain/isq#2da7408f_d389_4245_887d_a1743b81a9b6
