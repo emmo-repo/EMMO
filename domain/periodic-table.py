@@ -12,11 +12,9 @@ import rdflib
 from rdflib import URIRef, Literal
 from rdflib.namespace import RDFS, OWL, DCTERMS
 
-from emmo import World, get_ontology
+from ontopy import World, get_ontology
 import owlready2
 
-
-__version__ = '1.0.0-beta'
 
 thisdir = os.path.abspath(os.path.dirname(__file__))
 
@@ -34,40 +32,44 @@ if not int(rdflib.__version__.split('.')[0]) >= 5:
 #world = World(filename='periodic-table.sqlite3')
 world = World()
 emmo = world.get_ontology(os.path.join(thisdir, '../middle/middle.ttl')).load()
-isq = world.get_ontology(os.path.join(thisdir, 'isq.ttl')).load()
-units_extension = world.get_ontology(os.path.join(thisdir, 'units-extension.ttl')).load()
-emmo.sync_python_names()
+chemistry = world.get_ontology(os.path.join(thisdir, 'chemistry.ttl')).load()
+#emmo_middle.sync_python_names()
 
 # Create new ontology
 onto = world.get_ontology('http://emmo.info/emmo/domain/periodic-table#')
-onto.base_iri = 'http://emmo.info/emmo#'
+onto.base_iri = 'http://emmo.info/emmo/domain/periodic-table#'
 onto.imported_ontologies.append(emmo)
-onto.imported_ontologies.append(isq)
-onto.imported_ontologies.append(units_extension)
+onto.imported_ontologies.append(chemistry)
 onto.sync_python_names()
 
 
 # Populate the new ontology
 with onto:
 
-    class hasChemicalSymbol(onto.hasSymbolData):
-        """Conventional chemical symbol of an atomic element."""
-        domain = [emmo.Atom]
-        range = [str]
-
     class hasAtomicNumber(owlready2.DataProperty):
         """The atomic number of an atomic element."""
-        domain = [emmo.Atom]
+        domain = [onto.Atom]
         range = [int]
         comment = [
             'This is a convenient shortcut for the conventional declaration '
             'process of assigning an atomic number to an atom subclass.'
         ]
 
-    class hasAtomicMassIUPAC2016(owlready2.DataProperty):
+    class hasIUPAC2016AtomicMass(owlready2.DataProperty):
         """The mass of an atomic element according to IUPAC 2016."""
-        domain = [emmo.Atom]
+        domain = [onto.Atom]
         range = [float]
+        comment = [
+            'This is a convenient shortcut for the measurement process '
+            'process of the atomic mass reported by IUPAC2016.'
+        ]
+
+    class hasChemicalSymbol(onto.hasProperty):
+        """The chemical symbol of an atomic element."""
+        domain = [onto.Atom]
+        range = [onto.ChemicalElement]
+
+    #onto.Atom.hasChemicalSymbol.exactly(1, onto.ChemicalElement)
 
     for Z, (symbol, name, mass) in enumerate(zip(
             ase.data.chemical_symbols,
@@ -78,15 +80,19 @@ with onto:
 
         print(Z, symbol, name, mass)
 
+        Element = types.new_class(name.capitalize() + 'Symbol', (onto.ChemicalElement, ))
+        Element.is_a.append(onto.hasSymbolData.value(symbol))
+
         AtomClass = types.new_class(name.capitalize() + 'Atom', (onto.Atom, ))
         AtomClass.elucidation.append(en('Atom subclass for %s.' % name.lower()))
-        AtomClass.is_a.append(hasChemicalSymbol.value(symbol))
         AtomClass.is_a.append(hasAtomicNumber.value(Z))
-        AtomClass.is_a.append(hasAtomicMassIUPAC2016.value(float(mass)))
+        AtomClass.is_a.append(hasIUPAC2016AtomicMass.value(float(mass)))
+        AtomClass.is_a.append(hasChemicalSymbol.some(Element))
 
 
 # Set ontology metadata
-version_iri = f'http://emmo.info/emmo/{__version__}/domain/periodic-table'
+version = emmo.get_version()
+version_iri = f'http://emmo.info/emmo/{version}/domain/periodic-table'
 onto.set_version(version_iri=version_iri)
 
 onto.metadata.abstract.append(en(
@@ -106,7 +112,6 @@ onto.metadata.contributor.append(en('University of Bologna'))
 onto.metadata.publisher.append(en('EMMC ASBL'))
 onto.metadata.license.append(en(
     'https://creativecommons.org/licenses/by/4.0/legalcode'))
-version = '1.0.0-beta'
 onto.metadata.versionInfo.append(en(version))
 onto.metadata.comment.append(en(
     'The EMMO requires FacT++ reasoner plugin in order to visualize all '
@@ -117,78 +122,27 @@ onto.metadata.comment.append(en(
 onto.metadata.comment.append(en(
     'You can contact EMMO Authors via emmo@emmc.eu'))
 
-# Save new ontology as turtle
+# Synchronise Python attributes to ontology
 onto.sync_attributes(name_policy='uuid', name_prefix='EMMO_',
                      class_docstring='elucidation')
 onto.dir_label = False
+
+# Hack to ensure that we import using versionURI
+# FIXME: included this in sync_attributes()
+d = {o.base_iri.rstrip('/#'): o.get_version(as_iri=True)
+     for o in onto.imported_ontologies}
+for abbrev_iri in onto.world._get_obj_triples_sp_o(
+        onto.storid, owlready2.owl_imports):
+    iri = onto._unabbreviate(abbrev_iri)
+    version_iri = d[iri]
+    onto._del_obj_triple_spo(
+        onto.storid,
+        owlready2.owl_imports,
+        abbrev_iri)
+    onto._add_obj_triple_spo(
+        onto.storid,
+        owlready2.owl_imports,
+        onto._abbreviate(version_iri))
+
+# Save new ontology as turtle
 onto.save(os.path.join(thisdir, 'periodic-table.ttl'), format='turtle', overwrite=True)
-0/0
-
-
-onto.save(os.path.join(thisdir, 'periodic-table.owl'), overwrite=True)
-
-
-# Do final manipulation with rdflib
-BASE = rdflib.Namespace('http://emmo.info/emmo/domain/periodic-table')
-
-g = rdflib.Graph()
-g.bind('skos', rdflib.term.URIRef('http://www.w3.org/2004/02/skos/core#'))
-g.bind('', rdflib.term.URIRef('http://emmo.info/emmo#'))
-g.parse('periodic-table.owl', format='xml')
-
-# Add version to imported ontologies
-version = '1.0.0-beta'
-for s, p, o in g.triples((None, OWL.imports, None)):
-    o2 = URIRef(o.replace('http://emmo.info/emmo/',
-                          'http://emmo.info/emmo/%s/' % version))
-    g.remove((s, p, o))
-    g.add((s, p, o2))
-
-# Add ontology annotations
-g.add((URIRef(BASE), OWL.versionInfo, Literal(version)))
-g.add((URIRef(BASE), DCTERMS.title, Literal('Periodic table', lang='en')))
-g.add((URIRef(BASE), DCTERMS.creator, Literal('Jesper Friis')))
-g.add((URIRef(BASE), DCTERMS.creator, Literal('Francesca Bleken Lønstad')))
-g.add((URIRef(BASE), DCTERMS.contributor, Literal('SINTEF')))
-g.add((URIRef(BASE), DCTERMS.creator, Literal('Emanuele Ghedini')))
-g.add((URIRef(BASE), DCTERMS.contributor, Literal('University of Bologne')))
-g.add((URIRef(BASE), DCTERMS.publisher, Literal('EMMC ASBL')))
-g.add((URIRef(BASE), DCTERMS.license,
-       Literal('https://creativecommons.org/licenses/by/4.0/legalcode')))
-
-g.add((URIRef(BASE), DCTERMS.abstract,
-       Literal('''\
-The periodic table domain ontology provide a simple reference \
-implementation of all atoms in the periodic table with a few \
-selected conventional properties.  It is ment as both an example \
-for other domain ontologies as well as a useful assert by itself.
-
-Periodic table is released under the Creative Commons Attribution 4.0 \
-International license (CC BY 4.0).
-''', lang='en')))
-
-g.add((URIRef(BASE), RDFS.comment,
-       Literal('''\
-The EMMO requires FacT++ reasoner plugin in order to visualize all \
-inferences and class hierarchy (ctrl+R hotkey in Protege).
-''', lang='en')))
-
-g.add((URIRef(BASE), RDFS.comment,
-       Literal('''\
-This ontology is generated with data from the ASE Python package.
-''', lang='en')))
-
-g.add((URIRef(BASE), RDFS.comment,
-       Literal('''\
-Contacts:
-Gerhard Goldbeck
-Goldbeck Consulting Ltd (UK)
-email: gerhard@goldbeck-consulting.com
-
-Emanuele Ghedini
-University of Bologna (IT)
-email: emanuele.ghedini@unibo.it
-''', lang='en')))
-
-# Store in turtle format
-g.serialize(destination='periodic-table.ttl', format='turtle', base=BASE)
