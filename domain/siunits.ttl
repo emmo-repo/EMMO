@@ -6,11 +6,11 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <http://emmo.info/emmo/middle/siunits> .
+@base <http://emmo.info/emmo/domain/siunits> .
 
-<http://emmo.info/emmo/middle/siunits> rdf:type owl:Ontology ;
-                                        owl:versionIRI <http://emmo.info/emmo/1.0.0-beta/middle/siunits> ;
-                                        owl:imports <http://emmo.info/emmo/1.0.0-beta/middle/isq> ;
+<http://emmo.info/emmo/domain/siunits> rdf:type owl:Ontology ;
+                                        owl:versionIRI <http://emmo.info/emmo/1.0.0-beta/domain/siunits> ;
+                                        owl:imports <http://emmo.info/emmo/1.0.0-beta/domain/isq> ;
                                         dcterms:abstract """The module 'siunits' defines the 7 base units and 22 derived units as well as the metric prefixes specified in the SI system.
 
 All additional derived units, SI-based or not, goes into the 'units-extension' module."""@en ;
@@ -37,31 +37,6 @@ University of Bologna (IT)
 email: emanuele.ghedini@unibo.it"""@en ,
                                                      "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
                                         owl:versionInfo "1.0.0-beta" .
-                                        
-                                        ###  http://emmo.info/emmo#EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc
-:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc rdf:type owl:AnnotationProperty ;
-                                           rdfs:comment "URL to corresponing entity in QUDT."@en ;
-                                           rdfs:seeAlso "http://www.qudt.org/2.1/catalog/qudt-catalog.html"^^xsd:anyURI ;
-                                           skos:prefLabel "qudtEntry"@en ;
-                                           rdfs:subPropertyOf rdfs:seeAlso ;
-                                           rdfs:range xsd:anyURI .
-                                           
-                                           ###  http://emmo.info/emmo#EMMO_a9b3d04c_7ceb_40a2_b8d3_28d514a770a8
-:EMMO_a9b3d04c_7ceb_40a2_b8d3_28d514a770a8 rdf:type owl:AnnotationProperty ;
-                                           rdfs:comment "URL to CODATA Internationally recommended 2018 values of physical constants."@en ;
-                                           rdfs:seeAlso "https://physics.nist.gov/cuu/Constants/index.html"^^xsd:anyURI ;
-                                           skos:prefLabel "codataEntry"@en ;
-                                           rdfs:subPropertyOf rdfs:seeAlso ;
-                                           rdfs:range xsd:anyURI .
-                                           
-                                           ###  http://emmo.info/emmo#EMMO_e55f2d7c_9893_48cd_b4a4_fdf38253bd20
-:EMMO_e55f2d7c_9893_48cd_b4a4_fdf38253bd20 rdf:type owl:AnnotationProperty ;
-                                           rdfs:comment "IRI to corresponding concept in the Ontology of units of Measure"@en ;
-                                           rdfs:seeAlso "https://enterpriseintegrationlab.github.io/icity/OM/doc/index-en.html"^^xsd:anyURI ,
-                                                        "https://github.com/HajoRijgersberg/OM"^^xsd:anyURI ;
-                                           skos:prefLabel "omMatch"@en ;
-                                           rdfs:subPropertyOf rdfs:seeAlso ;
-                                           rdfs:range xsd:anyURI .
 
 #################################################################
 #    Classes
@@ -774,7 +749,7 @@ kg/m^3""" ;
 :EMMO_da1dd4a7_c611_4ad4_bef6_7646f28aa598 rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_668e6ead_1530_40cc_ad5e_24b880edff50
+                                                             owl:someValuesFrom :EMMO_4000d06d_8594_4263_ba72_5d9440b66c5e
                                                            ] ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
@@ -819,6 +794,14 @@ kg/m^3""" ;
                                            skos:prefLabel "Ampere"@en .
 
 
+###  http://emmo.info/emmo#EMMO_db716151_6b73_45ff_910c_d182fdcbb4f5
+:EMMO_db716151_6b73_45ff_910c_d182fdcbb4f5 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296
+                                                                            ] ;
+                                                             owl:allValuesFrom :EMMO_acaaa124_3dde_48b6_86e6_6ec6f364f408
+                                                           ] .
+
+
 ###  http://emmo.info/emmo#EMMO_dc232f53_8ed8_4ddd_9f41_cc057985eadb
 :EMMO_dc232f53_8ed8_4ddd_9f41_cc057985eadb rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
@@ -832,7 +815,7 @@ kg/m^3""" ;
                                            :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/SV" ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Equivalent_dose" ;
                                            :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.S05658" ;
-                                           rdfs:comment """Measurement unit for equivalent doseof ionizing radiation. 
+                                           rdfs:comment """Measurement unit for equivalent doseof ionizing radiation.
 
 Sievert is derived from absorbed dose, but takes into account the biological effectiveness of the radiation, which is dependent on the radiation type and energy."""@en ;
                                            skos:prefLabel "Sievert"@en .

@@ -6,73 +6,118 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <http://emmo.info/emmo/middle/persistence> .
 
-<http://emmo.info/emmo/middle/persistence> rdf:type owl:Ontology ;
-                                            owl:versionIRI <http://emmo.info/emmo/1.0.0-beta/middle/persistence> ;
-                                            owl:imports <http://emmo.info/emmo/1.0.0-beta/middle/perspective> ;
-                                            dcterms:abstract ""@en ;
-                                            dcterms:contributor "Adham Hashibon, Fraunhofer IWM, DE" ,
-                                                                "Georg Schmitz, Access, DE" ,
-                                                                "Gerhard Goldbeck, Goldbeck Consulting Ltd (UK)" ,
-                                                                "Jesper Friis, SINTEF, NO" ;
-                                            dcterms:creator "Emanuele Ghedini, University of Bologna, IT" ;
-                                            dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
-                                            dcterms:publisher "EMMC ASBL" ;
-                                            dcterms:title "Persistence"@en ;
-                                            rdfs:comment """Contacts:
+<http://emmo.info/emmo/middle/persistence> a owl:Ontology ;
+	owl:versionIRI <http://emmo.info/emmo/1.0.0-beta/middle/persistence> ;
+	owl:imports <http://emmo.info/emmo/1.0.0-beta/middle/perspective> ;
+	dcterms:abstract ""@en ;
+	dcterms:contributor "Adham Hashibon, Fraunhofer IWM, DE" , "Georg Schmitz, Access, DE" , "Gerhard Goldbeck, Goldbeck Consulting Ltd (UK)" , "Jesper Friis, SINTEF, NO" ;
+	dcterms:creator "Emanuele Ghedini, University of Bologna, IT" ;
+	dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+	dcterms:publisher "EMMC ASBL" ;
+	dcterms:title "Persistence"@en ;
+	rdfs:comment """Contacts:
 Gerhard Goldbeck
 Goldbeck Consulting Ltd (UK)
 email: gerhard@goldbeck-consulting.com
 
 Emanuele Ghedini
 University of Bologna (IT)
-email: emanuele.ghedini@unibo.it"""@en ,
-                                                         "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                            owl:versionInfo "1.0.0-beta" .
+email: emanuele.ghedini@unibo.it"""@en , "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
+	owl:versionInfo "1.0.0-beta" .
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://emmo.info/emmo#EMMO_135ab8ea_e028_439e_be64_3e0f9734ea2b
 
-#################################################################
-#    Annotation properties
-#################################################################
+:EMMO_135ab8ea_e028_439e_be64_3e0f9734ea2b a owl:Class ;
+	rdfs:subClassOf :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A process occurring by natural (non-intentional) laws."@en ;
+	skos:altLabel "NonIntentionalProcess"@en ;
+	skos:prefLabel "NaturalProcess"@en .
+# 
+# http://emmo.info/emmo#EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce
 
-###  http://emmo.info/emmo#b81b8844_fa6f_4a4c_a6a7_dda97b1bf853
-:b81b8844_fa6f_4a4c_a6a7_dda97b1bf853 rdf:type owl:AnnotationProperty .
+:EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce a owl:Class ;
+	:EMMO_1b715ac7_3d96_49bf_add5_47d44af67b85 "https://www.iso.org/obp/ui/#iso:std:iso:9000:ed-4:v1:en:term:3.4.1"@en ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A whole that is identified according to a criteria based on its temporal evolution that is satisfied throughout its time extension."@en ;
+	:EMMO_b81b8844_fa6f_4a4c_a6a7_dda97b1bf853 "https://www.iso.org/obp/ui/#iso:std:iso:14040:ed-2:v1:en:term:3.11"^^xsd:anyURI ;
+	rdfs:comment """Following the common definition of process, the reader may think that every whole should be a process, since every 4D object always has a time dimension. However, in the EMMO we restrict the meaning of the word process to items whose evolution in time have a particular meaning for the ontologist (i.e. every 4D object unfolds in time, but not every 4D time unfolding may be of interest for the ontologist and categorized as a process).
 
+For this reason, the definition of every specific process subclass requires the introduction of a primitive concept."""@en ;
+	skos:altLabel "Occurrent"@en , "Perdurant"@en ;
+	skos:prefLabel "Process"@en .
 
-###  http://emmo.info/emmo#1b715ac7_3d96_49bf_add5_47d44af67b85
-<http://emmo.info/emmo#1b715ac7_3d96_49bf_add5_47d44af67b85> rdf:type owl:AnnotationProperty .
+_:genid1 a owl:Axiom ;
+	owl:annotatedSource :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
+	owl:annotatedProperty :EMMO_1b715ac7_3d96_49bf_add5_47d44af67b85 ;
+	owl:annotatedTarget "https://www.iso.org/obp/ui/#iso:std:iso:9000:ed-4:v1:en:term:3.4.1"@en ;
+	rdfs:comment """The ISO9000:2005 defines process as a \"set of interrelated or interacting activities which transforms inputs into outputs\". However, this is a too narrow definition, since the general idea of a process is not always focused on the concepts of input and output but for example on the evolution of a whole (e.g. the evolution of a studend into an engineer, or the process of ageing) for which the concept of initial state and final state may be more accurate (since they refer to the evolution of a whole that keep its continuity) instead of input and output (that may refer to destruction and creation of two separate entities).
 
+A process in the ISO9000:2005 spirit is more in the direction of an activity designed and implemented for a specific purpose and expressed as a subclass of the EMMO process aimed to catch the concept of intentional process."""@en ;
+	rdfs:seeAlso :EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c .
 
-#################################################################
-#    Classes
-#################################################################
+_:genid2 a owl:Axiom ;
+	owl:annotatedSource :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
+	owl:annotatedProperty :EMMO_b81b8844_fa6f_4a4c_a6a7_dda97b1bf853 ;
+	owl:annotatedTarget "https://www.iso.org/obp/ui/#iso:std:iso:14040:ed-2:v1:en:term:3.11"^^xsd:anyURI ;
+	rdfs:comment "The ISO 14040 refers to ISO 9000:2005 definition 3.4.1 but excluding the notes."@en ;
+	rdfs:seeAlso "https://www.iso.org/obp/ui/#iso:std:iso:9000:ed-4:v1:en:term:3.4.1"^^xsd:anyURI .
+# 
+# http://emmo.info/emmo#EMMO_90ae56e4_d197_49b6_be1a_0049e4756606
 
-###  http://emmo.info/emmo#bafc17b5_9be4_4823_8bbe_ab4e90b6738c
-:bafc17b5_9be4_4823_8bbe_ab4e90b6738c rdf:type owl:Class ;
-                                      rdfs:subClassOf <http://emmo.info/emmo#43e9a05d_98af_41b4_92f6_00f79a09bfce> ;
-                                      <http://emmo.info/emmo#3aa37f92_8dc5_4ee4_8438_e41e6ae20c62> "https://www.iso.org/obp/ui/#iso:std:iso:9000:ed-4:v1:en:term:3.4.1"@en ;
-                                      <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "A process occurring with the active participation of an agent that designs and drives the process according to a specific objective (intention)."@en ;
-                                      skos:altLabel "DesignedProcess"@en ;
-                                      skos:prefLabel "IntentionalProcess"@en .
+:EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 a owl:Class ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A whole that is identified according to a criteria based on its spatial configuration that is satisfied throughout its time extension."@en ;
+	rdfs:comment """A continuant (here called object) is usually defined as a whole whose all possible temporal parts are always satisfying a specific criterion (wich is the classical definition of continuants).
 
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :bafc17b5_9be4_4823_8bbe_ab4e90b6738c ;
-   owl:annotatedProperty <http://emmo.info/emmo#3aa37f92_8dc5_4ee4_8438_e41e6ae20c62> ;
-   owl:annotatedTarget "https://www.iso.org/obp/ui/#iso:std:iso:9000:ed-4:v1:en:term:3.4.1"@en ;
-   rdfs:comment "This class is intended to catch the definition of process according to ISO9000"@en
- ] .
+However that's not possible in general, since we will finally end to temporal parts whose temporal extension is so small that the connectivity relations that define the object will no longer hold. That's the case when the temporal interval is lower than the interval that characterize the causality interactions between the object parts.
 
+In other terms, if the time span of a temporal part is lower than the inverse of the frequency of interactions between the constituents, then the constituents in such temporal part are not connected. The object is no more an object, neither an item, but simply a collection of fundamental parts.
 
-###  http://emmo.info/emmo#e04884d9_eda6_487e_93d5_7722d7eda96b
-:e04884d9_eda6_487e_93d5_7722d7eda96b rdf:type owl:Class ;
-                                      owl:equivalentClass [ rdf:type owl:Class ;
-                                                            owl:unionOf ( <http://emmo.info/emmo#43e9a05d_98af_41b4_92f6_00f79a09bfce>
-                                                                          <http://emmo.info/emmo#90ae56e4_d197_49b6_be1a_0049e4756606>
-                                                                        )
-                                                          ] ;
-                                      rdfs:subClassOf <http://emmo.info/emmo#49267eba_5548_4163_8f36_518d65b583f9> ;
-                                      <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "The union of the object or process classes."@en ;
-                                      rdfs:comment """The interest is on the 4D object as it extends in time (process) or as it persists in time (object).
+To overcome this issue, we can identify an minimum holistic temporal part (a lower time interval value), below which a specific definition for an object type does not hold anymore, that is called a fundamental."""@en ;
+	skos:altLabel "Continuant"@en , "Endurant"@en ;
+	skos:prefLabel "Object"@en .
+# 
+# http://emmo.info/emmo#EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c
+
+:EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c a owl:Class ;
+	rdfs:subClassOf :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
+	:EMMO_3aa37f92_8dc5_4ee4_8438_e41e6ae20c62 "https://www.iso.org/obp/ui/#iso:std:iso:9000:ed-4:v1:en:term:3.4.1"@en ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A process occurring with the active participation of an agent that designs and drives the process according to a specific objective (intention)."@en ;
+	skos:altLabel "DesignedProcess"@en ;
+	skos:prefLabel "IntentionalProcess"@en .
+
+_:genid3 a owl:Axiom ;
+	owl:annotatedSource :EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c ;
+	owl:annotatedProperty :EMMO_3aa37f92_8dc5_4ee4_8438_e41e6ae20c62 ;
+	owl:annotatedTarget "https://www.iso.org/obp/ui/#iso:std:iso:9000:ed-4:v1:en:term:3.4.1"@en ;
+	rdfs:comment "This class is intended to catch the definition of process according to ISO9000"@en .
+# 
+# http://emmo.info/emmo#EMMO_e04884d9_eda6_487e_93d5_7722d7eda96b
+
+:EMMO_e04884d9_eda6_487e_93d5_7722d7eda96b a owl:Class ;
+	owl:equivalentClass _:genid4 .
+
+_:genid4 a owl:Class ;
+	owl:unionOf _:genid6 .
+
+_:genid6 a rdf:List ;
+	rdf:first :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
+	rdf:rest _:genid5 .
+
+_:genid5 a rdf:List ;
+	rdf:first :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ;
+	rdf:rest rdf:nil .
+
+:EMMO_e04884d9_eda6_487e_93d5_7722d7eda96b rdfs:subClassOf :EMMO_49267eba_5548_4163_8f36_518d65b583f9 ;
+	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The union of the object or process classes."@en ;
+	rdfs:comment """The interest is on the 4D object as it extends in time (process) or as it persists in time (object).
 
 The concepts of endurant and perdurant implicitly rely on the concept of instantaneous 3D snapshot of the world object, that in the EMMO is not allowed since everything extends in 4D and there are no abstract objects. Moreover, time is a measured property in the EMMO and not an objective characteristic of an object, and cannot be used as temporal index to identify endurant position in time. 
 
@@ -83,61 +128,6 @@ Nevertheless, it is useful to introduce categorizations that characterize persis
 This perspective provides classes conceptually similar to the concepts of endurant and perdurant (a.k.a. continuant and occurrent). We claim that this distinction is motivated by our cognitive bias, and we do not commit to the fact that both these kinds of entity “do really exist”. For this reason, a whole instance can be both process and object, according to different cognitive approaches (see Wonderweb D17).
 
 The distinction between endurant and perdurant as usually introduced in literature (see BFO SPAN/SNAP approach) is then lost at ontological level, but can remain through the introduction of ad hoc primitive definitions that follow the interpreter endurantist or perdurantist attitude."""@en ;
-                                      skos:prefLabel "Persistence"@en .
-
-
-###  http://emmo.info/emmo#135ab8ea_e028_439e_be64_3e0f9734ea2b
-<http://emmo.info/emmo#135ab8ea_e028_439e_be64_3e0f9734ea2b> rdf:type owl:Class ;
-                                                             rdfs:subClassOf <http://emmo.info/emmo#43e9a05d_98af_41b4_92f6_00f79a09bfce> ;
-                                                             <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "A process occurring by natural (non-intentional) laws."@en ;
-                                                             skos:altLabel "NonIntentionalProcess"@en ;
-                                                             skos:prefLabel "NaturalProcess"@en .
-
-
-###  http://emmo.info/emmo#43e9a05d_98af_41b4_92f6_00f79a09bfce
-<http://emmo.info/emmo#43e9a05d_98af_41b4_92f6_00f79a09bfce> rdf:type owl:Class ;
-                                                             :b81b8844_fa6f_4a4c_a6a7_dda97b1bf853 "https://www.iso.org/obp/ui/#iso:std:iso:14040:ed-2:v1:en:term:3.11"^^xsd:anyURI ;
-                                                             <http://emmo.info/emmo#1b715ac7_3d96_49bf_add5_47d44af67b85> "https://www.iso.org/obp/ui/#iso:std:iso:9000:ed-4:v1:en:term:3.4.1"@en ;
-                                                             <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "A whole that is identified according to a criteria based on its temporal evolution that is satisfied throughout its time extension."@en ;
-                                                             rdfs:comment """Following the common definition of process, the reader may think that every whole should be a process, since every 4D object always has a time dimension. However, in the EMMO we restrict the meaning of the word process to items whose evolution in time have a particular meaning for the ontologist (i.e. every 4D object unfolds in time, but not every 4D time unfolding may be of interest for the ontologist and categorized as a process).
-
-For this reason, the definition of every specific process subclass requires the introduction of a primitive concept."""@en ;
-                                                             skos:altLabel "Occurrent"@en ,
-                                                                           "Perdurant"@en ;
-                                                             skos:prefLabel "Process"@en .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource <http://emmo.info/emmo#43e9a05d_98af_41b4_92f6_00f79a09bfce> ;
-   owl:annotatedProperty :b81b8844_fa6f_4a4c_a6a7_dda97b1bf853 ;
-   owl:annotatedTarget "https://www.iso.org/obp/ui/#iso:std:iso:14040:ed-2:v1:en:term:3.11"^^xsd:anyURI ;
-   rdfs:comment "The ISO 14040 refers to ISO 9000:2005 definition 3.4.1 but excluding the notes."@en ;
-   rdfs:seeAlso "https://www.iso.org/obp/ui/#iso:std:iso:9000:ed-4:v1:en:term:3.4.1"^^xsd:anyURI
- ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource <http://emmo.info/emmo#43e9a05d_98af_41b4_92f6_00f79a09bfce> ;
-   owl:annotatedProperty <http://emmo.info/emmo#1b715ac7_3d96_49bf_add5_47d44af67b85> ;
-   owl:annotatedTarget "https://www.iso.org/obp/ui/#iso:std:iso:9000:ed-4:v1:en:term:3.4.1"@en ;
-   rdfs:comment """The ISO9000:2005 defines process as a \"set of interrelated or interacting activities which transforms inputs into outputs\". However, this is a too narrow definition, since the general idea of a process is not always focused on the concepts of input and output but for example on the evolution of a whole (e.g. the evolution of a studend into an engineer, or the process of ageing) for which the concept of initial state and final state may be more accurate (since they refer to the evolution of a whole that keep its continuity) instead of input and output (that may refer to destruction and creation of two separate entities).
-
-A process in the ISO9000:2005 spirit is more in the direction of an activity designed and implemented for a specific purpose and expressed as a subclass of the EMMO process aimed to catch the concept of intentional process."""@en ;
-   rdfs:seeAlso :bafc17b5_9be4_4823_8bbe_ab4e90b6738c
- ] .
-
-
-###  http://emmo.info/emmo#90ae56e4_d197_49b6_be1a_0049e4756606
-<http://emmo.info/emmo#90ae56e4_d197_49b6_be1a_0049e4756606> rdf:type owl:Class ;
-                                                             <http://emmo.info/emmo#967080e5_2f42_4eb2_a3a9_c58143e835f9> "A whole that is identified according to a criteria based on its spatial configuration that is satisfied throughout its time extension."@en ;
-                                                             rdfs:comment """A continuant (here called object) is usually defined as a whole whose all possible temporal parts are always satisfying a specific criterion (wich is the classical definition of continuants).
-
-However that's not possible in general, since we will finally end to temporal parts whose temporal extension is so small that the connectivity relations that define the object will no longer hold. That's the case when the temporal interval is lower than the interval that characterize the causality interactions between the object parts.
-
-In other terms, if the time span of a temporal part is lower than the inverse of the frequency of interactions between the constituents, then the constituents in such temporal part are not connected. The object is no more an object, neither an item, but simply a collection of fundamental parts.
-
-To overcome this issue, we can identify an minimum holistic temporal part (a lower time interval value), below which a specific definition for an object type does not hold anymore, that is called a fundamental."""@en ;
-                                                             skos:altLabel "Continuant"@en ,
-                                                                           "Endurant"@en ;
-                                                             skos:prefLabel "Object"@en .
-
-
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+	skos:prefLabel "Persistence"@en .
+# 
+# Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
