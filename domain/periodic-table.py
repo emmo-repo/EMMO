@@ -31,14 +31,12 @@ if not int(rdflib.__version__.split('.')[0]) >= 5:
 # Connect to db and load emmo
 #world = World(filename='periodic-table.sqlite3')
 world = World()
-emmo = world.get_ontology(os.path.join(thisdir, '../middle/middle.ttl')).load()
 chemistry = world.get_ontology(os.path.join(thisdir, 'chemistry.ttl')).load()
 #emmo_middle.sync_python_names()
 
 # Create new ontology
 onto = world.get_ontology('http://emmo.info/emmo/domain/periodic-table#')
 onto.base_iri = 'http://emmo.info/emmo/domain/periodic-table#'
-onto.imported_ontologies.append(emmo)
 onto.imported_ontologies.append(chemistry)
 onto.sync_python_names()
 
@@ -91,7 +89,7 @@ with onto:
 
 
 # Set ontology metadata
-version = emmo.get_version()
+version = chemistry.get_version()
 version_iri = f'http://emmo.info/emmo/{version}/domain/periodic-table'
 onto.set_version(version_iri=version_iri)
 
