@@ -1,10 +1,67 @@
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 ![CI tests](https://github.com/emmo-repo/EMMO/workflows/Check%20conventions/badge.svg)
 
-# The European Materials & Modelling Ontology (EMMO)
+# Elementary Multiperspective Material Ontology (EMMO)
 
-## About
-EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) for applied sciences.  It is based on physics, analytical philosophy and information and communication technologies. It has been instigated by materials science and provides the connection between the physical world, the experimental world (materials characterisation) and the simulation world (materials modelling).  It is released under a Creative Commons [CC BY 4.0](LICENSE.md) license.
+<!-- LOGO -->
+<p align="center">
+  <a href="https://github.com/emmo-repo/EMMO">
+    <img src="doc/emmo-logo.png" alt="EMMO logo" width="280">
+  </a>
+</p>
+
+
+## Table of content
+  * [About EMMO](#about-emmo)
+      * [Some words about the new name and logo](#some-words-about-the-new-name-and-logo)
+      * [Use of EMMO in domain ontologies](use-of-emmo-in-domain-ontologies)
+  * [EMMO in a Nutshell](#emmo-in-a-nutshell)
+      * [Top Level](#top-level)
+      * [Middle Level](#middle-level)
+      * [EMMO relations](#emmo-relations)
+  * [Repository Description](#repository-description)
+  * [How to Use It](#how-to-use-it)
+      * [Pre-inferred ontology and documentation](#pre-inferred-ontology-and-documentation)
+  * [Contacts](#contacts)
+  * [Acknowledgement](#acknowledgement)
+
+
+## About EMMO
+EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) for applied sciences.  It is based on physics, analytical philosophy and information and communication technologies. It has been instigated by materials science to provide a framework for knowledge capture that is consistent with scientific principles and methodologies.  It is released under a Creative Commons [CC BY 4.0](LICENSE.md) license.
+
+### Some words about the new name and logo
+The name _Elementary Multiperspective Material Ontology_ should be understood as follows:
+- **Elementary** means, amongst others, that EMMO is a discrete ontology assuming the existence of a smallest possible 4D world object in space and time.  The term _Elementary_ in EMMO refers to objects that cannot be divided further in space.  Elementary also emphasizes EMMO being a fundamental, top-level ontology.
+- **Multiperspective** highlights a very important aspect of EMMO - that it is possible to describe the world from different perspectives.  This makes the ontology both flexible and expressive.
+- **Material** (as the opposite of immaterial) emphasises that EMMO is strictly nominalistic, meaning that it assumes that abstracts do not exist.  _Material_ also refers to the historical scope of EMMO aiming at the description of materials and thus to cover the needs of physicists and applied scientists.
+- **Ontology**, yes EMMO is an ontology.  It is based on fundamental philosophical concepts like semiosis, mereology and topology.
+
+A lot can be said about the logo:
+* The circles refer to Peirce's semiotics with the triadic relation between sign, object and interpretant with the interpreter in the middle.
+* The symmetry indicates that EMMO supports multiple perspectives.
+* The E-like signs can be seen from different perspectives (angles), making it possible to read it as **E** **M** **M** **ⵔ** as well as **∃** (there exists) a **Ш**hole **Ш**orld **ⵔ**ntology (with the circle in the middle).
+* The 3+1 circles emphasises that EMMO is a 4D ontology with three spatial plus one time dimension.
+* The lines connecting the circles may refer to graph theory and knowledge graphs.
+* A triangle is a common way to represent a ternary phase diagram showing the close connection to physics.
+
+
+
+### Use of EMMO in domain ontologies
+Currently there are several domain ontologies in development that use EMMO as the top and middle level ontology.
+Typically they import one of the versions of EMMO listed on [https://emmo-repo.github.io/](https://emmo-repo.github.io/).
+The following table lists the public EMMO-based domain ontologies that we are aware of.
+Please create an issue if you have a public domain ontology that you think should be listed here.
+
+| Domain ontology                           | Link                                                                                                                                      |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Battery Interface Ontology (BattINFO)     | [https://github.com/BIG-MAP/BattINFO](https://github.com/BIG-MAP/BattINFO)                                                                |
+| Crystallography                           | [https://github.com/emmo-repo/domain-crystallography](https://github.com/emmo-repo/domain-crystallography)                                |
+| Mechanical Testing                        | [https://github.com/emmo-repo/domain-mechanical-testing](https://github.com/emmo-repo/domain-mechanical-testing)                          |
+| Microstructure domain ontology            | [https://github.com/emmo-repo/domain-ontology](https://github.com/emmo-repo/domain-ontology)                                              |
+| Datamodel ontology                        | [https://github.com/emmo-repo/datamodel-ontology](https://github.com/emmo-repo/datamodel-ontology)                                        |
+| Mappings ontology                         | [https://github.com/emmo-repo/domain-mappings](https://github.com/emmo-repo/domain-mappings)                                              |
+| Atomistic and Electronic Modelling        | [https://github.com/emmo-repo/domain-atomistic](https://github.com/emmo-repo/domain-atomistic)                                            |
+| EMMO example domain ontologies            | [https://github.com/emmo-repo/EMMO/tree/master/domain](https://github.com/emmo-repo/EMMO/tree/master/domain)                              |
 
 
 ## EMMO in a Nutshell
@@ -37,7 +94,7 @@ The middle level ontologies act as roots for extending the EMMO towards specific
 
 The *Reductionistic* perspective class uses the fundamental non-transitive parthood relation, called direct parthood, to provide a powerful granularity description of multiscale real world objects. The EMMO can in principle represents the **Universe** with direct parthood relations as a direct rooted tree up to its elementary constituents.
 
-The *Holistic* perspective class introduces the concept of real world objects that unfold in time in a way that has a meaning for the EMMO user, through the definition of the classes *Process* and *Participant*.
+The *Holistic* perspective class considers the importance and role of the whole and introduces the concept of real world objects that unfold in time in a way that has a meaning for the EMMO user, through the definition of the classes *Process* and *Participant*.
 
 The *Perceptual* perspective class introduces the concept of real world objects that can be perceived by the user as a recognisable pattern in space or time. Under this class the EMMO categorises e.g. formal languages, pictures, geometry, mathematics and sounds. Phenomenic objects can be used in a semiotic process as signs.
 
@@ -106,5 +163,8 @@ This work has been supported by several European projects, including:
   - [OntoTrans](https://cordis.europa.eu/project/id/862136) (2020-2024) that receives funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 862136.
   - [ReaxPro](https://cordis.europa.eu/project/id/814416) (2019-2023) that receives funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 814416.
   - [OntoCommons](https://cordis.europa.eu/project/id/958371) (2020-2023) that receives funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 958371.
+  - [OYSTER](https://www.oyster-project.eu/) (2017-2021) that receives funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 760827.
+  - [NanoMECommons](https://www.nanomecommons.net/) (2021-2025) that receives funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 952869.
+  - [OpenModel](https://www.open-model.eu/) (2021-2025) that receives funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 953167.
 
 This work was conducted using the Protégé resource, which is supported by grant GM10331601 from the National Institute of General Medical Sciences of the United States National Institutes of Health.
