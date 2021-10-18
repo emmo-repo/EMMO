@@ -174,7 +174,7 @@ EMMO follows a set of conventions that all ontologies published in a repository 
 
 #### Namespace conventions and global IRIs
 * All OWL identifiers are globally unique IRIs.
-* Since EMMO version 1.0.0-beta, the recommended naming of OWL identifiers is
+* Since EMMO version 1.0.0-beta2, the recommended naming of OWL identifiers is
 
       http://emmo.info/[DOMAIN]#[DOMAIN]_[UUID]
 
