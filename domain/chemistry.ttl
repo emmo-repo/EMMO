@@ -11,20 +11,15 @@
 <http://emmo.info/emmo/domain/chemistry> rdf:type owl:Ontology ;
                                           owl:versionIRI <http://emmo.info/emmo/1.0.0-beta2/domain/chemistry> ;
                                           owl:imports <http://emmo.info/emmo/1.0.0-beta2/domain/isq> ;
+                                          dcterms:creator "Adham Hashibon" ;
                                           dcterms:abstract "The chemistry module populates the physicalistic perspective with materials subclasses categorised according to modern applied chemistry."@en ;
-                                          dcterms:contributor "Access, DE" ,
-                                                              "Fraunhofer IWM, DE" ,
-                                                              "Goldbeck Consulting Ltd (UK)" ,
+                                          dcterms:contributor "Goldbeck Consulting Ltd (UK)" ;
+                                          dcterms:publisher "EMMC ASBL" ;
+                                          dcterms:creator "Georg Schmitz" ;
+                                          dcterms:contributor "Fraunhofer IWM, DE" ,
                                                               "SINTEF, NO" ,
                                                               "University of Bologna, IT" ;
-                                          dcterms:creator "Adham Hashibon" ,
-                                                          "Emanuele Ghedini" ,
-                                                          "Georg Schmitz" ,
-                                                          "Gerhard Goldbeck" ,
-                                                          "Jesper Friis" ;
-                                          dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
-                                          dcterms:publisher "EMMC ASBL" ;
-                                          dcterms:title "Chemistry"@en ;
+                                          dcterms:creator "Emanuele Ghedini" ;
                                           rdfs:comment """Contacts:
 Gerhard Goldbeck
 Goldbeck Consulting Ltd (UK)
@@ -32,9 +27,14 @@ email: gerhard@goldbeck-consulting.com
 
 Emanuele Ghedini
 University of Bologna (IT)
-email: emanuele.ghedini@unibo.it"""@en ,
-                                                       "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                          owl:versionInfo "1.0.0-beta2" .
+email: emanuele.ghedini@unibo.it"""@en ;
+                                          dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+                                          dcterms:title "Chemistry"@en ;
+                                          dcterms:contributor "Access, DE" ;
+                                          owl:versionInfo "1.0.0-beta2" ;
+                                          dcterms:creator "Gerhard Goldbeck" ,
+                                                          "Jesper Friis" ;
+                                          rdfs:comment "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en .
 
 #################################################################
 #    Classes
@@ -179,12 +179,14 @@ This qualifies a chemical element as a name and not a matter obejct that can sta
 
 ###  http://emmo.info/emmo#EMMO_7efd64d1_05a1_49cd_a7f0_783ca050d4f3
 :EMMO_7efd64d1_05a1_49cd_a7f0_783ca050d4f3 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_0eabfde6_c6c5_4b1f_bf10_e4e0e06e9b2e
+                                                                               :EMMO_172e2c96_180b_40f8_a3e7_b624471f40c2
+                                                                               :EMMO_90963312_d9a9_4474_8d10_835aef5b168e
+                                                                             )
+                                                               ] ;
                                            rdfs:subClassOf :EMMO_89a0c87c_0804_4013_937a_6fe234d9499c ,
                                                            :EMMO_abf7efbe_6b04_41b8_8326_4dd0f6be753e ;
-                                           owl:disjointUnionOf ( :EMMO_0eabfde6_c6c5_4b1f_bf10_e4e0e06e9b2e
-                                                                 :EMMO_172e2c96_180b_40f8_a3e7_b624471f40c2
-                                                                 :EMMO_90963312_d9a9_4474_8d10_835aef5b168e
-                                                               ) ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A language construct that provides information about the consitutents of a substance and their fractions or amounts." ;
                                            skos:prefLabel "ChemicalComposition"@en .
 
@@ -374,4 +376,4 @@ Sodium Chloride""" ;
 :EMMO_eb77076b_a104_42ac_a065_798b2d2809ad skos:altLabel "ChemicalElement" .
 
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
