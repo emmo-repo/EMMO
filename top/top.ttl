@@ -181,12 +181,6 @@ skos:prefLabel rdf:type owl:AnnotationProperty ;
                                            skos:prefLabel "mereological"@en .
 
 
-###  http://emmo.info/emmo#EMMO_3f47d122_68e6_42c9_80be_f15c3b8f41de
-:EMMO_3f47d122_68e6_42c9_80be_f15c3b8f41de rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_dfc87874_f5da_4f9d_b668_ec4931f0aca8 ;
-                                           skos:prefLabel "isCauseFor"@en .
-
-
 ###  http://emmo.info/emmo#EMMO_517dfaf9_4970_41ac_81ee_d031627d2c7c
 :EMMO_517dfaf9_4970_41ac_81ee_d031627d2c7c rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_ad0e72fc_dcaa_490d_8371_b4d814dcda2c ;
@@ -221,33 +215,17 @@ Items being connected means that there is a topological contact or \"interaction
                                            rdf:type owl:TransitiveProperty ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A proper part of the whole that is not Spatial or Temporal."@en ;
                                            rdfs:comment "This relation catche generic parts of a 4D object that does not fully cover the lifetime extent of the whole (spatial) nor the full spatial extent (temporal)."@en ;
-                                           skos:prefLabel "hasIncidentalSpatialPart"@en .
+                                           skos:prefLabel "hasSpatialIncidentalPart"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6
 :EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
                                            rdf:type owl:TransitiveProperty ;
-                                           rdfs:domain :EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac ;
+                                           rdfs:domain :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that identify a proper item part of the whole, whose parts always cover the full spatial extension of the whole within a time interval."@en ;
                                            rdfs:comment "In EMMO FOL this is a defined property. In OWL temporal relations are primitive."@en ;
                                            skos:prefLabel "hasTemporalPart"@en .
-
-
-###  http://emmo.info/emmo#EMMO_8c898653_1118_4682_9bbf_6cc334d16a99
-:EMMO_8c898653_1118_4682_9bbf_6cc334d16a99 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 ;
-                                           rdf:type owl:TransitiveProperty ;
-                                           rdfs:comment "Enclosure is transitive."@en ;
-                                           skos:prefLabel "isEnclosedBy"@en .
-
-
-###  http://emmo.info/emmo#EMMO_936d1ad7_85a4_4c90_88e9_2035f72e6929
-:EMMO_936d1ad7_85a4_4c90_88e9_2035f72e6929 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 ;
-                                           rdfs:domain :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
-                                           rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
-                                           skos:prefLabel "isObjectConnectedWith"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
@@ -273,13 +251,6 @@ Items being connected means that there is a topological contact or \"interaction
                                            skos:prefLabel "topological"@en .
 
 
-###  http://emmo.info/emmo#EMMO_b48da86f_455c_410e_895b_e1ec65ae7053
-:EMMO_b48da86f_455c_410e_895b_e1ec65ae7053 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_936d1ad7_85a4_4c90_88e9_2035f72e6929 ;
-                                           rdf:type owl:SymmetricProperty ;
-                                           skos:prefLabel "isSpaceConnectedWith"@en .
-
-
 ###  http://emmo.info/emmo#EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6
 :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_3f2e4ac2_8ef3_4a14_b826_60d37f15f8ee ;
@@ -291,22 +262,8 @@ Items being connected means that there is a topological contact or \"interaction
 ###  http://emmo.info/emmo#EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
 :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
-                                           rdfs:domain :EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac ;
                                            rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
                                            skos:prefLabel "hasSpatialPart"@en .
-
-
-###  http://emmo.info/emmo#EMMO_dfc87874_f5da_4f9d_b668_ec4931f0aca8
-:EMMO_dfc87874_f5da_4f9d_b668_ec4931f0aca8 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_936d1ad7_85a4_4c90_88e9_2035f72e6929 ;
-                                           rdf:type owl:AsymmetricProperty ;
-                                           skos:prefLabel "isTimeConnectedWith"@en .
-
-
-###  http://emmo.info/emmo#EMMO_e5c64742_9131_4d14_9a80_80ade7d93287
-:EMMO_e5c64742_9131_4d14_9a80_80ade7d93287 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_3f47d122_68e6_42c9_80be_f15c3b8f41de ;
-                                           skos:prefLabel "isDirectCauseFor"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_ec2472ae_cf4a_46a5_8555_1556f5a6c3c5
@@ -324,22 +281,30 @@ Items being connected means that there is a topological contact or \"interaction
                                            rdf:type owl:TransitiveProperty ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that identify a proper part of the whole that extends itself in time along the overall lifetime of the whole, and whose parts never cover the full spatial extension of the 4D whole."@en ;
                                            rdfs:comment "In EMMO FOL this is a defined property. In OWL spatial relations are primitive."@en ;
-                                           skos:prefLabel "hasEssentialSpatialPart"@en .
+                                           skos:prefLabel "hasSpatialEssentialPart"@en .
+
+
+###  http://emmo.info/emmo#c773cf3b_0810_4d07_bea7_af08cd88538e
+:c773cf3b_0810_4d07_bea7_af08cd88538e rdf:type owl:ObjectProperty ;
+                                      rdfs:subPropertyOf :EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 ;
+                                      rdfs:range :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ;
+                                      skos:prefLabel "hasTemporalCollectionPart"@en .
+
+
+###  http://emmo.info/emmo#5022e4cb_125f_429d_8556_c3e635c561f2
+<http://emmo.info/emmo#5022e4cb_125f_429d_8556_c3e635c561f2> rdf:type owl:ObjectProperty ;
+                                                             rdfs:subPropertyOf :EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 ;
+                                                             rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
+                                                             skos:prefLabel "hasTemporalItemPart"@en .
 
 
 #################################################################
 #    Classes
 #################################################################
 
-###  http://emmo.info/emmo#EMMO_09822782_5fa2_4468_a952_4a0ec268e239
-:EMMO_09822782_5fa2_4468_a952_4a0ec268e239 rdf:type owl:Class ;
-                                           skos:prefLabel "CausalNetwork"@en .
-
-
 ###  http://emmo.info/emmo#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360
 :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d ,
-                                                           [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 ;
                                                              owl:someValuesFrom [ rdf:type owl:Class ;
                                                                                   owl:unionOf ( :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360
@@ -354,10 +319,6 @@ Items being connected means that there is a topological contact or \"interaction
                                                                                                :EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68
                                                                                              )
                                                                                ]
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_f68030be_94b8_4c61_a161_886468558054 ;
-                                                             owl:allValuesFrom owl:Nothing
                                                            ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The basic spatial constituent of 'item'-s that is defined as a causal chain of quantum objects."@en ;
                                            rdfs:comment """While a 'Quantum' is a-tomistic in time and space, an 'elementary' is a-tomistic only in space, recalling the concept of elementary particle.
@@ -473,14 +434,9 @@ An object always possess 4-dimensions. It follows from the fact that perception 
 
 ###  http://emmo.info/emmo#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d
 :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 ;
-                                                             owl:someValuesFrom :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 ;
-                                                             owl:allValuesFrom :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de
-                                                           ] ;
+                                           owl:disjointUnionOf ( :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360
+                                                                 :EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac
+                                                               ) ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of all the individuals that stand for world objects that are a self-connected composition of more than one quantum object and whose temporal parts are always self-connected."@en ;
                                            rdfs:comment """A physical object expresses itself in time and space thanks to the underlying causality relations between its constituent quantum objects. It must at least provide two temporal parts.
 
@@ -498,11 +454,6 @@ Physical object temporal parts must be always self-connected. In other words, a 
 
 ###  http://emmo.info/emmo#EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac
 :EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_09822782_5fa2_4468_a952_4a0ec268e239
-                                                                               :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d
-                                                                             )
-                                                               ] ;
                                            skos:prefLabel "CausalSystem"@en .
 
 [ rdf:type owl:Axiom ;
@@ -515,8 +466,7 @@ Physical object temporal parts must be always self-connected. In other words, a 
 
 ###  http://emmo.info/emmo#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de
 :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de rdf:type owl:Class ;
-                                           owl:disjointUnionOf ( :EMMO_09822782_5fa2_4468_a952_4a0ec268e239
-                                                                 :EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68
+                                           owl:disjointUnionOf ( :EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68
                                                                  :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d
                                                                ) ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals standing for world self-connected objects."@en ;
