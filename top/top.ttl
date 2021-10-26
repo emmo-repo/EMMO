@@ -181,21 +181,40 @@ skos:prefLabel rdf:type owl:AnnotationProperty ;
                                            skos:prefLabel "mereological"@en .
 
 
+###  http://emmo.info/emmo#EMMO_499e24a5_5072_4c83_8625_fe3f96ae4a8d
+:EMMO_499e24a5_5072_4c83_8625_fe3f96ae4a8d rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_555d0261_da5e_4301_b7f9_46f604a32e91 ;
+                                           rdf:type owl:AsymmetricProperty ,
+                                                    owl:IrreflexiveProperty ;
+                                           skos:prefLabel "isTimeContactWith"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_517dfaf9_4970_41ac_81ee_d031627d2c7c
 :EMMO_517dfaf9_4970_41ac_81ee_d031627d2c7c rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_ad0e72fc_dcaa_490d_8371_b4d814dcda2c ;
                                            rdf:type owl:SymmetricProperty ;
-                                           skos:prefLabel "isDisconnectedWith"@en .
+                                           rdfs:domain :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
+                                           rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
+                                           skos:prefLabel "isCausallyDisconnectedWith"@en .
+
+
+###  http://emmo.info/emmo#EMMO_555d0261_da5e_4301_b7f9_46f604a32e91
+:EMMO_555d0261_da5e_4301_b7f9_46f604a32e91 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_9a084aa3_3d5a_4a62_9fc0_fd88937a19c5 ;
+                                           rdf:type owl:IrreflexiveProperty ;
+                                           skos:prefLabel "isDirectCauseFor"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8
 :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_ad0e72fc_dcaa_490d_8371_b4d814dcda2c ;
                                            rdf:type owl:SymmetricProperty ;
+                                           rdfs:domain :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
+                                           rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
                                            rdfs:comment """Causality is a topological property between connected items.
 
 Items being connected means that there is a topological contact or \"interaction\" between them."""@en ;
-                                           skos:prefLabel "isConnectedWith"@en .
+                                           skos:prefLabel "isCausallyconnectedWith"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4
@@ -228,12 +247,28 @@ Items being connected means that there is a topological contact or \"interaction
                                            skos:prefLabel "hasTemporalPart"@en .
 
 
+###  http://emmo.info/emmo#EMMO_8785be5a_2493_4b12_8f39_31907ab11748
+:EMMO_8785be5a_2493_4b12_8f39_31907ab11748 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_555d0261_da5e_4301_b7f9_46f604a32e91 ,
+                                                              :EMMO_5a9e4f79_8d3d_448d_acc3_3ec24ba91604 ;
+                                           rdf:type owl:SymmetricProperty ,
+                                                    owl:IrreflexiveProperty ;
+                                           skos:prefLabel "isSpaceContactWith"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
 :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
                                            rdf:type owl:TransitiveProperty ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "PPxy ≡ Pxy ∧ ¬Pyx"@en ;
                                            skos:prefLabel "hasProperPart"@en .
+
+
+###  http://emmo.info/emmo#EMMO_9a084aa3_3d5a_4a62_9fc0_fd88937a19c5
+:EMMO_9a084aa3_3d5a_4a62_9fc0_fd88937a19c5 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_d67ee67e_4fac_4676_82c9_aec361dba698 ;
+                                           rdf:type owl:IrreflexiveProperty ;
+                                           skos:prefLabel "hasContactWith"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_9cb984ca_48ad_4864_b09e_50d3fff19420
@@ -249,6 +284,28 @@ Items being connected means that there is a topological contact or \"interaction
                                            rdfs:subPropertyOf :EMMO_ec2472ae_cf4a_46a5_8555_1556f5a6c3c5 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass of all topological EMMO relations."@en ;
                                            skos:prefLabel "topological"@en .
+
+
+###  http://emmo.info/emmo#EMMO_b85e4738_500c_4e1b_bbe8_9e84190485d6
+:EMMO_b85e4738_500c_4e1b_bbe8_9e84190485d6 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_d67ee67e_4fac_4676_82c9_aec361dba698 ;
+                                           rdf:type owl:IrreflexiveProperty ;
+                                           skos:prefLabel "isIndirectCauseFor"@en .
+
+
+###  http://emmo.info/emmo#EMMO_d67ee67e_4fac_4676_82c9_aec361dba698
+:EMMO_d67ee67e_4fac_4676_82c9_aec361dba698 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 ;
+                                           owl:inverseOf :EMMO_d7e3e4ef_953f_4f72_a728_db1fbe1a811f ;
+                                           rdf:type owl:IrreflexiveProperty ;
+                                           skos:prefLabel "isCauseFor"@en .
+
+
+###  http://emmo.info/emmo#EMMO_d7e3e4ef_953f_4f72_a728_db1fbe1a811f
+:EMMO_d7e3e4ef_953f_4f72_a728_db1fbe1a811f rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8 ;
+                                           rdf:type owl:IrreflexiveProperty ;
+                                           skos:prefLabel "isEffectOf"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6
@@ -296,6 +353,14 @@ Items being connected means that there is a topological contact or \"interaction
                                                              rdfs:subPropertyOf :EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 ;
                                                              rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
                                                              skos:prefLabel "hasTemporalItemPart"@en .
+
+
+###  http://emmo.info/emmo/top#EMMO_5a9e4f79_8d3d_448d_acc3_3ec24ba91604
+:EMMO_5a9e4f79_8d3d_448d_acc3_3ec24ba91604 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_9a084aa3_3d5a_4a62_9fc0_fd88937a19c5 ;
+                                           owl:inverseOf :EMMO_5a9e4f79_8d3d_448d_acc3_3ec24ba91604 ;
+                                           rdf:type owl:IrreflexiveProperty ;
+                                           skos:prefLabel "isDirectEffectOf"@en .
 
 
 #################################################################
