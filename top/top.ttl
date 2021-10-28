@@ -186,6 +186,7 @@ skos:prefLabel rdf:type owl:AnnotationProperty ;
                                            rdfs:subPropertyOf :EMMO_555d0261_da5e_4301_b7f9_46f604a32e91 ;
                                            rdf:type owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
+                                           skos:altLabel "isTemporalNextOf"@en ;
                                            skos:prefLabel "isTimeContactWith"@en .
 
 
@@ -203,6 +204,14 @@ skos:prefLabel rdf:type owl:AnnotationProperty ;
                                            rdfs:subPropertyOf :EMMO_9a084aa3_3d5a_4a62_9fc0_fd88937a19c5 ;
                                            rdf:type owl:IrreflexiveProperty ;
                                            skos:prefLabel "isDirectCauseFor"@en .
+
+
+###  http://emmo.info/emmo#EMMO_5a9e4f79_8d3d_448d_acc3_3ec24ba91604
+:EMMO_5a9e4f79_8d3d_448d_acc3_3ec24ba91604 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_9a084aa3_3d5a_4a62_9fc0_fd88937a19c5 ;
+                                           owl:inverseOf :EMMO_5a9e4f79_8d3d_448d_acc3_3ec24ba91604 ;
+                                           rdf:type owl:IrreflexiveProperty ;
+                                           skos:prefLabel "isDirectEffectOf"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_6703954e_34c4_4a15_a9e7_f313760ae1a8
@@ -355,14 +364,6 @@ Items being connected means that there is a topological contact or \"interaction
                                                              skos:prefLabel "hasTemporalItemPart"@en .
 
 
-###  http://emmo.info/emmo/top#EMMO_5a9e4f79_8d3d_448d_acc3_3ec24ba91604
-:EMMO_5a9e4f79_8d3d_448d_acc3_3ec24ba91604 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_9a084aa3_3d5a_4a62_9fc0_fd88937a19c5 ;
-                                           owl:inverseOf :EMMO_5a9e4f79_8d3d_448d_acc3_3ec24ba91604 ;
-                                           rdf:type owl:IrreflexiveProperty ;
-                                           skos:prefLabel "isDirectEffectOf"@en .
-
-
 #################################################################
 #    Classes
 #################################################################
@@ -394,7 +395,7 @@ Mereology based on such items is called atomistic mereology.
 
 However, in order not to confuse the lexicon between mereology and physics (in which an atom is a divisible physical entity) we prefer to call it 'elementary', recalling the concept of elementary particle coming from the standard particles model.
 
-A causal chain is an object which is an (ordered) causal sequence of quantum objects that does not host any bifurcation within itself."""@en ;
+A causal chain is an object which is an (ordered) causal sequence of quantum objects that does not host any bifurcation within itself (a chain)."""@en ;
                                            skos:prefLabel "Elementary"@en .
 
 [ rdf:type owl:Axiom ;
@@ -519,6 +520,7 @@ Physical object temporal parts must be always self-connected. In other words, a 
 
 ###  http://emmo.info/emmo#EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac
 :EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac rdf:type owl:Class ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A non-elemntary causal object."@en ;
                                            skos:prefLabel "CausalSystem"@en .
 
 [ rdf:type owl:Axiom ;
