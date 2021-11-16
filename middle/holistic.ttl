@@ -43,6 +43,13 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                                               :EMMO_9cb984ca_48ad_4864_b09e_50d3fff19420 ;
                                            rdfs:domain :EMMO_1efe8b96_e006_4a33_bc9a_421406cbb9f0 ;
                                            rdfs:range :EMMO_1efe8b96_e006_4a33_bc9a_421406cbb9f0 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation between two holistic wholes that overcross, sharing one of their holistic parts."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """A man and the process of building a house. 
+The man is a whole that possesses an holistic temporal part which is an interval of six monts and represents a working period in his lifetime.
+The process of building a house is a whole that possesses an holistic spatial part which is a builder.
+The working period of the man and the builder participating the building process are the same individual, belonging both to a man lifetime and to a building holistic views.
+In this sense, the man and the building process overcrosses. and the overlapping individual is represented differently in both holistic views."""@en ;
+                                           rdfs:comment "This relation is about two wholes that overlap, and whose intersection is an holistic part of both."@en ;
                                            skos:prefLabel "hasHolisticOvercross"@en .
 
 
@@ -70,6 +77,10 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            rdfs:domain :EMMO_bbca6dfa_7463_4e8d_8280_35862ff50ce0 ;
                                            rdfs:range :EMMO_1efe8b96_e006_4a33_bc9a_421406cbb9f0 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between a whole and its mereological parts that are still holistic wholes."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A volume of water has redundand parts other volumes of water. All this volumes have holistic parts some water molecules."@en ;
+                                           rdfs:comment """The purpose of this relation is to provide a parhood relation that does not go deep enough, in terms of decomposition, to break the holistic definition of the whole.
+
+On the contrary, the holistic parthood, is expected to go that deep."""@en ;
                                            skos:prefLabel "hasRedundantPart"@en .
 
 
@@ -79,6 +90,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                                               :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
                                            rdfs:range :EMMO_4f226cf3_6d02_4d35_8566_a9e641bc6ff3 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between the whole and a proper part of the whole that scale down to the point which it lose the characteristics of the whole and become something else."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "An holistic part of water fluid is a water molecule."@en ;
                                            skos:prefLabel "hasHolisticPart"@en .
 
 
@@ -129,7 +141,8 @@ This class allows the picking of parts without necessarily going trough a rigid 
 ###  http://emmo.info/emmo#EMMO_0e1f2009_bf12_49d1_99f3_1422e5287d82
 :EMMO_0e1f2009_bf12_49d1_99f3_1422e5287d82 rdf:type owl:Class ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An holistic temporal part of a whole."@en ;
-                                           skos:prefLabel "HolisticTemporalPart"@en .
+                                           skos:altLabel "HolisticTemporalPart"@en ;
+                                           skos:prefLabel "TemporalRole"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_1efe8b96_e006_4a33_bc9a_421406cbb9f0
@@ -147,12 +160,12 @@ A whole is categorized as fundamental (or maximal) or redundant (non-maximal).
 While maximality can be formally and univocally expressed,
 
 This class is expected to host the definition of world objects as they appear in its wholeness, independently on the surroundings."""@en ;
-                                           skos:prefLabel "HolisticWhole"@en .
+                                           skos:prefLabel "Whole"@en .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_1efe8b96_e006_4a33_bc9a_421406cbb9f0 ;
    owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "HolisticWhole"@en ;
+   owl:annotatedTarget "Whole"@en ;
    :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Middle English hole (“healthy, unhurt, whole”)."@en
  ] .
 
@@ -189,9 +202,9 @@ Here entities are categorized according to their relation with the whole, i.e. h
 This class is expected to host the definition of world objects as they appear in its relation with the surrounding whole (being a part implies being surrounded by something bigger to which it contributes).
 
 For example, an output is a part (a role or the final stage) of a process, but its specific nature as a whole (e.g. car, service) is categorized under the whole class branch."""@en ;
-                                           skos:altLabel "Part"@en ,
-                                                         "Role"@en ;
-                                           skos:prefLabel "HolisticPart"@en .
+                                           skos:altLabel "HolisticPart"@en ,
+                                                         "Part"@en ;
+                                           skos:prefLabel "Role"@en .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_4f226cf3_6d02_4d35_8566_a9e641bc6ff3 ;
@@ -202,7 +215,7 @@ For example, an output is a part (a role or the final stage) of a process, but i
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_4f226cf3_6d02_4d35_8566_a9e641bc6ff3 ;
-   owl:annotatedProperty skos:altLabel ;
+   owl:annotatedProperty skos:prefLabel ;
    owl:annotatedTarget "Role"@en ;
    :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From French rôle, from obsolete French roule ‘roll’, referring originally to the roll of paper on which the actor's part was written."@en
  ] .
@@ -274,7 +287,8 @@ Following the two examples, a marathon individual is a maximal that can be decom
 ###  http://emmo.info/emmo#EMMO_fcae603e_aa6e_4940_9fa1_9f0909cabf3b
 :EMMO_fcae603e_aa6e_4940_9fa1_9f0909cabf3b rdf:type owl:Class ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An holistic spatial part of a whole."@en ;
-                                           skos:prefLabel "HolisticSpatialPart"@en .
+                                           skos:altLabel "HolisticSpatialPart"@en ;
+                                           skos:prefLabel "SpatialRole"@en .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
