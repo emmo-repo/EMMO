@@ -14,7 +14,7 @@
 ## Table of content
   * [About EMMO](#about-emmo)
       * [Some words about the new name and logo](#some-words-about-the-new-name-and-logo)
-      * [Use of EMMO in domain ontologies](use-of-emmo-in-domain-ontologies)
+      * [Use of EMMO in domain ontologies](#use-of-emmo-in-domain-ontologies)
   * [EMMO in a Nutshell](#emmo-in-a-nutshell)
       * [Top Level](#top-level)
       * [Middle Level](#middle-level)
