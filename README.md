@@ -144,13 +144,7 @@ Browsable documentation and pre-inferred versions of EMMO are available on [http
 ---
 
 ## Contacts:
-Emanuele Ghedini
-University of Bologna (IT)
-email: emanuele.ghedini@unibo.it
-
-Gerhard Goldbeck
-Goldbeck Consulting Ltd (UK)
-email: gerhard@goldbeck-consulting.com
+You can contact EMMO Authors via emmo@emmc.eu
 
 
 ### Acknowledgement
