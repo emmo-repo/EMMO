@@ -14,7 +14,7 @@
 ## Table of content
   * [About EMMO](#about-emmo)
       * [Some words about the new name and logo](#some-words-about-the-new-name-and-logo)
-      * [Use of EMMO in domain ontologies](use-of-emmo-in-domain-ontologies)
+      * [Use of EMMO in domain ontologies](#use-of-emmo-in-domain-ontologies)
   * [EMMO in a Nutshell](#emmo-in-a-nutshell)
       * [Top Level](#top-level)
       * [Middle Level](#middle-level)
@@ -53,7 +53,7 @@ The following table lists the public EMMO-based domain ontologies that we are aw
 Please create an issue if you have a public domain ontology that you think should be listed here.
 
 | Domain ontology                           | Link                                                                                                                                      |
-| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | Battery Interface Ontology (BattINFO)     | [https://github.com/BIG-MAP/BattINFO](https://github.com/BIG-MAP/BattINFO)                                                                |
 | Crystallography                           | [https://github.com/emmo-repo/domain-crystallography](https://github.com/emmo-repo/domain-crystallography)                                |
 | Mechanical Testing                        | [https://github.com/emmo-repo/domain-mechanical-testing](https://github.com/emmo-repo/domain-mechanical-testing)                          |
