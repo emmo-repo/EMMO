@@ -60,14 +60,6 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
                                            skos:prefLabel "hasCharacterised"@en .
 
 
-###  http://emmo.info/emmo#EMMO_e1097637_70d2_4895_973f_2396f04fa204
-:EMMO_e1097637_70d2_4895_973f_2396f04fa204 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b ;
-                                           rdfs:domain :EMMO_dc5dee4e_4305_4a21_8dd5_4e8311c98c73 ;
-                                           rdfs:range :EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba ;
-                                           skos:prefLabel "hasProperty"@en .
-
-
 ###  http://emmo.info/emmo#EMMO_eeb8118c_b290_4f57_b0f8_bd65bb6d77ad
 :EMMO_eeb8118c_b290_4f57_b0f8_bd65bb6d77ad rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_cc823237_398d_4c9a_b8fa_aa157ee3e3a5 ;
@@ -80,105 +72,6 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
 #    Classes
 #################################################################
 
-###  http://emmo.info/emmo#EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069
-:EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_1c0b22a2_be82_4fa8_9e2b_a569a625d442
-                                                                               :EMMO_3b19eab4_79be_4b02_bdaf_ecf1f0067a68
-                                                                             )
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_47bf3513_4ae6_4858_9c45_76e23230d68d ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
-                                                             owl:someValuesFrom :EMMO_1b52ee70_121e_4d8d_8419_3f97cd0bd89c
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
-                                                             owl:someValuesFrom :EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
-                                                             owl:someValuesFrom :EMMO_dc5dee4e_4305_4a21_8dd5_4e8311c98c73
-                                                           ] ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Semiosis' that involves an 'Observer' that perceives another 'Physical' (the 'Object') through a specific perception mechanism and produces a 'Property' (the 'Sign') that stands for the result of that particular perception."@en ;
-                                           skos:prefLabel "Determination"@en .
-
-
-###  http://emmo.info/emmo#EMMO_1b52ee70_121e_4d8d_8419_3f97cd0bd89c
-:EMMO_1b52ee70_121e_4d8d_8419_3f97cd0bd89c rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_4a1c73f1_b6f5_4d10_a3a6_5de90bac7cd0
-                                                                               :EMMO_ea67caa5_2609_4e91_98ae_81103f2d5c25
-                                                                             )
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_2d72e38c_d587_437f_98f6_f2718fb130eb ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
-                                                                            ] ;
-                                                             owl:someValuesFrom :EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069
-                                                           ] ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An 'interpreter' that perceives another 'entity' (the 'object') through a specific perception mechanism and produces a 'property' (the 'sign') that stands for the result of that particular perception."@en ;
-                                           skos:prefLabel "Determiner"@en .
-
-
-###  http://emmo.info/emmo#EMMO_1c0b22a2_be82_4fa8_9e2b_a569a625d442
-:EMMO_1c0b22a2_be82_4fa8_9e2b_a569a625d442 rdf:type owl:Class ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A characterisation of an object without any actual interaction."@en ;
-                                           skos:prefLabel "Estimation"@en .
-
-
-###  http://emmo.info/emmo#EMMO_251cfb4f_5c75_4778_91ed_6c8395212fd8
-:EMMO_251cfb4f_5c75_4778_91ed_6c8395212fd8 rdf:type owl:Class ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Property' that cannot be univocally determined and depends on an agent (e.g. a human individual, a community) acting as black-box."@en ;
-                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """The beauty of that girl.
-The style of your clothing."""@en ;
-                                           rdfs:comment """The word subjective applies to property intrisically subjective or non-well defined. In general, when an black-box-like procedure is used for the definition of the property.
-
-This happens due to e.g. the complexity of the object, the lack of a underlying model for the representation of the object, the non-well specified meaning of the property symbols.
-
-A 'SubjectiveProperty' cannot be used to univocally compare 'Object'-s.
-
-e.g. you cannot evaluate the beauty of a person on objective basis."""@en ;
-                                           skos:prefLabel "SubjectiveProperty"@en .
-
-
-###  http://emmo.info/emmo#EMMO_2a888cdf_ec4a_4ec5_af1c_0343372fc978
-:EMMO_2a888cdf_ec4a_4ec5_af1c_0343372fc978 rdf:type owl:Class ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Property' that is determined by each 'Observer' following a well defined 'Observation' procedure through a specific perception channel."@en ;
-                                           rdfs:comment """The word objective does not mean that each observation will provide the same results. It means that the observation followed a well defined procedure.
-
-This class refers to what is commonly known as physical property, i.e. a measurable property of physical system, whether is quantifiable or not."""@en ;
-                                           skos:prefLabel "ObjectiveProperty"@en .
-
-
-###  http://emmo.info/emmo#EMMO_3b19eab4_79be_4b02_bdaf_ecf1f0067a68
-:EMMO_3b19eab4_79be_4b02_bdaf_ecf1f0067a68 rdf:type owl:Class ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A characterisation of an object with an actual interaction."@en ;
-                                           skos:prefLabel "Observation"@en .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_3b19eab4_79be_4b02_bdaf_ecf1f0067a68 ;
-   owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "Observation"@en ;
-   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin observare (“to watch, note, mark, heed, guard, keep, pay attention to, regard, comply with, etc.”), from ob (“before”) + servare (“to keep”),"@en
- ] .
-
-
-###  http://emmo.info/emmo#EMMO_4a1c73f1_b6f5_4d10_a3a6_5de90bac7cd0
-:EMMO_4a1c73f1_b6f5_4d10_a3a6_5de90bac7cd0 rdf:type owl:Class ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A characteriser that declares a property for an object without actually interact with it with the specific interaction required by the property definition (i.e. infer a property from other properties)."@en ;
-                                           skos:prefLabel "Estimator"@en .
-
-
-###  http://emmo.info/emmo#EMMO_9335cf09_431f_4613_9dab_ce4ceaca965b
-:EMMO_9335cf09_431f_4613_9dab_ce4ceaca965b rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_1c0b22a2_be82_4fa8_9e2b_a569a625d442 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A estimation of a property by a model."@en ;
-                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "I calculate the electrical conductivity of an Ar-He plasma with the Chapman-Enskog method and use the value as property it."@en ;
-                                           skos:altLabel "Simulation"@en ;
-                                           skos:prefLabel "Modelling"@en .
-
-
 ###  http://emmo.info/emmo#EMMO_9be5fcc4_0d8b_481d_b984_6338d4b55588
 :EMMO_9be5fcc4_0d8b_481d_b984_6338d4b55588 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_ea67caa5_2609_4e91_98ae_81103f2d5c25 ;
@@ -186,87 +79,10 @@ This class refers to what is commonly known as physical property, i.e. a measura
                                            skos:prefLabel "Measurer"@en .
 
 
-###  http://emmo.info/emmo#EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba
-:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_251cfb4f_5c75_4778_91ed_6c8395212fd8
-                                                                               :EMMO_2a888cdf_ec4a_4ec5_af1c_0343372fc978
-                                                                             )
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9 ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
-                                                                            ] ;
-                                                             owl:someValuesFrom :EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_e1097637_70d2_4895_973f_2396f04fa204
-                                                                            ] ;
-                                                             owl:someValuesFrom :EMMO_dc5dee4e_4305_4a21_8dd5_4e8311c98c73
-                                                           ] ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A 'Perceptual' referring to a specific code that is used as 'Conventional' sign to represent an 'Object' according to a specific interaction mechanism by an 'Observer'.
-
-(A property is always a partial representation of an 'Object' since it reflects the 'Object' capability to be part of a specific 'Observation' process)"""@en ;
-                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """Hardness is a subclass of properties.
-
-Vickers hardness is a subclass of hardness that involves the procedures and instruments defined by the standard hardness test."""@en ,
-                                                                                      """Let's define the class 'colour' as the subclass of the properties that involve photon emission and an electromagnetic radiation sensible observer.
-
-An individual C of this class 'colour' can be defined be declaring the process individual (e.g. daylight illumination) and the observer (e.g. my eyes)
-
-Stating that an entity E hasProperty C, we mean that it can be observed by such setup of process + observer (i.e. observed by my eyes under daylight).
-
-This definition can be generalized by using a generic human eye, so that the observer can be a generic human.
-
-This can be used in material characterization, to define exactly the type of measurement done, including the instrument type."""@en ;
-                                           rdfs:comment """A 'Property' is a sort of name or label that we put upon objects that interact with an observer in the same specific way.
-
-e.g. \"hot\" objects are objects that interact with an observer through a perception mechanism aimed to perceive an heat source."""@en ,
-                                                        """We know real world entities through observation/perception.
-
-A non-perceivable real world entity does not exist (or it exists on a plane of existance that has no intersection with us and we can say nothing about it).
-
-Perception/observation of a real wolrd entity occurs when the entity stimulate an observer in a peculiar way through a well defined perception channel.
-
-For this reason each property is related to a specific observation process which involves a specific observer with its own perception mechanisms.
-
-The observation process (e.g. a look, a photo shot, a measurement) is performed  by an observer (e.g. you, a camera, an instrument) through a specific perception mechanism (e.g. retina impression, CMOS excitation, piezoelectric sensor activation) and involves an observed entity.
-
-An observation is a semiotic process, since it stimulate an interpretant within the interpreter who can communicate the perception result to other interpreters through a sign which is the property.
-
-Property subclasses are specializations that depend on the type of observation processes.
-
-e.g. the property 'colour' is related to a process that involves emission or interaction of photon and an observer who can perceive electromagnetic radiation in the visible frequency range.
-
-Properties usually relies on symbolic systems (e.g. for colour it can be palette or RGB)."""@en ;
-                                           skos:prefLabel "Property"@en .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba ;
-   owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "Property"@en ;
-   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin proprietas (“a peculiarity, one's peculiar nature or quality, right or fact of possession, property”), from proprius (“special, particular, one's own”)."@en
- ] .
-
-
 ###  http://emmo.info/emmo#EMMO_dc5dee4e_4305_4a21_8dd5_4e8311c98c73
 :EMMO_dc5dee4e_4305_4a21_8dd5_4e8311c98c73 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_c9805ac9_a943_4be4_ac4b_6da64ba36c73 ;
-                                           skos:prefLabel "Characterised"@en .
-
-
-###  http://emmo.info/emmo#EMMO_ea67caa5_2609_4e91_98ae_81103f2d5c25
-:EMMO_ea67caa5_2609_4e91_98ae_81103f2d5c25 rdf:type owl:Class ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A characteriser that declares a property for an object through the specific interaction required by the property definition."@en ;
-                                           skos:prefLabel "Observer"@en .
-
-
-###  http://emmo.info/emmo#EMMO_f273529f_9f2c_4877_a94b_5b47590353fc
-:EMMO_f273529f_9f2c_4877_a94b_5b47590353fc rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4a1c73f1_b6f5_4d10_a3a6_5de90bac7cd0 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A estimator that uses its predefined knowledge to declare a property of an object."@en ;
-                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "I estimate the molecular mass of the gas in my bottle as 1.00784 u because it is tagged as H."@en ;
-                                           skos:prefLabel "Assigner"@en .
+                                           skos:prefLabel "Determined"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_f94e509a_be29_4365_a4cd_70165e47e232
