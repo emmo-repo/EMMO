@@ -10,7 +10,7 @@
 
 <http://emmo.info/emmo/domain/models> rdf:type owl:Ontology ;
                                        owl:versionIRI <http://emmo.info/emmo/1.0.0-beta2/domain/models> ;
-                                       owl:imports <http://emmo.info/emmo/1.0.0-beta2/domain/metrology> ;
+                                       owl:imports <http://emmo.info/emmo/1.0.0-beta2/domain/math> ;
                                        dcterms:abstract "The models module defines models as semiotic signs that stands for an object by resembling or imitating it, in shape or by sharing a similar logical structure."@en ;
                                        dcterms:contributor "Access, DE" ,
                                                            "Fraunhofer IWM, DE" ,
@@ -58,10 +58,6 @@ email: emanuele.ghedini@unibo.it"""@en ,
 :EMMO_02c0621e_a527_4790_8a0f_2bb51973c819 rdf:type owl:Class .
 
 
-###  http://emmo.info/emmo#EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069
-:EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069 rdf:type owl:Class .
-
-
 ###  http://emmo.info/emmo#EMMO_22522299_4091_4d1f_82a2_3890492df6db
 :EMMO_22522299_4091_4d1f_82a2_3890492df6db rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069 ,
@@ -75,15 +71,11 @@ email: emanuele.ghedini@unibo.it"""@en ,
 
 ###  http://emmo.info/emmo#EMMO_27c5d8c6_8af7_4d63_beb1_ec37cd8b3fa3
 :EMMO_27c5d8c6_8af7_4d63_beb1_ec37cd8b3fa3 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_e56ee3eb_7609_4ae1_8bed_51974f0960a6 ,
+                                           rdfs:subClassOf :EMMO_4f2d1fcc_e20c_4479_9ad7_7a0480dd3e44 ,
+                                                           :EMMO_e56ee3eb_7609_4ae1_8bed_51974f0960a6 ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
                                                              owl:someValuesFrom :EMMO_02c0621e_a527_4790_8a0f_2bb51973c819
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c
-                                                                            ] ;
-                                                             owl:someValuesFrom :EMMO_314d0bd5_67ed_437e_a609_36d46147cea7
                                                            ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An 'equation' that stands for a 'physical_law' by mathematically defining the relations between physics_quantities."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """The Newton's equation of motion.
@@ -102,16 +94,22 @@ The Navier-Stokes equation."""@en ;
                                            skos:prefLabel "PhysicalPhenomenon"@en .
 
 
+###  http://emmo.info/emmo#EMMO_31cc409a_5f7c_4488_8f3c_ef344babf17a
+:EMMO_31cc409a_5f7c_4488_8f3c_ef344babf17a rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_f7ed665b_c2e1_42bc_889b_6b42ed3a36f0 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A mathematical model of the economy is a formal description of certain relationships between quantities, such as prices, production, employment, saving, investment, etc.,
+with the purpose to analyze their logical implications."""@en ;
+                                           skos:prefLabel "EconomicModel"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_4456a5d2_16a6_4ee1_9a8e_5c75956b28ea
 :EMMO_4456a5d2_16a6_4ee1_9a8e_5c75956b28ea rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_b29fd350_39aa_4af7_9459_3faa0544cba6 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A physics-based model based on a physics equation describing the behaviour of continuum volume."@en ;
                                            skos:prefLabel "ContinuumModel"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_53935db0_af45_4426_b9e9_244a0d77db00
 :EMMO_53935db0_af45_4426_b9e9_244a0d77db00 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_b29fd350_39aa_4af7_9459_3faa0544cba6 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A physics-based model based on a physics equation describing the behaviour of mesoscopic entities, i.e. a set of bounded atoms like a molecule, bead or nanoparticle."@en ;
                                            skos:prefLabel "MesoscopicModel"@en .
 
@@ -132,9 +130,18 @@ The Navier-Stokes equation."""@en ;
                                            skos:prefLabel "Theorisation"@en .
 
 
+###  http://emmo.info/emmo#EMMO_6e0664f2_4d4d_4407_bf60_e1b3c07198d7
+:EMMO_6e0664f2_4d4d_4407_bf60_e1b3c07198d7 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0 ,
+                                                           :EMMO_c7013b53_3071_410b_a5e4_a8d266dcdfb5 ;
+                                           rdfs:comment """This must be a mathematical function v(t), x(t).
+
+A dataset as solution is a conventional sign."""@en ;
+                                           skos:prefLabel "SolutionOfPhysicsEquation"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_6eca09be_17e9_445e_abc9_000aa61b7a11
 :EMMO_6eca09be_17e9_445e_abc9_000aa61b7a11 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_b29fd350_39aa_4af7_9459_3faa0544cba6 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A physics-based model based on a physics equation describing the behaviour of electrons."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """Density functional theory.
 Hartree-Fock."""@en ;
@@ -143,9 +150,22 @@ Hartree-Fock."""@en ;
 
 ###  http://emmo.info/emmo#EMMO_84cadc45_6758_46f2_ba2a_5ead65c70213
 :EMMO_84cadc45_6758_46f2_ba2a_5ead65c70213 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_b29fd350_39aa_4af7_9459_3faa0544cba6 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A physics-based model based on a physics equation describing the behaviour of atoms."@en ;
                                            skos:prefLabel "AtomisticModel"@en .
+
+
+###  http://emmo.info/emmo#EMMO_8533871a_01e4_4935_8c7b_cedf8fcc3fa3
+:EMMO_8533871a_01e4_4935_8c7b_cedf8fcc3fa3 rdf:type owl:Class ;
+                                           owl:equivalentClass [ owl:intersectionOf ( :EMMO_8c537c06_8e1d_4a3b_a251_1c89bb2c4790
+                                                                                      :EMMO_c7013b53_3071_410b_a5e4_a8d266dcdfb5
+                                                                                    ) ;
+                                                                 rdf:type owl:Class
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An icon that not only have some resemblance of the object, but also can function as the object."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A small scale replica of a plane tested in a wind gallery shares the same functionality in terms of aerodynamic behaviour of the bigger one."@en ,
+                                                                                      "Pinocchio is a functional icon of a boy since it imitates the external behaviour without having the internal biological structure of a human being (it is made of magic wood...)."@en ;
+                                           skos:prefLabel "ReplicaModel"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_8d2d9374_ef3a_47e6_8595_6bc208e07519
@@ -160,18 +180,24 @@ In Peirce semiotics: legisign-symbol-argument"""@en ;
                                            skos:prefLabel "Theory"@en .
 
 
-###  http://emmo.info/emmo#EMMO_939483b1_0148_43d1_8b35_851d2cd5d939
-:EMMO_939483b1_0148_43d1_8b35_851d2cd5d939 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty [ owl:inverseOf :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c
-                                                                                ] ;
-                                                                 owl:someValuesFrom :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d
-                                                               ] ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A 'sign' that not only stands for a 'physical' or a 'process', but it is also a simplified representation, aimed to assist calculations for its description or for predictions of its behaviour.
+###  http://emmo.info/emmo#EMMO_90f18cf0_1225_4c64_b5f8_f65cd7f992c5
+:EMMO_90f18cf0_1225_4c64_b5f8_f65cd7f992c5 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_b29fd350_39aa_4af7_9459_3faa0544cba6 ;
+                                           owl:disjointUnionOf ( :EMMO_4456a5d2_16a6_4ee1_9a8e_5c75956b28ea
+                                                                 :EMMO_53935db0_af45_4426_b9e9_244a0d77db00
+                                                                 :EMMO_6eca09be_17e9_445e_abc9_000aa61b7a11
+                                                                 :EMMO_84cadc45_6758_46f2_ba2a_5ead65c70213
+                                                               ) ;
+                                           skos:prefLabel "MaterialsModel"@en .
 
-A 'model' represents a 'physical' or a 'process' by direct similitude (e.g. small scale replica) or by capturing in a logical framework the relations between its properties (e.g. mathematical model)."""@en ;
-                                           rdfs:comment "A 'model' prediction is always a prediction of the properties of an entity, since an entity is known by an interpreter only through perception."@en ;
-                                           skos:prefLabel "Model"@en .
+
+###  http://emmo.info/emmo#EMMO_9335cf09_431f_4613_9dab_ce4ceaca965b
+:EMMO_9335cf09_431f_4613_9dab_ce4ceaca965b rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_1c0b22a2_be82_4fa8_9e2b_a569a625d442 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A estimation of a property by a model."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "I calculate the electrical conductivity of an Ar-He plasma with the Chapman-Enskog method and use the value as property it."@en ;
+                                           skos:altLabel "Simulation"@en ;
+                                           skos:prefLabel "Modelling"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_9c32fd69_f480_4130_83b3_fb25d9face14
@@ -182,9 +208,10 @@ A 'model' represents a 'physical' or a 'process' by direct similitude (e.g. smal
 
 ###  http://emmo.info/emmo#EMMO_a4b14b83_9392_4a5f_a2e8_b2b58793f59b
 :EMMO_a4b14b83_9392_4a5f_a2e8_b2b58793f59b rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_f7ed665b_c2e1_42bc_889b_6b42ed3a36f0 ;
+                                           rdfs:subClassOf :EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0 ,
+                                                           :EMMO_c7013b53_3071_410b_a5e4_a8d266dcdfb5 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A computational model that uses existing data to create new insight into the behaviour of a system."@en ;
-                                           skos:prefLabel "DataBasedModel"@en .
+                                           skos:prefLabel "DataBasedFunctional"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_b29fd350_39aa_4af7_9459_3faa0544cba6
@@ -202,6 +229,13 @@ A 'model' represents a 'physical' or a 'process' by direct similitude (e.g. smal
                                            skos:prefLabel "PhysicsBasedModel"@en .
 
 
+###  http://emmo.info/emmo#EMMO_d5f41244_b058_4935_9ae9_13ec2ee1b295
+:EMMO_d5f41244_b058_4935_9ae9_13ec2ee1b295 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_c7013b53_3071_410b_a5e4_a8d266dcdfb5 ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "guineas pig is a representation of a physical based causality chain that mimic the one of the object"@en ;
+                                           skos:prefLabel "GuineaPig"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_db9a009e_f097_43f5_9520_6cbc07e7610b
 :EMMO_db9a009e_f097_43f5_9520_6cbc07e7610b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_8d2d9374_ef3a_47e6_8595_6bc208e07519 ;
@@ -210,7 +244,8 @@ A 'model' represents a 'physical' or a 'process' by direct similitude (e.g. smal
 
 ###  http://emmo.info/emmo#EMMO_e5438930_04e7_4d42_ade5_3700d4a52ab7
 :EMMO_e5438930_04e7_4d42_ade5_3700d4a52ab7 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_e56ee3eb_7609_4ae1_8bed_51974f0960a6 ,
+                                           rdfs:subClassOf :EMMO_c7013b53_3071_410b_a5e4_a8d266dcdfb5 ,
+                                                           :EMMO_e56ee3eb_7609_4ae1_8bed_51974f0960a6 ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
                                                              owl:someValuesFrom :EMMO_02c0621e_a527_4790_8a0f_2bb51973c819
@@ -237,15 +272,25 @@ An Hamiltonian."""@en ;
 
 ###  http://emmo.info/emmo#EMMO_f7ed665b_c2e1_42bc_889b_6b42ed3a36f0
 :EMMO_f7ed665b_c2e1_42bc_889b_6b42ed3a36f0 rdf:type owl:Class ;
-                                           owl:equivalentClass [ owl:intersectionOf ( :EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0
-                                                                                      :EMMO_939483b1_0148_43d1_8b35_851d2cd5d939
+                                           owl:equivalentClass [ owl:intersectionOf ( :EMMO_4f2d1fcc_e20c_4479_9ad7_7a0480dd3e44
+                                                                                      :EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0
                                                                                     ) ;
                                                                  rdf:type owl:Class
                                                                ] ;
                                            rdfs:comment """A mathematical model can be defined as a description of a system using mathematical concepts and language to facilitate proper explanation of a system or to study the effects of different components and to make predictions on patterns of behaviour.
 
-Abramowitz and Stegun, 1968"""@en ;
-                                           skos:prefLabel "MathematicalModel"@en .
+Abramowitz and Stegun, 1968"""@en ,
+                                                        """solvable or unsolvable mathematical equtions?
+
+Maybe an equation is only diagrammatic (it does not predict) but the funsction which is a solution of the equation is functional, but not diagrammatic."""@en ;
+                                           skos:prefLabel "MathematicalIcon"@en .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+:EMMO_0cd58641_824c_4851_907f_f4c3be76630c skos:altLabel "Signal"@en .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
