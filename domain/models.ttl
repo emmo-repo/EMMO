@@ -50,6 +50,10 @@ email: emanuele.ghedini@unibo.it"""@en ,
 :EMMO_39c3815d_8cae_4c8f_b2ff_eeba24bec455 rdf:type owl:ObjectProperty .
 
 
+###  http://emmo.info/emmo#EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a
+:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a rdf:type owl:ObjectProperty .
+
+
 #################################################################
 #    Classes
 #################################################################
@@ -79,9 +83,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                                            ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An 'equation' that stands for a 'physical_law' by mathematically defining the relations between physics_quantities."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """The Newton's equation of motion.
-
 The Schrödinger equation.
-
 The Navier-Stokes equation."""@en ;
                                            skos:prefLabel "PhysicsEquation"@en .
 
@@ -102,6 +104,10 @@ with the purpose to analyze their logical implications."""@en ;
                                            skos:prefLabel "EconomicModel"@en .
 
 
+###  http://emmo.info/emmo#EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce
+:EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce rdf:type owl:Class .
+
+
 ###  http://emmo.info/emmo#EMMO_4456a5d2_16a6_4ee1_9a8e_5c75956b28ea
 :EMMO_4456a5d2_16a6_4ee1_9a8e_5c75956b28ea rdf:type owl:Class ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A physics-based model based on a physics equation describing the behaviour of continuum volume."@en ;
@@ -116,6 +122,32 @@ with the purpose to analyze their logical implications."""@en ;
 
 ###  http://emmo.info/emmo#EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0
 :EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0 rdf:type owl:Class .
+
+
+###  http://emmo.info/emmo#EMMO_57b9fd6c_84d6_43f2_8c4f_de6a1ab50aea
+:EMMO_57b9fd6c_84d6_43f2_8c4f_de6a1ab50aea rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_251cfb4f_5c75_4778_91ed_6c8395212fd8 ,
+                                                           :EMMO_8d2d9374_ef3a_47e6_8595_6bc208e07519 ,
+                                                           :EMMO_9b87d718_9dcc_4f7d_ad20_12c2aa4c76be ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A guess is a theory, estimated and subjective, since its premises are subjective."@en ;
+                                           skos:prefLabel "Guess"@en .
+
+
+###  http://emmo.info/emmo#EMMO_5dd63d84_57f5_4b79_b760_fe940c06680d
+:EMMO_5dd63d84_57f5_4b79_b760_fe940c06680d rdf:type owl:Class ;
+                                           owl:equivalentClass [ owl:intersectionOf ( :EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0
+                                                                                      :EMMO_c7013b53_3071_410b_a5e4_a8d266dcdfb5
+                                                                                    ) ;
+                                                                 rdf:type owl:Class
+                                                               ] ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A mathematical and functional icon entity,"@en ;
+                                           skos:prefLabel "MathematicalFunctionalModel"@en .
+
+
+###  http://emmo.info/emmo#EMMO_67c70dcd_2adf_4e6c_b3f8_f33dd1512487
+:EMMO_67c70dcd_2adf_4e6c_b3f8_f33dd1512487 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_8b66ada5_510c_44bd_a8d8_3c64d301a5e9 ;
+                                           skos:prefLabel "EmpiricalSimulationSoftware"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_6c739b1a_a774_4416_bb31_1961486fa9ed
@@ -134,10 +166,12 @@ with the purpose to analyze their logical implications."""@en ;
 :EMMO_6e0664f2_4d4d_4407_bf60_e1b3c07198d7 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0 ,
                                                            :EMMO_c7013b53_3071_410b_a5e4_a8d266dcdfb5 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A function solution of a physics equation that provides a methods for the prediction of some quantitiative properties of an object."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A parabolic function is a prediction of the trajectory of a falling object in a gravitational field. While it has predictive capabilities it lacks of an analogical character, since it does not show the law behind that trajectory."@en ;
                                            rdfs:comment """This must be a mathematical function v(t), x(t).
 
 A dataset as solution is a conventional sign."""@en ;
-                                           skos:prefLabel "SolutionOfPhysicsEquation"@en .
+                                           skos:prefLabel "PhysicsEquationSolution"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_6eca09be_17e9_445e_abc9_000aa61b7a11
@@ -168,9 +202,15 @@ Hartree-Fock."""@en ;
                                            skos:prefLabel "ReplicaModel"@en .
 
 
+###  http://emmo.info/emmo#EMMO_8b66ada5_510c_44bd_a8d8_3c64d301a5e9
+:EMMO_8b66ada5_510c_44bd_a8d8_3c64d301a5e9 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_c7013b53_3071_410b_a5e4_a8d266dcdfb5 ;
+                                           skos:prefLabel "ModellingApplication"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_8d2d9374_ef3a_47e6_8595_6bc208e07519
 :EMMO_8d2d9374_ef3a_47e6_8595_6bc208e07519 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9 ;
+                                           rdfs:subClassOf :EMMO_35d4c439_fcb6_4399_a855_a89a207b41e9 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'conventional' that stand for a 'physical'."@en ;
                                            rdfs:comment """The 'theory' is e.g. a proposition, a book or a paper whose sub-symbols suggest in the mind of the interpreter an interpretant structure that can represent a 'physical'.
 
@@ -178,6 +218,13 @@ It is not an 'icon' (like a math equation), because it has no common resemblance
 
 In Peirce semiotics: legisign-symbol-argument"""@en ;
                                            skos:prefLabel "Theory"@en .
+
+
+###  http://emmo.info/emmo#EMMO_8d4962d7_9608_44f7_a2f1_82a4bb173f4a
+:EMMO_8d4962d7_9608_44f7_a2f1_82a4bb173f4a rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_4f2d1fcc_e20c_4479_9ad7_7a0480dd3e44 ,
+                                                           :EMMO_8b66ada5_510c_44bd_a8d8_3c64d301a5e9 ;
+                                           skos:prefLabel "PhysicalBasedSimulationSoftware"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_90f18cf0_1225_4c64_b5f8_f65cd7f992c5
@@ -188,16 +235,26 @@ In Peirce semiotics: legisign-symbol-argument"""@en ;
                                                                  :EMMO_6eca09be_17e9_445e_abc9_000aa61b7a11
                                                                  :EMMO_84cadc45_6758_46f2_ba2a_5ead65c70213
                                                                ) ;
+                                           rdfs:seeAlso "https://op.europa.eu/en/publication-detail/-/publication/ec1455c3-d7ca-11e6-ad7c-01aa75ed71a1"@en ;
                                            skos:prefLabel "MaterialsModel"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_9335cf09_431f_4613_9dab_ce4ceaca965b
 :EMMO_9335cf09_431f_4613_9dab_ce4ceaca965b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_1c0b22a2_be82_4fa8_9e2b_a569a625d442 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A estimation of a property by a model."@en ;
-                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "I calculate the electrical conductivity of an Ar-He plasma with the Chapman-Enskog method and use the value as property it."@en ;
-                                           skos:altLabel "Simulation"@en ;
-                                           skos:prefLabel "Modelling"@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A estimation of a property using a simulation."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "I calculate the electrical conductivity of an Ar-He plasma with the Chapman-Enskog method and use the value as property for it."@en ;
+                                           skos:altLabel "Modelling"@en ;
+                                           skos:prefLabel "Simulation"@en .
+
+
+###  http://emmo.info/emmo#EMMO_937757d3_ed79_4ae3_9513_3b135e58a6a1
+:EMMO_937757d3_ed79_4ae3_9513_3b135e58a6a1 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_1b6a95fb_3df7_44c9_ad3d_419c9c5fe7cb ,
+                                                           :EMMO_2a888cdf_ec4a_4ec5_af1c_0343372fc978 ,
+                                                           :EMMO_8d2d9374_ef3a_47e6_8595_6bc208e07519 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A scientific theory is a description, objective and observed."@en ;
+                                           skos:prefLabel "ScientificTheory"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_9c32fd69_f480_4130_83b3_fb25d9face14
@@ -209,9 +266,9 @@ In Peirce semiotics: legisign-symbol-argument"""@en ;
 ###  http://emmo.info/emmo#EMMO_a4b14b83_9392_4a5f_a2e8_b2b58793f59b
 :EMMO_a4b14b83_9392_4a5f_a2e8_b2b58793f59b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0 ,
-                                                           :EMMO_c7013b53_3071_410b_a5e4_a8d266dcdfb5 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A computational model that uses existing data to create new insight into the behaviour of a system."@en ;
-                                           skos:prefLabel "DataBasedFunctional"@en .
+                                                           :EMMO_8b66ada5_510c_44bd_a8d8_3c64d301a5e9 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A computational application that uses existing data to predict the behaviour of a system without providing a identifiable analogy with the original object."@en ;
+                                           skos:prefLabel "DataBasedModel"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_b29fd350_39aa_4af7_9459_3faa0544cba6
@@ -226,19 +283,24 @@ In Peirce semiotics: legisign-symbol-argument"""@en ;
                                                              owl:someValuesFrom :EMMO_e5438930_04e7_4d42_ade5_3700d4a52ab7
                                                            ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A solvable set of one Physics Equation and one or more Materials Relations."@en ;
+                                           rdfs:isDefinedBy "CEN Workshop Agreement – CWA 17284 “Materials modelling – terminology, classification and metadata”"@en ;
                                            skos:prefLabel "PhysicsBasedModel"@en .
 
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_b29fd350_39aa_4af7_9459_3faa0544cba6 ;
+   owl:annotatedProperty rdfs:isDefinedBy ;
+   owl:annotatedTarget "CEN Workshop Agreement – CWA 17284 “Materials modelling – terminology, classification and metadata”"@en ;
+   rdfs:seeAlso "https://emmc.info/wp-content/uploads/2018/05/CWA_17284.pdf"^^xsd:anyURI
+ ] .
 
-###  http://emmo.info/emmo#EMMO_d5f41244_b058_4935_9ae9_13ec2ee1b295
-:EMMO_d5f41244_b058_4935_9ae9_13ec2ee1b295 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_c7013b53_3071_410b_a5e4_a8d266dcdfb5 ;
-                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "guineas pig is a representation of a physical based causality chain that mimic the one of the object"@en ;
-                                           skos:prefLabel "GuineaPig"@en .
+
+###  http://emmo.info/emmo#EMMO_c7013b53_3071_410b_a5e4_a8d266dcdfb5
+:EMMO_c7013b53_3071_410b_a5e4_a8d266dcdfb5 :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A guinea pig."@en .
 
 
 ###  http://emmo.info/emmo#EMMO_db9a009e_f097_43f5_9520_6cbc07e7610b
 :EMMO_db9a009e_f097_43f5_9520_6cbc07e7610b rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_8d2d9374_ef3a_47e6_8595_6bc208e07519 ;
+                                           rdfs:subClassOf :EMMO_937757d3_ed79_4ae3_9513_3b135e58a6a1 ;
                                            skos:prefLabel "NaturalLaw"@en .
 
 
@@ -252,9 +314,7 @@ In Peirce semiotics: legisign-symbol-argument"""@en ;
                                                            ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An 'equation' that stands for a physical assumption specific to a material, and provides an expression for a 'physics_quantity' (the dependent variable) as function of other variables, physics_quantity or data (independent variables)."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """The Lennard-Jones potential.
-
 A force field.
-
 An Hamiltonian."""@en ;
                                            rdfs:comment "A material_relation can e.g. return a predefined number, return a database query, be an equation that depends on other physics_quantities."@en ;
                                            skos:prefLabel "MaterialRelation"@en .
@@ -262,6 +322,15 @@ An Hamiltonian."""@en ;
 
 ###  http://emmo.info/emmo#EMMO_e56ee3eb_7609_4ae1_8bed_51974f0960a6
 :EMMO_e56ee3eb_7609_4ae1_8bed_51974f0960a6 rdf:type owl:Class .
+
+
+###  http://emmo.info/emmo#EMMO_e7cbc129_0d05_41a2_851a_10b198cd7ca2
+:EMMO_e7cbc129_0d05_41a2_851a_10b198cd7ca2 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_2a888cdf_ec4a_4ec5_af1c_0343372fc978 ,
+                                                           :EMMO_8d2d9374_ef3a_47e6_8595_6bc208e07519 ,
+                                                           :EMMO_9b87d718_9dcc_4f7d_ad20_12c2aa4c76be ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A hypothesis is a theory, estimated and objective, since its estimated premises are objective."@en ;
+                                           skos:prefLabel "Hypothesis"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_f19ff3b4_6bfe_4c41_a2b2_9affd39c140b
@@ -283,7 +352,7 @@ Abramowitz and Stegun, 1968"""@en ,
                                                         """solvable or unsolvable mathematical equtions?
 
 Maybe an equation is only diagrammatic (it does not predict) but the funsction which is a solution of the equation is functional, but not diagrammatic."""@en ;
-                                           skos:prefLabel "MathematicalIcon"@en .
+                                           skos:prefLabel "MathematicalModel"@en .
 
 
 #################################################################
