@@ -41,6 +41,15 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            skos:prefLabel "UpQuark"@en .
 
 
+###  http://emmo.info/emmo#EMMO_1b32a555_978b_4e56_933f_e158e165023e
+:EMMO_1b32a555_978b_4e56_933f_e158e165023e rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_530ebacb_8bb7_4c69_88fb_253e5a9dd112 ,
+                                                           :EMMO_be0a7278_b4e6_4bca_88ba_de3f67a478e2 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A meson with total spin 1 and odd parit."@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Vector_meson" ;
+                                           rdfs:label "VectorMeson"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_1d5305d7_5690_4e5a_92de_4611e8c356ef
 :EMMO_1d5305d7_5690_4e5a_92de_4611e8c356ef rdf:type owl:Class ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A neutrino belonging to the first generation of leptons."@en ;
@@ -149,6 +158,15 @@ e.g. you cannot remove H from H20 without changing the molecule type (essential)
                                            skos:prefLabel "MassiveElementary"@en .
 
 
+###  http://emmo.info/emmo#EMMO_38d00e5f_d759_4dcc_8551_ab95865cf799
+:EMMO_38d00e5f_d759_4dcc_8551_ab95865cf799 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_530ebacb_8bb7_4c69_88fb_253e5a9dd112 ,
+                                                           :EMMO_be0a7278_b4e6_4bca_88ba_de3f67a478e2 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A meson with total spin 1 and even parit."@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Pseudovector_meson" ;
+                                           rdfs:label "PseudoVectorMeson"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_3a948fa6_033a_4bb2_a319_36a45741d832
 :EMMO_3a948fa6_033a_4bb2_a319_36a45741d832 rdf:type owl:Class ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals that stand for tau elementary particles belonging to the third generation of leptons."@en ;
@@ -226,7 +244,7 @@ e.g. you cannot remove H from H20 without changing the molecule type (essential)
 
 ###  http://emmo.info/emmo#EMMO_676a29e6_d4e1_4b54_8961_25947bd20861
 :EMMO_676a29e6_d4e1_4b54_8961_25947bd20861 rdf:type owl:Class ;
-                                           owl:equivalentClass :EMMO_cc1b6be1_3102_4376_b33b_d8dd13f9be2f ;
+                                           rdfs:subClassOf :EMMO_cc1b6be1_3102_4376_b33b_d8dd13f9be2f ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An elementary bosonic particle with zero spin produced by the quantum excitation of the Higgs field."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Higgs_boson" ;
                                            skos:prefLabel "HiggsBoson"@en .
@@ -343,10 +361,17 @@ Here the class 'Field' refers to the quantum field of bosonic particles while th
 
 ###  http://emmo.info/emmo#EMMO_a15cea10_9946_4d2b_95c5_cfc333fd2abb
 :EMMO_a15cea10_9946_4d2b_95c5_cfc333fd2abb rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_53dced52_34f6_4cf0_8a99_ddf451861543
+                                                                               :EMMO_b5a5494c_83bf_44aa_a9a6_49b948e68939
+                                                                             )
+                                                               ] ,
+                                                               [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_7b42954f_0b91_4b3a_a65e_2470202cf548
+                                                                               :EMMO_d324ae63_7574_4d73_b25b_96479e2626f2
+                                                                             )
+                                                               ] ;
                                            rdfs:subClassOf :EMMO_98ada9d8_f1c8_4f13_99b5_d890f5354152 ;
-                                           owl:disjointUnionOf ( :EMMO_53dced52_34f6_4cf0_8a99_ddf451861543
-                                                                 :EMMO_b5a5494c_83bf_44aa_a9a6_49b948e68939
-                                                               ) ;
                                            rdfs:comment "The scope of the particle definition goes from the elementary particles to molecules, as fundamental constituents of substances." ;
                                            skos:prefLabel "Particle"@en .
 
@@ -407,7 +432,8 @@ Here the class 'Field' refers to the quantum field of bosonic particles while th
 
 ###  http://emmo.info/emmo#EMMO_d324ae63_7574_4d73_b25b_96479e2626f2
 :EMMO_d324ae63_7574_4d73_b25b_96479e2626f2 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_53dced52_34f6_4cf0_8a99_ddf451861543 ;
+                                           rdfs:subClassOf :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 ,
+                                                           :EMMO_53dced52_34f6_4cf0_8a99_ddf451861543 ;
                                            owl:disjointUnionOf ( :EMMO_1d5305d7_5690_4e5a_92de_4611e8c356ef
                                                                  :EMMO_2531fe94_1cdf_4f36_9abc_7ab7574310db
                                                                  :EMMO_3a948fa6_033a_4bb2_a319_36a45741d832
@@ -554,24 +580,6 @@ We cannot say that H2 molecule has direct part two H atoms, but has direct part 
                                            rdfs:comment "All known gauge bosons have a spin of 1 and are hence also vector bosons."@en ,
                                                         "Gauge bosons can carry any of the four fundamental interactions of nature."@en ;
                                            skos:prefLabel "GaugeBoson"@en .
-
-
-###  http://emmo.info/emmo/middle/physicalistic#EMMO_1b32a555_978b_4e56_933f_e158e165023e
-:EMMO_1b32a555_978b_4e56_933f_e158e165023e rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_530ebacb_8bb7_4c69_88fb_253e5a9dd112 ,
-                                                           :EMMO_be0a7278_b4e6_4bca_88ba_de3f67a478e2 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A meson with total spin 1 and odd parit."@en ;
-                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Vector_meson" ;
-                                           rdfs:label "VectorMeson"@en .
-
-
-###  http://emmo.info/emmo/middle/physicalistic#EMMO_38d00e5f_d759_4dcc_8551_ab95865cf799
-:EMMO_38d00e5f_d759_4dcc_8551_ab95865cf799 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_530ebacb_8bb7_4c69_88fb_253e5a9dd112 ,
-                                                           :EMMO_be0a7278_b4e6_4bca_88ba_de3f67a478e2 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A meson with total spin 1 and even parit."@en ;
-                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Pseudovector_meson" ;
-                                           rdfs:label "PseudoVectorMeson"@en .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
