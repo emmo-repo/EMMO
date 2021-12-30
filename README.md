@@ -18,7 +18,10 @@
   * [EMMO in a Nutshell](#emmo-in-a-nutshell)
       * [Top Level](#top-level)
       * [Middle Level](#middle-level)
-      * [EMMO relations](#emmo-relations)
+      * [Reference Level](#reference-level)
+      * [Domain Ontologies](#domain-ontologies)
+      * [Application Ontologies](#application-ontologies)
+  * [EMMO Relations](#emmo-relations)
   * [Repository Description](#repository-description)
   * [How to Use It](#how-to-use-it)
       * [Pre-inferred ontology and documentation](#pre-inferred-ontology-and-documentation)
@@ -45,78 +48,107 @@ A lot can be said about the logo:
 * A triangle is a common way to represent a ternary phase diagram showing the close connection to physics.
 
 
-
-### Use of EMMO in domain ontologies
-Currently there are several domain ontologies in development that use EMMO as the top and middle level ontology.
-Typically they import one of the versions of EMMO listed on [https://emmo-repo.github.io/](https://emmo-repo.github.io/).
-The following table lists the public EMMO-based domain ontologies that we are aware of.
-Please create an issue if you have a public domain ontology that you think should be listed here.
-
-| Domain ontology                           | Link                                                                                                                                      |
-| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| Battery Interface Ontology (BattINFO)     | [https://github.com/BIG-MAP/BattINFO](https://github.com/BIG-MAP/BattINFO)                                                                |
-| Crystallography                           | [https://github.com/emmo-repo/domain-crystallography](https://github.com/emmo-repo/domain-crystallography)                                |
-| Mechanical Testing                        | [https://github.com/emmo-repo/domain-mechanical-testing](https://github.com/emmo-repo/domain-mechanical-testing)                          |
-| Microstructure domain ontology            | [https://github.com/emmo-repo/domain-ontology](https://github.com/emmo-repo/domain-ontology)                                              |
-| Datamodel ontology                        | [https://github.com/emmo-repo/datamodel-ontology](https://github.com/emmo-repo/datamodel-ontology)                                        |
-| Mappings ontology                         | [https://github.com/emmo-repo/domain-mappings](https://github.com/emmo-repo/domain-mappings)                                              |
-| Atomistic and Electronic Modelling        | [https://github.com/emmo-repo/domain-atomistic](https://github.com/emmo-repo/domain-atomistic)                                            |
-| EMMO example domain ontologies            | [https://github.com/emmo-repo/EMMO/tree/master/domain](https://github.com/emmo-repo/EMMO/tree/master/domain)                              |
-
-
 ## EMMO in a Nutshell
-The EMMO ontology is structured in shells, expressed by specific ontology fragments, that extends from fundamental concepts to the application domains, following the dependency flow.
+The EMMO ontology is structured in shells, expressed by specific ontology fragments, that extends from fundamental concepts to the application domains, following the dependency flow.  This hierarchical structure is illustrated in the figure below, where "top" is the top-level EMMO that all EMMO-complaint ontologies depends on.
+[This repository](https://github.com/emmo-repo/EMMO) hosts the EMMO top, middle and reference level ontologies.
+
+![EMMO hierarchy.](doc/emmo-hierarchy.png)
 
 
 ### Top Level
-The [EMMO top level](top/top.ttl) is the group of fundamental axioms that constitute the philosophical foundation of the EMMO.  Adopting a physicalistic/nominalistic perspective, the EMMO defines real world objects as 4D objects that are always extended in space and time (i.e. real world objects cannot be spaceless nor timeless).  For this reason abstract objects, i.e. objects that does not extend in space and time, are forbidden in the EMMO.
+The [EMMO top level](top/top.ttl) is the group of fundamental axioms that constitute the philosophical foundation of the EMMO.  It starts from causality and mereology, from which it derives space and time.  Adopting a physicalistic/nominalistic perspective, the EMMO defines real world objects as 4D objects that are always extended in space and time (i.e. real world objects cannot be spaceless nor timeless).  For this reason abstract objects, i.e. objects that does not extend in space and time, are forbidden in the EMMO.
 
 EMMO is strongly based on the analytical philosophy dicipline semiotic.
 The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. real world objects (e.g. symbol or sign) that stand for other real world objects that are to be interpreted by an agent. These symbols appear in actions (semiotic processes) meant to communicate meaning by establishing relationships between symbols (signs).
 
 Another important building block of from analytical philosophy is atomistic mereology applied to 4D objects.  The EMMO calls it 'quantum mereology', since the there is a epistemological limit to how fine we can resolve space and time due to the uncertanity principles.
 
-The [mereotopology](top/mereotopology.ttl) module introduces the fundamental mereotopological concepts and their relations with the real world objects that they represent.  The EMMO uses mereotopology as the ground for all the subsequent ontology modules.  The concept of topological connection is used to define the first distinction between ontology entities namely the *Item* and *Collection* classes.  Items are causally self-connected objects, while collections are causally disconnected.  Quantum mereology is represented by the *Quantum* class. This module introduces also the fundamental mereotopological relations used to distinguish between space and time dimensions.
+The concept of topological connection is used to define the first distinction between ontology entities namely the *Item* and *Collection* classes.  Items are causally self-connected objects, while collections are causally disconnected.  Quantum mereology is represented by the *Quantum* class. This module introduces also the fundamental mereotopological relations used to distinguish between space and time dimensions.
 
-The [physical](top/physical.ttl) module, defines the *Physical* objects and the concept of *Void* that plays a fundamental role in the description of multiscale objects and quantum systems. It also define the *Elementary* class, that restricts mereological atomism in space.
+The *CausalObject* is the class of all the individuals that stand for world objects that are a self-connected composition of more than one quantum object and whose temporal parts are always self-connected.  It also define the *Elementary* class, that restricts mereological atomism in space as causal chains of quantum objects and *CausalSystem*, that are non-elementary causal objects.
 
-![Figure 1. The EMMO top level.](doc/top.png)
+![The EMMO top level.](doc/top.png)
 
-In EMMO, the only univocally defined real world object is the *Item* individual called **Universe** that stands for the universe. Every other real world object is a composition of elementaries up to the most comprehensive object; the **Universe**. Intermediate objects are not univocally defined, but their definition is provided according to some specific philosophical perspectives.  This is an expression of reductionism (i.e. objects are made of sub-objects) and epistemological pluralism (i.e. objects are always defined according to the perspective of an interpreter, or a class of interpreters).
-
-The *Perspective* class collects the different ways to represent the objects that populate the conceptual region between the elementary and universe levels.
+In EMMO, the only univocally defined real world object is the *CausalObject* individual called **Universe** that stands for the universe. Every other real world object is a composition of elementaries up to the most comprehensive object; the **Universe**. Intermediate objects are not univocally defined, but their definition is provided according to some specific philosophical perspectives.  This is an expression of reductionism (i.e. objects are made of sub-objects) and epistemological pluralism (i.e. objects are always defined according to the perspective of an interpreter, or a class of interpreters).
 
 
 ### Middle Level
-The middle level ontologies act as roots for extending the EMMO towards specific application domains.
+The middle level of EMMO embraces pluralism by providing different ways to describe the world according to different perspectives.  EMMO also allow to combine different perspectives to gain additional expressivity.  The *Perspective* class collects the different ways to represent the objects that populate the conceptual region between the elementary and universe levels.
 
-![Figure 2. The EMMO perspectives.](doc/perspectives.png)
-
-The *Reductionistic* perspective class uses the fundamental non-transitive parthood relation, called direct parthood, to provide a powerful granularity description of multiscale real world objects. The EMMO can in principle represents the **Universe** with direct parthood relations as a direct rooted tree up to its elementary constituents.
-
-The *Holistic* perspective class considers the importance and role of the whole and introduces the concept of real world objects that unfold in time in a way that has a meaning for the EMMO user, through the definition of the classes *Process* and *Participant*.
-
-The *Perceptual* perspective class introduces the concept of real world objects that can be perceived by the user as a recognisable pattern in space or time. Under this class the EMMO categorises e.g. formal languages, pictures, geometry, mathematics and sounds. Phenomenic objects can be used in a semiotic process as signs.
+![The EMMO perspectives.](doc/perspective.png)
 
 The *Physicalistic* perspective class introduces the concept of real world objects that have a meaning for the ontologist under an applied physics perspective.
 
-The [semiotics](middle/semiotics.ttl) module introduces the concepts of semiotics and the *Semiosis* process that has a *Sign*, an *Object* and an *Interpreter* as participants.  This forms the basis in EMMO to represent e.g. models, formal languages, theories, information and properties.
+The *Reductionistic* perspective class uses the fundamental non-transitive parthood relation, called direct parthood, to provide a powerful granularity description of multiscale real world objects. The EMMO can in principle represents the **Universe** with direct parthood relations as a direct rooted tree up to its elementary constituents.
 
-![Figure 3. The semiotic level.](doc/semiotics.png)
+The *Perceptual* perspective class introduces the concept of real world objects categorized accordingly to human perception mechanisms by stimulating a perception (e.g. a retina impression) on the ontologist.  Under this branch the EMMO categorises e.g. formal languages, pictures, geometry, mathematics and sounds. Phenomenic objects can be used in a semiotic process as signs.
+
+The *Semiotics* perspective introduces the concepts of the *semiosis* process that have the *semiotic entities* (*Sign*, *Object*, *Interpretant* and *Interpreter*) as spatial parts.  It is inspired by Pierce semiotics and forms the basis in EMMO to represent e.g. models, formal languages, theories, information and properties.
+
+The *Holistic* perspective class considers the importance of the 4D *whole* and the *role* of its mereological parts.
+
+The *Persistence* perspective consider 4D objects as they extend in time (*process*) or as they persist in time (*object*).  It introduce a sometime useful categorizations that characterize persistency through continuant and occurrent concepts, even though this distinction is only cognitively defined.
+
+The figure below show the module dependency graph of the EMMO middle level.
+In addition to the above perspectives, it contain two additional modules; *persholistic* that combine the holistic and persistence perspective and *symbolic* that combine perceptual and reductionistic.
+
+![EMMO middle level module dependency graph.](doc/modules.png)
 
 
-### EMMO relations
-All EMMO relations are subrelations of the relations found in the two roots: *mereotopological* and *semiotical*. The relation hierarchy extends more vertically (i.e. more subrelations) than horizontally (i.e. less sibling relations), facilitating the categorisation and inferencing of individuals.
 
-Imposing all relations to fall under mereotopology or semiotics is how the EMMO force the developers to respect its perspectives. Two entities are related only by contact or parthood (mereotopology) or by standing one for another (semiosis): no other types of relation are possible within the EMMO.
+### Reference Level
+EMMO comes with a set of generic reference ontologies that extends EMMO top and middle level with ontologisations of common concepts like materials, math, units, etc. intended to be shared by domain ontologies.  The table below lists the current set of reference ontologies.
+
+
+| Reference ontology | IRI                                                                                                                           |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| Materials          | [http://emmo.info/emmo/domain/materials](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/domain/materials.ttl)   |
+| Math               | [http://emmo.info/emmo/domain/math](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/domain/math.ttl)             |
+| Models             | [http://emmo.info/emmo/domain/models](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/domain/models.ttl)         |
+| Properties         | [http://emmo.info/emmo/domain/properties](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/domain/properties.ttl) |
+| Metrology          | [http://emmo.info/emmo/domain/metrology](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/domain/metrology.ttl)   |
+| Isq                | [http://emmo.info/emmo/domain/isq](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/domain/isq.ttl)               |
+| Siunits            | [http://emmo.info/emmo/domain/siunits](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/domain/siunits.ttl)       |
+| Chemistry          | [http://emmo.info/emmo/domain/chemistry](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/domain/chemistry.ttl)   |
+
+
+### Domain Ontologies
+Currently there are several EMMO-based domain ontologies in development.
+Typically they import one of the versions of EMMO listed on [https://emmo-repo.github.io/](https://emmo-repo.github.io/).
+The following table lists the public EMMO-based domain ontologies that we are aware of.
+Please create an issue if you have a public domain ontology that you think should be listed here.
+
+| Domain ontology                       | IRI                                                                                                                |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Battery Interface Ontology (BattINFO) | [https://github.com/BIG-MAP/BattINFO](https://github.com/BIG-MAP/BattINFO)                                         |
+| Crystallography                       | [https://github.com/emmo-repo/domain-crystallography](https://github.com/emmo-repo/domain-crystallography)         |
+| Mechanical Testing                    | [https://github.com/emmo-repo/domain-mechanical-testing](https://github.com/emmo-repo/domain-mechanical-testing)   |
+| Microstructure domain ontology        | [https://github.com/emmo-repo/domain-ontology](https://github.com/emmo-repo/domain-ontology)                       |
+| Datamodel ontology                    | [https://github.com/emmo-repo/datamodel-ontology](https://github.com/emmo-repo/datamodel-ontology)                 |
+| Mappings ontology                     | [https://github.com/emmo-repo/domain-mappings](https://github.com/emmo-repo/domain-mappings)                       |
+| Atomistic and Electronic Modelling    | [https://github.com/emmo-repo/domain-atomistic](https://github.com/emmo-repo/domain-atomistic)                     |
+| EMMO example domain ontologies        | [https://github.com/emmo-repo/EMMO/tree/master/domain](https://github.com/emmo-repo/EMMO/tree/master/domain)       |
+
+
+
+### Application Ontologies
+EMMO application ontologies are engineered for a specific use or application by reusing and extending concepts from one or more domain ontologies.  Even though that the delineation between "domain" and "application" ontologies are somewhat arbitrary, a main difference is that the application ontologies are generally not developed for reuse by other domain or application ontologies, while such reuse is the main focus of domain ontologies.
+
+
+
+## EMMO Relations
+All EMMO relations are subrelations of either: *mereological*, *topological* or *semiotical*. The relation hierarchy extends more vertically (i.e. more subrelations) than horizontally (i.e. less sibling relations), facilitating the categorisation and inferencing of individuals.
+
+Imposing all relations to fall under mereology, topology or semiotics is how the EMMO force the developers to respect its perspectives. Two entities are related only by parthood (mereology), contact (topology) or by standing one for another (semiosis): no other types of relation are possible within the EMMO.
+
+The figure below shows the full graph of all relations of in the middle level EMMO ontology.
+
+![Relations in the middle level EMMO.](doc/relations.png)
+
 
 
 ## Repository Description
-You can find the EMMO ontology at [http://emmo.info/emmo](http://emmo.info/emmo).  The basic structure of the EMMO is collected by the [top](top/top.ttl) ontology.
-
-The overall middle level ontologies are collected by the [emmo](emmo.ttl) ontology.
-
-Examples of common extensions of EMMO middle can be found in the [domain](domain) sub-directory.
+You can find the EMMO ontology at [http://emmo.info/emmo](http://emmo.info/emmo), which include the top and middle levels of EMMO.  The reference level sub-ontologies are intended to be imported individually using the IRIs provided in the table above.
 
 The OWL2-DL sources are available in turtle format.  Other formats are available from [https://emmo-repo.github.io/](https://emmo-repo.github.io/).
 
@@ -135,7 +167,7 @@ The EMMO hierarchy will be visible only after reasoning inference: use *ctrl-R* 
 
 It is recommended to use FaCT++ as reasoner. You can select it through the menu *Reasoner*.  An instruction for how to install the FaCT++ plugin on Protege 5.5.0 on Windows can be found in the [doc subdirectory](doc/installing_factplusplus.md).
 
-To access EMMO from Python, we recommend [EMMO-python](https://github.com/emmo-repo/EMMO-python/).
+To access EMMO from Python, we recommend [EMMOntopy](https://github.com/emmo-repo/EMMO-python/) (former EMMO-python).
 
 
 ## Pre-inferred ontology and documentation
