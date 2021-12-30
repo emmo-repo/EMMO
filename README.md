@@ -33,7 +33,7 @@
 EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) for applied sciences.  It is based on physics, analytical philosophy and information and communication technologies. It has been instigated by materials science to provide a framework for knowledge capture that is consistent with scientific principles and methodologies.  It is released under a Creative Commons [CC BY 4.0](LICENSE.md) license.
 
 ### Some words about the new name and logo
-The name _Elementary Multiperspective Material Ontology_ should be understood as follows:
+The name _Elementary Multiperspective Material Ontology_ (former European Materials and Modelling Ontology) should be understood as follows:
 - **Elementary** means, amongst others, that EMMO is a discrete ontology assuming the existence of a smallest possible 4D world object in space and time.  The term _Elementary_ in EMMO refers to objects that cannot be divided further in space.  Elementary also emphasizes EMMO being a fundamental, top-level ontology.
 - **Multiperspective** highlights a very important aspect of EMMO - that it is possible to describe the world from different perspectives.  This makes the ontology both flexible and expressive.
 - **Material** (as the opposite of immaterial) emphasises that EMMO is strictly nominalistic, meaning that it assumes that abstracts do not exist.  _Material_ also refers to the historical scope of EMMO aiming at the description of materials and thus to cover the needs of physicists and applied scientists.
