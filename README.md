@@ -104,7 +104,7 @@ In addition to the above perspectives, it contain two additional modules; *persh
 
 
 ### Reference Level
-EMMO comes with a set of generic reference ontologies that extends EMMO top and middle level with ontologisations of common concepts like materials, math, units, etc. intended to be shared by domain ontologies.  The table below lists the current set of reference ontologies.
+EMMO comes with a set of generic reference ontologies that combine perspectives with ontologisations of common concepts like materials, math, units, etc. intended to be shared by domain ontologies.  The table below lists the current set of reference ontologies.
 
 
 | Reference ontology | IRI                                                                                                                           |
