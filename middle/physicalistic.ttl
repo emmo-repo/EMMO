@@ -146,25 +146,24 @@ e.g. you cannot remove H from H20 without changing the molecule type (essential)
 
 ###  http://emmo.info/emmo#EMMO_385b8f6e_43ac_4596_ad76_ac322c68b7ca
 :EMMO_385b8f6e_43ac_4596_ad76_ac322c68b7ca rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_21a13e48_e4e2_450b_ad03_d9a112daee87
-                                                                               :EMMO_676a29e6_d4e1_4b54_8961_25947bd20861
-                                                                               :EMMO_72d53756_7fb1_46ed_980f_83f47efbe105
-                                                                               :EMMO_d324ae63_7574_4d73_b25b_96479e2626f2
-                                                                               :EMMO_f8e436fb_61ed_4512_a5a5_bee90f0cec2f
-                                                                             )
-                                                               ] ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The union of classes of elementary particles that possess mass."@en ;
+                                           owl:disjointUnionOf ( :EMMO_21a13e48_e4e2_450b_ad03_d9a112daee87
+                                                                 :EMMO_676a29e6_d4e1_4b54_8961_25947bd20861
+                                                                 :EMMO_72d53756_7fb1_46ed_980f_83f47efbe105
+                                                                 :EMMO_d324ae63_7574_4d73_b25b_96479e2626f2
+                                                                 :EMMO_f8e436fb_61ed_4512_a5a5_bee90f0cec2f
+                                                               ) ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The disjoint union of classes of elementary particles that possess mass."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An elementary particle that pocess mass."@en ;
                                            skos:prefLabel "MassiveElementary"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_38d00e5f_d759_4dcc_8551_ab95865cf799
 :EMMO_38d00e5f_d759_4dcc_8551_ab95865cf799 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_530ebacb_8bb7_4c69_88fb_253e5a9dd112 ,
+                                           rdfs:subClassOf :EMMO_6279615e_c2dd_4a2e_88e8_4b05dee1d7ab ,
                                                            :EMMO_be0a7278_b4e6_4bca_88ba_de3f67a478e2 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A meson with total spin 1 and even parit."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Pseudovector_meson" ;
-                                           skos:prefLabel "PseudoVectorMeson"@en .
+                                           skos:prefLabel "PseudovectorMeson"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_3a948fa6_033a_4bb2_a319_36a45741d832
@@ -210,7 +209,6 @@ e.g. you cannot remove H from H20 without changing the molecule type (essential)
 
 ###  http://emmo.info/emmo#EMMO_530ebacb_8bb7_4c69_88fb_253e5a9dd112
 :EMMO_530ebacb_8bb7_4c69_88fb_253e5a9dd112 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_b5a5494c_83bf_44aa_a9a6_49b948e68939 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A boson whose spin equals one."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Vector_boson" ;
                                            skos:prefLabel "VectorBoson"@en .
@@ -242,12 +240,27 @@ e.g. you cannot remove H from H20 without changing the molecule type (essential)
                                            skos:prefLabel "Matter"@en .
 
 
+###  http://emmo.info/emmo#EMMO_6279615e_c2dd_4a2e_88e8_4b05dee1d7ab
+:EMMO_6279615e_c2dd_4a2e_88e8_4b05dee1d7ab rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_530ebacb_8bb7_4c69_88fb_253e5a9dd112 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A vector boson that has even parity."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "There are no elementary pseudovector bosons, but there are pseudovector mesons."@en ;
+                                           rdfs:label "PseudovectorBoson"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_676a29e6_d4e1_4b54_8961_25947bd20861
 :EMMO_676a29e6_d4e1_4b54_8961_25947bd20861 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_cc1b6be1_3102_4376_b33b_d8dd13f9be2f ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An elementary bosonic particle with zero spin produced by the quantum excitation of the Higgs field."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Higgs_boson" ;
                                            skos:prefLabel "HiggsBoson"@en .
+
+
+###  http://emmo.info/emmo#EMMO_6a40a5ac_f5dd_40c9_a2b1_69d50a89914e
+:EMMO_6a40a5ac_f5dd_40c9_a2b1_69d50a89914e rdf:type owl:Class ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A boson whos spin equals two."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The only known tensor boson is the hypothetical graviton."@en ;
+                                           rdfs:label "TensorBoson"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_6c228d96_ed6c_4029_8acb_b88c93594f1a
@@ -374,6 +387,7 @@ Here the class 'Field' refers to the quantum field of bosonic particles while th
                                                                              )
                                                                ] ;
                                            rdfs:subClassOf :EMMO_98ada9d8_f1c8_4f13_99b5_d890f5354152 ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Vector_boson"@en ;
                                            rdfs:comment "The scope of the particle definition goes from the elementary particles to molecules, as fundamental constituents of substances." ;
                                            skos:prefLabel "Particle"@en .
 
@@ -393,6 +407,10 @@ Here the class 'Field' refers to the quantum field of bosonic particles while th
 ###  http://emmo.info/emmo#EMMO_b5a5494c_83bf_44aa_a9a6_49b948e68939
 :EMMO_b5a5494c_83bf_44aa_a9a6_49b948e68939 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a15cea10_9946_4d2b_95c5_cfc333fd2abb ;
+                                           owl:disjointUnionOf ( :EMMO_530ebacb_8bb7_4c69_88fb_253e5a9dd112
+                                                                 :EMMO_6a40a5ac_f5dd_40c9_a2b1_69d50a89914e
+                                                                 :EMMO_cc1b6be1_3102_4376_b33b_d8dd13f9be2f
+                                                               ) ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A particle with integer spin that follows Bose–Einstein statistics."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Boson" ;
                                            skos:prefLabel "Boson"@en .
@@ -413,40 +431,38 @@ Here the class 'Field' refers to the quantum field of bosonic particles while th
 
 ###  http://emmo.info/emmo#EMMO_c26a0340_d619_4928_b1a1_1a04e88bb89d
 :EMMO_c26a0340_d619_4928_b1a1_1a04e88bb89d rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_72d53756_7fb1_46ed_980f_83f47efbe105
-                                                                               :EMMO_cc1b6be1_3102_4376_b33b_d8dd13f9be2f
-                                                                               :EMMO_d324ae63_7574_4d73_b25b_96479e2626f2
-                                                                               :EMMO_fd6559e8_ef94_460c_9dfc_bad5c68d63b4
-                                                                             )
-                                                               ] ;
                                            rdfs:subClassOf :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 ,
                                                            :EMMO_a15cea10_9946_4d2b_95c5_cfc333fd2abb ;
+                                           owl:disjointUnionOf ( :EMMO_385b8f6e_43ac_4596_ad76_ac322c68b7ca
+                                                                 :EMMO_e5488299_8dab_4ebb_900a_26d2abed8396
+                                                               ) ,
+                                                               ( :EMMO_72d53756_7fb1_46ed_980f_83f47efbe105
+                                                                 :EMMO_d324ae63_7574_4d73_b25b_96479e2626f2
+                                                                 :EMMO_fa3c9d4d_9fc9_4e8a_82c1_28c84e34133a
+                                                               ) ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The union of all classes categorizing elementary particles according to the Standard Model."@en ;
                                            skos:prefLabel "ElementaryParticle"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_cc1b6be1_3102_4376_b33b_d8dd13f9be2f
 :EMMO_cc1b6be1_3102_4376_b33b_d8dd13f9be2f rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_b5a5494c_83bf_44aa_a9a6_49b948e68939 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A Boson whos spin equals zero."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Scalar_boson" ;
-                                           rdfs:comment "Since the only known scalar boson is the Higgs boson, the two classes are equivalent." ;
+                                           rdfs:comment "The only known scalar boson is the Higgs boson."@en ;
                                            skos:prefLabel "ScalarBoson"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_d324ae63_7574_4d73_b25b_96479e2626f2
 :EMMO_d324ae63_7574_4d73_b25b_96479e2626f2 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_1d5305d7_5690_4e5a_92de_4611e8c356ef
-                                                                               :EMMO_2531fe94_1cdf_4f36_9abc_7ab7574310db
-                                                                               :EMMO_3a948fa6_033a_4bb2_a319_36a45741d832
-                                                                               :EMMO_8043d3c6_a4c1_4089_ba34_9744e28e5b3d
-                                                                               :EMMO_83550665_c68c_4015_86a7_308c9dd2fb4b
-                                                                               :EMMO_eb95a619_ca07_4678_a809_10021b25a13f
-                                                                             )
-                                                               ] ;
                                            rdfs:subClassOf :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 ,
                                                            :EMMO_53dced52_34f6_4cf0_8a99_ddf451861543 ;
+                                           owl:disjointUnionOf ( :EMMO_1d5305d7_5690_4e5a_92de_4611e8c356ef
+                                                                 :EMMO_2531fe94_1cdf_4f36_9abc_7ab7574310db
+                                                                 :EMMO_3a948fa6_033a_4bb2_a319_36a45741d832
+                                                                 :EMMO_8043d3c6_a4c1_4089_ba34_9744e28e5b3d
+                                                                 :EMMO_83550665_c68c_4015_86a7_308c9dd2fb4b
+                                                                 :EMMO_eb95a619_ca07_4678_a809_10021b25a13f
+                                                               ) ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An elementary particle of half-integer spin (spin 1⁄2) that does not undergo strong interactions."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Lepton" ;
                                            skos:prefLabel "Lepton"@en .
@@ -488,19 +504,18 @@ Here the class 'Field' refers to the quantum field of bosonic particles while th
 
 ###  http://emmo.info/emmo#EMMO_e5488299_8dab_4ebb_900a_26d2abed8396
 :EMMO_e5488299_8dab_4ebb_900a_26d2abed8396 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_25f8b804_9a0b_4387_a3e7_b35bce5365ee
-                                                                               :EMMO_7db59e56_f68b_48b7_ae99_891c35ae5c3b
-                                                                               :EMMO_eb3c61f0_3983_4346_a0c6_e7f6b90a67a8
-                                                                             )
-                                                               ] ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The union of classes of elementary particles that do not possess mass."@en ;
+                                           owl:disjointUnionOf ( :EMMO_25f8b804_9a0b_4387_a3e7_b35bce5365ee
+                                                                 :EMMO_7db59e56_f68b_48b7_ae99_891c35ae5c3b
+                                                                 :EMMO_eb3c61f0_3983_4346_a0c6_e7f6b90a67a8
+                                                               ) ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The disjoint union of classes of elementary particles that do not possess mass."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An elementary particle that does not pocess mass."@en ;
                                            skos:prefLabel "MasslessElementary"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_eb3c61f0_3983_4346_a0c6_e7f6b90a67a8
 :EMMO_eb3c61f0_3983_4346_a0c6_e7f6b90a67a8 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_530ebacb_8bb7_4c69_88fb_253e5a9dd112 ;
+                                           rdfs:subClassOf :EMMO_6a40a5ac_f5dd_40c9_a2b1_69d50a89914e ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals that stand for gravitons elementary particles."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Graviton" ;
                                            rdfs:comment """While this particle is only supposed to exist, the EMMO approach to classical and quantum systems represents fields as made of particles.
@@ -573,16 +588,32 @@ We cannot say that H2 molecule has direct part two H atoms, but has direct part 
                                            skos:prefLabel "ZBoson"@en .
 
 
+###  http://emmo.info/emmo#EMMO_fa3c9d4d_9fc9_4e8a_82c1_28c84e34133a
+:EMMO_fa3c9d4d_9fc9_4e8a_82c1_28c84e34133a rdf:type owl:Class ;
+                                           owl:equivalentClass [ owl:intersectionOf ( :EMMO_b5a5494c_83bf_44aa_a9a6_49b948e68939
+                                                                                      :EMMO_c26a0340_d619_4928_b1a1_1a04e88bb89d
+                                                                                    ) ;
+                                                                 rdf:type owl:Class
+                                                               ] ;
+                                           owl:disjointUnionOf ( :EMMO_21a13e48_e4e2_450b_ad03_d9a112daee87
+                                                                 :EMMO_25f8b804_9a0b_4387_a3e7_b35bce5365ee
+                                                                 :EMMO_676a29e6_d4e1_4b54_8961_25947bd20861
+                                                                 :EMMO_7db59e56_f68b_48b7_ae99_891c35ae5c3b
+                                                                 :EMMO_eb3c61f0_3983_4346_a0c6_e7f6b90a67a8
+                                                                 :EMMO_f8e436fb_61ed_4512_a5a5_bee90f0cec2f
+                                                               ) ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A boson that is a single elementary particle."@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Boson#Elementary_bosons"@en ;
+                                           rdfs:label "ElementaryBoson"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_fd6559e8_ef94_460c_9dfc_bad5c68d63b4
 :EMMO_fd6559e8_ef94_460c_9dfc_bad5c68d63b4 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_21a13e48_e4e2_450b_ad03_d9a112daee87
-                                                                               :EMMO_25f8b804_9a0b_4387_a3e7_b35bce5365ee
-                                                                               :EMMO_7db59e56_f68b_48b7_ae99_891c35ae5c3b
-                                                                               :EMMO_eb3c61f0_3983_4346_a0c6_e7f6b90a67a8
-                                                                               :EMMO_f8e436fb_61ed_4512_a5a5_bee90f0cec2f
-                                                                             )
-                                                               ] ;
+                                           owl:disjointUnionOf ( :EMMO_21a13e48_e4e2_450b_ad03_d9a112daee87
+                                                                 :EMMO_25f8b804_9a0b_4387_a3e7_b35bce5365ee
+                                                                 :EMMO_7db59e56_f68b_48b7_ae99_891c35ae5c3b
+                                                                 :EMMO_f8e436fb_61ed_4512_a5a5_bee90f0cec2f
+                                                               ) ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A bosonic elementary particle that mediates interactions among elementary fermions, and thus acts as a force carrier."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Gauge_boson" ;
                                            rdfs:comment "All known gauge bosons have a spin of 1 and are hence also vector bosons."@en ,
