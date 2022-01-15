@@ -216,7 +216,6 @@ e.g. you cannot remove H from H20 without changing the molecule type (essential)
 
 ###  http://emmo.info/emmo#EMMO_53dced52_34f6_4cf0_8a99_ddf451861543
 :EMMO_53dced52_34f6_4cf0_8a99_ddf451861543 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_a15cea10_9946_4d2b_95c5_cfc333fd2abb ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A particle with half odd integer spin (1/2, 3/2, etc...) that follows Fermi-Dirac statistics."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Fermion" ;
                                            skos:prefLabel "Fermion"@en .
@@ -274,11 +273,7 @@ e.g. you cannot remove H from H20 without changing the molecule type (essential)
 :EMMO_70dac51e_bddd_48c2_8a98_7d8395e91fc2 rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
-                                                             owl:someValuesFrom [ owl:intersectionOf ( :EMMO_b5a5494c_83bf_44aa_a9a6_49b948e68939
-                                                                                                       :EMMO_c26a0340_d619_4928_b1a1_1a04e88bb89d
-                                                                                                     ) ;
-                                                                                  rdf:type owl:Class
-                                                                                ]
+                                                             owl:someValuesFrom :EMMO_fd6559e8_ef94_460c_9dfc_bad5c68d63b4
                                                            ] ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 ;
@@ -376,17 +371,10 @@ Here the class 'Field' refers to the quantum field of bosonic particles while th
 
 ###  http://emmo.info/emmo#EMMO_a15cea10_9946_4d2b_95c5_cfc333fd2abb
 :EMMO_a15cea10_9946_4d2b_95c5_cfc333fd2abb rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_53dced52_34f6_4cf0_8a99_ddf451861543
-                                                                               :EMMO_b5a5494c_83bf_44aa_a9a6_49b948e68939
-                                                                             )
-                                                               ] ,
-                                                               [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_7b42954f_0b91_4b3a_a65e_2470202cf548
-                                                                               :EMMO_d324ae63_7574_4d73_b25b_96479e2626f2
-                                                                             )
-                                                               ] ;
                                            rdfs:subClassOf :EMMO_98ada9d8_f1c8_4f13_99b5_d890f5354152 ;
+                                           owl:disjointUnionOf ( :EMMO_53dced52_34f6_4cf0_8a99_ddf451861543
+                                                                 :EMMO_b5a5494c_83bf_44aa_a9a6_49b948e68939
+                                                               ) ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The union of hadron and lepton, or fermion and bosons."@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A well defined physical entity, elementary or composite, usually treated as a singular unit, that is found at scales spanning from the elementary particles to molecules, as fundamental constituents of larger scale substances (as the etymology of \"particle\" suggests)."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Vector_boson"@en ;
@@ -416,7 +404,6 @@ Here the class 'Field' refers to the quantum field of bosonic particles while th
 
 ###  http://emmo.info/emmo#EMMO_b5a5494c_83bf_44aa_a9a6_49b948e68939
 :EMMO_b5a5494c_83bf_44aa_a9a6_49b948e68939 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_a15cea10_9946_4d2b_95c5_cfc333fd2abb ;
                                            owl:disjointUnionOf ( :EMMO_530ebacb_8bb7_4c69_88fb_253e5a9dd112
                                                                  :EMMO_6a40a5ac_f5dd_40c9_a2b1_69d50a89914e
                                                                  :EMMO_cc1b6be1_3102_4376_b33b_d8dd13f9be2f
