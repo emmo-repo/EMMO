@@ -570,8 +570,22 @@ We cannot say that H2 molecule has direct part two H atoms, but has direct part 
 
 ###  http://emmo.info/emmo#EMMO_f87e79eb_f549_4a06_9c27_a3d1412444c6
 :EMMO_f87e79eb_f549_4a06_9c27_a3d1412444c6 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_24dda193_ada8_433b_bb74_6ca4a0b89a20 ;
+                                           rdfs:subClassOf :EMMO_24dda193_ada8_433b_bb74_6ca4a0b89a20 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+                                                             owl:someValuesFrom :EMMO_22a6f189_7ad7_424d_af15_5efe002c1365
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+                                                             owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                                 owl:unionOf ( :EMMO_0a3f04a6_ba3a_49d9_99da_08b0e26f51f0
+                                                                                               :EMMO_22a6f189_7ad7_424d_af15_5efe002c1365
+                                                                                               :EMMO_a4edc1d4_bb38_4897_ba1e_f87e7aa31c5b
+                                                                                             )
+                                                                               ]
+                                                           ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A baryon containing one or more strange quarks, but no charm, bottom, or top quark."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This form of matter may exist in a stable form within the core of some neutron stars."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Hyperon" ;
                                            skos:prefLabel "Hyperon"@en .
 
