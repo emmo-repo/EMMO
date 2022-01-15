@@ -41,10 +41,17 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            skos:prefLabel "UpQuark"@en .
 
 
+###  http://emmo.info/emmo#EMMO_12aae025_a226_4762_9d51_81200a8ce54c
+:EMMO_12aae025_a226_4762_9d51_81200a8ce54c rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_cc1b6be1_3102_4376_b33b_d8dd13f9be2f ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A meson with spin zero and odd parity."@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Pseudoscalar_meson"@en ;
+                                           skos:prefLabel "PseudoscalarMeson"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_1b32a555_978b_4e56_933f_e158e165023e
 :EMMO_1b32a555_978b_4e56_933f_e158e165023e rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_530ebacb_8bb7_4c69_88fb_253e5a9dd112 ,
-                                                           :EMMO_be0a7278_b4e6_4bca_88ba_de3f67a478e2 ;
+                                           rdfs:subClassOf :EMMO_530ebacb_8bb7_4c69_88fb_253e5a9dd112 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A meson with total spin 1 and odd parit."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Vector_meson" ;
                                            skos:prefLabel "VectorMeson"@en .
@@ -117,6 +124,14 @@ Note that the name of a compound may refer to the respective molecular entity or
                                            skos:prefLabel "Photon"@en .
 
 
+###  http://emmo.info/emmo#EMMO_3275b6e9_05f1_4912_954f_7d64ac12b2d2
+:EMMO_3275b6e9_05f1_4912_954f_7d64ac12b2d2 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_cc1b6be1_3102_4376_b33b_d8dd13f9be2f ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A meson with spin zero and even parity."@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Scalar_meson"@en ;
+                                           skos:prefLabel "ScalarMeson"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_3397f270_dfc1_4500_8f6f_4d0d85ac5f71
 :EMMO_3397f270_dfc1_4500_8f6f_4d0d85ac5f71 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_21205421_5783_4d3e_81e5_10c5d894a88a ,
@@ -159,8 +174,7 @@ e.g. you cannot remove H from H20 without changing the molecule type (essential)
 
 ###  http://emmo.info/emmo#EMMO_38d00e5f_d759_4dcc_8551_ab95865cf799
 :EMMO_38d00e5f_d759_4dcc_8551_ab95865cf799 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_6279615e_c2dd_4a2e_88e8_4b05dee1d7ab ,
-                                                           :EMMO_be0a7278_b4e6_4bca_88ba_de3f67a478e2 ;
+                                           rdfs:subClassOf :EMMO_530ebacb_8bb7_4c69_88fb_253e5a9dd112 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A meson with total spin 1 and even parit."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Pseudovector_meson" ;
                                            skos:prefLabel "PseudovectorMeson"@en .
@@ -237,14 +251,6 @@ e.g. you cannot remove H from H20 without changing the molecule type (essential)
                                                            ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Physical' that possesses some 'Lepton' or 'Quark' parts in each of its temporal parts."@en ;
                                            skos:prefLabel "Matter"@en .
-
-
-###  http://emmo.info/emmo#EMMO_6279615e_c2dd_4a2e_88e8_4b05dee1d7ab
-:EMMO_6279615e_c2dd_4a2e_88e8_4b05dee1d7ab rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_530ebacb_8bb7_4c69_88fb_253e5a9dd112 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A vector boson that has even parity."@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "There are no elementary pseudovector bosons, but there are pseudovector mesons."@en ;
-                                           skos:prefLabel "PseudovectorBoson"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_676a29e6_d4e1_4b54_8961_25947bd20861
@@ -420,6 +426,12 @@ Here the class 'Field' refers to the quantum field of bosonic particles while th
                                                              owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
                                                              owl:someValuesFrom :EMMO_72d53756_7fb1_46ed_980f_83f47efbe105
                                                            ] ;
+                                           owl:disjointUnionOf ( :EMMO_12aae025_a226_4762_9d51_81200a8ce54c
+                                                                 :EMMO_1b32a555_978b_4e56_933f_e158e165023e
+                                                                 :EMMO_3275b6e9_05f1_4912_954f_7d64ac12b2d2
+                                                                 :EMMO_38d00e5f_d759_4dcc_8551_ab95865cf799
+                                                                 :EMMO_f895cb83_2280_42e9_9f4c_047273e70d3c
+                                                               ) ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Hadronic subatomic particles composed of an equal number of quarks and antiquarks bound together by strong interactions."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Meson" ;
                                            rdfs:comment "Most mesons are composed of one quark and one antiquark."@en ;
@@ -588,6 +600,13 @@ We cannot say that H2 molecule has direct part two H atoms, but has direct part 
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This form of matter may exist in a stable form within the core of some neutron stars."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Hyperon" ;
                                            skos:prefLabel "Hyperon"@en .
+
+
+###  http://emmo.info/emmo#EMMO_f895cb83_2280_42e9_9f4c_047273e70d3c
+:EMMO_f895cb83_2280_42e9_9f4c_047273e70d3c rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_6a40a5ac_f5dd_40c9_a2b1_69d50a89914e ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A meson with spin two."@en ;
+                                           skos:prefLabel "TensorMeson"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_f8e436fb_61ed_4512_a5a5_bee90f0cec2f
