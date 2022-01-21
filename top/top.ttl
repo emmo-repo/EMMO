@@ -169,10 +169,20 @@ skos:prefLabel rdf:type owl:AnnotationProperty ;
 #    Object Properties
 #################################################################
 
+###  http://emmo.info/emmo#EMMO_00735325_545e_4c1c_a0bd_58c6c57ed1b8
+:EMMO_00735325_545e_4c1c_a0bd_58c6c57ed1b8 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_499e24a5_5072_4c83_8625_fe3f96ae4a8d ;
+                                           skos:prefLabel "hasTPrev"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f
 :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 ;
                                            rdf:type owl:TransitiveProperty ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 """Parthood is a primitive relation, characterized by the following axioms:
+    Pxx (reflexivity)
+    Pxy ∧ Pyz → Pxz (transitivity)
+    Pxy ∧ Pyx → x = y (antisymmetry)"""@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The primitive relation that express the concept of an object being part of another one."@en ;
                                            rdfs:comment "All other mereology relations are defined using hasPart as primitive. It is expressed in FOL by predicate P."@en ;
                                            skos:prefLabel "hasPart"@en .
@@ -228,7 +238,13 @@ skos:prefLabel rdf:type owl:AnnotationProperty ;
                                            rdfs:comment """Causality is a topological property between connected items.
 
 Items being connected means that there is a topological contact or \"interaction\" between them."""@en ;
-                                           skos:prefLabel "isCausallyconnectedWith"@en .
+                                           skos:prefLabel "isCausallyConnectedWith"@en .
+
+
+###  http://emmo.info/emmo#EMMO_6ac3a7f2_c04f_4ee6_b9eb_7e6d5f37032d
+:EMMO_6ac3a7f2_c04f_4ee6_b9eb_7e6d5f37032d rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_499e24a5_5072_4c83_8625_fe3f96ae4a8d ;
+                                           skos:prefLabel "hasTNext"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4
