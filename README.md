@@ -14,7 +14,6 @@
 ## Table of content
   * [About EMMO](#about-emmo)
       * [Some words about the new name and logo](#some-words-about-the-new-name-and-logo)
-      * [Use of EMMO in domain ontologies](#use-of-emmo-in-domain-ontologies)
   * [EMMO in a Nutshell](#emmo-in-a-nutshell)
       * [Top Level](#top-level)
       * [Middle Level](#middle-level)
@@ -46,13 +45,6 @@ A lot can be said about the logo:
 * The 3+1 circles emphasises that EMMO is a 4D ontology with three spatial plus one time dimension.
 * The lines connecting the circles may refer to graph theory and knowledge graphs.
 * A triangle is a common way to represent a ternary phase diagram showing the close connection to physics.
-
-
-### Use of EMMO in domain ontologies
-Currently there are several domain ontologies in development that use EMMO as the top and middle level ontology.
-Typically they import one of the versions of EMMO listed on [https://emmo-repo.github.io/](https://emmo-repo.github.io/).
-The following table lists the public EMMO-based domain ontologies that we are aware of.
-Please create an issue if you have a public domain ontology that you think should be listed here.
 
 
 ## EMMO in a Nutshell
@@ -120,7 +112,7 @@ EMMO comes with a set of generic reference ontologies that combine perspectives 
 
 
 ### Domain Ontologies
-Currently there are several EMMO-based domain ontologies in development.
+Currently there are several domain ontologies in development that use EMMO as the top and middle level ontology.
 Typically they import one of the versions of EMMO listed on [https://emmo-repo.github.io/](https://emmo-repo.github.io/).
 The following table lists the public EMMO-based domain ontologies that we are aware of.
 Please create an issue if you have a public domain ontology that you think should be listed here.
