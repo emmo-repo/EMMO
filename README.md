@@ -119,16 +119,16 @@ Please create an issue if you have a public domain ontology that you think shoul
 
 | Domain ontology                            | IRI                                                                                                                  |
 | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
-| Battery Interface Ontology (BattINFO)      | [https://github.com/BIG-MAP/BattINFO](https://github.com/BIG-MAP/BattINFO)                                           |
-| General Process Ontology (GPO)             | [https://github.com/General-Process-Ontology/ontology](https://github.com/General-Process-Ontology/ontology)         |
-| Ontology for the Battery Value Chain (BVC) | [https://github.com/Battery-Value-Chain-Ontology/ontology](https://github.com/Battery-Value-Chain-Ontology/ontology) |
-| Crystallography                            | [https://github.com/emmo-repo/domain-crystallography](https://github.com/emmo-repo/domain-crystallography)           |
-| Mechanical Testing                         | [https://github.com/emmo-repo/domain-mechanical-testing](https://github.com/emmo-repo/domain-mechanical-testing)     |
-| Microstructure domain ontology             | [https://github.com/emmo-repo/domain-microstructure](https://github.com/emmo-repo/domain-microstructure)             |
-| Datamodel ontology                         | [https://github.com/emmo-repo/datamodel-ontology](https://github.com/emmo-repo/datamodel-ontology)                   |
-| Mappings ontology                          | [https://github.com/emmo-repo/domain-mappings](https://github.com/emmo-repo/domain-mappings)                         |
-| Atomistic and Electronic Modelling         | [https://github.com/emmo-repo/domain-atomistic](https://github.com/emmo-repo/domain-atomistic)                       |
-| EMMO example domain ontologies             | [https://github.com/emmo-repo/EMMO/tree/master/domain](https://github.com/emmo-repo/EMMO/tree/master/domain)         |
+| Battery Interface Ontology (BattINFO)      | [http://BIG-MAP/BattINFO](https://github.com/BIG-MAP/BattINFO)                                           |
+| General Process Ontology (GPO)             | [http://General-Process-Ontology/ontology](https://github.com/General-Process-Ontology/ontology)         |
+| Ontology for the Battery Value Chain (BVC) | [http://Battery-Value-Chain-Ontology/ontology](https://github.com/Battery-Value-Chain-Ontology/ontology) |
+| Crystallography                            | [http://emmo.info/domain-crystallography](https://github.com/emmo-repo/domain-crystallography)           |
+| Mechanical Testing                         | [http://emmo.info/domain-mechanical-testing](https://github.com/emmo-repo/domain-mechanical-testing)     |
+| Microstructure domain ontology             | [http://emmo.info/domain-microstructure](https://github.com/emmo-repo/domain-microstructure)             |
+| Datamodel ontology                         | [http://emmo.info/datamodel-ontology](https://github.com/emmo-repo/datamodel-ontology)                   |
+| Mappings ontology                          | [http://emmo.info/domain-mappings](https://github.com/emmo-repo/domain-mappings)                         |
+| Atomistic and Electronic Modelling         | [http://emmo.info/domain-atomistic](https://github.com/emmo-repo/domain-atomistic)                       |
+| EMMO example domain ontologies             | [http://emmo.info/EMMO/tree/master/domain](https://github.com/emmo-repo/EMMO/tree/master/domain)         |
 
 
 
