@@ -49,9 +49,33 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            skos:prefLabel "hasModel"@en .
 
 
+###  http://emmo.info/emmo#EMMO_2ab5aeee_44cb_4997_90bc_133800f0579d
+:EMMO_2ab5aeee_44cb_4997_90bc_133800f0579d rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_b85e4738_500c_4e1b_bbe8_9e84190485d6 ;
+                                           skos:prefLabel "isTimeRelatedWith"@en .
+
+
+###  http://emmo.info/emmo#EMMO_822f7ec0_eae1_4f66_8cc6_8ff92b4bde79
+:EMMO_822f7ec0_eae1_4f66_8cc6_8ff92b4bde79 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_b85e4738_500c_4e1b_bbe8_9e84190485d6 ;
+                                           skos:prefLabel "isSpaceRelatedWith"@en .
+
+
 #################################################################
 #    Classes
 #################################################################
+
+###  http://emmo.info/emmo#EMMO_01354ac2_cce1_4b7d_8b4a_7322d6cb10bc
+:EMMO_01354ac2_cce1_4b7d_8b4a_7322d6cb10bc rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_02c4890b_aef3_4173_9669_94d1f6baf611 ;
+                                           skos:prefLabel "IterativeCoupledModelsSimulation"@en .
+
+
+###  http://emmo.info/emmo#EMMO_02c4890b_aef3_4173_9669_94d1f6baf611
+:EMMO_02c4890b_aef3_4173_9669_94d1f6baf611 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_7d56ec24_499d_487a_af7d_a91aaa787bfe ;
+                                           skos:prefLabel "Coupled"@en .
+
 
 ###  http://emmo.info/emmo#EMMO_084b4f77_6df7_4c6a_b705_2528aba5cdda
 :EMMO_084b4f77_6df7_4c6a_b705_2528aba5cdda rdf:type owl:Class ;
@@ -95,6 +119,25 @@ The Navier-Stokes equation."""@en ;
                                            skos:prefLabel "ContinuumModel"@en .
 
 
+###  http://emmo.info/emmo#EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49
+:EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The process in which an agent works with some entities according to some operative rules."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """The process in which a control unit of a CPU (the agent) orchestrates some cached binary data according to a list of instructions (e.g. a program).
+
+The process in which a librarian order books alphabetically on a shelf.
+
+The execution of an algorithm."""@en ;
+                                           skos:prefLabel "Elaboration"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49 ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "Elaboration"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From latin Labor, meaning \"work, fatigue, effort\""@en
+ ] .
+
+
 ###  http://emmo.info/emmo#EMMO_53935db0_af45_4426_b9e9_244a0d77db00
 :EMMO_53935db0_af45_4426_b9e9_244a0d77db00 rdf:type owl:Class ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A physics-based model based on a physics equation describing the behaviour of mesoscopic entities, i.e. a set of bounded atoms like a molecule, bead or nanoparticle."@en ;
@@ -114,9 +157,7 @@ The Navier-Stokes equation."""@en ;
 :EMMO_5dd63d84_57f5_4b79_b760_fe940c06680d rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_c7013b53_3071_410b_a5e4_a8d266dcdfb5 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A functional icon that imitates the behaviour of the object through mathematical evaluations of some mathematical construct."@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The equation that describes the velocity of a uniform accelerated body v = v0 + a*t is not a functional icon. In general every analitical solution of a mathematical model cannot be considered an icon.
-The functional icon is the act of using such relation to imitate the behavior of the object.
-In the case of v = v0 + a*t, plotting the velocity over time or listing their values at certain instants con be considered a functional icon."""@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The equation that describes the velocity of a uniform accelerated body v = v0 + a*t is a functional icon. In general every analitical solution of a mathematical model can be considered an icon. A functional icon expresses its similarity with the object when is part of a process the makes it imitate the behavior of the object. In the case of v = v0 + a*t, plotting the velocity over time or listing their values at certain instants is when the icon expresses it functionality."@en ;
                                            skos:prefLabel "PhysicsMathematicalComputation"@en .
 
 
@@ -155,6 +196,12 @@ A dataset as solution is a conventional sign."""@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """Density functional theory.
 Hartree-Fock."""@en ;
                                            skos:prefLabel "ElectronicModel"@en .
+
+
+###  http://emmo.info/emmo#EMMO_7d56ec24_499d_487a_af7d_a91aaa787bfe
+:EMMO_7d56ec24_499d_487a_af7d_a91aaa787bfe rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_9335cf09_431f_4613_9dab_ce4ceaca965b ;
+                                           skos:prefLabel "MultiSimulation"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_84cadc45_6758_46f2_ba2a_5ead65c70213
@@ -224,7 +271,7 @@ In Peirce semiotics: legisign-symbol-argument"""@en ;
 ###  http://emmo.info/emmo#EMMO_9335cf09_431f_4613_9dab_ce4ceaca965b
 :EMMO_9335cf09_431f_4613_9dab_ce4ceaca965b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_1c0b22a2_be82_4fa8_9e2b_a569a625d442 ,
-                                                           :EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c ;
+                                                           :EMMO_eff42cb3_208e_4768_9a39_f8b6b3c3d7a2 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A estimation of a property using a simulation."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "I calculate the electrical conductivity of an Ar-He plasma with the Chapman-Enskog method and use the value as property for it."@en ;
                                            skos:altLabel "Modelling"@en ;
@@ -238,6 +285,12 @@ In Peirce semiotics: legisign-symbol-argument"""@en ;
                                                            :EMMO_8d2d9374_ef3a_47e6_8595_6bc208e07519 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A scientific theory is a description, objective and observed."@en ;
                                            skos:prefLabel "ScientificTheory"@en .
+
+
+###  http://emmo.info/emmo#EMMO_9471e8ff_ca96_4acd_9364_6e63489ae2b3
+:EMMO_9471e8ff_ca96_4acd_9364_6e63489ae2b3 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_9335cf09_431f_4613_9dab_ce4ceaca965b ;
+                                           skos:prefLabel "ElementarySimulation"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_9c32fd69_f480_4130_83b3_fb25d9face14
@@ -276,6 +329,13 @@ In Peirce semiotics: legisign-symbol-argument"""@en ;
 :EMMO_c7013b53_3071_410b_a5e4_a8d266dcdfb5 :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A guinea pig."@en .
 
 
+###  http://emmo.info/emmo#EMMO_d0bcf2ca_cd55_4f34_8fc2_2decc4c6087a
+:EMMO_d0bcf2ca_cd55_4f34_8fc2_2decc4c6087a rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_9335cf09_431f_4613_9dab_ce4ceaca965b ;
+                                           skos:altLabel "StandaloneModelSimulation"@en ;
+                                           skos:prefLabel "SingleAppSimulation" .
+
+
 ###  http://emmo.info/emmo#EMMO_db9a009e_f097_43f5_9520_6cbc07e7610b
 :EMMO_db9a009e_f097_43f5_9520_6cbc07e7610b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_937757d3_ed79_4ae3_9513_3b135e58a6a1 ;
@@ -302,6 +362,28 @@ An Hamiltonian."""@en ;
                                            skos:prefLabel "Hypothesis"@en .
 
 
+###  http://emmo.info/emmo#EMMO_ec502e30_b9ec_4216_90c6_f67d2df75627
+:EMMO_ec502e30_b9ec_4216_90c6_f67d2df75627 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_7d56ec24_499d_487a_af7d_a91aaa787bfe ;
+                                           skos:prefLabel "LinkedModelsSimulation"@en .
+
+
+###  http://emmo.info/emmo#EMMO_eff42cb3_208e_4768_9a39_f8b6b3c3d7a2
+:EMMO_eff42cb3_208e_4768_9a39_f8b6b3c3d7a2 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An elaboration that deals with quantitative symbols (i.e. symbols associated with a quantitative oriented language)."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """A matematician that calculates 2+2.
+A computation machine that calculate the average value of a dataset."""@en ;
+                                           skos:prefLabel "Computation"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_eff42cb3_208e_4768_9a39_f8b6b3c3d7a2 ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "Computation"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin con- +‎ putō (“I reckon”)."@en
+ ] .
+
+
 ###  http://emmo.info/emmo#EMMO_f19ff3b4_6bfe_4c41_a2b2_9affd39c140b
 :EMMO_f19ff3b4_6bfe_4c41_a2b2_9affd39c140b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_db9a009e_f097_43f5_9520_6cbc07e7610b ;
@@ -320,6 +402,12 @@ An Hamiltonian."""@en ;
 
 Abramowitz and Stegun, 1968"""@en ;
                                            skos:prefLabel "MathematicalModel"@en .
+
+
+###  http://emmo.info/emmo#EMMO_fbcc3aad_c58a_4185_bcc9_859db779b226
+:EMMO_fbcc3aad_c58a_4185_bcc9_859db779b226 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_02c4890b_aef3_4173_9669_94d1f6baf611 ;
+                                           skos:prefLabel "TightlyCoupledModelsSimulation"@en .
 
 
 #################################################################

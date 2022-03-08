@@ -217,6 +217,10 @@ Participation is not under direct parthood since a process is not strictly relat
 :EMMO_2480b72b_db8d_460f_9a5f_c2912f979046 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_13191289_6c2b_4741_93e1_82d53bd0e703 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A participant that is the driver of the process."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A catalyst. A bus driver. A substance that is initiating a reaction that would not occur without its presence."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """An agent is not necessarily human. 
+An agent plays an active role within the process.
+An agent is a participant of a process that would not occur without it."""@en ;
                                            skos:prefLabel "Agent"@en .
 
 [ rdf:type owl:Axiom ;
@@ -293,10 +297,13 @@ Since topological connection means causality, then the only way for a real world
 
 ###  http://emmo.info/emmo#EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c
 :EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A process occurring with the active participation of an agent that designs and drives the process according to a specific objective (intention)."@en ;
-                                           skos:altLabel "DesignedProcess"@en ;
-                                           skos:prefLabel "IntentionalProcess"@en .
+                                           rdfs:subClassOf :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_cd24eb82_a11c_4a31_96ea_32f870c5580a ;
+                                                             owl:someValuesFrom :EMMO_2480b72b_db8d_460f_9a5f_c2912f979046
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A process occurring with the active participation of an agent that drives the process according to a specific objective (intention)."@en ;
+                                           skos:prefLabel "AgentDrivenProcess"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_bbca6dfa_7463_4e8d_8280_35862ff50ce0
