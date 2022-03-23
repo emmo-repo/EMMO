@@ -12,14 +12,14 @@ since [properties](#Properties) has an other meaning in EMMO, we only call
 them *relations*.
 
 [Resource Description Framework (RDF)][RDF] is a W3C standard that is
-widely used for describing informations on the web and is one of the
+widely used for describing information on the web and is one of the
 standards that OWL builds on.  RDF expresses information in form of
 *subject-predicate-object* triplets.  The subject and object are
 resources (aka items to describe) and the predicate expresses a
 relationship between the subject and the object.
 
-In OWL are the subject and object classes or individuals (or data)
-while the predicate is a relation.  An example of an relationship is
+In OWL the subject and object are classes or individuals (or data)
+while the predicate is a relation.  An example of a relationship is
 the statement *dog is_a animal*.  Here `dog` is the subject, `is_a`
 the predicate and `animal` the object.
 
@@ -27,12 +27,12 @@ the predicate and `animal` the object.
 %%`active relations` where the subject is acting on the object and
 %%`passive relations` where the subject is acted on by the object.
 
-OWL distingues between *object properties*, that link classes or
+OWL distinguishes between *object properties*, that link classes or
 individuals to classes or individuals, and *data properties* that link
 individuals to data values.  Since EMMO only deals with classes, we
 will only be discussing object properties.  However,
-in actual simulation or characterisation applications build on EMMO,
-datatype propertyes will be important.
+in actual simulations or characterisation applications build on EMMO,
+datatype properties will be important.
 
 The characteristics of the different properties are described by
 the following *property axioms*:
