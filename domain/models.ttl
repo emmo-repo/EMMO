@@ -113,6 +113,12 @@ The Navier-Stokes equation."""@en ;
                                            skos:prefLabel "PhysicalPhenomenon"@en .
 
 
+###  http://emmo.info/emmo#EMMO_4299e344_a321_4ef2_a744_bacfcce80afc
+:EMMO_4299e344_a321_4ef2_a744_bacfcce80afc rdf:type owl:Class ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An elaboration that has no elaboration proper parts, according to a specific type."@en ;
+                                           skos:prefLabel "ElementaryWork"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_4456a5d2_16a6_4ee1_9a8e_5c75956b28ea
 :EMMO_4456a5d2_16a6_4ee1_9a8e_5c75956b28ea rdf:type owl:Class ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A physics-based model based on a physics equation describing the behaviour of continuum volume."@en ;
@@ -121,13 +127,19 @@ The Navier-Stokes equation."""@en ;
 
 ###  http://emmo.info/emmo#EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49
 :EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc
+                                                                               :EMMO_64963ed6_39c9_4258_85e0_6466c4b5420c
+                                                                             )
+                                                               ] ;
                                            rdfs:subClassOf :EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The process in which an agent works with some entities according to some operative rules."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """The process in which a control unit of a CPU (the agent) orchestrates some cached binary data according to a list of instructions (e.g. a program).
-
 The process in which a librarian order books alphabetically on a shelf.
-
 The execution of an algorithm."""@en ;
+                                           skos:altLabel "Job"@en ,
+                                                         "Task"@en ,
+                                                         "Work"@en ;
                                            skos:prefLabel "Elaboration"@en .
 
 [ rdf:type owl:Axiom ;
@@ -155,10 +167,17 @@ The execution of an algorithm."""@en ;
 
 ###  http://emmo.info/emmo#EMMO_5dd63d84_57f5_4b79_b760_fe940c06680d
 :EMMO_5dd63d84_57f5_4b79_b760_fe940c06680d rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_c7013b53_3071_410b_a5e4_a8d266dcdfb5 ;
+                                           rdfs:subClassOf :EMMO_c7013b53_3071_410b_a5e4_a8d266dcdfb5 ,
+                                                           :EMMO_eff42cb3_208e_4768_9a39_f8b6b3c3d7a2 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A functional icon that imitates the behaviour of the object through mathematical evaluations of some mathematical construct."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The equation that describes the velocity of a uniform accelerated body v = v0 + a*t is a functional icon. In general every analitical solution of a mathematical model can be considered an icon. A functional icon expresses its similarity with the object when is part of a process the makes it imitate the behavior of the object. In the case of v = v0 + a*t, plotting the velocity over time or listing their values at certain instants is when the icon expresses it functionality."@en ;
                                            skos:prefLabel "PhysicsMathematicalComputation"@en .
+
+
+###  http://emmo.info/emmo#EMMO_64963ed6_39c9_4258_85e0_6466c4b5420c
+:EMMO_64963ed6_39c9_4258_85e0_6466c4b5420c rdf:type owl:Class ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An elaboration that has at least two elaborations as proper parts."@en ;
+                                           skos:prefLabel "Workflow"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_67c70dcd_2adf_4e6c_b3f8_f33dd1512487
@@ -226,7 +245,7 @@ Hartree-Fock."""@en ;
 
 ###  http://emmo.info/emmo#EMMO_8b66ada5_510c_44bd_a8d8_3c64d301a5e9
 :EMMO_8b66ada5_510c_44bd_a8d8_3c64d301a5e9 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_65411b3d_c8d3_4111_86a9_a2ce0a64c647 ,
+                                           rdfs:subClassOf :EMMO_3b031fa9_8623_4ea5_8b57_bcafb70c5c8b ,
                                                            :EMMO_c7013b53_3071_410b_a5e4_a8d266dcdfb5 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An application aimed to functionally reproduce an object."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "An application that predicts the pressure drop of a fluid in a pipe segment is aimed to functionally reproduce the outcome of a measurement of pressure before and after the segment."@en ;
@@ -272,7 +291,7 @@ In Peirce semiotics: legisign-symbol-argument"""@en ;
 :EMMO_9335cf09_431f_4613_9dab_ce4ceaca965b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_1c0b22a2_be82_4fa8_9e2b_a569a625d442 ,
                                                            :EMMO_eff42cb3_208e_4768_9a39_f8b6b3c3d7a2 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A estimation of a property using a simulation."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A estimation of a property using a functional icon."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "I calculate the electrical conductivity of an Ar-He plasma with the Chapman-Enskog method and use the value as property for it."@en ;
                                            skos:altLabel "Modelling"@en ;
                                            skos:prefLabel "Simulation"@en .
