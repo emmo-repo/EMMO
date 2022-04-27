@@ -52,7 +52,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
 
 ###  http://emmo.info/emmo#EMMO_705f27ae_954c_4f13_98aa_18473fc52b25
 :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 rdf:type owl:AnnotationProperty ;
-                                           rdfs:comment "Definitions are usually taken from Wiktionary"@en ;
+                                           rdfs:comment "Definitions are usually taken from Wiktionary."@en ;
                                            rdfs:seeAlso "https://en.wiktionary.org/wiki/Wiktionary"@en ;
                                            skos:prefLabel "etymology"@en ;
                                            rdfs:subPropertyOf rdfs:comment ;
@@ -61,8 +61,9 @@ email: emanuele.ghedini@unibo.it"""@en ,
 
 ###  http://emmo.info/emmo#EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84
 :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 rdf:type owl:AnnotationProperty ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Precise and univocal description of an ontological entity in the framework of an axiomatic system.
-A definition uses entities in an ontological system to identify other derivate ontological entities within the same system."""@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """Precise and univocal description of an ontological entity in the framework of an axiomatic system.
+A definition uses entities in an ontological system to identify other derivate ontological entities within the same system.
+A definition connects an ontological entity to some primitive concepts in a user independent way, according to an underlying logical framework (in this case, the OWL2 DL language framework)."""@en ;
                                            skos:prefLabel "definition"@en ;
                                            rdfs:subPropertyOf rdfs:comment ;
                                            rdfs:range xsd:string .
@@ -88,8 +89,8 @@ This process is subjective, depends on the agent that draws this connection (e.g
 
 ###  http://emmo.info/emmo#EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f
 :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f rdf:type owl:AnnotationProperty ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A text that add some information about the entity."@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A comment can be addressed to facilitate interpretation, to suggest possible usage, to clarify the concepts behind each entity with respect to other ontological apporaches."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A comment can be addressed to facilitate interpretation, to suggest possible usage, to clarify the concepts behind each entity with respect to other ontological apporaches."@en ,
+                                                                                      "A text that add some information about the entity."@en ;
                                            skos:prefLabel "comment"@en ;
                                            rdfs:subPropertyOf rdfs:comment .
 
@@ -196,7 +197,8 @@ skos:prefLabel rdf:type owl:AnnotationProperty ;
                                            rdf:type owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A time contact occurs when x isDirectCause y and not y isDirectCause x."@en ;
-                                           skos:prefLabel "isBefore"@en .
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Temporal before is asymmetric and irreflexive."@en ;
+                                           skos:prefLabel "isTemporallyBefore"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_5022e4cb_125f_429d_8556_c3e635c561f2
@@ -211,6 +213,7 @@ skos:prefLabel rdf:type owl:AnnotationProperty ;
                                            rdfs:subPropertyOf :EMMO_d67ee67e_4fac_4676_82c9_aec361dba698 ;
                                            rdf:type owl:IrreflexiveProperty ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causal relation between the causing and the effected item occurring without intermediaries."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Direct cause is irreflexive."@en ;
                                            skos:prefLabel "isDirectCause"@en .
 
 
@@ -250,7 +253,8 @@ skos:prefLabel rdf:type owl:AnnotationProperty ;
                                            rdf:type owl:SymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A spatial contact occurs when x isDirectCause y and y isDirectCause x."@en ;
-                                           skos:prefLabel "hasContactWith"@en .
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Spatial contact is symmetric and irreflexive."@en ;
+                                           skos:prefLabel "isSpatialContactWith"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
@@ -279,7 +283,7 @@ skos:prefLabel rdf:type owl:AnnotationProperty ;
 ###  http://emmo.info/emmo#EMMO_b85e4738_500c_4e1b_bbe8_9e84190485d6
 :EMMO_b85e4738_500c_4e1b_bbe8_9e84190485d6 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_d67ee67e_4fac_4676_82c9_aec361dba698 ;
-                                           rdf:type owl:IrreflexiveProperty ;
+                                           rdf:type owl:TransitiveProperty ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causal relation between the effected item and the causing item with intermediaries."@en ;
                                            skos:prefLabel "isIndirectCause"@en .
 
@@ -294,8 +298,11 @@ skos:prefLabel rdf:type owl:AnnotationProperty ;
 ###  http://emmo.info/emmo#EMMO_d67ee67e_4fac_4676_82c9_aec361dba698
 :EMMO_d67ee67e_4fac_4676_82c9_aec361dba698 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_ad0e72fc_dcaa_490d_8371_b4d814dcda2c ;
-                                           rdf:type owl:IrreflexiveProperty ;
+                                           rdf:type owl:TransitiveProperty ;
+                                           rdfs:domain :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
+                                           rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation connecting an item x with an item y, y having a part that is causing an effect on a part of x."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Cause is irreflexive and transitive. However, OWL2 DL language decidability constraints prevents the declaration of both characteristics."@en ;
                                            skos:altLabel "isEffectOf"@en ;
                                            skos:prefLabel "isCause"@en .
 
