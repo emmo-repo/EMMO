@@ -6,392 +6,177 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@base <http://emmo.info/emmo/middle/data> .
 
-<http://emmo.info/emmo/middle/data> a owl:Ontology ;
-	owl:versionIRI <http://emmo.info/emmo/1.0.0-beta3/middle/data> ;
-	owl:imports <http://emmo.info/emmo/1.0.0-beta3/middle/perspective> ;
-	dcterms:abstract ""@en ;
-	dcterms:contributor "Francesca Lønstad Bleken, SINTEF, NO"@en , "Gerhard Goldbeck, Goldbeck Consulting Ltd (UK)" , "Jesper Friis, SINTEF, NO" , "Michael Noeske, FRAUNHOFER IFAM, DE"@en ;
-	dcterms:creator "Emanuele Ghedini, University of Bologna, IT" ;
-	dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
-	dcterms:publisher "EMMC ASBL" ;
-	dcterms:title "Distinctional"@en ;
-	rdfs:comment """Contacts:
+<http://emmo.info/emmo/middle/data> rdf:type owl:Ontology ;
+                                     owl:versionIRI <http://emmo.info/emmo/1.0.0-beta3/middle/data> ;
+                                     owl:imports <http://emmo.info/emmo/1.0.0-beta3/middle/perspective> ;
+                                     dcterms:abstract ""@en ;
+                                     dcterms:contributor "Francesca Lønstad Bleken, SINTEF, NO"@en ,
+                                                         "Gerhard Goldbeck, Goldbeck Consulting Ltd (UK)" ,
+                                                         "Jesper Friis, SINTEF, NO" ,
+                                                         "Michael Noeske, FRAUNHOFER IFAM, DE"@en ;
+                                     dcterms:creator "Emanuele Ghedini, University of Bologna, IT" ;
+                                     dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+                                     dcterms:publisher "EMMC ASBL" ;
+                                     dcterms:title "Distinctional"@en ;
+                                     rdfs:comment """Contacts:
 Gerhard Goldbeck
 Goldbeck Consulting Ltd (UK)
 email: gerhard@goldbeck-consulting.com
 
 Emanuele Ghedini
 University of Bologna (IT)
-email: emanuele.ghedini@unibo.it"""@en , "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-	owl:versionInfo "1.0.0-beta3" .
-# 
-# 
-# #################################################################
-# #
-# #    Classes
-# #
-# #################################################################
-# 
-# 
-# http://emmo.info/emmo#EMMO_09007bc0_b5f2_4fb9_af01_caf948cf2044
+email: emanuele.ghedini@unibo.it"""@en ,
+                                                  "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
+                                     owl:versionInfo "1.0.0-beta3" .
 
-:EMMO_09007bc0_b5f2_4fb9_af01_caf948cf2044 a owl:Class ;
-	rdfs:subClassOf :EMMO_1461e904_a2bf_4558_ad74_2706f5706b34 ;
-	skos:prefLabel "Java"@en .
-# 
-# http://emmo.info/emmo#EMMO_0d1c0018_42e2_4506_bc3d_f53c117c1ad3
+#################################################################
+#    Classes
+#################################################################
 
-:EMMO_0d1c0018_42e2_4506_bc3d_f53c117c1ad3 a owl:Class ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data that are decoded retaining its continuous variations characteristic."@en ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A vynil contain continuous information about the recorded sound."@en ;
-	:EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The fact that there may be a finite granularity in the variations of the material basis (e.g. the smallest peak in a vynil that can be recognized by the piezo-electric transducer) does not prevent a data to be analog. It means only that the focus on such data encoding is on a scale that makes such variations negligible, making them practically a continuum."@en ;
-	skos:prefLabel "AnalogData"@en .
-# 
-# http://emmo.info/emmo#EMMO_1461e904_a2bf_4558_ad74_2706f5706b34
+###  http://emmo.info/emmo#EMMO_0d1c0018_42e2_4506_bc3d_f53c117c1ad3
+:EMMO_0d1c0018_42e2_4506_bc3d_f53c117c1ad3 rdf:type owl:Class ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data that are decoded retaining its continuous variations characteristic."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A vynil contain continuous information about the recorded sound."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The fact that there may be a finite granularity in the variations of the material basis (e.g. the smallest peak in a vynil that can be recognized by the piezo-electric transducer) does not prevent a data to be analog. It means only that the focus on such data encoding is on a scale that makes such variations negligible, making them practically a continuum."@en ;
+                                           skos:prefLabel "AnalogData"@en .
 
-:EMMO_1461e904_a2bf_4558_ad74_2706f5706b34 a owl:Class ;
-	rdfs:subClassOf :EMMO_9ffffb55_3496_4307_82b8_a0d78fe1fcd8 ;
-	skos:prefLabel "CompiledLanguage"@en .
-# 
-# http://emmo.info/emmo#EMMO_161bef57_cc59_4246_8249_19dbdae96e7b
 
-:EMMO_161bef57_cc59_4246_8249_19dbdae96e7b a owl:Class ;
-	rdfs:subClassOf :EMMO_f84b1b92_1dc8_4146_99f0_b03cd53e455b ;
-	skos:prefLabel "JavaScript"@en .
-# 
-# http://emmo.info/emmo#EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a
+###  http://emmo.info/emmo#EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a
+:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a rdf:type owl:Class ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Encoded data made of more than one datum."@en ;
+                                           skos:prefLabel "DataSet"@en .
 
-:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a a owl:Class ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Encoded data made of more than one datum."@en ;
-	skos:prefLabel "DataSet"@en .
-# 
-# http://emmo.info/emmo#EMMO_1e877c70_3b01_45a8_a8f6_8ce4f6a24660
 
-:EMMO_1e877c70_3b01_45a8_a8f6_8ce4f6a24660 a owl:Class ;
-	owl:equivalentClass _:genid1 .
-
-_:genid1 a owl:Class ;
-	owl:unionOf _:genid3 .
-
-_:genid3 a rdf:List ;
-	rdf:first :EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 ;
-	rdf:rest _:genid2 .
-
-_:genid2 a rdf:List ;
-	rdf:first :EMMO_5a10e288_c6a5_409a_a16a_98a2fb8be4f3 ;
-	rdf:rest rdf:nil .
-
-:EMMO_1e877c70_3b01_45a8_a8f6_8ce4f6a24660 rdfs:subClassOf :EMMO_49267eba_5548_4163_8f36_518d65b583f9 ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A perspective in which entities are represented according to the variation of their properties."@en ;
-	:EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """A data is a causal object whose variations (non-uniformity) can be recognised and eventually interpreted.
+###  http://emmo.info/emmo#EMMO_1e877c70_3b01_45a8_a8f6_8ce4f6a24660
+:EMMO_1e877c70_3b01_45a8_a8f6_8ce4f6a24660 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490
+                                                                               :EMMO_5a10e288_c6a5_409a_a16a_98a2fb8be4f3
+                                                                             )
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_49267eba_5548_4163_8f36_518d65b583f9 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A perspective in which entities are represented according to the variation of their properties."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """A data is a causal object whose variations (non-uniformity) can be recognised and eventually interpreted.
 A data can be of different physical types (e.g., matter, wave, atomic excited states).
 How the variations are recognised and eventually decoded depends on the interpreting rules that characterise that type of data.
-Variations are pure physical variations and do not necessarily possess semantic meaning."""@en ;
-	rdfs:seeAlso "Luciano Floridi, \"Information - A very Short Introduction\", Oxford University Press., (2010) ISBN 978-0199551378"@en ;
-	skos:altLabel "Dedomena"@en ;
-	skos:prefLabel "Data"@en .
+Variations are pure physical variations and do not necessarily possess semantic meaning."""@en ,
+                                                                                      "The covering axiom that defines the data class discriminates within all the possible causal objects between encoded or non encoded."@en ;
+                                           rdfs:seeAlso "Luciano Floridi, \"Information - A very Short Introduction\", Oxford University Press., (2010) ISBN 978-0199551378"@en ;
+                                           skos:altLabel "Dedomena"@en ;
+                                           skos:prefLabel "Data"@en .
 
-_:genid4 a owl:Axiom ;
-	owl:annotatedSource :EMMO_1e877c70_3b01_45a8_a8f6_8ce4f6a24660 ;
-	owl:annotatedProperty skos:altLabel ;
-	owl:annotatedTarget "Dedomena"@en ;
-	:EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Greek, nominative plural form of δεδομένο (dedoméno) (data, information)"@en .
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_1e877c70_3b01_45a8_a8f6_8ce4f6a24660 ;
+   owl:annotatedProperty skos:altLabel ;
+   owl:annotatedTarget "Dedomena"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Greek, nominative plural form of δεδομένο (dedoméno) (data, information)"@en
+ ] .
 
-_:genid5 a owl:Axiom ;
-	owl:annotatedSource :EMMO_1e877c70_3b01_45a8_a8f6_8ce4f6a24660 ;
-	owl:annotatedProperty skos:prefLabel ;
-	owl:annotatedTarget "Data"@en ;
-	:EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin data, nominative plural of datum (“that is given”), neuter past participle of dō (“I give”)."@en .
-# 
-# http://emmo.info/emmo#EMMO_268a8a97_3a6f_4022_93da_962a66827cdc
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_1e877c70_3b01_45a8_a8f6_8ce4f6a24660 ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "Data"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin data, nominative plural of datum (“that is given”), neuter past participle of dō (“I give”)."@en
+ ] .
 
-:EMMO_268a8a97_3a6f_4022_93da_962a66827cdc a owl:Class ;
-	rdfs:subClassOf :EMMO_1461e904_a2bf_4558_ad74_2706f5706b34 ;
-	skos:altLabel "C#"@en ;
-	skos:prefLabel "CSharp"@en .
-# 
-# http://emmo.info/emmo#EMMO_348d39f7_6a17_49d1_9860_9b33b69b51de
 
-:EMMO_348d39f7_6a17_49d1_9860_9b33b69b51de a owl:Class ;
-	rdfs:subClassOf :EMMO_8681074a_e225_4e38_b586_e85b0f43ce38 , :EMMO_9ffffb55_3496_4307_82b8_a0d78fe1fcd8 ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A programming language entity expressing a formal detailed plan of what a software is intended to do."@en ;
-	:EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A source code is the companion of an application, being it the entity used to generate the application list of CPU executable instructions."@en , "Source code (also referred to as source or code) is the version of software as it is originally written (i.e., typed into a computer) by a human in plain text (i.e., human readable alphanumeric characters)."@en ;
-	skos:prefLabel "SourceCode"@en .
-
-_:genid6 a owl:Axiom ;
-	owl:annotatedSource :EMMO_348d39f7_6a17_49d1_9860_9b33b69b51de ;
-	owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
-	owl:annotatedTarget "Source code (also referred to as source or code) is the version of software as it is originally written (i.e., typed into a computer) by a human in plain text (i.e., human readable alphanumeric characters)."@en ;
-	rdfs:isDefinedBy "http://www.linfo.org/source_code.html"^^xsd:anyURI .
-# 
-# http://emmo.info/emmo#EMMO_36a9bf69_483b_42fd_8a0c_7ac9206320bc
-
-:EMMO_36a9bf69_483b_42fd_8a0c_7ac9206320bc a owl:Class ;
-	rdfs:subClassOf :EMMO_1461e904_a2bf_4558_ad74_2706f5706b34 ;
-	skos:prefLabel "C"@en .
-# 
-# http://emmo.info/emmo#EMMO_3b031fa9_8623_4ea5_8b57_bcafb70c5c8b
-
-:EMMO_3b031fa9_8623_4ea5_8b57_bcafb70c5c8b a owl:Class ;
-	rdfs:subClassOf :EMMO_8681074a_e225_4e38_b586_e85b0f43ce38 ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A program aimed to provide a specific high level function to the user, usually hiding lower level procedures."@en ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Word processors, graphic image processing programs, database management systems, numerical simulation software and games."@en ;
-	skos:altLabel "App"@en , "Application"@en ;
-	skos:prefLabel "ApplicationProgram"@en .
-# 
-# http://emmo.info/emmo#EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490
-
-:EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 a owl:Class ;
-	owl:equivalentClass _:genid7 .
-
-_:genid7 a owl:Class ;
-	owl:unionOf _:genid9 .
-
-_:genid9 a rdf:List ;
-	rdf:first :EMMO_0d1c0018_42e2_4506_bc3d_f53c117c1ad3 ;
-	rdf:rest _:genid8 .
-
-_:genid8 a rdf:List ;
-	rdf:first :EMMO_be8592a7_68d1_4a06_ad23_82f2b56ef926 ;
-	rdf:rest rdf:nil .
-
-:EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 owl:equivalentClass _:genid10 .
-
-_:genid10 a owl:Class ;
-	owl:unionOf _:genid12 .
-
-_:genid12 a rdf:List ;
-	rdf:first :EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a ;
-	rdf:rest _:genid11 .
-
-_:genid11 a rdf:List ;
-	rdf:first :EMMO_50d6236a_7667_4883_8ae1_9bb5d190423a ;
-	rdf:rest rdf:nil .
-
-:EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 owl:equivalentClass _:genid13 .
-
-_:genid13 a owl:Class ;
-	owl:unionOf _:genid15 .
-
-_:genid15 a rdf:List ;
-	rdf:first :EMMO_6fa1feac_c388_44cc_a721_283499d5addc ;
-	rdf:rest _:genid14 .
-
-_:genid14 a rdf:List ;
-	rdf:first :EMMO_ed257e78_8b59_44c3_9d61_06c261184f55 ;
-	rdf:rest rdf:nil .
-
-:EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 owl:equivalentClass _:genid16 .
-
-_:genid16 a owl:Class ;
-	owl:unionOf _:genid18 .
-
-_:genid18 a rdf:List ;
-	rdf:first :EMMO_888a5dea_3b7d_4dc0_93f2_d4e345a1f903 ;
-	rdf:rest _:genid17 .
-
-_:genid17 a rdf:List ;
-	rdf:first :EMMO_ac1a05c5_0c17_4387_bac0_683f2a86f3ed ;
-	rdf:rest rdf:nil .
-
-:EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causal object whose properties variation are encoded by an agent and that can be decoded by another agent according to a specific rule."@en ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """A Radio Morse Code transmission can be addressed by combination of perspectives.
+###  http://emmo.info/emmo#EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490
+:EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_0d1c0018_42e2_4506_bc3d_f53c117c1ad3
+                                                                               :EMMO_be8592a7_68d1_4a06_ad23_82f2b56ef926
+                                                                             )
+                                                               ] ,
+                                                               [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a
+                                                                               :EMMO_50d6236a_7667_4883_8ae1_9bb5d190423a
+                                                                             )
+                                                               ] ,
+                                                               [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_6fa1feac_c388_44cc_a721_283499d5addc
+                                                                               :EMMO_ed257e78_8b59_44c3_9d61_06c261184f55
+                                                                             )
+                                                               ] ,
+                                                               [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_888a5dea_3b7d_4dc0_93f2_d4e345a1f903
+                                                                               :EMMO_ac1a05c5_0c17_4387_bac0_683f2a86f3ed
+                                                                             )
+                                                               ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causal object whose properties variation are encoded by an agent and that can be decoded by another agent according to a specific rule."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """A Radio Morse Code transmission can be addressed by combination of perspectives.
 
 Physicalistic: the electromagnetic pulses can be defined as individual A (of type Field) and the strip of paper coming out a printer receiver can be defined as individual B (of type Matter).
 Data: both A and B are also DiscreteData class individuals. In particular they may belong to a MorseData class, subclass of DiscreteData.
 Perceptual: B is an individual belonging to the graphical entities expressing symbols. In particular is a formula under the MorseLanguage class, made of a combination of . and - symbols.
-Semiotics: A and B can be signs if they refers to something else (e.g. a report about a fact, names)."""@en , "A signal through a cable. A sound wave. Words on a page. The pattern of excited states within a computer RAM."@en ;
-	:EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """We call \"decoding\" the act of recognise the variation according to a particular rule and generate another equivalent schema (e.g. in the agent's cognitive apparatus, as another form of data).
+Semiotics: A and B can be signs if they refers to something else (e.g. a report about a fact, names)."""@en ,
+                                                                                      "A signal through a cable. A sound wave. Words on a page. The pattern of excited states within a computer RAM."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """We call \"decoding\" the act of recognise the variation according to a particular rule and generate another equivalent schema (e.g. in the agent's cognitive apparatus, as another form of data).
 We call \"interpreting\" the act of providing semantic meaning to data, which is covered by the semiotic perspective."""@en ;
-	:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://no.wikipedia.org/wiki/Data"^^xsd:anyURI ;
-	rdfs:comment """Variations in data are generated by an agent (not necessarily human) and are intended to be decoded by the same or another agent using the same encoding rules.
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://no.wikipedia.org/wiki/Data"^^xsd:anyURI ;
+                                           rdfs:comment """Variations in data are generated by an agent (not necessarily human) and are intended to be decoded by the same or another agent using the same encoding rules.
 Data are always generated by an agent but not necessarily possess a semantic meaninig, either because it's lost or unknown or because simply they possess none (e.g. a random generation of symbols).
 A data object may be used as the physical basis for a sign, under Semiotics perspective."""@en ;
-	skos:altLabel "EncodedVariation"@en ;
-	skos:prefLabel "EncodedData"@en .
+                                           skos:altLabel "EncodedVariation"@en ;
+                                           skos:prefLabel "EncodedData"@en .
 
-_:genid19 a owl:Axiom ;
-	owl:annotatedSource :EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 ;
-	owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
-	owl:annotatedTarget """We call \"decoding\" the act of recognise the variation according to a particular rule and generate another equivalent schema (e.g. in the agent's cognitive apparatus, as another form of data).
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 ;
+   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
+   owl:annotatedTarget """We call \"decoding\" the act of recognise the variation according to a particular rule and generate another equivalent schema (e.g. in the agent's cognitive apparatus, as another form of data).
 We call \"interpreting\" the act of providing semantic meaning to data, which is covered by the semiotic perspective."""@en ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "The electronical state of the RAM of my laptop is decoded by it as ASCII characters and printed on the screen."@en .
-# 
-# http://emmo.info/emmo#EMMO_4db96fb7_e9e0_466d_942b_f6f17bfdc145
+   :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "The electronical state of the RAM of my laptop is decoded by it as ASCII characters and printed on the screen."@en
+ ] .
 
-:EMMO_4db96fb7_e9e0_466d_942b_f6f17bfdc145 a owl:Class ;
-	rdfs:subClassOf :EMMO_be8592a7_68d1_4a06_ad23_82f2b56ef926 ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Discrete data that can be interpreted symbolically as sequence of 1/0, or true/false, or on/off."@en ;
-	skos:altLabel "BinaryData"@en ;
-	skos:prefLabel "DigitalData"@en .
-# 
-# http://emmo.info/emmo#EMMO_50d6236a_7667_4883_8ae1_9bb5d190423a
 
-:EMMO_50d6236a_7667_4883_8ae1_9bb5d190423a a owl:Class ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A self-consistent encoded data entity."@en ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A character, a bit, a song in a CD."@en ;
-	skos:prefLabel "Datum"@en .
-# 
-# http://emmo.info/emmo#EMMO_53dd6f2a_f9de_4f83_b925_1bf39a4ab9a6
+###  http://emmo.info/emmo#EMMO_50d6236a_7667_4883_8ae1_9bb5d190423a
+:EMMO_50d6236a_7667_4883_8ae1_9bb5d190423a rdf:type owl:Class ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A self-consistent encoded data entity."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A character, a bit, a song in a CD."@en ;
+                                           skos:prefLabel "Datum"@en .
 
-:EMMO_53dd6f2a_f9de_4f83_b925_1bf39a4ab9a6 a owl:Class ;
-	rdfs:subClassOf :EMMO_f84b1b92_1dc8_4146_99f0_b03cd53e455b ;
-	skos:prefLabel "Ruby"@en .
-# 
-# http://emmo.info/emmo#EMMO_58b17cac_3125_4486_9b9c_8c45ac254040
 
-:EMMO_58b17cac_3125_4486_9b9c_8c45ac254040 a owl:Class ;
-	rdfs:subClassOf :EMMO_8681074a_e225_4e38_b586_e85b0f43ce38 ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "System program refers to operating systems and utility programs that manage computer resources at a low level enabling a computer to function."@en ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "An operating system. A graphic driver."@en ;
-	skos:prefLabel "SystemProgram"@en .
-# 
-# http://emmo.info/emmo#EMMO_5a10e288_c6a5_409a_a16a_98a2fb8be4f3
+###  http://emmo.info/emmo#EMMO_5a10e288_c6a5_409a_a16a_98a2fb8be4f3
+:EMMO_5a10e288_c6a5_409a_a16a_98a2fb8be4f3 rdf:type owl:Class ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data that occurs naturally without an encoding agent producing it."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A cloud in the sky. The radiative spectrum of a star."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This is a really broad class that gathers all physical phenomena in which a variation occurs naturally."@en ;
+                                           skos:altLabel "EnvironmentalData"@en ;
+                                           skos:prefLabel "NonEncodedData"@en .
 
-:EMMO_5a10e288_c6a5_409a_a16a_98a2fb8be4f3 a owl:Class ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data that occurs naturally without an encoding agent producing it."@en ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A cloud in the sky. The radiative spectrum of a star."@en ;
-	:EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This is a really broad class that gathers all physical phenomena in which a variation occurs naturally."@en ;
-	skos:altLabel "EnvironmentalData"@en ;
-	skos:prefLabel "NonEncodedData"@en .
-# 
-# http://emmo.info/emmo#EMMO_64aba1e5_24b7_4140_8eb4_676c35698e79
 
-:EMMO_64aba1e5_24b7_4140_8eb4_676c35698e79 a owl:Class ;
-	rdfs:subClassOf :EMMO_1461e904_a2bf_4558_ad74_2706f5706b34 ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A language object respecting the syntactic rules of C++."@en ;
-	skos:altLabel "C++"@en ;
-	skos:prefLabel "CPlusPlus"@en .
-# 
-# http://emmo.info/emmo#EMMO_65411b3d_c8d3_4111_86a9_a2ce0a64c647
+###  http://emmo.info/emmo#EMMO_6fa1feac_c388_44cc_a721_283499d5addc
+:EMMO_6fa1feac_c388_44cc_a721_283499d5addc rdf:type owl:Class ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data that are expressed through quantum mechanical principles, and that can have several values ​​/ be in several states in the same place at the same time (quantum superposition), each of them with a certain probability."@en ;
+                                           skos:prefLabel "QuantumData"@en .
 
-:EMMO_65411b3d_c8d3_4111_86a9_a2ce0a64c647 a owl:Class ;
-	owl:equivalentClass _:genid20 .
 
-_:genid20 a owl:Class ;
-	owl:unionOf _:genid22 .
+###  http://emmo.info/emmo#EMMO_888a5dea_3b7d_4dc0_93f2_d4e345a1f903
+:EMMO_888a5dea_3b7d_4dc0_93f2_d4e345a1f903 rdf:type owl:Class ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data that can be decoded under a quantitative schema and also associated with a graphical number symbols."@en ;
+                                           skos:prefLabel "NumericalData"@en .
 
-_:genid22 a rdf:List ;
-	rdf:first :EMMO_3b031fa9_8623_4ea5_8b57_bcafb70c5c8b ;
-	rdf:rest _:genid21 .
 
-_:genid21 a rdf:List ;
-	rdf:first :EMMO_58b17cac_3125_4486_9b9c_8c45ac254040 ;
-	rdf:rest rdf:nil .
+###  http://emmo.info/emmo#EMMO_ac1a05c5_0c17_4387_bac0_683f2a86f3ed
+:EMMO_ac1a05c5_0c17_4387_bac0_683f2a86f3ed rdf:type owl:Class ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data that are non-quantitatively interpreted (e.g., qualitative data, types)."@en ;
+                                           skos:prefLabel "NonNumericalData"@en .
 
-:EMMO_65411b3d_c8d3_4111_86a9_a2ce0a64c647 rdfs:subClassOf :EMMO_8681074a_e225_4e38_b586_e85b0f43ce38 ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A set of instructions that tell a computer what to do."@en ;
-	:EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A program is a sequence of instructions understandable by a computer's central processing unit (CPU) that indicates which operations the computer should perform on a set of data."@en ;
-	skos:altLabel "Executable"@en ;
-	skos:prefLabel "Program"@en .
 
-_:genid23 a owl:Axiom ;
-	owl:annotatedSource :EMMO_65411b3d_c8d3_4111_86a9_a2ce0a64c647 ;
-	owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
-	owl:annotatedTarget "A program is a sequence of instructions understandable by a computer's central processing unit (CPU) that indicates which operations the computer should perform on a set of data."@en ;
-	rdfs:isDefinedBy "http://www.linfo.org/program.html"^^xsd:anyURI .
-# 
-# http://emmo.info/emmo#EMMO_6fa1feac_c388_44cc_a721_283499d5addc
-
-:EMMO_6fa1feac_c388_44cc_a721_283499d5addc a owl:Class ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data that are expressed through quantum mechanical principles, and that can have several values ​​/ be in several states in the same place at the same time (quantum superposition), each of them with a certain probability."@en ;
-	skos:prefLabel "QuantumData"@en .
-# 
-# http://emmo.info/emmo#EMMO_8681074a_e225_4e38_b586_e85b0f43ce38
-
-:EMMO_8681074a_e225_4e38_b586_e85b0f43ce38 a owl:Class ;
-	rdfs:subClassOf :EMMO_4db96fb7_e9e0_466d_942b_f6f17bfdc145 ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "All or part of the programs, procedures, rules, and associated documentation of an information processing system."@en ;
-	:EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """Software is usually used as a generic term for programs. However, in its broadest sense it can refer to all information (i.e., both programs and data) in electronic form and can provide a distinction from hardware, which refers to computers or other electronic systems on which software can exist and be use.
-Here we explicitly include in the definition also all the data (e.g. source code, script files) that takes part to the building of the executable, are necessary to the execution of a program or that document it for the users."""@en ;
-	skos:prefLabel "Software"@en .
-
-_:genid24 a owl:Axiom ;
-	owl:annotatedSource :EMMO_8681074a_e225_4e38_b586_e85b0f43ce38 ;
-	owl:annotatedProperty :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 ;
-	owl:annotatedTarget "All or part of the programs, procedures, rules, and associated documentation of an information processing system."@en ;
-	rdfs:isDefinedBy "https://www.iso.org/obp/ui/fr/#iso:std:iso-iec:2382:-1:ed-3:en"@en .
-
-_:genid25 a owl:Axiom ;
-	owl:annotatedSource :EMMO_8681074a_e225_4e38_b586_e85b0f43ce38 ;
-	owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
-	owl:annotatedTarget """Software is usually used as a generic term for programs. However, in its broadest sense it can refer to all information (i.e., both programs and data) in electronic form and can provide a distinction from hardware, which refers to computers or other electronic systems on which software can exist and be use.
-Here we explicitly include in the definition also all the data (e.g. source code, script files) that takes part to the building of the executable, are necessary to the execution of a program or that document it for the users."""@en ;
-	rdfs:seeAlso "http://www.linfo.org/program.html"^^xsd:anyURI .
-
-_:genid26 a owl:Axiom ;
-	owl:annotatedSource :EMMO_8681074a_e225_4e38_b586_e85b0f43ce38 ;
-	owl:annotatedProperty skos:prefLabel ;
-	owl:annotatedTarget "Software"@en ;
-	:EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From soft +‎ -ware, by contrast with hardware (“the computer itself”). Coined by Paul Niquette in 1953."@en .
-# 
-# http://emmo.info/emmo#EMMO_888a5dea_3b7d_4dc0_93f2_d4e345a1f903
-
-:EMMO_888a5dea_3b7d_4dc0_93f2_d4e345a1f903 a owl:Class ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data that can be decoded under a quantitative schema and also associated with a graphical number symbols."@en ;
-	skos:prefLabel "NumericalData"@en .
-# 
-# http://emmo.info/emmo#EMMO_9ffffb55_3496_4307_82b8_a0d78fe1fcd8
-
-:EMMO_9ffffb55_3496_4307_82b8_a0d78fe1fcd8 a owl:Class ;
-	rdfs:subClassOf :EMMO_d8d2144e_5c8d_455d_a643_5caf4d8d9df8 ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A language object that follows syntactic rules of a programming language."@en ;
-	:EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A programming language object can also be a fragment (e.g. a C function) not suitable for exectution."@en , "Entities are not necessarily digital data, but can be code fragments printed on paper."@en ;
-	skos:altLabel "Code"@en , "SoftwareCode"@en ;
-	skos:prefLabel "ProgrammingLanguage"@en .
-# 
-# http://emmo.info/emmo#EMMO_aab6a0cc_2fbd_43ac_ac5a_b7b7b75331dc
-
-:EMMO_aab6a0cc_2fbd_43ac_ac5a_b7b7b75331dc a owl:Class ;
-	rdfs:subClassOf :EMMO_1461e904_a2bf_4558_ad74_2706f5706b34 ;
-	skos:prefLabel "FORTRAN"@en .
-# 
-# http://emmo.info/emmo#EMMO_ac1a05c5_0c17_4387_bac0_683f2a86f3ed
-
-:EMMO_ac1a05c5_0c17_4387_bac0_683f2a86f3ed a owl:Class ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data that are non-quantitatively interpreted (e.g., qualitative data, types)."@en ;
-	skos:prefLabel "NonNumericalData"@en .
-# 
-# http://emmo.info/emmo#EMMO_add2e29d_6d87_4b78_9706_588e25557093
-
-:EMMO_add2e29d_6d87_4b78_9706_588e25557093 a owl:Class ;
-	rdfs:subClassOf :EMMO_f84b1b92_1dc8_4146_99f0_b03cd53e455b ;
-	skos:prefLabel "Python"@en .
-# 
-# http://emmo.info/emmo#EMMO_be8592a7_68d1_4a06_ad23_82f2b56ef926
-
-:EMMO_be8592a7_68d1_4a06_ad23_82f2b56ef926 a owl:Class ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data whose variations are decoded according to a discrete schema."@en ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A text is a collection of discrete symbols. A compact disc is designed to host discrete states in the form of pits and lands."@en ;
-	:EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """A discrete schema may be based on a continuum material basis that is filtered according to its variations. For example, a continuous voltage based signal can be considered 1 or 0 according to some threshold.
+###  http://emmo.info/emmo#EMMO_be8592a7_68d1_4a06_ad23_82f2b56ef926
+:EMMO_be8592a7_68d1_4a06_ad23_82f2b56ef926 rdf:type owl:Class ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data whose variations are decoded according to a discrete schema."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A text is a collection of discrete symbols. A compact disc is designed to host discrete states in the form of pits and lands."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """A discrete schema may be based on a continuum material basis that is filtered according to its variations. For example, a continuous voltage based signal can be considered 1 or 0 according to some threshold.
 Discrete does not mean tha the material basis is discrete, but that the data are encoded according to such step-based rules."""@en ;
-	skos:prefLabel "DiscreteData"@en .
-# 
-# http://emmo.info/emmo#EMMO_d8d2144e_5c8d_455d_a643_5caf4d8d9df8
+                                           skos:prefLabel "DiscreteData"@en .
 
-:EMMO_d8d2144e_5c8d_455d_a643_5caf4d8d9df8 a owl:Class ;
-	rdfs:subClassOf :EMMO_be8592a7_68d1_4a06_ad23_82f2b56ef926 ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A language object is a discrete data entity respecting a specific language syntactic rules (a well-formed formula)."@en ;
-	skos:prefLabel "Language"@en .
 
-_:genid27 a owl:Axiom ;
-	owl:annotatedSource :EMMO_d8d2144e_5c8d_455d_a643_5caf4d8d9df8 ;
-	owl:annotatedProperty skos:prefLabel ;
-	owl:annotatedTarget "Language"@en ;
-	:EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin lingua (“tongue, speech, language”), from Old Latin dingua (“tongue”)."@en .
-# 
-# http://emmo.info/emmo#EMMO_ed257e78_8b59_44c3_9d61_06c261184f55
+###  http://emmo.info/emmo#EMMO_ed257e78_8b59_44c3_9d61_06c261184f55
+:EMMO_ed257e78_8b59_44c3_9d61_06c261184f55 rdf:type owl:Class ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data that are expressed through classical physics mechanisms, having one value and one state, and being in the same place at the same time."@en ;
+                                           skos:prefLabel "ClassicalData"@en .
 
-:EMMO_ed257e78_8b59_44c3_9d61_06c261184f55 a owl:Class ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data that are expressed through classical physics mechanisms, having one value and one state, and being in the same place at the same time."@en ;
-	skos:prefLabel "ClassicalData"@en .
-# 
-# http://emmo.info/emmo#EMMO_f84b1b92_1dc8_4146_99f0_b03cd53e455b
 
-:EMMO_f84b1b92_1dc8_4146_99f0_b03cd53e455b a owl:Class ;
-	rdfs:subClassOf :EMMO_9ffffb55_3496_4307_82b8_a0d78fe1fcd8 ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A programming language that is executed through runtime interpretation."@en ;
-	skos:prefLabel "ScriptingLanguage"@en .
-# 
-# Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

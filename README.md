@@ -101,14 +101,14 @@ EMMO comes with a set of generic reference ontologies that combine perspectives 
 
 | Reference ontology | IRI                                                                                                                           |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| Materials          | [http://emmo.info/emmo/domain/materials](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/domain/materials.ttl)   |
-| Math               | [http://emmo.info/emmo/domain/math](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/domain/math.ttl)             |
-| Models             | [http://emmo.info/emmo/domain/models](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/domain/models.ttl)         |
-| Properties         | [http://emmo.info/emmo/domain/properties](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/domain/properties.ttl) |
-| Metrology          | [http://emmo.info/emmo/domain/metrology](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/domain/metrology.ttl)   |
-| Isq                | [http://emmo.info/emmo/domain/isq](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/domain/isq.ttl)               |
+| Materials          | [http://emmo.info/emmo/reference/materials](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/reference/materials.ttl)   |
+| Math               | [http://emmo.info/emmo/reference/math](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/reference/math.ttl)             |
+| Models             | [http://emmo.info/emmo/reference/models](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/reference/models.ttl)         |
+| Properties         | [http://emmo.info/emmo/reference/properties](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/reference/properties.ttl) |
+| Metrology          | [http://emmo.info/emmo/reference/metrology](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/reference/metrology.ttl)   |
+| Isq                | [http://emmo.info/emmo/reference/isq](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/reference/isq.ttl)               |
 | Siunits            | [http://emmo.info/emmo/domain/siunits](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/domain/siunits.ttl)       |
-| Chemistry          | [http://emmo.info/emmo/domain/chemistry](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/domain/chemistry.ttl)   |
+| Chemistry          | [http://emmo.info/emmo/reference/chemistry](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/reference/chemistry.ttl)   |
 
 
 ### Domain Ontologies
