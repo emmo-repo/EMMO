@@ -23,7 +23,7 @@ As illustrated in the figure below, EMMO covers all aspects of
 materials modelling and characterisation, including:
 
   - the **material** itself, which must be described in a rigorous way
-  - the **observation process** involving an observer that percieves the
+  - the **observation process** involving an observer that perceives the
     real world (characterisation)
   - the **properties** that are measured or modelled
   - the **physics laws** that describe the material behaviour
@@ -63,7 +63,7 @@ the reader to the one provided by [Tom Gruber (2009)][Gruber2009].
 Another useful introduction to ontologies is the paper [Ontology
 Development 101: A Guide to Creating Your First Ontology][Ontology101]
 by Noy and McGuinness (2001), which is based on the [Protege][Protege]
-sortware, with which EMMO has been developed.
+software, with which EMMO has been developed.
 
 A taxonomy is a hierarchical representation of classes and subclasses
 connected via `is_a` relations.  Hence, it is a subset of the ontology
@@ -191,7 +191,7 @@ here is an incomplete list:
   to) to itself, i.e. that its domain is a subclass of its range.
   Ex. `hasRelative` (given that everybody has themselves as relative).
 
-* _irreflexive_; means that a property cannot relate any invividual to
+* _irreflexive_; means that a property cannot relate any individual to
   itself. Ex. `hasParent` (nobody can be their own parent).
 
 #### Data property axioms
@@ -206,11 +206,11 @@ as for object properties.
 EMMO build upon several theoretical frameworks.
 
 ### Semiotics
-Semiotics is the study of meaning-making.  It is the dicipline
+Semiotics is the study of meaning-making.  It is the discipline
 of formulating something that possibly can exist in a defined
 space and time in the real world.
 
-%%It is introdused in EMMO via the
+%%It is introduced in EMMO via the
 %%`semion` class and used as a way to reduce the complexity of a
 %%physical to a simple sign (symbol).  A `Sign` is a physical
 %%entity that can represent another object.
@@ -225,7 +225,7 @@ space and time in the real world.
 ### Mereotopology
 Mereotopology is the combination of __mereology__ (science of
 parthood) and __topology__ (mathematical study of the geometrical
-properties and conservation through deformations).  It is introdused
+properties and conservation through deformations).  It is introduced
 via the [`Item`](#item) class and based on the
 [`mereotopological`](#mereotopological) relations.  Items in EMMO are
 always topologically connected in space and time.
@@ -238,12 +238,12 @@ are themselves items.  For further information, see [Casati and Varzi
 ### Physics
 EMMO is strongly based on physics, with the aim of being able to
 describe all aspects and all domains of physics, from quantum
-mechanics to continuum, engeneering, chemistry, etc.  EMMO is
+mechanics to continuum, engineering, chemistry, etc.  EMMO is
 compatible with both the De Broglie - Bohm and the Copenhagen
-interpretation of quantum mecanics (see [`Physical`](#physical) for
+interpretation of quantum mechanics (see [`Physical`](#physical) for
 more comments).
 
-EMMO defines a physics-based parthood hierachy under `Physical` by
+EMMO defines a physics-based parthood hierarchy under `Physical` by
 introducing the following concepts (illustrated in the figure below):
 
   * [`Elementary`](#elementary) is the fundamental, non-divisible
@@ -256,7 +256,7 @@ introducing the following concepts (illustrated in the figure below):
 
   * [`Existent`](#existent) is a succession of states.
 
-![Parthood hierachy under `Physical`.](figs/physical.png){ width=600px }
+![Parthood hierarchy under `Physical`.](figs/physical.png){ width=600px }
 
 
 ### Metrology
@@ -442,7 +442,7 @@ All children of Mary:
 ##### Property cardinality (`owl:cardinality`)
 The owl:cardinality restrictions ($\geq$, $\leq$ or $\equiv$) allow to
 define classes based on the maximum (owl:maxCardinality), minimum
-(owl:minCardinality) or exact (owl:cardinality) number of occurences.
+(owl:minCardinality) or exact (owl:cardinality) number of occurrences.
 
 A person with one parent:
 
@@ -490,10 +490,10 @@ The EMMO ontology is structured in shells, expressed by specific ontology fragme
 ### Top Level
 The [EMMO top level](top.owl) is the group of fundamental axioms that constitute the philosophical foundation of the EMMO.  Adopting a physicalistic/nominalistic perspective, the EMMO defines real world objects as 4D objects that are always extended in space and time (i.e. real world objects cannot be spaceless nor timeless).  For this reason abstract objects, i.e. objects that does not extend in space and time, are forbidden in the EMMO.
 
-EMMO is strongly based on the analytical philosophy dicipline semiotic.
+EMMO is strongly based on the analytical philosophy discipline semiotic.
 The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. real world objects (e.g. symbol or sign) that stand for other real world objects that are to be interpreted by an agent. These symbols appear in actions (semiotic processes) meant to communicate meaning by establishing relationships between symbols (signs).
 
-Another important building block of from analytical philosophy is atomistic mereology applied to 4D objects.  The EMMO calls it 'quantum mereology', since the there is a epistemological limit to how fine we can resolve space and time due to the uncertanity principles.
+Another important building block of from analytical philosophy is atomistic mereology applied to 4D objects.  The EMMO calls it 'quantum mereology', since there is a epistemological limit to how fine we can resolve space and time due to the uncertainty principles.
 
 The [mereotopology](top/mereotopology.owl) module introduces the fundamental mereotopological concepts and their relations with the real world objects that they represent.  The EMMO uses mereotopology as the ground for all the subsequent ontology modules.  The concept of topological connection is used to define the first distinction between ontology entities namely the *Item* and *Collection* classes.  Items are causally self-connected objects, while collections are causally disconnected.  Quantum mereology is represented by the *Quantum* class. This module introduces also the fundamental mereotopological relations used to distinguish between space and time dimensions.
 
@@ -554,12 +554,12 @@ Resource Identifier* (IRI) and *relations* are provided.  However,
 descriptive annotations, like *elucidation* and *comment*, are planned
 to be added for all classes and relations.  Possible annotations are:
 
-* __Elucidation__ is a human readable explanation and clearification
+* __Elucidation__ is a human readable explanation and clarification
   of the documented class or relation.
-* __Example__ clearifies the elucidation through an example.  A class may
+* __Example__ clarifies the elucidation through an example.  A class may
   have several examples, each addressing different aspects.
-* __Comment__ is a clearifying note complementing the definition and
-  elucidation.  A class may have several comments, each clearifying
+* __Comment__ is a clarifying note complementing the definition and
+  elucidation.  A class may have several comments, each clarifying
   different aspects.
 * __IRI__ stands for *international resource identifier*.  It is an
   identifier that uniquely identifies the class or relation.  IRIs are
@@ -632,7 +632,7 @@ to be added for all classes and relations.  Possible annotations are:
 %%has_spatial_direct_part some    hsdp-s
 %%has_spatial_direct_part exactly hsdp-e
 %%
-%%Table: Abbriviations of relations used in the graphical representation
+%%Table: Abbreviations of relations used in the graphical representation
 %%of the different subbranches.
 %%
 %%
@@ -641,7 +641,7 @@ to be added for all classes and relations.  Possible annotations are:
 %%since it gives little meaning to include the OWL annotations as attributes,
 %%we simply represent the classes as boxes by a name.
 %%
-%%As already mentioned, defined classes are colored orange, while
+%%As already mentioned, defined classes are coloured orange, while
 %%undefined classes are yellow.
 %%
 %%
