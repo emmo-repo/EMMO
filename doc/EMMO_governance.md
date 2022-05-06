@@ -109,7 +109,7 @@ Following quality control procedures (to be defined separately) a Domain Ontolog
 The GitHub organisation https://github.com/EMMO-repo/ is the "official" site for development and distribution of EMMO and related domain ontologies and tools. Each of these will have its own git repository within the [EMMO-repo](https://github.com/EMMO-repo/) organisation. The repositories are organised as follows.
 
 #### EMMO
-* Organised with EMMO top and middle level ontologies in two separate subfolders. All top level ontologies are also included in the top.owl file which can be addressed using URL http://emmo.info/emmo/top.
+* Organised with EMMO top and middle level ontologies in two separate subfolders. All top level ontologies are also included in the top.owl file which can be addressed using URL http://emmo.info/emmo/mereocausality.
 * The root folder includes an emmo.owl file containing all EMMO top and middle level ontologies. It can be addressed under the URL http://emmo.info/emmo.
 
 #### Domain Ontologies
@@ -131,8 +131,8 @@ All releases of EMMO will be versioned strictly according to the rules of semant
 
 Special cases for EMMO:
 
-* http://emmo.info/emmo/top → https://raw.githubusercontent.com/emmo-repo/EMMO/master/top/top.ttl
-* http://emmo.info/emmo/middle → https://raw.githubusercontent.com/emmo-repo/EMMO/master/middle/middle.ttl
+* http://emmo.info/emmo/mereocausality → https://raw.githubusercontent.com/emmo-repo/EMMO/maste./mereocausality/mereocausality.ttl
+* http://emmo.info/emmo/perspectives → https://raw.githubusercontent.com/emmo-repo/EMMO/maste./perspectives/perspectives.ttl
 * http://emmo.info/emmo-inferred → https://emmo-repo.github.io/latest-stable/emmo-inferred.ttl
 * http://emmo.info/emmo-inferred/development → https://emmo-repo.github.io/development/emmo-inferred.ttl
 * http://emmo.info/emmo-inferred/[VERSION] → https://emmo-repo.github.io/versions/[VERSION]/emmo-inferred.ttl
@@ -174,7 +174,7 @@ EMMO follows a set of conventions that all ontologies published in a repository 
 
 #### Namespace conventions and global IRIs
 * All OWL identifiers are globally unique IRIs.
-* Since EMMO version 1.0.0-beta3, the recommended naming of OWL identifiers is
+* Since EMMO version 1.0.0-beta4, the recommended naming of OWL identifiers is
 
       http://emmo.info/[DOMAIN]#[DOMAIN]_[UUID]
 

@@ -101,14 +101,14 @@ EMMO comes with a set of generic reference ontologies that combine perspectives 
 
 | Reference ontology | IRI                                                                                                                           |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| Materials          | [http://emmo.info/emmo/reference/materials](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/reference/materials.ttl)   |
-| Math               | [http://emmo.info/emmo/reference/math](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/reference/math.ttl)             |
-| Models             | [http://emmo.info/emmo/reference/models](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/reference/models.ttl)         |
-| Properties         | [http://emmo.info/emmo/reference/properties](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/reference/properties.ttl) |
-| Metrology          | [http://emmo.info/emmo/reference/metrology](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/reference/metrology.ttl)   |
-| Isq                | [http://emmo.info/emmo/reference/isq](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/reference/isq.ttl)               |
-| Siunits            | [http://emmo.info/emmo/domain/siunits](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/domain/siunits.ttl)       |
-| Chemistry          | [http://emmo.info/emmo/reference/chemistry](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta3/reference/chemistry.ttl)   |
+| Materials          | [http://emmo.info/emmo/multiperspective/materials](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta4/multiperspective/materials.ttl)   |
+| Math               | [http://emmo.info/emmo/multiperspective/math](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta4/multiperspective/math.ttl)             |
+| Models             | [http://emmo.info/emmo/multiperspective/models](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta4/multiperspective/models.ttl)         |
+| Properties         | [http://emmo.info/emmo/multiperspective/properties](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta4/multiperspective/properties.ttl) |
+| Metrology          | [http://emmo.info/emmo/multiperspective/metrology](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta4/multiperspective/metrology.ttl)   |
+| Isq                | [http://emmo.info/emmo/multiperspective/isq](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta4/multiperspective/isq.ttl)               |
+| Siunits            | [http://emmo.info/emmo/domain/siunits](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta4/domain/siunits.ttl)       |
+| Chemistry          | [http://emmo.info/emmo/multiperspective/chemistry](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta4/multiperspective/chemistry.ttl)   |
 
 
 ### Domain Ontologies
