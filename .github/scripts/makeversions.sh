@@ -69,26 +69,21 @@ while read version name; do
         else
             echo "missing source in EMMO $version" >&2; exit 1
         fi
-        python "$scriptsdir/ontoconvert.py" -s "$src" "$d/emmo.owl"
-        python "$scriptsdir/ontoconvert.py" -s "$src" "$d/emmo.ttl"
+        ontoconvert "$src" "$d/emmo.owl" -s -a -R
+        ontoconvert "$src" "$d/emmo.ttl" -s -a -R
     fi
 
     # Generate inferred ontology
     if $recreate || [ ! -f "$d/emmo-inferred.owl" ]; then
         echo "Generate inferred ontology"
-        "$scriptsdir/reason.sh" "$d/emmo.owl" "$d/emmo-inferred.owl"
-        "$scriptsdir/fixinferred.sh" "$d/emmo-inferred.owl" $version
+        ontoconvert "$d/emmo.owl" "$d/emmo-inferred.owl" \
+                    -i -b http://emmo.info/emmo-inferred
     fi
     if $recreate || [ ! -f "$d/emmo-inferred.ttl" ]; then
         if [ ! -d "$tmpdir" ]; then
             tmpdir="$(mktemp -d)"
         fi
-        python "$scriptsdir/ontoconvert.py" -s \
-               "$d/emmo-inferred.owl" "$tmpdir/emmo-inferred.ttl"
-        # Hmm, for some reason floats are written like "1.0E-09.0" - strip
-        # off the final ".0"
-        sed 's/\([0-9][eE][+-][0-9]*\)\.[0-9]*\(.*\)/\1\2/' \
-            "$tmpdir/emmo-inferred.ttl" > "$d/emmo-inferred.ttl"
+        ontoconvert "$d/emmo-inferred.owl" "$d/emmo-inferred.ttl"
     fi
 
     # Generate documentation
