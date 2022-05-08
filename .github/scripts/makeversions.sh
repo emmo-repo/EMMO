@@ -80,10 +80,18 @@ while read version name; do
                     -i -b http://emmo.info/emmo-inferred
     fi
     if $recreate || [ ! -f "$d/emmo-inferred.ttl" ]; then
-        if [ ! -d "$tmpdir" ]; then
-            tmpdir="$(mktemp -d)"
-        fi
         ontoconvert "$d/emmo-inferred.owl" "$d/emmo-inferred.ttl"
+    fi
+
+    # Generate renamed ontology
+    if $recreate || [ ! -f "$d/emmo-renamed.owl" ]; then
+        echo "Generate renamed ontology"
+        ontoconvert "$d/emmo-inferred.owl" "$d/emmo-renamed.owl" \
+                    -s -a -R -b http://emmo.info/emmo-renamed || true
+    fi
+    if $recreate || [ ! -f "$d/emmo-renamed.ttl" ]; then
+        ontoconvert "$d/emmo-inferred.owl" "$d/emmo-renamed.ttl" \
+                    -s -a -R -b http://emmo.info/emmo-renamed || true
     fi
 
     # Generate documentation
