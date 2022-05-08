@@ -69,8 +69,8 @@ while read version name; do
         else
             echo "missing source in EMMO $version" >&2; exit 1
         fi
-        ontoconvert "$src" "$d/emmo.owl" -s -a -R
-        ontoconvert "$src" "$d/emmo.ttl" -s -a -R
+        ontoconvert "$src" "$d/emmo.owl" -s -a
+        ontoconvert "$src" "$d/emmo.ttl" -s -a
     fi
 
     # Generate inferred ontology

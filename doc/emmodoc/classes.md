@@ -36,48 +36,90 @@ branch of mereotopology.
 %BRANCHDOC Perspective
 
 
+%BRANCHDOC Data
+%BRANCHDOC NonEncodedData
+%BRANCHDOC EncodedData
+%BRANCHDOC Information
+%BRANCHDOC DigitalData
+%BRANCHDOC Symbolic
+%BRANCHDOC MathematicalModel
+
+
 %BRANCHDOC Holistic
-%BRANCHDOC Semiotic
-%BRANCHDOC Sign
-%BRANCHDOC Interpreter
-%BRANCHDOC Object
-%BRANCHDOC Conventional
-%BRANCHDOC Property
-%BRANCHDOC Icon
-%BRANCHDOC Process
+%BRANCHDOC Whole
+%BRANCHDOC Role
+%BRANCHDOC Fundamental
+%BRANCHDOC Redundant
+%BRANCHDOC IntentionalProcess
+%BRANCHDOC HolisticSystem
 
 
 %BRANCHDOC Perceptual
 %BRANCHDOC Graphical
 %BRANCHDOC Geometrical
-%BRANCHDOC Symbol
+
+%BRANCHDOC Chemical
+%BRANCHDOC ChemicalComposition
+%BRANCHDOC ChemicalFormula
 %BRANCHDOC Mathematical
-%BRANCHDOC MathematicalSymbol
-%BRANCHDOC MathematicalModel
-%BRANCHDOC MathematicalOperator
+%BRANCHDOC Equation
+%BRANCHDOC ProgrammingLanguage
 %BRANCHDOC Metrological
+
+%BRANCHDOC Symbol
+%BRANCHDOC MathematicalSymbol
+%BRANCHDOC MetrologicalSymbol
+
+
 %BRANCHDOC PhysicalDimension     rankdir=RL
 %BRANCHDOC PhysicalQuantity
-%BRANCHDOC Number
+%BRANCHDOC StandardizedPhysicalQuantity
+%BRANCHDOC CategorizedPhysicalQuantity
 %BRANCHDOC MeasurementUnit
-%BRANCHDOC UTF8
-%BRANCHDOC SIBaseUnit
-%BRANCHDOC SISpecialUnit        rankdir=RL
 %BRANCHDOC PrefixedUnit
-%BRANCHDOC MetricPrefix         rankdir=RL
+%BRANCHDOC MetricPrefix          rankdir=RL
 %BRANCHDOC Quantity
 %BRANCHDOC BaseQuantity
-%BRANCHDOC DerivedQuantity      rankdir=RL
-%BRANCHDOC PhysicalConstant
+%BRANCHDOC DerivedQuantity       rankdir=RL
+%BRANCHDOC PhysicalConstant      rankdir=RL
 
 
-%BRANCHDOC Reductionistic
-%BRANCHDOC Expression
+%BRANCHDOC Persistence
+%BRANCHDOC Object
+%BRANCHDOC Process
+
 
 %BRANCHDOC Physicalistic
 %BRANCHDOC ElementaryParticle
-%BRANCHDOC Subatomic
 %BRANCHDOC Matter
 %BRANCHDOC Fluid
 %BRANCHDOC Mixture
 %BRANCHDOC StateOfMatter
+%BRANCHDOC Material
+%BRANCHDOC MolecularEntity
+%BRANCHDOC ChemicalSubstance
+
+%BRANCHDOC GasMixture
+%BRANCHDOC SolidMixture
+%BRANCHDOC Suspension
+%BRANCHDOC Solution
+%BRANCHDOC Colloid
+
+
+%BRANCHDOC Reductionistic
+
+
+%BRANCHDOC Semiotics
+%BRANCHDOC Semiosis
+
+%BRANCHDOC Interpreter
+%BRANCHDOC SemioticObject
+%BRANCHDOC Sign
+
+%BRANCHDOC Conventional
+%BRANCHDOC Subjective
+%BRANCHDOC Objective
+%BRANCHDOC Icon
+
+%BRANCHDOC Simulation
+%BRANCHDOC Declared           rankdir=RL
