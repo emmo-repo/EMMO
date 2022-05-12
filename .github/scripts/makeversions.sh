@@ -97,7 +97,8 @@ while read version name; do
     # Generate documentation
     if $recreate || [ ! -f "$d/emmo.html" ]; then
         echo "Generate documentation"
-        "$scriptsdir/makedoc.sh" "$d/emmo-inferred.owl" $version "$d"
+        "$scriptsdir/makedoc.sh" "$d/emmo-inferred.owl" $version "$d" \
+            || true
     fi
 
     # Create symlinks
