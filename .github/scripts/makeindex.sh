@@ -38,27 +38,33 @@ done
 
 # Parse versions.sh and save html table rows in tmpfile
 tdlink() {
-    echo "    <td><a href=\"$1\" target=\"_blank\">$2</a></td>"
+    href=$1
+    cell=$2
+    checkfile=$3
+    echo "*** checkfile=$checkfile" >&2
+    if [ -z "$checkfile" -o -f "$checkfile" ]; then
+        echo "    <td><a href=\"$href\" target=\"_blank\">$cell</a></td>"
+    else
+        echo "    <td><a href=\"$href\" target=\"_blank\"></a></td>"
+    fi
 }
 rm -rf "$tmpfile"
 while read version name; do
     [ -z "$name" ] && name=$version
     iri=$emmo_url/$version
     d=$pages_url/versions/$version
-    inferred=$pages_url/versions/$version/emmo-inferred.owl
-    inferred_iri=$iri/emmo-inferred
-    html=$pages_url/versions/$version/emmo.html
-    pdf=$pages_url/versions/$version/emmo.pdf
+    l=$pagesdir/versions/$version
     echo "  <tr>" >> "$tmpfile"
     echo "    <td>$name</td>" >> "$tmpfile"
-    tdlink $iri $iri >> "$tmpfile"
-    tdlink $d/emmo.owl $version >> "$tmpfile"
-    tdlink $d/emmo.ttl $version >> "$tmpfile"
-    #tdlink $inferred $inferred_iri >> "$tmpfile"
-    tdlink $inferred $version >> "$tmpfile"
-    tdlink $d/emmo-inferred.ttl $version >> "$tmpfile"
-    tdlink $html $version >> "$tmpfile"
-    tdlink $pdf $version >> "$tmpfile"
+    tdlink $iri                 $iri                          >> "$tmpfile"
+    tdlink $d/emmo.owl          $version $l/emmo.owl          >> "$tmpfile"
+    tdlink $d/emmo.ttl          $version $l/emmo.ttl          >> "$tmpfile"
+    tdlink $d/emmo-inferred.owl $version $l/emmo-inferred.owl >> "$tmpfile"
+    tdlink $d/emmo-inferred.ttl $version $l/emmo-inferred.ttl >> "$tmpfile"
+    tdlink $d/emmo-renamed.owl  $version $l/emmo-renamed.owl  >> "$tmpfile"
+    tdlink $d/emmo-renamed.ttl  $version $l/emmo-renamed.ttl  >> "$tmpfile"
+    tdlink $d/emmo.html         $version $l/emmo.html         >> "$tmpfile"
+    tdlink $d/emmo.pdf          $version $l/emmo.pdf          >> "$tmpfile"
     echo "  </tr>" >> "$tmpfile"
 done < "$versionsfile"
 

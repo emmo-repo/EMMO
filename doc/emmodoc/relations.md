@@ -81,16 +81,22 @@ the following *property axioms*:
 %ENTITY EMMORelation
 
 
-%%BRANCHDOC mereotopological
-%BRANCHHEAD mereotopological
-%BRANCH mereotopological
+%%BRANCHDOC causal
+%BRANCHHEAD causal
+%BRANCH causal
 
-
-%BRANCHDOC connected
-
-%BRANCHDOC hasPart
+%BRANCHDOC mereological
 
 %BRANCHDOC semiotical
+
+
+%BRANCHDOC hasPart
+%BRANCHDOC hasDirectPart
+%BRANCHDOC hasHolisticPart
+%BRANCHDOC hasNonStrictlyTemporal
+%BRANCHDOC hasTemporalPart
+
+
 
 
 
