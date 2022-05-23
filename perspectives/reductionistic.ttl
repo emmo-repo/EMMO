@@ -45,7 +45,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                                     owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
                                            rdfs:domain :EMMO_92829beb_6ed4_4c88_bbd5_3bc7403e2895 ;
-                                           rdfs:range <http://emmo.info/emmo/perspectives/reductionistic#504ad89e_dd4a_4fa6_aeb6_15c8ce0cde9b> ;
+                                           rdfs:range :EMMO_504ad89e_dd4a_4fa6_aeb6_15c8ce0cde9b ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that establishes for the whole a univocal tessellation in temporal parts." ;
                                            skos:prefLabel "hasTemporalDirectPart"@en .
 
@@ -80,7 +80,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                                     owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
                                            rdfs:domain :EMMO_36c79456_e29c_400d_8bd3_0eedddb82652 ;
-                                           rdfs:range <http://emmo.info/emmo/perspectives/reductionistic#4cf484af_082a_40f5_9f11_930bf4634482> ;
+                                           rdfs:range :EMMO_4cf484af_082a_40f5_9f11_930bf4634482 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that establishes for the whole a univocal tessellation in spatial parts." ;
                                            skos:prefLabel "hasSpatialDirectPart"@en .
 
@@ -162,6 +162,28 @@ This does not mean that there cannot be a change in the internal structure of th
                                            skos:prefLabel "Arrangement"@en .
 
 
+###  http://emmo.info/emmo#EMMO_4cf484af_082a_40f5_9f11_930bf4634482
+:EMMO_4cf484af_082a_40f5_9f11_930bf4634482 rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_36c79456_e29c_400d_8bd3_0eedddb82652
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A direct part that is obtained by partitioning a whole purely in spatial parts."@en ;
+                                           skos:prefLabel "SpatialElement"@en .
+
+
+###  http://emmo.info/emmo#EMMO_504ad89e_dd4a_4fa6_aeb6_15c8ce0cde9b
+:EMMO_504ad89e_dd4a_4fa6_aeb6_15c8ce0cde9b rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_92829beb_6ed4_4c88_bbd5_3bc7403e2895
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A direct part that is obtained by partitioning a whole purely in temporal parts."@en ;
+                                           skos:prefLabel "TemporalElement"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_52211e5e_d767_4812_845e_eb6b402c476a
 :EMMO_52211e5e_d767_4812_845e_eb6b402c476a rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_92829beb_6ed4_4c88_bbd5_3bc7403e2895 ,
@@ -198,8 +220,8 @@ Moreover, due to inverse functionality, a 'State' can be part of only one 'Exist
 ###  http://emmo.info/emmo#EMMO_6428ab25_4c78_4fb3_91a8_1b19654f19dc
 :EMMO_6428ab25_4c78_4fb3_91a8_1b19654f19dc rdf:type owl:Class ;
                                            owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( <http://emmo.info/emmo/perspectives/reductionistic#4cf484af_082a_40f5_9f11_930bf4634482>
-                                                                               <http://emmo.info/emmo/perspectives/reductionistic#504ad89e_dd4a_4fa6_aeb6_15c8ce0cde9b>
+                                                                 owl:unionOf ( :EMMO_4cf484af_082a_40f5_9f11_930bf4634482
+                                                                               :EMMO_504ad89e_dd4a_4fa6_aeb6_15c8ce0cde9b
                                                                              )
                                                                ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A direct part that is obtained by partitioning a whole purely in spatial or purely temporal parts."@en ;
@@ -228,6 +250,11 @@ Moreover, due to inverse functionality, a 'State' can be part of only one 'Exist
 
 ###  http://emmo.info/emmo#EMMO_d4c95fa1_5bda_4063_a22d_62c81fcea284
 :EMMO_d4c95fa1_5bda_4063_a22d_62c81fcea284 rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_663859e5_add3_4c9e_96fb_c99399de278d
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_2b1fb71c_0eb0_445c_9be7_fb5d30ae79fd
+                                                           ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A direct part that is obtained by partitioning a whole hybridly in spatial, temporal and spatiotemporal parts."@en ;
                                            skos:prefLabel "SpatioTemporalElement"@en .
 
@@ -241,18 +268,6 @@ Moreover, due to inverse functionality, a 'State' can be part of only one 'Exist
                                                                ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causal object that is tessellated in direct parts."@en ;
                                            skos:prefLabel "Tessellation"@en .
-
-
-###  http://emmo.info/emmo/perspectives/reductionistic#4cf484af_082a_40f5_9f11_930bf4634482
-<http://emmo.info/emmo/perspectives/reductionistic#4cf484af_082a_40f5_9f11_930bf4634482> rdf:type owl:Class ;
-                                                                                         :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A direct part that is obtained by partitioning a whole purely in spatial parts."@en ;
-                                                                                         skos:prefLabel "SpatialElement"@en .
-
-
-###  http://emmo.info/emmo/perspectives/reductionistic#504ad89e_dd4a_4fa6_aeb6_15c8ce0cde9b
-<http://emmo.info/emmo/perspectives/reductionistic#504ad89e_dd4a_4fa6_aeb6_15c8ce0cde9b> rdf:type owl:Class ;
-                                                                                         :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A direct part that is obtained by partitioning a whole purely in temporal parts."@en ;
-                                                                                         skos:prefLabel "TemporalElement"@en .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
