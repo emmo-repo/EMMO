@@ -29,14 +29,16 @@ if not int(rdflib.__version__.split('.')[0]) >= 5:
     warnings.warn('upgrade to rdflib v5.0.0 or higher to get preferred output')
 
 # Connect to db and load emmo
-#world = World(filename='periodic-table.sqlite3')
+#world = World(filename='periodictable.sqlite3')
 world = World()
 chemistry = world.get_ontology(os.path.join(thisdir, 'chemistry.ttl')).load()
+perceptual = world.get_ontology(os.path.join(thisdir, '../perspectives/perceptual.ttl')).load()
 #emmo_middle.sync_python_names()
 
 # Create new ontology
-onto = world.get_ontology('http://emmo.info/emmo/domain/periodic-table#')
-onto.base_iri = 'http://emmo.info/emmo/domain/periodic-table#'
+onto = world.get_ontology('http://emmo.info/emmo/disciplines/periodictable#')
+onto.base_iri = 'http://emmo.info/emmo/disciplines/periodictable#'
+onto.imported_ontologies.append(perceptual)
 onto.imported_ontologies.append(chemistry)
 onto.sync_python_names()
 
@@ -90,7 +92,7 @@ with onto:
 
 # Set ontology metadata
 version = chemistry.get_version()
-version_iri = f'http://emmo.info/emmo/{version}/domain/periodic-table'
+version_iri = f'http://emmo.info/emmo/{version}/disciplines/periodictable'
 onto.set_version(version_iri=version_iri)
 
 onto.metadata.abstract.append(en(
@@ -102,11 +104,9 @@ onto.metadata.abstract.append(en(
     'International license (CC BY 4.0).'))
 
 onto.metadata.title.append(en('Periodic table'))
-onto.metadata.creator.append(en('Jesper Friis'))
-onto.metadata.creator.append(en('Francesca Lønstad Bleken'))
-onto.metadata.contributor.append(en('SINTEF'))
-onto.metadata.creator.append(en('Emanuele Ghedini'))
-onto.metadata.contributor.append(en('University of Bologna'))
+onto.metadata.creator.append(en('Jesper Friis, SINTEF, NO'))
+onto.metadata.creator.append(en('Francesca Lønstad Bleken, SINTEF, NO'))
+onto.metadata.creator.append(en('Emanuele Ghedini, University of Bologna, IT'))
 onto.metadata.publisher.append(en('EMMC ASBL'))
 onto.metadata.license.append(en(
     'https://creativecommons.org/licenses/by/4.0/legalcode'))
@@ -143,4 +143,4 @@ for abbrev_iri in onto.world._get_obj_triples_sp_o(
         onto._abbreviate(version_iri))
 
 # Save new ontology as turtle
-onto.save(os.path.join(thisdir, 'periodic-table.ttl'), format='turtle', overwrite=True)
+onto.save(os.path.join(thisdir, 'periodictable.ttl'), format='turtle', overwrite=True)
