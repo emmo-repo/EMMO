@@ -263,6 +263,7 @@ skos:prefLabel rdf:type owl:AnnotationProperty ;
 :EMMO_5022e4cb_125f_429d_8556_c3e635c561f2 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 ;
                                            rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A temporal part that is an item."@en ;
                                            skos:prefLabel "hasTemporalItemPart"@en .
 
 
@@ -312,7 +313,10 @@ A proper part is then the disjoint union of: spatial part, temporal part and spa
                                            rdfs:subPropertyOf :EMMO_55354438_7000_4284_b1b9_59d60c2261b9 ;
                                            rdf:type owl:TransitiveProperty ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that identify a proper item part of the whole, whose parts always cover the full spatial extension of the whole within a time interval."@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "In EMMO FOL this is a defined property. In OWL temporal relations are primitive."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """A temporal part of an item cannot both cause and be caused by any other proper part of the item. 
+
+A temporal part is not constraint to be causally self-connected, i.e. it can be either an item or a collection. We therefore introduce two subproperties in order to distinguish between both cases."""@en ,
+                                                                                      "In EMMO FOL this is a defined property. In OWL temporal relations are primitive."@en ;
                                            skos:prefLabel "hasTemporalPart"@en .
 
 
@@ -378,6 +382,7 @@ Embracing a strong reductionistic view, causality originates at quantum entities
 :EMMO_c773cf3b_0810_4d07_bea7_af08cd88538e rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 ;
                                            rdfs:range :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A temporal part that is a collection."@en ;
                                            skos:prefLabel "hasTemporalCollectionPart"@en .
 
 
@@ -416,6 +421,8 @@ Embracing a strong reductionistic view, causality originates at quantum entities
                                            rdf:type owl:TransitiveProperty ;
                                            rdfs:domain :EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac ;
                                            rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A proper part of a whole, whose parts always cover the full temporal extension of the whole within a spatial interval."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "In EMMO FOL this is a defined property. In OWL temporal relations are primitive."@en ;
                                            skos:prefLabel "hasSpatialPart"@en .
 
 
