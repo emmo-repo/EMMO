@@ -102,15 +102,15 @@ In addition to the above perspectives, it contain two additional modules; *persh
 EMMO comes with a set of generic reference ontologies that combine perspectives with ontologisations of common concepts like materials, math, units, etc. intended to be shared by domain ontologies.  The reference ontologies are intended to be used by domain ontologies and imported separately using the IRIs listed in the below table with the current set of reference ontologies.
 
 
-| Reference ontology | IRI                                                                                                                           |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| Reference ontology | IRI                                                                                                                                               |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Materials          | [http://emmo.info/emmo/multiperspective/materials](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta4/multiperspective/materials.ttl)   |
 | Math               | [http://emmo.info/emmo/multiperspective/math](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta4/multiperspective/math.ttl)             |
 | Models             | [http://emmo.info/emmo/multiperspective/models](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta4/multiperspective/models.ttl)         |
 | Properties         | [http://emmo.info/emmo/multiperspective/properties](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta4/multiperspective/properties.ttl) |
 | Metrology          | [http://emmo.info/emmo/multiperspective/metrology](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta4/multiperspective/metrology.ttl)   |
 | Isq                | [http://emmo.info/emmo/multiperspective/isq](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta4/multiperspective/isq.ttl)               |
-| Siunits            | [http://emmo.info/emmo/domain/siunits](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta4/domain/siunits.ttl)       |
+| Siunits            | [http://emmo.info/emmo/domain/siunits](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta4/domain/siunits.ttl)                           |
 | Chemistry          | [http://emmo.info/emmo/multiperspective/chemistry](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta4/multiperspective/chemistry.ttl)   |
 
 
@@ -120,18 +120,19 @@ Typically they import one of the versions of EMMO listed on [https://emmo-repo.g
 The following table lists the public EMMO-based domain ontologies that we are aware of.
 Please create an issue if you have a public domain ontology that you think should be listed here.
 
-| Domain ontology                            | IRI                                                                                                                  |
-| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
-| Battery Interface Ontology (BattINFO)      | [http://BIG-MAP/BattINFO](https://github.com/BIG-MAP/BattINFO)                                           |
-| General Process Ontology (GPO)             | [http://General-Process-Ontology/ontology](https://github.com/General-Process-Ontology/ontology)         |
-| Ontology for the Battery Value Chain (BVC) | [http://Battery-Value-Chain-Ontology/ontology](https://github.com/Battery-Value-Chain-Ontology/ontology) |
-| Crystallography                            | [http://emmo.info/domain-crystallography](https://github.com/emmo-repo/domain-crystallography)           |
-| Mechanical Testing                         | [http://emmo.info/domain-mechanical-testing](https://github.com/emmo-repo/domain-mechanical-testing)     |
-| Microstructure domain ontology             | [http://emmo.info/domain-microstructure](https://github.com/emmo-repo/domain-microstructure)             |
-| Datamodel ontology                         | [http://emmo.info/datamodel-ontology](https://github.com/emmo-repo/datamodel-ontology)                   |
-| Mappings ontology                          | [http://emmo.info/domain-mappings](https://github.com/emmo-repo/domain-mappings)                         |
-| Atomistic and Electronic Modelling         | [http://emmo.info/domain-atomistic](https://github.com/emmo-repo/domain-atomistic)                       |
-| EMMO example domain ontologies             | [http://emmo.info/EMMO/tree/master/domain](https://github.com/emmo-repo/EMMO/tree/master/domain)         |
+| Domain ontology                                       | IRI                                                                                                                                  |
+| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Characterisation Methodology Domain Ontology (CHAMEO) | [https://github.com/emmo-repo/domain-characterisation-methodology](https://github.com/emmo-repo/domain-characterisation-methodology) |
+| Battery Interface Ontology (BattINFO)                 | [http://BIG-MAP/BattINFO](https://github.com/BIG-MAP/BattINFO)                                                                       |
+| General Process Ontology (GPO)                        | [http://General-Process-Ontology/ontology](https://github.com/General-Process-Ontology/ontology)                                     |
+| Ontology for the Battery Value Chain (BVC)            | [http://Battery-Value-Chain-Ontology/ontology](https://github.com/Battery-Value-Chain-Ontology/ontology)                             |
+| Crystallography                                       | [http://emmo.info/domain-crystallography](https://github.com/emmo-repo/domain-crystallography)                                       |
+| Mechanical Testing                                    | [http://emmo.info/domain-mechanical-testing](https://github.com/emmo-repo/domain-mechanical-testing)                                 |
+| Microstructure domain ontology                        | [http://emmo.info/domain-microstructure](https://github.com/emmo-repo/domain-microstructure)                                         |
+| Datamodel ontology                                    | [http://emmo.info/datamodel-ontology](https://github.com/emmo-repo/datamodel-ontology)                                               |
+| Mappings ontology                                     | [http://emmo.info/domain-mappings](https://github.com/emmo-repo/domain-mappings)                                                     |
+| Atomistic and Electronic Modelling                    | [http://emmo.info/domain-atomistic](https://github.com/emmo-repo/domain-atomistic)                                                   |
+| EMMO example domain ontologies                        | [http://emmo.info/EMMO/tree/master/domain](https://github.com/emmo-repo/EMMO/tree/master/domain)                                     |
 
 
 
