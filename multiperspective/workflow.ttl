@@ -19,8 +19,7 @@
 
 ###  http://emmo.info/emmo#EMMO_3925bf77_1a01_4a5e_8c19_4f25835f2f83
 :EMMO_3925bf77_1a01_4a5e_8c19_4f25835f2f83 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_70da982d_1810_4b01_9630_a28e216ecd9a ,
-                                                              :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                           rdfs:subPropertyOf :EMMO_70da982d_1810_4b01_9630_a28e216ecd9a ;
                                            rdfs:domain :EMMO_5848e476_2768_4988_98f9_9053c532307b ;
                                            rdfs:range :EMMO_bdae8e4f_e19d_427f_a958_e3b91964ab34 ;
                                            skos:prefLabel "hasParallelTask"@en .
@@ -28,7 +27,7 @@
 
 ###  http://emmo.info/emmo#EMMO_4ab7fb52_cec3_4c00_90c0_5648f01e3296
 :EMMO_4ab7fb52_cec3_4c00_90c0_5648f01e3296 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_85780a60_38ab_4fa2_b3d6_4769a2464bc0 ;
+                                           rdfs:subPropertyOf :EMMO_70da982d_1810_4b01_9630_a28e216ecd9a ;
                                            skos:prefLabel "hasBeginTask"@en .
 
 
@@ -51,7 +50,7 @@
 
 ###  http://emmo.info/emmo#EMMO_92227f7f_22e9_4b19_a011_920eac3c7b75
 :EMMO_92227f7f_22e9_4b19_a011_920eac3c7b75 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_85780a60_38ab_4fa2_b3d6_4769a2464bc0 ;
+                                           rdfs:subPropertyOf :EMMO_70da982d_1810_4b01_9630_a28e216ecd9a ;
                                            skos:prefLabel "hasEndTask"@en .
 
 
@@ -70,8 +69,8 @@
                                            rdfs:subPropertyOf :EMMO_54d0d0f4_d9fa_4179_a9b5_4110c49dafff ;
                                            rdf:type owl:SymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
-                                           rdfs:domain :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc ;
-                                           rdfs:range :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc ;
+                                           rdfs:domain :EMMO_bdae8e4f_e19d_427f_a958_e3b91964ab34 ;
+                                           rdfs:range :EMMO_bdae8e4f_e19d_427f_a958_e3b91964ab34 ;
                                            skos:prefLabel "hasCollaborationWith"@en .
 
 
@@ -89,9 +88,15 @@
 
 ###  http://emmo.info/emmo#EMMO_2666a7e3_2ad4_49a0_899e_329607231f4b
 :EMMO_2666a7e3_2ad4_49a0_899e_329607231f4b rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_504ad89e_dd4a_4fa6_aeb6_15c8ce0cde9b ,
-                                                           :EMMO_9f6ec830_c59f_46aa_8a22_945ba20b6ea3 ;
+                                           rdfs:subClassOf :EMMO_504ad89e_dd4a_4fa6_aeb6_15c8ce0cde9b ;
                                            skos:prefLabel "SerialStep"@en .
+
+
+###  http://emmo.info/emmo#EMMO_322ce14e_9ede_4841_ad70_302b4d6c5f28
+:EMMO_322ce14e_9ede_4841_ad70_302b4d6c5f28 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_9f6ec830_c59f_46aa_8a22_945ba20b6ea3 ,
+                                                           :EMMO_caa63d00_80b1_4408_ac1b_cd0d23b0ec50 ;
+                                           skos:prefLabel "InternalStep"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_4299e344_a321_4ef2_a744_bacfcce80afc
@@ -151,8 +156,7 @@ The execution of an algorithm."""@en ;
 
 ###  http://emmo.info/emmo#EMMO_5848e476_2768_4988_98f9_9053c532307b
 :EMMO_5848e476_2768_4988_98f9_9053c532307b rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_36c79456_e29c_400d_8bd3_0eedddb82652 ,
-                                                           :EMMO_64963ed6_39c9_4258_85e0_6466c4b5420c ;
+                                           rdfs:subClassOf :EMMO_64963ed6_39c9_4258_85e0_6466c4b5420c ;
                                            skos:prefLabel "ParallelWorkflow"@en .
 
 
@@ -163,6 +167,9 @@ The execution of an algorithm."""@en ;
                                                              owl:onProperty :EMMO_8e52c42b_e879_4473_9fa1_4b23428b392b ;
                                                              owl:someValuesFrom :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc
                                                            ] ;
+                                           owl:disjointUnionOf ( :EMMO_57ba1bf0_4314_432c_a9bb_6a6720c8dab5
+                                                                 :EMMO_5848e476_2768_4988_98f9_9053c532307b
+                                                               ) ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An elaboration that has at least two elaborations as proper parts."@en ;
                                            skos:prefLabel "Workflow"@en .
 
@@ -174,24 +181,40 @@ The execution of an algorithm."""@en ;
  ] .
 
 
-###  http://emmo.info/emmo#EMMO_693520a0_1779_4ed6_8648_afbb1d763b0c
-:EMMO_693520a0_1779_4ed6_8648_afbb1d763b0c rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_2b1fb71c_0eb0_445c_9be7_fb5d30ae79fd ,
-                                                           :EMMO_64963ed6_39c9_4258_85e0_6466c4b5420c ;
-                                           skos:prefLabel "HeterogeneousWorkflow"@en .
+###  http://emmo.info/emmo#EMMO_8a2a1cbc_dfc3_4e6c_b337_00ee56fd438a
+:EMMO_8a2a1cbc_dfc3_4e6c_b337_00ee56fd438a rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_9f6ec830_c59f_46aa_8a22_945ba20b6ea3 ,
+                                                           :EMMO_edf72228_e040_4edc_8b46_78b2a47c72d7 ;
+                                           skos:prefLabel "EndStep"@en .
+
+
+###  http://emmo.info/emmo#EMMO_9ac10a20_63d0_4bbd_a5d3_f00a0ad4682c
+:EMMO_9ac10a20_63d0_4bbd_a5d3_f00a0ad4682c rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_9f6ec830_c59f_46aa_8a22_945ba20b6ea3 ;
+                                           skos:prefLabel "IterativeStep"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_9f6ec830_c59f_46aa_8a22_945ba20b6ea3
 :EMMO_9f6ec830_c59f_46aa_8a22_945ba20b6ea3 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_2666a7e3_2ad4_49a0_899e_329607231f4b
+                                                                               :EMMO_bdae8e4f_e19d_427f_a958_e3b91964ab34
+                                                                             )
+                                                               ] ;
                                            rdfs:subClassOf :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc ,
                                                            :EMMO_9953c19f_ee33_4af8_be5e_dbf6d1e33581 ;
-                                           skos:prefLabel "WorkflowElement"@en .
+                                           skos:prefLabel "WorkflowStep"@en .
+
+
+###  http://emmo.info/emmo#EMMO_b941e455_2cb1_4c11_93e3_17caa06086b4
+:EMMO_b941e455_2cb1_4c11_93e3_17caa06086b4 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_9f6ec830_c59f_46aa_8a22_945ba20b6ea3 ,
+                                                           :EMMO_fa595892_070d_455e_9459_06c97179c080 ;
+                                           skos:prefLabel "BeginStep"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_bdae8e4f_e19d_427f_a958_e3b91964ab34
 :EMMO_bdae8e4f_e19d_427f_a958_e3b91964ab34 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4cf484af_082a_40f5_9f11_930bf4634482 ,
-                                                           :EMMO_9f6ec830_c59f_46aa_8a22_945ba20b6ea3 ;
                                            skos:prefLabel "ParallelStep"@en .
 
 
