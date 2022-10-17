@@ -6,109 +6,187 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@base <http://emmo.info/emmo/multiperspective/workflow> .
 
-<http://emmo.info/emmo/multiperspective/workflow> a owl:Ontology ;
-	owl:versionIRI <http://emmo.info/emmo/1.0.0-beta4/multiperspective/workflow> ;
-	owl:imports <http://emmo.info/emmo/1.0.0-beta4/multiperspective/persholistic> ,
-	            <http://emmo.info/emmo/1.0.0-beta4/perspectives/reductionistic> .
-# 
-# 
-# #################################################################
-# #
-# #    Object Properties
-# #
-# #################################################################
-# 
-# 
-# http://emmo.info/emmo#EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840
+<http://emmo.info/emmo/multiperspective/workflow> rdf:type owl:Ontology ;
+                                                   owl:versionIRI <http://emmo.info/emmo/1.0.0-beta4/multiperspective/workflow> ;
+                                                   owl:imports <http://emmo.info/emmo/1.0.0-beta4/multiperspective/persholistic> ,
+                                                               <http://emmo.info/emmo/1.0.0-beta4/perspectives/reductionistic> .
 
-:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_53e5b1e1_6026_4ddc_8a4a_3aaaa5fdbdb7 ;
-	rdfs:domain :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The outcome of an intentional process."@en ;
-	rdfs:comment "The partial overlapping is required since the creating process is distinct with the process in which the product is used or consumed."@en ;
-	skos:altLabel "hasProduct"@en ;
-	skos:prefLabel "hasOutput"@en .
-# 
-# http://emmo.info/emmo/perspectives/manufacturing#EMMO_36e69413_8c59_4799_946c_10b05d266e22
+#################################################################
+#    Object Properties
+#################################################################
 
-<http://emmo.info/emmo/perspectives/manufacturing#EMMO_36e69413_8c59_4799_946c_10b05d266e22> a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_53e5b1e1_6026_4ddc_8a4a_3aaaa5fdbdb7 ;
-	rdfs:domain :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The input of an intentional process."@en ;
-	skos:prefLabel "hasInput"@en .
-# 
-# 
-# 
-# #################################################################
-# #
-# #    Classes
-# #
-# #################################################################
-# 
-# 
-# http://emmo.info/emmo#EMMO_4299e344_a321_4ef2_a744_bacfcce80afc
+###  http://emmo.info/emmo#EMMO_3925bf77_1a01_4a5e_8c19_4f25835f2f83
+:EMMO_3925bf77_1a01_4a5e_8c19_4f25835f2f83 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_70da982d_1810_4b01_9630_a28e216ecd9a ;
+                                           rdfs:domain :EMMO_5848e476_2768_4988_98f9_9053c532307b ;
+                                           rdfs:range :EMMO_bdae8e4f_e19d_427f_a958_e3b91964ab34 ;
+                                           skos:prefLabel "hasParallelTask"@en .
 
-:EMMO_4299e344_a321_4ef2_a744_bacfcce80afc a owl:Class ;
-	rdfs:subClassOf _:genid1 .
 
-_:genid1 a owl:Restriction ;
-	owl:onProperty _:genid2 .
+###  http://emmo.info/emmo#EMMO_4ab7fb52_cec3_4c00_90c0_5648f01e3296
+:EMMO_4ab7fb52_cec3_4c00_90c0_5648f01e3296 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_70da982d_1810_4b01_9630_a28e216ecd9a ;
+                                           skos:prefLabel "hasBeginTask"@en .
 
-_:genid2 owl:inverseOf :EMMO_8e52c42b_e879_4473_9fa1_4b23428b392b .
 
-_:genid1 owl:someValuesFrom :EMMO_64963ed6_39c9_4258_85e0_6466c4b5420c .
+###  http://emmo.info/emmo#EMMO_70da982d_1810_4b01_9630_a28e216ecd9a
+:EMMO_70da982d_1810_4b01_9630_a28e216ecd9a rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_8e52c42b_e879_4473_9fa1_4b23428b392b ;
+                                           rdfs:domain :EMMO_64963ed6_39c9_4258_85e0_6466c4b5420c ;
+                                           rdfs:range :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc ;
+                                           skos:prefLabel "hasTask"@en .
 
-:EMMO_4299e344_a321_4ef2_a744_bacfcce80afc :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An elaboration that is an hoilistic part of a workflow."@en ;
-	skos:altLabel "Job"@en ;
-	skos:prefLabel "Task"@en .
-# 
-# http://emmo.info/emmo#EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49
 
-:EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49 a owl:Class ;
-	owl:equivalentClass _:genid3 .
+###  http://emmo.info/emmo#EMMO_85780a60_38ab_4fa2_b3d6_4769a2464bc0
+:EMMO_85780a60_38ab_4fa2_b3d6_4769a2464bc0 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d ,
+                                                              :EMMO_70da982d_1810_4b01_9630_a28e216ecd9a ;
+                                           rdfs:domain :EMMO_57ba1bf0_4314_432c_a9bb_6a6720c8dab5 ;
+                                           rdfs:range :EMMO_2666a7e3_2ad4_49a0_899e_329607231f4b ;
+                                           skos:prefLabel "hasSerialTask"@en .
 
-_:genid3 a owl:Class ;
-	owl:unionOf _:genid5 .
 
-_:genid5 a rdf:List ;
-	rdf:first :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc ;
-	rdf:rest _:genid4 .
+###  http://emmo.info/emmo#EMMO_92227f7f_22e9_4b19_a011_920eac3c7b75
+:EMMO_92227f7f_22e9_4b19_a011_920eac3c7b75 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_70da982d_1810_4b01_9630_a28e216ecd9a ;
+                                           skos:prefLabel "hasEndTask"@en .
 
-_:genid4 a rdf:List ;
-	rdf:first :EMMO_64963ed6_39c9_4258_85e0_6466c4b5420c ;
-	rdf:rest rdf:nil .
 
-:EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49 rdfs:subClassOf :EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The process in which an agent works with some entities according to some operative rules."@en ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """The process in which a control unit of a CPU (the agent) orchestrates some cached binary data according to a list of instructions (e.g. a program).
-The process in which a librarian order books alphabetically on a shelf.
-The execution of an algorithm."""@en ;
-	skos:altLabel "Elaboration"@en , "Job"@en , "Task"@en , "Work"@en ;
-	skos:prefLabel "Procedure"@en .
+###  http://emmo.info/emmo#EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840
+:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_53e5b1e1_6026_4ddc_8a4a_3aaaa5fdbdb7 ;
+                                           rdfs:domain :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The outcome of an intentional process."@en ;
+                                           rdfs:comment "The partial overlapping is required since the creating process is distinct with the process in which the product is used or consumed."@en ;
+                                           skos:altLabel "hasProduct"@en ;
+                                           skos:prefLabel "hasOutput"@en .
 
-_:genid6 a owl:Axiom ;
-	owl:annotatedSource :EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49 ;
-	owl:annotatedProperty skos:altLabel ;
-	owl:annotatedTarget "Elaboration"@en ;
-	:EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From latin Labor, meaning \"work, fatigue, effort\""@en .
-# 
-# http://emmo.info/emmo#EMMO_64963ed6_39c9_4258_85e0_6466c4b5420c
 
-:EMMO_64963ed6_39c9_4258_85e0_6466c4b5420c a owl:Class ;
-	rdfs:subClassOf _:genid7 .
+###  http://emmo.info/emmo#EMMO_dbe39465_6cf4_4592_b0c5_b7446789a37b
+:EMMO_dbe39465_6cf4_4592_b0c5_b7446789a37b rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_54d0d0f4_d9fa_4179_a9b5_4110c49dafff ;
+                                           rdf:type owl:SymmetricProperty ,
+                                                    owl:IrreflexiveProperty ;
+                                           rdfs:domain :EMMO_bdae8e4f_e19d_427f_a958_e3b91964ab34 ;
+                                           rdfs:range :EMMO_bdae8e4f_e19d_427f_a958_e3b91964ab34 ;
+                                           skos:prefLabel "hasCollaborationWith"@en .
 
-_:genid7 a owl:Restriction ;
-	owl:onProperty :EMMO_8e52c42b_e879_4473_9fa1_4b23428b392b ;
-	owl:someValuesFrom :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc .
 
-:EMMO_64963ed6_39c9_4258_85e0_6466c4b5420c :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An elaboration that has at least two elaborations as proper parts."@en ;
-	skos:prefLabel "Workflow"@en .
+###  http://emmo.info/emmo/perspectives/manufacturing#EMMO_36e69413_8c59_4799_946c_10b05d266e22
+<http://emmo.info/emmo/perspectives/manufacturing#EMMO_36e69413_8c59_4799_946c_10b05d266e22> rdf:type owl:ObjectProperty ;
+                                                                                             rdfs:subPropertyOf :EMMO_53e5b1e1_6026_4ddc_8a4a_3aaaa5fdbdb7 ;
+                                                                                             rdfs:domain :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
+                                                                                             :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The input of an intentional process."@en ;
+                                                                                             skos:prefLabel "hasInput"@en .
 
-_:genid8 a owl:Axiom ;
-	owl:annotatedSource :EMMO_64963ed6_39c9_4258_85e0_6466c4b5420c ;
-	owl:annotatedProperty skos:prefLabel ;
-	owl:annotatedTarget "Workflow"@en ;
-	:EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From latin Labor, meaning \"work, fatigue, effort\""@en .
-# 
-# Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://emmo.info/emmo#EMMO_2666a7e3_2ad4_49a0_899e_329607231f4b
+:EMMO_2666a7e3_2ad4_49a0_899e_329607231f4b rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_504ad89e_dd4a_4fa6_aeb6_15c8ce0cde9b ;
+                                           skos:prefLabel "SerialStep"@en .
+
+
+###  http://emmo.info/emmo#EMMO_322ce14e_9ede_4841_ad70_302b4d6c5f28
+:EMMO_322ce14e_9ede_4841_ad70_302b4d6c5f28 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_9f6ec830_c59f_46aa_8a22_945ba20b6ea3 ,
+                                                           :EMMO_caa63d00_80b1_4408_ac1b_cd0d23b0ec50 ;
+                                           skos:prefLabel "InternalStep"@en .
+
+
+###  http://emmo.info/emmo#EMMO_4299e344_a321_4ef2_a744_bacfcce80afc
+:EMMO_4299e344_a321_4ef2_a744_bacfcce80afc rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_8e52c42b_e879_4473_9fa1_4b23428b392b
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_64963ed6_39c9_4258_85e0_6466c4b5420c
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An elaboration that is an hoilistic part of a workflow."@en ;
+                                           skos:altLabel "Job"@en ;
+                                           skos:prefLabel "Task"@en .
+
+
+###  http://emmo.info/emmo#EMMO_57ba1bf0_4314_432c_a9bb_6a6720c8dab5
+:EMMO_57ba1bf0_4314_432c_a9bb_6a6720c8dab5 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_64963ed6_39c9_4258_85e0_6466c4b5420c ,
+                                                           :EMMO_92829beb_6ed4_4c88_bbd5_3bc7403e2895 ;
+                                           skos:prefLabel "SerialWorkflow"@en .
+
+
+###  http://emmo.info/emmo#EMMO_5848e476_2768_4988_98f9_9053c532307b
+:EMMO_5848e476_2768_4988_98f9_9053c532307b rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_64963ed6_39c9_4258_85e0_6466c4b5420c ;
+                                           skos:prefLabel "ParallelWorkflow"@en .
+
+
+###  http://emmo.info/emmo#EMMO_64963ed6_39c9_4258_85e0_6466c4b5420c
+:EMMO_64963ed6_39c9_4258_85e0_6466c4b5420c rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_8e52c42b_e879_4473_9fa1_4b23428b392b ;
+                                                             owl:someValuesFrom :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc
+                                                           ] ;
+                                           owl:disjointUnionOf ( :EMMO_57ba1bf0_4314_432c_a9bb_6a6720c8dab5
+                                                                 :EMMO_5848e476_2768_4988_98f9_9053c532307b
+                                                               ) ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An elaboration that has at least two elaborations as proper parts."@en ;
+                                           skos:prefLabel "Workflow"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_64963ed6_39c9_4258_85e0_6466c4b5420c ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "Workflow"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From latin Labor, meaning \"work, fatigue, effort\""@en
+ ] .
+
+
+###  http://emmo.info/emmo#EMMO_8a2a1cbc_dfc3_4e6c_b337_00ee56fd438a
+:EMMO_8a2a1cbc_dfc3_4e6c_b337_00ee56fd438a rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_9f6ec830_c59f_46aa_8a22_945ba20b6ea3 ,
+                                                           :EMMO_edf72228_e040_4edc_8b46_78b2a47c72d7 ;
+                                           skos:prefLabel "EndStep"@en .
+
+
+###  http://emmo.info/emmo#EMMO_9ac10a20_63d0_4bbd_a5d3_f00a0ad4682c
+:EMMO_9ac10a20_63d0_4bbd_a5d3_f00a0ad4682c rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_9f6ec830_c59f_46aa_8a22_945ba20b6ea3 ;
+                                           skos:prefLabel "IterativeStep"@en .
+
+
+###  http://emmo.info/emmo#EMMO_9f6ec830_c59f_46aa_8a22_945ba20b6ea3
+:EMMO_9f6ec830_c59f_46aa_8a22_945ba20b6ea3 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_2666a7e3_2ad4_49a0_899e_329607231f4b
+                                                                               :EMMO_bdae8e4f_e19d_427f_a958_e3b91964ab34
+                                                                             )
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc ,
+                                                           :EMMO_9953c19f_ee33_4af8_be5e_dbf6d1e33581 ;
+                                           skos:prefLabel "WorkflowStep"@en .
+
+
+###  http://emmo.info/emmo#EMMO_b941e455_2cb1_4c11_93e3_17caa06086b4
+:EMMO_b941e455_2cb1_4c11_93e3_17caa06086b4 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_9f6ec830_c59f_46aa_8a22_945ba20b6ea3 ,
+                                                           :EMMO_fa595892_070d_455e_9459_06c97179c080 ;
+                                           skos:prefLabel "BeginStep"@en .
+
+
+###  http://emmo.info/emmo#EMMO_bdae8e4f_e19d_427f_a958_e3b91964ab34
+:EMMO_bdae8e4f_e19d_427f_a958_e3b91964ab34 rdf:type owl:Class ;
+                                           skos:prefLabel "ParallelStep"@en .
+
+
+###  http://emmo.info/emmo#EMMO_ddecfff6_d3a1_4972_b9e9_3d0ca11a3a0b
+:EMMO_ddecfff6_d3a1_4972_b9e9_3d0ca11a3a0b rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_57ba1bf0_4314_432c_a9bb_6a6720c8dab5 ;
+                                           skos:prefLabel "IterativeWorkflow"@en .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
