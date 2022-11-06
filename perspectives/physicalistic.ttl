@@ -79,6 +79,14 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            skos:prefLabel "ElectronNeutrino"@en .
 
 
+###  http://emmo.info/emmo#EMMO_1dcc2b31_7ff4_49ed_a1bc_6e4c055c951c
+:EMMO_1dcc2b31_7ff4_49ed_a1bc_6e4c055c951c rdf:type owl:Class ;
+                                           owl:disjointUnionOf ( :EMMO_21a13e48_e4e2_450b_ad03_d9a112daee87
+                                                                 :EMMO_f8e436fb_61ed_4512_a5a5_bee90f0cec2f
+                                                               ) ;
+                                           skos:prefLabel "WeakBoson"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_1ea2f3fc_da94_4685_99b4_352922fbc461
 :EMMO_1ea2f3fc_da94_4685_99b4_352922fbc461 rdf:type owl:Class ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Charm_quark" ;
@@ -112,6 +120,8 @@ Note that the name of a compound may refer to the respective molecular entity or
                                                                ) ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A charged vector boson that mediate the weak interaction."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/W_and_Z_bosons" ;
+                                           skos:altLabel "ChargedWeakBoson"@en ,
+                                                         "IntermediateVectorBoson"@en ;
                                            skos:prefLabel "WBoson"@en .
 
 
@@ -438,6 +448,19 @@ This assumption negates the existence of a spacetime fabric independent by parti
                                            skos:prefLabel "Hadron"@en .
 
 
+###  http://emmo.info/emmo#EMMO_7b79b2ac_3cf2_4d3b_8cdc_bcabb59d869e
+:EMMO_7b79b2ac_3cf2_4d3b_8cdc_bcabb59d869e rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 ;
+                                           skos:prefLabel "Elementary"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_7b79b2ac_3cf2_4d3b_8cdc_bcabb59d869e ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "Elementary"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin elementārius (“elementary”), from elementum (“one of the four elements of antiquity; fundamentals”)."@en
+ ] .
+
+
 ###  http://emmo.info/emmo#EMMO_7db59e56_f68b_48b7_ae99_891c35ae5c3b
 :EMMO_7db59e56_f68b_48b7_ae99_891c35ae5c3b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_530ebacb_8bb7_4c69_88fb_253e5a9dd112 ;
@@ -464,7 +487,7 @@ This assumption negates the existence of a spacetime fabric independent by parti
 
 ###  http://emmo.info/emmo#EMMO_820619ca_b23e_4c7a_8543_18a17722abc0
 :EMMO_820619ca_b23e_4c7a_8543_18a17722abc0 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 ;
+                                           rdfs:subClassOf :EMMO_7b79b2ac_3cf2_4d3b_8cdc_bcabb59d869e ;
                                            skos:prefLabel "ElementaryFermion"@en .
 
 
@@ -557,13 +580,12 @@ Here the class 'Field' refers to the quantum field of bosonic particles while th
 ###  http://emmo.info/emmo#EMMO_a15cea10_9946_4d2b_95c5_cfc333fd2abb
 :EMMO_a15cea10_9946_4d2b_95c5_cfc333fd2abb rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_98ada9d8_f1c8_4f13_99b5_d890f5354152 ;
-                                           owl:disjointUnionOf ( :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360
+                                           owl:disjointUnionOf ( :EMMO_7b79b2ac_3cf2_4d3b_8cdc_bcabb59d869e
                                                                  :EMMO_8b1367d6_0133_4b56_acc1_fa8b058169e3
                                                                ) ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The union of hadron and lepton, or fermion and bosons."@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A well defined physical entity, elementary or composite, usually treated as a singular unit, that is found at scales spanning from the elementary particles to molecules, as fundamental constituents of larger scale substances (as the etymology of \"particle\" suggests)."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The scope of the particle definition goes from the elementary particles to molecules, as fundamental constituents of substances." ;
-                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Vector_boson"@en ;
                                            skos:altLabel "Particle"@en ;
                                            skos:prefLabel "PhysicalParticle"@en .
 
@@ -620,6 +642,13 @@ Here the class 'Field' refers to the quantum field of bosonic particles while th
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Boson" ;
                                            skos:prefLabel "Boson"@en .
 
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_b5a5494c_83bf_44aa_a9a6_49b948e68939 ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "Boson"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "1940s: named after S.N. Bose."@en
+ ] .
+
 
 ###  http://emmo.info/emmo#EMMO_be0a7278_b4e6_4bca_88ba_de3f67a478e2
 :EMMO_be0a7278_b4e6_4bca_88ba_de3f67a478e2 rdf:type owl:Class ;
@@ -661,7 +690,7 @@ Here the class 'Field' refers to the quantum field of bosonic particles while th
 
 ###  http://emmo.info/emmo#EMMO_cafd0f10_ce85_48b9_9a36_2b0af141ce21
 :EMMO_cafd0f10_ce85_48b9_9a36_2b0af141ce21 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 ;
+                                           rdfs:subClassOf :EMMO_7b79b2ac_3cf2_4d3b_8cdc_bcabb59d869e ;
                                            skos:prefLabel "ElementaryBoson"@en .
 
 
@@ -869,7 +898,7 @@ We cannot say that H2 molecule has direct part two H atoms, but has direct part 
                                                              owl:someValuesFrom :EMMO_50781fd9_a9e4_46ad_b7be_4500371d188d
                                                            ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The small, dense region at the centre of an atom consisting of protons and neutrons."@en ;
-                                           skos:prefLabel "AtomicNucleus"@en .
+                                           skos:prefLabel "Nucleus"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_f87e79eb_f549_4a06_9c27_a3d1412444c6
@@ -907,6 +936,7 @@ We cannot say that H2 molecule has direct part two H atoms, but has direct part 
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An uncharged vector boson that mediate the weak interaction."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Z bosons are their own antiparticles."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/W_and_Z_bosons" ;
+                                           skos:altLabel "NeutralWeakBoson"@en ;
                                            skos:prefLabel "ZBoson"@en .
 
 
@@ -932,10 +962,9 @@ We cannot say that H2 molecule has direct part two H atoms, but has direct part 
 
 ###  http://emmo.info/emmo#EMMO_fd6559e8_ef94_460c_9dfc_bad5c68d63b4
 :EMMO_fd6559e8_ef94_460c_9dfc_bad5c68d63b4 rdf:type owl:Class ;
-                                           owl:disjointUnionOf ( :EMMO_21a13e48_e4e2_450b_ad03_d9a112daee87
+                                           owl:disjointUnionOf ( :EMMO_1dcc2b31_7ff4_49ed_a1bc_6e4c055c951c
                                                                  :EMMO_25f8b804_9a0b_4387_a3e7_b35bce5365ee
                                                                  :EMMO_7db59e56_f68b_48b7_ae99_891c35ae5c3b
-                                                                 :EMMO_f8e436fb_61ed_4512_a5a5_bee90f0cec2f
                                                                ) ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A bosonic elementary particle that mediates interactions among elementary fermions, and thus acts as a force carrier."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "All known gauge bosons have a spin of 1 and are hence also vector bosons."@en ,
