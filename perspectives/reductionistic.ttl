@@ -75,7 +75,8 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            rdf:type owl:InverseFunctionalProperty ,
                                                     owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
-                                           skos:prefLabel "hasWFTile"@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A tile that is connected with other tiles with bi-directional causal relations that fall under hasNext (or its inverse) or hasContact."@en ;
+                                           skos:prefLabel "hasWellFormedTile"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe
@@ -97,6 +98,13 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                                     owl:IrreflexiveProperty ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between the whole and the last direct temporal part of a sequence." ;
                                            skos:prefLabel "hasTemporalLast"@en .
+
+
+###  http://emmo.info/emmo#EMMO_ea55b233_f47b_4bcf_98a0_ec1abeb82b81
+:EMMO_ea55b233_f47b_4bcf_98a0_ec1abeb82b81 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_74a75cf1_3418_4244_b43c_b5db94635d42 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A tile that is connected with other tiles with bi-directional causal relations that does not fall under hasNext (or its inverse) or hasContact."@en ;
+                                           skos:prefLabel "hasNonWellFormedTile"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_fe63194f_7c04_4dbd_a244_524b38b6699b
@@ -141,7 +149,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
 :EMMO_2b1fb71c_0eb0_445c_9be7_fb5d30ae79fd rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_74a75cf1_3418_4244_b43c_b5db94635d42 ;
-                                                             owl:someValuesFrom :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d
+                                                             owl:someValuesFrom :EMMO_d4c95fa1_5bda_4063_a22d_62c81fcea284
                                                            ] ;
                                            skos:prefLabel "MixedTiling"@en .
 
@@ -165,11 +173,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
 
 ###  http://emmo.info/emmo#EMMO_36c79456_e29c_400d_8bd3_0eedddb82652
 :EMMO_36c79456_e29c_400d_8bd3_0eedddb82652 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_8944581c-64da-46a9-be29-7074f7cc8098 ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                                             owl:someValuesFrom :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d
-                                                           ] ;
+                                           rdfs:subClassOf :EMMO_8944581c-64da-46a9-be29-7074f7cc8098 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causal object which is tessellated with only spatial direct parts."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """e.g. the existent in my glass is declared at t = t_start as made of two direct parts: the ice and the water. It will continue to exists as state as long as the ice is completely melt at t = t_end. The new state will be completely made of water. Between t_start and t_end there is an exchange of molecules between the ice and the water, but this does not affect the existence of the two states.
 
@@ -246,11 +250,7 @@ Moreover, due to inverse functionality, a 'State' can be part of only one 'Exist
 
 ###  http://emmo.info/emmo#EMMO_92829beb_6ed4_4c88_bbd5_3bc7403e2895
 :EMMO_92829beb_6ed4_4c88_bbd5_3bc7403e2895 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_f7f41d20-eabb-4bcb-9a16-0436851fcd5c ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d ;
-                                                             owl:someValuesFrom :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d
-                                                           ] ;
+                                           rdfs:subClassOf :EMMO_f7f41d20-eabb-4bcb-9a16-0436851fcd5c ;
                                            skos:prefLabel "Sequence"@en .
 
 
@@ -369,5 +369,63 @@ Moreover, due to inverse functionality, a 'State' can be part of only one 'Exist
               )
 ] .
 
+
+#################################################################
+#    Rules
+#################################################################
+
+<urn:swrl:var#x> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#y> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> :EMMO_36c79456_e29c_400d_8bd3_0eedddb82652 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x>
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_f68030be_94b8_4c61_a161_886468558054 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> :EMMO_92829beb_6ed4_4c88_bbd5_3bc7403e2895 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x>
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_2a33ee61_8235_4da4_b9a1_ca62cb87a016 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
