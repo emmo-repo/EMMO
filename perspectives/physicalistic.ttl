@@ -50,6 +50,12 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            skos:prefLabel "VectorMeson"@en .
 
 
+###  http://emmo.info/emmo#EMMO_1c16bb7f_5400_4498_8ef2_54392908da4e
+:EMMO_1c16bb7f_5400_4498_8ef2_54392908da4e rdf:type owl:Class ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Matter composed of matter and antimatter particles."@en ;
+                                           skos:prefLabel "HybridMatter"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_1f19b65b_35bf_4662_a318_7f1c147cb3b6
 :EMMO_1f19b65b_35bf_4662_a318_7f1c147cb3b6 rdf:type owl:Class ;
                                            owl:equivalentClass [ owl:intersectionOf ( :EMMO_8b1367d6_0133_4b56_acc1_fa8b058169e3
@@ -71,7 +77,7 @@ spin 2: O15 in ground state."""@en ;
 
 ###  http://emmo.info/emmo#EMMO_21205421_5783_4d3e_81e5_10c5d894a88a
 :EMMO_21205421_5783_4d3e_81e5_10c5d894a88a rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_6e9cb807_fc68_4bcf_b3ba_5fccc887c644 ,
+                                           rdfs:subClassOf :EMMO_5b2222df_4da6_442f_8244_96e9e45887d1 ,
                                                            :EMMO_8b1367d6_0133_4b56_acc1_fa8b058169e3 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, radical, radical ion, complex, conformer etc., identifiable as a separately distinguishable entity that can undergo a chemical reaction."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Hydrogen molecule is an adequate definition of a certain molecular entity for some purposes, whereas for others it is necessary to distinguish the electronic state and/or vibrational state and/or nuclear spin, etc. of the hydrogen molecule."@en ,
@@ -86,14 +92,16 @@ Note that the name of a compound may refer to the respective molecular entity or
 
 ###  http://emmo.info/emmo#EMMO_220b7201_d277_4dca_bf6a_5a5e2c4062dd
 :EMMO_220b7201_d277_4dca_bf6a_5a5e2c4062dd rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_6e9cb807_fc68_4bcf_b3ba_5fccc887c644 ;
-                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "The subject of condensed matter physics that deals with the macroscopic and microscopic physical properties of matter, especially the solid and liquid phases which arise from electromagnetic forces between atoms. More generally, the subject deals with \"condensed\" phases of matter: systems of many constituents with strong interactions between them."@en ;
+                                           rdfs:subClassOf :EMMO_5b2222df_4da6_442f_8244_96e9e45887d1 ;
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """The subject of condensed matter physics that deals with the macroscopic and microscopic physical properties of matter, especially the solid and liquid phases which arise from electromagnetic forces between atoms. More generally, the subject deals with \"condensed\" phases of matter: systems of many constituents with strong interactions between them.
+In the EMMO we restrict the concept of condensed matter (that sometimes is extended to include nuclear matter) only to compositions of molecular entities."""@en ;
                                            skos:prefLabel "CondensedMatter"@en .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_220b7201_d277_4dca_bf6a_5a5e2c4062dd ;
    owl:annotatedProperty :EMMO_31252f35_c767_4b97_a877_1235076c3e13 ;
-   owl:annotatedTarget "The subject of condensed matter physics that deals with the macroscopic and microscopic physical properties of matter, especially the solid and liquid phases which arise from electromagnetic forces between atoms. More generally, the subject deals with \"condensed\" phases of matter: systems of many constituents with strong interactions between them."@en ;
+   owl:annotatedTarget """The subject of condensed matter physics that deals with the macroscopic and microscopic physical properties of matter, especially the solid and liquid phases which arise from electromagnetic forces between atoms. More generally, the subject deals with \"condensed\" phases of matter: systems of many constituents with strong interactions between them.
+In the EMMO we restrict the concept of condensed matter (that sometimes is extended to include nuclear matter) only to compositions of molecular entities."""@en ;
    :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Condensed_matter_physics"@en
  ] .
 
@@ -231,6 +239,10 @@ e.g. you cannot remove H from H₂0 without changing the molecule type (essentia
                                                              owl:onProperty :EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 ;
                                                              owl:allValuesFrom :EMMO_5b2222df_4da6_442f_8244_96e9e45887d1
                                                            ] ;
+                                           owl:disjointUnionOf ( :EMMO_1c16bb7f_5400_4498_8ef2_54392908da4e
+                                                                 :EMMO_6e9cb807_fc68_4bcf_b3ba_5fccc887c644
+                                                                 :EMMO_f13672a3_59cc_40ed_8def_65009a8f74e6
+                                                               ) ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """The interpretation of the term \"matter\" is not univocal. Several concepts are labelled with this term, depending on the field of science. The concept mass is sometimes related to the term \"matter\", even if the former refers to a physical quantity (precisely defined by modern physics) while the latter is a type that qualifies a physical entity.
 It is possible to identify more than one concept that can be reasonably labelled with the term \"matter\". For example, it is possible to label as matter only the entities that are made up of atoms. Or more generally, we can be more fine-grained and call \"matter\" the entities that are made up of protons, neutrons or electrons, so that we can call matter also a neutron radiation or a cathode ray.
 A more fundamental approach, that we embrace for the EMMO, considers matter as entities that are made of fermions (i.e. quarks and leptons). This would exclude particles like the W and Z bosons that possess some mass, but are not fermions.
@@ -251,8 +263,7 @@ Antimatter is a subclass of matter."""@en ;
 
 ###  http://emmo.info/emmo#EMMO_6e9cb807_fc68_4bcf_b3ba_5fccc887c644
 :EMMO_6e9cb807_fc68_4bcf_b3ba_5fccc887c644 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_5b2222df_4da6_442f_8244_96e9e45887d1 ,
-                                                           [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
                                                              owl:someValuesFrom :EMMO_dad35c10_dd6c_4602_8474_f4ef68517fe9
                                                            ] ;
@@ -299,7 +310,8 @@ This assumption negates the existence of a spacetime fabric independent by parti
                                                                                :EMMO_be0a7278_b4e6_4bca_88ba_de3f67a478e2
                                                                              )
                                                                ] ;
-                                           rdfs:subClassOf :EMMO_8b1367d6_0133_4b56_acc1_fa8b058169e3 ;
+                                           rdfs:subClassOf :EMMO_5b2222df_4da6_442f_8244_96e9e45887d1 ,
+                                                           :EMMO_8b1367d6_0133_4b56_acc1_fa8b058169e3 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Particles composed of two or more quarks."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Hadron" ;
                                            skos:prefLabel "Hadron"@en .
@@ -333,13 +345,6 @@ This assumption negates the existence of a spacetime fabric independent by parti
                                            owl:equivalentClass [ rdf:type owl:Class ;
                                                                  owl:unionOf ( :EMMO_1f19b65b_35bf_4662_a318_7f1c147cb3b6
                                                                                :EMMO_29108c7c_9087_4992_ab1c_02561665df21
-                                                                             )
-                                                               ] ,
-                                                               [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_3397f270_dfc1_4500_8f6f_4d0d85ac5f71
-                                                                               :EMMO_7b42954f_0b91_4b3a_a65e_2470202cf548
-                                                                               :EMMO_eb77076b_a104_42ac_a065_798b2d2809ad
-                                                                               :EMMO_f835f4d4_c665_403d_ab25_dca5cc74be52
                                                                              )
                                                                ] ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A composite particle is a bound state of elementary particles."@en ;
@@ -428,7 +433,8 @@ Here the class 'Field' refers to the quantum field of bosonic particles while th
                                                                                :EMMO_f895cb83_2280_42e9_9f4c_047273e70d3c
                                                                              )
                                                                ] ;
-                                           rdfs:subClassOf :EMMO_b5a5494c_83bf_44aa_a9a6_49b948e68939 ,
+                                           rdfs:subClassOf :EMMO_1c16bb7f_5400_4498_8ef2_54392908da4e ,
+                                                           :EMMO_b5a5494c_83bf_44aa_a9a6_49b948e68939 ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
                                                              owl:someValuesFrom :EMMO_72d53756_7fb1_46ed_980f_83f47efbe105
@@ -496,8 +502,7 @@ We cannot say that H₂ molecule has direct part two H atoms, but has direct par
 
 ###  http://emmo.info/emmo#EMMO_f13672a3_59cc_40ed_8def_65009a8f74e6
 :EMMO_f13672a3_59cc_40ed_8def_65009a8f74e6 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_5b2222df_4da6_442f_8244_96e9e45887d1 ,
-                                                           [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
                                                              owl:someValuesFrom :EMMO_9226c7af_573f_4762_865c_e3a68a4832dd
                                                            ] ;
@@ -529,7 +534,9 @@ This requirement implies that a physical system is either a decay, annihilation,
 
 ###  http://emmo.info/emmo#EMMO_f835f4d4_c665_403d_ab25_dca5cc74be52
 :EMMO_f835f4d4_c665_403d_ab25_dca5cc74be52 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_5b2222df_4da6_442f_8244_96e9e45887d1 ,
+                                                           :EMMO_8b1367d6_0133_4b56_acc1_fa8b058169e3 ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
                                                              owl:someValuesFrom :EMMO_50781fd9_a9e4_46ad_b7be_4500371d188d
                                                            ] ;
