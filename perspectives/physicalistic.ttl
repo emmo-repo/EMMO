@@ -52,7 +52,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
 
 ###  http://emmo.info/emmo#EMMO_1c16bb7f_5400_4498_8ef2_54392908da4e
 :EMMO_1c16bb7f_5400_4498_8ef2_54392908da4e rdf:type owl:Class ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Matter composed of matter and antimatter particles."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Matter composed of both matter and antimatter fundamental particles."@en ;
                                            skos:prefLabel "HybridMatter"@en .
 
 
@@ -108,7 +108,7 @@ In the EMMO we restrict the concept of condensed matter (that sometimes is exten
 
 ###  http://emmo.info/emmo#EMMO_24dda193_ada8_433b_bb74_6ca4a0b89a20
 :EMMO_24dda193_ada8_433b_bb74_6ca4a0b89a20 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_53dced52_34f6_4cf0_8a99_ddf451861543 ,
+                                           rdfs:subClassOf :EMMO_29108c7c_9087_4992_ab1c_02561665df21 ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
                                                              owl:someValuesFrom :EMMO_72d53756_7fb1_46ed_980f_83f47efbe105
@@ -136,6 +136,16 @@ spin 3/2: He5 in ground state, Delta baryons (excitations of the proton and neut
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A meson with spin zero and even parity."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Scalar_meson"@en ;
                                            skos:prefLabel "ScalarMeson"@en .
+
+
+###  http://emmo.info/emmo#EMMO_32f55395_8b94_40de_a103_bffa5c121d98
+:EMMO_32f55395_8b94_40de_a103_bffa5c121d98 rdf:type owl:Class ;
+                                           owl:equivalentClass [ owl:intersectionOf ( :EMMO_5b2222df_4da6_442f_8244_96e9e45887d1
+                                                                                      :EMMO_8b1367d6_0133_4b56_acc1_fa8b058169e3
+                                                                                    ) ;
+                                                                 rdf:type owl:Class
+                                                               ] ;
+                                           skos:prefLabel "ParticleMatter"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_3397f270_dfc1_4500_8f6f_4d0d85ac5f71
@@ -222,9 +232,8 @@ e.g. you cannot remove H from H₂0 without changing the molecule type (essentia
                                            owl:disjointWith :EMMO_b5a5494c_83bf_44aa_a9a6_49b948e68939 ;
                                            owl:disjointUnionOf ( :EMMO_29108c7c_9087_4992_ab1c_02561665df21
                                                                  :EMMO_820619ca_b23e_4c7a_8543_18a17722abc0
-                                                                 :EMMO_8dbaf3ca_8f0d_4c45_92e1_c6d805b83c87
                                                                ) ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A particle with half odd integer spin (1/2, 3/2, etc...) that follows Fermi-Dirac statistics."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A physical particle with half odd integer spin (1/2, 3/2, etc...) that follows Fermi-Dirac statistics."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Fermion" ;
                                            skos:prefLabel "Fermion"@en .
 
@@ -242,6 +251,9 @@ e.g. you cannot remove H from H₂0 without changing the molecule type (essentia
                                            owl:disjointUnionOf ( :EMMO_1c16bb7f_5400_4498_8ef2_54392908da4e
                                                                  :EMMO_6e9cb807_fc68_4bcf_b3ba_5fccc887c644
                                                                  :EMMO_f13672a3_59cc_40ed_8def_65009a8f74e6
+                                                               ) ,
+                                                               ( :EMMO_220b7201_d277_4dca_bf6a_5a5e2c4062dd
+                                                                 :EMMO_32f55395_8b94_40de_a103_bffa5c121d98
                                                                ) ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """The interpretation of the term \"matter\" is not univocal. Several concepts are labelled with this term, depending on the field of science. The concept mass is sometimes related to the term \"matter\", even if the former refers to a physical quantity (precisely defined by modern physics) while the latter is a type that qualifies a physical entity.
 It is possible to identify more than one concept that can be reasonably labelled with the term \"matter\". For example, it is possible to label as matter only the entities that are made up of atoms. Or more generally, we can be more fine-grained and call \"matter\" the entities that are made up of protons, neutrons or electrons, so that we can call matter also a neutron radiation or a cathode ray.
@@ -409,9 +421,8 @@ Here the class 'Field' refers to the quantum field of bosonic particles while th
 :EMMO_b5a5494c_83bf_44aa_a9a6_49b948e68939 rdf:type owl:Class ;
                                            owl:disjointUnionOf ( :EMMO_1f19b65b_35bf_4662_a318_7f1c147cb3b6
                                                                  :EMMO_cafd0f10_ce85_48b9_9a36_2b0af141ce21
-                                                                 :EMMO_fa3c9d4d_9fc9_4e8a_82c1_28c84e34133a
                                                                ) ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A particle with integer spin that follows Bose–Einstein statistics."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A physical particle with integer spin that follows Bose–Einstein statistics."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Boson" ;
                                            skos:prefLabel "Boson"@en .
 
@@ -434,7 +445,7 @@ Here the class 'Field' refers to the quantum field of bosonic particles while th
                                                                              )
                                                                ] ;
                                            rdfs:subClassOf :EMMO_1c16bb7f_5400_4498_8ef2_54392908da4e ,
-                                                           :EMMO_b5a5494c_83bf_44aa_a9a6_49b948e68939 ,
+                                                           :EMMO_1f19b65b_35bf_4662_a318_7f1c147cb3b6 ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
                                                              owl:someValuesFrom :EMMO_72d53756_7fb1_46ed_980f_83f47efbe105
