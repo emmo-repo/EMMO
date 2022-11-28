@@ -16,6 +16,20 @@
 #    Classes
 #################################################################
 
+###  http://emmo.info/emmo#EMMO_08fb109f_95df_4daa_845d_9884b1700c0a
+:EMMO_08fb109f_95df_4daa_845d_9884b1700c0a rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d ;
+                                           rdfs:comment "non-fulfilment of a requirement" ;
+                                           skos:prefLabel "NonConformity"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_08fb109f_95df_4daa_845d_9884b1700c0a ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "non-fulfilment of a requirement" ;
+   rdfs:seeAlso "[SOURCE: ISO 9000]"
+ ] .
+
+
 ###  http://emmo.info/emmo#EMMO_1d4d1a1a_1366_4d2f_82b1_55fd27de14e1
 :EMMO_1d4d1a1a_1366_4d2f_82b1_55fd27de14e1 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_551f93c7_7e76_4994_8293_fe2c8ebda450 ;
@@ -55,7 +69,31 @@ Note 1 to entry: often performed at a customer site""" ;
 ###  http://emmo.info/emmo#EMMO_354e79ba_13d8_44d4_a2b8_e113370275ad
 :EMMO_354e79ba_13d8_44d4_a2b8_e113370275ad rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a83f8a81_f10c_4853_917b_4ee3bd7812c7 ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """organization or individual that carries out an experiment or measurement, funded by a payer (3.11), and producing a data set
+Note 1 to entry: In the research domain producer is typically a researcher, in the commercial domain the producer can be a contract laboratory.""" ,
+                                                                                      """producer
+creator or provider of a tool (3.17), including anyone who modifies or customises a tool
+Note 1 to entry: The person(s) or organization(s) responsible for the creation or maintenance of a tool or customisation of a tool is the producer.
+Note 2 to entry: Providing scripts to automate common functions modifies or customises a tool.""" ;
                                            skos:prefLabel "Producer"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_354e79ba_13d8_44d4_a2b8_e113370275ad ;
+   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
+   owl:annotatedTarget """organization or individual that carries out an experiment or measurement, funded by a payer (3.11), and producing a data set
+Note 1 to entry: In the research domain producer is typically a researcher, in the commercial domain the producer can be a contract laboratory.""" ;
+   rdfs:seeAlso "ISO/TR 3985:2021(en), 3.5"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_354e79ba_13d8_44d4_a2b8_e113370275ad ;
+   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
+   owl:annotatedTarget """producer
+creator or provider of a tool (3.17), including anyone who modifies or customises a tool
+Note 1 to entry: The person(s) or organization(s) responsible for the creation or maintenance of a tool or customisation of a tool is the producer.
+Note 2 to entry: Providing scripts to automate common functions modifies or customises a tool.""" ;
+   rdfs:seeAlso "ISO/IEC 27041:2015(en), 3.13"
+ ] .
 
 
 ###  http://emmo.info/emmo#EMMO_3ec60cca_870d_4e47_8efd_7c2f3a995d4c
@@ -93,6 +131,16 @@ Note 3 to entry: The use conditions for validation can be real or simulated.""" 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_3ecefbaf_f06b_4ea3_9e50_a798cf25a879 ;
    owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
+   owl:annotatedTarget """confirmation, through the provision of objective evidence (3.8.3), that the requirements (3.6.4) for a specific intended use or application have been fulfilled
+Note 1 to entry: The objective evidence needed for a validation is the result of a test (3.11.8) or other form of determination (3.11.1) such as performing alternative calculations or reviewing documents (3.8.5).
+Note 2 to entry: The word “validated” is used to designate the corresponding status.
+Note 3 to entry: The use conditions for validation can be real or simulated.""" ;
+   rdfs:seeAlso "ISO 9000: 2015 (Quality system management)"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_3ecefbaf_f06b_4ea3_9e50_a798cf25a879 ;
+   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
    owl:annotatedTarget "Answer to the question \"Am I doing the right thing?\"" ;
    rdfs:seeAlso "https://www.plutora.com/blog/verification-vs-validation"
  ] .
@@ -109,16 +157,6 @@ Note 3 to entry: The use conditions for validation can be real or simulated.""" 
    owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
    owl:annotatedTarget "The process of evaluating a system or component during or at the end of the development process to determine whether it satisfies specified requirements. (B) The process of providing evidence that the system, software, or hardware and its associated products satisfy requirements allocated to it at the end of each life cycle activity, solve the right problem (e.g., correctly model physical laws, implement business rules, and use the proper system assumptions), and satisfy intended use and user needs." ;
    rdfs:seeAlso "1012-1016 IEEE (Standard for System, Software, and Hardware --Verification and Validation)"
- ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_3ecefbaf_f06b_4ea3_9e50_a798cf25a879 ;
-   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
-   owl:annotatedTarget """confirmation, through the provision of objective evidence (3.8.3), that the requirements (3.6.4) for a specific intended use or application have been fulfilled
-Note 1 to entry: The objective evidence needed for a validation is the result of a test (3.11.8) or other form of determination (3.11.1) such as performing alternative calculations or reviewing documents (3.8.5).
-Note 2 to entry: The word “validated” is used to designate the corresponding status.
-Note 3 to entry: The use conditions for validation can be real or simulated.""" ;
-   rdfs:seeAlso "ISO 9000: 2015 (Quality system management)"
  ] .
 
 
@@ -142,6 +180,23 @@ Note 3 to entry: The word “verified” is used to designate the corresponding 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_433eac85_e5ae_4a88_8fd5_27299d76c8c7 ;
    owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
+   owl:annotatedTarget """Confirmation, through the provision of objective evidence (3.8.3), that specified requirements (3.6.4) have been fulfilled.
+NOTE 1 : The objective evidence needed for a verification can be the result of an inspection (3.11.7) or of other forms of determination (3.11.1) such as performing alternative calculations or reviewing documents (3.8.5).
+Note 2 to entry: The activities carried out for verification are sometimes called a qualification process (3.4.1).
+Note 3 to entry: The word “verified” is used to designate the corresponding status.""" ;
+   rdfs:seeAlso "ISO 9000: 2015 (Quality system management)"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_433eac85_e5ae_4a88_8fd5_27299d76c8c7 ;
+   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
+   owl:annotatedTarget "The process of evaluating a system or component to determine whether the products of a given development phase satisfy the conditions imposed at the start of that phase." ;
+   rdfs:seeAlso "IEEE 610 (STANDARD COMPUTER DICTIONARY)"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_433eac85_e5ae_4a88_8fd5_27299d76c8c7 ;
+   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
    owl:annotatedTarget "The process of evaluating a system or component to determine whether the products of a given development phase satisfy the conditions imposed at the start of that phase. (B) The process of providing objective evidence that the system, software, or hardware and its associated products conform to requirements (e.g., for correctness, completeness, consistency, and accuracy) for all life cycle activities during each life cycle process (acquisition, supply, development, operation, and maintenance); satisfy standards, practices, and conventions during life cycle processes; and successfully complete each life cycle activity and satisfy all the criteria for initiating succeeding life cycle activities. Verification of interim work products is essential for proper understanding and assessment of the life cycle phase product(s)." ;
    rdfs:seeAlso "1012-1016 IEEE (Standard for System, Software, and Hardware --Verification and Validation)"
  ] .
@@ -158,23 +213,6 @@ Note 3 to entry: The word “verified” is used to designate the corresponding 
    owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
    owl:annotatedTarget "it answers to the question \"Am I doing the thing right?\"" ;
    rdfs:seeAlso "https://www.plutora.com/blog/verification-vs-validation"
- ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_433eac85_e5ae_4a88_8fd5_27299d76c8c7 ;
-   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
-   owl:annotatedTarget """Confirmation, through the provision of objective evidence (3.8.3), that specified requirements (3.6.4) have been fulfilled.
-NOTE 1 : The objective evidence needed for a verification can be the result of an inspection (3.11.7) or of other forms of determination (3.11.1) such as performing alternative calculations or reviewing documents (3.8.5).
-Note 2 to entry: The activities carried out for verification are sometimes called a qualification process (3.4.1).
-Note 3 to entry: The word “verified” is used to designate the corresponding status.""" ;
-   rdfs:seeAlso "ISO 9000: 2015 (Quality system management)"
- ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_433eac85_e5ae_4a88_8fd5_27299d76c8c7 ;
-   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
-   owl:annotatedTarget "The process of evaluating a system or component to determine whether the products of a given development phase satisfy the conditions imposed at the start of that phase." ;
-   rdfs:seeAlso "IEEE 610 (STANDARD COMPUTER DICTIONARY)"
  ] .
 
 
@@ -219,7 +257,17 @@ Note 3 to entry: The word “verified” is used to designate the corresponding 
 ###  http://emmo.info/emmo#EMMO_55700226_edfa_44f3_960b_eae91e498aab
 :EMMO_55700226_edfa_44f3_960b_eae91e498aab rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a83f8a81_f10c_4853_917b_4ee3bd7812c7 ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """consumer
+individual member of the general public purchasing or using goods, property or services for private purposes""" ;
                                            skos:prefLabel "Consumer"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_55700226_edfa_44f3_960b_eae91e498aab ;
+   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
+   owl:annotatedTarget """consumer
+individual member of the general public purchasing or using goods, property or services for private purposes""" ;
+   rdfs:seeAlso "ISO 14025:2006(en), 3.16"
+ ] .
 
 
 ###  http://emmo.info/emmo#EMMO_5f2f0d99_c958_489c_a373_522eb07c5f40
@@ -252,7 +300,16 @@ Note 3 to entry: The word “verified” is used to designate the corresponding 
 ###  http://emmo.info/emmo#EMMO_7aa150c8_a726_4494_bbef_2232ab58549b
 :EMMO_7aa150c8_a726_4494_bbef_2232ab58549b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_9b5484ab_7cb5_446e_8563_9c87a741a71b ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The Test Item is an object whose conformity with the required objectives is assessed." ;
+                                           rdfs:seeAlso "work product to be tested" ;
                                            skos:prefLabel "TestItem"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_7aa150c8_a726_4494_bbef_2232ab58549b ;
+   owl:annotatedProperty rdfs:seeAlso ;
+   owl:annotatedTarget "work product to be tested" ;
+   rdfs:seeAlso "ISO/IEC/IEEE 29119-4:2021(en), 3.52"
+ ] .
 
 
 ###  http://emmo.info/emmo#EMMO_87d19dcd_9fdb_4d89_b168_894e2490b46d
@@ -306,13 +363,30 @@ Note 2 to entry: 20.05.05 (2382)""" ;
 ###  http://emmo.info/emmo#EMMO_8d954278_8789_4e8f_84a1_a35a04af4e0c
 :EMMO_8d954278_8789_4e8f_84a1_a35a04af4e0c rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_bc022038_1440_4bd6_a5a3_3e446d7ea7b9 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Client is individual, organization, department or division, internal or external, that requests or commissions an objective to be realised, that is called claim" ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "individual, organization, department or division, internal or external, that requests or commissions a research project" ;
                                            skos:prefLabel "Client"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_8d954278_8789_4e8f_84a1_a35a04af4e0c ;
+   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
+   owl:annotatedTarget "individual, organization, department or division, internal or external, that requests or commissions a research project" ;
+   rdfs:seeAlso "ISO 19731:2017(en), 3.8"
+ ] .
 
 
 ###  http://emmo.info/emmo#EMMO_972a6b9c_6dbc_4e60_8953_1dd54946005c
 :EMMO_972a6b9c_6dbc_4e60_8953_1dd54946005c rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a83f8a81_f10c_4853_917b_4ee3bd7812c7 ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "user is organization or person that purchases or otherwise acquires fasteners and installs them for purposes of assembly or overhaul and maintenance" ;
                                            skos:prefLabel "User"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_972a6b9c_6dbc_4e60_8953_1dd54946005c ;
+   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
+   owl:annotatedTarget "user is organization or person that purchases or otherwise acquires fasteners and installs them for purposes of assembly or overhaul and maintenance" ;
+   rdfs:seeAlso "ISO 16426:2002(en), 3.23"
+ ] .
 
 
 ###  http://emmo.info/emmo#EMMO_9b5484ab_7cb5_446e_8563_9c87a741a71b
@@ -328,7 +402,17 @@ Note 2 to entry: 20.05.05 (2382)""" ;
 ###  http://emmo.info/emmo#EMMO_a1e306e9_cabf_4fcb_84bb_21fc95c8df2c
 :EMMO_a1e306e9_cabf_4fcb_84bb_21fc95c8df2c rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a83f8a81_f10c_4853_917b_4ee3bd7812c7 ;
-                                           skos:prefLabel "Costumer"@en .
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """organization or person that receives a product
+Note 1 to entry: The customer may be the user or a distributor.""" ;
+                                           skos:prefLabel "Customer"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_a1e306e9_cabf_4fcb_84bb_21fc95c8df2c ;
+   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
+   owl:annotatedTarget """organization or person that receives a product
+Note 1 to entry: The customer may be the user or a distributor.""" ;
+   rdfs:seeAlso "ISO 9000"
+ ] .
 
 
 ###  http://emmo.info/emmo#EMMO_a83f8a81_f10c_4853_917b_4ee3bd7812c7
@@ -358,6 +442,7 @@ Note 2 to entry: 20.05.05 (2382)""" ;
 
 ###  http://emmo.info/emmo#EMMO_bc5adc6b_2dce_4735_8306_e121b83d5027
 :EMMO_bc5adc6b_2dce_4735_8306_e121b83d5027 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba ;
                                            rdfs:comment """DATA QUALITY
 set of features that concern the collection, analysis, persistence, dissemination, and usage of data
 EXAMPLE:
@@ -393,12 +478,29 @@ Systems and software engineering — Systems and software Quality Requirements a
 
 ###  http://emmo.info/emmo#EMMO_eeebe42f_981f_4d84_83f8_72723b86036b
 :EMMO_eeebe42f_981f_4d84_83f8_72723b86036b rdf:type owl:Class ;
-                                           skos:prefLabel "TestResult"@en .
+                                           rdfs:subClassOf :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d ;
+                                           rdfs:comment "fulfilment of a requirement" ;
+                                           skos:prefLabel "Conformity"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_eeebe42f_981f_4d84_83f8_72723b86036b ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "fulfilment of a requirement" ;
+   rdfs:seeAlso "ISO 14298:2021(en)"
+ ] .
 
 
 ###  http://emmo.info/emmo#EMMO_f41e958d_a115_442f_8766_8a280444b0ec
 :EMMO_f41e958d_a115_442f_8766_8a280444b0ec rdf:type owl:Class ;
+                                           rdfs:comment "variable to which a value is assigned as the result of measurement (4.27) of a data quality characteristic (4.12)" ;
                                            skos:prefLabel "DataQualityValue"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_f41e958d_a115_442f_8766_8a280444b0ec ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "variable to which a value is assigned as the result of measurement (4.27) of a data quality characteristic (4.12)" ;
+   rdfs:seeAlso "ISO/IEC 25024:2015(en)"
+ ] .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
