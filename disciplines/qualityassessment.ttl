@@ -31,13 +31,16 @@
 ###  http://emmo.info/emmo#EMMO_0718ca88_f15d_4f69_85e2_28fb5f43c9af
 :EMMO_0718ca88_f15d_4f69_85e2_28fb5f43c9af rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_7286b164_df4c_4c14_a4b5_d41ad9c121f3 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Result of an asserion Test" ;
+                                           rdfs:comment "assertion result" ;
                                            skos:prefLabel "TestResultUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_08fb109f_95df_4daa_845d_9884b1700c0a
 :EMMO_08fb109f_95df_4daa_845d_9884b1700c0a rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_0718ca88_f15d_4f69_85e2_28fb5f43c9af ;
-                                           rdfs:comment "non-fulfilment of a requirement" ;
+                                           rdfs:comment "negative answer to boolean question." ,
+                                                        "non-fulfilment of a requirement" ;
                                            skos:prefLabel "NonConformity"@en .
 
 [ rdf:type owl:Axiom ;
@@ -240,6 +243,8 @@ Note 3 to entry: The word “verified” is used to designate the corresponding 
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "any activity concerned with determining directly or indirectly that relevant requirements are fulfilled" ,
                                                                                       "confirmation through the provision of objective evidence (3.4.32), that specified requirements (3.1.15) have been fulfilled" ,
                                                                                       "demonstration that specified requirements relating to a product, process, system, person or body are fulfilled" ;
+                                           rdfs:comment """Boolean query
+Note 1 to entry: An assertion test \"succeeds\" or \"fails\".""" ;
                                            skos:altLabel "AssertionTesting" ;
                                            skos:prefLabel "ConformityAssessment"@en .
 
@@ -260,9 +265,44 @@ Note 3 to entry: The word “verified” is used to designate the corresponding 
 
 ###  http://emmo.info/emmo#EMMO_54c79761_da7d_4afe_8412_01128daa9f4d
 :EMMO_54c79761_da7d_4afe_8412_01128daa9f4d rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_7286b164_df4c_4c14_a4b5_d41ad9c121f3 ;
-                                           rdfs:comment "set of all conformities and non-conformities of the test item" ;
+                                           rdfs:subClassOf :EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "conclusion on the base of all conformities and non-conformities of the test item during an activity of testing. It can be qualitative or quantitative." ;
+                                           rdfs:comment "Information generated during test execution and made available to an open system." ,
+                                                        "median quantitative value of three repetitions of the same test" ,
+                                                        """test result
+Output of a test case.""" ,
+                                                        "test result on the basis of which conclusions can be drawn about engine technical condition, suitable for its reliability or quality analysis" ;
+                                           skos:altLabel "ConclusiveTestResult" ;
                                            skos:prefLabel "TestResult"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_54c79761_da7d_4afe_8412_01128daa9f4d ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "Information generated during test execution and made available to an open system." ;
+   rdfs:seeAlso "ISO/IEC 10164-12:1994"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_54c79761_da7d_4afe_8412_01128daa9f4d ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "median quantitative value of three repetitions of the same test" ;
+   rdfs:seeAlso "ISO 13993:2019(en)"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_54c79761_da7d_4afe_8412_01128daa9f4d ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget """test result
+Output of a test case.""" ;
+   rdfs:seeAlso "ISO/IEC 10641:1993(en), 3.31"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_54c79761_da7d_4afe_8412_01128daa9f4d ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "test result on the basis of which conclusions can be drawn about engine technical condition, suitable for its reliability or quality analysis" ;
+   rdfs:seeAlso "ISO 17540:2016(en), 2.38.1"
+ ] .
 
 
 ###  http://emmo.info/emmo#EMMO_551f93c7_7e76_4994_8293_fe2c8ebda450
@@ -446,7 +486,7 @@ Note 1 to entry: The customer may be the user or a distributor.""" ;
 
 ###  http://emmo.info/emmo#EMMO_bc5adc6b_2dce_4735_8306_e121b83d5027
 :EMMO_bc5adc6b_2dce_4735_8306_e121b83d5027 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba ;
+                                           rdfs:subClassOf :EMMO_54c79761_da7d_4afe_8412_01128daa9f4d ;
                                            rdfs:comment """DATA QUALITY
 set of features that concern the collection, analysis, persistence, dissemination, and usage of data
 EXAMPLE:
@@ -483,7 +523,9 @@ Systems and software engineering — Systems and software Quality Requirements a
 ###  http://emmo.info/emmo#EMMO_eeebe42f_981f_4d84_83f8_72723b86036b
 :EMMO_eeebe42f_981f_4d84_83f8_72723b86036b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_0718ca88_f15d_4f69_85e2_28fb5f43c9af ;
-                                           rdfs:comment "fulfilment of a requirement" ;
+                                           rdfs:comment "fulfilment of a requirement" ,
+                                                        "positive answer to bollean question." ;
+                                           skos:altLabel "Assertion Result" ;
                                            skos:prefLabel "Conformity"@en .
 
 [ rdf:type owl:Axiom ;
