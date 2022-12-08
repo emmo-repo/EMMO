@@ -6,819 +6,639 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@base <http://emmo.info/emmo/perspectives/semiotics> .
 
-<http://emmo.info/emmo/perspectives/semiotics> a owl:Ontology ;
-	owl:versionIRI <http://emmo.info/emmo/1.0.0-beta4/perspectives/semiotics> ;
-	owl:imports <http://emmo.info/emmo/1.0.0-beta4/perspectives/perspective> ;
-	dcterms:abstract """The semiotics module is based on the semiotic theory by Charles S. Peirce. It introduces the triadic semiotic process, called semiosis, with its participants an 'object' that is represented by a 'sign' producing another sign, the 'interpretant' and finally the 'interpreter' who connects the 'object', 'sign' and 'interpretant'.
+<http://emmo.info/emmo/perspectives/semiotics> rdf:type owl:Ontology ;
+                                                owl:versionIRI <http://emmo.info/emmo/1.0.0-beta4/perspectives/semiotics> ;
+                                                owl:imports <http://emmo.info/emmo/1.0.0-beta4/perspectives/perspective> ;
+                                                dcterms:abstract """The semiotics module is based on the semiotic theory by Charles S. Peirce. It introduces the triadic semiotic process, called semiosis, with its participants an 'object' that is represented by a 'sign' producing another sign, the 'interpretant' and finally the 'interpreter' who connects the 'object', 'sign' and 'interpretant'.
 
 The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. real world objects (e.g. symbol or sign) that stand for other real world objects that are to be interpreted by an agent. These symbols appear in actions (semiotic processes) meant to communicate meaning by establishing relationships between symbols (signs)."""@en ;
-	dcterms:contributor "Adham Hashibon, Fraunhofer IWM, DE" , "Georg Schmitz, Access, DE" , "Gerhard Goldbeck, Goldbeck Consulting Ltd (UK)" , "Jesper Friis, SINTEF, NO" ;
-	dcterms:creator "Emanuele Ghedini, University of Bologna, IT" ;
-	dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
-	dcterms:publisher "EMMC ASBL" ;
-	dcterms:title "Semiotics"@en ;
-	rdfs:comment """Contacts:
+                                                dcterms:contributor "Adham Hashibon, Fraunhofer IWM, DE" ,
+                                                                    "Georg Schmitz, Access, DE" ,
+                                                                    "Gerhard Goldbeck, Goldbeck Consulting Ltd (UK)" ,
+                                                                    "Jesper Friis, SINTEF, NO" ;
+                                                dcterms:creator "Emanuele Ghedini, University of Bologna, IT" ;
+                                                dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+                                                dcterms:publisher "EMMC ASBL" ;
+                                                dcterms:title "Semiotics"@en ;
+                                                rdfs:comment """Contacts:
 Gerhard Goldbeck
 Goldbeck Consulting Ltd (UK)
 email: gerhard@goldbeck-consulting.com
 
 Emanuele Ghedini
 University of Bologna (IT)
-email: emanuele.ghedini@unibo.it"""@en , "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-	owl:versionInfo "1.0.0-beta4" .
-# 
-# 
-# #################################################################
-# #
-# #    Object Properties
-# #
-# #################################################################
-# 
-# 
-# http://emmo.info/emmo#EMMO_057d0573_6ac0_4c27_9e3f_3c29205fd104
+email: emanuele.ghedini@unibo.it"""@en ,
+                                                             "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
+                                                owl:versionInfo "1.0.0-beta4" .
 
-:EMMO_057d0573_6ac0_4c27_9e3f_3c29205fd104 a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d ;
-	rdfs:domain :EMMO_0cd58641_824c_4851_907f_f4c3be76630c ;
-	rdfs:range :EMMO_36a4c1ca_5085_49ca_9e13_4c70d00c50a5 ;
-	skos:prefLabel "hasDeducer"@en .
-# 
-# http://emmo.info/emmo#EMMO_0d829933_29e3_4e61_b3d3_88e6b9d0d0ce
+#################################################################
+#    Object Properties
+#################################################################
 
-:EMMO_0d829933_29e3_4e61_b3d3_88e6b9d0d0ce a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_f2fc1ce9_cc3b_4eb5_a112_3c85d1b1374a ;
-	rdfs:domain :EMMO_2d72e38c_d587_437f_98f6_f2718fb130eb ;
-	rdfs:range :EMMO_c9805ac9_a943_4be4_ac4b_6da64ba36c73 ;
-	skos:prefLabel "hasDeclared"@en .
-# 
-# http://emmo.info/emmo#EMMO_2337e25c_3c60_43fc_a8f9_b11a3f974291
+###  http://emmo.info/emmo#EMMO_057d0573_6ac0_4c27_9e3f_3c29205fd104
+:EMMO_057d0573_6ac0_4c27_9e3f_3c29205fd104 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d ;
+                                           rdfs:domain :EMMO_0cd58641_824c_4851_907f_f4c3be76630c ;
+                                           rdfs:range :EMMO_36a4c1ca_5085_49ca_9e13_4c70d00c50a5 ;
+                                           skos:prefLabel "hasDeducer"@en .
 
-:EMMO_2337e25c_3c60_43fc_a8f9_b11a3f974291 a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_ec2472ae_cf4a_46a5_8555_1556f5a6c3c5 ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The generic EMMO semiotical relation."@en ;
-	skos:prefLabel "semiotical"@en .
-# 
-# http://emmo.info/emmo#EMMO_297999d6_c9e4_4262_9536_bd524d1c6e21
 
-:EMMO_297999d6_c9e4_4262_9536_bd524d1c6e21 a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_60577dea_9019_4537_ac41_80b0fb563d41 ;
-	rdfs:domain :EMMO_669d2749_bece_460a_b26a_9a909fd8ca4d ;
-	rdfs:range :EMMO_0cd58641_824c_4851_907f_f4c3be76630c ;
-	skos:prefLabel "hasIndex"@en .
-# 
-# http://emmo.info/emmo#EMMO_39c3815d_8cae_4c8f_b2ff_eeba24bec455
+###  http://emmo.info/emmo#EMMO_0d829933_29e3_4e61_b3d3_88e6b9d0d0ce
+:EMMO_0d829933_29e3_4e61_b3d3_88e6b9d0d0ce rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_f2fc1ce9_cc3b_4eb5_a112_3c85d1b1374a ;
+                                           rdfs:domain :EMMO_2d72e38c_d587_437f_98f6_f2718fb130eb ;
+                                           rdfs:range :EMMO_c9805ac9_a943_4be4_ac4b_6da64ba36c73 ;
+                                           skos:prefLabel "hasDeclared"@en .
 
-:EMMO_39c3815d_8cae_4c8f_b2ff_eeba24bec455 a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_60577dea_9019_4537_ac41_80b0fb563d41 ;
-	rdfs:domain :EMMO_881606d0_6f2f_4947_bc8b_75c5b7b2b688 ;
-	rdfs:range :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 ;
-	skos:prefLabel "hasIcon"@en .
-# 
-# http://emmo.info/emmo#EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d
 
-:EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_2337e25c_3c60_43fc_a8f9_b11a3f974291 ;
-	rdfs:domain :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d ;
-	rdfs:range :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee ;
-	skos:prefLabel "hasInterpreter"@en .
-# 
-# http://emmo.info/emmo#EMMO_51e72e5c_ab21_4d0e_ad9f_b168eca89cf4
+###  http://emmo.info/emmo#EMMO_2337e25c_3c60_43fc_a8f9_b11a3f974291
+:EMMO_2337e25c_3c60_43fc_a8f9_b11a3f974291 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_ec2472ae_cf4a_46a5_8555_1556f5a6c3c5 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The generic EMMO semiotical relation."@en ;
+                                           skos:prefLabel "semiotical"@en .
 
-:EMMO_51e72e5c_ab21_4d0e_ad9f_b168eca89cf4 a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_f2fc1ce9_cc3b_4eb5_a112_3c85d1b1374a ;
-	rdfs:domain :EMMO_19608340_178c_4bfd_bd4d_0d3b935c6fec ;
-	rdfs:range :EMMO_881606d0_6f2f_4947_bc8b_75c5b7b2b688 ;
-	skos:prefLabel "hasCognised"@en .
-# 
-# http://emmo.info/emmo#EMMO_5369d256_5866_4729_adc2_1498ee9a4959
 
-:EMMO_5369d256_5866_4729_adc2_1498ee9a4959 a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d ;
-	rdfs:domain :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 ;
-	rdfs:range :EMMO_19608340_178c_4bfd_bd4d_0d3b935c6fec ;
-	skos:prefLabel "hasCogniser"@en .
-# 
-# http://emmo.info/emmo#EMMO_60577dea_9019_4537_ac41_80b0fb563d41
+###  http://emmo.info/emmo#EMMO_297999d6_c9e4_4262_9536_bd524d1c6e21
+:EMMO_297999d6_c9e4_4262_9536_bd524d1c6e21 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_60577dea_9019_4537_ac41_80b0fb563d41 ;
+                                           rdfs:domain :EMMO_669d2749_bece_460a_b26a_9a909fd8ca4d ;
+                                           rdfs:range :EMMO_0cd58641_824c_4851_907f_f4c3be76630c ;
+                                           skos:prefLabel "hasIndex"@en .
 
-:EMMO_60577dea_9019_4537_ac41_80b0fb563d41 a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_2337e25c_3c60_43fc_a8f9_b11a3f974291 ;
-	rdfs:domain :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b ;
-	rdfs:range :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d ;
-	skos:prefLabel "hasSign"@en .
-# 
-# http://emmo.info/emmo#EMMO_7fb7fe7e_bdf9_4eeb_adad_e384dd5285c6
 
-:EMMO_7fb7fe7e_bdf9_4eeb_adad_e384dd5285c6 a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_60577dea_9019_4537_ac41_80b0fb563d41 ;
-	rdfs:range :EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b ;
-	skos:prefLabel "hasInterpretant"@en .
-# 
-# http://emmo.info/emmo#EMMO_a0a2ded8_54e8_408d_a6b0_7fd1b4d7d16d
+###  http://emmo.info/emmo#EMMO_39c3815d_8cae_4c8f_b2ff_eeba24bec455
+:EMMO_39c3815d_8cae_4c8f_b2ff_eeba24bec455 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_60577dea_9019_4537_ac41_80b0fb563d41 ;
+                                           rdfs:domain :EMMO_881606d0_6f2f_4947_bc8b_75c5b7b2b688 ;
+                                           rdfs:range :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 ;
+                                           skos:prefLabel "hasIcon"@en .
 
-:EMMO_a0a2ded8_54e8_408d_a6b0_7fd1b4d7d16d a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_f2fc1ce9_cc3b_4eb5_a112_3c85d1b1374a ;
-	rdfs:domain :EMMO_36a4c1ca_5085_49ca_9e13_4c70d00c50a5 ;
-	rdfs:range :EMMO_669d2749_bece_460a_b26a_9a909fd8ca4d ;
-	skos:prefLabel "hasDeduced"@en .
-# 
-# http://emmo.info/emmo#EMMO_cc823237_398d_4c9a_b8fa_aa157ee3e3a5
 
-:EMMO_cc823237_398d_4c9a_b8fa_aa157ee3e3a5 a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d ;
-	rdfs:domain :EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9 ;
-	rdfs:range :EMMO_2d72e38c_d587_437f_98f6_f2718fb130eb ;
-	skos:prefLabel "hasDeclarer"@en .
-# 
-# http://emmo.info/emmo#EMMO_e1097637_70d2_4895_973f_2396f04fa204
+###  http://emmo.info/emmo#EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d
+:EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_2337e25c_3c60_43fc_a8f9_b11a3f974291 ;
+                                           rdfs:domain :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d ;
+                                           rdfs:range :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee ;
+                                           skos:prefLabel "hasInterpreter"@en .
 
-:EMMO_e1097637_70d2_4895_973f_2396f04fa204 a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b ;
-	rdfs:domain :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b ;
-	rdfs:range :EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba ;
-	skos:prefLabel "hasProperty"@en .
-# 
-# http://emmo.info/emmo#EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b
 
-:EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_60577dea_9019_4537_ac41_80b0fb563d41 ;
-	rdfs:domain :EMMO_c9805ac9_a943_4be4_ac4b_6da64ba36c73 ;
-	rdfs:range :EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9 ;
-	skos:prefLabel "hasConvention"@en .
-# 
-# http://emmo.info/emmo#EMMO_f2fc1ce9_cc3b_4eb5_a112_3c85d1b1374a
+###  http://emmo.info/emmo#EMMO_51e72e5c_ab21_4d0e_ad9f_b168eca89cf4
+:EMMO_51e72e5c_ab21_4d0e_ad9f_b168eca89cf4 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_f2fc1ce9_cc3b_4eb5_a112_3c85d1b1374a ;
+                                           rdfs:domain :EMMO_19608340_178c_4bfd_bd4d_0d3b935c6fec ;
+                                           rdfs:range :EMMO_881606d0_6f2f_4947_bc8b_75c5b7b2b688 ;
+                                           skos:prefLabel "hasCognised"@en .
 
-:EMMO_f2fc1ce9_cc3b_4eb5_a112_3c85d1b1374a a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EMMO_2337e25c_3c60_43fc_a8f9_b11a3f974291 ;
-	rdfs:domain :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee ;
-	rdfs:range :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b ;
-	skos:altLabel "hasSemioticObject"@en ;
-	skos:prefLabel "hasReferent"@en .
-# 
-# 
-# 
-# #################################################################
-# #
-# #    Classes
-# #
-# #################################################################
-# 
-# 
-# http://emmo.info/emmo#EMMO_008fd3b2_4013_451f_8827_52bceab11841
 
-:EMMO_008fd3b2_4013_451f_8827_52bceab11841 a owl:Class ;
-	owl:equivalentClass _:genid1 .
+###  http://emmo.info/emmo#EMMO_5369d256_5866_4729_adc2_1498ee9a4959
+:EMMO_5369d256_5866_4729_adc2_1498ee9a4959 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d ;
+                                           rdfs:domain :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 ;
+                                           rdfs:range :EMMO_19608340_178c_4bfd_bd4d_0d3b935c6fec ;
+                                           skos:prefLabel "hasCogniser"@en .
 
-_:genid1 a owl:Class ;
-	owl:unionOf _:genid4 .
 
-_:genid4 a rdf:List ;
-	rdf:first :EMMO_39a4e2a4_d835_426d_b497_182d06e1caff ;
-	rdf:rest _:genid3 .
+###  http://emmo.info/emmo#EMMO_60577dea_9019_4537_ac41_80b0fb563d41
+:EMMO_60577dea_9019_4537_ac41_80b0fb563d41 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_2337e25c_3c60_43fc_a8f9_b11a3f974291 ;
+                                           rdfs:domain :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b ;
+                                           rdfs:range :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d ;
+                                           skos:prefLabel "hasSign"@en .
 
-_:genid3 a rdf:List ;
-	rdf:first :EMMO_47bf3513_4ae6_4858_9c45_76e23230d68d ;
-	rdf:rest _:genid2 .
 
-_:genid2 a rdf:List ;
-	rdf:first :EMMO_7cdc375d_d371_4d78_acd5_d51732f52126 ;
-	rdf:rest rdf:nil .
+###  http://emmo.info/emmo#EMMO_7fb7fe7e_bdf9_4eeb_adad_e384dd5285c6
+:EMMO_7fb7fe7e_bdf9_4eeb_adad_e384dd5285c6 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_60577dea_9019_4537_ac41_80b0fb563d41 ;
+                                           rdfs:range :EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b ;
+                                           skos:prefLabel "hasInterpretant"@en .
 
-:EMMO_008fd3b2_4013_451f_8827_52bceab11841 rdfs:subClassOf _:genid5 .
 
-_:genid5 a owl:Restriction ;
-	owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
-	owl:someValuesFrom :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee .
+###  http://emmo.info/emmo#EMMO_a0a2ded8_54e8_408d_a6b0_7fd1b4d7d16d
+:EMMO_a0a2ded8_54e8_408d_a6b0_7fd1b4d7d16d rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_f2fc1ce9_cc3b_4eb5_a112_3c85d1b1374a ;
+                                           rdfs:domain :EMMO_36a4c1ca_5085_49ca_9e13_4c70d00c50a5 ;
+                                           rdfs:range :EMMO_669d2749_bece_460a_b26a_9a909fd8ca4d ;
+                                           skos:prefLabel "hasDeduced"@en .
 
-:EMMO_008fd3b2_4013_451f_8827_52bceab11841 rdfs:subClassOf _:genid6 .
 
-_:genid6 a owl:Restriction ;
-	owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
-	owl:someValuesFrom :EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b .
+###  http://emmo.info/emmo#EMMO_cc823237_398d_4c9a_b8fa_aa157ee3e3a5
+:EMMO_cc823237_398d_4c9a_b8fa_aa157ee3e3a5 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d ;
+                                           rdfs:domain :EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9 ;
+                                           rdfs:range :EMMO_2d72e38c_d587_437f_98f6_f2718fb130eb ;
+                                           skos:prefLabel "hasDeclarer"@en .
 
-:EMMO_008fd3b2_4013_451f_8827_52bceab11841 rdfs:subClassOf _:genid7 .
 
-_:genid7 a owl:Restriction ;
-	owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
-	owl:someValuesFrom :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b .
+###  http://emmo.info/emmo#EMMO_e1097637_70d2_4895_973f_2396f04fa204
+:EMMO_e1097637_70d2_4895_973f_2396f04fa204 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b ;
+                                           rdfs:domain :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b ;
+                                           rdfs:range :EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba ;
+                                           skos:prefLabel "hasProperty"@en .
 
-:EMMO_008fd3b2_4013_451f_8827_52bceab11841 rdfs:subClassOf _:genid8 .
 
-_:genid8 a owl:Restriction ;
-	owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
-	owl:someValuesFrom :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d .
+###  http://emmo.info/emmo#EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b
+:EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_60577dea_9019_4537_ac41_80b0fb563d41 ;
+                                           rdfs:domain :EMMO_c9805ac9_a943_4be4_ac4b_6da64ba36c73 ;
+                                           rdfs:range :EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9 ;
+                                           skos:prefLabel "hasConvention"@en .
 
-:EMMO_008fd3b2_4013_451f_8827_52bceab11841 :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Process', that has participant an 'Interpreter', that is aimed to produce a 'Sign' representing another participant, the 'Object'."@en ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """Me looking a cat and saying loud: \"Cat!\" -> the semiosis process
+
+###  http://emmo.info/emmo#EMMO_f2fc1ce9_cc3b_4eb5_a112_3c85d1b1374a
+:EMMO_f2fc1ce9_cc3b_4eb5_a112_3c85d1b1374a rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_2337e25c_3c60_43fc_a8f9_b11a3f974291 ;
+                                           rdfs:domain :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee ;
+                                           rdfs:range :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b ;
+                                           skos:altLabel "hasSemioticObject"@en ;
+                                           skos:prefLabel "hasReferent"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://emmo.info/emmo#EMMO_008fd3b2_4013_451f_8827_52bceab11841
+:EMMO_008fd3b2_4013_451f_8827_52bceab11841 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_39a4e2a4_d835_426d_b497_182d06e1caff
+                                                                               :EMMO_47bf3513_4ae6_4858_9c45_76e23230d68d
+                                                                               :EMMO_7cdc375d_d371_4d78_acd5_d51732f52126
+                                                                             )
+                                                               ] ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:someValuesFrom :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:someValuesFrom :EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:someValuesFrom :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:someValuesFrom :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Process', that has participant an 'Interpreter', that is aimed to produce a 'Sign' representing another participant, the 'Object'."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """Me looking a cat and saying loud: \"Cat!\" -> the semiosis process
 
 me -> interpreter
 cat -> object (in Peirce semiotics)
 the cat perceived by my mind -> interpretant
 \"Cat!\" -> sign, the produced sign"""@en ;
-	skos:prefLabel "Semiosis"@en .
-# 
-# http://emmo.info/emmo#EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee
+                                           skos:prefLabel "Semiosis"@en .
 
-:EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee a owl:Class ;
-	owl:equivalentClass _:genid9 .
 
-_:genid9 a owl:Class ;
-	owl:unionOf _:genid12 .
-
-_:genid12 a rdf:List ;
-	rdf:first :EMMO_19608340_178c_4bfd_bd4d_0d3b935c6fec ;
-	rdf:rest _:genid11 .
-
-_:genid11 a rdf:List ;
-	rdf:first :EMMO_2d72e38c_d587_437f_98f6_f2718fb130eb ;
-	rdf:rest _:genid10 .
-
-_:genid10 a rdf:List ;
-	rdf:first :EMMO_36a4c1ca_5085_49ca_9e13_4c70d00c50a5 ;
-	rdf:rest rdf:nil .
-
-:EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee rdfs:subClassOf :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 , _:genid13 .
-
-_:genid13 a owl:Restriction ;
-	owl:onProperty :EMMO_f68030be_94b8_4c61_a161_886468558054 ;
-	owl:someValuesFrom :EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b .
-
-:EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee rdfs:subClassOf _:genid14 .
-
-_:genid14 a owl:Restriction ;
-	owl:onProperty _:genid15 .
-
-_:genid15 owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 .
-
-_:genid14 owl:someValuesFrom :EMMO_008fd3b2_4013_451f_8827_52bceab11841 .
-
-:EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The entity (or agent, or observer, or cognitive entity) who connects 'Sign', 'Interpretant' and 'Object'."@en ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """For example, the ontologist may be interest in cataloguing in the EMMO how the same object (e.g. a cat) is addressed using different signs (e.g. cat, gatto, chat) by different interpreters (e.g. english, italian or french people).
+###  http://emmo.info/emmo#EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee
+:EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_19608340_178c_4bfd_bd4d_0d3b935c6fec
+                                                                               :EMMO_2d72e38c_d587_437f_98f6_f2718fb130eb
+                                                                               :EMMO_36a4c1ca_5085_49ca_9e13_4c70d00c50a5
+                                                                             )
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_f68030be_94b8_4c61_a161_886468558054 ;
+                                                             owl:someValuesFrom :EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_008fd3b2_4013_451f_8827_52bceab11841
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The entity (or agent, or observer, or cognitive entity) who connects 'Sign', 'Interpretant' and 'Object'."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """For example, the ontologist may be interest in cataloguing in the EMMO how the same object (e.g. a cat) is addressed using different signs (e.g. cat, gatto, chat) by different interpreters (e.g. english, italian or french people).
 
 The same applies for the results of measurements: the ontologist may be interest to represent in the EMMO how different measurement processes (i.e. semiosis) lead to different quantitative results (i.e. signs) according to different measurement devices (i.e. interpreters)."""@en ;
-	rdfs:comment """The interpreter is not the ontologist, being the ontologist acting outside the ontology at the meta-ontology level. 
+                                           rdfs:comment """The interpreter is not the ontologist, being the ontologist acting outside the ontology at the meta-ontology level. 
 
 On the contrary, the interpreter is an agent recognized by the ontologist. The semiotic branch of the EMMO is the tool used by the ontologist to represent an interpreter's semiotic activity."""@en ;
-	skos:prefLabel "Interpreter"@en .
-# 
-# http://emmo.info/emmo#EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b
+                                           skos:prefLabel "Interpreter"@en .
 
-:EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b a owl:Class ;
-	rdfs:subClassOf :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The interpreter's internal representation of the object in a semiosis process."@en ;
-	skos:prefLabel "Interpretant"@en .
-# 
-# http://emmo.info/emmo#EMMO_0cd58641_824c_4851_907f_f4c3be76630c
 
-:EMMO_0cd58641_824c_4851_907f_f4c3be76630c a owl:Class ;
-	rdfs:subClassOf _:genid16 .
+###  http://emmo.info/emmo#EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b
+:EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The interpreter's internal representation of the object in a semiosis process."@en ;
+                                           skos:prefLabel "Interpretant"@en .
 
-_:genid16 a owl:Restriction ;
-	owl:onProperty _:genid17 .
 
-_:genid17 owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 .
-
-_:genid16 owl:someValuesFrom :EMMO_39a4e2a4_d835_426d_b497_182d06e1caff .
-
-:EMMO_0cd58641_824c_4851_907f_f4c3be76630c :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Sign' that stands for an 'Object' due to causal continguity."@en ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """Smoke stands for a combustion process (a fire).
+###  http://emmo.info/emmo#EMMO_0cd58641_824c_4851_907f_f4c3be76630c
+:EMMO_0cd58641_824c_4851_907f_f4c3be76630c rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_39a4e2a4_d835_426d_b497_182d06e1caff
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Sign' that stands for an 'Object' due to causal continguity."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """Smoke stands for a combustion process (a fire).
 My facial expression stands for my emotional status."""@en ;
-	skos:prefLabel "Index"@en .
+                                           skos:prefLabel "Index"@en .
 
-_:genid18 a owl:Axiom ;
-	owl:annotatedSource :EMMO_0cd58641_824c_4851_907f_f4c3be76630c ;
-	owl:annotatedProperty skos:prefLabel ;
-	owl:annotatedTarget "Index"@en ;
-	:EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin index (“a discoverer, informer, spy; of things, an indicator, the forefinger, a title, superscription”), from indicō (“point out, show”)."@en .
-# 
-# http://emmo.info/emmo#EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_0cd58641_824c_4851_907f_f4c3be76630c ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "Index"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin index (“a discoverer, informer, spy; of things, an indicator, the forefinger, a title, superscription”), from indicō (“point out, show”)."@en
+ ] .
 
-:EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069 a owl:Class ;
-	owl:equivalentClass _:genid19 .
 
-_:genid19 a owl:Class ;
-	owl:unionOf _:genid21 .
+###  http://emmo.info/emmo#EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069
+:EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_1c0b22a2_be82_4fa8_9e2b_a569a625d442
+                                                                               :EMMO_3b19eab4_79be_4b02_bdaf_ecf1f0067a68
+                                                                             )
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_47bf3513_4ae6_4858_9c45_76e23230d68d ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:someValuesFrom :EMMO_1b52ee70_121e_4d8d_8419_3f97cd0bd89c
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:someValuesFrom :EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Semiosis' that involves an 'Observer' that perceives another 'Physical' (the 'Object') through a specific perception mechanism and produces a 'Property' (the 'Sign') that stands for the result of that particular perception according to a well defined conventional procedure."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Assigning the word \"red\" as sign for an object provides an information to all other interpreters about the outcome of a specific observation procedure according to the determiner."@en ;
+                                           skos:altLabel "Characterisation"@en ;
+                                           skos:prefLabel "Determination"@en .
 
-_:genid21 a rdf:List ;
-	rdf:first :EMMO_1c0b22a2_be82_4fa8_9e2b_a569a625d442 ;
-	rdf:rest _:genid20 .
 
-_:genid20 a rdf:List ;
-	rdf:first :EMMO_3b19eab4_79be_4b02_bdaf_ecf1f0067a68 ;
-	rdf:rest rdf:nil .
+###  http://emmo.info/emmo#EMMO_19608340_178c_4bfd_bd4d_0d3b935c6fec
+:EMMO_19608340_178c_4bfd_bd4d_0d3b935c6fec rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_7cdc375d_d371_4d78_acd5_d51732f52126
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An interpreter who establish the connection between an icon an an object recognizing their resemblance (e.g. logical, pictorial)"@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "The scientist that connects an equation to a physical phenomenon." ;
+                                           skos:prefLabel "Cogniser"@en .
 
-:EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069 rdfs:subClassOf :EMMO_47bf3513_4ae6_4858_9c45_76e23230d68d , _:genid22 .
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_19608340_178c_4bfd_bd4d_0d3b935c6fec ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "Cogniser"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin cognitio (“knowledge, perception, a judicial examination, trial”), from cognitus, past participle of cognoscere (“to know”), from co- (“together”) + *gnoscere, older form of noscere (“to know”"@en
+ ] .
 
-_:genid22 a owl:Restriction ;
-	owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
-	owl:someValuesFrom :EMMO_1b52ee70_121e_4d8d_8419_3f97cd0bd89c .
 
-:EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069 rdfs:subClassOf _:genid23 .
+###  http://emmo.info/emmo#EMMO_1b52ee70_121e_4d8d_8419_3f97cd0bd89c
+:EMMO_1b52ee70_121e_4d8d_8419_3f97cd0bd89c rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_4a1c73f1_b6f5_4d10_a3a6_5de90bac7cd0
+                                                                               :EMMO_ea67caa5_2609_4e91_98ae_81103f2d5c25
+                                                                             )
+                                                               ] ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An 'interpreter' that perceives another 'entity' (the 'object') through a specific perception mechanism and produces a 'property' (the 'sign') that stands for the result of that particular perception."@en ;
+                                           skos:prefLabel "Determiner"@en .
 
-_:genid23 a owl:Restriction ;
-	owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
-	owl:someValuesFrom :EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
 
-:EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069 :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Semiosis' that involves an 'Observer' that perceives another 'Physical' (the 'Object') through a specific perception mechanism and produces a 'Property' (the 'Sign') that stands for the result of that particular perception according to a well defined conventional procedure."@en ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Assigning the word \"red\" as sign for an object provides an information to all other interpreters about the outcome of a specific observation procedure according to the determiner."@en ;
-	skos:altLabel "Characterisation"@en ;
-	skos:prefLabel "Determination"@en .
-# 
-# http://emmo.info/emmo#EMMO_19608340_178c_4bfd_bd4d_0d3b935c6fec
+###  http://emmo.info/emmo#EMMO_1b6a95fb_3df7_44c9_ad3d_419c9c5fe7cb
+:EMMO_1b6a95fb_3df7_44c9_ad3d_419c9c5fe7cb rdf:type owl:Class ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "The biography of a person met by the author."@en ;
+                                           skos:prefLabel "Observed"@en .
 
-:EMMO_19608340_178c_4bfd_bd4d_0d3b935c6fec a owl:Class ;
-	rdfs:subClassOf _:genid24 .
 
-_:genid24 a owl:Restriction ;
-	owl:onProperty _:genid25 .
+###  http://emmo.info/emmo#EMMO_1c0b22a2_be82_4fa8_9e2b_a569a625d442
+:EMMO_1c0b22a2_be82_4fa8_9e2b_a569a625d442 rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_4a1c73f1_b6f5_4d10_a3a6_5de90bac7cd0
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A determination of an object without any actual interaction."@en ;
+                                           skos:prefLabel "Estimation"@en .
 
-_:genid25 owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 .
 
-_:genid24 owl:someValuesFrom :EMMO_7cdc375d_d371_4d78_acd5_d51732f52126 .
-
-:EMMO_19608340_178c_4bfd_bd4d_0d3b935c6fec :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An interpreter who establish the connection between an icon an an object recognizing their resemblance (e.g. logical, pictorial)"@en ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "The scientist that connects an equation to a physical phenomenon." ;
-	skos:prefLabel "Cogniser"@en .
-
-_:genid26 a owl:Axiom ;
-	owl:annotatedSource :EMMO_19608340_178c_4bfd_bd4d_0d3b935c6fec ;
-	owl:annotatedProperty skos:prefLabel ;
-	owl:annotatedTarget "Cogniser"@en ;
-	:EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin cognitio (“knowledge, perception, a judicial examination, trial”), from cognitus, past participle of cognoscere (“to know”), from co- (“together”) + *gnoscere, older form of noscere (“to know”"@en .
-# 
-# http://emmo.info/emmo#EMMO_1b52ee70_121e_4d8d_8419_3f97cd0bd89c
-
-:EMMO_1b52ee70_121e_4d8d_8419_3f97cd0bd89c a owl:Class ;
-	owl:equivalentClass _:genid27 .
-
-_:genid27 a owl:Class ;
-	owl:unionOf _:genid29 .
-
-_:genid29 a rdf:List ;
-	rdf:first :EMMO_4a1c73f1_b6f5_4d10_a3a6_5de90bac7cd0 ;
-	rdf:rest _:genid28 .
-
-_:genid28 a rdf:List ;
-	rdf:first :EMMO_ea67caa5_2609_4e91_98ae_81103f2d5c25 ;
-	rdf:rest rdf:nil .
-
-:EMMO_1b52ee70_121e_4d8d_8419_3f97cd0bd89c rdfs:subClassOf _:genid30 .
-
-_:genid30 a owl:Restriction ;
-	owl:onProperty _:genid31 .
-
-_:genid31 owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 .
-
-_:genid30 owl:someValuesFrom :EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069 .
-
-:EMMO_1b52ee70_121e_4d8d_8419_3f97cd0bd89c :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An 'interpreter' that perceives another 'entity' (the 'object') through a specific perception mechanism and produces a 'property' (the 'sign') that stands for the result of that particular perception."@en ;
-	skos:prefLabel "Determiner"@en .
-# 
-# http://emmo.info/emmo#EMMO_1b6a95fb_3df7_44c9_ad3d_419c9c5fe7cb
-
-:EMMO_1b6a95fb_3df7_44c9_ad3d_419c9c5fe7cb a owl:Class ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "The biography of a person met by the author."@en ;
-	skos:prefLabel "Observed"@en .
-# 
-# http://emmo.info/emmo#EMMO_1c0b22a2_be82_4fa8_9e2b_a569a625d442
-
-:EMMO_1c0b22a2_be82_4fa8_9e2b_a569a625d442 a owl:Class ;
-	rdfs:subClassOf _:genid32 .
-
-_:genid32 a owl:Restriction ;
-	owl:onProperty _:genid33 .
-
-_:genid33 owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 .
-
-_:genid32 owl:someValuesFrom :EMMO_4a1c73f1_b6f5_4d10_a3a6_5de90bac7cd0 .
-
-:EMMO_1c0b22a2_be82_4fa8_9e2b_a569a625d442 :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A determination of an object without any actual interaction."@en ;
-	skos:prefLabel "Estimation"@en .
-# 
-# http://emmo.info/emmo#EMMO_251cfb4f_5c75_4778_91ed_6c8395212fd8
-
-:EMMO_251cfb4f_5c75_4778_91ed_6c8395212fd8 a owl:Class ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A coded conventional that cannot be univocally determined and depends on an agent (e.g. a human individual, a community) acting as black-box."@en ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """The beauty of that girl.
+###  http://emmo.info/emmo#EMMO_251cfb4f_5c75_4778_91ed_6c8395212fd8
+:EMMO_251cfb4f_5c75_4778_91ed_6c8395212fd8 rdf:type owl:Class ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A coded conventional that cannot be univocally determined and depends on an agent (e.g. a human individual, a community) acting as black-box."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """The beauty of that girl.
 The style of your clothing."""@en ;
-	rdfs:comment """The word subjective applies to property intrisically subjective or non-well defined. In general, when an black-box-like procedure is used for the definition of the property.
+                                           rdfs:comment """The word subjective applies to property intrisically subjective or non-well defined. In general, when an black-box-like procedure is used for the definition of the property.
 
 This happens due to e.g. the complexity of the object, the lack of a underlying model for the representation of the object, the non-well specified meaning of the property symbols.
 
 A 'SubjectiveProperty' cannot be used to univocally compare 'Object'-s.
 
 e.g. you cannot evaluate the beauty of a person on objective basis."""@en ;
-	skos:prefLabel "Subjective"@en .
-# 
-# http://emmo.info/emmo#EMMO_2a888cdf_ec4a_4ec5_af1c_0343372fc978
+                                           skos:prefLabel "Subjective"@en .
 
-:EMMO_2a888cdf_ec4a_4ec5_af1c_0343372fc978 a owl:Class ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A coded conventional that is determined by each interpeter following a well defined determination procedure through a specific perception channel."@en ;
-	rdfs:comment """The word objective does not mean that each observation will provide the same results. It means that the observation followed a well defined procedure.
+
+###  http://emmo.info/emmo#EMMO_2a888cdf_ec4a_4ec5_af1c_0343372fc978
+:EMMO_2a888cdf_ec4a_4ec5_af1c_0343372fc978 rdf:type owl:Class ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A coded conventional that is determined by each interpeter following a well defined determination procedure through a specific perception channel."@en ;
+                                           rdfs:comment """The word objective does not mean that each observation will provide the same results. It means that the observation followed a well defined procedure.
 
 This class refers to what is commonly known as physical property, i.e. a measurable property of physical system, whether is quantifiable or not."""@en ;
-	skos:prefLabel "Objective"@en .
-# 
-# http://emmo.info/emmo#EMMO_2d72e38c_d587_437f_98f6_f2718fb130eb
-
-:EMMO_2d72e38c_d587_437f_98f6_f2718fb130eb a owl:Class ;
-	owl:equivalentClass _:genid34 .
-
-_:genid34 a owl:Class ;
-	owl:unionOf _:genid36 .
-
-_:genid36 a rdf:List ;
-	rdf:first :EMMO_1b52ee70_121e_4d8d_8419_3f97cd0bd89c ;
-	rdf:rest _:genid35 .
-
-_:genid35 a rdf:List ;
-	rdf:first :EMMO_421167c0_1ea5_405f_970f_a41e9cb308f9 ;
-	rdf:rest rdf:nil .
-
-:EMMO_2d72e38c_d587_437f_98f6_f2718fb130eb rdfs:subClassOf _:genid37 .
-
-_:genid37 a owl:Restriction ;
-	owl:onProperty _:genid38 .
-
-_:genid38 owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 .
-
-_:genid37 owl:someValuesFrom :EMMO_47bf3513_4ae6_4858_9c45_76e23230d68d .
-
-:EMMO_2d72e38c_d587_437f_98f6_f2718fb130eb :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An interpreter who establish the connection between an conventional sign and an object according to a specific convention."@en ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A scientist that assigns a quantity to a physical objects without actually measuring it but taking it for granted due to its previous experience (e.g. considering an electron charge as 1.6027663e-19 C, assigning a molecular mass to a gas only by the fact of a name on the bottle)." , "Someone who assigns a name to an object." ;
-	skos:prefLabel "Declarer"@en .
-# 
-# http://emmo.info/emmo#EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9
-
-:EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9 a owl:Class ;
-	owl:equivalentClass _:genid39 .
-
-_:genid39 a owl:Class ;
-	owl:unionOf _:genid41 .
-
-_:genid41 a rdf:List ;
-	rdf:first :EMMO_6e78433a_dbb9_409a_a7c0_4037f79d4ed8 ;
-	rdf:rest _:genid40 .
-
-_:genid40 a rdf:List ;
-	rdf:first :EMMO_7286b164_df4c_4c14_a4b5_d41ad9c121f3 ;
-	rdf:rest rdf:nil .
-
-:EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9 rdfs:subClassOf _:genid42 .
-
-_:genid42 a owl:Restriction ;
-	owl:onProperty _:genid43 .
-
-_:genid43 owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 .
-
-_:genid42 owl:someValuesFrom :EMMO_47bf3513_4ae6_4858_9c45_76e23230d68d .
-
-:EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9 :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Sign' that stands for an 'Object' through convention, norm or habit, without any resemblance to it."@en ;
-	rdfs:comment "In Peirce semiotics this kind of sign category is called symbol. However, since symbol is also used in formal languages, the name is changed in conventional."@en ;
-	skos:prefLabel "Conventional"@en .
-# 
-# http://emmo.info/emmo#EMMO_35d4c439_fcb6_4399_a855_a89a207b41e9
-
-:EMMO_35d4c439_fcb6_4399_a855_a89a207b41e9 a owl:Class ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A coded that is not atomic with respect to a code of description."@en ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A biography."@en , "A sentence about some object, depticting its properties."@en ;
-	:EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A description is a collection of properties that depicts an object. It is not atomic since it is made of several properties collected together."@en ;
-	skos:prefLabel "Description"@en .
-# 
-# http://emmo.info/emmo#EMMO_36a4c1ca_5085_49ca_9e13_4c70d00c50a5
-
-:EMMO_36a4c1ca_5085_49ca_9e13_4c70d00c50a5 a owl:Class ;
-	rdfs:subClassOf _:genid44 .
-
-_:genid44 a owl:Restriction ;
-	owl:onProperty _:genid45 .
-
-_:genid45 owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 .
-
-_:genid44 owl:someValuesFrom :EMMO_39a4e2a4_d835_426d_b497_182d06e1caff .
-
-:EMMO_36a4c1ca_5085_49ca_9e13_4c70d00c50a5 :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An interpreter who establish the connection between an index sign and an object according to a causal contiguity."@en ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Someone who deduces an emotional status of a persona according to facial expression." , "Someone who deduces the occurring of a physical phenomenon through other phenomena." ;
-	skos:prefLabel "Deducer"@en .
-# 
-# http://emmo.info/emmo#EMMO_39a4e2a4_d835_426d_b497_182d06e1caff
-
-:EMMO_39a4e2a4_d835_426d_b497_182d06e1caff a owl:Class ;
-	rdfs:subClassOf _:genid46 .
-
-_:genid46 a owl:Restriction ;
-	owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
-	owl:someValuesFrom :EMMO_0cd58641_824c_4851_907f_f4c3be76630c .
-
-:EMMO_39a4e2a4_d835_426d_b497_182d06e1caff rdfs:subClassOf _:genid47 .
-
-_:genid47 a owl:Restriction ;
-	owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
-	owl:someValuesFrom :EMMO_36a4c1ca_5085_49ca_9e13_4c70d00c50a5 .
-
-:EMMO_39a4e2a4_d835_426d_b497_182d06e1caff rdfs:subClassOf _:genid48 .
-
-_:genid48 a owl:Restriction ;
-	owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
-	owl:someValuesFrom :EMMO_669d2749_bece_460a_b26a_9a909fd8ca4d .
-
-:EMMO_39a4e2a4_d835_426d_b497_182d06e1caff skos:altLabel "IndexSemiosis"@en ;
-	skos:prefLabel "Deduction"@en .
-# 
-# http://emmo.info/emmo#EMMO_3b19eab4_79be_4b02_bdaf_ecf1f0067a68
-
-:EMMO_3b19eab4_79be_4b02_bdaf_ecf1f0067a68 a owl:Class ;
-	rdfs:subClassOf _:genid49 .
-
-_:genid49 a owl:Restriction ;
-	owl:onProperty _:genid50 .
-
-_:genid50 owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 .
-
-_:genid49 owl:someValuesFrom :EMMO_ea67caa5_2609_4e91_98ae_81103f2d5c25 .
-
-:EMMO_3b19eab4_79be_4b02_bdaf_ecf1f0067a68 :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A characterisation of an object with an actual interaction."@en ;
-	skos:prefLabel "Observation"@en .
-
-_:genid51 a owl:Axiom ;
-	owl:annotatedSource :EMMO_3b19eab4_79be_4b02_bdaf_ecf1f0067a68 ;
-	owl:annotatedProperty skos:prefLabel ;
-	owl:annotatedTarget "Observation"@en ;
-	:EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin observare (“to watch, note, mark, heed, guard, keep, pay attention to, regard, comply with, etc.”), from ob (“before”) + servare (“to keep”),"@en .
-# 
-# http://emmo.info/emmo#EMMO_421167c0_1ea5_405f_970f_a41e9cb308f9
-
-:EMMO_421167c0_1ea5_405f_970f_a41e9cb308f9 a owl:Class ;
-	rdfs:subClassOf :EMMO_2d72e38c_d587_437f_98f6_f2718fb130eb ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An interpreter who assigns a name to an object without any motivations related to the object characters."@en ;
-	skos:prefLabel "Namer"@en .
-# 
-# http://emmo.info/emmo#EMMO_47bf3513_4ae6_4858_9c45_76e23230d68d
-
-:EMMO_47bf3513_4ae6_4858_9c45_76e23230d68d a owl:Class ;
-	owl:equivalentClass _:genid52 .
-
-_:genid52 a owl:Class ;
-	owl:unionOf _:genid54 .
-
-_:genid54 a rdf:List ;
-	rdf:first :EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069 ;
-	rdf:rest _:genid53 .
-
-_:genid53 a rdf:List ;
-	rdf:first :EMMO_e999f9e0_7d63_4564_9028_07246580a267 ;
-	rdf:rest rdf:nil .
-
-:EMMO_47bf3513_4ae6_4858_9c45_76e23230d68d rdfs:subClassOf _:genid55 .
-
-_:genid55 a owl:Restriction ;
-	owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
-	owl:someValuesFrom :EMMO_2d72e38c_d587_437f_98f6_f2718fb130eb .
-
-:EMMO_47bf3513_4ae6_4858_9c45_76e23230d68d rdfs:subClassOf _:genid56 .
-
-_:genid56 a owl:Restriction ;
-	owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
-	owl:someValuesFrom :EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9 .
-
-:EMMO_47bf3513_4ae6_4858_9c45_76e23230d68d rdfs:subClassOf _:genid57 .
-
-_:genid57 a owl:Restriction ;
-	owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
-	owl:someValuesFrom :EMMO_c9805ac9_a943_4be4_ac4b_6da64ba36c73 .
-
-:EMMO_47bf3513_4ae6_4858_9c45_76e23230d68d skos:altLabel "ConventionalSemiosis"@en ;
-	skos:prefLabel "Declaration"@en .
-# 
-# http://emmo.info/emmo#EMMO_4a1c73f1_b6f5_4d10_a3a6_5de90bac7cd0
-
-:EMMO_4a1c73f1_b6f5_4d10_a3a6_5de90bac7cd0 a owl:Class ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A characteriser that declares a property for an object without actually interact with it with the specific interaction required by the property definition (i.e. infer a property from other properties)."@en ;
-	skos:prefLabel "Estimator"@en .
-# 
-# http://emmo.info/emmo#EMMO_4f2d1fcc_e20c_4479_9ad7_7a0480dd3e44
-
-:EMMO_4f2d1fcc_e20c_4479_9ad7_7a0480dd3e44 a owl:Class ;
-	rdfs:subClassOf :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An icon that represents the internal logical structure of the object."@en ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A physics equation is replicating the mechanisms internal to the object."@en , "Electrical diagram is diagrammatic and resemblance"@en , "MODA and CHADA are diagrammatic representation of a simulation or a characterisation workflow."@en ;
-	:EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "An icon that focus on HOW the object works."@en , "The subclass of icon inspired by Peirceian category (b) the diagram, whose internal relations, mainly dyadic or so taken, represent by analogy (with the same logic) the relations in something (e.g. math formula, geometric flowchart)."@en ;
-	skos:prefLabel "AnalogicalIcon"@en .
-
-_:genid58 a owl:Axiom ;
-	owl:annotatedSource :EMMO_4f2d1fcc_e20c_4479_9ad7_7a0480dd3e44 ;
-	owl:annotatedProperty skos:prefLabel ;
-	owl:annotatedTarget "AnalogicalIcon"@en ;
-	:EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Ancient Greek ἀναλογία (analogía), from ἀνά (aná) + λόγος (lógos, “speech, reckoning”)."@en .
-# 
-# http://emmo.info/emmo#EMMO_669d2749_bece_460a_b26a_9a909fd8ca4d
-
-:EMMO_669d2749_bece_460a_b26a_9a909fd8ca4d a owl:Class ;
-	skos:prefLabel "Deduced"@en .
-# 
-# http://emmo.info/emmo#EMMO_6e78433a_dbb9_409a_a7c0_4037f79d4ed8
-
-:EMMO_6e78433a_dbb9_409a_a7c0_4037f79d4ed8 a owl:Class ;
-	rdfs:subClassOf :EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9 , _:genid59 .
-
-_:genid59 a owl:Restriction ;
-	owl:onProperty _:genid60 .
-
-_:genid60 owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 .
-
-_:genid59 owl:someValuesFrom :EMMO_e999f9e0_7d63_4564_9028_07246580a267 .
-
-:EMMO_6e78433a_dbb9_409a_a7c0_4037f79d4ed8 :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A conventional that provides no possibility to infer the characteristics of the object to which it refers."@en ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A random generated id for a product."@en ;
-	skos:prefLabel "Uncoded"@en .
-# 
-# http://emmo.info/emmo#EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b
-
-:EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b a owl:Class ;
-	owl:equivalentClass _:genid61 .
-
-_:genid61 a owl:Class ;
-	owl:unionOf _:genid64 .
-
-_:genid64 a rdf:List ;
-	rdf:first :EMMO_669d2749_bece_460a_b26a_9a909fd8ca4d ;
-	rdf:rest _:genid63 .
-
-_:genid63 a rdf:List ;
-	rdf:first :EMMO_881606d0_6f2f_4947_bc8b_75c5b7b2b688 ;
-	rdf:rest _:genid62 .
-
-_:genid62 a rdf:List ;
-	rdf:first :EMMO_c9805ac9_a943_4be4_ac4b_6da64ba36c73 ;
-	rdf:rest rdf:nil .
-
-:EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b rdfs:subClassOf :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The object, in Peirce semiotics, as participant to a semiotic process."@en ;
-	rdfs:comment """Here is assumed that the concept of 'object' is always relative to a 'semiotic' process. An 'object' does not exists per se, but it's always part of an interpretation.
+                                           skos:prefLabel "Objective"@en .
+
+
+###  http://emmo.info/emmo#EMMO_2d72e38c_d587_437f_98f6_f2718fb130eb
+:EMMO_2d72e38c_d587_437f_98f6_f2718fb130eb rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_1b52ee70_121e_4d8d_8419_3f97cd0bd89c
+                                                                               :EMMO_421167c0_1ea5_405f_970f_a41e9cb308f9
+                                                                             )
+                                                               ] ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_47bf3513_4ae6_4858_9c45_76e23230d68d
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An interpreter who establish the connection between an conventional sign and an object according to a specific convention."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A scientist that assigns a quantity to a physical objects without actually measuring it but taking it for granted due to its previous experience (e.g. considering an electron charge as 1.6027663e-19 C, assigning a molecular mass to a gas only by the fact of a name on the bottle)." ,
+                                                                                      "Someone who assigns a name to an object." ;
+                                           skos:prefLabel "Declarer"@en .
+
+
+###  http://emmo.info/emmo#EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9
+:EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_6e78433a_dbb9_409a_a7c0_4037f79d4ed8
+                                                                               :EMMO_7286b164_df4c_4c14_a4b5_d41ad9c121f3
+                                                                             )
+                                                               ] ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_47bf3513_4ae6_4858_9c45_76e23230d68d
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Sign' that stands for an 'Object' through convention, norm or habit, without any resemblance to it."@en ;
+                                           rdfs:comment "In Peirce semiotics this kind of sign category is called symbol. However, since symbol is also used in formal languages, the name is changed in conventional."@en ;
+                                           skos:prefLabel "Conventional"@en .
+
+
+###  http://emmo.info/emmo#EMMO_35d4c439_fcb6_4399_a855_a89a207b41e9
+:EMMO_35d4c439_fcb6_4399_a855_a89a207b41e9 rdf:type owl:Class ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A coded that is not atomic with respect to a code of description."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A biography."@en ,
+                                                                                      "A sentence about some object, depticting its properties."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A description is a collection of properties that depicts an object. It is not atomic since it is made of several properties collected together."@en ;
+                                           skos:prefLabel "Description"@en .
+
+
+###  http://emmo.info/emmo#EMMO_36a4c1ca_5085_49ca_9e13_4c70d00c50a5
+:EMMO_36a4c1ca_5085_49ca_9e13_4c70d00c50a5 rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_39a4e2a4_d835_426d_b497_182d06e1caff
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An interpreter who establish the connection between an index sign and an object according to a causal contiguity."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Someone who deduces an emotional status of a persona according to facial expression." ,
+                                                                                      "Someone who deduces the occurring of a physical phenomenon through other phenomena." ;
+                                           skos:prefLabel "Deducer"@en .
+
+
+###  http://emmo.info/emmo#EMMO_39a4e2a4_d835_426d_b497_182d06e1caff
+:EMMO_39a4e2a4_d835_426d_b497_182d06e1caff rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:someValuesFrom :EMMO_0cd58641_824c_4851_907f_f4c3be76630c
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:someValuesFrom :EMMO_36a4c1ca_5085_49ca_9e13_4c70d00c50a5
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:someValuesFrom :EMMO_669d2749_bece_460a_b26a_9a909fd8ca4d
+                                                           ] ;
+                                           skos:altLabel "IndexSemiosis"@en ;
+                                           skos:prefLabel "Deduction"@en .
+
+
+###  http://emmo.info/emmo#EMMO_3b19eab4_79be_4b02_bdaf_ecf1f0067a68
+:EMMO_3b19eab4_79be_4b02_bdaf_ecf1f0067a68 rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_ea67caa5_2609_4e91_98ae_81103f2d5c25
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A characterisation of an object with an actual interaction."@en ;
+                                           skos:prefLabel "Observation"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_3b19eab4_79be_4b02_bdaf_ecf1f0067a68 ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "Observation"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin observare (“to watch, note, mark, heed, guard, keep, pay attention to, regard, comply with, etc.”), from ob (“before”) + servare (“to keep”),"@en
+ ] .
+
+
+###  http://emmo.info/emmo#EMMO_421167c0_1ea5_405f_970f_a41e9cb308f9
+:EMMO_421167c0_1ea5_405f_970f_a41e9cb308f9 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_2d72e38c_d587_437f_98f6_f2718fb130eb ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An interpreter who assigns a name to an object without any motivations related to the object characters."@en ;
+                                           skos:prefLabel "Namer"@en .
+
+
+###  http://emmo.info/emmo#EMMO_47bf3513_4ae6_4858_9c45_76e23230d68d
+:EMMO_47bf3513_4ae6_4858_9c45_76e23230d68d rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069
+                                                                               :EMMO_e999f9e0_7d63_4564_9028_07246580a267
+                                                                             )
+                                                               ] ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:someValuesFrom :EMMO_2d72e38c_d587_437f_98f6_f2718fb130eb
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:someValuesFrom :EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:someValuesFrom :EMMO_c9805ac9_a943_4be4_ac4b_6da64ba36c73
+                                                           ] ;
+                                           skos:altLabel "ConventionalSemiosis"@en ;
+                                           skos:prefLabel "Declaration"@en .
+
+
+###  http://emmo.info/emmo#EMMO_4a1c73f1_b6f5_4d10_a3a6_5de90bac7cd0
+:EMMO_4a1c73f1_b6f5_4d10_a3a6_5de90bac7cd0 rdf:type owl:Class ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A characteriser that declares a property for an object without actually interact with it with the specific interaction required by the property definition (i.e. infer a property from other properties)."@en ;
+                                           skos:prefLabel "Estimator"@en .
+
+
+###  http://emmo.info/emmo#EMMO_4f2d1fcc_e20c_4479_9ad7_7a0480dd3e44
+:EMMO_4f2d1fcc_e20c_4479_9ad7_7a0480dd3e44 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An icon that represents the internal logical structure of the object."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A physics equation is replicating the mechanisms internal to the object."@en ,
+                                                                                      "Electrical diagram is diagrammatic and resemblance"@en ,
+                                                                                      "MODA and CHADA are diagrammatic representation of a simulation or a characterisation workflow."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "An icon that focus on HOW the object works."@en ,
+                                                                                      "The subclass of icon inspired by Peirceian category (b) the diagram, whose internal relations, mainly dyadic or so taken, represent by analogy (with the same logic) the relations in something (e.g. math formula, geometric flowchart)."@en ;
+                                           skos:prefLabel "AnalogicalIcon"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_4f2d1fcc_e20c_4479_9ad7_7a0480dd3e44 ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "AnalogicalIcon"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Ancient Greek ἀναλογία (analogía), from ἀνά (aná) + λόγος (lógos, “speech, reckoning”)."@en
+ ] .
+
+
+###  http://emmo.info/emmo#EMMO_669d2749_bece_460a_b26a_9a909fd8ca4d
+:EMMO_669d2749_bece_460a_b26a_9a909fd8ca4d rdf:type owl:Class ;
+                                           skos:prefLabel "Deduced"@en .
+
+
+###  http://emmo.info/emmo#EMMO_6e78433a_dbb9_409a_a7c0_4037f79d4ed8
+:EMMO_6e78433a_dbb9_409a_a7c0_4037f79d4ed8 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_e999f9e0_7d63_4564_9028_07246580a267
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A conventional that provides no possibility to infer the characteristics of the object to which it refers."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A random generated id for a product."@en ;
+                                           skos:prefLabel "Uncoded"@en .
+
+
+###  http://emmo.info/emmo#EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b
+:EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_669d2749_bece_460a_b26a_9a909fd8ca4d
+                                                                               :EMMO_881606d0_6f2f_4947_bc8b_75c5b7b2b688
+                                                                               :EMMO_c9805ac9_a943_4be4_ac4b_6da64ba36c73
+                                                                             )
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The object, in Peirce semiotics, as participant to a semiotic process."@en ;
+                                           rdfs:comment """Here is assumed that the concept of 'object' is always relative to a 'semiotic' process. An 'object' does not exists per se, but it's always part of an interpretation.
 
 The EMMO relies on strong reductionism, i.e. everything real is a formless collection of elementary particles: we give a meaning to real world entities only by giving them boundaries and defining them using 'sign'-s.
 
 In this way the 'sign'-ed entity becomes an 'object', and the 'object' is the basic entity needed in order to apply a logical formalism to the real world entities (i.e. we can speak of it through its sign, and use logics on it through its sign)."""@en ;
-	skos:altLabel "Object"@en ;
-	skos:prefLabel "SemioticObject"@en .
-# 
-# http://emmo.info/emmo#EMMO_7286b164_df4c_4c14_a4b5_d41ad9c121f3
+                                           skos:altLabel "Object"@en ;
+                                           skos:prefLabel "SemioticObject"@en .
 
-:EMMO_7286b164_df4c_4c14_a4b5_d41ad9c121f3 a owl:Class ;
-	owl:equivalentClass _:genid65 .
 
-_:genid65 a owl:Class ;
-	owl:unionOf _:genid67 .
-
-_:genid67 a rdf:List ;
-	rdf:first :EMMO_1b6a95fb_3df7_44c9_ad3d_419c9c5fe7cb ;
-	rdf:rest _:genid66 .
-
-_:genid66 a rdf:List ;
-	rdf:first :EMMO_9b87d718_9dcc_4f7d_ad20_12c2aa4c76be ;
-	rdf:rest rdf:nil .
-
-:EMMO_7286b164_df4c_4c14_a4b5_d41ad9c121f3 owl:equivalentClass _:genid68 .
-
-_:genid68 a owl:Class ;
-	owl:unionOf _:genid70 .
-
-_:genid70 a rdf:List ;
-	rdf:first :EMMO_251cfb4f_5c75_4778_91ed_6c8395212fd8 ;
-	rdf:rest _:genid69 .
-
-_:genid69 a rdf:List ;
-	rdf:first :EMMO_2a888cdf_ec4a_4ec5_af1c_0343372fc978 ;
-	rdf:rest rdf:nil .
-
-:EMMO_7286b164_df4c_4c14_a4b5_d41ad9c121f3 owl:equivalentClass _:genid71 .
-
-_:genid71 a owl:Class ;
-	owl:unionOf _:genid73 .
-
-_:genid73 a rdf:List ;
-	rdf:first :EMMO_35d4c439_fcb6_4399_a855_a89a207b41e9 ;
-	rdf:rest _:genid72 .
-
-_:genid72 a rdf:List ;
-	rdf:first :EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba ;
-	rdf:rest rdf:nil .
-
-:EMMO_7286b164_df4c_4c14_a4b5_d41ad9c121f3 rdfs:subClassOf :EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9 , _:genid74 .
-
-_:genid74 a owl:Restriction ;
-	owl:onProperty _:genid75 .
-
-_:genid75 owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 .
-
-_:genid74 owl:someValuesFrom :EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069 .
-
-:EMMO_7286b164_df4c_4c14_a4b5_d41ad9c121f3 :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A conventional that stands for an object according to a code of interpretation to which the interpreter refers."@en ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A biography that makes use of a code that is provided by the meaning of the element of the language used by the author."@en , "The name \"red\" that stands for the color of an object."@en ;
-	rdfs:comment """A conventional referring to an object according to a specific code that reflects the results of a specific interaction mechanism and is shared between other interpreters.
+###  http://emmo.info/emmo#EMMO_7286b164_df4c_4c14_a4b5_d41ad9c121f3
+:EMMO_7286b164_df4c_4c14_a4b5_d41ad9c121f3 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_1b6a95fb_3df7_44c9_ad3d_419c9c5fe7cb
+                                                                               :EMMO_9b87d718_9dcc_4f7d_ad20_12c2aa4c76be
+                                                                             )
+                                                               ] ,
+                                                               [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_251cfb4f_5c75_4778_91ed_6c8395212fd8
+                                                                               :EMMO_2a888cdf_ec4a_4ec5_af1c_0343372fc978
+                                                                             )
+                                                               ] ,
+                                                               [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_35d4c439_fcb6_4399_a855_a89a207b41e9
+                                                                               :EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba
+                                                                             )
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A conventional that stands for an object according to a code of interpretation to which the interpreter refers."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A biography that makes use of a code that is provided by the meaning of the element of the language used by the author."@en ,
+                                                                                      "The name \"red\" that stands for the color of an object."@en ;
+                                           rdfs:comment """A conventional referring to an object according to a specific code that reflects the results of a specific interaction mechanism and is shared between other interpreters.
 A coded is always a partial representation of an object since it reflects the object capability to be part of a specific determination.
 A coded is a sort of name or label that we put upon objects that interact with an determiner in the same specific way.
 
-For example, \"hot\" objects are objects that interact with an observer through a perception mechanism aimed to perceive an heat source. The code is made of terms such as \"hot\", \"warm\", \"cold\", that commonly refer to the perception of heat."""@en , """Let's define the class Colour as the subclass of the coded signs that involve photon emission and electromagnetic radiation sensible observers.
+For example, \"hot\" objects are objects that interact with an observer through a perception mechanism aimed to perceive an heat source. The code is made of terms such as \"hot\", \"warm\", \"cold\", that commonly refer to the perception of heat."""@en ,
+                                                        """Let's define the class Colour as the subclass of the coded signs that involve photon emission and electromagnetic radiation sensible observers.
 An individual C of this class Colour can be defined be declaring the process individual (e.g. daylight illumination) and the observer (e.g. my eyes)
 Stating that an entity E hasCoded C, we mean that it can be observed by such setup of process + observer (i.e. observed by my eyes under daylight).
 This definition can be specialised for human eye perception, so that the observer can be a generic human, or to camera perception so that the observer can be a device.
 This can be used in material characterization, to define exactly the type of measurement done, including the instrument type."""@en ;
-	skos:prefLabel "Coded"@en .
-# 
-# http://emmo.info/emmo#EMMO_7cdc375d_d371_4d78_acd5_d51732f52126
+                                           skos:prefLabel "Coded"@en .
 
-:EMMO_7cdc375d_d371_4d78_acd5_d51732f52126 a owl:Class ;
-	rdfs:subClassOf _:genid76 .
 
-_:genid76 a owl:Restriction ;
-	owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
-	owl:someValuesFrom :EMMO_19608340_178c_4bfd_bd4d_0d3b935c6fec .
+###  http://emmo.info/emmo#EMMO_7cdc375d_d371_4d78_acd5_d51732f52126
+:EMMO_7cdc375d_d371_4d78_acd5_d51732f52126 rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:someValuesFrom :EMMO_19608340_178c_4bfd_bd4d_0d3b935c6fec
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:someValuesFrom :EMMO_881606d0_6f2f_4947_bc8b_75c5b7b2b688
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:someValuesFrom :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168
+                                                           ] ;
+                                           skos:altLabel "IconSemiosis"@en ;
+                                           skos:prefLabel "Cognition"@en .
 
-:EMMO_7cdc375d_d371_4d78_acd5_d51732f52126 rdfs:subClassOf _:genid77 .
 
-_:genid77 a owl:Restriction ;
-	owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
-	owl:someValuesFrom :EMMO_881606d0_6f2f_4947_bc8b_75c5b7b2b688 .
+###  http://emmo.info/emmo#EMMO_881606d0_6f2f_4947_bc8b_75c5b7b2b688
+:EMMO_881606d0_6f2f_4947_bc8b_75c5b7b2b688 rdf:type owl:Class ;
+                                           skos:prefLabel "Cognised"@en .
 
-:EMMO_7cdc375d_d371_4d78_acd5_d51732f52126 rdfs:subClassOf _:genid78 .
 
-_:genid78 a owl:Restriction ;
-	owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
-	owl:someValuesFrom :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 .
+###  http://emmo.info/emmo#EMMO_8bb6b688_812a_4cb9_b76c_d5a058928719
+:EMMO_8bb6b688_812a_4cb9_b76c_d5a058928719 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_008fd3b2_4013_451f_8827_52bceab11841
+                                                                               :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9
+                                                                             )
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_49267eba_5548_4163_8f36_518d65b583f9 ;
+                                           skos:prefLabel "Semiotics"@en .
 
-:EMMO_7cdc375d_d371_4d78_acd5_d51732f52126 skos:altLabel "IconSemiosis"@en ;
-	skos:prefLabel "Cognition"@en .
-# 
-# http://emmo.info/emmo#EMMO_881606d0_6f2f_4947_bc8b_75c5b7b2b688
 
-:EMMO_881606d0_6f2f_4947_bc8b_75c5b7b2b688 a owl:Class ;
-	skos:prefLabel "Cognised"@en .
-# 
-# http://emmo.info/emmo#EMMO_8bb6b688_812a_4cb9_b76c_d5a058928719
+###  http://emmo.info/emmo#EMMO_8c537c06_8e1d_4a3b_a251_1c89bb2c4790
+:EMMO_8c537c06_8e1d_4a3b_a251_1c89bb2c4790 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An icon that mimics the spatial or temporal shape of the object."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A geographical map that imitates the shape of the landscape and its properties at a specific historical time."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "An icon that focus on WHERE/WHEN the object is, in the sense of spatial or temporal shape."@en ;
+                                           rdfs:comment "The subclass of icon inspired by Peirceian category a) the image, which depends on a simple quality (e.g. picture)."@en ;
+                                           skos:prefLabel "ResemblanceIcon"@en .
 
-:EMMO_8bb6b688_812a_4cb9_b76c_d5a058928719 a owl:Class ;
-	owl:equivalentClass _:genid79 .
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_8c537c06_8e1d_4a3b_a251_1c89bb2c4790 ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "ResemblanceIcon"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Old French sambler, sembler, from Late Latin similāre, present active infinitive of similō, from Latin similis, from Proto-Italic *semalis, from Proto-Indo-European *sem- (“together, one”)."@en
+ ] .
 
-_:genid79 a owl:Class ;
-	owl:unionOf _:genid81 .
 
-_:genid81 a rdf:List ;
-	rdf:first :EMMO_008fd3b2_4013_451f_8827_52bceab11841 ;
-	rdf:rest _:genid80 .
+###  http://emmo.info/emmo#EMMO_9b87d718_9dcc_4f7d_ad20_12c2aa4c76be
+:EMMO_9b87d718_9dcc_4f7d_ad20_12c2aa4c76be rdf:type owl:Class ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "The biography of a person that the author have not met."@en ;
+                                           skos:prefLabel "Estimated"@en .
 
-_:genid80 a rdf:List ;
-	rdf:first :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 ;
-	rdf:rest rdf:nil .
 
-:EMMO_8bb6b688_812a_4cb9_b76c_d5a058928719 rdfs:subClassOf :EMMO_49267eba_5548_4163_8f36_518d65b583f9 ;
-	skos:prefLabel "Semiotics"@en .
-# 
-# http://emmo.info/emmo#EMMO_8c537c06_8e1d_4a3b_a251_1c89bb2c4790
-
-:EMMO_8c537c06_8e1d_4a3b_a251_1c89bb2c4790 a owl:Class ;
-	rdfs:subClassOf :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An icon that mimics the spatial or temporal shape of the object."@en ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A geographical map that imitates the shape of the landscape and its properties at a specific historical time."@en ;
-	:EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "An icon that focus on WHERE/WHEN the object is, in the sense of spatial or temporal shape."@en ;
-	rdfs:comment "The subclass of icon inspired by Peirceian category a) the image, which depends on a simple quality (e.g. picture)."@en ;
-	skos:prefLabel "ResemblanceIcon"@en .
-
-_:genid82 a owl:Axiom ;
-	owl:annotatedSource :EMMO_8c537c06_8e1d_4a3b_a251_1c89bb2c4790 ;
-	owl:annotatedProperty skos:prefLabel ;
-	owl:annotatedTarget "ResemblanceIcon"@en ;
-	:EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Old French sambler, sembler, from Late Latin similāre, present active infinitive of similō, from Latin similis, from Proto-Italic *semalis, from Proto-Indo-European *sem- (“together, one”)."@en .
-# 
-# http://emmo.info/emmo#EMMO_9b87d718_9dcc_4f7d_ad20_12c2aa4c76be
-
-:EMMO_9b87d718_9dcc_4f7d_ad20_12c2aa4c76be a owl:Class ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "The biography of a person that the author have not met."@en ;
-	skos:prefLabel "Estimated"@en .
-# 
-# http://emmo.info/emmo#EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d
-
-:EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d a owl:Class ;
-	owl:equivalentClass _:genid83 .
-
-_:genid83 a owl:Class ;
-	owl:unionOf _:genid86 .
-
-_:genid86 a rdf:List ;
-	rdf:first :EMMO_0cd58641_824c_4851_907f_f4c3be76630c ;
-	rdf:rest _:genid85 .
-
-_:genid85 a rdf:List ;
-	rdf:first :EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9 ;
-	rdf:rest _:genid84 .
-
-_:genid84 a rdf:List ;
-	rdf:first :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 ;
-	rdf:rest rdf:nil .
-
-:EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d rdfs:subClassOf :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An 'Physical' that is used as sign (\"semeion\" in greek) that stands for another 'Physical' through an semiotic process."@en ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """A novel is made of chapters, paragraphs, sentences, words and characters (in a direct parthood mereological hierarchy).
+###  http://emmo.info/emmo#EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d
+:EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_0cd58641_824c_4851_907f_f4c3be76630c
+                                                                               :EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9
+                                                                               :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168
+                                                                             )
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An 'Physical' that is used as sign (\"semeion\" in greek) that stands for another 'Physical' through an semiotic process."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """A novel is made of chapters, paragraphs, sentences, words and characters (in a direct parthood mereological hierarchy).
 
 Each of them are 'sign'-s.
 
@@ -827,71 +647,55 @@ A character can be the a-tomistic 'sign' for the class of texts.
 The horizontal segment in the character \"A\" is direct part of \"A\" but it is not a 'sign' itself.
 
 For plain text we can propose the ASCII symbols, for math the fundamental math symbols."""@en ;
-	rdfs:comment """A 'Sign' can have temporal-direct-parts which are 'Sign' themselves.
+                                           rdfs:comment """A 'Sign' can have temporal-direct-parts which are 'Sign' themselves.
 
 A 'Sign' usually havs 'sign' spatial direct parts only up to a certain elementary semiotic level, in which the part is only a 'Physical' and no more a 'Sign' (i.e. it stands for nothing). This elementary semiotic level is peculiar to each particular system of signs (e.g. text, painting).
 
-Just like an 'Elementary' in the 'Physical' branch, each 'Sign' branch should have an a-tomistic mereological part."""@en , """According to Peirce, 'Sign' includes three subcategories:
+Just like an 'Elementary' in the 'Physical' branch, each 'Sign' branch should have an a-tomistic mereological part."""@en ,
+                                                        """According to Peirce, 'Sign' includes three subcategories:
 - symbols: that stand for an object through convention
 - indeces: that stand for an object due to causal continguity
 - icons: that stand for an object due to similitudes e.g. in shape or composition"""@en ;
-	skos:prefLabel "Sign"@en .
-# 
-# http://emmo.info/emmo#EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba
+                                           skos:prefLabel "Sign"@en .
 
-:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba a owl:Class ;
-	rdfs:subClassOf _:genid87 .
 
-_:genid87 a owl:Restriction ;
-	owl:onProperty _:genid88 .
+###  http://emmo.info/emmo#EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba
+:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A coded that makes use of an atomic symbol with respect to the code used to refer to the interaction."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """Hardness is a subclass of properties.
+Vickers hardness is a subclass of hardness that involves the procedures and instruments defined by the standard hardness test."""@en ,
+                                                                                      "The name \"red\" which is atomic in the code made of the list of colors."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A property is atomic in the sense that is aimed to deliver one and one only aspect of the object according to one code, such as the color with one sign (e.g., black) or a quantitiative property (e.g., 1.4 kg)."@en ;
+                                           skos:prefLabel "Property"@en .
 
-_:genid88 owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 .
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "Property"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin proprietas (“a peculiarity, one's peculiar nature or quality, right or fact of possession, property”), from proprius (“special, particular, one's own”)."@en
+ ] .
 
-_:genid87 owl:someValuesFrom :EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069 .
 
-:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A coded that makes use of an atomic symbol with respect to the code used to refer to the interaction."@en ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """Hardness is a subclass of properties.
-Vickers hardness is a subclass of hardness that involves the procedures and instruments defined by the standard hardness test."""@en , "The name \"red\" which is atomic in the code made of the list of colors."@en ;
-	:EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A property is atomic in the sense that is aimed to deliver one and one only aspect of the object according to one code, such as the color with one sign (e.g., black) or a quantitiative property (e.g., 1.4 kg)."@en ;
-	skos:prefLabel "Property"@en .
-
-_:genid89 a owl:Axiom ;
-	owl:annotatedSource :EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba ;
-	owl:annotatedProperty skos:prefLabel ;
-	owl:annotatedTarget "Property"@en ;
-	:EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin proprietas (“a peculiarity, one's peculiar nature or quality, right or fact of possession, property”), from proprius (“special, particular, one's own”)."@en .
-# 
-# http://emmo.info/emmo#EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9
-
-:EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 a owl:Class ;
-	owl:equivalentClass _:genid90 .
-
-_:genid90 a owl:Class ;
-	owl:unionOf _:genid93 .
-
-_:genid93 a rdf:List ;
-	rdf:first :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee ;
-	rdf:rest _:genid92 .
-
-_:genid92 a rdf:List ;
-	rdf:first :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b ;
-	rdf:rest _:genid91 .
-
-_:genid91 a rdf:List ;
-	rdf:first :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d ;
-	rdf:rest rdf:nil .
-
-:EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 rdfs:subClassOf _:genid94 .
-
-_:genid94 a owl:Restriction ;
-	owl:onProperty _:genid95 .
-
-_:genid95 owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 .
-
-_:genid94 owl:someValuesFrom :EMMO_008fd3b2_4013_451f_8827_52bceab11841 .
-
-:EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals that stands for semiotic objects, i.e. objects that take part on a semiotic process."@en ;
-	rdfs:comment """Semiotic subclasse are defined using Peirce's semiotic theory.
+###  http://emmo.info/emmo#EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9
+:EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee
+                                                                               :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b
+                                                                               :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d
+                                                                             )
+                                                               ] ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_008fd3b2_4013_451f_8827_52bceab11841
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals that stands for semiotic objects, i.e. objects that take part on a semiotic process."@en ;
+                                           rdfs:comment """Semiotic subclasse are defined using Peirce's semiotic theory.
 
 \"Namely, a sign is something, A, which brings something, B, its interpretant sign determined or created by it, into the same sort of correspondence with something, C, its object, as that in which itself stands to C.\" (Peirce 1902, NEM 4, 20–21).
 
@@ -901,108 +705,102 @@ The triadic elements:
 - 'object': the object C (e.g. the entity to which the sign A and B refer to)
 
 This class includes also the 'interpeter' i.e. the entity that connects the 'sign' to the 'object'"""@en ;
-	skos:prefLabel "SemioticEntity"@en .
-# 
-# http://emmo.info/emmo#EMMO_c7013b53_3071_410b_a5e4_a8d266dcdfb5
+                                           skos:prefLabel "SemioticEntity"@en .
 
-:EMMO_c7013b53_3071_410b_a5e4_a8d266dcdfb5 a owl:Class ;
-	rdfs:subClassOf :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An icon that imitates one representative character of the object. It share external similarities with the object, but not necessarily the same internal logical structure."@en ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A data based model is only a functional icon, since it provide the same relations between the properties of the object (e.g., it can predict some properties as function of others) but is not considering the internal mechanisms (i.e., it can ignore the physics)."@en ;
-	:EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "An icon that focusing WHAT the object does."@en ;
-	rdfs:comment "This subclass of icon inspired by Peirceian category (c) the metaphor, which represents the representative character of a sign by representing a parallelism in something else."@en ;
-	skos:prefLabel "FunctionalIcon"@en .
 
-_:genid96 a owl:Axiom ;
-	owl:annotatedSource :EMMO_c7013b53_3071_410b_a5e4_a8d266dcdfb5 ;
-	owl:annotatedProperty skos:prefLabel ;
-	owl:annotatedTarget "FunctionalIcon"@en ;
-	:EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin functiō (“performance, execution”), from functus, perfect participle of fungor (“to perform, execute, discharge”)."@en .
-# 
-# http://emmo.info/emmo#EMMO_c9805ac9_a943_4be4_ac4b_6da64ba36c73
+###  http://emmo.info/emmo#EMMO_c7013b53_3071_410b_a5e4_a8d266dcdfb5
+:EMMO_c7013b53_3071_410b_a5e4_a8d266dcdfb5 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An icon that imitates one representative character of the object. It share external similarities with the object, but not necessarily the same internal logical structure."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A data based model is only a functional icon, since it provide the same relations between the properties of the object (e.g., it can predict some properties as function of others) but is not considering the internal mechanisms (i.e., it can ignore the physics)."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "An icon that focusing WHAT the object does."@en ;
+                                           rdfs:comment "This subclass of icon inspired by Peirceian category (c) the metaphor, which represents the representative character of a sign by representing a parallelism in something else."@en ;
+                                           skos:prefLabel "FunctionalIcon"@en .
 
-:EMMO_c9805ac9_a943_4be4_ac4b_6da64ba36c73 a owl:Class ;
-	skos:prefLabel "Declared"@en .
-# 
-# http://emmo.info/emmo#EMMO_d7788d1a_020d_4c78_85a1_13563fcec168
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_c7013b53_3071_410b_a5e4_a8d266dcdfb5 ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "FunctionalIcon"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin functiō (“performance, execution”), from functus, perfect participle of fungor (“to perform, execute, discharge”)."@en
+ ] .
 
-:EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 a owl:Class ;
-	owl:equivalentClass _:genid97 .
 
-_:genid97 a owl:Class ;
-	owl:unionOf _:genid100 .
+###  http://emmo.info/emmo#EMMO_c9805ac9_a943_4be4_ac4b_6da64ba36c73
+:EMMO_c9805ac9_a943_4be4_ac4b_6da64ba36c73 rdf:type owl:Class ;
+                                           skos:prefLabel "Declared"@en .
 
-_:genid100 a rdf:List ;
-	rdf:first :EMMO_4f2d1fcc_e20c_4479_9ad7_7a0480dd3e44 ;
-	rdf:rest _:genid99 .
 
-_:genid99 a rdf:List ;
-	rdf:first :EMMO_8c537c06_8e1d_4a3b_a251_1c89bb2c4790 ;
-	rdf:rest _:genid98 .
-
-_:genid98 a rdf:List ;
-	rdf:first :EMMO_c7013b53_3071_410b_a5e4_a8d266dcdfb5 ;
-	rdf:rest rdf:nil .
-
-:EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 rdfs:subClassOf _:genid101 .
-
-_:genid101 a owl:Restriction ;
-	owl:onProperty _:genid102 .
-
-_:genid102 owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 .
-
-_:genid101 owl:someValuesFrom :EMMO_7cdc375d_d371_4d78_acd5_d51732f52126 .
-
-:EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A sign that stands for an object by resembling or imitating it, in shape, function or by sharing a similar logical structure."@en ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A picture that reproduces the aspect of a person."@en , "An equation that reproduces the logical connection of the properties of a physical entity."@en ;
-	rdfs:comment """If object and sign belongs to the same class, then the sign is fuctional, diagrammatic and resemblance.
-For example, when a Boeing 747 is used as a sign for another Boeing 747."""@en , """In Peirce semiotics three subtypes of icon are possible:
+###  http://emmo.info/emmo#EMMO_d7788d1a_020d_4c78_85a1_13563fcec168
+:EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_4f2d1fcc_e20c_4479_9ad7_7a0480dd3e44
+                                                                               :EMMO_8c537c06_8e1d_4a3b_a251_1c89bb2c4790
+                                                                               :EMMO_c7013b53_3071_410b_a5e4_a8d266dcdfb5
+                                                                             )
+                                                               ] ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_7cdc375d_d371_4d78_acd5_d51732f52126
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A sign that stands for an object by resembling or imitating it, in shape, function or by sharing a similar logical structure."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A picture that reproduces the aspect of a person."@en ,
+                                                                                      "An equation that reproduces the logical connection of the properties of a physical entity."@en ;
+                                           rdfs:comment """If object and sign belongs to the same class, then the sign is fuctional, diagrammatic and resemblance.
+For example, when a Boeing 747 is used as a sign for another Boeing 747."""@en ,
+                                                        """In Peirce semiotics three subtypes of icon are possible:
 (a) the image, which depends on a simple quality (e.g. picture)
 (b) the diagram, whose internal relations, mainly dyadic or so taken, represent by analogy the relations in something (e.g. math formula, geometric flowchart)
 (c) the metaphor, which represents the representative character of a sign by representing a parallelism in something else
 [Wikipedia]"""@en ;
-	skos:altLabel "Model"@en , "Simulacrum"@en ;
-	skos:prefLabel "Icon"@en .
+                                           skos:altLabel "Model"@en ,
+                                                         "Simulacrum"@en ;
+                                           skos:prefLabel "Icon"@en .
 
-_:genid103 a owl:Axiom ;
-	owl:annotatedSource :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 ;
-	owl:annotatedProperty rdfs:comment ;
-	owl:annotatedTarget """In Peirce semiotics three subtypes of icon are possible:
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget """In Peirce semiotics three subtypes of icon are possible:
 (a) the image, which depends on a simple quality (e.g. picture)
 (b) the diagram, whose internal relations, mainly dyadic or so taken, represent by analogy the relations in something (e.g. math formula, geometric flowchart)
 (c) the metaphor, which represents the representative character of a sign by representing a parallelism in something else
 [Wikipedia]"""@en ;
-	rdfs:seeAlso "https://en.wikipedia.org/wiki/Semiotic_theory_of_Charles_Sanders_Peirce#II._Icon,_index,_symbol"^^xsd:anyURI .
+   rdfs:seeAlso "https://en.wikipedia.org/wiki/Semiotic_theory_of_Charles_Sanders_Peirce#II._Icon,_index,_symbol"^^xsd:anyURI
+ ] .
 
-_:genid104 a owl:Axiom ;
-	owl:annotatedSource :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 ;
-	owl:annotatedProperty skos:altLabel ;
-	owl:annotatedTarget "Model"@en ;
-	:EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin modus (“measure”)."@en .
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 ;
+   owl:annotatedProperty skos:altLabel ;
+   owl:annotatedTarget "Model"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin modus (“measure”)."@en
+ ] .
 
-_:genid105 a owl:Axiom ;
-	owl:annotatedSource :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 ;
-	owl:annotatedProperty skos:altLabel ;
-	owl:annotatedTarget "Simulacrum"@en ;
-	:EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin simulacrum (\"likeness, semblance\")"@en .
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 ;
+   owl:annotatedProperty skos:altLabel ;
+   owl:annotatedTarget "Simulacrum"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin simulacrum (\"likeness, semblance\")"@en
+ ] .
 
-_:genid106 a owl:Axiom ;
-	owl:annotatedSource :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 ;
-	owl:annotatedProperty skos:prefLabel ;
-	owl:annotatedTarget "Icon"@en ;
-	:EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Ancient Greek εἰκών (eikṓn, “likeness, image, portrait”)."@en .
-# 
-# http://emmo.info/emmo#EMMO_e999f9e0_7d63_4564_9028_07246580a267
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "Icon"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Ancient Greek εἰκών (eikṓn, “likeness, image, portrait”)."@en
+ ] .
 
-:EMMO_e999f9e0_7d63_4564_9028_07246580a267 a owl:Class ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A declaration that provides a sign for an object that is independent from any assignment rule."@en ;
-	:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A unique id attached to an entity."@en ;
-	skos:prefLabel "Naming"@en .
-# 
-# http://emmo.info/emmo#EMMO_ea67caa5_2609_4e91_98ae_81103f2d5c25
 
-:EMMO_ea67caa5_2609_4e91_98ae_81103f2d5c25 a owl:Class ;
-	:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A characteriser that declares a property for an object through the specific interaction required by the property definition."@en ;
-	skos:prefLabel "Observer"@en .
-# 
-# Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  http://emmo.info/emmo#EMMO_e999f9e0_7d63_4564_9028_07246580a267
+:EMMO_e999f9e0_7d63_4564_9028_07246580a267 rdf:type owl:Class ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A declaration that provides a sign for an object that is independent from any assignment rule."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A unique id attached to an entity."@en ;
+                                           skos:prefLabel "Naming"@en .
+
+
+###  http://emmo.info/emmo#EMMO_ea67caa5_2609_4e91_98ae_81103f2d5c25
+:EMMO_ea67caa5_2609_4e91_98ae_81103f2d5c25 rdf:type owl:Class ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A characteriser that declares a property for an object through the specific interaction required by the property definition."@en ;
+                                           skos:prefLabel "Observer"@en .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
