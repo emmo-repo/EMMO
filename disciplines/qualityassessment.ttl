@@ -17,6 +17,22 @@
 #    Object Properties
 #################################################################
 
+###  http://emmo.info/emmo#EMMO_2c74adad_74b6_4f54_b908_4f45e317b0bc
+:EMMO_2c74adad_74b6_4f54_b908_4f45e317b0bc rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_cc677576_5bf4_4f11_9da4_f52556545320 ;
+                                           rdfs:domain :EMMO_7aa150c8_a726_4494_bbef_2232ab58549b ;
+                                           rdfs:range :EMMO_eeebe42f_981f_4d84_83f8_72723b86036b ;
+                                           skos:prefLabel "hasBooleanattribute"@en .
+
+
+###  http://emmo.info/emmo#EMMO_88749b1f_9e4e_423c_abb2_bb3a1fb5f59f
+:EMMO_88749b1f_9e4e_423c_abb2_bb3a1fb5f59f rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_cc677576_5bf4_4f11_9da4_f52556545320 ;
+                                           rdfs:domain :EMMO_7aa150c8_a726_4494_bbef_2232ab58549b ;
+                                           rdfs:range :EMMO_bc5adc6b_2dce_4735_8306_e121b83d5027 ;
+                                           skos:prefLabel "hasQualityDegree"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_cc677576_5bf4_4f11_9da4_f52556545320
 :EMMO_cc677576_5bf4_4f11_9da4_f52556545320 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_e1097637_70d2_4895_973f_2396f04fa204 ;
@@ -145,8 +161,8 @@ Note 2 to entry: Providing scripts to automate common functions modifies or cust
                                            rdfs:subClassOf :EMMO_508f7b78_b67a_4cbf_bab0_a5afd5eb0134 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A Validation is a process where the interpreter attributes a sign, specifically a property, to the end product or to a product in its final stages of realisation, following test procedures, or  on the basis of certain criteria.
 It can been done on a first end unit produced, but also on a prototype of the product.
-The interpreter can be either producer or the customer.(If the interpreters are the producers, they conduct the process simulating the use conditions of the end product so they are estimators, if the use conditions are real they are observers).
-If the interpreters are the customers, they are observers.
+The interpreter can be either producer or the user.(If the interpreters are the producers, they conduct the process simulating the use conditions of the end product so they are estimators, if the use conditions are real they are observers).
+If the interpreters are the user, they are observers.
 The validaton process can be executed both on products and data.
 The Validation may require the cooperation of the two interpreter, making a comparison between the two processes of determination done by the customer  and by the producer.""" ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Answer to the question \"Am I doing the right thing?\"" ,
@@ -204,7 +220,6 @@ Note 2 to entry: The activities carried out for verification are sometimes calle
 Note 3 to entry: The word “verified” is used to designate the corresponding status.""" ,
                                                                                       "The process of evaluating a system or component to determine whether the products of a given development phase satisfy the conditions imposed at the start of that phase." ,
                                                                                       "The process of evaluating a system or component to determine whether the products of a given development phase satisfy the conditions imposed at the start of that phase. (B) The process of providing objective evidence that the system, software, or hardware and its associated products conform to requirements (e.g., for correctness, completeness, consistency, and accuracy) for all life cycle activities during each life cycle process (acquisition, supply, development, operation, and maintenance); satisfy standards, practices, and conventions during life cycle processes; and successfully complete each life cycle activity and satisfy all the criteria for initiating succeeding life cycle activities. Verification of interim work products is essential for proper understanding and assessment of the life cycle phase product(s)." ,
-                                                                                      "Verification is a strictly paper-based exercise. It begins by acquiring all design inputs: characteristics, government and industry standards, knowledge gained from previous projects, and any other information required for proper operation. Once you have these requirements, you compare them with the outputs of your design: schematics, assembly instructions, test instructions and electronic design files." ,
                                                                                       "it answers to the question \"Am I doing the thing right?\"" ;
                                            skos:prefLabel "Verification"@en .
 
@@ -235,13 +250,6 @@ Note 3 to entry: The word “verified” is used to designate the corresponding 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_433eac85_e5ae_4a88_8fd5_27299d76c8c7 ;
    owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
-   owl:annotatedTarget "Verification is a strictly paper-based exercise. It begins by acquiring all design inputs: characteristics, government and industry standards, knowledge gained from previous projects, and any other information required for proper operation. Once you have these requirements, you compare them with the outputs of your design: schematics, assembly instructions, test instructions and electronic design files." ;
-   rdfs:seeAlso "https://advisera.com/9001academy/it/knowledgebase/verifica-vs-validazione-della-progettazione-nella-iso9001/"
- ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_433eac85_e5ae_4a88_8fd5_27299d76c8c7 ;
-   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
    owl:annotatedTarget "it answers to the question \"Am I doing the thing right?\"" ;
    rdfs:seeAlso "https://www.plutora.com/blog/verification-vs-validation"
  ] .
@@ -251,6 +259,7 @@ Note 3 to entry: The word “verified” is used to designate the corresponding 
 :EMMO_508f7b78_b67a_4cbf_bab0_a5afd5eb0134 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A Conformity assessment is a process where the interpreter attributes a sign,  specifically a property, to a process or a product, considering the fullfillment or not fullfillment of requiremnts estimated or defined." ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Typical examples of conformity assessment activities are sampling, testing and inspection; evaluation, verification and assurance of conformity (supplier's declaration, certification); registration, accreditation and approval as well as their combinations." ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "any activity concerned with determining directly or indirectly that relevant requirements are fulfilled" ,
                                                                                       "confirmation through the provision of objective evidence (3.4.32), that specified requirements (3.1.15) have been fulfilled" ,
                                                                                       "demonstration that specified requirements relating to a product, process, system, person or body are fulfilled" ;
@@ -258,6 +267,13 @@ Note 3 to entry: The word “verified” is used to designate the corresponding 
 Note 1 to entry: An assertion test \"succeeds\" or \"fails\".""" ;
                                            skos:altLabel "AssertionTesting" ;
                                            skos:prefLabel "ConformityAssessment"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_508f7b78_b67a_4cbf_bab0_a5afd5eb0134 ;
+   owl:annotatedProperty :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a ;
+   owl:annotatedTarget "Typical examples of conformity assessment activities are sampling, testing and inspection; evaluation, verification and assurance of conformity (supplier's declaration, certification); registration, accreditation and approval as well as their combinations." ;
+   rdfs:seeAlso "ISO/IEC 18009:1999(en), 4.7.2"
+ ] .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_508f7b78_b67a_4cbf_bab0_a5afd5eb0134 ;
@@ -349,7 +365,7 @@ individual member of the general public purchasing or using goods, property or s
 ###  http://emmo.info/emmo#EMMO_57301187_137f_4103_a875_79a97e566ba7
 :EMMO_57301187_137f_4103_a875_79a97e566ba7 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_1b52ee70_121e_4d8d_8419_3f97cd0bd89c ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The CADeterminer is who performs the Conformity assessment, determining if the TestItem fulfilles the requirements claimed." ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The CADeterminer is who performs the Conformity assessment, determining if the object that has to be evaluted fulfilles the requirements claimed." ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Customer, Consumer, Producer, Experts, Agent" ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """body that performs conformity assessment activities and that can be the object of accreditation (3.1)
 Note 1 to entry: Whenever the term “conformity assessment body” is used in the text, it applies to both the applicant and accredited conformity assessment bodies, unless otherwise specified.
@@ -384,11 +400,23 @@ Note 1 to entry: Whenever the term “conformity assessment body” is used in t
 
 ###  http://emmo.info/emmo#EMMO_63f95f1f_8b6f_433c_88b9_a14b63b43f2f
 :EMMO_63f95f1f_8b6f_433c_88b9_a14b63b43f2f rdf:type owl:Class ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The CAClaimer, in a Conformity Assessment, is the one who commissions the target to be achieved and against which the comparison with the test item is made, prior to awarding the Test Result." ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The CAClaimer, in a Conformity Assessment, is individual, organization, department or division, internal or external, that requests or commissions an objective to be realised, that is called claim" ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Stakeholder, Company, Market" ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "individual, organization, department or division, internal or external, that requests or commissions a research project" ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """body that performs conformity assessment activities and that can be the object of accreditation (3.1)
+Note 1 to entry: Whenever the term “conformity assessment body” is used in the text, it applies to both the applicant and accredited conformity assessment bodies, unless otherwise specified.
+[SOURCE: ISO/IEC 17000:2004, 2.5, modified — The words “and that can be the object of accreditation” have been added to the definition and the Note to entry has been added.]""" ,
+                                                                                      "individual, organization, department or division, internal or external, that requests or commissions a research project" ;
                                            skos:altLabel "ConformityAssessmentBody" ;
                                            skos:prefLabel "CAClaimer"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_63f95f1f_8b6f_433c_88b9_a14b63b43f2f ;
+   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
+   owl:annotatedTarget """body that performs conformity assessment activities and that can be the object of accreditation (3.1)
+Note 1 to entry: Whenever the term “conformity assessment body” is used in the text, it applies to both the applicant and accredited conformity assessment bodies, unless otherwise specified.
+[SOURCE: ISO/IEC 17000:2004, 2.5, modified — The words “and that can be the object of accreditation” have been added to the definition and the Note to entry has been added.]""" ;
+   rdfs:seeAlso "ISO 9000: 2015 (Quality system management)"
+ ] .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_63f95f1f_8b6f_433c_88b9_a14b63b43f2f ;
