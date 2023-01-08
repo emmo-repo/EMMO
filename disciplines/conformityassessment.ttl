@@ -86,7 +86,7 @@
                                            rdfs:subPropertyOf owl:topDataProperty ;
                                            rdfs:domain :EMMO_bc5adc6b_2dce_4735_8306_e121b83d5027 ;
                                            rdfs:range xsd:language ;
-                                           skos:prefLabel "hasQualityDegree"@en .
+                                           skos:prefLabel "hasDegree"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_a8630da4_254e_4450_a6e9_da0b0f8120bb
@@ -104,6 +104,7 @@
 ###  http://emmo.info/emmo#EMMO_0077e933_10c4_4030_ac9a_37a03cc8b41f
 :EMMO_0077e933_10c4_4030_ac9a_37a03cc8b41f rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_d8d2144e_5c8d_455d_a643_5caf4d8d9df8 ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The language used in a test process." ;
                                            skos:prefLabel "ConformityAssessmentLanguage"@en .
 
 
@@ -312,7 +313,11 @@ Note 3 to entry: The word “verified” is used to designate the corresponding 
 
 ###  http://emmo.info/emmo#EMMO_508f7b78_b67a_4cbf_bab0_a5afd5eb0134
 :EMMO_508f7b78_b67a_4cbf_bab0_a5afd5eb0134 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069 ;
+                                           rdfs:subClassOf :EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:someValuesFrom :EMMO_63f95f1f_8b6f_433c_88b9_a14b63b43f2f
+                                                           ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A Conformity assessment is a process where the interpreter attributes a sign,  specifically a property, to a process or a product, considering the fullfillment or not fullfillment of requiremnts estimated or defined." ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Typical examples of conformity assessment activities are sampling, testing and inspection; evaluation, verification and assurance of conformity (supplier's declaration, certification); registration, accreditation and approval as well as their combinations." ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "any activity concerned with determining directly or indirectly that relevant requirements are fulfilled" ,
