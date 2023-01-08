@@ -56,6 +56,14 @@
                                            skos:prefLabel "hasCAdegreeresult"@en .
 
 
+###  http://emmo.info/emmo#EMMO_c7d44689_a626_47e2_ae48_d552084a2c04
+:EMMO_c7d44689_a626_47e2_ae48_d552084a2c04 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_ec2472ae_cf4a_46a5_8555_1556f5a6c3c5 ;
+                                           rdfs:domain :EMMO_354e79ba_13d8_44d4_a2b8_e113370275ad ;
+                                           rdfs:range :EMMO_57301187_137f_4103_a875_79a97e566ba7 ;
+                                           skos:prefLabel "hasCARoleof"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_cc677576_5bf4_4f11_9da4_f52556545320
 :EMMO_cc677576_5bf4_4f11_9da4_f52556545320 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_e1097637_70d2_4895_973f_2396f04fa204 ;
@@ -172,6 +180,14 @@ Note 1 to entry: often performed at a customer site""" ;
 
 ###  http://emmo.info/emmo#EMMO_354e79ba_13d8_44d4_a2b8_e113370275ad
 :EMMO_354e79ba_13d8_44d4_a2b8_e113370275ad rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_c7d44689_a626_47e2_ae48_d552084a2c04 ;
+                                                             owl:someValuesFrom :EMMO_57301187_137f_4103_a875_79a97e566ba7
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_c7d44689_a626_47e2_ae48_d552084a2c04 ;
+                                                             owl:someValuesFrom :EMMO_63f95f1f_8b6f_433c_88b9_a14b63b43f2f
+                                                           ] ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """organization or individual that carries out an experiment or measurement, funded by a payer (3.11), and producing a data set
 Note 1 to entry: In the research domain producer is typically a researcher, in the commercial domain the producer can be a contract laboratory.""" ,
                                                                                       """producer
@@ -233,6 +249,20 @@ Note 3 to entry: The use conditions for validation can be real or simulated.""" 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_3ecefbaf_f06b_4ea3_9e50_a798cf25a879 ;
    owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
+   owl:annotatedTarget "The process of evaluating a system or component during or at the end of the development process to determine whether it satisfies specified requirements" ;
+   rdfs:seeAlso "IEEE 610 (STANDARD COMPUTER DICTIONARY)"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_3ecefbaf_f06b_4ea3_9e50_a798cf25a879 ;
+   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
+   owl:annotatedTarget "The process of evaluating a system or component during or at the end of the development process to determine whether it satisfies specified requirements. (B) The process of providing evidence that the system, software, or hardware and its associated products satisfy requirements allocated to it at the end of each life cycle activity, solve the right problem (e.g., correctly model physical laws, implement business rules, and use the proper system assumptions), and satisfy intended use and user needs." ;
+   rdfs:seeAlso "1012-1016 IEEE (Standard for System, Software, and Hardware --Verification and Validation)"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_3ecefbaf_f06b_4ea3_9e50_a798cf25a879 ;
+   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
    owl:annotatedTarget """confirmation, through the provision of objective evidence (3.8.3), that the requirements (3.6.4) for a specific intended use or application have been fulfilled
 Note 1 to entry: The objective evidence needed for a validation is the result of a test (3.11.8) or other form of determination (3.11.1) such as performing alternative calculations or reviewing documents (3.8.5).
 Note 2 to entry: The word “validated” is used to designate the corresponding status.
@@ -245,20 +275,6 @@ Note 3 to entry: The use conditions for validation can be real or simulated.""" 
    owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
    owl:annotatedTarget "Answer to the question \"Am I doing the right thing?\"" ;
    rdfs:seeAlso "https://www.plutora.com/blog/verification-vs-validation"
- ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_3ecefbaf_f06b_4ea3_9e50_a798cf25a879 ;
-   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
-   owl:annotatedTarget "The process of evaluating a system or component during or at the end of the development process to determine whether it satisfies specified requirements" ;
-   rdfs:seeAlso "IEEE 610 (STANDARD COMPUTER DICTIONARY)"
- ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_3ecefbaf_f06b_4ea3_9e50_a798cf25a879 ;
-   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
-   owl:annotatedTarget "The process of evaluating a system or component during or at the end of the development process to determine whether it satisfies specified requirements. (B) The process of providing evidence that the system, software, or hardware and its associated products satisfy requirements allocated to it at the end of each life cycle activity, solve the right problem (e.g., correctly model physical laws, implement business rules, and use the proper system assumptions), and satisfy intended use and user needs." ;
-   rdfs:seeAlso "1012-1016 IEEE (Standard for System, Software, and Hardware --Verification and Validation)"
  ] .
 
 
@@ -578,6 +594,14 @@ Note 2 to entry: 20.05.05 (2382)""" ;
 
 ###  http://emmo.info/emmo#EMMO_972a6b9c_6dbc_4e60_8953_1dd54946005c
 :EMMO_972a6b9c_6dbc_4e60_8953_1dd54946005c rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_c7d44689_a626_47e2_ae48_d552084a2c04 ;
+                                                             owl:someValuesFrom :EMMO_57301187_137f_4103_a875_79a97e566ba7
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_c7d44689_a626_47e2_ae48_d552084a2c04 ;
+                                                             owl:someValuesFrom :EMMO_63f95f1f_8b6f_433c_88b9_a14b63b43f2f
+                                                           ] ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "user is organization or person that purchases or otherwise acquires fasteners and installs them for purposes of assembly or overhaul and maintenance" ;
                                            skos:prefLabel "User"@en .
 
