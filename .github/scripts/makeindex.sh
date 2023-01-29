@@ -41,7 +41,7 @@ tdlink() {
     href=$1
     cell=$2
     checkfile=$3
-    echo "*** checkfile=$checkfile" >&2
+    #echo "*** checkfile=$checkfile" >&2
     if [ -z "$checkfile" -o -f "$checkfile" ]; then
         echo "    <td><a href=\"$href\" target=\"_blank\">$cell</a></td>"
     else
