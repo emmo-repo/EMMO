@@ -124,6 +124,7 @@ Please create an issue if you have a public domain ontology that you think shoul
 | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | Characterisation Methodology Domain Ontology (CHAMEO) | [https://github.com/emmo-repo/domain-characterisation-methodology](https://github.com/emmo-repo/domain-characterisation-methodology) |
 | Battery Interface Ontology (BattINFO)                 | [http://BIG-MAP/BattINFO](https://github.com/BIG-MAP/BattINFO)                                                                       |
+| Domain Ontology for Additive Manufacturing (DOAM)     | [http://emmo.info/doam](https://github.com/emmo-repo/doam)                                                                           |
 | General Process Ontology (GPO)                        | [http://General-Process-Ontology/ontology](https://github.com/General-Process-Ontology/ontology)                                     |
 | Ontology for the Battery Value Chain (BVC)            | [http://Battery-Value-Chain-Ontology/ontology](https://github.com/Battery-Value-Chain-Ontology/ontology)                             |
 | Crystallography                                       | [http://emmo.info/domain-crystallography](https://github.com/emmo-repo/domain-crystallography)                                       |
