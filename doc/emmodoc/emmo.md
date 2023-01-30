@@ -4,7 +4,7 @@
 %% Lines starting with a % are pre-processor directives.
 %%
 
-%INCLUDE introduction.md
+%% %INCLUDE introduction.md
 
 %INCLUDE relations.md
 

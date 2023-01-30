@@ -69,6 +69,9 @@ branch of mereotopology.
 %BRANCHDOC Symbol
 %BRANCHDOC MathematicalSymbol
 %BRANCHDOC MetrologicalSymbol
+%BRANCHDOC ChemicalElement
+
+
 
 
 %BRANCHDOC PhysicalDimension     rankdir=RL
@@ -98,6 +101,7 @@ branch of mereotopology.
 %BRANCHDOC Material
 %BRANCHDOC MolecularEntity
 %BRANCHDOC ChemicalSubstance
+%BRANCHDOC Atom
 
 %BRANCHDOC GasMixture
 %BRANCHDOC SolidMixture
