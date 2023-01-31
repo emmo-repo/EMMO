@@ -236,6 +236,7 @@ skos:prefLabel rdf:type owl:AnnotationProperty ;
 ###  http://emmo.info/emmo#EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f
 :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 ;
+                                           owl:propertyDisjointWith :EMMO_9cb984ca_48ad_4864_b09e_50d3fff19420 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The primitive relation that express the concept of an entity being part of another one."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "All other mereology relations can be defined in FOL using hasPart as primitive."@en ;
                                            skos:prefLabel "hasPart"@en .
@@ -339,6 +340,7 @@ https://en.wiktionary.org/wiki/mereology"""@en
 ###  http://emmo.info/emmo#EMMO_55354438_7000_4284_b1b9_59d60c2261b9
 :EMMO_55354438_7000_4284_b1b9_59d60c2261b9 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+                                           rdf:type owl:AsymmetricProperty ;
                                            rdfs:domain :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A proper part relation with domain restricted to items."@en ;
                                            skos:prefLabel "hasPortionPart"@en .
@@ -354,6 +356,14 @@ https://en.wiktionary.org/wiki/mereology"""@en
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Direct cause is irreflexive."@en ,
                                                                                       "Direct cause provides the edges for the transitive restriction of the direct acyclic causal graph whose nodes are the quantum entities."@en ;
                                            skos:prefLabel "isDirectCauseOf"@en .
+
+
+###  http://emmo.info/emmo#EMMO_6835537c_d294_4005_a770_ec9621f29ed1
+:EMMO_6835537c_d294_4005_a770_ec9621f29ed1 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
+                                           rdf:type owl:SymmetricProperty ;
+                                           owl:propertyDisjointWith :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+                                           skos:prefLabel "hasIdenticalPart"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4
@@ -419,6 +429,7 @@ A temporal part is not constraint to be causally self-connected, i.e. it can be 
 ###  http://emmo.info/emmo#EMMO_8e742d6f_7fbb_40cf_949b_6806ab0d801f
 :EMMO_8e742d6f_7fbb_40cf_949b_6806ab0d801f rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+                                           rdf:type owl:AsymmetricProperty ;
                                            rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A proper part relation with range restricted to items."@en ;
                                            skos:prefLabel "hasItemPart"@en .
@@ -511,6 +522,7 @@ Embracing a strong reductionistic view, causality originates at quantum entities
 ###  http://emmo.info/emmo#EMMO_c37d451b_e245_439f_bd94_9050e04ec9f7
 :EMMO_c37d451b_e245_439f_bd94_9050e04ec9f7 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+                                           rdf:type owl:AsymmetricProperty ;
                                            rdfs:domain :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A proper part relation with domain restricted to collections."@en ;
                                            skos:prefLabel "hasGatheredPart"@en .
@@ -519,6 +531,7 @@ Embracing a strong reductionistic view, causality originates at quantum entities
 ###  http://emmo.info/emmo#EMMO_cc0df52b_6211_4167_9e22_5cc3ba201bd9
 :EMMO_cc0df52b_6211_4167_9e22_5cc3ba201bd9 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+                                           rdf:type owl:AsymmetricProperty ;
                                            rdfs:range :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A proper part relation with range restricted to collections."@en ;
                                            skos:prefLabel "hasScatteredPart"@en .
@@ -738,7 +751,7 @@ The combination of collection and item concepts is the EMMO mereocausality alter
                                                            ] ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """A quantum is the most fundamental item (both mereologically and causally) and is considered causally self-connected by definition.
 The quantum concept recalls the fact that there is lower epistemological limit to our knowledge of the universe, related to the uncertainity principle.
-Space and time emerge following the network of causal connections between quantum objects. So quantum objects are adimensional objects, that precede space and time dimensions.
+Space and time emerge following the network of causal connections between quantum objects. So quantum objects are adimensional objects, that precede space and time dimensions: they are simple beings (in greek οντων).
 Using physics concepts, we can think the quantum as an elementary particle (e.g. an electron) in a specific state between two causal interactions."""@en ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The class of entities without proper parts."@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of the mereological and causal fundamental entities."@en ;
@@ -798,13 +811,9 @@ However, the quantum mereotopology approach is not restricted only to physics. F
                                                                  :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de
                                                                ) ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """The EMMO conceptualises the world using the primitive concepts of causality and parthood. Parthood is about the composition of world entities starting from other more fundamental entities. Causality is about the interactions between world entities. 
-
 The quantum is the smallest indivisible part of any world entity. Quantum individuals are the fundamental causal constituents of the universe, since it is implied that causality originates from quantum-to-quantum interactions. Quantums are no-dimensional, and their aggregation makes spacetime emerge from their causal structure. Causality between macro entities (i.e. entities made of more than one quantum) is explained as the sum of the causality relations between their quantum constituents.
-
 The fundamental distinction between world entities is direct causality self-connectedness: a world entity can be self-connected xor not self-connected depending on the causality network of its fundamental components.
-
-There is no concept for void region, or in other worlds of spacetime without entities, since space and time are measured quantities following a causality relation between entities (spacetime emerges as relational property).
-
+Void regions do not exist in the EMMO, or in other words there is no spacetime without entities, since space and time are measured quantities following a causality relation between entities (spacetime emerges as relational property not as a self-standing entity).
 Entities are not placed in space or time: space and time are always relative between entities and are measured. In other words, space and time relations originates from causality interactions."""@en ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The disjoint union of the Item and Collection classes."@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of all the OWL individuals declared by EMMO as standing for world entities."@en ;
@@ -838,13 +847,9 @@ For this reason, the EMMO entities that are not quantum or elementaries, may be 
    owl:annotatedSource :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf ;
    owl:annotatedProperty :EMMO_31252f35_c767_4b97_a877_1235076c3e13 ;
    owl:annotatedTarget """The EMMO conceptualises the world using the primitive concepts of causality and parthood. Parthood is about the composition of world entities starting from other more fundamental entities. Causality is about the interactions between world entities. 
-
 The quantum is the smallest indivisible part of any world entity. Quantum individuals are the fundamental causal constituents of the universe, since it is implied that causality originates from quantum-to-quantum interactions. Quantums are no-dimensional, and their aggregation makes spacetime emerge from their causal structure. Causality between macro entities (i.e. entities made of more than one quantum) is explained as the sum of the causality relations between their quantum constituents.
-
 The fundamental distinction between world entities is direct causality self-connectedness: a world entity can be self-connected xor not self-connected depending on the causality network of its fundamental components.
-
-There is no concept for void region, or in other worlds of spacetime without entities, since space and time are measured quantities following a causality relation between entities (spacetime emerges as relational property).
-
+Void regions do not exist in the EMMO, or in other words there is no spacetime without entities, since space and time are measured quantities following a causality relation between entities (spacetime emerges as relational property not as a self-standing entity).
 Entities are not placed in space or time: space and time are always relative between entities and are measured. In other words, space and time relations originates from causality interactions."""@en ;
    :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "While EMMO mereocausality conceptualisation can be used on any possibile domain, so that a quantum can be a Lego brick or an furniture component, it can be better understood when a quantum is elucidated as the smallest measured time interval of existence of an elementary particle (e.g. quark, photon)."@en
  ] .
@@ -876,7 +881,6 @@ Disjointness means that a collection cannot be an item and viceversa, representi
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The union of Elementary and CausalSystem classes."@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A self-connected composition of more than one quantum object."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """A causal object expresses itself in time and space thanks to the underlying causality relations between its constituent quantum entities. It must at least provide two temporal parts.
-
 The unity criterion beyond the definition of a causal object (the most general concept of object) is the existence of a causal path between each of its parts."""@en ;
                                            skos:altLabel "PhysicalObject"@en ;
                                            skos:prefLabel "CausalObject"@en .
@@ -1034,6 +1038,24 @@ Following graph theory concepts, the quantums of an item are all connected toget
                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_6835537c_d294_4005_a770_ec9621f29ed1 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#SameIndividualAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
                                                      ] ;
                                            rdf:rest rdf:nil
                                          ]
