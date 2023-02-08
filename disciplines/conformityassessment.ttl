@@ -33,6 +33,42 @@
                                            skos:prefLabel "hasConformityAssessmentResult"@en .
 
 
+###  http://emmo.info/emmo#EMMO_f5db71b9_af79_4562_91dd_cfbbbdb78b48
+:EMMO_f5db71b9_af79_4562_91dd_cfbbbdb78b48 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf owl:topObjectProperty ;
+                                           rdfs:domain :EMMO_7aa150c8_a726_4494_bbef_2232ab58549b ;
+                                           rdfs:range :EMMO_508f7b78_b67a_4cbf_bab0_a5afd5eb0134 ;
+                                           skos:prefLabel "hasPassed"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://emmo.info/emmo#EMMO_1bcdca9b_453c_418a_9752_4dcb69f6fe0d
+:EMMO_1bcdca9b_453c_418a_9752_4dcb69f6fe0d rdf:type owl:DatatypeProperty ;
+                                           rdfs:subPropertyOf owl:topDataProperty ;
+                                           rdfs:domain :EMMO_f41e958d_a115_442f_8766_8a280444b0ec ;
+                                           rdfs:range owl:real ;
+                                           skos:prefLabel "hasDataQualityValue"@en .
+
+
+###  http://emmo.info/emmo#EMMO_2f8910ca_8dbd_4537_8cbc_8d8914d279b5
+:EMMO_2f8910ca_8dbd_4537_8cbc_8d8914d279b5 rdf:type owl:DatatypeProperty ;
+                                           rdfs:subPropertyOf owl:topDataProperty ;
+                                           rdfs:domain :EMMO_0718ca88_f15d_4f69_85e2_28fb5f43c9af ;
+                                           rdfs:range xsd:boolean ;
+                                           skos:prefLabel "hasBooleanAttribute"@en .
+
+
+###  http://emmo.info/emmo#EMMO_65ed281c_5dfa_4de8_b89b_cb66d2bafdcd
+:EMMO_65ed281c_5dfa_4de8_b89b_cb66d2bafdcd rdf:type owl:DatatypeProperty ;
+                                           rdfs:subPropertyOf owl:topDataProperty ;
+                                           rdfs:domain :EMMO_bc5adc6b_2dce_4735_8306_e121b83d5027 ;
+                                           rdfs:range xsd:string ;
+                                           skos:prefLabel "hasQualityDegree"@en .
+
+
 #################################################################
 #    Classes
 #################################################################
@@ -87,6 +123,17 @@ Note 1 to entry: often performed only by users within the organization developin
  ] .
 
 
+###  http://emmo.info/emmo#EMMO_1dffa295_1a9c_4a11_8827_019c179375f4
+:EMMO_1dffa295_1a9c_4a11_8827_019c179375f4 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_57301187_137f_4103_a875_79a97e566ba7 ;
+                                           skos:prefLabel "CAObserver"@en .
+
+
+###  http://emmo.info/emmo#EMMO_31658519_8fe3_489c_9b30_1c2920c78b80
+:EMMO_31658519_8fe3_489c_9b30_1c2920c78b80 rdf:type owl:Class ;
+                                           skos:prefLabel "Agent"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_321eb37b_e9d7_4319_bf43_8981ee2d2e43
 :EMMO_321eb37b_e9d7_4319_bf43_8981ee2d2e43 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_551f93c7_7e76_4994_8293_fe2c8ebda450 ;
@@ -107,6 +154,7 @@ Note 1 to entry: often performed at a customer site""" ;
 
 ###  http://emmo.info/emmo#EMMO_354e79ba_13d8_44d4_a2b8_e113370275ad
 :EMMO_354e79ba_13d8_44d4_a2b8_e113370275ad rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_31658519_8fe3_489c_9b30_1c2920c78b80 ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """organization or individual that carries out an experiment or measurement, funded by a payer (3.11), and producing a data set
 Note 1 to entry: In the research domain producer is typically a researcher, in the commercial domain the producer can be a contract laboratory.""" ,
                                                                                       """producer
@@ -202,6 +250,10 @@ Note 3 to entry: The use conditions for validation can be real or simulated.""" 
 :EMMO_433eac85_e5ae_4a88_8fd5_27299d76c8c7 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_3b19eab4_79be_4b02_bdaf_ecf1f0067a68 ,
                                                            :EMMO_508f7b78_b67a_4cbf_bab0_a5afd5eb0134 ;
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:someValuesFrom :EMMO_1dffa295_1a9c_4a11_8827_019c179375f4
+                                                           ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A Verification is a process where the interpreter attributes a sign,  specifically a property, to the way the product is made following test procedures, depending on the fulfillment of specified requirements.
 The interpreter is the producer.
 The Verification can be executed either on the entire process or on parts of it.( e in qualsiasi momento)
@@ -257,7 +309,11 @@ Note 3 to entry: The word “verified” is used to designate the corresponding 
 
 ###  http://emmo.info/emmo#EMMO_508f7b78_b67a_4cbf_bab0_a5afd5eb0134
 :EMMO_508f7b78_b67a_4cbf_bab0_a5afd5eb0134 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069 ;
+                                           rdfs:subClassOf :EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:someValuesFrom :EMMO_63f95f1f_8b6f_433c_88b9_a14b63b43f2f
+                                                           ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A Conformity assessment is a process where the interpreter attributes a sign,  specifically a property, to a process or a product, considering the fullfillment or not fullfillment of requiremnts estimated or defined." ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "any activity concerned with determining directly or indirectly that relevant requirements are fulfilled" ,
                                                                                       "confirmation through the provision of objective evidence (3.4.32), that specified requirements (3.1.15) have been fulfilled" ,
@@ -392,6 +448,11 @@ Note 1 to entry: Whenever the term “conformity assessment body” is used in t
 
 ###  http://emmo.info/emmo#EMMO_63f95f1f_8b6f_433c_88b9_a14b63b43f2f
 :EMMO_63f95f1f_8b6f_433c_88b9_a14b63b43f2f rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_508f7b78_b67a_4cbf_bab0_a5afd5eb0134
+                                                           ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The CAClaimer, in a Conformity Assessment, is the one who commissions the target to be achieved and against which the comparison with the test item is made, prior to awarding the Test Result." ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Stakeholder, Company, Market" ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "individual, organization, department or division, internal or external, that requests or commissions a research project" ;
@@ -470,6 +531,7 @@ Note 2 to entry: 20.05.05 (2382)""" ;
 
 ###  http://emmo.info/emmo#EMMO_8d954278_8789_4e8f_84a1_a35a04af4e0c
 :EMMO_8d954278_8789_4e8f_84a1_a35a04af4e0c rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_31658519_8fe3_489c_9b30_1c2920c78b80 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Client is individual, organization, department or division, internal or external, that requests or commissions an objective to be realised, that is called claim" ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "individual, organization, department or division, internal or external, that requests or commissions a research project" ;
                                            skos:prefLabel "Client"@en .
@@ -484,6 +546,7 @@ Note 2 to entry: 20.05.05 (2382)""" ;
 
 ###  http://emmo.info/emmo#EMMO_972a6b9c_6dbc_4e60_8953_1dd54946005c
 :EMMO_972a6b9c_6dbc_4e60_8953_1dd54946005c rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_31658519_8fe3_489c_9b30_1c2920c78b80 ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "user is organization or person that purchases or otherwise acquires fasteners and installs them for purposes of assembly or overhaul and maintenance" ;
                                            skos:prefLabel "User"@en .
 
@@ -554,6 +617,12 @@ Information technology —"""
    rdfs:seeAlso """ISO/IEC 25024:2015(en)
 Systems and software engineering — Systems and software Quality Requirements and Evaluation (SQuaRE) — Measurement of data quality"""
  ] .
+
+
+###  http://emmo.info/emmo#EMMO_ceeb909c_ca20_42f9_bb07_a9f81232b64c
+:EMMO_ceeb909c_ca20_42f9_bb07_a9f81232b64c rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_57301187_137f_4103_a875_79a97e566ba7 ;
+                                           skos:prefLabel "CAEstimator"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_e4ece4ad_41fc_4af5_9014_1afdbf722436
