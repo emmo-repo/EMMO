@@ -150,6 +150,12 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            skos:prefLabel "ProductionSystem"@en .
 
 
+###  http://emmo.info/emmo#EMMO_2b4783a6_36ad_48c8_8f5d_fe7c05ad298b
+:EMMO_2b4783a6_36ad_48c8_8f5d_fe7c05ad298b rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_8786cb47_8e1f_4968_9b15_f6d41fc51252 ;
+                                           skos:prefLabel "ReshapeManufacturing"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_3967de47_343f_4bab_aada_b4bec73d11da
 :EMMO_3967de47_343f_4bab_aada_b4bec73d11da rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_494b372c_cfdf_47d3_a4de_5e037c540de8 ;
@@ -216,12 +222,20 @@ email: emanuele.ghedini@unibo.it"""@en ,
  ] .
 
 
+###  http://emmo.info/emmo#EMMO_6ab555fd_5803_4f03_82e8_127c01aabfea
+:EMMO_6ab555fd_5803_4f03_82e8_127c01aabfea rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_8786cb47_8e1f_4968_9b15_f6d41fc51252 ;
+                                           skos:prefLabel "JoinManufacturing"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_71d1c8f0_c6e3_44b5_a4b6_1b74ff35698a
 :EMMO_71d1c8f0_c6e3_44b5_a4b6_1b74ff35698a rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a4d66059_5dd3_4b90_b4cb_10960559441b ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A manufacturing process whose product is the result of the combination of more substances."@en ;
-                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Synthesis of materials, the preparation of a cake."@en ;
-                                           skos:prefLabel "ContinuumManufacturing"@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A manufacturing process aimed to modify the precursor object through a physical process (involving other materials, energy, manipulation) to change its material properties."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Synthesis of materials, the preparation of a cake, tempering of a steel beam."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A material process requires the output to be classified as an individual of a material subclass."@en ;
+                                           skos:altLabel "ContinuumManufacturing"@en ;
+                                           skos:prefLabel "MaterialsProcessing"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_82fc8506_1f84_4add_9683_abea077bd1e3
@@ -264,7 +278,7 @@ It must have and initial stage of its life that is also an outcome of a intentio
                                            skos:altLabel "Artifact"@en ,
                                                          "Engineered"@en ,
                                                          "TangibleProduct"@en ;
-                                           skos:prefLabel "Manufactured"@en .
+                                           skos:prefLabel "ManufacturedProduct"@en .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad ;
@@ -276,7 +290,7 @@ It must have and initial stage of its life that is also an outcome of a intentio
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad ;
    owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "Manufactured"@en ;
+   owl:annotatedTarget "ManufacturedProduct"@en ;
    :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin manufacture: \"made by hand\"."@en
  ] .
 
@@ -298,15 +312,23 @@ It must have and initial stage of its life that is also an outcome of a intentio
 ###  http://emmo.info/emmo#EMMO_8786cb47_8e1f_4968_9b15_f6d41fc51252
 :EMMO_8786cb47_8e1f_4968_9b15_f6d41fc51252 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a4d66059_5dd3_4b90_b4cb_10960559441b ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A manufacturing process aimed to the production of a device made of specific components."@en ;
-                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Assemblying a bicycle, building a car."@en ;
-                                           skos:prefLabel "DiscreteManufacturing"@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Component manufacturing requires the output to be an object, i.e. the output is recognised not by being simply a material but an object with a specific function, shape, or intended use."@en ;
+                                           rdfs:seeAlso "DIN 8580"@en ;
+                                           skos:altLabel "Werkstücke"@de ;
+                                           skos:prefLabel "WorkpieceManufacturing"@en .
+
+
+###  http://emmo.info/emmo#EMMO_90589553_5625_4074_8f0d_0532fd7eb42b
+:EMMO_90589553_5625_4074_8f0d_0532fd7eb42b rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_8786cb47_8e1f_4968_9b15_f6d41fc51252 ;
+                                           skos:prefLabel "SeparateManufacturing"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_912ac3a2_a124_4233_92dd_06c9aebea46c
 :EMMO_912ac3a2_a124_4233_92dd_06c9aebea46c rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c ;
+                                           rdfs:subClassOf :EMMO_6ab555fd_5803_4f03_82e8_127c01aabfea ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The act of connecting together the parts of something"@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "No loss or adds of parts by the components, nor merging. In assemblying parts are losing some of theirs movement degrees of freedom."@en ;
                                            skos:prefLabel "Assemblying"@en .
 
 [ rdf:type owl:Axiom ;
@@ -315,6 +337,12 @@ It must have and initial stage of its life that is also an outcome of a intentio
    owl:annotatedTarget "Assemblying"@en ;
    :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Old French asembler, based on Latin ad- ‘to’ + simul ‘together’."@en
  ] .
+
+
+###  http://emmo.info/emmo#EMMO_92028373_3a43_4b80_9a69_caca22df3918
+:EMMO_92028373_3a43_4b80_9a69_caca22df3918 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_8786cb47_8e1f_4968_9b15_f6d41fc51252 ;
+                                           skos:prefLabel "CoatingManufacturing"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_95d4eb9b_d3d0_4705_a01c_4f87fb5f8d43
@@ -338,7 +366,7 @@ It must have and initial stage of its life that is also an outcome of a intentio
                                                              owl:onProperty :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 ;
                                                              owl:someValuesFrom :EMMO_82fc8506_1f84_4add_9683_abea077bd1e3
                                                            ] ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The process of transforming an precursor object (e.g. raw materials) into a product by the use of manual labor, machinery or chemical/biological processes."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The process of transforming an precursor objects (e.g. raw materials) into a product by the use of manual labor, machinery or chemical/biological processes."@en ;
                                            skos:prefLabel "Manufacturing"@en .
 
 [ rdf:type owl:Axiom ;
@@ -370,6 +398,12 @@ It must have and initial stage of its life that is also an outcome of a intentio
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A manufacturing process in which interchangeable parts are added to a product in a sequential manner to create an end product."@en ;
                                            rdfs:comment "Is not collection, since the connection between the elements of an assembly line occurs through the flow of objects that are processed."@en ;
                                            skos:prefLabel "AssemblyLine"@en .
+
+
+###  http://emmo.info/emmo#EMMO_e9244742_c185_4c50_b455_c57654852582
+:EMMO_e9244742_c185_4c50_b455_c57654852582 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_8786cb47_8e1f_4968_9b15_f6d41fc51252 ;
+                                           skos:prefLabel "ArchetypeManufacturing"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_ec7464a9_d99d_45f8_965b_4e9230ea8356
