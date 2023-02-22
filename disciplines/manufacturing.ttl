@@ -93,7 +93,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
 
 ###  http://emmo.info/emmo#EMMO_00f2dc2d_2f64_468a_a77c_d70841b0b5f0
 :EMMO_00f2dc2d_2f64_468a_a77c_d70841b0b5f0 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_71d1c8f0_c6e3_44b5_a4b6_1b74ff35698a ;
+                                           rdfs:subClassOf :EMMO_fc859d37_408d_44b6_b345_a0ea0b65121e ;
                                            skos:prefLabel "PhotochemicalProcesses"@en .
 
 
@@ -112,23 +112,65 @@ email: emanuele.ghedini@unibo.it"""@en ,
  ] .
 
 
+###  http://emmo.info/emmo#EMMO_0342678c_13ba_43d7_9cbd_df60967a0a45
+:EMMO_0342678c_13ba_43d7_9cbd_df60967a0a45 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_03441eb3_d1fd_4906_b953_b83312d7589e ;
+                                           skos:prefLabel "MicrowaveSintering"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_03441eb3_d1fd_4906_b953_b83312d7589e
 :EMMO_03441eb3_d1fd_4906_b953_b83312d7589e rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_71d1c8f0_c6e3_44b5_a4b6_1b74ff35698a ,
-                                                           :EMMO_e9244742_c185_4c50_b455_c57654852582 ;
+                                           rdfs:subClassOf :EMMO_fc859d37_408d_44b6_b345_a0ea0b65121e ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Sintering is the process of forming a solid mass of material through heat and pressure without melting to the point of liquefaction. This process involves the atoms in materials diffusing across the particle boundaries and fusing together into one piece."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """Sintering occurs naturally in mineral deposits, and is used as a manufacturing process for materials including ceramics, metals and plastics.
+Because the sintering temperature doesn’t reach the materials’ melting point, it is often used for materials with high melting points, such as molybdenum and tungsten."""@en ;
+                                           rdfs:seeAlso """ISO 3252:2019 Powder metallurgy
+sintering: thermal treatment of a powder or compact, at a temperature below the melting point of the main constituent, for the purpose of increasing its strength by the metallurgical bonding of its particles"""@en ,
+                                                        """ISO/ASTM TR 52906:2022 Additive manufacturing
+sintering: process of heating a powder metal compact to increase density and/or improve mechanical properties via solid state diffusion"""@en ,
+                                                        "https://www.twi-global.com/technical-knowledge/faqs/what-is-sintering"@en ;
                                            skos:prefLabel "Sintering"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_03441eb3_d1fd_4906_b953_b83312d7589e ;
+   owl:annotatedProperty rdfs:seeAlso ;
+   owl:annotatedTarget """ISO 3252:2019 Powder metallurgy
+sintering: thermal treatment of a powder or compact, at a temperature below the melting point of the main constituent, for the purpose of increasing its strength by the metallurgical bonding of its particles"""@en ;
+   rdfs:isDefinedBy "https://www.iso.org/obp/ui/#iso:std:iso:3252:ed-5:v1:en:term:3.3.60"^^xsd:anyURI
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_03441eb3_d1fd_4906_b953_b83312d7589e ;
+   owl:annotatedProperty rdfs:seeAlso ;
+   owl:annotatedTarget """ISO/ASTM TR 52906:2022 Additive manufacturing
+sintering: process of heating a powder metal compact to increase density and/or improve mechanical properties via solid state diffusion"""@en ;
+   rdfs:isDefinedBy "https://www.iso.org/obp/ui/#iso:std:iso-astm:tr:52906:ed-1:v1:en:term:3.9"^^xsd:anyURI
+ ] .
 
 
 ###  http://emmo.info/emmo#EMMO_03eb9b46_8ff0_4fcd_b1a0_73f65ae7434e
 :EMMO_03eb9b46_8ff0_4fcd_b1a0_73f65ae7434e rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_e9244742_c185_4c50_b455_c57654852582 ;
-                                           skos:prefLabel "GenerativeManufacturing"@en .
+                                           skos:altLabel "GenerativeManufacturing"@en ;
+                                           skos:prefLabel "AdditiveManufacturing"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_06c415dc_ba26_407d_b596_283bd4d9a66f
 :EMMO_06c415dc_ba26_407d_b596_283bd4d9a66f rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_6ab555fd_5803_4f03_82e8_127c01aabfea ;
                                            skos:prefLabel "Welding"@en .
+
+
+###  http://emmo.info/emmo#EMMO_08d993e0_cc1c_45da_b0c5_3d658091ccfd
+:EMMO_08d993e0_cc1c_45da_b0c5_3d658091ccfd rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_03441eb3_d1fd_4906_b953_b83312d7589e ;
+                                           skos:prefLabel "PlasticSintering"@en .
+
+
+###  http://emmo.info/emmo#EMMO_095b3c46_2b60_43cb_bade_9ee9ac969720
+:EMMO_095b3c46_2b60_43cb_bade_9ee9ac969720 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_6ab555fd_5803_4f03_82e8_127c01aabfea ;
+                                           skos:prefLabel "Filling"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_0c7ad550_00ae_45ff_a4e2_58d6a61f48eb
@@ -145,6 +187,12 @@ email: emanuele.ghedini@unibo.it"""@en ,
  ] .
 
 
+###  http://emmo.info/emmo#EMMO_123b0aee_eac2_461f_8078_3a7c8dfbe7ce
+:EMMO_123b0aee_eac2_461f_8078_3a7c8dfbe7ce rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_5e5656ef_971e_49e6_a32f_048b6e86c3e0 ;
+                                           skos:prefLabel "PaperManufacturing"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_127594de_4802_4ad6_b09d_d05b340394dd
 :EMMO_127594de_4802_4ad6_b09d_d05b340394dd rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_82fc8506_1f84_4add_9683_abea077bd1e3 ,
@@ -154,6 +202,12 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            skos:prefLabel "Service"@en .
 
 
+###  http://emmo.info/emmo#EMMO_16c41198_3881_4a34_bae5_993f88823993
+:EMMO_16c41198_3881_4a34_bae5_993f88823993 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_f8b20fd2_08b9_4368_b786_156e11d1cec8 ;
+                                           skos:prefLabel "ThermalSprayingForming"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_16cc6deb_d9f8_4ede_900a_a17cc86e57c4
 :EMMO_16cc6deb_d9f8_4ede_900a_a17cc86e57c4 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_b9522e56_1fac_4766_97e6_428605fabd3e ;
@@ -161,10 +215,59 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            skos:prefLabel "ManufacturingSystem"@en .
 
 
+###  http://emmo.info/emmo#EMMO_16d1606c_e562_43cd_a92c_0894abc2027b
+:EMMO_16d1606c_e562_43cd_a92c_0894abc2027b rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_22496460_c849_4bd7_8be0_9a1202506f18 ;
+                                           skos:prefLabel "Galvanizing"@en .
+
+
+###  http://emmo.info/emmo#EMMO_1a2cbca8_3d3b_4e2c_9a71_e39273937786
+:EMMO_1a2cbca8_3d3b_4e2c_9a71_e39273937786 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_90589553_5625_4074_8f0d_0532fd7eb42b ;
+                                           skos:prefLabel "Ablation"@en .
+
+
+###  http://emmo.info/emmo#EMMO_1a9e6e27_1e1d_492a_824e_6fb848574846
+:EMMO_1a9e6e27_1e1d_492a_824e_6fb848574846 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_03441eb3_d1fd_4906_b953_b83312d7589e ;
+                                           skos:prefLabel "MetallicPowderSintering"@en .
+
+
+###  http://emmo.info/emmo#EMMO_1acb552d_281a_40a4_9d55_5e31b85d4dc1
+:EMMO_1acb552d_281a_40a4_9d55_5e31b85d4dc1 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_03441eb3_d1fd_4906_b953_b83312d7589e ;
+                                           skos:prefLabel "PermanentLiquidPhaseSintering"@en .
+
+
+###  http://emmo.info/emmo#EMMO_1b01c9c6_6367_498c_a04d_1a37499b3eff
+:EMMO_1b01c9c6_6367_498c_a04d_1a37499b3eff rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_03441eb3_d1fd_4906_b953_b83312d7589e ;
+                                           skos:prefLabel "ElectroSinterForging"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_1d6b63d5_9938_483c_ad62_a09ac34153c9
 :EMMO_1d6b63d5_9938_483c_ad62_a09ac34153c9 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_90589553_5625_4074_8f0d_0532fd7eb42b ;
+                                           rdfs:subClassOf :EMMO_d5f98475_00ce_4987_99fb_262aed395e46 ;
                                            skos:prefLabel "ShearCutting"@en .
+
+
+###  http://emmo.info/emmo#EMMO_2138677c_845a_4bc2_8be7_7b0a07b4777d
+:EMMO_2138677c_845a_4bc2_8be7_7b0a07b4777d rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_24788d59_32f5_4339_a42a_43a102ec14a8 ;
+                                           skos:prefLabel "Grinding"@en .
+
+
+###  http://emmo.info/emmo#EMMO_22496460_c849_4bd7_8be0_9a1202506f18
+:EMMO_22496460_c849_4bd7_8be0_9a1202506f18 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_6ab555fd_5803_4f03_82e8_127c01aabfea ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Archetype join attaches two workpiece with geometrically defined shape together, using supplementary workpiece made of amorphous material (e.g. powder)."@en ;
+                                           skos:prefLabel "ArchetypeJoin"@en .
+
+
+###  http://emmo.info/emmo#EMMO_24788d59_32f5_4339_a42a_43a102ec14a8
+:EMMO_24788d59_32f5_4339_a42a_43a102ec14a8 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_90589553_5625_4074_8f0d_0532fd7eb42b ;
+                                           skos:prefLabel "UndefinedEdgeCutting"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_253e1d54_69af_4931_90d0_5ccfd7e690ad
@@ -186,6 +289,18 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            skos:prefLabel "ProductionSystem"@en .
 
 
+###  http://emmo.info/emmo#EMMO_263d9161_5a7c_4900_a49b_55f012b3fe07
+:EMMO_263d9161_5a7c_4900_a49b_55f012b3fe07 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_dacfc7dc_5ddb_4f67_986b_dcd01d649d60 ;
+                                           skos:prefLabel "ThermochemicalTreatment"@en .
+
+
+###  http://emmo.info/emmo#EMMO_26f34447_32ec_48ce_9baa_4afec09120f4
+:EMMO_26f34447_32ec_48ce_9baa_4afec09120f4 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_bbf12904_e25e_4f49_87f3_8bd210a6b535 ;
+                                           skos:prefLabel "InterferenceFitting"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_28440627_1088_4733_bd3a_a63dc71411a8
 :EMMO_28440627_1088_4733_bd3a_a63dc71411a8 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a4d66059_5dd3_4b90_b4cb_10960559441b ,
@@ -193,6 +308,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                                              owl:onProperty :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 ;
                                                              owl:someValuesFrom :EMMO_00b85655_f20c_4e83_b90e_094e8ea7e48f
                                                            ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A manufacturing process that comprises all intermediate manufacturing steps, from raw materials to final product, ready for commercialisation as commercial product for some markets."@en ;
                                            rdfs:seeAlso """ISO/TS 16791:2020
 manufacturing, manufacture: process of production from the acquisition of all materials through all processing stages, including final packaging"""@en ;
                                            skos:prefLabel "CompleteManufacturing"@en .
@@ -212,7 +328,36 @@ manufacturing, manufacture: process of production from the acquisition of all ma
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A manufacturing in which workpieces are produced from solid raw parts through permanent deformation, provided that neither material is added nor removed."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The mass of the raw part is equal to the mass of the finished part."@en ;
                                            skos:altLabel "Forming"@en ;
-                                           skos:prefLabel "ReshapeManufacturing"@en .
+                                           skos:prefLabel "ReshapeManufacturing"@en ,
+                                                          "Umformen"@de .
+
+
+###  http://emmo.info/emmo#EMMO_2b524942_4e3e_403a_b4ab_2b53750f3d3b
+:EMMO_2b524942_4e3e_403a_b4ab_2b53750f3d3b rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_03441eb3_d1fd_4906_b953_b83312d7589e ;
+                                           rdfs:seeAlso """ISO 3252:2019 Powder metallurgy
+reaction sintering: process wherein at least two constituents of a powder mixture react during sintering"""@en ;
+                                           skos:prefLabel "ReactionSintering"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_2b524942_4e3e_403a_b4ab_2b53750f3d3b ;
+   owl:annotatedProperty rdfs:seeAlso ;
+   owl:annotatedTarget """ISO 3252:2019 Powder metallurgy
+reaction sintering: process wherein at least two constituents of a powder mixture react during sintering"""@en ;
+   rdfs:isDefinedBy "https://www.iso.org/obp/ui/#iso:std:iso:3252:ed-5:v1:en:term:3.3.55"^^xsd:anyURI
+ ] .
+
+
+###  http://emmo.info/emmo#EMMO_2bf617c6_e57b_430b_9f37_fcf2cfda719e
+:EMMO_2bf617c6_e57b_430b_9f37_fcf2cfda719e rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_f8b20fd2_08b9_4368_b786_156e11d1cec8 ;
+                                           skos:prefLabel "SandMolds"@en .
+
+
+###  http://emmo.info/emmo#EMMO_3086e6a8_edd9_4592_b33c_66d818835951
+:EMMO_3086e6a8_edd9_4592_b33c_66d818835951 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_78284835_f4ed_4a7c_914f_a7fdb460ed8e ;
+                                           skos:prefLabel "Flanging"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_30e3edb5_0977_4b9b_9aed_5a4d16c1c07c
@@ -221,10 +366,28 @@ manufacturing, manufacture: process of production from the acquisition of all ma
                                            skos:prefLabel "Electroplating"@en .
 
 
+###  http://emmo.info/emmo#EMMO_326e7731_76c5_402d_a041_c9b48a736963
+:EMMO_326e7731_76c5_402d_a041_c9b48a736963 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_e9244742_c185_4c50_b455_c57654852582 ;
+                                           skos:prefLabel "FormingFromIonised"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_3528547f_cefe_4f24_bc46_936b39f711eb
 :EMMO_3528547f_cefe_4f24_bc46_936b39f711eb rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_71d1c8f0_c6e3_44b5_a4b6_1b74ff35698a ;
+                                           rdfs:subClassOf :EMMO_fc859d37_408d_44b6_b345_a0ea0b65121e ;
                                            skos:prefLabel "ThermomechanicalTreatment"@en .
+
+
+###  http://emmo.info/emmo#EMMO_375aaa5a_998f_4626_83e0_c7d7e52a6565
+:EMMO_375aaa5a_998f_4626_83e0_c7d7e52a6565 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_5e5656ef_971e_49e6_a32f_048b6e86c3e0 ;
+                                           skos:prefLabel "ChipboardManufacturing"@en .
+
+
+###  http://emmo.info/emmo#EMMO_381b6a6e_6e8e_461a_8591_d7a60e823d4d
+:EMMO_381b6a6e_6e8e_461a_8591_d7a60e823d4d rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_6523cad7_ea54_471c_adb7_e783f824ec09 ;
+                                           skos:prefLabel "BlowMolding"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_3967de47_343f_4bab_aada_b4bec73d11da
@@ -233,9 +396,49 @@ manufacturing, manufacture: process of production from the acquisition of all ma
                                            skos:prefLabel "InspectionDevice"@en .
 
 
+###  http://emmo.info/emmo#EMMO_3c7affee_09ed_42e7_a190_4a10c75ab6dd
+:EMMO_3c7affee_09ed_42e7_a190_4a10c75ab6dd rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_dacfc7dc_5ddb_4f67_986b_dcd01d649d60 ;
+                                           skos:prefLabel "PrecipitationHardening"@en .
+
+
+###  http://emmo.info/emmo#EMMO_3cb27225_df45_4616_aa3b_32dba383524c
+:EMMO_3cb27225_df45_4616_aa3b_32dba383524c rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_03441eb3_d1fd_4906_b953_b83312d7589e ;
+                                           rdfs:seeAlso """ISO 3252:2019 Powder metallurgy
+liquid-phase sintering: sintering of a powder or compact containing at least two constituents, under conditions such that a liquid phase is formed"""@en ;
+                                           skos:prefLabel "LiquidPhaseSintering"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_3cb27225_df45_4616_aa3b_32dba383524c ;
+   owl:annotatedProperty rdfs:seeAlso ;
+   owl:annotatedTarget """ISO 3252:2019 Powder metallurgy
+liquid-phase sintering: sintering of a powder or compact containing at least two constituents, under conditions such that a liquid phase is formed"""@en ;
+   rdfs:isDefinedBy "https://www.iso.org/obp/ui/#iso:std:iso:3252:ed-5:v1:en:term:3.3.32"^^xsd:anyURI
+ ] .
+
+
+###  http://emmo.info/emmo#EMMO_3ec45f3b_677d_4e71_be75_6f8966b4f808
+:EMMO_3ec45f3b_677d_4e71_be75_6f8966b4f808 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_03441eb3_d1fd_4906_b953_b83312d7589e ;
+                                           rdfs:seeAlso """ISO 3252:2019 Powder metallurgy
+loose-powder sintering, gravity sintering: sintering of uncompacted powder"""@en ;
+                                           skos:altLabel "Loose-powderSintering"@en ,
+                                                         "PressurelessSintering"@en ;
+                                           skos:prefLabel "GravitySintering"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_3ec45f3b_677d_4e71_be75_6f8966b4f808 ;
+   owl:annotatedProperty rdfs:seeAlso ;
+   owl:annotatedTarget """ISO 3252:2019 Powder metallurgy
+loose-powder sintering, gravity sintering: sintering of uncompacted powder"""@en ;
+   rdfs:isDefinedBy "https://www.iso.org/obp/ui/#iso:std:iso:3252:ed-5:v1:en:term:3.3.33"^^xsd:anyURI
+ ] .
+
+
 ###  http://emmo.info/emmo#EMMO_410b5956_a06d_4370_b7df_b1bd2126fb4b
 :EMMO_410b5956_a06d_4370_b7df_b1bd2126fb4b rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_6ab555fd_5803_4f03_82e8_127c01aabfea ;
+                                           rdfs:subClassOf :EMMO_bbf12904_e25e_4f49_87f3_8bd210a6b535 ;
                                            skos:prefLabel "Screwing"@en .
 
 
@@ -247,8 +450,8 @@ manufacturing, manufacture: process of production from the acquisition of all ma
 
 ###  http://emmo.info/emmo#EMMO_46dc0d51_b60f_49cd_8650_9aba7be3726c
 :EMMO_46dc0d51_b60f_49cd_8650_9aba7be3726c rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_71d1c8f0_c6e3_44b5_a4b6_1b74ff35698a ;
-                                           skos:prefLabel "Strengthening by forming"@en .
+                                           rdfs:subClassOf :EMMO_fc859d37_408d_44b6_b345_a0ea0b65121e ;
+                                           skos:prefLabel "HardeningByForming"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_47eea65c_e6ce_4c95_9406_fdb1519abc87
@@ -287,6 +490,12 @@ manufacturing, manufacture: process of production from the acquisition of all ma
  ] .
 
 
+###  http://emmo.info/emmo#EMMO_4b77c8ac_6d0e_456a_af41_ce43601b28b7
+:EMMO_4b77c8ac_6d0e_456a_af41_ce43601b28b7 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_ae3c9eb3_289d_4133_99d6_77068367a58d ;
+                                           skos:prefLabel "ContinuousCasting"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_4d2ca841_6cb1_4710_a756_5b989746bca2
 :EMMO_4d2ca841_6cb1_4710_a756_5b989746bca2 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_16cc6deb_d9f8_4ede_900a_a17cc86e57c4 ;
@@ -295,10 +504,29 @@ manufacturing, manufacture: process of production from the acquisition of all ma
                                            skos:prefLabel "MachineCell"@en .
 
 
+###  http://emmo.info/emmo#EMMO_4d5053a7_273e_495b_8098_5aa5c0f3f925
+:EMMO_4d5053a7_273e_495b_8098_5aa5c0f3f925 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_22496460_c849_4bd7_8be0_9a1202506f18 ,
+                                                           :EMMO_6523cad7_ea54_471c_adb7_e783f824ec09 ;
+                                           skos:prefLabel "InjectionMolding"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_4e099d7e_f624_4761_aff6_2ee6c63b8d2d
 :EMMO_4e099d7e_f624_4761_aff6_2ee6c63b8d2d rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_2b4783a6_36ad_48c8_8f5d_fe7c05ad298b ;
                                            skos:prefLabel "DropForging"@en .
+
+
+###  http://emmo.info/emmo#EMMO_4e6c4c25_e937_40d5_9cd1_0f3b740cc0a8
+:EMMO_4e6c4c25_e937_40d5_9cd1_0f3b740cc0a8 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_e9244742_c185_4c50_b455_c57654852582 ;
+                                           skos:prefLabel "FormingFromGas"@en .
+
+
+###  http://emmo.info/emmo#EMMO_4f46c5ab_1c21_4639_90d5_3c4ebf3b156b
+:EMMO_4f46c5ab_1c21_4639_90d5_3c4ebf3b156b rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_bbf12904_e25e_4f49_87f3_8bd210a6b535 ;
+                                           skos:prefLabel "Nailing"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_52bbaaee_1145_4be3_8a5c_b366851ea1b9
@@ -306,6 +534,12 @@ manufacturing, manufacture: process of production from the acquisition of all ma
                                            rdfs:subClassOf :EMMO_b9522e56_1fac_4766_97e6_428605fabd3e ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A system of independent elements that are assembled together to perform a function."@en ;
                                            skos:prefLabel "Assembled"@en .
+
+
+###  http://emmo.info/emmo#EMMO_5a5cf124_1ece_4b8e_ae63_edc2b5ee573a
+:EMMO_5a5cf124_1ece_4b8e_ae63_edc2b5ee573a rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_03441eb3_d1fd_4906_b953_b83312d7589e ;
+                                           skos:prefLabel "ElectricCurrentAssistedSintering"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_5c68497d_2544_4cd4_897b_1ea783c9f6fe
@@ -323,15 +557,52 @@ manufacturing, manufacture: process of production from the acquisition of all ma
  ] .
 
 
+###  http://emmo.info/emmo#EMMO_5e5656ef_971e_49e6_a32f_048b6e86c3e0
+:EMMO_5e5656ef_971e_49e6_a32f_048b6e86c3e0 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_e9244742_c185_4c50_b455_c57654852582 ;
+                                           skos:prefLabel "FormingFromChip"@en .
+
+
+###  http://emmo.info/emmo#EMMO_607ccc15_38aa_4a69_a70a_effa8015bf42
+:EMMO_607ccc15_38aa_4a69_a70a_effa8015bf42 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_46dc0d51_b60f_49cd_8650_9aba7be3726c ;
+                                           skos:prefLabel "HardeningByRolling"@en .
+
+
+###  http://emmo.info/emmo#EMMO_61846411_8c6f_410b_ae7b_8999ec18f2b2
+:EMMO_61846411_8c6f_410b_ae7b_8999ec18f2b2 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_dacfc7dc_5ddb_4f67_986b_dcd01d649d60 ;
+                                           skos:prefLabel "DeepFreezing"@en .
+
+
+###  http://emmo.info/emmo#EMMO_6523cad7_ea54_471c_adb7_e783f824ec09
+:EMMO_6523cad7_ea54_471c_adb7_e783f824ec09 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_e9244742_c185_4c50_b455_c57654852582 ;
+                                           skos:prefLabel "FormingFromPlastic"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_658b8bca_203a_49a6_920b_96b5baf5e199
 :EMMO_658b8bca_203a_49a6_920b_96b5baf5e199 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_92028373_3a43_4b80_9a69_caca22df3918 ;
                                            skos:prefLabel "PowderCoating"@en .
 
 
+###  http://emmo.info/emmo#EMMO_662e94ea_babe_4709_af8f_b669931076bc
+:EMMO_662e94ea_babe_4709_af8f_b669931076bc rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_d7432d8c_3182_4d61_a08f_dc686efaabe9 ;
+                                           skos:prefLabel "GrowingCrystal"@en .
+
+
+###  http://emmo.info/emmo#EMMO_68d094e2_1777_48b5_8e43_32965f824970
+:EMMO_68d094e2_1777_48b5_8e43_32965f824970 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_4e6c4c25_e937_40d5_9cd1_0f3b740cc0a8 ;
+                                           skos:prefLabel "VaporDeposition"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_68ee441e_c89e_4391_93c3_e68fef59fe14
 :EMMO_68ee441e_c89e_4391_93c3_e68fef59fe14 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_2b4783a6_36ad_48c8_8f5d_fe7c05ad298b ;
+                                           rdfs:subClassOf :EMMO_2b4783a6_36ad_48c8_8f5d_fe7c05ad298b ,
+                                                           :EMMO_78284835_f4ed_4a7c_914f_a7fdb460ed8e ;
                                            skos:prefLabel "Bending"@en .
 
 
@@ -339,7 +610,20 @@ manufacturing, manufacture: process of production from the acquisition of all ma
 :EMMO_6ab555fd_5803_4f03_82e8_127c01aabfea rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_eb85216f_b872_4ee5_9f62_655aa2ae0470 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A manufacturing involving the creation of long-term connection of several workpieces."@en ;
-                                           skos:prefLabel "JoinManufacturing"@en .
+                                           skos:prefLabel "Fügen"@de ,
+                                                          "JoinManufacturing"@en .
+
+
+###  http://emmo.info/emmo#EMMO_6c213064_e525_45d4_99cf_afebed8bbddd
+:EMMO_6c213064_e525_45d4_99cf_afebed8bbddd rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_dacfc7dc_5ddb_4f67_986b_dcd01d649d60 ;
+                                           skos:prefLabel "IsothermalConversion"@en .
+
+
+###  http://emmo.info/emmo#EMMO_6fa330f7_3289_4228_81df_12ee8a9708ac
+:EMMO_6fa330f7_3289_4228_81df_12ee8a9708ac rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_dacfc7dc_5ddb_4f67_986b_dcd01d649d60 ;
+                                           skos:prefLabel "Tempering"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_71d1c8f0_c6e3_44b5_a4b6_1b74ff35698a
@@ -356,6 +640,24 @@ manufacturing, manufacture: process of production from the acquisition of all ma
 :EMMO_755eaac8_735e_438c_8c19_a8b5e6a81728 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_03eb9b46_8ff0_4fcd_b1a0_73f65ae7434e ;
                                            skos:prefLabel "RapidPrototyping"@en .
+
+
+###  http://emmo.info/emmo#EMMO_78284835_f4ed_4a7c_914f_a7fdb460ed8e
+:EMMO_78284835_f4ed_4a7c_914f_a7fdb460ed8e rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_6ab555fd_5803_4f03_82e8_127c01aabfea ;
+                                           skos:prefLabel "FormingJoin"@en .
+
+
+###  http://emmo.info/emmo#EMMO_79575941_45dc_4f15_bb59_dc04dff2c92d
+:EMMO_79575941_45dc_4f15_bb59_dc04dff2c92d rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_6523cad7_ea54_471c_adb7_e783f824ec09 ;
+                                           skos:prefLabel "TransferMolding"@en .
+
+
+###  http://emmo.info/emmo#EMMO_7cd8a4ec_b219_498e_b696_028257163aa4
+:EMMO_7cd8a4ec_b219_498e_b696_028257163aa4 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_dacfc7dc_5ddb_4f67_986b_dcd01d649d60 ;
+                                           skos:prefLabel "Hardening"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_82fc8506_1f84_4add_9683_abea077bd1e3
@@ -382,6 +684,18 @@ It must have and initial stage of its life that is also an outcome of a intentio
    owl:annotatedTarget "Product"@en ;
    :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin productum ‘something produced’, derived from Latin producere, from pro- ‘forward’ + ducere ‘to lead’."@en
  ] .
+
+
+###  http://emmo.info/emmo#EMMO_865a1a70_02e8_40b2_948d_078e636c8701
+:EMMO_865a1a70_02e8_40b2_948d_078e636c8701 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_d7432d8c_3182_4d61_a08f_dc686efaabe9 ;
+                                           skos:prefLabel "Foaming"@en .
+
+
+###  http://emmo.info/emmo#EMMO_8679c7d3_fd5d_49ba_bc1f_1bb820a1f73f
+:EMMO_8679c7d3_fd5d_49ba_bc1f_1bb820a1f73f rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_90589553_5625_4074_8f0d_0532fd7eb42b ;
+                                           skos:prefLabel "DefinedEdgeCutting"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_86a305d1_7644_48be_b84c_1f976679b904
@@ -439,9 +753,9 @@ It must have and initial stage of its life that is also an outcome of a intentio
 discrete manufacturing: production of discrete items."""@en ,
                                                         """ISO 8887-1:2017
 manufacturing: production of components"""@en ;
-                                           skos:altLabel "DiscreteManufacturing"@en ,
-                                                         "Werkstücke"@de ;
-                                           skos:prefLabel "WorkpieceManufacturing"@en .
+                                           skos:altLabel "DiscreteManufacturing"@en ;
+                                           skos:prefLabel "Werkstücke"@de ,
+                                                          "WorkpieceManufacturing"@en .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_8786cb47_8e1f_4968_9b15_f6d41fc51252 ;
@@ -460,12 +774,25 @@ manufacturing: production of components"""@en ;
  ] .
 
 
+###  http://emmo.info/emmo#EMMO_8b2fd84c_8f51_4731_9bd7_830545e78b23
+:EMMO_8b2fd84c_8f51_4731_9bd7_830545e78b23 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_ae3c9eb3_289d_4133_99d6_77068367a58d ;
+                                           skos:prefLabel "LowPressureCasting"@en .
+
+
+###  http://emmo.info/emmo#EMMO_8f4d2c80_002f_44b4_a4f1_0d9ead0779ba
+:EMMO_8f4d2c80_002f_44b4_a4f1_0d9ead0779ba rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_6523cad7_ea54_471c_adb7_e783f824ec09 ;
+                                           skos:prefLabel "Molds"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_90589553_5625_4074_8f0d_0532fd7eb42b
 :EMMO_90589553_5625_4074_8f0d_0532fd7eb42b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_8786cb47_8e1f_4968_9b15_f6d41fc51252 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A manufacturing in which the shape of a workpiece is changed by breaking the material cohesion at the processing point and thus the material cohesion is reduced overall."@en ;
                                            skos:altLabel "CuttingManufacturing"@en ;
-                                           skos:prefLabel "SeparateManufacturing"@en .
+                                           skos:prefLabel "SeparateManufacturing"@en ,
+                                                          "Trennen"@de .
 
 
 ###  http://emmo.info/emmo#EMMO_912ac3a2_a124_4233_92dd_06c9aebea46c
@@ -494,7 +821,14 @@ manufacturing: production of components"""@en ;
 :EMMO_92028373_3a43_4b80_9a69_caca22df3918 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_eb85216f_b872_4ee5_9f62_655aa2ae0470 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A manufacturing in which an adherent layer of amorphous material is applied to a workpiece."@en ;
-                                           skos:prefLabel "CoatingManufacturing"@en .
+                                           skos:prefLabel "Beschichten"@de ,
+                                                          "CoatingManufacturing"@en .
+
+
+###  http://emmo.info/emmo#EMMO_92eaefcb_50be_4237_9ec0_4a019ce24921
+:EMMO_92eaefcb_50be_4237_9ec0_4a019ce24921 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_90589553_5625_4074_8f0d_0532fd7eb42b ;
+                                           skos:prefLabel "Cleaning"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_95d4eb9b_d3d0_4705_a01c_4f87fb5f8d43
@@ -507,6 +841,42 @@ manufacturing: production of components"""@en ;
 :EMMO_96c38f8d_fabd_41dc_abda_d15419eb897d rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_92028373_3a43_4b80_9a69_caca22df3918 ;
                                            skos:prefLabel "Painting"@en .
+
+
+###  http://emmo.info/emmo#EMMO_9900d51c_bdd3_40e8_aa82_ad1aa7092f71
+:EMMO_9900d51c_bdd3_40e8_aa82_ad1aa7092f71 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_dacfc7dc_5ddb_4f67_986b_dcd01d649d60 ;
+                                           skos:prefLabel "Annealing"@en .
+
+
+###  http://emmo.info/emmo#EMMO_9d74a963_8c62_4c20_a413_93b786bfbecc
+:EMMO_9d74a963_8c62_4c20_a413_93b786bfbecc rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_f8b20fd2_08b9_4368_b786_156e11d1cec8 ;
+                                           skos:prefLabel "Presses"@en .
+
+
+###  http://emmo.info/emmo#EMMO_9e452535_a369_404d_9afb_d41fd79d12b8
+:EMMO_9e452535_a369_404d_9afb_d41fd79d12b8 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_a46f2e3f_6d06_4968_a02f_55274d131130 ;
+                                           skos:prefLabel "ConcreteOrPlasterPouring"@en .
+
+
+###  http://emmo.info/emmo#EMMO_a09a5342_cad4_40fa_a619_a5af0867cb8f
+:EMMO_a09a5342_cad4_40fa_a619_a5af0867cb8f rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_d7432d8c_3182_4d61_a08f_dc686efaabe9 ;
+                                           skos:prefLabel "DippingForms"@en .
+
+
+###  http://emmo.info/emmo#EMMO_a139c6d5_1a0b_4605_a6c0_9f383539f9b1
+:EMMO_a139c6d5_1a0b_4605_a6c0_9f383539f9b1 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_326e7731_76c5_402d_a041_c9b48a736963 ;
+                                           skos:prefLabel "ElectrolyticDeposition"@en .
+
+
+###  http://emmo.info/emmo#EMMO_a46f2e3f_6d06_4968_a02f_55274d131130
+:EMMO_a46f2e3f_6d06_4968_a02f_55274d131130 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_e9244742_c185_4c50_b455_c57654852582 ;
+                                           skos:prefLabel "FormingFromPulp"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_a4d66059_5dd3_4b90_b4cb_10960559441b
@@ -556,15 +926,33 @@ manufacturing process: set of processes in manufacturing involving a flow and/or
  ] .
 
 
+###  http://emmo.info/emmo#EMMO_a85d0b8a_588e_423f_b799_97b0890e9183
+:EMMO_a85d0b8a_588e_423f_b799_97b0890e9183 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_ae3c9eb3_289d_4133_99d6_77068367a58d ;
+                                           skos:prefLabel "DieCasting"@en .
+
+
+###  http://emmo.info/emmo#EMMO_aa446897_0683_4e9b_9b0e_b6081d2d70d8
+:EMMO_aa446897_0683_4e9b_9b0e_b6081d2d70d8 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_78284835_f4ed_4a7c_914f_a7fdb460ed8e ;
+                                           skos:prefLabel "Folding"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_ae3c9eb3_289d_4133_99d6_77068367a58d
 :EMMO_ae3c9eb3_289d_4133_99d6_77068367a58d rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_e9244742_c185_4c50_b455_c57654852582 ;
+                                           rdfs:subClassOf :EMMO_d7432d8c_3182_4d61_a08f_dc686efaabe9 ;
                                            skos:prefLabel "Casting"@en .
+
+
+###  http://emmo.info/emmo#EMMO_b5efbfa6_8610_4e3e_ad36_93e426bd873e
+:EMMO_b5efbfa6_8610_4e3e_ad36_93e426bd873e rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_6523cad7_ea54_471c_adb7_e783f824ec09 ;
+                                           skos:prefLabel "PlasticModeling"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_b8ce01a5_1e0c_4c69_8e54_7235fd4fe47e
 :EMMO_b8ce01a5_1e0c_4c69_8e54_7235fd4fe47e rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_90589553_5625_4074_8f0d_0532fd7eb42b ;
+                                           rdfs:subClassOf :EMMO_1a2cbca8_3d3b_4e2c_9a71_e39273937786 ;
                                            skos:prefLabel "SparkErosion"@en .
 
 
@@ -572,9 +960,15 @@ manufacturing process: set of processes in manufacturing involving a flow and/or
 :EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c skos:altLabel "Project"@en .
 
 
+###  http://emmo.info/emmo#EMMO_bbf12904_e25e_4f49_87f3_8bd210a6b535
+:EMMO_bbf12904_e25e_4f49_87f3_8bd210a6b535 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_6ab555fd_5803_4f03_82e8_127c01aabfea ;
+                                           skos:prefLabel "Pressing"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_bfce8136_8f58_4ea5_ab3a_1734170c5d92
 :EMMO_bfce8136_8f58_4ea5_ab3a_1734170c5d92 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_90589553_5625_4074_8f0d_0532fd7eb42b ;
+                                           rdfs:subClassOf :EMMO_8679c7d3_fd5d_49ba_bc1f_1bb820a1f73f ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A manufacturing in which material is removed from the workpiece in the form of chips."@en ;
                                            skos:prefLabel "Machining"@en .
 
@@ -590,28 +984,52 @@ manufacturing process: set of processes in manufacturing involving a flow and/or
                                            skos:prefLabel "Manufacturer"@en .
 
 
+###  http://emmo.info/emmo#EMMO_c0ec56d1_0deb_4452_a6a1_70570308b6bb
+:EMMO_c0ec56d1_0deb_4452_a6a1_70570308b6bb rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_03441eb3_d1fd_4906_b953_b83312d7589e ;
+                                           skos:prefLabel "CeramicSintering"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_c1dad83e_974f_432e_ac92_d016f2445279
 :EMMO_c1dad83e_974f_432e_ac92_d016f2445279 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_bfce8136_8f58_4ea5_ab3a_1734170c5d92 ;
                                            skos:prefLabel "Drilling"@en .
 
 
+###  http://emmo.info/emmo#EMMO_c2d9d370_f9eb_40be_b01e_7ceba8f7457f
+:EMMO_c2d9d370_f9eb_40be_b01e_7ceba8f7457f rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_d7432d8c_3182_4d61_a08f_dc686efaabe9 ;
+                                           skos:prefLabel "FiberReinforcePlasticManufacturing"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_c30aaeb1_66cc_4c69_8890_d7812c1d608c
 :EMMO_c30aaeb1_66cc_4c69_8890_d7812c1d608c rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_71d1c8f0_c6e3_44b5_a4b6_1b74ff35698a ;
+                                           rdfs:subClassOf :EMMO_fc859d37_408d_44b6_b345_a0ea0b65121e ;
                                            skos:prefLabel "Magnetizing"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_c4fba898_896b_4d58_a24c_b5c0851fa2a2
 :EMMO_c4fba898_896b_4d58_a24c_b5c0851fa2a2 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_71d1c8f0_c6e3_44b5_a4b6_1b74ff35698a ;
+                                           rdfs:subClassOf :EMMO_fc859d37_408d_44b6_b345_a0ea0b65121e ;
                                            skos:prefLabel "Irradiate"@en .
+
+
+###  http://emmo.info/emmo#EMMO_c4ffca76_fb0c_43c7_bc16_8c2430888c83
+:EMMO_c4ffca76_fb0c_43c7_bc16_8c2430888c83 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_46dc0d51_b60f_49cd_8650_9aba7be3726c ;
+                                           skos:prefLabel "HardeningByDrawing"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_c5970406_0b66_4931_8a23_3e81162ba65b
 :EMMO_c5970406_0b66_4931_8a23_3e81162ba65b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_c9f0abb6_d3e8_459e_bacc_c14ed5481998 ;
                                            skos:prefLabel "LaserCutting"@en .
+
+
+###  http://emmo.info/emmo#EMMO_c62b76d5_c1cc_432a_8c9e_7684ab054669
+:EMMO_c62b76d5_c1cc_432a_8c9e_7684ab054669 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_46dc0d51_b60f_49cd_8650_9aba7be3726c ;
+                                           skos:prefLabel "HardeningByForging"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_c7171429_b9e3_4812_95c1_e97309370538
@@ -633,22 +1051,47 @@ manufacturing process: set of processes in manufacturing involving a flow and/or
                                            skos:prefLabel "Sawing"@en .
 
 
+###  http://emmo.info/emmo#EMMO_c7f4684e_ee74_4119_87e0_ecd255e10d2f
+:EMMO_c7f4684e_ee74_4119_87e0_ecd255e10d2f rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_6523cad7_ea54_471c_adb7_e783f824ec09 ;
+                                           skos:prefLabel "Calendering"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_c9a2307d_51d0_426b_ae2f_85f5a44934e0
 :EMMO_c9a2307d_51d0_426b_ae2f_85f5a44934e0 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_2b4783a6_36ad_48c8_8f5d_fe7c05ad298b ;
+                                           rdfs:subClassOf :EMMO_2b4783a6_36ad_48c8_8f5d_fe7c05ad298b ,
+                                                           :EMMO_6523cad7_ea54_471c_adb7_e783f824ec09 ;
                                            skos:prefLabel "Extrusion"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_c9f0abb6_d3e8_459e_bacc_c14ed5481998
 :EMMO_c9f0abb6_d3e8_459e_bacc_c14ed5481998 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_90589553_5625_4074_8f0d_0532fd7eb42b ;
+                                           rdfs:subClassOf :EMMO_1a2cbca8_3d3b_4e2c_9a71_e39273937786 ;
                                            skos:prefLabel "ThermalCutting"@en .
+
+
+###  http://emmo.info/emmo#EMMO_d02f6f3e_9e32_4188_a116_29dc304ceb49
+:EMMO_d02f6f3e_9e32_4188_a116_29dc304ceb49 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_6523cad7_ea54_471c_adb7_e783f824ec09 ;
+                                           skos:prefLabel "DrawForms"@en .
+
+
+###  http://emmo.info/emmo#EMMO_d320f878_2be4_4927_aea6_d36a2ae2dd89
+:EMMO_d320f878_2be4_4927_aea6_d36a2ae2dd89 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_a46f2e3f_6d06_4968_a02f_55274d131130 ;
+                                           skos:prefLabel "PorcelainOrCeramicCasting"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_d3eecd54_e9bf_4c6f_bef8_6086cb9aa7b5
 :EMMO_d3eecd54_e9bf_4c6f_bef8_6086cb9aa7b5 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_6ab555fd_5803_4f03_82e8_127c01aabfea ;
+                                           rdfs:subClassOf :EMMO_78284835_f4ed_4a7c_914f_a7fdb460ed8e ;
                                            skos:prefLabel "Riveting"@en .
+
+
+###  http://emmo.info/emmo#EMMO_d5f98475_00ce_4987_99fb_262aed395e46
+:EMMO_d5f98475_00ce_4987_99fb_262aed395e46 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_90589553_5625_4074_8f0d_0532fd7eb42b ;
+                                           skos:prefLabel "Cutting"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_d64920b5_acd0_4e29_893e_ae03b3d7cdaf
@@ -659,10 +1102,40 @@ manufacturing process: set of processes in manufacturing involving a flow and/or
                                            skos:prefLabel "AssemblyLine"@en .
 
 
+###  http://emmo.info/emmo#EMMO_d700aed9_2eb9_4e26_ba30_81cc36157fb1
+:EMMO_d700aed9_2eb9_4e26_ba30_81cc36157fb1 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_5e5656ef_971e_49e6_a32f_048b6e86c3e0 ;
+                                           skos:prefLabel "FiberboardManufacturing"@en .
+
+
+###  http://emmo.info/emmo#EMMO_d7432d8c_3182_4d61_a08f_dc686efaabe9
+:EMMO_d7432d8c_3182_4d61_a08f_dc686efaabe9 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_e9244742_c185_4c50_b455_c57654852582 ;
+                                           skos:prefLabel "FormingFromLiquid"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_dacfc7dc_5ddb_4f67_986b_dcd01d649d60
 :EMMO_dacfc7dc_5ddb_4f67_986b_dcd01d649d60 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_71d1c8f0_c6e3_44b5_a4b6_1b74ff35698a ;
+                                           rdfs:subClassOf :EMMO_fc859d37_408d_44b6_b345_a0ea0b65121e ;
                                            skos:prefLabel "HeatTreatment"@en .
+
+
+###  http://emmo.info/emmo#EMMO_dc0874e8_36e1_44df_947d_0d7c81167a09
+:EMMO_dc0874e8_36e1_44df_947d_0d7c81167a09 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_46dc0d51_b60f_49cd_8650_9aba7be3726c ;
+                                           skos:prefLabel "Peening"@en .
+
+
+###  http://emmo.info/emmo#EMMO_dc3a6b2d_e31d_491a_ab40_c433f8dd8d48
+:EMMO_dc3a6b2d_e31d_491a_ab40_c433f8dd8d48 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_22496460_c849_4bd7_8be0_9a1202506f18 ;
+                                           skos:prefLabel "Cementing"@en .
+
+
+###  http://emmo.info/emmo#EMMO_e1f38566_ba25_4c09_9282_eea2b86cb90b
+:EMMO_e1f38566_ba25_4c09_9282_eea2b86cb90b rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_ae3c9eb3_289d_4133_99d6_77068367a58d ;
+                                           skos:prefLabel "CentrifugalCasting"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_e258099f_5361_463c_ba1d_51d7d730630f
@@ -680,8 +1153,16 @@ manufacturing process: set of processes in manufacturing involving a flow and/or
 ###  http://emmo.info/emmo#EMMO_e9244742_c185_4c50_b455_c57654852582
 :EMMO_e9244742_c185_4c50_b455_c57654852582 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_8786cb47_8e1f_4968_9b15_f6d41fc51252 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A manufacturing in which the product is made from shapeless original material parts, whose cohesion is created during the process."@en ;
-                                           skos:prefLabel "ArchetypeManufacturing"@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A manufacturing in which the product is a solid body with a well defined geometrical shape made from shapeless original material parts, whose cohesion is created during the process."@en ;
+                                           skos:altLabel "PrimitiveForming"@en ;
+                                           skos:prefLabel "ArchetypeManufacturing"@en ,
+                                                          "Urformen"@de .
+
+
+###  http://emmo.info/emmo#EMMO_e9907887_f266_4d81_9b2d_ba5137c914dd
+:EMMO_e9907887_f266_4d81_9b2d_ba5137c914dd rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_03441eb3_d1fd_4906_b953_b83312d7589e ;
+                                           skos:prefLabel "TransientLiquidPhaseSintering"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_eb85216f_b872_4ee5_9f62_655aa2ae0470
@@ -715,10 +1196,42 @@ manufacturing process: set of processes in manufacturing involving a flow and/or
                                            skos:prefLabel "DeepDrawing"@en .
 
 
+###  http://emmo.info/emmo#EMMO_f0644f69_7337_4385_9d4a_4401b7bf3302
+:EMMO_f0644f69_7337_4385_9d4a_4401b7bf3302 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_03441eb3_d1fd_4906_b953_b83312d7589e ;
+                                           skos:prefLabel "SparkPlasmaSintering"@en .
+
+
+###  http://emmo.info/emmo#EMMO_f1d0f28b_7575_4e82_8d22_cb5b46b84cfd
+:EMMO_f1d0f28b_7575_4e82_8d22_cb5b46b84cfd rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_ae3c9eb3_289d_4133_99d6_77068367a58d ;
+                                           skos:prefLabel "GravityCasting"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_f5655090_2266_41cb_b2e9_3b4569c45731
 :EMMO_f5655090_2266_41cb_b2e9_3b4569c45731 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_bfce8136_8f58_4ea5_ab3a_1734170c5d92 ;
                                            skos:prefLabel "Planing"@en .
+
+
+###  http://emmo.info/emmo#EMMO_f8b20fd2_08b9_4368_b786_156e11d1cec8
+:EMMO_f8b20fd2_08b9_4368_b786_156e11d1cec8 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_e9244742_c185_4c50_b455_c57654852582 ;
+                                           skos:prefLabel "FormingFromPowder"@en .
+
+
+###  http://emmo.info/emmo#EMMO_fa9cfc5d_9c3c_4856_a708_28be3858917e
+:EMMO_fa9cfc5d_9c3c_4856_a708_28be3858917e rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_71d1c8f0_c6e3_44b5_a4b6_1b74ff35698a ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The creation of a material entity starting from fundamental substances, involving chemical phenomena (e.g. reaction, bonding)."@en ;
+                                           skos:prefLabel "MaterialSynthesis"@en .
+
+
+###  http://emmo.info/emmo#EMMO_fc859d37_408d_44b6_b345_a0ea0b65121e
+:EMMO_fc859d37_408d_44b6_b345_a0ea0b65121e rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_71d1c8f0_c6e3_44b5_a4b6_1b74ff35698a ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The processing of a material aimed to transform its structure by means of any type of treatment, without involving relevant synthesis phenomena."@en ;
+                                           skos:prefLabel "MaterialTreatment"@en .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
