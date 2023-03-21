@@ -696,8 +696,16 @@ b) y and x non-overlapping"""@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of entities that possess a temporal structure but no spatial structure."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "An electron with at least one causal interaction with another particle."@en ;
                                            :EMMO_c6e77b51_681b_4d04_b20d_a08f2b977470 "hasTemporalPart min 2 (Elementary or Quantum)"@en ;
-                                           skos:altLabel "Elementary"@en ;
-                                           skos:prefLabel "CausalChain"@en .
+                                           skos:altLabel "CausalChain"@en ,
+                                                         "Elementary"@en ;
+                                           skos:prefLabel "CausalPath"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 ;
+   owl:annotatedProperty skos:altLabel ;
+   owl:annotatedTarget "CausalChain"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Old French chaine, chaene (“chain”), from Latin catēna (“chain”)."@en
+ ] .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 ;
@@ -709,16 +717,15 @@ b) y and x non-overlapping"""@en ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 ;
    owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "CausalChain"@en ;
-   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Old French chaine, chaene (“chain”), from Latin catēna (“chain”)."@en
+   owl:annotatedTarget "CausalPath"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Ancient Greek πάτος (pátos, “path”)."@en
  ] .
 
 
 ###  http://emmo.info/emmo#EMMO_1f2bfb9f_ecc6_46a0_9e41_2d6fcbf59e4b
 :EMMO_1f2bfb9f_ecc6_46a0_9e41_2d6fcbf59e4b rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_a6d8e2e2_5e61_4838_977b_9a5dea421fc1 ,
-                                                           :EMMO_e5aab4ee_994b_4729_8aec_8c64d87f3cb4 ;
-                                           skos:prefLabel "Collapse"@en .
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A causal collapse is a fundamental causal system that is expressed as a complete bipartite directed graph Kmn, when m>n."@en ;
+                                           skos:prefLabel "CausalCollapse"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31
@@ -752,16 +759,6 @@ The combination of collection and item concepts is the EMMO mereocausality alter
    owl:annotatedTarget "Collection"@en ;
    :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin collectio, from colligere ‘gather together’."@en
  ] .
-
-
-###  http://emmo.info/emmo#EMMO_31c6fbae_be8d_4a3c_8c71_b6fa97e09480
-:EMMO_31c6fbae_be8d_4a3c_8c71_b6fa97e09480 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_523f4260_31df_4967_84a6_218fd7d503b1
-                                                                               :EMMO_6fe3d1d5_4107_4a52_b1d0_3b7c4f871159
-                                                                             )
-                                                               ] ;
-                                           skos:prefLabel "FundamentalMultiPath"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68
@@ -801,35 +798,40 @@ However, the quantum mereotopology approach is not restricted only to physics. F
 
 ###  http://emmo.info/emmo#EMMO_43a4e80d_6ae9_45ed_8cfb_fd0a5339bf87
 :EMMO_43a4e80d_6ae9_45ed_8cfb_fd0a5339bf87 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac ;
                                            owl:disjointUnionOf ( :EMMO_1f2bfb9f_ecc6_46a0_9e41_2d6fcbf59e4b
                                                                  :EMMO_50afa1a9_2c4e_40fd_aa93_0e33511f1f27
-                                                                 :EMMO_523f4260_31df_4967_84a6_218fd7d503b1
-                                                                 :EMMO_6fe3d1d5_4107_4a52_b1d0_3b7c4f871159
                                                                  :EMMO_a9891fff_fa7a_4806_b7bd_786de7358e8d
                                                                ) ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """A fundamental physical process is made of one or more standard particles as input, and one or more standard particles as output, where each input is direct cause of each output.
 Each fundamental physical phenomena refers to a Feynman diagram, hence is made at least of three standard model particles.
 This requirement implies that a physical phenomena is either a decay, annihilation, interaction, collapse or creation phenomena (fundamental) or a composition of them (non-fundamental)."""@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causal system that is the represneation of a Feynman diagram."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A fundamental system is expressed as a complete bipartite directed graph Kmn of quantums, m being the number of originating quantums, and n being the receiving quantums."@en ;
                                            skos:prefLabel "FundamentalCausalSystem"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_44d3cbc8_e6c3_4654_9f01_2f40a62bda8e
 :EMMO_44d3cbc8_e6c3_4654_9f01_2f40a62bda8e rdf:type owl:Class ;
-                                           skos:prefLabel "CausallyHairedSystem"@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A CausalSystem that includes quantum parts that are not bonded with the rest."@en ;
+                                           skos:prefLabel "CausalHairedSystem"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_50afa1a9_2c4e_40fd_aa93_0e33511f1f27
 :EMMO_50afa1a9_2c4e_40fd_aa93_0e33511f1f27 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a6d8e2e2_5e61_4838_977b_9a5dea421fc1 ,
                                                            :EMMO_e5aab4ee_994b_4729_8aec_8c64d87f3cb4 ;
-                                           skos:prefLabel "Interaction"@en .
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A causal interaction is a fundamental causal system that is expressed as a complete bupartite directed graph Kmn, when m=n."@en ;
+                                           skos:prefLabel "CausalInteraction"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_523f4260_31df_4967_84a6_218fd7d503b1
 :EMMO_523f4260_31df_4967_84a6_218fd7d503b1 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_44d3cbc8_e6c3_4654_9f01_2f40a62bda8e ,
+                                           rdfs:subClassOf :EMMO_1f2bfb9f_ecc6_46a0_9e41_2d6fcbf59e4b ,
+                                                           :EMMO_44d3cbc8_e6c3_4654_9f01_2f40a62bda8e ,
                                                            :EMMO_a5b14ff5_d428_4c41_85fa_f3e80866666e ;
-                                           skos:prefLabel "Annihilation"@en .
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A quantum annihilation is a fundamental causal system that is expressed as a complete bipartite directed graph Km1."@en ;
+                                           skos:prefLabel "QuantumAnnihilation"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_6c03574f_6daa_4488_a970_ee355cca2530
@@ -853,8 +855,10 @@ This requirement implies that a physical phenomena is either a decay, annihilati
 ###  http://emmo.info/emmo#EMMO_6fe3d1d5_4107_4a52_b1d0_3b7c4f871159
 :EMMO_6fe3d1d5_4107_4a52_b1d0_3b7c4f871159 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_44d3cbc8_e6c3_4654_9f01_2f40a62bda8e ,
-                                                           :EMMO_a5b14ff5_d428_4c41_85fa_f3e80866666e ;
-                                           skos:prefLabel "Decay"@en .
+                                                           :EMMO_a5b14ff5_d428_4c41_85fa_f3e80866666e ,
+                                                           :EMMO_a9891fff_fa7a_4806_b7bd_786de7358e8d ;
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A quantum decay is a fundamental causal system that is expressed as a complete bipartite directed graph K1n."@en ;
+                                           skos:prefLabel "QuantumDecay"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf
@@ -933,30 +937,23 @@ Disjointness means that a collection cannot be an item and viceversa, representi
 
 ###  http://emmo.info/emmo#EMMO_a5b14ff5_d428_4c41_85fa_f3e80866666e
 :EMMO_a5b14ff5_d428_4c41_85fa_f3e80866666e rdf:type owl:Class ;
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A causal multipath system is a system made of causal paths that are not interacting between each others, or possibly merge and fork."@en ;
                                            skos:prefLabel "CausalMultiPathSystem"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_a6d8e2e2_5e61_4838_977b_9a5dea421fc1
 :EMMO_a6d8e2e2_5e61_4838_977b_9a5dea421fc1 rdf:type owl:Class ;
-                                           skos:prefLabel "CausallyConvexSystem"@en .
-
-
-###  http://emmo.info/emmo#EMMO_a901ec55_8bfe_4cc8_b12f_4c503c4f3884
-:EMMO_a901ec55_8bfe_4cc8_b12f_4c503c4f3884 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_1f2bfb9f_ecc6_46a0_9e41_2d6fcbf59e4b
-                                                                               :EMMO_50afa1a9_2c4e_40fd_aa93_0e33511f1f27
-                                                                               :EMMO_a9891fff_fa7a_4806_b7bd_786de7358e8d
-                                                                             )
-                                                               ] ;
-                                           skos:prefLabel "FundamentalInteraction"@en .
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """It is natural to define entities made or more than one smaller parts according to some unity criteria. One of the most general one applicable to causal systems is to ask that all the quantum parts of the system are bonded to the rest. 
+In other words, causal convexity excludes all quantums that leave the system (no more interacting), or that are not yet part of it (not yet interacting).
+So, a photon leaving a body is not part of the body as convex system, while a photon the is carrier of electromagnetic interaction between two molecular parts of the body, is part of the convex body."""@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A CausalSystem whose quantum parts are all bonded to the rest of the system."@en ;
+                                           skos:prefLabel "CausalConvexSystem"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_a9891fff_fa7a_4806_b7bd_786de7358e8d
 :EMMO_a9891fff_fa7a_4806_b7bd_786de7358e8d rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_a6d8e2e2_5e61_4838_977b_9a5dea421fc1 ,
-                                                           :EMMO_e5aab4ee_994b_4729_8aec_8c64d87f3cb4 ;
-                                           skos:prefLabel "Creation"@en .
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A causal expansion is a fundamental causal system that is expressed as a complete bipartite directed graph Kmn, when m<n."@en ;
+                                           skos:prefLabel "CausalExpansion"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d
@@ -964,34 +961,35 @@ Disjointness means that a collection cannot be an item and viceversa, representi
                                            owl:disjointUnionOf ( :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360
                                                                  :EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac
                                                                ) ;
-                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """The most fundamental unity criterion for the definition of an object is that:
-- is made of at least two quantums (an object is not a simple entity)
-- all quantum parts form a causally coonected graph"""@en ;
-                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The union of Elementary and CausalSystem classes."@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A self-connected composition of more than one quantum object."@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """A causal object expresses itself in time and space thanks to the underlying causality relations between its constituent quantum entities. It must at least provide two temporal parts.
-The unity criterion beyond the definition of a causal object (the most general concept of object) is the existence of a causal path between each of its parts."""@en ;
-                                           skos:altLabel "PhysicalObject"@en ;
-                                           skos:prefLabel "CausalObject"@en .
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """The most fundamental unity criterion for the definition of an structure is that:
+- is made of at least two quantums (a structure is not a simple entity)
+- all quantum parts form a causally connected graph"""@en ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The union of CausalPath and CausalSystem classes."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A self-connected composition of more than one quantum entities."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """A causal structure expresses itself in time and space thanks to the underlying causality relations between its constituent quantum entities. It must at least provide two temporal parts.
+The unity criterion beyond the definition of a causal structure (the most general concept of structure) is the existence of an undirected causal path between each of its parts."""@en ;
+                                           skos:altLabel "CausalObject"@en ;
+                                           skos:prefLabel "CausalStructure"@en .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d ;
    owl:annotatedProperty skos:altLabel ;
-   owl:annotatedTarget "PhysicalObject"@en ;
-   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin physica \"study of nature\" (and Ancient Greek φυσικός, “natural”), and Medieval Latin obiectum (“object”, literally “thrown against”)."@en
+   owl:annotatedTarget "CausalObject"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin causa (“reason, sake, cause”), and Medieval Latin obiectum (“object”, literally “thrown against”)."@en
  ] .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d ;
    owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "CausalObject"@en ;
-   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin causa (“reason, sake, cause”), and Medieval Latin obiectum (“object”, literally “thrown against”)."@en
+   owl:annotatedTarget "CausalStructure"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin causa (“reason, sake, cause”), and from Latin struere (“arrange, assemble, build”)."@en
  ] .
 
 
 ###  http://emmo.info/emmo#EMMO_e5aab4ee_994b_4729_8aec_8c64d87f3cb4
 :EMMO_e5aab4ee_994b_4729_8aec_8c64d87f3cb4 rdf:type owl:Class ;
-                                           skos:prefLabel "CausalIyBondedSystem"@en .
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A causally bonded system is a system in which there are at least thwo causal paths that are interacting."@en ;
+                                           skos:prefLabel "CausalBondedSystem"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac
@@ -1002,8 +1000,8 @@ The unity criterion beyond the definition of a causal object (the most general c
                                                                ( :EMMO_a5b14ff5_d428_4c41_85fa_f3e80866666e
                                                                  :EMMO_e5aab4ee_994b_4729_8aec_8c64d87f3cb4
                                                                ) ;
-                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A causal system provides the most general concept of system, being a union of causal objects causally interacting together. In its most simple form, a causal system is an interlacement of elementaries (the most simple object)."@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A non-elementary causal object."@en ;
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A causal system provides the most general concept of system, being a union of causal structures interacting together. In its most simple form, a causal system is an interlacement of causal paths (the most simple structure type)."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A non-path causal structure"@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A electron binded by a nucleus."@en ;
                                            skos:prefLabel "CausalSystem"@en .
 
