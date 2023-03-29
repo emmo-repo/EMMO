@@ -48,6 +48,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            owl:disjointUnionOf ( :EMMO_38b579de_4331_40e0_803d_09efa298e726
                                                                  :EMMO_5cc4e111_3eb1_44a3_9369_5af3846cf605
                                                                ) ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causally bonded system is a system in which there are at least thwo causal paths that are interacting."@en ;
                                            skos:prefLabel "PhysicallyBonded"@en .
 
 
@@ -84,6 +85,7 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
 
 ###  http://emmo.info/emmo#EMMO_0f19d84e_05b4_47c9_a5de_bb2a913d211b
 :EMMO_0f19d84e_05b4_47c9_a5de_bb2a913d211b rdf:type owl:Class ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causal multipath system is a system made of causal paths that are not interacting between each others, or possibly merge and fork."@en ;
                                            skos:prefLabel "PhysicallyUnbounded"@en .
 
 
@@ -278,10 +280,13 @@ e.g. you cannot remove H from H₂0 without changing the molecule type (essentia
 
 ###  http://emmo.info/emmo#EMMO_38b579de_4331_40e0_803d_09efa298e726
 :EMMO_38b579de_4331_40e0_803d_09efa298e726 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_a6d8e2e2_5e61_4838_977b_9a5dea421fc1 ;
                                            owl:disjointUnionOf ( :EMMO_4207e895_8b83_4318_996a_72cfb32acd94
                                                                  :EMMO_8b1367d6_0133_4b56_acc1_fa8b058169e3
                                                                ) ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A CausalSystem whose quantum parts are all bonded to the rest of the system."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """It is natural to define entities made or more than one smaller parts according to some unity criteria. One of the most general one applicable to causal systems is to ask that all the quantum parts of the system are bonded to the rest. 
+In other words, causal convexity excludes all quantums that leave the system (no more interacting), or that are not yet part of it (not yet interacting).
+So, a photon leaving a body is not part of the body as convex system, while a photon the is carrier of electromagnetic interaction between two molecular parts of the body, is part of the convex body."""@en ;
                                            skos:prefLabel "PhysicalObject"@en .
 
 [ rdf:type owl:Axiom ;
@@ -456,10 +461,6 @@ e.g. you cannot remove H from H₂0 without changing the molecule type (essentia
 
 ###  http://emmo.info/emmo#EMMO_5b2222df_4da6_442f_8244_96e9e45887d1
 :EMMO_5b2222df_4da6_442f_8244_96e9e45887d1 rdf:type owl:Class ;
-                                           owl:disjointUnionOf ( :EMMO_1c16bb7f_5400_4498_8ef2_54392908da4e
-                                                                 :EMMO_6e9cb807_fc68_4bcf_b3ba_5fccc887c644
-                                                                 :EMMO_f13672a3_59cc_40ed_8def_65009a8f74e6
-                                                               ) ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """The interpretation of the term \"matter\" is not univocal. Several concepts are labelled with this term, depending on the field of science. The concept mass is sometimes related to the term \"matter\", even if the former refers to a physical quantity (precisely defined by modern physics) while the latter is a type that qualifies a physical entity.
 It is possible to identify more than one concept that can be reasonably labelled with the term \"matter\". For example, it is possible to label as matter only the entities that are made up of atoms. Or more generally, we can be more fine-grained and call \"matter\" the entities that are made up of protons, neutrons or electrons, so that we can call matter also a neutron radiation or a cathode ray.
 A more fundamental approach, that we embrace for the EMMO, considers matter as entities that are made of fermions (i.e. quarks and leptons). This would exclude particles like the W and Z bosons that possess some mass, but are not fermions.
@@ -499,7 +500,7 @@ Antimatter is a subclass of matter."""@en ;
 
 ###  http://emmo.info/emmo#EMMO_5cc4e111_3eb1_44a3_9369_5af3846cf605
 :EMMO_5cc4e111_3eb1_44a3_9369_5af3846cf605 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_44d3cbc8_e6c3_4654_9f01_2f40a62bda8e ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A CausalSystem that includes quantum parts that are not bonded with the rest."@en ;
                                            skos:prefLabel "PhysicalPhenomena"@en .
 
 
@@ -704,13 +705,6 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
 ###  http://emmo.info/emmo#EMMO_98ada9d8_f1c8_4f13_99b5_d890f5354152
 :EMMO_98ada9d8_f1c8_4f13_99b5_d890f5354152 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_49267eba_5548_4163_8f36_518d65b583f9 ;
-                                           owl:disjointUnionOf ( :EMMO_09f0ac34_c349_46b5_acf0_0edeae52cca1
-                                                                 :EMMO_0f19d84e_05b4_47c9_a5de_bb2a913d211b
-                                                               ) ,
-                                                               ( :EMMO_245ec786_f477_4096_bd63_59e02388d2aa
-                                                                 :EMMO_5b2222df_4da6_442f_8244_96e9e45887d1
-                                                                 :EMMO_70dac51e_bddd_48c2_8a98_7d8395e91fc2
-                                                               ) ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The perspective for which physical objects are categorized only by concepts coming from applied physical sciences."@en ;
                                            skos:prefLabel "Physicalistic"@en .
 
@@ -726,7 +720,6 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
 
 ###  http://emmo.info/emmo#EMMO_a15cea10_9946_4d2b_95c5_cfc333fd2abb
 :EMMO_a15cea10_9946_4d2b_95c5_cfc333fd2abb rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_98ada9d8_f1c8_4f13_99b5_d890f5354152 ;
                                            owl:disjointUnionOf ( :EMMO_7b79b2ac_3cf2_4d3b_8cdc_bcabb59d869e
                                                                  :EMMO_8b1367d6_0133_4b56_acc1_fa8b058169e3
                                                                ) ;
@@ -810,6 +803,13 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
                                            skos:prefLabel "SolidGasSuspension"@en .
 
 
+###  http://emmo.info/emmo#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d
+:EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d owl:disjointUnionOf ( :EMMO_245ec786_f477_4096_bd63_59e02388d2aa
+                                                                 :EMMO_5b2222df_4da6_442f_8244_96e9e45887d1
+                                                                 :EMMO_70dac51e_bddd_48c2_8a98_7d8395e91fc2
+                                                               ) .
+
+
 ###  http://emmo.info/emmo#EMMO_cafd0f10_ce85_48b9_9a36_2b0af141ce21
 :EMMO_cafd0f10_ce85_48b9_9a36_2b0af141ce21 rdf:type owl:Class ;
                                            skos:prefLabel "ElementaryBoson"@en .
@@ -870,6 +870,12 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
                                            rdfs:subClassOf :EMMO_d4f37e32_16ae_4cc6_b4cd_fd896b2449c4 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A suspension of fine particles in the atmosphere."@en ;
                                            skos:prefLabel "Dust"@en .
+
+
+###  http://emmo.info/emmo#EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac
+:EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac owl:disjointUnionOf ( :EMMO_09f0ac34_c349_46b5_acf0_0edeae52cca1
+                                                                 :EMMO_0f19d84e_05b4_47c9_a5de_bb2a913d211b
+                                                               ) .
 
 
 ###  http://emmo.info/emmo#EMMO_e9e02156_651f_41c8_9efb_d5da0d4ce5e2
