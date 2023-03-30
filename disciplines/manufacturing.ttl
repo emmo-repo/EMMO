@@ -150,7 +150,7 @@ sintering: process of heating a powder metal compact to increase density and/or 
 
 ###  http://emmo.info/emmo#EMMO_03eb9b46_8ff0_4fcd_b1a0_73f65ae7434e
 :EMMO_03eb9b46_8ff0_4fcd_b1a0_73f65ae7434e rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_e9244742_c185_4c50_b455_c57654852582 ;
+                                           rdfs:subClassOf :EMMO_dd4b7d81_28a9_4801_8831_4cbab217e362 ;
                                            skos:altLabel "GenerativeManufacturing"@en ;
                                            skos:prefLabel "AdditiveManufacturing"@en .
 
@@ -273,7 +273,17 @@ sintering: process of heating a powder metal compact to increase density and/or 
 ###  http://emmo.info/emmo#EMMO_253e1d54_69af_4931_90d0_5ccfd7e690ad
 :EMMO_253e1d54_69af_4931_90d0_5ccfd7e690ad rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_03eb9b46_8ff0_4fcd_b1a0_73f65ae7434e ;
+                                           rdfs:comment """fabrication of objects through the deposition of a material using a print head, nozzle or another printer technology
+Note 1 to entry: This term is often used in a non-technical context synonymously with additive manufacturing (3.1.2) and, in these cases, typically associated with machines used for non-industrial purposes including personal use.""" ;
                                            skos:prefLabel "3DPrinting"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_253e1d54_69af_4931_90d0_5ccfd7e690ad ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget """fabrication of objects through the deposition of a material using a print head, nozzle or another printer technology
+Note 1 to entry: This term is often used in a non-technical context synonymously with additive manufacturing (3.1.2) and, in these cases, typically associated with machines used for non-industrial purposes including personal use.""" ;
+   rdfs:seeAlso "ISO/ASTM 52900:2021(en), 3.3.1"
+ ] .
 
 
 ###  http://emmo.info/emmo#EMMO_2565210a_bbcc_4c00_a122_6a608faa355b
@@ -299,27 +309,6 @@ sintering: process of heating a powder metal compact to increase density and/or 
 :EMMO_26f34447_32ec_48ce_9baa_4afec09120f4 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_bbf12904_e25e_4f49_87f3_8bd210a6b535 ;
                                            skos:prefLabel "InterferenceFitting"@en .
-
-
-###  http://emmo.info/emmo#EMMO_28440627_1088_4733_bd3a_a63dc71411a8
-:EMMO_28440627_1088_4733_bd3a_a63dc71411a8 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_a4d66059_5dd3_4b90_b4cb_10960559441b ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 ;
-                                                             owl:someValuesFrom :EMMO_00b85655_f20c_4e83_b90e_094e8ea7e48f
-                                                           ] ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A manufacturing process that comprises all intermediate manufacturing steps, from raw materials to final product, ready for commercialisation as commercial product for some markets."@en ;
-                                           rdfs:seeAlso """ISO/TS 16791:2020
-manufacturing, manufacture: process of production from the acquisition of all materials through all processing stages, including final packaging"""@en ;
-                                           skos:prefLabel "CompleteManufacturing"@en .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_28440627_1088_4733_bd3a_a63dc71411a8 ;
-   owl:annotatedProperty rdfs:seeAlso ;
-   owl:annotatedTarget """ISO/TS 16791:2020
-manufacturing, manufacture: process of production from the acquisition of all materials through all processing stages, including final packaging"""@en ;
-   rdfs:isDefinedBy "https://www.iso.org/obp/ui/#iso:std:iso:ts:16791:ed-2:v1:en:term:3.1.17"^^xsd:anyURI
- ] .
 
 
 ###  http://emmo.info/emmo#EMMO_2b4783a6_36ad_48c8_8f5d_fe7c05ad298b
@@ -352,9 +341,8 @@ reaction sintering: process wherein at least two constituents of a powder mixtur
 ###  http://emmo.info/emmo#EMMO_2b9cbfb5_dbd0_4a68_9c6f_acc41b40dd72
 :EMMO_2b9cbfb5_dbd0_4a68_9c6f_acc41b40dd72 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This class represents processes that are related to industrial approach, as appeared after XIX century."@en ;
                                            skos:altLabel "ProductionEngineeringProcess"@en ;
-                                           skos:prefLabel "IndustrialTechnologyProcess"@en .
+                                           skos:prefLabel "TechnologyProcess"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_2bf617c6_e57b_430b_9f37_fcf2cfda719e
@@ -377,7 +365,7 @@ reaction sintering: process wherein at least two constituents of a powder mixtur
 
 ###  http://emmo.info/emmo#EMMO_326e7731_76c5_402d_a041_c9b48a736963
 :EMMO_326e7731_76c5_402d_a041_c9b48a736963 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_e9244742_c185_4c50_b455_c57654852582 ;
+                                           rdfs:subClassOf :EMMO_45fec702_54cb_4508_b47e_bdc581229e22 ;
                                            skos:prefLabel "FormingFromIonised"@en .
 
 
@@ -457,10 +445,60 @@ loose-powder sintering, gravity sintering: sintering of uncompacted powder"""@en
                                            skos:prefLabel "Milling"@en .
 
 
+###  http://emmo.info/emmo#EMMO_45fec702_54cb_4508_b47e_bdc581229e22
+:EMMO_45fec702_54cb_4508_b47e_bdc581229e22 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_dd4b7d81_28a9_4801_8831_4cbab217e362 ;
+                                           skos:prefLabel "fromNotShapeToWorkPiece"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_46dc0d51_b60f_49cd_8650_9aba7be3726c
 :EMMO_46dc0d51_b60f_49cd_8650_9aba7be3726c rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_fc859d37_408d_44b6_b345_a0ea0b65121e ;
                                            skos:prefLabel "HardeningByForming"@en .
+
+
+###  http://emmo.info/emmo#EMMO_479db031_b344_4488_9efa_4bc12c6c1765
+:EMMO_479db031_b344_4488_9efa_4bc12c6c1765 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_ec7464a9_d99d_45f8_965b_4e9230ea8356 ;
+                                           rdfs:comment "In manufacturing, a workpiece is a single, delimited part of largely solid material that is processed in some form (e.g. stone )." ,
+                                                        "It has a shape, so we conclude that it is solid" ,
+                                                        "Object that is processed with a machine" ,
+                                                        "The raw material or partially finished piece that is shaped by performing various operations." ,
+                                                        "a physical artifact, real or virtual, intended for subsequent transformation within some manufacturing operation" ,
+                                                        "it seems to be an intermediate product, that has to reach the final shape." ,
+                                                        "it seems to be solid, so has a proper shape" ,
+                                                        "seems to have to be processed through mechanical deformation" ;
+                                           skos:altLabel "Artifact" ,
+                                                         "Werkstück" ;
+                                           skos:prefLabel "WorkPiece"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_479db031_b344_4488_9efa_4bc12c6c1765 ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "Object that is processed with a machine" ;
+   rdfs:seeAlso "DIN EN ISO 5349-2:2015-12"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_479db031_b344_4488_9efa_4bc12c6c1765 ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "The raw material or partially finished piece that is shaped by performing various operations." ;
+   rdfs:seeAlso "https://en.wiktionary.org/wiki/workpiece"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_479db031_b344_4488_9efa_4bc12c6c1765 ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "a physical artifact, real or virtual, intended for subsequent transformation within some manufacturing operation" ;
+   rdfs:seeAlso "ISO 23952:2020(en), 3.4.143"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_479db031_b344_4488_9efa_4bc12c6c1765 ;
+   owl:annotatedProperty rdfs:comment ;
+   owl:annotatedTarget "In manufacturing, a workpiece is a single, delimited part of largely solid material that is processed in some form (e.g. stone )." ;
+   rdfs:seeAlso "https://de.wikipedia.org/wiki/Werkst%C3%BCck"
+ ] .
 
 
 ###  http://emmo.info/emmo#EMMO_47eea65c_e6ce_4c95_9406_fdb1519abc87
@@ -528,7 +566,7 @@ loose-powder sintering, gravity sintering: sintering of uncompacted powder"""@en
 
 ###  http://emmo.info/emmo#EMMO_4e6c4c25_e937_40d5_9cd1_0f3b740cc0a8
 :EMMO_4e6c4c25_e937_40d5_9cd1_0f3b740cc0a8 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_e9244742_c185_4c50_b455_c57654852582 ;
+                                           rdfs:subClassOf :EMMO_45fec702_54cb_4508_b47e_bdc581229e22 ;
                                            skos:prefLabel "FormingFromGas"@en .
 
 
@@ -579,7 +617,7 @@ e.g. the fact that steel comes in sheets is not relevant for the definition of s
 
 ###  http://emmo.info/emmo#EMMO_5e5656ef_971e_49e6_a32f_048b6e86c3e0
 :EMMO_5e5656ef_971e_49e6_a32f_048b6e86c3e0 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_e9244742_c185_4c50_b455_c57654852582 ;
+                                           rdfs:subClassOf :EMMO_45fec702_54cb_4508_b47e_bdc581229e22 ;
                                            skos:prefLabel "FormingFromChip"@en .
 
 
@@ -597,7 +635,7 @@ e.g. the fact that steel comes in sheets is not relevant for the definition of s
 
 ###  http://emmo.info/emmo#EMMO_6523cad7_ea54_471c_adb7_e783f824ec09
 :EMMO_6523cad7_ea54_471c_adb7_e783f824ec09 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_e9244742_c185_4c50_b455_c57654852582 ;
+                                           rdfs:subClassOf :EMMO_dd4b7d81_28a9_4801_8831_4cbab217e362 ;
                                            skos:prefLabel "FormingFromPlastic"@en .
 
 
@@ -905,7 +943,7 @@ manufacturing: production of components"""@en ;
 
 ###  http://emmo.info/emmo#EMMO_a46f2e3f_6d06_4968_a02f_55274d131130
 :EMMO_a46f2e3f_6d06_4968_a02f_55274d131130 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_e9244742_c185_4c50_b455_c57654852582 ;
+                                           rdfs:subClassOf :EMMO_dd4b7d81_28a9_4801_8831_4cbab217e362 ;
                                            skos:prefLabel "FormingFromPulp"@en .
 
 
@@ -1143,7 +1181,7 @@ manufacturing process: set of processes in manufacturing involving a flow and/or
 
 ###  http://emmo.info/emmo#EMMO_d7432d8c_3182_4d61_a08f_dc686efaabe9
 :EMMO_d7432d8c_3182_4d61_a08f_dc686efaabe9 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_e9244742_c185_4c50_b455_c57654852582 ;
+                                           rdfs:subClassOf :EMMO_45fec702_54cb_4508_b47e_bdc581229e22 ;
                                            skos:prefLabel "FormingFromLiquid"@en .
 
 
@@ -1165,6 +1203,15 @@ manufacturing process: set of processes in manufacturing involving a flow and/or
                                            skos:prefLabel "Cementing"@en .
 
 
+###  http://emmo.info/emmo#EMMO_dd4b7d81_28a9_4801_8831_4cbab217e362
+:EMMO_dd4b7d81_28a9_4801_8831_4cbab217e362 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_a4d66059_5dd3_4b90_b4cb_10960559441b ;
+                                           rdfs:comment "A manufacturing in which the product is a solid body with a well defined geometrical shape made from shapeless original material parts, whose cohesion is created during the process." ;
+                                           skos:altLabel "ArchetypeForming" ,
+                                                         "PrimitiveForming" ;
+                                           skos:prefLabel "WorkpieceForming"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_e1f38566_ba25_4c09_9282_eea2b86cb90b
 :EMMO_e1f38566_ba25_4c09_9282_eea2b86cb90b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_ae3c9eb3_289d_4133_99d6_77068367a58d ;
@@ -1181,16 +1228,6 @@ manufacturing process: set of processes in manufacturing involving a flow and/or
 :EMMO_e2b08775_a0f6_4bf7_b228_53dc2299f114 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_c9f0abb6_d3e8_459e_bacc_c14ed5481998 ;
                                            skos:prefLabel "PlasmaCutting"@en .
-
-
-###  http://emmo.info/emmo#EMMO_e9244742_c185_4c50_b455_c57654852582
-:EMMO_e9244742_c185_4c50_b455_c57654852582 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_8786cb47_8e1f_4968_9b15_f6d41fc51252 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A manufacturing in which the product is a solid body with a well defined geometrical shape made from shapeless original material parts, whose cohesion is created during the process."@en ;
-                                           rdfs:seeAlso "DIN 8580:2020"@en ;
-                                           skos:altLabel "PrimitiveForming"@en ;
-                                           skos:prefLabel "ArchetypeManufacturing"@en ,
-                                                          "Urformen"@de .
 
 
 ###  http://emmo.info/emmo#EMMO_e9907887_f266_4d81_9b2d_ba5137c914dd
@@ -1250,7 +1287,7 @@ manufacturing process: set of processes in manufacturing involving a flow and/or
 
 ###  http://emmo.info/emmo#EMMO_f8b20fd2_08b9_4368_b786_156e11d1cec8
 :EMMO_f8b20fd2_08b9_4368_b786_156e11d1cec8 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_e9244742_c185_4c50_b455_c57654852582 ;
+                                           rdfs:subClassOf :EMMO_45fec702_54cb_4508_b47e_bdc581229e22 ;
                                            skos:prefLabel "FormingFromPowder"@en .
 
 
@@ -1271,6 +1308,12 @@ manufacturing process: set of processes in manufacturing involving a flow and/or
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Has shaped bodies as input and output."@en ;
                                            rdfs:seeAlso "DIN 8580:2020"@en ;
                                            skos:prefLabel "MaterialTreatment"@en .
+
+
+###  http://emmo.info/emmo#EMMO_fc86c700_ccea_441c_b628_ad236f030fe6
+:EMMO_fc86c700_ccea_441c_b628_ad236f030fe6 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_dd4b7d81_28a9_4801_8831_4cbab217e362 ;
+                                           skos:prefLabel "fromWorkPIecetoWorkPiece"@en .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
