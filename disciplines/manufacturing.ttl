@@ -130,6 +130,7 @@ sintering: thermal treatment of a powder or compact, at a temperature below the 
                                                         """ISO/ASTM TR 52906:2022 Additive manufacturing
 sintering: process of heating a powder metal compact to increase density and/or improve mechanical properties via solid state diffusion"""@en ,
                                                         "https://www.twi-global.com/technical-knowledge/faqs/what-is-sintering"@en ;
+                                           skos:altLabel "Sintern" ;
                                            skos:prefLabel "Sintering"@en .
 
 [ rdf:type owl:Axiom ;
@@ -497,7 +498,15 @@ loose-powder sintering, gravity sintering: sintering of uncompacted powder"""@en
 ###  http://emmo.info/emmo#EMMO_46dc0d51_b60f_49cd_8650_9aba7be3726c
 :EMMO_46dc0d51_b60f_49cd_8650_9aba7be3726c rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_fc859d37_408d_44b6_b345_a0ea0b65121e ;
+                                           skos:altLabel "Verfestigen durch Umformen" ;
                                            skos:prefLabel "HardeningByForming"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_46dc0d51_b60f_49cd_8650_9aba7be3726c ;
+   owl:annotatedProperty skos:altLabel ;
+   owl:annotatedTarget "Verfestigen durch Umformen" ;
+   rdfs:seeAlso "DIN 8580:2022-12"
+ ] .
 
 
 ###  http://emmo.info/emmo#EMMO_479db031_b344_4488_9efa_4bc12c6c1765
@@ -668,13 +677,32 @@ e.g. the fact that steel comes in sheets is not relevant for the definition of s
 ###  http://emmo.info/emmo#EMMO_607ccc15_38aa_4a69_a70a_effa8015bf42
 :EMMO_607ccc15_38aa_4a69_a70a_effa8015bf42 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_46dc0d51_b60f_49cd_8650_9aba7be3726c ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Strengthening by rolling is the strengthening of component surfaces by mechanically generating compressive stresses in the component surface and consolidating the material." ;
+                                           skos:altLabel "VerfestigendurchWalzen" ;
                                            skos:prefLabel "HardeningByRolling"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_607ccc15_38aa_4a69_a70a_effa8015bf42 ;
+   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
+   owl:annotatedTarget "Strengthening by rolling is the strengthening of component surfaces by mechanically generating compressive stresses in the component surface and consolidating the material." ;
+   rdfs:seeAlso "DIN 65099-7:1989-11"
+ ] .
 
 
 ###  http://emmo.info/emmo#EMMO_61846411_8c6f_410b_ae7b_8999ec18f2b2
 :EMMO_61846411_8c6f_410b_ae7b_8999ec18f2b2 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_dacfc7dc_5ddb_4f67_986b_dcd01d649d60 ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Treatment carried out after hardening or case hardening consisting of cooling to a temperature below room temperature to complete the transformation of austenite to martensite" ;
+                                           skos:altLabel "Cryogenic treatment, Deep-freeze" ,
+                                                         "Tieftemperaturbehandeln" ;
                                            skos:prefLabel "DeepFreezing"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_61846411_8c6f_410b_ae7b_8999ec18f2b2 ;
+   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
+   owl:annotatedTarget "Treatment carried out after hardening or case hardening consisting of cooling to a temperature below room temperature to complete the transformation of austenite to martensite" ;
+   rdfs:seeAlso "DIN EN ISO 4885:2018-07"
+ ] .
 
 
 ###  http://emmo.info/emmo#EMMO_6523cad7_ea54_471c_adb7_e783f824ec09
@@ -726,7 +754,17 @@ e.g. the fact that steel comes in sheets is not relevant for the definition of s
 ###  http://emmo.info/emmo#EMMO_6fa330f7_3289_4228_81df_12ee8a9708ac
 :EMMO_6fa330f7_3289_4228_81df_12ee8a9708ac rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_dacfc7dc_5ddb_4f67_986b_dcd01d649d60 ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Process consisting of two steps: - first, the steel is heated in a quenching treatment to a temperature above Ac3 and then rapidly cooled in a liquid to produce a process-specific grain structure; - subsequently, the steel is heated to a specific temperature during tempering to set the desired property and cooled in air." ;
+                                           skos:altLabel "QuenchingAndTempering" ,
+                                                         "Vergüten" ;
                                            skos:prefLabel "Tempering"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_6fa330f7_3289_4228_81df_12ee8a9708ac ;
+   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
+   owl:annotatedTarget "Process consisting of two steps: - first, the steel is heated in a quenching treatment to a temperature above Ac3 and then rapidly cooled in a liquid to produce a process-specific grain structure; - subsequently, the steel is heated to a specific temperature during tempering to set the desired property and cooled in air." ;
+   rdfs:seeAlso "DIN EN 10210-3:2020-11"
+ ] .
 
 
 ###  http://emmo.info/emmo#EMMO_71b7346e_5a4a_4b2b_8ac5_d41ecc9c7bfd
@@ -1232,13 +1270,32 @@ manufacturing process: set of processes in manufacturing involving a flow and/or
 ###  http://emmo.info/emmo#EMMO_dacfc7dc_5ddb_4f67_986b_dcd01d649d60
 :EMMO_dacfc7dc_5ddb_4f67_986b_dcd01d649d60 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_fc859d37_408d_44b6_b345_a0ea0b65121e ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Heat to a temperature appropriate for the particular material, maintain at that temperature and then cool at an appropriate rate to reduce hardness, improve machinability or achieve desired properties." ;
+                                           skos:altLabel "wärmebehandeln" ;
                                            skos:prefLabel "HeatTreatment"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_dacfc7dc_5ddb_4f67_986b_dcd01d649d60 ;
+   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
+   owl:annotatedTarget "Heat to a temperature appropriate for the particular material, maintain at that temperature and then cool at an appropriate rate to reduce hardness, improve machinability or achieve desired properties." ;
+   rdfs:seeAlso "DIN EN ISO 15156-3:2015-12"
+ ] .
 
 
 ###  http://emmo.info/emmo#EMMO_dc0874e8_36e1_44df_947d_0d7c81167a09
 :EMMO_dc0874e8_36e1_44df_947d_0d7c81167a09 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_46dc0d51_b60f_49cd_8650_9aba7be3726c ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "(according to DIN 8200) Shot peening to generate residual compressive stresses in layers of the blasting material close to the surface in order to improve certain component properties, e.g. fatigue strength, corrosion resistance, wear resistance (from: DIN 8200:1982)" ;
+                                           skos:altLabel "ShotPeening" ,
+                                                         "Verfestigungsstrahlen" ;
                                            skos:prefLabel "Peening"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_dc0874e8_36e1_44df_947d_0d7c81167a09 ;
+   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
+   owl:annotatedTarget "(according to DIN 8200) Shot peening to generate residual compressive stresses in layers of the blasting material close to the surface in order to improve certain component properties, e.g. fatigue strength, corrosion resistance, wear resistance (from: DIN 8200:1982)" ;
+   rdfs:seeAlso "DIN 65099-7:1989-11"
+ ] .
 
 
 ###  http://emmo.info/emmo#EMMO_dc3a6b2d_e31d_491a_ab40_c433f8dd8d48
@@ -1349,10 +1406,19 @@ manufacturing process: set of processes in manufacturing involving a flow and/or
                                            rdfs:subClassOf :EMMO_71d1c8f0_c6e3_44b5_a4b6_1b74ff35698a ,
                                                            :EMMO_a4d66059_5dd3_4b90_b4cb_10960559441b ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The processing of a material aimed to transform its structure by means of any type of treatment, without involving relevant synthesis phenomena."@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Has shaped bodies as input and output."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Has shaped bodies as input and output."@en ,
+                                                                                      "Manufacturing by changing the properties of the material of which a workpiece is made, which is done, among other things, by changes in the submicroscopic or atomic range, e.g. by diffusion of atoms, generation and movement of dislocations in the atomic lattice or chemical reactions, and where unavoidable changes in shape are not part of the essence of these processes." ;
                                            rdfs:seeAlso "DIN 8580:2020"@en ;
-                                           skos:altLabel "WorkPieceTreatment" ;
+                                           skos:altLabel "Stoffeigenschaft ändern" ,
+                                                         "WorkPieceTreatment" ;
                                            skos:prefLabel "MaterialTreatment"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_fc859d37_408d_44b6_b345_a0ea0b65121e ;
+   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
+   owl:annotatedTarget "Manufacturing by changing the properties of the material of which a workpiece is made, which is done, among other things, by changes in the submicroscopic or atomic range, e.g. by diffusion of atoms, generation and movement of dislocations in the atomic lattice or chemical reactions, and where unavoidable changes in shape are not part of the essence of these processes." ;
+   rdfs:seeAlso "DIN 8580:2022-12"
+ ] .
 
 
 ###  http://emmo.info/emmo#EMMO_fc86c700_ccea_441c_b628_ad236f030fe6
