@@ -106,15 +106,25 @@ Participation is not under direct parthood since a process is not strictly relat
                                            rdfs:domain :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ,
                                                        :EMMO_bbca6dfa_7463_4e8d_8280_35862ff50ce0 ;
                                            rdfs:range :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between a object whole and its spatial of the same type."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between a object whole and its spatial part of the same type."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A volume of 1 cc of milk within a 1 litre can be considered still milk as a whole. If you scale down to a cluster of molecules, than the milk cannot be considered a fluid no more (and then no more a milk)."@en ;
                                            skos:prefLabel "hasPortion"@en .
+
+
+###  http://emmo.info/emmo#EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840
+:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_53e5b1e1_6026_4ddc_8a4a_3aaaa5fdbdb7 ;
+                                           rdfs:domain :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The outcome of a process."@en ;
+                                           rdfs:comment "The partial overlapping is required since the creating process is distinct with the process in which the output is used or consumed."@en ;
+                                           skos:prefLabel "hasOutput"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_cd24eb82_a11c_4a31_96ea_32f870c5580a
 :EMMO_cd24eb82_a11c_4a31_96ea_32f870c5580a rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
                                            rdfs:range :EMMO_2480b72b_db8d_460f_9a5f_c2912f979046 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation within a process and an agengt participant."@en ;
                                            skos:prefLabel "hasAgent"@en .
 
 
@@ -123,6 +133,7 @@ Participation is not under direct parthood since a process is not strictly relat
                                            rdfs:subPropertyOf :EMMO_5ceab41b_2aea_4041_9e9c_a243f7562cee ;
                                            rdfs:domain :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
                                            rdfs:range :EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between a process and one of its process parts."@en ;
                                            skos:prefLabel "hasSubProcess"@en .
 
 
@@ -159,6 +170,14 @@ Participation is not under direct parthood since a process is not strictly relat
                                            skos:prefLabel "hasStage"@en .
 
 
+###  http://emmo.info/emmo/perspectives/manufacturing#EMMO_36e69413_8c59_4799_946c_10b05d266e22
+<http://emmo.info/emmo/perspectives/manufacturing#EMMO_36e69413_8c59_4799_946c_10b05d266e22> rdf:type owl:ObjectProperty ;
+                                                                                             rdfs:subPropertyOf :EMMO_53e5b1e1_6026_4ddc_8a4a_3aaaa5fdbdb7 ;
+                                                                                             rdfs:domain :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
+                                                                                             :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The input of a process."@en ;
+                                                                                             skos:prefLabel "hasInput"@en .
+
+
 #################################################################
 #    Classes
 #################################################################
@@ -170,13 +189,6 @@ Participation is not under direct parthood since a process is not strictly relat
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An object which is an holistic spatial part of a process."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A student during an examination."@en ;
                                            skos:prefLabel "Participant"@en .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_13191289_6c2b_4741_93e1_82d53bd0e703 ;
-   owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "Participant"@en ;
-   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From particeps (“taking part in, sharing in”), from pars (“part”) + capiō (“to take”)."@en
- ] .
 
 
 ###  http://emmo.info/emmo#EMMO_135ab8ea_e028_439e_be64_3e0f9734ea2b
@@ -201,17 +213,10 @@ Participation is not under direct parthood since a process is not strictly relat
                                            rdfs:subClassOf :EMMO_13191289_6c2b_4741_93e1_82d53bd0e703 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A participant that is the driver of the process."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A catalyst. A bus driver. A substance that is initiating a reaction that would not occur without its presence."@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """An agent is not necessarily human. 
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """An agent is not necessarily human.
 An agent plays an active role within the process.
 An agent is a participant of a process that would not occur without it."""@en ;
                                            skos:prefLabel "Agent"@en .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_2480b72b_db8d_460f_9a5f_c2912f979046 ;
-   owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "Agent"@en ;
-   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin agēns, present active participle of agere (“to drive, lead, conduct, manage, perform, do”)."@en
- ] .
 
 
 ###  http://emmo.info/emmo#EMMO_2553c342_fc28_47d8_8e19_7a98fa08f150
@@ -228,7 +233,7 @@ An agent is a participant of a process that would not occur without it."""@en ;
 :EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "The set of established forms or methods of an organized body for accomplishing a certain task or tasks (Wiktionary)."@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The process in which an agent works with some entities according to some operative rules."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The process in which an agent works with some entities according to some existing formalised operative rules."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """The process in which a control unit of a CPU (the agent) orchestrates some cached binary data according to a list of instructions (e.g. a program).
 The process in which a librarian order books alphabetically on a shelf.
 The execution of an algorithm."""@en ;
@@ -246,16 +251,9 @@ The execution of an algorithm."""@en ;
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49 ;
-   owl:annotatedProperty skos:altLabel ;
-   owl:annotatedTarget "Elaboration"@en ;
-   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From latin Labor, meaning \"work, fatigue, effort\""@en
- ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49 ;
    owl:annotatedProperty skos:prefLabel ;
    owl:annotatedTarget "Procedure"@en ;
-   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin procedere (“to go forward, proceed”)"@en
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin pro-cedere (“to go forward, to proceed”)."@en
  ] .
 
 
@@ -273,21 +271,13 @@ Since topological connection means causality, then the only way for a real world
 
 ###  http://emmo.info/emmo#EMMO_65a007dc_2550_46b0_b394_3346c67fbb69
 :EMMO_65a007dc_2550_46b0_b394_3346c67fbb69 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ,
-                                                           [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_dba27ca1_33c9_4443_a912_1519ce4c39ec ;
                                                              owl:someValuesFrom :EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817
                                                            ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An object that is made of a set of sub objects working together as parts of a mechanism or an interconnecting network (natural or artificial); a complex whole."@en ;
                                            rdfs:comment "A system is conceived as an aggregate of things that 'work' (or interact) together. While a system extends in time through distinct temporal parts (like every other 4D object), this elucdation focuses on a timescale in which the obejct shows a persistence in time."@en ;
                                            skos:prefLabel "HolisticSystem"@en .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_65a007dc_2550_46b0_b394_3346c67fbb69 ;
-   owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "HolisticSystem"@en ;
-   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin systema, from Greek sustēma, from sun- ‘with’ + histanai ‘set up’."@en
- ] .
 
 
 ###  http://emmo.info/emmo#EMMO_a633c6f8_4269_4870_9b28_f5ca1783fd54
@@ -297,13 +287,6 @@ Since topological connection means causality, then the only way for a real world
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A process which is an holistic temporal part of a process."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Moving a leg is a stage of the process of running."@en ;
                                            skos:prefLabel "Stage"@en .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_a633c6f8_4269_4870_9b28_f5ca1783fd54 ;
-   owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "Stage"@en ;
-   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "Based on Latin stare ‘to stand’."@en
- ] .
 
 
 ###  http://emmo.info/emmo#EMMO_b9522e56_1fac_4766_97e6_428605fabd3e
@@ -323,6 +306,13 @@ Since topological connection means causality, then the only way for a real world
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A process occurring with the active participation of an agent that drives the process according to a specific objective (intention)."@en ;
                                            skos:prefLabel "IntentionalProcess"@en .
 
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "IntentionalProcess"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin intentionem, derived from intendere (\"stretching out\")"@en
+ ] .
+
 
 ###  http://emmo.info/emmo#EMMO_bbca6dfa_7463_4e8d_8280_35862ff50ce0
 :EMMO_bbca6dfa_7463_4e8d_8280_35862ff50ce0 :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """An object A which is classified as water-fluid possesses a proper part B which is water itself if the lenght scale of the B is larger than the water intermolecular distance keeping it in the continuum range. In this sense, A is redundant.
@@ -333,14 +323,17 @@ If A is a water-fluid so small that its every proper part is no more a continuum
 ###  http://emmo.info/emmo#EMMO_c0f72631_d7c2_434c_9c26_5c44123df682
 :EMMO_c0f72631_d7c2_434c_9c26_5c44123df682 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_65a007dc_2550_46b0_b394_3346c67fbb69 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A system driven by group of people to address a particular purpose in an organised way ."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An holistic system of people that has its own functions with responsibilities, authorities and relationships to achieve its objectives."@en ;
+                                           rdfs:seeAlso """ISO 55000:2014
+organization: person or group of people that has its own functions with responsibilities, authorities and relationships to achieve its objectives"""@en ;
                                            skos:prefLabel "Organisation"@en .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_c0f72631_d7c2_434c_9c26_5c44123df682 ;
-   owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "Organisation"@en ;
-   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin organum (“organ”), from Ancient Greek ὄργανον (órganon, “an instrument, implement, tool, also an organ of sense or apprehension, an organ of the body, also a musical instrument, an organ”),"@en
+   owl:annotatedProperty rdfs:seeAlso ;
+   owl:annotatedTarget """ISO 55000:2014
+organization: person or group of people that has its own functions with responsibilities, authorities and relationships to achieve its objectives"""@en ;
+   rdfs:isDefinedBy "https://www.iso.org/obp/ui/#iso:std:iso:55000:ed-1:v2:en:term:3.1.13"^^xsd:anyURI
  ] .
 
 
@@ -360,13 +353,6 @@ If A is a water-fluid so small that its every proper part is no more a continuum
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A tire is a constituent of a car."@en ;
                                            skos:altLabel "ObjectPart"@en ;
                                            skos:prefLabel "Constituent"@en .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_ceaaf9f7_fd11_424b_8fda_9afa186af186 ;
-   owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "Constituent"@en ;
-   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin cōnstituēns, present participle of cōnstituō (“I establish”), from com- (“together”) + statuo (“I set, place, establish”)."@en
- ] .
 
 
 ###  http://emmo.info/emmo#EMMO_d9589ed2_5304_48b3_9795_11bf44e64e9b
@@ -398,13 +384,6 @@ If A is a water-fluid so small that its every proper part is no more a continuum
                                                            ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A constituent of a system."@en ;
                                            skos:prefLabel "Component"@en .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817 ;
-   owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "Component"@en ;
-   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin compōnēns, compōnēntis, present participle of compōnō (“assemble, put together”)."@en
- ] .
 
 
 ###  http://emmo.info/emmo#EMMO_f93fe78b_9646_4a15_b88b_1c93686a764d

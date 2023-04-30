@@ -93,7 +93,6 @@ the following *property axioms*:
 %BRANCHDOC hasPart
 %BRANCHDOC hasDirectPart
 %BRANCHDOC hasHolisticPart
-%BRANCHDOC hasNonStrictlyTemporal
 %BRANCHDOC hasTemporalPart
 
 

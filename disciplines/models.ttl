@@ -10,11 +10,11 @@
 
 <http://emmo.info/emmo/disciplines/models> rdf:type owl:Ontology ;
                                             owl:versionIRI <http://emmo.info/emmo/1.0.0-beta4/disciplines/models> ;
-                                            owl:imports <http://emmo.info/emmo/1.0.0-beta4/disciplines/math> ,
+                                            owl:imports <http://emmo.info/emmo/1.0.0-beta4/disciplines/computerscience> ,
+                                                        <http://emmo.info/emmo/1.0.0-beta4/disciplines/math> ,
                                                         <http://emmo.info/emmo/1.0.0-beta4/disciplines/metrology> ,
                                                         <http://emmo.info/emmo/1.0.0-beta4/multiperspective/workflow> ,
                                                         <http://emmo.info/emmo/1.0.0-beta4/perspectives/data> ,
-                                                        <http://emmo.info/emmo/1.0.0-beta4/disciplines/computerscience> ,
                                                         <http://emmo.info/emmo/1.0.0-beta4/perspectives/persistence> ;
                                             dcterms:abstract "The models module defines models as semiotic signs that stands for an object by resembling or imitating it, in shape or by sharing a similar logical structure."@en ;
                                             dcterms:contributor "Access, DE" ,
@@ -51,18 +51,6 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            skos:prefLabel "hasModel"@en .
 
 
-###  http://emmo.info/emmo#EMMO_2ab5aeee_44cb_4997_90bc_133800f0579d
-:EMMO_2ab5aeee_44cb_4997_90bc_133800f0579d rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_b85e4738_500c_4e1b_bbe8_9e84190485d6 ;
-                                           skos:prefLabel "isTimeRelatedWith"@en .
-
-
-###  http://emmo.info/emmo#EMMO_822f7ec0_eae1_4f66_8cc6_8ff92b4bde79
-:EMMO_822f7ec0_eae1_4f66_8cc6_8ff92b4bde79 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_b85e4738_500c_4e1b_bbe8_9e84190485d6 ;
-                                           skos:prefLabel "isSpaceRelatedWith"@en .
-
-
 #################################################################
 #    Classes
 #################################################################
@@ -70,11 +58,17 @@ email: emanuele.ghedini@unibo.it"""@en ,
 ###  http://emmo.info/emmo#EMMO_01354ac2_cce1_4b7d_8b4a_7322d6cb10bc
 :EMMO_01354ac2_cce1_4b7d_8b4a_7322d6cb10bc rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_02c4890b_aef3_4173_9669_94d1f6baf611 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A chain of linked physics based model simulations solved iteratively, where equations are segregated."@en ;
                                            skos:prefLabel "IterativeCoupledModelsSimulation"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_02c4890b_aef3_4173_9669_94d1f6baf611
 :EMMO_02c4890b_aef3_4173_9669_94d1f6baf611 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_01354ac2_cce1_4b7d_8b4a_7322d6cb10bc
+                                                                               :EMMO_fbcc3aad_c58a_4185_bcc9_859db779b226
+                                                                             )
+                                                               ] ;
                                            rdfs:subClassOf :EMMO_7d56ec24_499d_487a_af7d_a91aaa787bfe ;
                                            skos:prefLabel "Coupled"@en .
 
@@ -152,6 +146,7 @@ The Navier-Stokes equation."""@en ;
 ###  http://emmo.info/emmo#EMMO_67c70dcd_2adf_4e6c_b3f8_f33dd1512487
 :EMMO_67c70dcd_2adf_4e6c_b3f8_f33dd1512487 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_8b66ada5_510c_44bd_a8d8_3c64d301a5e9 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A computational application that uses an empiric equation to predict the behaviour of a system without relying on the knowledge of the actual physical phenomena occurring in the object."@en ;
                                            skos:prefLabel "EmpiricalSimulationSoftware"@en .
 
 
@@ -173,7 +168,6 @@ The Navier-Stokes equation."""@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A function solution of a physics equation that provides a methods for the prediction of some quantitiative properties of an object."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A parabolic function is a prediction of the trajectory of a falling object in a gravitational field. While it has predictive capabilities it lacks of an analogical character, since it does not show the law behind that trajectory."@en ;
                                            rdfs:comment """This must be a mathematical function v(t), x(t).
-
 A dataset as solution is a conventional sign."""@en ;
                                            skos:prefLabel "PhysicsEquationSolution"@en .
 
@@ -188,7 +182,8 @@ Hartree-Fock."""@en ;
 
 ###  http://emmo.info/emmo#EMMO_7d56ec24_499d_487a_af7d_a91aaa787bfe
 :EMMO_7d56ec24_499d_487a_af7d_a91aaa787bfe rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_9335cf09_431f_4613_9dab_ce4ceaca965b ;
+                                           rdfs:subClassOf :EMMO_e97af6ec_4371_4bbc_8936_34b76e33302f ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A physics based simulation with multiple physics based models."@en ;
                                            skos:prefLabel "MultiSimulation"@en .
 
 
@@ -206,7 +201,7 @@ Hartree-Fock."""@en ;
                                                                  rdf:type owl:Class
                                                                ] ;
                                            rdfs:subClassOf :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An icon that not only have some resemblance of the object, but also can function as the object."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An icon that not only resembles the object, but also can express some of the object's functions."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A small scale replica of a plane tested in a wind gallery shares the same functionality in terms of aerodynamic behaviour of the bigger one."@en ,
                                                                                       "Pinocchio is a functional icon of a boy since it imitates the external behaviour without having the internal biological structure of a human being (it is made of magic wood...)."@en ;
                                            skos:prefLabel "Replica"@en .
@@ -236,6 +231,7 @@ In Peirce semiotics: legisign-symbol-argument"""@en ;
 ###  http://emmo.info/emmo#EMMO_8d4962d7_9608_44f7_a2f1_82a4bb173f4a
 :EMMO_8d4962d7_9608_44f7_a2f1_82a4bb173f4a rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_8b66ada5_510c_44bd_a8d8_3c64d301a5e9 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A computational application that uses a physical model to predict the behaviour of a system, providing a identifiable analogy with the original object."@en ;
                                            skos:prefLabel "PhysicalBasedSimulationSoftware"@en .
 
 
@@ -271,19 +267,14 @@ In Peirce semiotics: legisign-symbol-argument"""@en ;
                                            rdfs:subClassOf :EMMO_1b6a95fb_3df7_44c9_ad3d_419c9c5fe7cb ,
                                                            :EMMO_2a888cdf_ec4a_4ec5_af1c_0343372fc978 ,
                                                            :EMMO_8d2d9374_ef3a_47e6_8595_6bc208e07519 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A scientific theory is a description, objective and observed."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A scientific theory is a description, objective and observed, produced with scientific methodology."@en ;
                                            skos:prefLabel "ScientificTheory"@en .
-
-
-###  http://emmo.info/emmo#EMMO_9471e8ff_ca96_4acd_9364_6e63489ae2b3
-:EMMO_9471e8ff_ca96_4acd_9364_6e63489ae2b3 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_9335cf09_431f_4613_9dab_ce4ceaca965b ;
-                                           skos:prefLabel "ElementarySimulation"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_9c32fd69_f480_4130_83b3_fb25d9face14
 :EMMO_9c32fd69_f480_4130_83b3_fb25d9face14 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_db9a009e_f097_43f5_9520_6cbc07e7610b ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A law that provides a connection between a property of the object and other properties, capturing a fundamental physical phenomena."@en ;
                                            skos:prefLabel "PhysicalLaw"@en .
 
 
@@ -319,14 +310,15 @@ In Peirce semiotics: legisign-symbol-argument"""@en ;
 
 ###  http://emmo.info/emmo#EMMO_d0bcf2ca_cd55_4f34_8fc2_2decc4c6087a
 :EMMO_d0bcf2ca_cd55_4f34_8fc2_2decc4c6087a rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_9335cf09_431f_4613_9dab_ce4ceaca965b ;
-                                           skos:altLabel "StandaloneModelSimulation"@en ;
-                                           skos:prefLabel "SingleAppSimulation" .
+                                           rdfs:subClassOf :EMMO_e97af6ec_4371_4bbc_8936_34b76e33302f ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A standalone simulation, where a single physics equation is solved."@en ;
+                                           skos:prefLabel "StandaloneModelSimulation"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_db9a009e_f097_43f5_9520_6cbc07e7610b
 :EMMO_db9a009e_f097_43f5_9520_6cbc07e7610b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_937757d3_ed79_4ae3_9513_3b135e58a6a1 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A scientific theory that focuses on a specific phenomena, for which a single statement (not necessariliy in mathematical form) can be expressed."@en ;
                                            skos:prefLabel "NaturalLaw"@en .
 
 
@@ -350,16 +342,32 @@ An Hamiltonian."""@en ;
                                            skos:prefLabel "Hypothesis"@en .
 
 
+###  http://emmo.info/emmo#EMMO_e97af6ec_4371_4bbc_8936_34b76e33302f
+:EMMO_e97af6ec_4371_4bbc_8936_34b76e33302f rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_9335cf09_431f_4613_9dab_ce4ceaca965b ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A simulation that relies on physics based models, according to the Review of Materials Modelling and CWA 17284:2018."@en ;
+                                           rdfs:isDefinedBy "CEN Workshop Agreement – CWA 17284 “Materials modelling – terminology, classification and metadata”"@en ;
+                                           skos:prefLabel "PhysicsBasedSimulation"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_e97af6ec_4371_4bbc_8936_34b76e33302f ;
+   owl:annotatedProperty rdfs:isDefinedBy ;
+   owl:annotatedTarget "CEN Workshop Agreement – CWA 17284 “Materials modelling – terminology, classification and metadata”"@en ;
+   rdfs:seeAlso "https://emmc.info/wp-content/uploads/2018/05/CWA_17284.pdf"
+ ] .
+
+
 ###  http://emmo.info/emmo#EMMO_ec502e30_b9ec_4216_90c6_f67d2df75627
 :EMMO_ec502e30_b9ec_4216_90c6_f67d2df75627 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_7d56ec24_499d_487a_af7d_a91aaa787bfe ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A chain of linked physics based model simulations, where equations are solved sequentially."@en ;
                                            skos:prefLabel "LinkedModelsSimulation"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_eff42cb3_208e_4768_9a39_f8b6b3c3d7a2
 :EMMO_eff42cb3_208e_4768_9a39_f8b6b3c3d7a2 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An elaboration that deals with quantitative symbols (i.e. symbols associated with a quantitative oriented language)."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A procedure that deals with quantitative symbols (i.e. symbols associated with a quantitative oriented language)."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """A matematician that calculates 2+2.
 A computation machine that calculate the average value of a dataset."""@en ;
                                            skos:prefLabel "Computation"@en .
@@ -375,6 +383,7 @@ A computation machine that calculate the average value of a dataset."""@en ;
 ###  http://emmo.info/emmo#EMMO_f19ff3b4_6bfe_4c41_a2b2_9affd39c140b
 :EMMO_f19ff3b4_6bfe_4c41_a2b2_9affd39c140b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_db9a009e_f097_43f5_9520_6cbc07e7610b ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A law that provides a connection between a material property and other properties of the object."@en ;
                                            skos:prefLabel "MaterialLaw"@en .
 
 
@@ -395,6 +404,8 @@ Abramowitz and Stegun, 1968"""@en ;
 ###  http://emmo.info/emmo#EMMO_fbcc3aad_c58a_4185_bcc9_859db779b226
 :EMMO_fbcc3aad_c58a_4185_bcc9_859db779b226 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_02c4890b_aef3_4173_9669_94d1f6baf611 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A simulation in which more than one model are solved together with a coupled method."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Solving within the same linear system the discretised form of the pressure and momentum equation for a fluid, using the ideal gas law as material relation for connecting pressure to density."@en ;
                                            skos:prefLabel "TightlyCoupledModelsSimulation"@en .
 
 
