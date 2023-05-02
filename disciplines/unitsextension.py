@@ -10,7 +10,7 @@ from ontopy import World, get_ontology
 import owlready2
 
 from tripper import Triplestore
-from tripper import RDF, RDFS, DCTERMS
+from tripper import OWL, RDF, RDFS, DCTERMS
 
 
 logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.INFO)
@@ -50,6 +50,19 @@ def get_symbol(unit):
     return None
 
 
+def prefix_value(prefix):
+    """Return a `(label, symbol)` tuple for `prefix`."""
+    symbol, value = None, None
+    for r in prefix.is_a:
+        if isinstance(r, owlready2.Restriction):
+            #if str(r.property) == "Inverse(emmo.hasVariable)":
+            #    value = r.value.value
+            if r.property == onto.hasSymbolData:
+                #symbol = r.value
+                return (prefix.prefLabel.first(), r.value)
+    #return (prefix.prefLabel.first(), (symbol, value))
+    raise TypeError(f"invalid prefix: {prefix}")
+
 # Create common world and load unitsextension into it
 world = World()
 unitsextension = world.get_ontology(thisdir / "unitsextension.ttl").load()
@@ -71,6 +84,12 @@ ts.parse(source="http://qudt.org/2.1/schema/qudt")
 QUDT = ts.bind("qudt", "http://qudt.org/schema/qudt/")
 UNIT = ts.bind("unit", "http://qudt.org/vocab/unit/")
 
+owl = world.get_ontology(str(OWL))
+with owl:
+    class sameAs(owlready2.Property):
+        """The property that determines that two given individuals
+        are equal."""
+
 with onto:
     class hasConversionMultiplier(onto.hasNumericalData):
         """A factor to multiply the numerical part of a quantity with
@@ -82,15 +101,33 @@ with onto:
         when converting it into a SI-homogenious unit."""
         range = [float]
 
+    class hasMetricPrefix(onto.hasSpatialTile):
+        """Relates a prefixed unit to its unit prefix."""
+        domain = [onto.PrefixedUnit]
+        range = [onto.MetricPrefix]
 
+
+# All existing physical dimensions - will be extended
 physical_dimensions = {
     c.equivalent_to[0].value: c
     for c in onto.PhysicalDimension.subclasses()
 }
+
+# All existing unit symbols
 symbols = set(get_symbol(unit) for unit in onto.MeasurementUnit.descendants())
 symbols.remove(None)
 
+# Maps QUDT IRI to corresponding Owlready2 class
+units = {}
 
+prefixes = dict(
+    prefix_value(p) for p in onto.SIMetricPrefix.disjoint_unions[0]
+)
+
+
+
+# Loop over all units in QUDT and add them to `onto` if they not already
+# exists
 for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
     bases = set()
     for parent in ts.objects(qudtunit, RDF.type):
@@ -128,6 +165,8 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
 
     if prefLabel in onto or symbol in symbols:
         info(f"exists, skipping:   {prefLabel} ({symbol})")
+        if prefLabel in onto:
+            units[qudtunit] = onto[prefLabel]
         continue
 
     qudt_descr = ts.value(qudtunit, QUDT.plainTextDescription)
@@ -160,10 +199,12 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
         physical_dimensions[dimstr] = dim
 
     unit = onto.new_entity(prefLabel, bases)
+    units[qudtunit] = unit
     if qudt_descr:
         unit.elucidation.append(en(str(qudt_descr)))
     elif dc_descr:
         unit.elucidation.append(en(str(dc_descr)))
+    unit.prefLabel.append(en(prefLabel))
     unit.altLabel.append(en(label))
     unit.is_a.append(onto.hasSymbolData.value(str(symbol)))
     unit.is_a.append(onto.hasPhysicalDimension.some(physical_dimensions[dimstr]))
@@ -184,6 +225,32 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
             unit.iupacReference = ref
         else:
             unit.seeAlso = ref
+
+
+# Adding sameAs relations
+for qudtunit, unit in units.items():
+    for same in ts.objects(qudtunit, OWL.sameAs):
+        if same in units:
+            unit.sameAs = [units[same].iri]
+
+
+# Relate prefixed units to their prefix and base unit
+for unit in units.values():
+    prefLabel = unit.prefLabel.first()
+    symbol = get_symbol(unit)
+    print("***", repr(unit), prefLabel, symbol)
+    for prefix, s in prefixes.items():
+        if prefLabel.startswith(prefix) and symbol.startswith(s):
+            n = len(prefix)
+            refname = prefLabel[n].upper() + prefLabel[n+1:]
+            if refname in onto:
+                refunit = onto[refname]
+                if get_symbol(refunit) == symbol[len(s):]:
+                    unit.is_a.append(onto.PrefixedUnit)
+                    unit.hasMetricPrefix.append(onto[prefix])
+                    unit.hasReferenceUnit.append(refunit)
+            break
+
 
 
 # Convert class docstrings to rdfs:comment
