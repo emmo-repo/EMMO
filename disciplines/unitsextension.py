@@ -64,12 +64,13 @@ def prefix_value(prefix):
     raise TypeError(f"invalid prefix: {prefix}")
 
 
-
 # Declare datatypes (must be done before loading ontologies)
 class double(float):
-    """Represents xsd:double."""
+    """Python datatype for xsd:double."""
 
-owlready2.declare_datatype(double, XSD.double, lambda x: double(x), lambda v: str(v))
+owlready2.declare_datatype(
+    double, XSD.double, lambda x: double(x), lambda v: str(v)
+)
 
 
 # Create common world and load unitsextension into it
@@ -128,18 +129,19 @@ physical_dimensions = {
 symbols = set(get_symbol(unit) for unit in onto.MeasurementUnit.descendants())
 symbols.remove(None)
 
-# Maps QUDT IRI to corresponding Owlready2 class
+# Map QUDT unit IRI to corresponding Owlready2 class
 units = {}
 
+# Map names to corresponding symbol. Ex: {"Kilo": "k", ...}
 prefixes = dict(
     prefix_value(p) for p in onto.SIMetricPrefix.disjoint_unions[0]
 )
 
 
-
 # Loop over all units in QUDT and add them to `onto` if they not already
 # exists
 for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
+    # Infer the superclasses of current unit
     bases = set()
     for parent in ts.objects(qudtunit, RDF.type):
         if parent == QUDT.DerivedUnit:
@@ -159,6 +161,7 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
     if not bases:
         bases.add(onto.MeasurementUnit)
 
+    # Fetch some annotations from QUDT
     label = ts.value(qudtunit, RDFS.label, any=True, lang="en")
     if not label:
         label = ts.value(qudtunit, RDFS.label, any=True)
@@ -185,6 +188,7 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
 
     isDefinedBy = ts.value(qudtunit, RDFS.isDefinedBy)
 
+    # Determine conversion multiplier and offset
     mult = ts.value(qudtunit, QUDT.conversionMultiplier)
     offset = ts.value(qudtunit, QUDT.conversionOffset)
     if ((mult is not None and float(mult) != 1.0) or
@@ -195,6 +199,7 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
             )
         bases.add(onto.SINonCoherentUnit)
 
+    # Physical dimension - creating new if it doesn't already exists
     dimiri = ts.value(qudtunit, QUDT.hasDimensionVector)
     dimstr = dimension_string(dimiri.rsplit("/", 1)[-1])
     if dimstr not in physical_dimensions:
@@ -209,6 +214,7 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
         dim.hasSymbolData = dimstr
         physical_dimensions[dimstr] = dim
 
+    # Create new unit and assign properties and restrictions
     unit = onto.new_entity(prefLabel, bases)
     units[qudtunit] = unit
     if qudt_descr:
