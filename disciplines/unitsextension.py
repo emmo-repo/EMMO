@@ -10,7 +10,7 @@ from ontopy import World, get_ontology
 import owlready2
 
 from tripper import Triplestore
-from tripper import OWL, RDF, RDFS, DCTERMS
+from tripper import DCTERMS, OWL, RDF, RDFS, XSD
 
 
 logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.INFO)
@@ -63,6 +63,15 @@ def prefix_value(prefix):
     #return (prefix.prefLabel.first(), (symbol, value))
     raise TypeError(f"invalid prefix: {prefix}")
 
+
+
+# Declare datatypes (must be done before loading ontologies)
+class double(float):
+    """Represents xsd:double."""
+
+owlready2.declare_datatype(double, XSD.double, lambda x: double(x), lambda v: str(v))
+
+
 # Create common world and load unitsextension into it
 world = World()
 unitsextension = world.get_ontology(thisdir / "unitsextension.ttl").load()
@@ -91,15 +100,17 @@ with owl:
         are equal."""
 
 with onto:
-    class hasConversionMultiplier(onto.hasNumericalData):
+    class hasConversionMultiplier(owlready2.AnnotationProperty):
         """A factor to multiply the numerical part of a quantity with
-        when converting it into a SI-homogenious unit."""
-        range = [float]
+        when converting it into a SI-coherent unit."""
+        domain = [onto.SINonCoherentUnit]
+        range = [double]
 
-    class hasConversionOffset(onto.hasNumericalData):
+    class hasConversionOffset(owlready2.AnnotationProperty):
         """An offset to add to the numerical part of a quantity
-        when converting it into a SI-homogenious unit."""
-        range = [float]
+        when converting it into a SI-coherent unit."""
+        domain = [onto.SINonCoherentUnit]
+        range = [double]
 
     class hasMetricPrefix(onto.hasSpatialTile):
         """Relates a prefixed unit to its unit prefix."""
@@ -238,7 +249,6 @@ for qudtunit, unit in units.items():
 for unit in units.values():
     prefLabel = unit.prefLabel.first()
     symbol = get_symbol(unit)
-    print("***", repr(unit), prefLabel, symbol)
     for prefix, s in prefixes.items():
         if prefLabel.startswith(prefix) and symbol.startswith(s):
             n = len(prefix)
