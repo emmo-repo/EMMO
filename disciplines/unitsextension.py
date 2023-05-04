@@ -101,17 +101,38 @@ with owl:
         are equal."""
 
 with onto:
-    class hasConversionMultiplier(owlready2.AnnotationProperty):
+    class ucumCode(owlready2.AnnotationProperty):
+        """Unified Code for Units of Measure (UCUM)."""
+        domain = [onto.SINonCoherentUnit]
+        range = [str]
+        seeAlso = ["https://ucum.org/"]
+        comment = [en(
+            "The Unified Code for Units of Measure (UCUM) is a code "
+            "system intended to include all units of measures being "
+            "contemporarily used in international science, engineering, "
+            "and business. The purpose is to facilitate unambiguous "
+            "electronic communication of quantities together with their "
+            "units."
+        )]
+
+    class conversionMultiplier(owlready2.AnnotationProperty):
         """A factor to multiply the numerical part of a quantity with
         when converting it into a SI-coherent unit."""
         domain = [onto.SINonCoherentUnit]
         range = [double]
 
-    class hasConversionOffset(owlready2.AnnotationProperty):
+    class conversionOffset(owlready2.AnnotationProperty):
         """An offset to add to the numerical part of a quantity
         when converting it into a SI-coherent unit."""
         domain = [onto.SINonCoherentUnit]
         range = [double]
+
+    class unitSymbol(owlready2.AnnotationProperty):
+        """The standard symbol for a unit."""
+        comment = [en("A unit symbol may be a symbolic construct (e.g. km) "
+                      "or a symbol (e.g. m).")]
+        domain = [onto.MeasurementUnit]
+        range = [str]
 
     class hasMetricPrefix(onto.hasSpatialTile):
         """Relates a prefixed unit to its unit prefix."""
@@ -138,8 +159,8 @@ prefixes = dict(
 )
 
 
-# Loop over all units in QUDT and add them to `onto` if they not already
-# exists
+# Loop over all units in QUDT and add them to `onto` if they are
+# not already in the ontology
 for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
     # Infer the superclasses of current unit
     bases = set()
@@ -222,15 +243,22 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
     elif dc_descr:
         unit.elucidation.append(en(str(dc_descr)))
     unit.prefLabel.append(en(prefLabel))
-    unit.altLabel.append(en(label))
-    unit.is_a.append(onto.hasSymbolData.value(str(symbol)))
+    if prefLabel != label:
+        unit.altLabel.append(en(label))
+    if symbol:
+        unit.unitSymbol = str(symbol)
+        if issubclass(unit, onto.UnitSymbol):
+            unit.is_a.append(onto.hasSymbolData.value(str(symbol)))
     unit.is_a.append(onto.hasPhysicalDimension.some(physical_dimensions[dimstr]))
-    if onto.SINonCoherentUnit in bases:
-        unit.hasConversionMultiplier = [1.0 if mult is None else float(mult)]
-        unit.hasConversionOffset = [0.0 if offset is None else float(offset)]
+    if onto.SINonCoherentUnit in bases and float(mult) != 0.0:
+        unit.conversionMultiplier = [1.0 if mult is None else float(mult)]
+        unit.conversionOffset = [0.0 if offset is None else float(offset)]
     unit.qudtReference.append(qudtunit)
     if isDefinedBy:
         unit.isDefinedBy.append(isDefinedBy)
+
+    for ucumCode in ts.objects(qudtunit, QUDT.ucumCode):
+        unit.ucumCode.append(str(ucumCode))
 
     for ref in ts.objects(qudtunit, QUDT.informativeReference):
         ref = str(ref)
@@ -254,19 +282,32 @@ for qudtunit, unit in units.items():
 # Relate prefixed units to their prefix and base unit
 for unit in units.values():
     prefLabel = unit.prefLabel.first()
-    symbol = get_symbol(unit)
-    for prefix, s in prefixes.items():
-        if prefLabel.startswith(prefix) and symbol.startswith(s):
-            n = len(prefix)
-            refname = prefLabel[n].upper() + prefLabel[n+1:]
-            if refname in onto:
-                refunit = onto[refname]
-                if get_symbol(refunit) == symbol[len(s):]:
-                    unit.is_a.append(onto.PrefixedUnit)
-                    unit.hasMetricPrefix.append(onto[prefix])
-                    unit.hasReferenceUnit.append(refunit)
-            break
+    symbol = unit.unitSymbol.first()
+    if symbol:
+        for prefix, s in prefixes.items():
+            if prefLabel.startswith(prefix) and symbol.startswith(s):
+                n = len(prefix)
+                refname = prefLabel[n].upper() + prefLabel[n+1:]
+                if refname in onto:
+                    refunit = onto[refname]
+                    if refunit.unitSymbol.first() == symbol[len(s):]:
+                        unit.is_a.append(onto.PrefixedUnit)
+                        unit.hasMetricPrefix.append(onto[prefix])
+                        unit.hasReferenceUnit.append(refunit)
+                break
+    if not issubclass(unit, onto.PrefixedUnit):
+        unit.is_a.append(onto.DerivedUnit)
 
+
+# QUDT marks some prefixed units as derived units. Ex: AttoCoulomb.
+# Remove such inconsistencies!
+for unit in onto.DerivedUnit.descendants():
+    if onto.DerivedUnit in unit.is_a:
+        for r in unit.is_a:
+            if r in (onto.SINonCoherentUnit, onto.PrefixedUnit):
+                info(f"fix QUDT inconsistency, make non-derived unit: {unit}")
+                unit.is_a.remove(onto.DerivedUnit)
+                break
 
 
 # Convert class docstrings to rdfs:comment
