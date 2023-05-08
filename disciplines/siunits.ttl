@@ -6,28 +6,28 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <http://emmo.info/emmo/disciplines/siunits> .
+@base <http://emmo.info/emmo#> .
 
 <http://emmo.info/emmo/disciplines/siunits> rdf:type owl:Ontology ;
-                                        owl:versionIRI <http://emmo.info/emmo/1.0.0-beta4/disciplines/siunits> ;
-                                        owl:imports <http://emmo.info/emmo/1.0.0-beta4/disciplines/isq> ;
-                                        dcterms:abstract """The module 'siunits' defines the 7 base units and 22 derived units as well as the metric prefixes specified in the SI system.
+                                             owl:versionIRI <http://emmo.info/emmo/1.0.0-beta4/disciplines/siunits> ;
+                                             owl:imports <http://emmo.info/emmo/1.0.0-beta4/disciplines/metrology> ;
+                                             dcterms:abstract """The module 'siunits' defines the 7 base units and 22 derived units as well as the metric prefixes specified in the SI system.
 
 All additional derived units, SI-based or not, goes into the 'units-extension' module."""@en ;
-                                        dcterms:contributor "Access, DE" ,
-                                                            "Fraunhofer IWM, DE" ,
-                                                            "Goldbeck Consulting Ltd (UK)" ,
-                                                            "SINTEF, NO" ,
-                                                            "University of Bologna, IT" ;
-                                        dcterms:creator "Adham Hashibon" ,
-                                                        "Emanuele Ghedini" ,
-                                                        "Georg Schmitz" ,
-                                                        "Gerhard Goldbeck" ,
-                                                        "Jesper Friis" ;
-                                        dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
-                                        dcterms:publisher "EMMC ASBL" ;
-                                        dcterms:title "SI units"@en ;
-                                        rdfs:comment """Contacts:
+                                             dcterms:contributor "Access, DE" ,
+                                                                 "Fraunhofer IWM, DE" ,
+                                                                 "Goldbeck Consulting Ltd (UK)" ,
+                                                                 "SINTEF, NO" ,
+                                                                 "University of Bologna, IT" ;
+                                             dcterms:creator "Adham Hashibon" ,
+                                                             "Emanuele Ghedini" ,
+                                                             "Georg Schmitz" ,
+                                                             "Gerhard Goldbeck" ,
+                                                             "Jesper Friis" ;
+                                             dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+                                             dcterms:publisher "EMMC ASBL" ;
+                                             dcterms:title "SI units"@en ;
+                                             rdfs:comment """Contacts:
 Gerhard Goldbeck
 Goldbeck Consulting Ltd (UK)
 email: gerhard@goldbeck-consulting.com
@@ -35,8 +35,28 @@ email: gerhard@goldbeck-consulting.com
 Emanuele Ghedini
 University of Bologna (IT)
 email: emanuele.ghedini@unibo.it"""@en ,
-                                                     "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                        owl:versionInfo "1.0.0-beta4" .
+                                                          "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
+                                             owl:versionInfo "1.0.0-beta4" .
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://emmo.info/emmo/disciplines/siunits#EMMO_8189b42e_0995_423a_a26c_51168b27c3cf
+:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain :EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ;
+                                           rdfs:range xsd:float ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Number to multiply a non-SI coherent unit with to convert it into its corresponding SI unit."@en ;
+                                           skos:prefLabel "hasConversionMultiplier"@en .
+
+
+###  http://emmo.info/emmo/disciplines/siunits#EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd
+:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain :EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ;
+                                           rdfs:range xsd:float ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Number to add to a non-SI coherent unit to convert it into its corresponding SI unit."@en ;
+                                           skos:prefLabel "hasConversionOffset"@en .
+
 
 #################################################################
 #    Classes
@@ -44,10 +64,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
 
 ###  http://emmo.info/emmo#EMMO_00199e76_69dc_45b6_a9c6_98cc90cdc0f5
 :EMMO_00199e76_69dc_45b6_a9c6_98cc90cdc0f5 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_847f1d9f_205e_46c1_8cb6_a9e479421f88
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_847f1d9f_205e_46c1_8cb6_a9e479421f88 ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "Gy"
@@ -58,29 +75,28 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            skos:prefLabel "Gray"@en .
 
 
+###  http://emmo.info/emmo#EMMO_02e894c3_b793_4197_b120_3442e08f58d1
+:EMMO_02e894c3_b793_4197_b120_3442e08f58d1 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                                 owl:hasValue "T+1 L0 M0 I0 Θ0 N0 J0"
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                           skos:prefLabel "TimeUnit"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_068c4e58_2470_4b1c_8454_010dd4906100
 :EMMO_068c4e58_2470_4b1c_8454_010dd4906100 rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_3446e167_c576_49d6_846c_215bb8878a55
-                                                                            ] ;
-                                                             owl:allValuesFrom [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
-                                                                                 owl:hasValue "1.0E-12"^^xsd:double
-                                                                               ]
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                                                             owl:hasValue "p"
+                                                             owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                             owl:hasValue "1.0E-12"^^xsd:float
                                                            ] ;
-                                           skos:prefLabel "Pico"@en .
+                                           skos:prefLabel "PicoPrefixedUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_080052a1_f295_44be_a60f_1326ce13f1ba
 :EMMO_080052a1_f295_44be_a60f_1326ce13f1ba rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_c8d084ad_f88e_4596_8e4d_982c6655ce6f
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_c8d084ad_f88e_4596_8e4d_982c6655ce6f ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "W"
@@ -94,18 +110,10 @@ email: emanuele.ghedini@unibo.it"""@en ,
 ###  http://emmo.info/emmo#EMMO_1181c938_c8f0_4ad6_bc7a_2bfdc0903d29
 :EMMO_1181c938_c8f0_4ad6_bc7a_2bfdc0903d29 rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_3446e167_c576_49d6_846c_215bb8878a55
-                                                                            ] ;
-                                                             owl:allValuesFrom [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
-                                                                                 owl:hasValue "0.1"^^xsd:double
-                                                                               ]
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                                                             owl:hasValue "d"
+                                                             owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                             owl:hasValue "0.1"^^xsd:float
                                                            ] ;
-                                           skos:prefLabel "Deci"@en .
+                                           skos:prefLabel "DeciPrefixedUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_1273eb34_de48_43a9_925f_104110469dd2
@@ -118,80 +126,65 @@ kg/m^3""" ;
                                            skos:prefLabel "SICoherentDerivedUnit"@en .
 
 
+###  http://emmo.info/emmo#EMMO_14ff4393_0f28_4fb4_abc7_c2cc00bc761d
+:EMMO_14ff4393_0f28_4fb4_abc7_c2cc00bc761d rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                                 owl:hasValue "T0 L0 M0 I0 Θ0 N0 J+1"
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                           skos:prefLabel "LuminousIntensityUnit"@en .
+
+
+###  http://emmo.info/emmo#EMMO_1c957677_a460_4702_85a6_baef659d14b1
+:EMMO_1c957677_a460_4702_85a6_baef659d14b1 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                                 owl:hasValue "T0 L-3 M+1 I0 Θ0 N0 J0"
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                           skos:prefLabel "DensityUnit"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_1d8b370b_c672_4d0c_964e_eaafcbf2f51f
 :EMMO_1d8b370b_c672_4d0c_964e_eaafcbf2f51f rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_3446e167_c576_49d6_846c_215bb8878a55
-                                                                            ] ;
-                                                             owl:allValuesFrom [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
-                                                                                 owl:hasValue "10.0"^^xsd:double
-                                                                               ]
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                                                             owl:hasValue "da"
+                                                             owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                             owl:hasValue "10.0"^^xsd:float
                                                            ] ;
-                                           skos:prefLabel "Deka"@en .
+                                           skos:prefLabel "DekaPrefixedUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_21aaefc1_3f86_4208_b7db_a755f31f0f8c
 :EMMO_21aaefc1_3f86_4208_b7db_a755f31f0f8c rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_3446e167_c576_49d6_846c_215bb8878a55
-                                                                            ] ;
-                                                             owl:allValuesFrom [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
-                                                                                 owl:hasValue "100.0"^^xsd:double
-                                                                               ]
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                                                             owl:hasValue "h"
+                                                             owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                             owl:hasValue "100.0"^^xsd:float
                                                            ] ;
-                                           skos:prefLabel "Hecto"@en .
+                                           skos:prefLabel "HectoPrefixedUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_23bfe79a_cade_48f1_9a8c_fd96e6bac8ba
 :EMMO_23bfe79a_cade_48f1_9a8c_fd96e6bac8ba rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_3446e167_c576_49d6_846c_215bb8878a55
-                                                                            ] ;
-                                                             owl:allValuesFrom [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
-                                                                                 owl:hasValue "1.0E-15"^^xsd:double
-                                                                               ]
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                                                             owl:hasValue "f"
+                                                             owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                             owl:hasValue "1.0E-15"^^xsd:float
                                                            ] ;
-                                           skos:prefLabel "Femto"@en .
+                                           skos:prefLabel "FemtoPrefixedUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_254472c6_3dbd_4f02_bc43_571389cd281f
 :EMMO_254472c6_3dbd_4f02_bc43_571389cd281f rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_3446e167_c576_49d6_846c_215bb8878a55
-                                                                            ] ;
-                                                             owl:allValuesFrom [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
-                                                                                 owl:hasValue "1.0E-21"^^xsd:double
-                                                                               ]
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                                                             owl:hasValue "z"
+                                                             owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                             owl:hasValue "1.0E-21"^^xsd:float
                                                            ] ;
-                                           skos:prefLabel "Zepto"@en .
+                                           skos:prefLabel "ZeptoPrefixedUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_2e5e45fc_f52c_4294_bdc2_5ed7a06dfce7
 :EMMO_2e5e45fc_f52c_4294_bdc2_5ed7a06dfce7 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_a77a0a4b_6bd2_42b2_be27_4b63cebbb59e
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_a77a0a4b_6bd2_42b2_be27_4b63cebbb59e ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "K"
@@ -202,12 +195,19 @@ kg/m^3""" ;
                                            skos:prefLabel "Kelvin"@en .
 
 
+###  http://emmo.info/emmo#EMMO_2e7e5796_4a80_4d73_bb84_f31138446c0c
+:EMMO_2e7e5796_4a80_4d73_bb84_f31138446c0c rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                                 owl:hasValue "T-3 L+2 M+1 I-1 Θ0 N0 J0"
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                           skos:prefLabel "ElectricPotentialUnit"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_314ba716_2d3d_4462_9a4f_d3419ae1df43
 :EMMO_314ba716_2d3d_4462_9a4f_d3419ae1df43 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_02e894c3_b793_4197_b120_3442e08f58d1
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_02e894c3_b793_4197_b120_3442e08f58d1 ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "s"
@@ -226,12 +226,19 @@ kg/m^3""" ;
                                            skos:prefLabel "SIUnitSymbol"@en .
 
 
+###  http://emmo.info/emmo#EMMO_321af35f_f0cc_4a5c_b4fe_8c2c0303fb0c
+:EMMO_321af35f_f0cc_4a5c_b4fe_8c2c0303fb0c rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                                 owl:hasValue "T+3 L-2 M-1 I+2 Θ0 N0 J0"
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                           skos:prefLabel "ElectricConductanceUnit"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_33b67e69_3645_4c73_b100_5ea6759221b4
 :EMMO_33b67e69_3645_4c73_b100_5ea6759221b4 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_ce7d4720_aa20_4a8c_93e8_df41a35b6723
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_ce7d4720_aa20_4a8c_93e8_df41a35b6723 ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "kat"
@@ -240,6 +247,16 @@ kg/m^3""" ;
                                            :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.K03372" ;
                                            rdfs:comment "Measurement unit for catalytic activity."@en ;
                                            skos:prefLabel "Katal"@en .
+
+
+###  http://emmo.info/emmo#EMMO_359312ca_1d9d_4765_b20b_28d9f45d77e7
+:EMMO_359312ca_1d9d_4765_b20b_28d9f45d77e7 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                                 owl:hasValue "T-3 L+3 M+1 I-2 Θ0 N0 J0"
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                           skos:prefLabel "ElectricResistivityUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_3a185e6c_9e19_4776_b583_19c978156aa0
@@ -261,87 +278,99 @@ kg/m^3""" ;
 ###  http://emmo.info/emmo#EMMO_3a204900_2b33_47d1_b444_815cc4c8cffa
 :EMMO_3a204900_2b33_47d1_b444_815cc4c8cffa rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_3446e167_c576_49d6_846c_215bb8878a55
-                                                                            ] ;
-                                                             owl:allValuesFrom [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
-                                                                                 owl:hasValue "1.0E12"^^xsd:double
-                                                                               ]
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                                                             owl:hasValue "T"
+                                                             owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                             owl:hasValue "1.0E12"^^xsd:float
                                                            ] ;
-                                           skos:prefLabel "Tera"@en .
+                                           skos:prefLabel "TeraPrefixedUnit"@en .
+
+
+###  http://emmo.info/emmo#EMMO_4000d06d_8594_4263_ba72_5d9440b66c5e
+:EMMO_4000d06d_8594_4263_ba72_5d9440b66c5e rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                                 owl:hasValue "T0 L-2 M0 I0 Θ0 N0 J+1"
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                           skos:prefLabel "LuminanceUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_42955b2d_b465_4666_86cc_ea3c2d685753
 :EMMO_42955b2d_b465_4666_86cc_ea3c2d685753 rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_3446e167_c576_49d6_846c_215bb8878a55
-                                                                            ] ;
-                                                             owl:allValuesFrom [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
-                                                                                 owl:hasValue "1.0E-18"^^xsd:double
-                                                                               ]
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                                                             owl:hasValue "a"
+                                                             owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                             owl:hasValue "1.0E-18"^^xsd:float
                                                            ] ;
-                                           skos:prefLabel "Atto"@en .
+                                           skos:prefLabel "AttoPrefixedUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_43a6b269_da31_4bb6_a537_c97df4fff32a
 :EMMO_43a6b269_da31_4bb6_a537_c97df4fff32a rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_3446e167_c576_49d6_846c_215bb8878a55
-                                                                            ] ;
-                                                             owl:allValuesFrom [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
-                                                                                 owl:hasValue "1.0E15"^^xsd:double
-                                                                               ]
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                                                             owl:hasValue "P"
+                                                             owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                             owl:hasValue "9.9999999E14"^^xsd:float
                                                            ] ;
-                                           skos:prefLabel "Peta"@en .
+                                           skos:prefLabel "PetaPrefixedUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_471cb92b_edca_4cf9_bce8_a75084d876b8
 :EMMO_471cb92b_edca_4cf9_bce8_a75084d876b8 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_7d2afa66_ae9e_4095_a9bf_421d0be401b6 ;
-                                           owl:disjointUnionOf ( :EMMO_068c4e58_2470_4b1c_8454_010dd4906100
-                                                                 :EMMO_1181c938_c8f0_4ad6_bc7a_2bfdc0903d29
-                                                                 :EMMO_1d8b370b_c672_4d0c_964e_eaafcbf2f51f
-                                                                 :EMMO_21aaefc1_3f86_4208_b7db_a755f31f0f8c
-                                                                 :EMMO_23bfe79a_cade_48f1_9a8c_fd96e6bac8ba
-                                                                 :EMMO_254472c6_3dbd_4f02_bc43_571389cd281f
-                                                                 :EMMO_3a204900_2b33_47d1_b444_815cc4c8cffa
-                                                                 :EMMO_42955b2d_b465_4666_86cc_ea3c2d685753
-                                                                 :EMMO_43a6b269_da31_4bb6_a537_c97df4fff32a
-                                                                 :EMMO_5cf9f86c_86f5_40c4_846d_60371f670e0a
-                                                                 :EMMO_5eaecadc_4f0d_4a3a_afc7_1fc0b83cc928
-                                                                 :EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201
-                                                                 :EMMO_9ff3bf8e_2168_406e_8251_1d158fc948ae
-                                                                 :EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7
-                                                                 :EMMO_a8eb4bbb_1bd3_4ad4_b114_2789bcbd2134
-                                                                 :EMMO_b55cd09a_e54d_4eb1_81dd_03c29d1b878e
-                                                                 :EMMO_daa9ee97_4c5f_42e5_918c_44d7523e8958
-                                                                 :EMMO_e1981c25_7c55_4020_aa7a_d2e14ced86d4
-                                                                 :EMMO_e79c62ff_10ad_4ec0_baba_c19ddd4eaa11
-                                                                 :EMMO_f5769206_9257_4b08_bf7b_dad7868c6afc
-                                                               ) ;
                                            skos:prefLabel "SIMetricPrefix"@en .
+
+
+###  http://emmo.info/emmo#EMMO_4c49ab58_a6f6_409e_b849_f873ae1dcbee
+:EMMO_4c49ab58_a6f6_409e_b849_f873ae1dcbee rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                                 owl:hasValue "T-2 L+2 M+1 I-1 Θ0 N0 J0"
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                           skos:prefLabel "MagneticFluxUnit"@en .
+
+
+###  http://emmo.info/emmo#EMMO_515b5579_d526_4842_9e6f_ecc34db6f368
+:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                                 owl:hasValue "T-1 L0 M0 I0 Θ0 N0 J0"
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                           skos:prefLabel "FrequencyUnit"@en .
+
+
+###  http://emmo.info/emmo#EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b
+:EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                                 owl:hasValue "T-2 L-1 M+1 I0 Θ0 N0 J0"
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                           skos:prefLabel "PressureUnit"@en .
+
+
+###  http://emmo.info/emmo#EMMO_53e825d9_1a09_483c_baa7_37501ebfbe1c
+:EMMO_53e825d9_1a09_483c_baa7_37501ebfbe1c rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                                 owl:hasValue "T-2 L+1 M+1 I0 Θ0 N0 J0"
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                           skos:prefLabel "ForceUnit"@en .
+
+
+###  http://emmo.info/emmo#EMMO_585e0ff0_9429_4d3c_b578_58abb1ba21d1
+:EMMO_585e0ff0_9429_4d3c_b578_58abb1ba21d1 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                                 owl:hasValue "T-2 L+2 M+1 I-2 Θ0 N0 J0"
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                           skos:prefLabel "InductanceUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_59c10c5c_47bd_4348_ba39_38836607dfa1
 :EMMO_59c10c5c_47bd_4348_ba39_38836607dfa1 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_7610efb8_c7c6_4684_abc1_774783c62472
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_7610efb8_c7c6_4684_abc1_774783c62472 ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "Ω"
@@ -355,35 +384,19 @@ kg/m^3""" ;
 ###  http://emmo.info/emmo#EMMO_5cf9f86c_86f5_40c4_846d_60371f670e0a
 :EMMO_5cf9f86c_86f5_40c4_846d_60371f670e0a rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_3446e167_c576_49d6_846c_215bb8878a55
-                                                                            ] ;
-                                                             owl:allValuesFrom [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
-                                                                                 owl:hasValue "1.0E18"^^xsd:double
-                                                                               ]
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                                                             owl:hasValue "E"
+                                                             owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                             owl:hasValue "9.9999998E17"^^xsd:float
                                                            ] ;
-                                           skos:prefLabel "Exa"@en .
+                                           skos:prefLabel "ExaPrefixedUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_5eaecadc_4f0d_4a3a_afc7_1fc0b83cc928
 :EMMO_5eaecadc_4f0d_4a3a_afc7_1fc0b83cc928 rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_3446e167_c576_49d6_846c_215bb8878a55
-                                                                            ] ;
-                                                             owl:allValuesFrom [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
-                                                                                 owl:hasValue "1000000.0"^^xsd:double
-                                                                               ]
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                                                             owl:hasValue "M"
+                                                             owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                             owl:hasValue "1000000.0"^^xsd:float
                                                            ] ;
-                                           skos:prefLabel "Mega"@en .
+                                           skos:prefLabel "MegaPrefixedUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1
@@ -394,10 +407,7 @@ kg/m^3""" ;
 
 ###  http://emmo.info/emmo#EMMO_696ed548_9477_45ea_993c_6a8f5271914a
 :EMMO_696ed548_9477_45ea_993c_6a8f5271914a rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_ab79e92b_5377_454d_be06_d61b50db295a
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_ab79e92b_5377_454d_be06_d61b50db295a ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "C"
@@ -421,26 +431,35 @@ kg/m^3""" ;
 ###  http://emmo.info/emmo#EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201
 :EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_3446e167_c576_49d6_846c_215bb8878a55
-                                                                            ] ;
-                                                             owl:allValuesFrom [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
-                                                                                 owl:hasValue "1000.0"^^xsd:double
-                                                                               ]
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                                                             owl:hasValue "k"
+                                                             owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                             owl:hasValue "1000.0"^^xsd:float
                                                            ] ;
-                                           skos:prefLabel "Kilo"@en .
+                                           skos:prefLabel "KiloPrefixedUnit"@en .
+
+
+###  http://emmo.info/emmo#EMMO_7610efb8_c7c6_4684_abc1_774783c62472
+:EMMO_7610efb8_c7c6_4684_abc1_774783c62472 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                                 owl:hasValue "T-3 L+2 M+1 I-2 Θ0 N0 J0"
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                           skos:prefLabel "ElectricResistanceUnit"@en .
+
+
+###  http://emmo.info/emmo#EMMO_77e9dc31_5b19_463e_b000_44c6e79f98aa
+:EMMO_77e9dc31_5b19_463e_b000_44c6e79f98aa rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                                 owl:hasValue "T0 L0 M+1 I0 Θ0 N0 J0"
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                           skos:prefLabel "MassUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_7db11dbf_a643_464a_9b56_07eabcc3e9c5
 :EMMO_7db11dbf_a643_464a_9b56_07eabcc3e9c5 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "m"
@@ -459,12 +478,19 @@ kg/m^3""" ;
                                            skos:prefLabel "SINonCoherentUnit"@en .
 
 
+###  http://emmo.info/emmo#EMMO_847f1d9f_205e_46c1_8cb6_a9e479421f88
+:EMMO_847f1d9f_205e_46c1_8cb6_a9e479421f88 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                                 owl:hasValue "T-2 L+2 M0 I0 Θ0 N0 J0"
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                           skos:prefLabel "AbsorbedDoseUnit"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_8a70dea4_d6ab_4260_b931_a3e990982416
 :EMMO_8a70dea4_d6ab_4260_b931_a3e990982416 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "J"
@@ -477,10 +503,7 @@ kg/m^3""" ;
 
 ###  http://emmo.info/emmo#EMMO_8d00f093_3f45_4ea3_986c_b3545c3c2f4c
 :EMMO_8d00f093_3f45_4ea3_986c_b3545c3c2f4c rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_14ff4393_0f28_4fb4_abc7_c2cc00bc761d
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_14ff4393_0f28_4fb4_abc7_c2cc00bc761d ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "cd"
@@ -493,10 +516,7 @@ kg/m^3""" ;
 
 ###  http://emmo.info/emmo#EMMO_9bfd6f1e_b0ce_459c_beb7_8f1f41708bba
 :EMMO_9bfd6f1e_b0ce_459c_beb7_8f1f41708bba rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_77e9dc31_5b19_463e_b000_44c6e79f98aa
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_77e9dc31_5b19_463e_b000_44c6e79f98aa ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "kg"
@@ -510,26 +530,15 @@ kg/m^3""" ;
 ###  http://emmo.info/emmo#EMMO_9ff3bf8e_2168_406e_8251_1d158fc948ae
 :EMMO_9ff3bf8e_2168_406e_8251_1d158fc948ae rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_3446e167_c576_49d6_846c_215bb8878a55
-                                                                            ] ;
-                                                             owl:allValuesFrom [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
-                                                                                 owl:hasValue "1.0E-6"^^xsd:double
-                                                                               ]
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                                                             owl:hasValue "µ"
+                                                             owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                             owl:hasValue "1.0E-6"^^xsd:float
                                                            ] ;
-                                           skos:prefLabel "Micro"@en .
+                                           skos:prefLabel "MicroPrefixedUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_a121bb1d_5225_4c78_809b_0268c3012208
 :EMMO_a121bb1d_5225_4c78_809b_0268c3012208 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0 ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "rad"
@@ -544,26 +553,25 @@ kg/m^3""" ;
 ###  http://emmo.info/emmo#EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7
 :EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_3446e167_c576_49d6_846c_215bb8878a55
-                                                                            ] ;
-                                                             owl:allValuesFrom [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
-                                                                                 owl:hasValue "0.001"^^xsd:double
-                                                                               ]
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                                                             owl:hasValue "m"
+                                                             owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                             owl:hasValue "0.001"^^xsd:float
                                                            ] ;
-                                           skos:prefLabel "Milli"@en .
+                                           skos:prefLabel "MilliPrefixedUnit"@en .
+
+
+###  http://emmo.info/emmo#EMMO_a77a0a4b_6bd2_42b2_be27_4b63cebbb59e
+:EMMO_a77a0a4b_6bd2_42b2_be27_4b63cebbb59e rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                                 owl:hasValue "T0 L0 M0 I0 Θ+1 N0 J0"
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                           skos:prefLabel "TemperatureUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_a80dc6f5_b1aa_41a7_a3a8_cd5040da2162
 :EMMO_a80dc6f5_b1aa_41a7_a3a8_cd5040da2162 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "Pa"
@@ -577,26 +585,15 @@ kg/m^3""" ;
 ###  http://emmo.info/emmo#EMMO_a8eb4bbb_1bd3_4ad4_b114_2789bcbd2134
 :EMMO_a8eb4bbb_1bd3_4ad4_b114_2789bcbd2134 rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_3446e167_c576_49d6_846c_215bb8878a55
-                                                                            ] ;
-                                                             owl:allValuesFrom [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
-                                                                                 owl:hasValue "1.0E9"^^xsd:double
-                                                                               ]
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                                                             owl:hasValue "G"
+                                                             owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                             owl:hasValue "1.0E9"^^xsd:float
                                                            ] ;
-                                           skos:prefLabel "Giga"@en .
+                                           skos:prefLabel "GigaPrefixedUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_a9201b2f_e6de_442a_b3a6_d292a5820bc5
 :EMMO_a9201b2f_e6de_442a_b3a6_d292a5820bc5 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_b14d9be5_f81e_469b_abca_379c2e83feab
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_b14d9be5_f81e_469b_abca_379c2e83feab ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "F"
@@ -609,10 +606,7 @@ kg/m^3""" ;
 
 ###  http://emmo.info/emmo#EMMO_a979c531_f9fa_4a6e_93c1_a2960241ca64
 :EMMO_a979c531_f9fa_4a6e_93c1_a2960241ca64 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_53e825d9_1a09_483c_baa7_37501ebfbe1c
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_53e825d9_1a09_483c_baa7_37501ebfbe1c ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "N"
@@ -623,12 +617,19 @@ kg/m^3""" ;
                                            skos:prefLabel "Newton"@en .
 
 
+###  http://emmo.info/emmo#EMMO_ab79e92b_5377_454d_be06_d61b50db295a
+:EMMO_ab79e92b_5377_454d_be06_d61b50db295a rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                                 owl:hasValue "T+1 L0 M0 I+1 Θ0 N0 J0"
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                           skos:prefLabel "ElectricChargeUnit"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_acb50123_87a2_4753_b36c_f87114ad4de2
 :EMMO_acb50123_87a2_4753_b36c_f87114ad4de2 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_ec903946_ddc9_464a_903c_7373e0d1eeb5
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_ec903946_ddc9_464a_903c_7373e0d1eeb5 ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "T"
@@ -639,12 +640,19 @@ kg/m^3""" ;
                                            skos:prefLabel "Tesla"@en .
 
 
+###  http://emmo.info/emmo#EMMO_b14d9be5_f81e_469b_abca_379c2e83feab
+:EMMO_b14d9be5_f81e_469b_abca_379c2e83feab rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                                 owl:hasValue "T+4 L-2 M-1 I+2 Θ0 N0 J0"
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                           skos:prefLabel "CapacitanceUnit"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_b20be325_8bfd_4237_bee7_201ab0fd9c75
 :EMMO_b20be325_8bfd_4237_bee7_201ab0fd9c75 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_a77a0a4b_6bd2_42b2_be27_4b63cebbb59e
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_a77a0a4b_6bd2_42b2_be27_4b63cebbb59e ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "°C"
@@ -655,29 +663,28 @@ kg/m^3""" ;
                                            skos:prefLabel "DegreeCelsius"@en .
 
 
+###  http://emmo.info/emmo#EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc
+:EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                                 owl:hasValue "T0 L+1 M0 I0 Θ0 N0 J0"
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                           skos:prefLabel "LengthUnit"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_b55cd09a_e54d_4eb1_81dd_03c29d1b878e
 :EMMO_b55cd09a_e54d_4eb1_81dd_03c29d1b878e rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_3446e167_c576_49d6_846c_215bb8878a55
-                                                                            ] ;
-                                                             owl:allValuesFrom [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
-                                                                                 owl:hasValue "0.01"^^xsd:double
-                                                                               ]
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                                                             owl:hasValue "c"
+                                                             owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                             owl:hasValue "0.01"^^xsd:float
                                                            ] ;
-                                           skos:prefLabel "Centi"@en .
+                                           skos:prefLabel "CentiPrefixedUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_b71e4ba5_8f73_4199_8c96_7ea7f94d9e2a
 :EMMO_b71e4ba5_8f73_4199_8c96_7ea7f94d9e2a rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_515b5579_d526_4842_9e6f_ecc34db6f368
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "Bq"
@@ -689,12 +696,29 @@ kg/m^3""" ;
                                            skos:prefLabel "Becquerel"@en .
 
 
+###  http://emmo.info/emmo#EMMO_c8d084ad_f88e_4596_8e4d_982c6655ce6f
+:EMMO_c8d084ad_f88e_4596_8e4d_982c6655ce6f rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                                 owl:hasValue "T-3 L+2 M+1 I0 Θ0 N0 J0"
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                           skos:prefLabel "PowerUnit"@en .
+
+
+###  http://emmo.info/emmo#EMMO_ce7d4720_aa20_4a8c_93e8_df41a35b6723
+:EMMO_ce7d4720_aa20_4a8c_93e8_df41a35b6723 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                                 owl:hasValue "T-1 L0 M0 I0 Θ0 N+1 J0"
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                           skos:prefLabel "CatalyticActivityUnit"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_cf3dd6cc_c5d6_4b3d_aef4_82f3b7a361af
 :EMMO_cf3dd6cc_c5d6_4b3d_aef4_82f3b7a361af rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0 ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "sr"
@@ -713,12 +737,19 @@ kg/m^3""" ;
                                            skos:prefLabel "SIPrefixedUnit"@en .
 
 
+###  http://emmo.info/emmo#EMMO_d5f3e0e5_fc7d_4e64_86ad_555e74aaff84
+:EMMO_d5f3e0e5_fc7d_4e64_86ad_555e74aaff84 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                                 owl:hasValue "T0 L0 M0 I+1 Θ0 N0 J0"
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                           skos:prefLabel "ElectricCurrentUnit"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_d7b7fd1e_645a_42cb_8f40_85f0d034d3ae
 :EMMO_d7b7fd1e_645a_42cb_8f40_85f0d034d3ae rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_14ff4393_0f28_4fb4_abc7_c2cc00bc761d
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_14ff4393_0f28_4fb4_abc7_c2cc00bc761d ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "lm"
@@ -731,10 +762,7 @@ kg/m^3""" ;
 
 ###  http://emmo.info/emmo#EMMO_d7f11b34_a121_4519_87c0_aa754f1c4737
 :EMMO_d7f11b34_a121_4519_87c0_aa754f1c4737 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_4c49ab58_a6f6_409e_b849_f873ae1dcbee
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_4c49ab58_a6f6_409e_b849_f873ae1dcbee ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "Wb"
@@ -747,10 +775,7 @@ kg/m^3""" ;
 
 ###  http://emmo.info/emmo#EMMO_da1dd4a7_c611_4ad4_bef6_7646f28aa598
 :EMMO_da1dd4a7_c611_4ad4_bef6_7646f28aa598 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_4000d06d_8594_4263_ba72_5d9440b66c5e
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_4000d06d_8594_4263_ba72_5d9440b66c5e ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "lx"
@@ -764,26 +789,15 @@ kg/m^3""" ;
 ###  http://emmo.info/emmo#EMMO_daa9ee97_4c5f_42e5_918c_44d7523e8958
 :EMMO_daa9ee97_4c5f_42e5_918c_44d7523e8958 rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_3446e167_c576_49d6_846c_215bb8878a55
-                                                                            ] ;
-                                                             owl:allValuesFrom [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
-                                                                                 owl:hasValue "1.0E21"^^xsd:double
-                                                                               ]
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                                                             owl:hasValue "Z"
+                                                             owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                             owl:hasValue "1.0E21"^^xsd:float
                                                            ] ;
-                                           skos:prefLabel "Zetta"@en .
+                                           skos:prefLabel "ZettaPrefixedUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_db5dd38d_ac79_4af6_8782_fee7e7150ae8
 :EMMO_db5dd38d_ac79_4af6_8782_fee7e7150ae8 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_d5f3e0e5_fc7d_4e64_86ad_555e74aaff84
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_d5f3e0e5_fc7d_4e64_86ad_555e74aaff84 ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "A"
@@ -804,10 +818,7 @@ kg/m^3""" ;
 
 ###  http://emmo.info/emmo#EMMO_dc232f53_8ed8_4ddd_9f41_cc057985eadb
 :EMMO_dc232f53_8ed8_4ddd_9f41_cc057985eadb rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_847f1d9f_205e_46c1_8cb6_a9e479421f88
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_847f1d9f_205e_46c1_8cb6_a9e479421f88 ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "Sv"
@@ -823,10 +834,7 @@ Sievert is derived from absorbed dose, but takes into account the biological eff
 
 ###  http://emmo.info/emmo#EMMO_df6eeb01_1b41_4bd8_9257_a04fbd7cf000
 :EMMO_df6eeb01_1b41_4bd8_9257_a04fbd7cf000 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_e501069c_34d3_4dc7_ac87_c90c7342192b
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_e501069c_34d3_4dc7_ac87_c90c7342192b ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "mol"
@@ -840,26 +848,15 @@ Sievert is derived from absorbed dose, but takes into account the biological eff
 ###  http://emmo.info/emmo#EMMO_e1981c25_7c55_4020_aa7a_d2e14ced86d4
 :EMMO_e1981c25_7c55_4020_aa7a_d2e14ced86d4 rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_3446e167_c576_49d6_846c_215bb8878a55
-                                                                            ] ;
-                                                             owl:allValuesFrom [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
-                                                                                 owl:hasValue "1.0E-9"^^xsd:double
-                                                                               ]
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                                                             owl:hasValue "n"
+                                                             owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                             owl:hasValue "1.0E-9"^^xsd:float
                                                            ] ;
-                                           skos:prefLabel "Nano"@en .
+                                           skos:prefLabel "NanoPrefixedUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_e2207e91_02b0_4a8a_b13e_61d2a2a839f1
 :EMMO_e2207e91_02b0_4a8a_b13e_61d2a2a839f1 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_2e7e5796_4a80_4d73_bb84_f31138446c0c
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_2e7e5796_4a80_4d73_bb84_f31138446c0c ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "V"
@@ -870,12 +867,19 @@ Sievert is derived from absorbed dose, but takes into account the biological eff
                                            skos:prefLabel "Volt"@en .
 
 
+###  http://emmo.info/emmo#EMMO_e501069c_34d3_4dc7_ac87_c90c7342192b
+:EMMO_e501069c_34d3_4dc7_ac87_c90c7342192b rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                                 owl:hasValue "T0 L0 M0 I0 Θ0 N+1 J0"
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                           skos:prefLabel "AmountUnit"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_e75f580e_52bf_4dd5_af70_df409cec08fd
 :EMMO_e75f580e_52bf_4dd5_af70_df409cec08fd rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_515b5579_d526_4842_9e6f_ecc34db6f368
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "Hz"
@@ -889,18 +893,10 @@ Sievert is derived from absorbed dose, but takes into account the biological eff
 ###  http://emmo.info/emmo#EMMO_e79c62ff_10ad_4ec0_baba_c19ddd4eaa11
 :EMMO_e79c62ff_10ad_4ec0_baba_c19ddd4eaa11 rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_3446e167_c576_49d6_846c_215bb8878a55
-                                                                            ] ;
-                                                             owl:allValuesFrom [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
-                                                                                 owl:hasValue "1.0E24"^^xsd:double
-                                                                               ]
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                                                             owl:hasValue "Y"
+                                                             owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                             owl:hasValue "1.0E24"^^xsd:float
                                                            ] ;
-                                           skos:prefLabel "Yotta"@en .
+                                           skos:prefLabel "YottaPrefixedUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_e9ffc696_5228_4ff9_8a60_0f5e05e9931b
@@ -935,12 +931,19 @@ Sievert is derived from absorbed dose, but takes into account the biological eff
                                            skos:prefLabel "SISpecialUnit"@en .
 
 
+###  http://emmo.info/emmo#EMMO_ec903946_ddc9_464a_903c_7373e0d1eeb5
+:EMMO_ec903946_ddc9_464a_903c_7373e0d1eeb5 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                                 owl:hasValue "T-2 L0 M+1 I-1 Θ0 N0 J0"
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                           skos:prefLabel "MagneticFluxDensityUnit"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_f2523820_04a6_44ab_bb67_8237dda2b0c2
 :EMMO_f2523820_04a6_44ab_bb67_8237dda2b0c2 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_321af35f_f0cc_4a5c_b4fe_8c2c0303fb0c
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_321af35f_f0cc_4a5c_b4fe_8c2c0303fb0c ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "S"
@@ -952,26 +955,25 @@ Sievert is derived from absorbed dose, but takes into account the biological eff
 ###  http://emmo.info/emmo#EMMO_f5769206_9257_4b08_bf7b_dad7868c6afc
 :EMMO_f5769206_9257_4b08_bf7b_dad7868c6afc rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_3446e167_c576_49d6_846c_215bb8878a55
-                                                                            ] ;
-                                                             owl:allValuesFrom [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
-                                                                                 owl:hasValue "1.0E-24"^^xsd:double
-                                                                               ]
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                                                             owl:hasValue "y"
+                                                             owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                             owl:hasValue "1.0E-24"^^xsd:float
                                                            ] ;
-                                           skos:prefLabel "Yocto"@en .
+                                           skos:prefLabel "YoctoPrefixedUnit"@en .
+
+
+###  http://emmo.info/emmo#EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f
+:EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                                                 owl:hasValue "T-2 L+2 M+1 I0 Θ0 N0 J0"
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                           skos:prefLabel "EnergyUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_fab003c8_f7a6_4346_9988_7161325ed7a3
 :EMMO_fab003c8_f7a6_4346_9988_7161325ed7a3 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_585e0ff0_9429_4d3c_b578_58abb1ba21d1
-                                                           ] ,
+                                           rdfs:subClassOf :EMMO_585e0ff0_9429_4d3c_b578_58abb1ba21d1 ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "H"
@@ -999,7 +1001,43 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
                                            skos:prefLabel "SIUnit"@en .
 
 
+###  http://emmo.info/emmo/disciplines/siunits#EMMO_2024fca1_b015_45ee_9490_e9e7d36bf704
+:EMMO_2024fca1_b015_45ee_9490_e9e7d36bf704 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_62f0d847_3603_45b4_bfc4_dd4511355ff2 ;
+                                           owl:disjointUnionOf ( :EMMO_1d8b370b_c672_4d0c_964e_eaafcbf2f51f
+                                                                 :EMMO_21aaefc1_3f86_4208_b7db_a755f31f0f8c
+                                                                 :EMMO_3a204900_2b33_47d1_b444_815cc4c8cffa
+                                                                 :EMMO_43a6b269_da31_4bb6_a537_c97df4fff32a
+                                                                 :EMMO_5cf9f86c_86f5_40c4_846d_60371f670e0a
+                                                                 :EMMO_5eaecadc_4f0d_4a3a_afc7_1fc0b83cc928
+                                                                 :EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201
+                                                                 :EMMO_a8eb4bbb_1bd3_4ad4_b114_2789bcbd2134
+                                                                 :EMMO_daa9ee97_4c5f_42e5_918c_44d7523e8958
+                                                                 :EMMO_e79c62ff_10ad_4ec0_baba_c19ddd4eaa11
+                                                               ) ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Measurement unit obtained by multiplying a given measurement unit by an integer SI prefix greater than one."@en ;
+                                           skos:prefLabel "SIMultipleUnit"@en .
+
+
+###  http://emmo.info/emmo/disciplines/siunits#EMMO_9d28f9ad_d9d3_4edb_bc00_5d9bd242244d
+:EMMO_9d28f9ad_d9d3_4edb_bc00_5d9bd242244d rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_a2f94f33_71fa_443c_a1fb_d1685fc537ec ;
+                                           owl:disjointUnionOf ( :EMMO_068c4e58_2470_4b1c_8454_010dd4906100
+                                                                 :EMMO_1181c938_c8f0_4ad6_bc7a_2bfdc0903d29
+                                                                 :EMMO_23bfe79a_cade_48f1_9a8c_fd96e6bac8ba
+                                                                 :EMMO_254472c6_3dbd_4f02_bc43_571389cd281f
+                                                                 :EMMO_42955b2d_b465_4666_86cc_ea3c2d685753
+                                                                 :EMMO_9ff3bf8e_2168_406e_8251_1d158fc948ae
+                                                                 :EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7
+                                                                 :EMMO_b55cd09a_e54d_4eb1_81dd_03c29d1b878e
+                                                                 :EMMO_e1981c25_7c55_4020_aa7a_d2e14ced86d4
+                                                                 :EMMO_f5769206_9257_4b08_bf7b_dad7868c6afc
+                                                               ) ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Measurement unit obtained by dividing a given measurement unit by an integer SI prefix greater than one."@en ;
+                                           skos:prefLabel "SISubMultipleUnit"@en .
+
+
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
 ] .
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
