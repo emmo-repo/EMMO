@@ -532,6 +532,38 @@ kg/m^3""" ;
                                            skos:prefLabel "Candela"@en .
 
 
+###  http://emmo.info/emmo#EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc
+:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_803ab206_db21_4e55_a5eb_c9b4156dad3c ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbol that, following SI specifications, describe the physical dimensionality of a physical quantity and the exponents of the base units in a measurement unit."@en ;
+                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "quantity dimension"@en ;
+                                           rdfs:comment """All physical quantities, with the exception of counts, are derived quantities, which may be written in terms of base quantities according to the equations of physics. The dimensions of the derived quantities are written as products of powers of the dimensions of the base quantities using the equations that relate the derived quantities to the base quantities.
+In general the dimension of any quantity Q is written in the form of a dimensional product,
+
+dim Q = T^α L^β M^γ I^δ Θ^ε N^ζ J^η
+
+where the exponents α, β, γ, δ, ε, ζ and η, which are generally small integers, which can be positive, negative, or zero, are called the dimensional exponents.
+(SI brochure)"""@en ,
+                                                        """The conventional symbolic representation of the dimension of a base quantity is a single upper case letter in roman (upright) type. The conventional symbolic representation of the dimension of a derived quantity is the product of powers of the dimensions of the base quantities according to the definition of the derived quantity. The dimension of a quantity Q is denoted by dim Q.
+ISO 80000-1"""@en ,
+                                                        """The expression used by the EMMO for physical dimensions is a metrological symbol (but a string at meta level, i.e. the ontologist level) like this:
+
+Ta Lb Mc Id Θe Nf Jg
+
+where a, b, c, d, e, f and g are 0 or signed integers.
+
+Regex for the physical dimension symbol for the EMMO is:
+^T([+-][1-9]|0) L([+-][1-9]|0) M([+-][1-9]|0) I([+-][1-9]|0) Θ([+-][1-9]|0) N([+-][1-9]|0) J([+-][1-9]|0)$
+
+Examples of correspondance between base units and physical dimensions are:
+mol -> T0 L0 M0 I0 Θ0 N+1 J0
+s -> T+1 L0 M0 I0 Θ0 N0 J0
+A/m2 -> T0 L0 M-2 I+1 Θ0 N0 J0"""@en ;
+                                           skos:altLabel "PhysicalDimension"@en ,
+                                                         "QuantityDimension"@en ;
+                                           skos:prefLabel "SIDimensionalUnit"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_9bfd6f1e_b0ce_459c_beb7_8f1f41708bba
 :EMMO_9bfd6f1e_b0ce_459c_beb7_8f1f41708bba rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_77e9dc31_5b19_463e_b000_44c6e79f98aa ,
@@ -574,8 +606,7 @@ kg/m^3""" ;
 
 ###  http://emmo.info/emmo#EMMO_a121bb1d_5225_4c78_809b_0268c3012208
 :EMMO_a121bb1d_5225_4c78_809b_0268c3012208 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0 ,
-                                                           [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "rad"
                                                            ] ;
@@ -754,8 +785,7 @@ kg/m^3""" ;
 
 ###  http://emmo.info/emmo#EMMO_cf3dd6cc_c5d6_4b3d_aef4_82f3b7a361af
 :EMMO_cf3dd6cc_c5d6_4b3d_aef4_82f3b7a361af rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0 ,
-                                                           [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                                                              owl:hasValue "sr"
                                                            ] ;
