@@ -44,17 +44,31 @@ email: emanuele.ghedini@unibo.it"""@en ,
 
 ###  http://emmo.info/emmo#EMMO_8189b42e_0995_423a_a26c_51168b27c3cf
 :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf rdf:type owl:DatatypeProperty ;
-                                           rdfs:domain :EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ;
+                                           rdfs:domain [ rdf:type owl:Class ;
+                                                         owl:unionOf ( :EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375
+                                                                       :EMMO_d41ce84b_4317_41fb_a5d1_6cd281fca106
+                                                                     )
+                                                       ] ;
                                            rdfs:range xsd:float ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Number to multiply a non-SI coherent unit with to convert it into its corresponding SI unit."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Number to multiply a SI coherent unit with when converting to a given non-SI coherent unit."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """Conversion formula:
+
+    nonsi_coherent_unit = si_coherent_unit * multiplier + offset"""@en ;
                                            skos:prefLabel "hasConversionMultiplier"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd
 :EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd rdf:type owl:DatatypeProperty ;
-                                           rdfs:domain :EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ;
+                                           rdfs:domain [ rdf:type owl:Class ;
+                                                         owl:unionOf ( :EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375
+                                                                       :EMMO_d41ce84b_4317_41fb_a5d1_6cd281fca106
+                                                                     )
+                                                       ] ;
                                            rdfs:range xsd:float ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Number to add to a non-SI coherent unit to convert it into its corresponding SI unit."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Number to add to a SI coherent unit when converting to a given non-SI coherent unit."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """Conversion formula:
+
+    nonsi_coherent_unit = si_coherent_unit * multiplier + offset"""@en ;
                                            skos:prefLabel "hasConversionOffset"@en .
 
 
@@ -797,7 +811,9 @@ A/m2 -> T0 L0 M-2 I+1 Θ0 N0 J0"""@en ;
 
 ###  http://emmo.info/emmo#EMMO_d41ce84b_4317_41fb_a5d1_6cd281fca106
 :EMMO_d41ce84b_4317_41fb_a5d1_6cd281fca106 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ;
+                                           owl:disjointUnionOf ( :EMMO_2024fca1_b015_45ee_9490_e9e7d36bf704
+                                                                 :EMMO_9d28f9ad_d9d3_4edb_bc00_5d9bd242244d
+                                                               ) ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A SI base or special unit with a metric prefix."@en ;
                                            rdfs:comment "The presence of the prefix makes this units non-coherent with SI system."@en ;
                                            skos:prefLabel "SIPrefixedUnit"@en .
