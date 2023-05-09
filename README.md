@@ -137,7 +137,7 @@ The fastest way to access the EMMO is to open the ontology via Protégé via the
 
 The EMMO hierarchy will be visible only after reasoning inference: use *ctrl-R* to start the reasoner and under the *Entities* tab, select the *Classes* subtab and *Inferred* in the scroll button.
 
-It is recommended to use FaCT++ as reasoner. You can select it through the menu *Reasoner*.  An instruction for how to install the FaCT++ plugin on Protege 5.5.0 on Windows can be found in the [doc subdirectory](doc/installing_factplusplus.md).
+From EMMO 1.0.0-beta4 it is recommended to use HermiT as reasoner (distributed by default with Protege).  For earlier EMMO versions is FaCT++ the recommended reasoner. You can select it through the menu *Reasoner*.  An instruction for how to install the FaCT++ plugin on Protege 5.5.0 on Windows can be found in the [doc subdirectory](doc/installing_factplusplus.md).
 
 To access EMMO from Python, we recommend [EMMO-python](https://github.com/emmo-repo/EMMO-python/).
 
