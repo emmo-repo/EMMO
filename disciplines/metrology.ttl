@@ -138,7 +138,7 @@ The quantity is selected without an observation aimed to measure its actual valu
                                                     owl:IrreflexiveProperty ;
                                            rdfs:domain :EMMO_f658c301_ce93_46cf_9639_4eace2c5d1d5 ;
                                            rdfs:range :EMMO_18ce5200_00f5_45bb_8c6f_6fb128cd41ae ;
-                                           rdfs:comment "Relates the physical quantity to its unit through spatial direct parthood."@en ;
+                                           rdfs:comment "Relates a quantity to its unit through spatial direct parthood."@en ;
                                            owl:versionInfo """In EMMO version 1.0.0-beta4, physical quantities used the hasReferenceUnit object property to relate them to their units via physical dimensionality. This was simplified in 1.0.0-alpha3 in order to make reasoning faster.
 
 The restriction (e.g. for the physical quantity Length)
@@ -170,6 +170,15 @@ The label of this class was also changed from PhysicsDimension to PhysicalDimens
                                            rdfs:domain :EMMO_f658c301_ce93_46cf_9639_4eace2c5d1d5 ;
                                            rdfs:comment "Relates a quantity to its reference unit through spatial direct parthood."@en ;
                                            skos:prefLabel "hasQuantityValue"@en .
+
+
+###  http://emmo.info/emmo#EMMO_ac0cb2c2_d122_4f5f_9fba_8707cbd6f1b1
+:EMMO_ac0cb2c2_d122_4f5f_9fba_8707cbd6f1b1 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                           rdfs:domain :EMMO_f658c301_ce93_46cf_9639_4eace2c5d1d5 ;
+                                           rdfs:range :EMMO_18ce5200_00f5_45bb_8c6f_6fb128cd41ae ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Relates a quantity value to its unit through spatial direct parthood."@en ;
+                                           skos:prefLabel "hasExplicitReferenceUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_b8f79e53_2ad4_441d_87ff_284a5c419e46
@@ -372,13 +381,13 @@ J stands for N m"""@en ;
 ###  http://emmo.info/emmo#EMMO_50765113_e3e4_44e7_ab2c_434d37a36528
 :EMMO_50765113_e3e4_44e7_ab2c_434d37a36528 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_64c72d00_7582_44ea_a0b5_3a14e50acc36 ,
-                                                           :EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba ,
-                                                           :EMMO_f658c301_ce93_46cf_9639_4eace2c5d1d5 ;
+                                                           :EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba ;
                                            owl:disjointUnionOf ( :EMMO_02c0621e_a527_4790_8a0f_2bb51973c819
                                                                  :EMMO_c46f091c_0420_4c1a_af30_0a2c8ebcf7d7
                                                                ) ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Property of a phenomenon, body, or substance, where the property has a magnitude that can be expressed as a number and a reference." ;
                                            :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "Quantity"@en ;
+                                           skos:altLabel "QuantitativeProperty"@en ;
                                            skos:prefLabel "Quantity"@en .
 
 
