@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 """Python script that generates unitsextension.ttl from QUDT.
 """
-import re
+import json
 import logging
+import re
 from logging import info
 from pathlib import Path
+from uuid import uuid4
 
 from ontopy import World, get_ontology
 import owlready2
@@ -51,20 +53,6 @@ def get_symbol(unit):
     return None
 
 
-def prefix_value(prefix):
-    """Return a `(label, symbol)` tuple for `prefix`."""
-    symbol, value = None, None
-    for r in prefix.is_a:
-        if isinstance(r, owlready2.Restriction):
-            #if str(r.property) == "Inverse(emmo.hasVariable)":
-            #    value = r.value.value
-            if r.property == onto.hasSymbolData:
-                #symbol = r.value
-                return (prefix.prefLabel.first(), r.value)
-    #return (prefix.prefLabel.first(), (symbol, value))
-    raise TypeError(f"invalid prefix: {prefix}")
-
-
 # Declare datatypes (must be done before loading ontologies)
 class double(float):
     """Python datatype for xsd:double."""
@@ -74,14 +62,19 @@ owlready2.declare_datatype(
 )
 
 
+# Load metrology data
+with open(thisdir / "metrology.json", "rt") as f:
+    metrology_data = json.load(f)
+
+
 # Create common world and load unitsextension into it
 world = World()
 unitsextension = world.get_ontology(
     disciplinesdir / "unitsextension.ttl"
 ).load()
-#sidimensionalunits = world.get_ontology(
-#    disciplinesdir / "sidimensionalunits.ttl"
-#).load()
+du = world.get_ontology(
+    disciplinesdir / "sidimensionalunits.ttl"
+).load()
 
 # Create new ontology
 ontology_name = "qudtunits"
@@ -146,11 +139,14 @@ with onto:
         range = [onto.MetricPrefix]
 
 
-# All existing physical dimensions - will be extended
-physical_dimensions = {
+# Map dimensional string to dimensional unit class - will be extended
+dimensional_units = {
     c.equivalent_to[0].value: c
-    for c in onto.PhysicalDimension.subclasses()
+    for c in onto.SIDimensionalUnit.subclasses()
 }
+
+# Map dimensional string to old physical dimension IRI and preflabel
+physical_dimensions = metrology_data["physical_dimensions"]
 
 # All existing unit symbols
 symbols = set(get_symbol(unit) for unit in onto.MeasurementUnit.descendants())
@@ -160,9 +156,10 @@ symbols.remove(None)
 units = {}
 
 # Map names to corresponding symbol. Ex: {"Kilo": "k", ...}
-prefixes = dict(
-    prefix_value(p) for p in onto.SIMetricPrefix.disjoint_unions[0]
-)
+prefixes = metrology_data["prefixes"]
+#dict(
+#    prefix_value(p) for p in onto.SIMetricPrefix.disjoint_unions[0]
+#)
 
 
 # Loop over all units in QUDT and add them to `onto` if they are
@@ -229,17 +226,25 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
     # Physical dimension - creating new if it doesn't already exists
     dimiri = ts.value(qudtunit, QUDT.hasDimensionVector)
     dimstr = dimension_string(dimiri.rsplit("/", 1)[-1])
-    if dimstr not in physical_dimensions:
-        kind = ts.value(qudtunit, QUDT.hasQuantityKind, any=True)
-        tr = str.maketrans("-\u0398", "_H")
-        tr.update((ord(c), None) for c in " +")
-        name = (
-            kind.rsplit("/", 1)[-1] + "Dimension" if kind
-            else dimstr.translate(tr)
-        )
-        dim = onto.new_entity(name, (onto.PhysicalDimension, ))
+    if dimstr not in dimensional_units:
+        if dimstr in physical_dimensions:
+            iri = physical_dimensions[dimstr]["iri"]
+            name = physical_dimensions[dimstr]["preflabel"]
+        else:
+            iri = EMMO[f"EMMO_{uuid4()}"]
+            kind = ts.value(qudtunit, QUDT.hasQuantityKind, any=True)
+            tr = str.maketrans("-\u0398", "_H")
+            tr.update((ord(c), None) for c in " +")
+            name = (
+                kind.rsplit("/", 1)[-1] + "Dimension" if kind
+                else dimstr.translate(tr)
+            )
+        dim = du.new_entity(name, (onto.SIDimensionalUnit, ))
+        dim.prefLabel = name
+        print("***", iri, name, dimstr)
+        dim.iri = iri
         dim.hasSymbolData = dimstr
-        physical_dimensions[dimstr] = dim
+        dimensional_units[dimstr] = dim
 
     # Create new unit and assign properties and restrictions
     unit = onto.new_entity(prefLabel, bases)
@@ -255,7 +260,7 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
         unit.unitSymbol = str(symbol)
         if issubclass(unit, onto.UnitSymbol):
             unit.is_a.append(onto.hasSymbolData.value(str(symbol)))
-    unit.is_a.append(onto.hasPhysicalDimension.some(physical_dimensions[dimstr]))
+    unit.is_a.append(onto.hasPhysicalDimension.some(dimensional_units[dimstr]))
     if onto.SINonCoherentUnit in bases and float(mult) != 0.0:
         unit.conversionMultiplier = [1.0 if mult is None else float(mult)]
         unit.conversionOffset = [0.0 if offset is None else float(offset)]
@@ -298,7 +303,7 @@ for unit in units.values():
                     refunit = onto[refname]
                     if refunit.unitSymbol.first() == symbol[len(s):]:
                         unit.is_a.append(onto.PrefixedUnit)
-                        unit.hasMetricPrefix.append(onto[prefix])
+                        #unit.hasMetricPrefix.append(onto[prefix])
                         unit.hasReferenceUnit.append(refunit)
                 break
     if not issubclass(unit, onto.PrefixedUnit):
@@ -367,3 +372,7 @@ for abbrev_iri in onto.world._get_obj_triples_sp_o(
 
 
 onto.save(disciplinesdir / f"{ontology_name}.ttl", format="turtle", overwrite=True)
+
+
+# Save sidimensionalunits
+du.save(disciplinesdir / "sidimensionalunits_gen.ttl", format="turtle", overwrite=True)
