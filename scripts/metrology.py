@@ -75,12 +75,9 @@ unitsextension = world.get_ontology(
 du = world.get_ontology(
     disciplinesdir / "sidimensionalunits.ttl"
 ).load()
-#du.base_iri = "http://emmo.info/emmo#"
 
 # Create new ontology
-ontology_name = "qudtunits"
-base_iri = f"http://emmo.info/emmo/disciplines/{ontology_name}#"
-#base_iri = f"http://emmo.info/emmo#"
+base_iri = f"http://emmo.info/emmo/disciplines/unitsextension#"
 onto = world.get_ontology(base_iri)
 onto.base_iri = base_iri
 onto.imported_ontologies.append(unitsextension)
@@ -243,9 +240,10 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
                 else dimstr.translate(tr)
             )
         dim = du.new_entity(iri, (onto.SIDimensionalUnit, ))
-        dim.prefLabel = name
+        dim.prefLabel = en(name)
         dim.iri = iri
-        dim.hasSymbolData = dimstr
+        #dim.hasSymbolData = dimstr
+        dim.equivalent_to.append(onto.hasSymbolData.value(dimstr))
         dimensional_units[dimstr] = dim
 
     # Create new unit and assign properties and restrictions
@@ -329,7 +327,7 @@ onto.sync_attributes(name_policy=None)
 
 # Add metadata
 version = unitsextension.get_version()
-version_iri = f"http://emmo.info/emmo/{version}/disciplines/{ontology_name}"
+version_iri = f"http://emmo.info/emmo/{version}/disciplines/unitsextension#"
 onto.set_version(version_iri=version_iri)
 
 
@@ -373,7 +371,7 @@ for abbrev_iri in onto.world._get_obj_triples_sp_o(
         onto._abbreviate(version_iri))
 
 
-onto.save(disciplinesdir / f"{ontology_name}.ttl", format="turtle", overwrite=True)
+onto.save(disciplinesdir / f"unitsextension_gen.ttl", format="turtle", overwrite=True)
 
 
 # Save sidimensionalunits
