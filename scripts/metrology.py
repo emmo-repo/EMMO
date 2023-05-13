@@ -1,5 +1,10 @@
 #!/usr/bin/env python
 """Python script that generates unitsextension.ttl from QUDT.
+
+QUDT errors:
+- https://qudt.org/vocab/quantitykind/Mobility
+  dimension vector should be: "A0E1L0I0M-1H0T2D0"
+
 """
 import json
 import logging
@@ -156,9 +161,18 @@ units = {}
 
 # Map names to corresponding symbol. Ex: {"Kilo": "k", ...}
 prefixes = metrology_data["prefixes"]
-#dict(
-#    prefix_value(p) for p in onto.SIMetricPrefix.disjoint_unions[0]
-#)
+
+
+# Extend dimensional_units from physical_dimensions
+for dimstr in set(physical_dimensions).difference(set(dimensional_units)):
+    d = physical_dimensions[dimstr]
+    iri = d["iri"]
+    preflabel = d["preflabel"]
+    dim = du.new_entity(iri, (onto.SIDimensionalUnit, ))
+    dim.prefLabel = en(preflabel.replace("Dimension", "Unit"))
+    dim.iri = iri
+    dim.equivalent_to.append(onto.hasSymbolData.value(dimstr))
+    dimensional_units[dimstr] = dim
 
 
 # Loop over all units in QUDT and add them to `onto` if they are
@@ -357,10 +371,12 @@ onto.metadata.versionInfo.append(en(version))
 # FIXME: included this in sync_attributes()
 d = {o.base_iri.rstrip('/#'): o.get_version(as_iri=True)
      for o in onto.imported_ontologies}
+for v in list(d.values()):
+    d[v.rstrip('/#')] = v
 for abbrev_iri in onto.world._get_obj_triples_sp_o(
         onto.storid, owlready2.owl_imports):
     iri = onto._unabbreviate(abbrev_iri)
-    version_iri = d[iri]
+    version_iri = d[iri.rstrip('/#')]
     onto._del_obj_triple_spo(
         onto.storid,
         owlready2.owl_imports,
