@@ -283,12 +283,6 @@ kg/m^3""" ;
                                            skos:prefLabel "PetaPrefixedUnit"@en .
 
 
-###  http://emmo.info/emmo#EMMO_471cb92b_edca_4cf9_bce8_a75084d876b8
-:EMMO_471cb92b_edca_4cf9_bce8_a75084d876b8 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_7d2afa66_ae9e_4095_a9bf_421d0be401b6 ;
-                                           skos:prefLabel "SIMetricPrefix"@en .
-
-
 ###  http://emmo.info/emmo#EMMO_59c10c5c_47bd_4348_ba39_38836607dfa1
 :EMMO_59c10c5c_47bd_4348_ba39_38836607dfa1 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_7610efb8_c7c6_4684_abc1_774783c62472 ,
@@ -345,6 +339,7 @@ kg/m^3""" ;
                                                                  :EMMO_3a185e6c_9e19_4776_b583_19c978156aa0
                                                                  :EMMO_e9ffc696_5228_4ff9_8a60_0f5e05e9931b
                                                                ) ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A unit that can be expressed as a product of powers of SI base units with no pre-factor of offset."@en ;
                                            rdfs:comment "Derived units are defined as products of powers of the base units. When the numerical factor of this product is one, the derived units are called coherent derived units. The base and coherent derived units of the SI form a coherent set, designated the set of coherent SI units."@en ;
                                            skos:prefLabel "SICoherentUnit"@en .
 
@@ -376,6 +371,12 @@ kg/m^3""" ;
                                            owl:disjointUnionOf ( :EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1
                                                                  :EMMO_d41ce84b_4317_41fb_a5d1_6cd281fca106
                                                                ) ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A unit whos numerical factor in front of the product of base units is NOT equal to one."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """A non-SI coherent can be expressed in terms of its corresponding SI coherent unit, as
+
+    nonsi_coherent_unit = si_coherent_unit * multiplier + offset
+
+where `multiplier` and `offset` are specified via the 'hasConversionMultiplier' and 'hasConversionOffset' data properties, respectively."""@en ;
                                            skos:prefLabel "SINonCoherentUnit"@en .
 
 
