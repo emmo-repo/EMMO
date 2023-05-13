@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Python script that generates unitsextension.ttl from QUDT.
+"""Python script that updates sidimensionalunits and unitsextension from QUDT.
 
 QUDT errors:
 - https://qudt.org/vocab/quantitykind/Mobility
@@ -13,7 +13,7 @@ from logging import info
 from pathlib import Path
 from uuid import uuid4
 
-from ontopy import World, get_ontology
+from ontopy import World
 import owlready2
 
 from tripper import Triplestore
@@ -74,7 +74,7 @@ with open(thisdir / "metrology.json", "rt") as f:
 
 # Create common world and load unitsextension into it
 world = World()
-unitsextension = world.get_ontology(
+onto = world.get_ontology(
     disciplinesdir / "unitsextension.ttl"
 ).load()
 du = world.get_ontology(
@@ -82,10 +82,10 @@ du = world.get_ontology(
 ).load()
 
 # Create new ontology
-base_iri = f"http://emmo.info/emmo/disciplines/unitsextension#"
-onto = world.get_ontology(base_iri)
-onto.base_iri = base_iri
-onto.imported_ontologies.append(unitsextension)
+#base_iri = f"http://emmo.info/emmo/disciplines/unitsextension#"
+#onto = world.get_ontology(base_iri)
+#onto.base_iri = base_iri
+#onto.imported_ontologies.append(unitsextension)
 onto.sync_python_names()
 
 # Load QUDT units using tripper
@@ -97,11 +97,11 @@ ts.parse(source="http://qudt.org/2.1/schema/qudt")
 QUDT = ts.bind("qudt", "http://qudt.org/schema/qudt/")
 UNIT = ts.bind("unit", "http://qudt.org/vocab/unit/")
 
-owl = world.get_ontology(str(OWL))
-with owl:
-    class sameAs(owlready2.Property):
-        """The property that determines that two given individuals
-        are equal."""
+#owl = world.get_ontology(str(OWL))
+#with owl:
+#    class sameAs(owlready2.Property):
+#        """The property that determines that two given individuals
+#        are equal."""
 
 with onto:
     class ucumCode(owlready2.AnnotationProperty):
@@ -137,11 +137,6 @@ with onto:
         domain = [onto.MeasurementUnit]
         range = [str]
 
-    class hasMetricPrefix(onto.hasSpatialTile):
-        """Relates a prefixed unit to its unit prefix."""
-        domain = [onto.PrefixedUnit]
-        range = [onto.MetricPrefix]
-
 
 # Map dimensional string to dimensional unit class - will be extended
 dimensional_units = {
@@ -167,13 +162,18 @@ prefixes = metrology_data["prefixes"]
 for dimstr in set(physical_dimensions).difference(set(dimensional_units)):
     d = physical_dimensions[dimstr]
     iri = d["iri"]
-    preflabel = d["preflabel"]
-    dim = du.new_entity(iri, (onto.SIDimensionalUnit, ))
-    dim.prefLabel = en(preflabel.replace("Dimension", "Unit"))
-    dim.iri = iri
-    dim.equivalent_to.append(onto.hasSymbolData.value(dimstr))
-    dimensional_units[dimstr] = dim
+    if not world[iri]:
+        preflabel = d["preflabel"]
+        dim = du.new_entity(iri, (onto.SIDimensionalUnit, ))
+        dim.prefLabel = en(preflabel.replace("Dimension", "Unit"))
+        dim.iri = iri
+        dim.equivalent_to.append(onto.hasDimensionString.value(dimstr))
+        dimensional_units[dimstr] = dim
 
+
+
+
+# ==================================================
 
 # Loop over all units in QUDT and add them to `onto` if they are
 # not already in the ontology
@@ -242,7 +242,6 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
     if dimstr not in dimensional_units:
         if dimstr in physical_dimensions:
             iri = physical_dimensions[dimstr].get("iri", EMMO[f"EMMO_{uuid4()}"])
-            #iri = physical_dimensions[dimstr].get("iri", EMMO[f"EMMO_{uuid4()}"]) + "_"
             name = physical_dimensions[dimstr]["preflabel"].replace("Dimension", "Unit")
         else:
             iri = EMMO[f"EMMO_{uuid4()}"]
@@ -253,12 +252,12 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
                 kind.rsplit("/", 1)[-1] + "Unit" if kind
                 else dimstr.translate(tr)
             )
-        dim = du.new_entity(iri, (onto.SIDimensionalUnit, ))
-        dim.prefLabel = en(name)
-        dim.iri = iri
-        #dim.hasSymbolData = dimstr
-        dim.equivalent_to.append(onto.hasSymbolData.value(dimstr))
-        dimensional_units[dimstr] = dim
+        if not world[iri]:
+            dim = du.new_entity(iri, (onto.SIDimensionalUnit, ))
+            dim.prefLabel = en(name)
+            dim.iri = iri
+            dim.equivalent_to.append(onto.hasDimensionString.value(dimstr))
+            dimensional_units[dimstr] = dim
 
     # Create new unit and assign properties and restrictions
     unit = onto.new_entity(prefLabel, bases)
@@ -274,7 +273,8 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
         unit.unitSymbol = str(symbol)
         if issubclass(unit, onto.UnitSymbol):
             unit.is_a.append(onto.hasSymbolData.value(str(symbol)))
-    unit.is_a.append(onto.hasPhysicalDimension.some(dimensional_units[dimstr]))
+    #unit.is_a.append(onto.hasPhysicalDimension.some(dimensional_units[dimstr]))
+    unit.is_a.append(dimensional_units[dimstr])
     if onto.SINonCoherentUnit in bases and float(mult) != 0.0:
         unit.conversionMultiplier = [1.0 if mult is None else float(mult)]
         unit.conversionOffset = [0.0 if offset is None else float(offset)]
@@ -298,10 +298,10 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
 
 
 # Adding sameAs relations
-for qudtunit, unit in units.items():
-    for same in ts.objects(qudtunit, OWL.sameAs):
-        if same in units:
-            unit.sameAs = [units[same].iri]
+#for qudtunit, unit in units.items():
+#    for same in ts.objects(qudtunit, OWL.sameAs):
+#        if same in units:
+#            unit.sameAs = [units[same].iri]
 
 
 # Relate prefixed units to their prefix and base unit
@@ -317,7 +317,6 @@ for unit in units.values():
                     refunit = onto[refname]
                     if refunit.unitSymbol.first() == symbol[len(s):]:
                         unit.is_a.append(onto.PrefixedUnit)
-                        #unit.hasMetricPrefix.append(onto[prefix])
                         unit.hasReferenceUnit.append(refunit)
                 break
     if not issubclass(unit, onto.PrefixedUnit):
@@ -335,60 +334,60 @@ for unit in onto.DerivedUnit.descendants():
                 break
 
 
-# Convert class docstrings to rdfs:comment
-onto.sync_attributes(name_policy=None)
+if False:
+    # Convert class docstrings to rdfs:comment
+    onto.sync_attributes(name_policy=None)
 
 
-# Add metadata
-version = unitsextension.get_version()
-version_iri = f"http://emmo.info/emmo/{version}/disciplines/unitsextension#"
-onto.set_version(version_iri=version_iri)
+    # Add metadata
+    version = unitsextension.get_version()
+    version_iri = f"http://emmo.info/emmo/{version}/disciplines/unitsextension#"
+    onto.set_version(version_iri=version_iri)
 
 
-onto.set_version(
-    version=version,
-    version_iri=f"{onto.base_iri.rstrip('/#')}/{version}",
-)
-abstract = en(
-    "The module 'unitsextension' defines all units in EMMO perspectives "
-    "that are not included in the 'siumits' module."
-)
-onto.metadata.title.append(en("Units extension"))
-onto.metadata.abstract.append(abstract)
-onto.metadata.creator.append(en("Simon Clark, SINTEF, NO"))
-onto.metadata.creator.append(en("Jesper Friis, SINTEF, NO"))
-onto.metadata.creator.append(en("Emanuele Ghedini, University of Bologna, IT"))
-onto.metadata.creator.append(en("Gerhard Goldbeck, Goldbeck Consulting Ltd, UK"))
-onto.metadata.creator.append(en("Adham Hashibon, UCL, UK"))
-onto.metadata.creator.append(en("Georg J. Schmitz, ACCESS, GE"))
+    onto.set_version(
+        version=version,
+        version_iri=f"{onto.base_iri.rstrip('/#')}/{version}",
+    )
+    abstract = en(
+        "The module 'unitsextension' defines all units in EMMO perspectives "
+        "that are not included in the 'siumits' module."
+    )
+    onto.metadata.title.append(en("Units extension"))
+    onto.metadata.abstract.append(abstract)
+    onto.metadata.creator.append(en("Emanuele Ghedini, University of Bologna (IT)"))
+    onto.metadata.creator.append(en("Jesper Friis, SINTEF (NO)"))
+    onto.metadata.contributor.append(en("Simon Clark, SINTEF (NO)"))
+    onto.metadata.contributor.append(en("Gerhard Goldbeck, Goldbeck Consulting Ltd (UK)"))
+    onto.metadata.contributor.append(en("Adham Hashibon, UCL (UK)"))
+    onto.metadata.contributor.append(en("Georg J. Schmitz, ACCESS (GE)"))
 
-onto.metadata.license.append(en(
-    'https://creativecommons.org/licenses/by/4.0/legalcode'))
-onto.metadata.versionInfo.append(en(version))
+    onto.metadata.license.append(en(
+        'https://creativecommons.org/licenses/by/4.0/legalcode'))
+    onto.metadata.versionInfo.append(en(version))
 
 
-# Hack to ensure that we import using versionURI
-# FIXME: included this in sync_attributes()
-d = {o.base_iri.rstrip('/#'): o.get_version(as_iri=True)
-     for o in onto.imported_ontologies}
-for v in list(d.values()):
-    d[v.rstrip('/#')] = v
-for abbrev_iri in onto.world._get_obj_triples_sp_o(
-        onto.storid, owlready2.owl_imports):
-    iri = onto._unabbreviate(abbrev_iri)
-    version_iri = d[iri.rstrip('/#')]
-    onto._del_obj_triple_spo(
-        onto.storid,
-        owlready2.owl_imports,
-        abbrev_iri)
-    onto._add_obj_triple_spo(
-        onto.storid,
-        owlready2.owl_imports,
-        onto._abbreviate(version_iri))
+    # Hack to ensure that we import using versionURI
+    # FIXME: included this in sync_attributes()
+    d = {o.base_iri.rstrip('/#'): o.get_version(as_iri=True)
+         for o in onto.imported_ontologies}
+    for v in list(d.values()):
+        d[v.rstrip('/#')] = v
+    for abbrev_iri in onto.world._get_obj_triples_sp_o(
+            onto.storid, owlready2.owl_imports):
+        iri = onto._unabbreviate(abbrev_iri)
+        version_iri = d[iri.rstrip('/#')]
+        onto._del_obj_triple_spo(
+            onto.storid,
+            owlready2.owl_imports,
+            abbrev_iri)
+        onto._add_obj_triple_spo(
+            onto.storid,
+            owlready2.owl_imports,
+            onto._abbreviate(version_iri))
 
 
 onto.save(disciplinesdir / f"unitsextension_gen.ttl", format="turtle", overwrite=True)
 
 
-# Save sidimensionalunits
-du.save(disciplinesdir / "sidimensionalunits.ttl", format="turtle", overwrite=True)
+du.save(disciplinesdir / "sidimensionalunits_gen.ttl", format="turtle", overwrite=True)
