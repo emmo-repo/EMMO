@@ -1,198 +1,1320 @@
-@prefix : <http://emmo.info/emmo#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix emmo: <http://emmo.info/emmo#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@base <http://emmo.info/emmo#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://emmo.info/emmo/disciplines/sidimensionalunits> rdf:type owl:Ontology ;
-                                                        owl:versionIRI <http://emmo.info/emmo/1.0.0-beta4/disciplines/sidimensionalunits> ;
-                                                        owl:imports <http://emmo.info/emmo/1.0.0-beta4/disciplines/metrology> ;
-                                                        dcterms:abstract """The module 'sidimensionalunits' defines SI dimensional unit classes.  These classes provide a categorisation of all units according to their SI physical dimensions.
+emmo:EMMO_002e4002_58c7_4aea_ac1f_bba5188818ff a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L+2 M0 I0 Θ-1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "AreaPerTemperatureUnit"^^xsd:string .
+
+emmo:EMMO_01cd670e_d37c_424f_b91e_c2c2bbb5ea43 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+2 L-1 M-1 I+1 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "MagneticReluctivityUnit"^^xsd:string .
+
+emmo:EMMO_02a935c8_c2d4_4a00_bd6f_b89d05aac79e a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L0 M0 I0 Θ-1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "PerTemperatureUnit"^^xsd:string .
+
+emmo:EMMO_02e894c3_b793_4197_b120_3442e08f58d1 a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "T+1 L0 M0 I0 Θ0 N0 J0" ;
+            owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
+    skos:prefLabel "TimeUnit"@en .
+
+emmo:EMMO_052e9796_1144_43ae_a798_c5755cd6cd81 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+2 L-3 M-1 I0 Θ0 N+1 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "AmountSquareTimePerMassVolumeUnit"^^xsd:string .
+
+emmo:EMMO_071b87fd_8ac8_4287_bfc6_9fcd8ce6674c a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+2 L-2 M-1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "PerEnergyUnit"^^xsd:string .
+
+emmo:EMMO_07f571cd_252b_4421_8f98_94b6690d2ab9 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+2 L-2 M-1 I+2 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "MagneticReluctanceUnit"^^xsd:string .
+
+emmo:EMMO_091466dc-e5d7-4495-856d-9c85ce46b13e a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+4 L0 M-1 I+1 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "MobilityUnit"^^xsd:string .
+
+emmo:EMMO_0972cb08_48bd_4524_ac03_8a2e7f30f02f a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-2 L+2 M+1 I0 Θ0 N-1 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "EnergyPerAmountUnit"^^xsd:string .
+
+emmo:EMMO_0b9866eb-0a45-4392-9dba-133c2b946471 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L0 M-2 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "InverseMass_SquaredUnit"^^xsd:string .
+
+emmo:EMMO_0cd4c619_b123_4ae4_b778_3c9adaad65e7 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-3 L-1 M+1 I0 Θ+1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "TemperaturePressurePerTimeUnit"^^xsd:string .
+
+emmo:EMMO_0d4bdfcd_f4f0_4b8f_b470_e3f654e37d33 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-1 L+1 M0 I0 Θ+1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "TemperatureLengthPerTimeUnit"^^xsd:string .
+
+emmo:EMMO_0f3ec0ad_3fcf_42b2_8f34_6dca89e35a4f a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-3 L+1 M+1 I0 Θ-1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ThermalConductivityUnit"^^xsd:string .
+
+emmo:EMMO_109e8c69_4148_4cb0_9ceb_fbd526befca0 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-2 L0 M+2 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "SquareMassPerSquareTimeUnit"^^xsd:string .
+
+emmo:EMMO_11708648_fc62_46c6_bae5_3a10693e416e a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L-2 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "PerAreaUnit"^^xsd:string .
+
+emmo:EMMO_120d86b6_d7c4_4490_8ef2_8a5f58403950 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L-2 M0 I+1 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ElectricCurrentDensityUnit"^^xsd:string .
+
+emmo:EMMO_1275ac79_7280_4d99_ab61_3d98e00c053e a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-2 L-1 M+1 I0 Θ-1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "PressurePerTemperatureUnit"^^xsd:string .
+
+emmo:EMMO_12ef0b12-1ea5-47aa-af92-67f3d925b378 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+3 L-2 M-1 I+1 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ElectricCurrentPerUnitEnergyUnit"^^xsd:string .
+
+emmo:EMMO_14235b93_650f_4452_8395_a23b8f645c9a a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+3 L0 M-1 I+2 Θ0 N-1 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "AmountConductivityUnit"^^xsd:string .
+
+emmo:EMMO_14ff4393_0f28_4fb4_abc7_c2cc00bc761d a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "T0 L0 M0 I0 Θ0 N0 J+1" ;
+            owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
+    skos:prefLabel "LuminousIntensityUnit"@en .
+
+emmo:EMMO_183f6fac_8543_44e0_bd59_434aa7054f4c a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L-2 M0 I0 Θ0 N+1 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "AmountPerAreaUnit"^^xsd:string .
+
+emmo:EMMO_1bc66be4-0df9-470a-91e2-0a71774a501f a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L+5 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "SectionAreaIntegralUnit"^^xsd:string .
+
+emmo:EMMO_1c2226a9_22f0_40c8_8928_5a01d398f96e a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L+2 M0 I+1 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "MagneticDipoleMomentUnit"^^xsd:string .
+
+emmo:EMMO_1c957677_a460_4702_85a6_baef659d14b1 a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "T0 L-3 M+1 I0 Θ0 N0 J0" ;
+            owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
+    skos:prefLabel "DensityUnit"@en .
+
+emmo:EMMO_21a91e48_b6d3_4558_b08f_246433d43860 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-3 L+2 M+1 I0 Θ-1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ThermalConductanceUnit"^^xsd:string .
+
+emmo:EMMO_21bc99ae_f2ba_4eb3_90c1_d81968c429e2 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L+6 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "SexticLengthUnit"^^xsd:string .
+
+emmo:EMMO_25d3c009-b177-4ed0-bcea-4a48cad48fa6 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-2 L0 M0 I0 Θ+1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "TemperaturePerTime_SquaredUnit"^^xsd:string .
+
+emmo:EMMO_27c8e4db_eb18_402c_951e_6a38751cf1d0 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-4 L+2 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "AreaPerQuarticTimeUnit"^^xsd:string .
+
+emmo:EMMO_2a068ad0_582c_4f50_90d2_89d9e28977c1 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+2 L+1 M-1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "PerPressureUnit"^^xsd:string .
+
+emmo:EMMO_2c224eb4_cb86_44a4_a067_8969ead598d7 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-1 L-1 M+1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "MassPerLengthTimeUnit"^^xsd:string .
+
+emmo:EMMO_2d66cf6d_9396_40c8_bb82_324ab19067ce a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+2 L+1 M-2 I0 Θ0 N+1 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "AmountPerMassPressureUnit"^^xsd:string .
+
+emmo:EMMO_2da7408f_d389_4245_887d_a1743b81a9b6 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-2 L+1 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "AccelerationUnit"^^xsd:string .
+
+emmo:EMMO_2e7e5796_4a80_4d73_bb84_f31138446c0c a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "T-3 L+2 M+1 I-1 Θ0 N0 J0" ;
+            owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
+    skos:prefLabel "ElectricPotentialUnit"@en .
+
+emmo:EMMO_2eff0be7-7987-4da6-95b0-0d061fc0d1a5 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+1 L+2 M0 I0 Θ+1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "AreaTimeTemperatureUnit"^^xsd:string .
+
+emmo:EMMO_2f31340f_59ca_4a57_8513_269837af3796 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+1 L+1 M-1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "LengthTimePerMassUnit"^^xsd:string .
+
+emmo:EMMO_30261696_a8a4_44ce_9bf5_b18201a83c76 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-4 L0 M+1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "MassPerQuarticTimeUnit"^^xsd:string .
+
+emmo:EMMO_3181bb28_623b_4411_ad79_80277c661322 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-2 L+3 M-1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "NewtonianConstantOfGravityUnit"^^xsd:string .
+
+emmo:EMMO_321af35f_f0cc_4a5c_b4fe_8c2c0303fb0c a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "T+3 L-2 M-1 I+2 Θ0 N0 J0" ;
+            owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
+    skos:prefLabel "ElectricConductanceUnit"@en .
+
+emmo:EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L0 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "UnitOne"^^xsd:string .
+
+emmo:EMMO_3371fb68_5f07_467c_ada6_5aa3da3808d0 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-3 L+1 M+1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "MassLengthPerCubicTimeUnit"^^xsd:string .
+
+emmo:EMMO_33b6c84d_e139_418c_8f8c_f1d45f94df46 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+3 L-1 M-1 I0 Θ+1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ThermalResistivityUnit"^^xsd:string .
+
+emmo:EMMO_3532cc67_472a_4227_96f4_04b93146cec3 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L+2 M+1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "MassAreaUnit"^^xsd:string .
+
+emmo:EMMO_359312ca_1d9d_4765_b20b_28d9f45d77e7 a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "T-3 L+3 M+1 I-2 Θ0 N0 J0" ;
+            owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
+    skos:prefLabel "ElectricResistivityUnit"@en .
+
+emmo:EMMO_360adeca_9eee_4bb9_a5ca_728756c1ed4a a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+7 L-3 M-2 I+3 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "CubicElectricChargeLengthPerSquareEnergyUnit"^^xsd:string .
+
+emmo:EMMO_36e03182_1be9_497c_bb71_e26fbb9160d2 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-3 L-3 M+1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "PowerPerAreaVolumeUnit"^^xsd:string .
+
+emmo:EMMO_3a6bb7ae-0aec-4cac-821e-0762bf85dd22 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+10 L-2 M-3 I+4 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ElectricDipoleMoment_QuarticPerEnergy_CubicUnit"^^xsd:string .
+
+emmo:EMMO_3cb55500_dc5b_4586_bbf3_1d4158afac35 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-2 L+2 M+1 I0 Θ-1 N-1 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "EntropyPerAmountUnit"^^xsd:string .
+
+emmo:EMMO_3d254432_6f8f_4a6d_9eb3_4ab54388171b a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L0 M0 I0 Θ+1 N+1 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "AmountTemperatureUnit"^^xsd:string .
+
+emmo:EMMO_3df1408c_df34_4037_8584_c25f854bb346 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+1 L0 M0 I0 Θ+1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "TemperatureTimeUnit"^^xsd:string .
+
+emmo:EMMO_3ecff38b_b3cf_4a78_b49f_8580abf8715b a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-2 L+2 M+1 I0 Θ-1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "EntropyUnit"^^xsd:string .
+
+emmo:EMMO_3fe66e46_9343_4a36_b101_a732ad5f4f76 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L+1 M+1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "LengthMassUnit"^^xsd:string .
+
+emmo:EMMO_4000d06d_8594_4263_ba72_5d9440b66c5e a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "T0 L-2 M0 I0 Θ0 N0 J+1" ;
+            owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
+    skos:prefLabel "LuminanceUnit"@en .
+
+emmo:EMMO_4007522b_7ab7_4855_acd2_e99e2a0690b6 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L-1 M+1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "MassPerLengthUnit"^^xsd:string .
+
+emmo:EMMO_43e499a1_ca67_4380_ac08_cfc52a93ad04 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-1 L-3 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "FrequencyPerVolumeUnit"^^xsd:string .
+
+emmo:EMMO_44ddbe46_0112_4185_b595_132866e902da a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+1 L+1 M0 I0 Θ+1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "LengthTimeTemperatureUnit"^^xsd:string .
+
+emmo:EMMO_4817e479_e401_437e_a49b_54540b93d2a1 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L+2 M-1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "AreaPerMassUnit"^^xsd:string .
+
+emmo:EMMO_4b2c223f_89fb_4407_b1b6_24774b7fe770 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-3 L0 M+1 I0 Θ-1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ThermalTransmittanceUnit"^^xsd:string .
+
+emmo:EMMO_4b85db37-ebb7-49b7-b647-b3abfca70008 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-3 L+1 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "T_3L1M0I0H0N0J0"^^xsd:string .
+
+emmo:EMMO_4c49ab58_a6f6_409e_b849_f873ae1dcbee a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "T-2 L+2 M+1 I-1 Θ0 N0 J0" ;
+            owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
+    skos:prefLabel "MagneticFluxUnit"@en .
+
+emmo:EMMO_4dbe2b16_3e84_4049_898d_eb89bcc925a2 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+1 L0 M-1 I+1 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ElectricChargePerMassUnit"^^xsd:string .
+
+emmo:EMMO_4f245147_f072_4431_b535_6241e8e87eb8 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-1 L0 M0 I0 Θ+1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "TemperaturePerTimeUnit"^^xsd:string .
+
+emmo:EMMO_4f5c7c54_1c63_4d17_b12b_ea0792c2b187 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-1 L+1 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "SpeedUnit"^^xsd:string .
+
+emmo:EMMO_4fdf946a_9c40_4d71_80ab_e4221ff6a534 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-1 L+2 M+1 I0 Θ0 N-1 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "EnergyTimePerAmountUnit"^^xsd:string .
+
+emmo:EMMO_501f9b3a_c469_48f7_9281_2e6a8d805d7a a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-1 L+2 M+1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "AngularMomentumUnit"^^xsd:string .
+
+emmo:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "T-1 L0 M0 I0 Θ0 N0 J0" ;
+            owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
+    skos:prefLabel "FrequencyUnit"@en .
+
+emmo:EMMO_52b029aa_e525_4907_95d8_759298b04f97 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-1 L0 M-1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "PerTimeMassUnit"^^xsd:string .
+
+emmo:EMMO_539d8d92_d3a5_4f46_858f_081fed5b4190 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-3 L0 M+1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "PowerDensityUnit"^^xsd:string .
+
+emmo:EMMO_53b10105_52c7_4746_ab73_a5a30bd198e2 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+2 L-2 M-1 I+1 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ElectricCurrentPerEnergyUnit"^^xsd:string .
+
+emmo:EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "T-2 L-1 M+1 I0 Θ0 N0 J0" ;
+            owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
+    skos:prefLabel "PressureUnit"@en .
+
+emmo:EMMO_53e825d9_1a09_483c_baa7_37501ebfbe1c a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "T-2 L+1 M+1 I0 Θ0 N0 J0" ;
+            owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
+    skos:prefLabel "ForceUnit"@en .
+
+emmo:EMMO_578f7da0_10f8_4fc2_9fd0_79b79f47f975 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-1 L+3 M0 I-1 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ReciprocalElectricChargeDensityUnit"^^xsd:string .
+
+emmo:EMMO_585e0ff0_9429_4d3c_b578_58abb1ba21d1 a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "T-2 L+2 M+1 I-2 Θ0 N0 J0" ;
+            owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
+    skos:prefLabel "InductanceUnit"@en .
+
+emmo:EMMO_589b63b6-60c0-43ab-bb8f-0f2581e11870 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-1 L0 M+1 I-1 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "MassPerElectricChargeUnit"^^xsd:string .
+
+emmo:EMMO_58c5b65c_c896_4740_80d9_ff9a7643c7e8 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-6 L+4 M+2 I-2 Θ-2 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "SquareElectricPotentialPerSquareTemperatureUnit"^^xsd:string .
+
+emmo:EMMO_59197cce_b8b6_4216_a08d_26fb83c032af a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L0 M-1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ReciprocalMassUnit"^^xsd:string .
+
+emmo:EMMO_5d2d48c4_4fb6_4f33_bfc0_273129429c30 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-1 L0 M-1 I0 Θ0 N+1 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "AmountPerMassTimeUnit"^^xsd:string .
+
+emmo:EMMO_5f375229_de0c_46bf_b11f_da9d3b742253 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+2 L0 M+1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "MassSquareTimeUnit"^^xsd:string .
+
+emmo:EMMO_5f89cb0c_3171_47ee_b2ab_027a07c34c4b a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+4 L-3 M-1 I+2 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "PermittivityUnit"^^xsd:string .
+
+emmo:EMMO_608a1b30_df6f_4bbb_9dc3_5c0de92fd9cf a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L-1 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ReciprocalLengthUnit"^^xsd:string .
+
+emmo:EMMO_61eec472_f9af_4861_bedd_d741f022a7e5 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L-1 M0 I0 Θ-1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "PerLengthTemperatureUnit"^^xsd:string .
+
+emmo:EMMO_66e91d9a_05c1_4906_9731_3f4d8c4f3fd8 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-1 L+2 M-1 I0 Θ+1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "TemperatureAreaPerMassTimeUnit"^^xsd:string .
+
+emmo:EMMO_6726fbb8_c40a_4b55_a2d5_bf49352d1e73 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L-2 M+1 I0 Θ+1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "TemperatureMassPerAreaUnit"^^xsd:string .
+
+emmo:EMMO_6837b106_7220_4ec6_b7c9_d549d6163672 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-4 L+2 M+1 I-1 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ElectricPotentialPerTimeUnit"^^xsd:string .
+
+emmo:EMMO_6bcf334d_efeb_49f8_9dd0_dbcbb31514d3 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-1 L0 M0 I0 Θ-1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "PerTemperatureTimeUnit"^^xsd:string .
+
+emmo:EMMO_6bf30acf-9d25-4e8b-b2fd-767ea44c8a59 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L+2 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "AreaUnit"^^xsd:string .
+
+emmo:EMMO_6cfc5b82_b47b_47bc_bb45_c23c273d2e06 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-1 L+4 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "QuarticLengthPerTimeUnit"^^xsd:string .
+
+emmo:EMMO_6d753e0c_a967_4de4_ad22_c2fecb3913be a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+1 L-2 M0 I+1 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ElectricDisplacementFieldUnit"^^xsd:string .
+
+emmo:EMMO_6f76f9bf_feb3_4e27_9bcb_45b5f3526050 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+1 L-3 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "TimePerVolumeUnit"^^xsd:string .
+
+emmo:EMMO_6fcb3ed4-1ff8-4406-a03f-692995c4a81f a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+3 L-2 M-1 I0 Θ0 N0 J+1"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "LuminousEfficacyUnit"^^xsd:string .
+
+emmo:EMMO_720a469f_a19c_4a88_900c_29b3938f5092 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L-1 M0 I0 Θ+1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "TemperaturePerLengthUnit"^^xsd:string .
+
+emmo:EMMO_73be8825_e9a7_41d0_956e_b58060e5d5ac a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L0 M-1 I+1 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ElectricCurrentPerMassUnit"^^xsd:string .
+
+emmo:EMMO_754c3a5d_8ae8_41ff_b5f2_acbadb53c735 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L-2 M0 I+1 Θ-2 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "RichardsonConstantUnit"^^xsd:string .
+
+emmo:EMMO_7610efb8_c7c6_4684_abc1_774783c62472 a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "T-3 L+2 M+1 I-2 Θ0 N0 J0" ;
+            owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
+    skos:prefLabel "ElectricResistanceUnit"@en .
+
+emmo:EMMO_77e9dc31_5b19_463e_b000_44c6e79f98aa a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "T0 L0 M+1 I0 Θ0 N0 J0" ;
+            owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
+    skos:prefLabel "MassUnit"@en .
+
+emmo:EMMO_78487bf1_c0bc_4db8_99dd_d8b7cc8b3bac a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-2 L0 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "AngularFrequencyUnit"^^xsd:string .
+
+emmo:EMMO_7855043d_a466_4585_97a9_b9fe4ce0c12d a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+2 L+2 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "AreaSquareTimeUnit"^^xsd:string .
+
+emmo:EMMO_793f3567_b351_42ef_a1d4_5111d53999c4 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L+1 M0 I0 Θ-1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "LengthPerTemperatureUnit"^^xsd:string .
+
+emmo:EMMO_7cef5aae_baae_42d1_959a_ee70a7cf7a73 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-2 L+2 M0 I0 Θ-1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "EntropyPerMassUnit"^^xsd:string .
+
+emmo:EMMO_7cfbe969_6ced_47a2_86c6_de33673c45d0 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-2 L-2 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "FrequencyPerAreaTimeUnit"^^xsd:string .
+
+emmo:EMMO_834bebec-da6c-4d15-89a2-14b8eac39779 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L-1 M0 I+1 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "LinearElectricCurrentDensityUnit"^^xsd:string .
+
+emmo:EMMO_8455fa05_a877_48d7_b8a3_8e3bfad119bf a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L0 M+1 I0 Θ+1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "MassTemperatureUnit"^^xsd:string .
+
+emmo:EMMO_847f1d9f_205e_46c1_8cb6_a9e479421f88 a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "T-2 L+2 M0 I0 Θ0 N0 J0" ;
+            owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
+    skos:prefLabel "AbsorbedDoseUnit"@en .
+
+emmo:EMMO_85d72920_708d_4eb9_89ce_8a588b0ce66d a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L+3 M0 I0 Θ-1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "VolumePerTemperatureUnit"^^xsd:string .
+
+emmo:EMMO_8627410d_01f8_4ed1_8f2b_aba69d791ad3 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L+4 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "QuarticLengthUnit"^^xsd:string .
+
+emmo:EMMO_869e6e4f_a9b5_4db8_a978_8ad050239933 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+3 L0 M-1 I0 Θ+1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "PerThermalTransmittanceUnit"^^xsd:string .
+
+emmo:EMMO_86ffe1bb_d457_4948_9e39_35f363b9a9fe a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+3 L-3 M-1 I+2 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ElectricConductivityUnit"^^xsd:string .
+
+emmo:EMMO_87b5dd20_e4fe_422d_9e70_1eee54ec9496 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+4 L-4 M-2 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ReciprocalSquareEnergyUnit"^^xsd:string .
+
+emmo:EMMO_87deb5a8_7a85_49c3_97b2_e62c8484aa1a a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-2 L+3 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "VolumePerSquareTimeUnit"^^xsd:string .
+
+emmo:EMMO_8826aefb_0bf6_4378_8732_fc80aa95654c a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-1 L0 M+1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "MassPerTimeUnit"^^xsd:string .
+
+emmo:EMMO_886eb0fb_4d36_4b7d_99e4_e5915a06aff1 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-3 L-2 M+2 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "SquarePressureTimeUnit"^^xsd:string .
+
+emmo:EMMO_88f36585_bd30_4160_b975_61362f3468a9 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-2 L+4 M+1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "EnergyAreaUnit"^^xsd:string .
+
+emmo:EMMO_8a582db1_c561_42f6_80ff_0fd8f252b129 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L+3 M-1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "VolumePerMassUnit"^^xsd:string .
+
+emmo:EMMO_8cf32f24_ada1_4350_af2c_50eb0e5f6415 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-2 L+1 M+1 I-1 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "MagneticVectorPotentialUnit"^^xsd:string .
+
+emmo:EMMO_8f36559a_a494_4b00_abc5_60bbc1475009 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+1 L-3 M0 I+1 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ElectricChargeDensityUnit"^^xsd:string .
+
+emmo:EMMO_8f3a9f9f_6f56_49dc_b39e_1aee57ffdc58 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-1 L-3 M+1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "MassPerVolumeTimeUnit"^^xsd:string .
+
+emmo:EMMO_8fb052e8_fcca_43ce_85db_55266baf2d7c a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-2 L+3 M+1 I0 Θ0 N-1 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "EnergyLengthPerAmountUnit"^^xsd:string .
+
+emmo:EMMO_90798691_3b86_4d8c_910f_be2b39c98b39 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L-2 M+1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "AreaDensityUnit"^^xsd:string .
+
+emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L+3 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "VolumeUnit"^^xsd:string .
+
+emmo:EMMO_9232ffaf-3cc4-4fb1-b000-df98c8c07846 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-3 L+3 M+1 I-1 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ElectricFluxUnit"^^xsd:string .
+
+emmo:EMMO_92aaff7b_3a7c_4c1a_b149_d422e9682106 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+1 L+2 M0 I+1 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ElectricChargeAreaUnit"^^xsd:string .
+
+emmo:EMMO_95971713_d589_4002_a5a7_affc5c74cfdb a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L0 M-1 I0 Θ0 N+1 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "AmountPerMassUnit"^^xsd:string .
+
+emmo:EMMO_959c9715_14fb_4ce8_a93b_79678b2959b9 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+1 L+2 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "AreaTimeUnit"^^xsd:string .
+
+emmo:EMMO_95a9bf22_eabc_4a84_863d_9ea398c8a52e a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L-3 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "PerVolumeUnit"^^xsd:string .
+
+emmo:EMMO_96ffda63_71e7_451b_85ee_2cc8e341ff11 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-3 L+2 M+1 I-1 Θ-1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ElectricPotentialPerTemperatureUnit"^^xsd:string .
+
+emmo:EMMO_971b3dff_28b4_4538_b082_3ec9fa5af294 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-3 L0 M+1 I0 Θ-4 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "MassPerCubicTimeQuarticTemperatureUnit"^^xsd:string .
+
+emmo:EMMO_973656ed_870e_40ba_8bc0_c879687a335a a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L+2 M0 I0 Θ0 N-1 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "AreaPerAmountUnit"^^xsd:string .
+
+emmo:EMMO_9794a778_47d7_45d5_b4ab_ae6a8db04c78 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+1 L-1 M0 I+1 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ElectricChargePerLengthUnit"^^xsd:string .
+
+emmo:EMMO_9b075686_4ac2_43bb_b2a3_17b3ea24ff17 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-1 L-2 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "PerAreaTimeUnit"^^xsd:string .
+
+emmo:EMMO_9ba91622_e39f_43e3_b95f_290937928d7e a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L0 M+1 I0 Θ0 N-1 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "MassPerAmountUnit"^^xsd:string .
+
+emmo:EMMO_9cffc70d_4b60_4187_a7cd_706f5740ae87 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-1 L-4 M+1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "MassPerQuarticLengthTimeUnit"^^xsd:string .
+
+emmo:EMMO_9f0338b9_326f_44c2_893c_2d815b763130 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-1 L-1 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "PerLengthTimeUnit"^^xsd:string .
+
+emmo:EMMO_a5111335_6d14_49d9_ba7a_10c10b2189e7 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-3 L0 M+1 I-1 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ElectricPotentialPerAreaUnit"^^xsd:string .
+
+emmo:EMMO_a62c4548-b77c-43e6-90e5-a1c49ae6525c a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-2 L+3 M+1 I-1 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "MagneticDipoleMomentUnit"^^xsd:string .
+
+emmo:EMMO_a77a0a4b_6bd2_42b2_be27_4b63cebbb59e a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "T0 L0 M0 I0 Θ+1 N0 J0" ;
+            owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
+    skos:prefLabel "TemperatureUnit"@en .
+
+emmo:EMMO_a88475b9_c745_4a47_9403_ab0d158b9b1b a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-1 L+3 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "VolumePerTimeUnit"^^xsd:string .
+
+emmo:EMMO_a94aec97_71ff_4574_b111_a52d77d2c230 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-1 L-2 M0 I0 Θ0 N+1 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "AmountPerAreaTimeUnit"^^xsd:string .
+
+emmo:EMMO_aa7397ff_2815_434e_9b99_e4c6a80e034e a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L+3 M0 I0 Θ0 N-1 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "VolumePerAmountUnit"^^xsd:string .
+
+emmo:EMMO_ab2ee5cd_4de3_46b6_bec5_29e293b33422 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+1 L-1 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "TimePerLengthUnit"^^xsd:string .
+
+emmo:EMMO_ab79e92b_5377_454d_be06_d61b50db295a a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "T+1 L0 M0 I+1 Θ0 N0 J0" ;
+            owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
+    skos:prefLabel "ElectricChargeUnit"@en .
+
+emmo:EMMO_aef218f9_6ded_4db9_9263_e78eed55e5d6 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L-3 M0 I0 Θ0 N-1 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ReciprocalAmountPerVolume"^^xsd:string .
+
+emmo:EMMO_af24ae20_8ef2_435a_86a1_2ea44488b318 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L0 M0 I0 Θ0 N-1 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "PerAmountUnit"^^xsd:string .
+
+emmo:EMMO_b14d9be5_f81e_469b_abca_379c2e83feab a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "T+4 L-2 M-1 I+2 Θ0 N0 J0" ;
+            owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
+    skos:prefLabel "CapacitanceUnit"@en .
+
+emmo:EMMO_b33cc5b5_a9dc_4082_b497_14d1654c5591 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-1 L+2 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "AreicSpeedUnit"^^xsd:string .
+
+emmo:EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "T0 L+1 M0 I0 Θ0 N0 J0" ;
+            owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
+    skos:prefLabel "LengthUnit"@en .
+
+emmo:EMMO_b44f45a8-e389-41bf-aaf1-f1ea6d3a5fdf a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+1 L0 M-1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "MechanicalMobilityUnit"^^xsd:string .
+
+emmo:EMMO_bc73913a_3bb6_4205_8d36_79bc72ca9891 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-1 L+3 M0 I0 Θ0 N-1 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "VolumePerAmountTimeUnit"^^xsd:string .
+
+emmo:EMMO_bdee99f6_389b_4816_8a1c_a7903a2df00a a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L0 M0 I0 Θ+2 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "SquareTemperatureUnit"^^xsd:string .
+
+emmo:EMMO_bf106e62_ce1c_4ccc_9f45_c10326078a5a a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-3 L+4 M+1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "PowerAreaUnit"^^xsd:string .
+
+emmo:EMMO_c0f32e02_44d7_4c99_986e_c368d7219e4c a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-2 L+4 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "MassStoppingPowerUnit"^^xsd:string .
+
+emmo:EMMO_c5ac5c53_14de_47ce_b424_2576d042d241 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-1 L-3 M0 I0 Θ0 N+1 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "AmountPerVolumeTimeUnit"^^xsd:string .
+
+emmo:EMMO_c8d084ad_f88e_4596_8e4d_982c6655ce6f a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "T-3 L+2 M+1 I0 Θ0 N0 J0" ;
+            owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
+    skos:prefLabel "PowerUnit"@en .
+
+emmo:EMMO_cab2be5c_4e71_4c15_8412_adb2a7f0831a a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+1 L+1 M0 I+1 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ElectricDipoleMomentUnit"^^xsd:string .
+
+emmo:EMMO_cb77e107_43ed_4a97_bf39_03b3587404d3 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-2 L+3 M+1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ForceAreaUnit"^^xsd:string .
+
+emmo:EMMO_cd9ad446_04f7_44ff_b9ea_ae7389574fa6 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+4 L0 M-1 I+2 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "SquareCurrentQuarticTimePerMassUnit"^^xsd:string .
+
+emmo:EMMO_ce7d4720_aa20_4a8c_93e8_df41a35b6723 a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "T-1 L0 M0 I0 Θ0 N+1 J0" ;
+            owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
+    skos:prefLabel "CatalyticActivityUnit"@en .
+
+emmo:EMMO_ceaa4c6b_f5b7_46f4_bfcd_16eb4afab945 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L+2 M0 I0 Θ+1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "AreaTemperatureUnit"^^xsd:string .
+
+emmo:EMMO_cff9f930_f3f7_43c6_9228_28bf3e1ec706 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+3 L-2 M-1 I0 Θ+1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ThermalResistanceUnit"^^xsd:string .
+
+emmo:EMMO_d02c92e0_99ba_4c09_b01f_0d7a7dd7b24e a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L+1 M0 I0 Θ+1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "LengthTemperatureUnit"^^xsd:string .
+
+emmo:EMMO_d2a20142_b3a4_4d3b_a7e1_e17597e7f177 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-4 L+3 M+1 I-2 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "InversePermittivityUnit"^^xsd:string .
+
+emmo:EMMO_d46e131b_f51a_4ae7_9301_824d718c56fa a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-2 L0 M+1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ForcePerLengthUnit"^^xsd:string .
+
+emmo:EMMO_d5b6a25a_408a_408d_aebc_e017260d885d a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L-3 M0 I+1 Θ0 N-1 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ElectricCurrentPerAmountVolumeUnit"^^xsd:string .
+
+emmo:EMMO_d5f3e0e5_fc7d_4e64_86ad_555e74aaff84 a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "T0 L0 M0 I+1 Θ0 N0 J0" ;
+            owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
+    skos:prefLabel "ElectricCurrentUnit"@en .
+
+emmo:EMMO_dafdcae3_f8ec_4993_8269_2c9299a75158 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-1 L0 M0 I0 Θ+2 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "SquareTemperaturePerTimeUnit"^^xsd:string .
+
+emmo:EMMO_ddcc1e64_69cc_4a0c_9ee8_08aca78b3c85 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-2 L-2 M+1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "MassPerSquareLengthSquareTimeUnit"^^xsd:string .
+
+emmo:EMMO_df1d3a25_eba2_4530_9803_d82d349f4051 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+2 L+2 M-1 I+2 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "EnergyPerSquareMagneticFluxDensityUnit"^^xsd:string .
+
+emmo:EMMO_dfd3030e-0c7d-4586-a14d-36e8f058b556 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-3 L+2 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "AbsorbedDoseRateUnit"^^xsd:string .
+
+emmo:EMMO_e35d4936_b2e3_4cd6_a437_f1c864b3d450 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-1 L-2 M+1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "MassFluxUnit"^^xsd:string .
+
+emmo:EMMO_e467cc3f_676c_432e_b70e_19237d1bcc78 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+1 L-2 M0 I0 Θ0 N0 J+1"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "IlluminanceTimeUnit"^^xsd:string .
+
+emmo:EMMO_e501069c_34d3_4dc7_ac87_c90c7342192b a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "T0 L0 M0 I0 Θ0 N+1 J0" ;
+            owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
+    skos:prefLabel "AmountUnit"@en .
+
+emmo:EMMO_e6110006_88b9_45cd_9f9c_a2a91c0c21f8 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+1 L0 M0 I+1 Θ0 N-1 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ElectricChargePerAmountUnit"^^xsd:string .
+
+emmo:EMMO_e9348e5b_af4f_4898_bbfe_c4583cf44b80 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L-3 M0 I0 Θ0 N+1 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "AmountConcentrationUnit"^^xsd:string .
+
+emmo:EMMO_ebf9a5c6_ca80_45d4_a991_24a1bf4b6720 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-3 L+1 M+1 I-1 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ElectricFieldStrengthUnit"^^xsd:string .
+
+emmo:EMMO_ec903946_ddc9_464a_903c_7373e0d1eeb5 a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "T-2 L0 M+1 I-1 Θ0 N0 J0" ;
+            owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
+    skos:prefLabel "MagneticFluxDensityUnit"@en .
+
+emmo:EMMO_ec987ba8_a548_4fc9_9df6_a834daebd140 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-1 L+1 M+1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "MomentumUnit"^^xsd:string .
+
+emmo:EMMO_ed7dd267_e2ee_4565_8117_e5c1eafa3e66 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L0 M0 I+1 Θ-1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "ElectricCurrentPerTemperatureUnit"^^xsd:string .
+
+emmo:EMMO_f2c1a072_4ccb_46c4_a0f8_ac801d328d0f a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+2 L0 M0 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "SquareTimeUnit"^^xsd:string .
+
+emmo:EMMO_f508dec1_e2d8_43d5_ae65_c386c7b330f9 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+2 L0 M-1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "SquareTimePerMassUnit"^^xsd:string .
+
+emmo:EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "T-2 L+2 M+1 I0 Θ0 N0 J0" ;
+            owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
+    skos:prefLabel "EnergyUnit"@en .
+
+emmo:EMMO_f6fac54d_6b6d_4255_b217_4363a83f1834 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T+2 L0 M-1 I+1 Θ+1 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "TemperaturePerMagneticFluxDensity"^^xsd:string .
+
+emmo:EMMO_f801af13-c0f0-441a-85c9-4b760d18c898 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T0 L0 M+1 I0 Θ0 N+1 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "MassAmountOfSubstanceUnit"^^xsd:string .
+
+emmo:EMMO_fa9c8c56_314f_4a5a_a71d_bae66446b185 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-2 L+1 M+1 I-2 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "PermeabilityUnit"^^xsd:string .
+
+emmo:EMMO_fced2382_9c23_47a1_8246_a5dcd45ad99c a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-3 L-1 M+1 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "PressurePerTimeUnit"^^xsd:string .
+
+emmo:EMMO_ffbacbc4_c3be_4cc5_9539_94344e72f7a6 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue "T-6 L-2 M+2 I0 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ],
+        emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    skos:prefLabel "SquarePressurePerSquareTimeUnit"^^xsd:string .
+
+<http://emmo.info/emmo/disciplines/sidimensionalunits> a owl:Ontology ;
+    dcterms:abstract """The module 'sidimensionalunits' defines SI dimensional unit classes.  These classes provide a categorisation of all units according to their SI physical dimensions.
 
 This module provides a connection between physical quantities defined in the 'isq' modules and the units defined in the 'siunits' and 'unitsextension' modules."""@en ;
-                                                        dcterms:contributor "Gerhard Goldbeck, Boldbeck Consulting Ltd (UK)" ;
-                                                        dcterms:creator "Emanuele Ghedini, University of Bologna (IT)" ,
-                                                                        "Jesper Friis, SINTEF (NO)" ;
-                                                        dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
-                                                        dcterms:publisher "EMMC ASBL" ;
-                                                        dcterms:title "SI dimensional units"@en ;
-                                                        rdfs:comment "Contacts: emmo@emmc.eu"@en ,
-                                                                     "The EMMO should be reasoned with HermiT to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                                        owl:versionInfo "1.0.0-beta4" .
+    dcterms:contributor "Gerhard Goldbeck, Boldbeck Consulting Ltd (UK)" ;
+    dcterms:creator "Emanuele Ghedini, University of Bologna (IT)",
+        "Jesper Friis, SINTEF (NO)" ;
+    dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+    dcterms:publisher "EMMC ASBL" ;
+    dcterms:title "SI dimensional units"@en ;
+    rdfs:comment "Contacts: emmo@emmc.eu"@en,
+        "The EMMO should be reasoned with HermiT to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
+    owl:imports <http://emmo.info/emmo/1.0.0-beta4/disciplines/metrology> ;
+    owl:versionIRI <http://emmo.info/emmo/1.0.0-beta4/disciplines/sidimensionalunits> ;
+    owl:versionInfo "1.0.0-beta4" .
 
-#################################################################
-#    Classes
-#################################################################
-
-###  http://emmo.info/emmo#EMMO_02e894c3_b793_4197_b120_3442e08f58d1
-:EMMO_02e894c3_b793_4197_b120_3442e08f58d1 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
-                                                                 owl:hasValue "T+1 L0 M0 I0 Θ0 N0 J0"
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "TimeUnit"@en .
-
-
-###  http://emmo.info/emmo#EMMO_14ff4393_0f28_4fb4_abc7_c2cc00bc761d
-:EMMO_14ff4393_0f28_4fb4_abc7_c2cc00bc761d rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
-                                                                 owl:hasValue "T0 L0 M0 I0 Θ0 N0 J+1"
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "LuminousIntensityUnit"@en .
-
-
-###  http://emmo.info/emmo#EMMO_1c957677_a460_4702_85a6_baef659d14b1
-:EMMO_1c957677_a460_4702_85a6_baef659d14b1 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
-                                                                 owl:hasValue "T0 L-3 M+1 I0 Θ0 N0 J0"
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "DensityUnit"@en .
-
-
-###  http://emmo.info/emmo#EMMO_2e7e5796_4a80_4d73_bb84_f31138446c0c
-:EMMO_2e7e5796_4a80_4d73_bb84_f31138446c0c rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
-                                                                 owl:hasValue "T-3 L+2 M+1 I-1 Θ0 N0 J0"
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "ElectricPotentialUnit"@en .
-
-
-###  http://emmo.info/emmo#EMMO_321af35f_f0cc_4a5c_b4fe_8c2c0303fb0c
-:EMMO_321af35f_f0cc_4a5c_b4fe_8c2c0303fb0c rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
-                                                                 owl:hasValue "T+3 L-2 M-1 I+2 Θ0 N0 J0"
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "ElectricConductanceUnit"@en .
-
-
-###  http://emmo.info/emmo#EMMO_359312ca_1d9d_4765_b20b_28d9f45d77e7
-:EMMO_359312ca_1d9d_4765_b20b_28d9f45d77e7 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
-                                                                 owl:hasValue "T-3 L+3 M+1 I-2 Θ0 N0 J0"
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "ElectricResistivityUnit"@en .
-
-
-###  http://emmo.info/emmo#EMMO_4000d06d_8594_4263_ba72_5d9440b66c5e
-:EMMO_4000d06d_8594_4263_ba72_5d9440b66c5e rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
-                                                                 owl:hasValue "T0 L-2 M0 I0 Θ0 N0 J+1"
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "LuminanceUnit"@en .
-
-
-###  http://emmo.info/emmo#EMMO_4c49ab58_a6f6_409e_b849_f873ae1dcbee
-:EMMO_4c49ab58_a6f6_409e_b849_f873ae1dcbee rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
-                                                                 owl:hasValue "T-2 L+2 M+1 I-1 Θ0 N0 J0"
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "MagneticFluxUnit"@en .
-
-
-###  http://emmo.info/emmo#EMMO_515b5579_d526_4842_9e6f_ecc34db6f368
-:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
-                                                                 owl:hasValue "T-1 L0 M0 I0 Θ0 N0 J0"
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "FrequencyUnit"@en .
-
-
-###  http://emmo.info/emmo#EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b
-:EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
-                                                                 owl:hasValue "T-2 L-1 M+1 I0 Θ0 N0 J0"
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "PressureUnit"@en .
-
-
-###  http://emmo.info/emmo#EMMO_53e825d9_1a09_483c_baa7_37501ebfbe1c
-:EMMO_53e825d9_1a09_483c_baa7_37501ebfbe1c rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
-                                                                 owl:hasValue "T-2 L+1 M+1 I0 Θ0 N0 J0"
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "ForceUnit"@en .
-
-
-###  http://emmo.info/emmo#EMMO_585e0ff0_9429_4d3c_b578_58abb1ba21d1
-:EMMO_585e0ff0_9429_4d3c_b578_58abb1ba21d1 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
-                                                                 owl:hasValue "T-2 L+2 M+1 I-2 Θ0 N0 J0"
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "InductanceUnit"@en .
-
-
-###  http://emmo.info/emmo#EMMO_7610efb8_c7c6_4684_abc1_774783c62472
-:EMMO_7610efb8_c7c6_4684_abc1_774783c62472 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
-                                                                 owl:hasValue "T-3 L+2 M+1 I-2 Θ0 N0 J0"
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "ElectricResistanceUnit"@en .
-
-
-###  http://emmo.info/emmo#EMMO_77e9dc31_5b19_463e_b000_44c6e79f98aa
-:EMMO_77e9dc31_5b19_463e_b000_44c6e79f98aa rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
-                                                                 owl:hasValue "T0 L0 M+1 I0 Θ0 N0 J0"
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "MassUnit"@en .
-
-
-###  http://emmo.info/emmo#EMMO_847f1d9f_205e_46c1_8cb6_a9e479421f88
-:EMMO_847f1d9f_205e_46c1_8cb6_a9e479421f88 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
-                                                                 owl:hasValue "T-2 L+2 M0 I0 Θ0 N0 J0"
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "AbsorbedDoseUnit"@en .
-
-
-###  http://emmo.info/emmo#EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc
-:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_803ab206_db21_4e55_a5eb_c9b4156dad3c ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbol that, following SI specifications, describe the physical dimensionality of a physical quantity and the exponents of the base units in a measurement unit."@en ;
-                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "quantity dimension"@en ;
-                                           rdfs:comment """All physical quantities, with the exception of counts, are derived quantities, which may be written in terms of base quantities according to the equations of physics. The dimensions of the derived quantities are written as products of powers of the dimensions of the base quantities using the equations that relate the derived quantities to the base quantities.
+emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc a owl:Class ;
+    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbol that, following SI specifications, describe the physical dimensionality of a physical quantity and the exponents of the base units in a measurement unit."@en ;
+    emmo:EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "quantity dimension"@en ;
+    rdfs:comment """All physical quantities, with the exception of counts, are derived quantities, which may be written in terms of base quantities according to the equations of physics. The dimensions of the derived quantities are written as products of powers of the dimensions of the base quantities using the equations that relate the derived quantities to the base quantities.
 In general the dimension of any quantity Q is written in the form of a dimensional product,
 
 dim Q = T^α L^β M^γ I^δ Θ^ε N^ζ J^η
 
 where the exponents α, β, γ, δ, ε, ζ and η, which are generally small integers, which can be positive, negative, or zero, are called the dimensional exponents.
-(SI brochure)"""@en ,
-                                                        """The conventional symbolic representation of the dimension of a base quantity is a single upper case letter in roman (upright) type. The conventional symbolic representation of the dimension of a derived quantity is the product of powers of the dimensions of the base quantities according to the definition of the derived quantity. The dimension of a quantity Q is denoted by dim Q.
-ISO 80000-1"""@en ,
-                                                        """The expression used by the EMMO for physical dimensions is a metrological symbol (but a string at meta level, i.e. the ontologist level) like this:
+(SI brochure)"""@en,
+        """The conventional symbolic representation of the dimension of a base quantity is a single upper case letter in roman (upright) type. The conventional symbolic representation of the dimension of a derived quantity is the product of powers of the dimensions of the base quantities according to the definition of the derived quantity. The dimension of a quantity Q is denoted by dim Q.
+ISO 80000-1"""@en,
+        """The expression used by the EMMO for physical dimensions is a metrological symbol (but a string at meta level, i.e. the ontologist level) like this:
 
 Ta Lb Mc Id Θe Nf Jg
 
@@ -205,109 +1327,8 @@ Examples of correspondance between base units and physical dimensions are:
 mol -> T0 L0 M0 I0 Θ0 N+1 J0
 s -> T+1 L0 M0 I0 Θ0 N0 J0
 A/m2 -> T0 L0 M-2 I+1 Θ0 N0 J0"""@en ;
-                                           skos:altLabel "PhysicalDimension"@en ,
-                                                         "QuantityDimension"@en ;
-                                           skos:prefLabel "SIDimensionalUnit"@en .
+    rdfs:subClassOf emmo:EMMO_803ab206_db21_4e55_a5eb_c9b4156dad3c ;
+    skos:altLabel "PhysicalDimension"@en,
+        "QuantityDimension"@en ;
+    skos:prefLabel "SIDimensionalUnit"@en .
 
-
-###  http://emmo.info/emmo#EMMO_a77a0a4b_6bd2_42b2_be27_4b63cebbb59e
-:EMMO_a77a0a4b_6bd2_42b2_be27_4b63cebbb59e rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
-                                                                 owl:hasValue "T0 L0 M0 I0 Θ+1 N0 J0"
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "TemperatureUnit"@en .
-
-
-###  http://emmo.info/emmo#EMMO_ab79e92b_5377_454d_be06_d61b50db295a
-:EMMO_ab79e92b_5377_454d_be06_d61b50db295a rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
-                                                                 owl:hasValue "T+1 L0 M0 I+1 Θ0 N0 J0"
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "ElectricChargeUnit"@en .
-
-
-###  http://emmo.info/emmo#EMMO_b14d9be5_f81e_469b_abca_379c2e83feab
-:EMMO_b14d9be5_f81e_469b_abca_379c2e83feab rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
-                                                                 owl:hasValue "T+4 L-2 M-1 I+2 Θ0 N0 J0"
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "CapacitanceUnit"@en .
-
-
-###  http://emmo.info/emmo#EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc
-:EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
-                                                                 owl:hasValue "T0 L+1 M0 I0 Θ0 N0 J0"
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "LengthUnit"@en .
-
-
-###  http://emmo.info/emmo#EMMO_c8d084ad_f88e_4596_8e4d_982c6655ce6f
-:EMMO_c8d084ad_f88e_4596_8e4d_982c6655ce6f rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
-                                                                 owl:hasValue "T-3 L+2 M+1 I0 Θ0 N0 J0"
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "PowerUnit"@en .
-
-
-###  http://emmo.info/emmo#EMMO_ce7d4720_aa20_4a8c_93e8_df41a35b6723
-:EMMO_ce7d4720_aa20_4a8c_93e8_df41a35b6723 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
-                                                                 owl:hasValue "T-1 L0 M0 I0 Θ0 N+1 J0"
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "CatalyticActivityUnit"@en .
-
-
-###  http://emmo.info/emmo#EMMO_d5f3e0e5_fc7d_4e64_86ad_555e74aaff84
-:EMMO_d5f3e0e5_fc7d_4e64_86ad_555e74aaff84 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
-                                                                 owl:hasValue "T0 L0 M0 I+1 Θ0 N0 J0"
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "ElectricCurrentUnit"@en .
-
-
-###  http://emmo.info/emmo#EMMO_e501069c_34d3_4dc7_ac87_c90c7342192b
-:EMMO_e501069c_34d3_4dc7_ac87_c90c7342192b rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
-                                                                 owl:hasValue "T0 L0 M0 I0 Θ0 N+1 J0"
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "AmountUnit"@en .
-
-
-###  http://emmo.info/emmo#EMMO_ec903946_ddc9_464a_903c_7373e0d1eeb5
-:EMMO_ec903946_ddc9_464a_903c_7373e0d1eeb5 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
-                                                                 owl:hasValue "T-2 L0 M+1 I-1 Θ0 N0 J0"
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "MagneticFluxDensityUnit"@en .
-
-
-###  http://emmo.info/emmo#EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f
-:EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
-                                                                 owl:hasValue "T-2 L+2 M+1 I0 Θ0 N0 J0"
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "EnergyUnit"@en .
-
-
-###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi

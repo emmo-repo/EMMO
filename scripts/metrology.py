@@ -75,10 +75,12 @@ unitsextension = world.get_ontology(
 du = world.get_ontology(
     disciplinesdir / "sidimensionalunits.ttl"
 ).load()
+#du.base_iri = "http://emmo.info/emmo#"
 
 # Create new ontology
 ontology_name = "qudtunits"
 base_iri = f"http://emmo.info/emmo/disciplines/{ontology_name}#"
+#base_iri = f"http://emmo.info/emmo#"
 onto = world.get_ontology(base_iri)
 onto.base_iri = base_iri
 onto.imported_ontologies.append(unitsextension)
@@ -228,20 +230,20 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
     dimstr = dimension_string(dimiri.rsplit("/", 1)[-1])
     if dimstr not in dimensional_units:
         if dimstr in physical_dimensions:
-            iri = physical_dimensions[dimstr]["iri"]
-            name = physical_dimensions[dimstr]["preflabel"]
+            iri = physical_dimensions[dimstr].get("iri", EMMO[f"EMMO_{uuid4()}"])
+            #iri = physical_dimensions[dimstr].get("iri", EMMO[f"EMMO_{uuid4()}"]) + "_"
+            name = physical_dimensions[dimstr]["preflabel"].replace("Dimension", "Unit")
         else:
             iri = EMMO[f"EMMO_{uuid4()}"]
             kind = ts.value(qudtunit, QUDT.hasQuantityKind, any=True)
             tr = str.maketrans("-\u0398", "_H")
             tr.update((ord(c), None) for c in " +")
             name = (
-                kind.rsplit("/", 1)[-1] + "Dimension" if kind
+                kind.rsplit("/", 1)[-1] + "Unit" if kind
                 else dimstr.translate(tr)
             )
-        dim = du.new_entity(name, (onto.SIDimensionalUnit, ))
+        dim = du.new_entity(iri, (onto.SIDimensionalUnit, ))
         dim.prefLabel = name
-        print("***", iri, name, dimstr)
         dim.iri = iri
         dim.hasSymbolData = dimstr
         dimensional_units[dimstr] = dim
@@ -375,4 +377,4 @@ onto.save(disciplinesdir / f"{ontology_name}.ttl", format="turtle", overwrite=Tr
 
 
 # Save sidimensionalunits
-du.save(disciplinesdir / "sidimensionalunits_gen.ttl", format="turtle", overwrite=True)
+du.save(disciplinesdir / "sidimensionalunits.ttl", format="turtle", overwrite=True)
