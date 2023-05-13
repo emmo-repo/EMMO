@@ -20,7 +20,7 @@ from tripper import Triplestore
 from tripper import DCTERMS, EMMO, OWL, RDF, RDFS, XSD
 
 
-logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.INFO)
+#logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.INFO)
 thisdir = Path(__file__).resolve().parent
 disciplinesdir = thisdir.parent / "disciplines"
 
@@ -155,7 +155,11 @@ symbols.remove(None)
 units = {}
 
 # Map names to corresponding symbol. Ex: {"Kilo": "k", ...}
-prefixes = metrology_data["prefixes"]
+prefixes = {prefix: (onto[prefix + "PrefixedUnit"], symbol)
+            for prefix, symbol in metrology_data["prefixes"].items()}
+
+# QUDT units to skip
+qudt_skip = metrology_data["qudt_skip"]
 
 
 # Extend dimensional_units from physical_dimensions
@@ -171,13 +175,14 @@ for dimstr in set(physical_dimensions).difference(set(dimensional_units)):
         dimensional_units[dimstr] = dim
 
 
-
-
 # ==================================================
 
 # Loop over all units in QUDT and add them to `onto` if they are
 # not already in the ontology
 for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
+    if qudtunit in qudt_skip:
+        continue
+
     # Infer the superclasses of current unit
     bases = set()
     for parent in ts.objects(qudtunit, RDF.type):
@@ -197,6 +202,9 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
             bases.add(onto.LogarithmicUnit)
     if not bases:
         bases.add(onto.MeasurementUnit)
+    if onto.PureNumberUnit in bases and onto.UnitOne in bases:
+        bases.remove(onto.UnitOne)
+
 
     # Fetch some annotations from QUDT
     label = ts.value(qudtunit, RDFS.label, any=True, lang="en")
@@ -309,15 +317,18 @@ for unit in units.values():
     prefLabel = unit.prefLabel.first()
     symbol = unit.unitSymbol.first()
     if symbol:
-        for prefix, s in prefixes.items():
+        for prefix, (prefixunit, s) in prefixes.items():
             if prefLabel.startswith(prefix) and symbol.startswith(s):
+                if prefixunit in unit.is_a:
+                    break
+                unit.is_a.append(prefixunit)
                 n = len(prefix)
                 refname = prefLabel[n].upper() + prefLabel[n+1:]
+                print("===", prefLabel, refname, refname in onto)
                 if refname in onto:
                     refunit = onto[refname]
                     if refunit.unitSymbol.first() == symbol[len(s):]:
-                        unit.is_a.append(onto.PrefixedUnit)
-                        unit.hasReferenceUnit.append(refunit)
+                        unit.is_a.append(onto.hasReferenceUnit.some(refunit))
                 break
     if not issubclass(unit, onto.PrefixedUnit):
         unit.is_a.append(onto.DerivedUnit)
