@@ -366,5 +366,5 @@ owlready2.destroy_entity(du.MobilityUnit, True)
 
 # Save ontologies
 # ---------------
-onto.save(disciplinesdir / f"unitsextension_gen.ttl", format="turtle", overwrite=True)
+onto.save(disciplinesdir / f"unitsextension.ttl", format="turtle", overwrite=True)
 du.save(disciplinesdir / "sidimensionalunits.ttl", format="turtle", overwrite=True)
