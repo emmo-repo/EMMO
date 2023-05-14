@@ -82,18 +82,22 @@ with open(thisdir / "metrology.json", "rt") as f:
 
 # Create common world and load unitsextension into it
 world = World()
+
 du = world.get_ontology(
     disciplinesdir / "sidimensionalunits.ttl"
 ).load()
+
 onto = world.get_ontology(
     disciplinesdir / "unitsextension.ttl"
 ).load()
 onto.sync_python_names()
 
+
 # Load QUDT units using tripper
 ts = Triplestore(backend="rdflib")
 ts.parse(source="http://qudt.org/2.1/vocab/unit")
 ts.parse(source="http://qudt.org/2.1/schema/qudt")
+
 
 # Create namespaces
 QUDT = ts.bind("qudt", "http://qudt.org/schema/qudt/")
@@ -381,5 +385,47 @@ if 'MobilityUnit' in du:
 
 # Save ontologies
 # ---------------
-onto.save(disciplinesdir / f"unitsextension.ttl", format="turtle", overwrite=True)
 du.save(disciplinesdir / "sidimensionalunits.ttl", format="turtle", overwrite=True)
+onto.save(disciplinesdir / f"unitsextension_gen.ttl", format="turtle", overwrite=True)
+
+
+def set_turtle_prefix(filename, prefix, base=None):
+    """Set/overwrite @prefix in top of a turtle file.  Optionally, also set @base."""
+    with open(filename, "rt") as f:
+        lines = f.readlines()
+
+    prefix1 = base1 = None
+    for i in range(len(lines)):
+        line = lines[i]
+        if not line.startswith("@"):
+            break
+        match = re.match(r"^@prefix\s*:\s*<(.*)>", line)
+        if match:
+            prefix1 = match.groups()[0]
+            lines.pop(i)
+        if base is not None:
+            match = re.match(r"^@base\s*<(.*)>", line)
+            if match:
+                base1 = match.groups()[0]
+                lines.pop(i)
+
+    with open(filename, "wt") as f:
+        if prefix:
+            f.write(f"@prefix : <{prefix}> .\n")
+        elif prefix is None and prefix1:
+            f.write(f"@prefix : <{prefix1}> .\n")
+        for i in range(len(lines)):
+            line = lines[i]
+            if not line.startswith("@"):
+                break
+            f.write(line)
+        if base:
+            f.write(f"@base <{base}> .\n")
+        elif base is None and base1:
+            f.write(f"@base <{base1}> .\n")
+        for line in lines[i:]:
+            f.write(line)
+
+
+set_turtle_prefix(disciplinesdir / "sidimensionalunits.ttl", EMMO, EMMO)
+set_turtle_prefix(disciplinesdir / "unitsextension_gen.ttl", EMMO, EMMO)
