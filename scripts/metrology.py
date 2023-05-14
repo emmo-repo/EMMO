@@ -1,8 +1,15 @@
 #!/usr/bin/env python
 """Python script that updates sidimensionalunits and unitsextension from QUDT.
 
-It is safe to run this script multiple times.  Existing definitions
-will not be changed.  But deleted units generated from QUDT will be readded...
+Usage: python metrology.py
+
+This script simply add EMMO representations of units found in QUDT but
+not in unitsextension. Missing dimensional units will be added to
+sidimensionalunits. It will not overwrite manual changes to
+sidimensionalunits and unitsextension.
+
+Hence, it is safe to manually edit sidimensionalunits and
+unitsextension and run this script multiple times.
 
 """
 import json
@@ -111,9 +118,12 @@ symbols.remove(None)
 units = {}
 
 # Map names to corresponding symbol. Ex: {"Kilo": "k", ...}
-prefixes = {prefix: (onto[prefix + "PrefixedUnit"], symbol)
-            for prefix, symbol in metrology_data["prefixes"].items()
-            if f"{prefix}PrefixedUnit" in onto}
+prefixes = {
+    prefix: (onto[prefix+"PrefixedUnit"] if prefix+"PrefixedUnit" in onto
+             else None, symbol)
+    for prefix, symbol in metrology_data["prefixes"].items()
+}
+
 
 # QUDT units to skip
 qudt_skip = metrology_data["qudt_skip"]
@@ -125,8 +135,9 @@ corrected_qudt_symbols = {
 
 # Corrected preflabels (will be further populated...)
 corrected_preflabels = {
-    "MilliW", "MilliWatt",
-    "MicroM3", "CubicMicroMetre",
+    "MilliW": "MilliWatt",
+    "MicroM3": "CubicMicroMetre",
+    "Angstrom": "Ångström",
 }
 
 
@@ -294,7 +305,8 @@ for unit in units.values():
                     unit.is_a.remove(onto.DerivedUnit)
                 if onto.MeasurementUnit in unit.is_a:
                     unit.is_a.remove(onto.MeasurementUnit)
-                unit.is_a.append(prefixunit)
+                if prefixunit:
+                    unit.is_a.append(prefixunit)
                 n = len(prefix)
                 refname = prefLabel[n].upper() + prefLabel[n+1:]
 
@@ -325,12 +337,12 @@ for unit in onto.DerivedUnit.descendants():
 
 # Add deprecated classes with old IRIs
 for preflabel, d in metrology_data["units"].items():
+    iri, s = d['iri'], d['symbol']
     if not world[iri]:
-        iri, s = d['iri'], d['symbol']
         name = iri.split("#", 1)[1]
         new = onto.new_entity(name, (owlready2.Thing, ))
         new.deprecated = True
-        new.e.isReplacedBy.append(onto[preflabel].iri)
+        new.isReplacedBy.append(onto[preflabel].iri)
 
 
 # Correct preflabels
@@ -338,6 +350,8 @@ for preflabel, d in metrology_data["units"].items():
 # Trailing "s"'s after a prefixed unit are removed.
 for unit in units.values():
     prefLabel = unit.prefLabel.first()
+    if prefLabel in {"Ångström", }:
+        continue
     if prefLabel in corrected_preflabels:
         unit.prefLabel = [corrected_preflabels[prefLabel]]
     else:
@@ -361,7 +375,8 @@ for unit in units.values():
 # -------------------
 # Mobility has wrong dimensionality.  We have already added ElectricMobility
 # with the correct dimensionality.  Just get rid of MobilityUnit
-owlready2.destroy_entity(du.MobilityUnit, True)
+if 'MobilityUnit' in du:
+    owlready2.destroy_entity(du.MobilityUnit, True)
 
 
 # Save ontologies
