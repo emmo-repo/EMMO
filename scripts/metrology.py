@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 """Python script that updates sidimensionalunits and unitsextension from QUDT.
 
-QUDT errors:
-- https://qudt.org/vocab/quantitykind/Mobility
-  dimension vector should be: "A0E1L0I0M-1H0T2D0"
+It is safe to run this script multiple times.  Existing definitions
+will not be changed.  But deleted units generated from QUDT will be readded...
 
 """
 import json
@@ -20,7 +19,7 @@ from tripper import Triplestore, Literal
 from tripper import DCTERMS, EMMO, OWL, RDF, RDFS, XSD
 
 
-logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.INFO)
+#logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.INFO)
 thisdir = Path(__file__).resolve().parent
 disciplinesdir = thisdir.parent / "disciplines"
 
@@ -113,10 +112,22 @@ units = {}
 
 # Map names to corresponding symbol. Ex: {"Kilo": "k", ...}
 prefixes = {prefix: (onto[prefix + "PrefixedUnit"], symbol)
-            for prefix, symbol in metrology_data["prefixes"].items()}
+            for prefix, symbol in metrology_data["prefixes"].items()
+            if f"{prefix}PrefixedUnit" in onto}
 
 # QUDT units to skip
 qudt_skip = metrology_data["qudt_skip"]
+
+# Corrected symbols that are wrong in QUDT...
+corrected_qudt_symbols = {
+    "Picometre": "pm",
+}
+
+# Corrected preflabels (will be further populated...)
+corrected_preflabels = {
+    "MilliW", "MilliWatt",
+    "MicroM3", "CubicMicroMetre",
+}
 
 
 # Extend dimensional_units from physical_dimensions
@@ -171,7 +182,10 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
     else:
         prefLabel = as_preflabel(qudtunit.rsplit("/", 1)[-1])
 
-    symbol = ts.value(qudtunit, QUDT.symbol)
+    if prefLabel in corrected_qudt_symbols:
+        symbol = corrected_qudt_symbols[prefLabel]
+    else:
+        symbol = ts.value(qudtunit, QUDT.symbol)
 
     isReplacedBy = ts.value(qudtunit, DCTERMS.isReplacedBy)
     if isReplacedBy:
@@ -286,18 +300,16 @@ for unit in units.values():
 
                 # Hmm, QUDT sometimes add a extra "s", like "KiloMolesPerSecond"
                 # instead of "KiloMolePerSecond" - strip that "s" off
-                m = re.match("^([A-Z][a-z]*?)s?([A-Z].*)$", refname)
+                m = re.match("^([A-Z][a-z]*?)s?([A-Z].*)?$", refname)
                 if m:
-                    refname = "".join(m.groups())
+                    g0, g1 = m.groups()
+                    refname = "".join(m.groups()) if g1 else g0
 
                 if refname in onto:
                     refunit = onto[refname]
-                    #print("***", prefix, refunit.prefLabel.first(), refunit.unitSymbol.first(), symbol, symbol[len(s):])
                     if get_symbol(refunit) == symbol[len(s):]:
                         unit.is_a.append(onto.hasReferenceUnit.some(refunit))
                 break
-    #if not issubclass(unit, onto.PrefixedUnit):
-    #    unit.is_a.append(onto.DerivedUnit)
 
 
 # QUDT marks some prefixed units as derived units. Ex: AttoCoulomb.
@@ -311,60 +323,48 @@ for unit in onto.DerivedUnit.descendants():
                 break
 
 
-if False:
-    # Convert class docstrings to rdfs:comment
-    onto.sync_attributes(name_policy=None)
+# Add deprecated classes with old IRIs
+for preflabel, d in metrology_data["units"].items():
+    if not world[iri]:
+        iri, s = d['iri'], d['symbol']
+        name = iri.split("#", 1)[1]
+        new = onto.new_entity(name, (owlready2.Thing, ))
+        new.deprecated = True
+        new.e.isReplacedBy.append(onto[preflabel].iri)
 
 
-    # Add metadata
-    version = unitsextension.get_version()
-    version_iri = f"http://emmo.info/emmo/{version}/disciplines/unitsextension#"
-    onto.set_version(version_iri=version_iri)
+# Correct preflabels
+# Each component should start with a big case.
+# Trailing "s"'s after a prefixed unit are removed.
+for unit in units.values():
+    prefLabel = unit.prefLabel.first()
+    if prefLabel in corrected_preflabels:
+        unit.prefLabel = [corrected_preflabels[prefLabel]]
+    else:
+        newlabel = []
+        for s in re.findall("[A-Z][a-z0-9_]*", prefLabel):
+            for prefix in prefixes.keys():
+                if s.startswith(prefix):
+                    newlabel.append(prefix)
+                    s = s[len(prefix):].title()
+                    break
+            if s in onto:
+                newlabel.append(s)
+            elif s.endswith("s") and s[:-1] in onto:
+                newlabel.append(s[:-1])
+            else:
+                newlabel.append(s)
+        unit.prefLabel = ["".join(newlabel)]
 
 
-    onto.set_version(
-        version=version,
-        version_iri=f"{onto.base_iri.rstrip('/#')}/{version}",
-    )
-    abstract = en(
-        "The module 'unitsextension' defines all units in EMMO perspectives "
-        "that are not included in the 'siumits' module."
-    )
-    onto.metadata.title.append(en("Units extension"))
-    onto.metadata.abstract.append(abstract)
-    onto.metadata.creator.append(en("Emanuele Ghedini, University of Bologna (IT)"))
-    onto.metadata.creator.append(en("Jesper Friis, SINTEF (NO)"))
-    onto.metadata.contributor.append(en("Simon Clark, SINTEF (NO)"))
-    onto.metadata.contributor.append(en("Gerhard Goldbeck, Goldbeck Consulting Ltd (UK)"))
-    onto.metadata.contributor.append(en("Adham Hashibon, UCL (UK)"))
-    onto.metadata.contributor.append(en("Georg J. Schmitz, ACCESS (GE)"))
-
-    onto.metadata.license.append(en(
-        'https://creativecommons.org/licenses/by/4.0/legalcode'))
-    onto.metadata.versionInfo.append(en(version))
+# Correct QUDT errors
+# -------------------
+# Mobility has wrong dimensionality.  We have already added ElectricMobility
+# with the correct dimensionality.  Just get rid of MobilityUnit
+owlready2.destroy_entity(du.MobilityUnit, True)
 
 
-    # Hack to ensure that we import using versionURI
-    # FIXME: included this in sync_attributes()
-    d = {o.base_iri.rstrip('/#'): o.get_version(as_iri=True)
-         for o in onto.imported_ontologies}
-    for v in list(d.values()):
-        d[v.rstrip('/#')] = v
-    for abbrev_iri in onto.world._get_obj_triples_sp_o(
-            onto.storid, owlready2.owl_imports):
-        iri = onto._unabbreviate(abbrev_iri)
-        version_iri = d[iri.rstrip('/#')]
-        onto._del_obj_triple_spo(
-            onto.storid,
-            owlready2.owl_imports,
-            abbrev_iri)
-        onto._add_obj_triple_spo(
-            onto.storid,
-            owlready2.owl_imports,
-            onto._abbreviate(version_iri))
-
-
+# Save ontologies
+# ---------------
 onto.save(disciplinesdir / f"unitsextension_gen.ttl", format="turtle", overwrite=True)
-
-
-du.save(disciplinesdir / "sidimensionalunits_gen.ttl", format="turtle", overwrite=True)
+du.save(disciplinesdir / "sidimensionalunits.ttl", format="turtle", overwrite=True)
