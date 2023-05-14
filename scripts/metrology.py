@@ -16,11 +16,11 @@ from uuid import uuid4
 from ontopy import World
 import owlready2
 
-from tripper import Triplestore
+from tripper import Triplestore, Literal
 from tripper import DCTERMS, EMMO, OWL, RDF, RDFS, XSD
 
 
-#logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.INFO)
+logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.INFO)
 thisdir = Path(__file__).resolve().parent
 disciplinesdir = thisdir.parent / "disciplines"
 
@@ -51,6 +51,8 @@ def dimension_string(dimvec):
 
 def get_symbol(unit):
     """Return the symbol string for `unit` or None if `unit` has no symbol."""
+    if unit.unitSymbol:
+        return unit.unitSymbol.first()
     for r in unit.is_a:
         if (isinstance(r, owlready2.Restriction) and
             r.property == onto.hasSymbolData):
@@ -74,18 +76,12 @@ with open(thisdir / "metrology.json", "rt") as f:
 
 # Create common world and load unitsextension into it
 world = World()
-onto = world.get_ontology(
-    disciplinesdir / "unitsextension.ttl"
-).load()
 du = world.get_ontology(
     disciplinesdir / "sidimensionalunits.ttl"
 ).load()
-
-# Create new ontology
-#base_iri = f"http://emmo.info/emmo/disciplines/unitsextension#"
-#onto = world.get_ontology(base_iri)
-#onto.base_iri = base_iri
-#onto.imported_ontologies.append(unitsextension)
+onto = world.get_ontology(
+    disciplinesdir / "unitsextension.ttl"
+).load()
 onto.sync_python_names()
 
 # Load QUDT units using tripper
@@ -97,52 +93,13 @@ ts.parse(source="http://qudt.org/2.1/schema/qudt")
 QUDT = ts.bind("qudt", "http://qudt.org/schema/qudt/")
 UNIT = ts.bind("unit", "http://qudt.org/vocab/unit/")
 
-#owl = world.get_ontology(str(OWL))
-#with owl:
-#    class sameAs(owlready2.Property):
-#        """The property that determines that two given individuals
-#        are equal."""
-
-with onto:
-    class ucumCode(owlready2.AnnotationProperty):
-        """Unified Code for Units of Measure (UCUM)."""
-        domain = [onto.SINonCoherentUnit]
-        range = [str]
-        seeAlso = ["https://ucum.org/"]
-        comment = [en(
-            "The Unified Code for Units of Measure (UCUM) is a code "
-            "system intended to include all units of measures being "
-            "contemporarily used in international science, engineering, "
-            "and business. The purpose is to facilitate unambiguous "
-            "electronic communication of quantities together with their "
-            "units."
-        )]
-
-    class conversionMultiplier(owlready2.AnnotationProperty):
-        """A factor to multiply the numerical part of a quantity with
-        when converting it into a SI-coherent unit."""
-        domain = [onto.SINonCoherentUnit]
-        range = [double]
-
-    class conversionOffset(owlready2.AnnotationProperty):
-        """An offset to add to the numerical part of a quantity
-        when converting it into a SI-coherent unit."""
-        domain = [onto.SINonCoherentUnit]
-        range = [double]
-
-    class unitSymbol(owlready2.AnnotationProperty):
-        """The standard symbol for a unit."""
-        comment = [en("A unit symbol may be a symbolic construct (e.g. km) "
-                      "or a symbol (e.g. m).")]
-        domain = [onto.MeasurementUnit]
-        range = [str]
-
 
 # Map dimensional string to dimensional unit class - will be extended
 dimensional_units = {
     c.equivalent_to[0].value: c
     for c in onto.SIDimensionalUnit.subclasses()
 }
+dimensional_units["T0 L0 M0 I0 \u03980 N0 J0"] = onto.DimensionlessUnit
 
 # Map dimensional string to old physical dimension IRI and preflabel
 physical_dimensions = metrology_data["physical_dimensions"]
@@ -197,14 +154,13 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
         if parent == QUDT.CountingUnit:
             bases.add(onto.PureNumberUnit)
         if parent == QUDT.DimensionLessUnit:
-            bases.add(onto.UnitOne)
+            bases.add(onto.DimensionLessUnit)
         if parent == QUDT.LogarithmicUnit:
             bases.add(onto.LogarithmicUnit)
     if not bases:
         bases.add(onto.MeasurementUnit)
     if onto.PureNumberUnit in bases and onto.UnitOne in bases:
         bases.remove(onto.UnitOne)
-
 
     # Fetch some annotations from QUDT
     label = ts.value(qudtunit, RDFS.label, any=True, lang="en")
@@ -222,7 +178,7 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
         info(f"replaced, skipping: {prefLabel} ({symbol})")
         continue
 
-    if prefLabel in onto or symbol in symbols:
+    if prefLabel in onto:
         info(f"exists, skipping:   {prefLabel} ({symbol})")
         if prefLabel in onto:
             units[qudtunit] = onto[prefLabel]
@@ -281,11 +237,13 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
         unit.unitSymbol = str(symbol)
         if issubclass(unit, onto.UnitSymbol):
             unit.is_a.append(onto.hasSymbolData.value(str(symbol)))
-    #unit.is_a.append(onto.hasPhysicalDimension.some(dimensional_units[dimstr]))
+
     unit.is_a.append(dimensional_units[dimstr])
     if onto.SINonCoherentUnit in bases and float(mult) != 0.0:
-        unit.conversionMultiplier = [1.0 if mult is None else float(mult)]
-        unit.conversionOffset = [0.0 if offset is None else float(offset)]
+        unit.is_a.append(onto.hasConversionMultiplier.value(
+            1.0 if mult is None else float(mult)))
+        unit.is_a.append(onto.hasConversionOffset.value(
+            0.0 if offset is None else float(offset)))
     unit.qudtReference.append(qudtunit)
     if isDefinedBy:
         unit.isDefinedBy.append(isDefinedBy)
@@ -305,11 +263,8 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
             unit.seeAlso = ref
 
 
-# Adding sameAs relations
-#for qudtunit, unit in units.items():
-#    for same in ts.objects(qudtunit, OWL.sameAs):
-#        if same in units:
-#            unit.sameAs = [units[same].iri]
+# Make LogarithmicUnit a subclass of DimensionlessUnit instead of UnitOne
+onto.LogarithmicUnit.is_a = [onto.DimensionlessUnit]
 
 
 # Relate prefixed units to their prefix and base unit
@@ -321,17 +276,28 @@ for unit in units.values():
             if prefLabel.startswith(prefix) and symbol.startswith(s):
                 if prefixunit in unit.is_a:
                     break
+                if onto.DerivedUnit in unit.is_a:
+                    unit.is_a.remove(onto.DerivedUnit)
+                if onto.MeasurementUnit in unit.is_a:
+                    unit.is_a.remove(onto.MeasurementUnit)
                 unit.is_a.append(prefixunit)
                 n = len(prefix)
                 refname = prefLabel[n].upper() + prefLabel[n+1:]
-                print("===", prefLabel, refname, refname in onto)
+
+                # Hmm, QUDT sometimes add a extra "s", like "KiloMolesPerSecond"
+                # instead of "KiloMolePerSecond" - strip that "s" off
+                m = re.match("^([A-Z][a-z]*?)s?([A-Z].*)$", refname)
+                if m:
+                    refname = "".join(m.groups())
+
                 if refname in onto:
                     refunit = onto[refname]
-                    if refunit.unitSymbol.first() == symbol[len(s):]:
+                    #print("***", prefix, refunit.prefLabel.first(), refunit.unitSymbol.first(), symbol, symbol[len(s):])
+                    if get_symbol(refunit) == symbol[len(s):]:
                         unit.is_a.append(onto.hasReferenceUnit.some(refunit))
                 break
-    if not issubclass(unit, onto.PrefixedUnit):
-        unit.is_a.append(onto.DerivedUnit)
+    #if not issubclass(unit, onto.PrefixedUnit):
+    #    unit.is_a.append(onto.DerivedUnit)
 
 
 # QUDT marks some prefixed units as derived units. Ex: AttoCoulomb.
