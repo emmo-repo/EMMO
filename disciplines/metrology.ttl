@@ -228,6 +228,13 @@ ISO 80000-1"""@en ;
                                            skos:prefLabel "PhysicalQuantity"@en .
 
 
+###  http://emmo.info/emmo#EMMO_04e1d32f_255c_4d26_b4c3_5f1165f0a05d
+:EMMO_04e1d32f_255c_4d26_b4c3_5f1165f0a05d rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ;
+                                           rdfs:comment "A unit with no dimension."@en ;
+                                           skos:prefLabel "DimensionlessUnit"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_0650c031_42b6_4f0a_b62d_d88f071da6bf
 :EMMO_0650c031_42b6_4f0a_b62d_d88f071da6bf rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba ,
@@ -536,7 +543,7 @@ International vocabulary of metrology (VIM)"""@en ;
 
 ###  http://emmo.info/emmo#EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc
 :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_985bec21_989f_4b9e_a4b3_735d88099c3c ;
+                                           rdfs:subClassOf :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbol that, following SI specifications, describe the physical dimensionality of a physical quantity and the exponents of the base units in a measurement unit."@en ;
                                            :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "quantity dimension"@en ;
                                            rdfs:comment """All physical quantities, with the exception of counts, are derived quantities, which may be written in terms of base quantities according to the equations of physics. The dimensions of the derived quantities are written as products of powers of the dimensions of the base quantities using the equations that relate the derived quantities to the base quantities.
@@ -550,7 +557,7 @@ where the exponents α, β, γ, δ, ε, ζ and η, which are generally small int
 ISO 80000-1"""@en ,
                                                         """The expression used by the EMMO for physical dimensions is a metrological symbol (but a string at meta level, i.e. the ontologist level) like this:
 
-Ta Lb Mc Id Θe Nf Jg
+T^a L^b M^c I^d Θ^e N^f ^Jg
 
 where a, b, c, d, e, f and g are 0 or signed integers.
 
@@ -561,8 +568,9 @@ Examples of correspondance between base units and physical dimensions are:
 mol -> T0 L0 M0 I0 Θ0 N+1 J0
 s -> T+1 L0 M0 I0 Θ0 N0 J0
 A/m2 -> T0 L0 M-2 I+1 Θ0 N0 J0"""@en ;
-                                           skos:altLabel "QuantityDimension"@en ;
-                                           skos:prefLabel "PhysicalDimension"@en .
+                                           skos:altLabel "PhysicalDimension"@en ,
+                                                         "QuantityDimension"@en ;
+                                           skos:prefLabel "DimensionalUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_9c407ac0_fd4c_4178_8763_95fad9fe29ec
@@ -607,11 +615,7 @@ International vocabulary of metrology (VIM)"""@en ;
 ###  http://emmo.info/emmo#EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4
 :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_18ce5200_00f5_45bb_8c6f_6fb128cd41ae ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                             owl:onClass :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc
-                                                           ] ;
+                                                           :EMMO_c9805ac9_a943_4be4_ac4b_6da64ba36c73 ;
                                            owl:disjointUnionOf ( :EMMO_868ae137_4d25_493e_b270_21ea3d94849e
                                                                  :EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e
                                                                ) ;

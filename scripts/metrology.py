@@ -429,3 +429,18 @@ def set_turtle_prefix(filename, prefix, base=None):
 
 set_turtle_prefix(disciplinesdir / "sidimensionalunits.ttl", EMMO, EMMO)
 set_turtle_prefix(disciplinesdir / "unitsextension_gen.ttl", EMMO, EMMO)
+
+
+# Simply replace all owl:hasValue from decimal to xsd:double
+with open(disciplinesdir / "unitsextension_gen.ttl", "rt") as f:
+    lines = [
+        re.sub(
+            "owl:hasValue +([0-9.]+)(\s|$)",
+            r'owl:hasValue "\1"^^xsd:double ',
+            line
+        ) for line in f
+    ]
+
+with open(disciplinesdir / "unitsextension_gen.ttl", "rt") as f:
+    for line in lines:
+        f.write(line)
