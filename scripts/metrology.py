@@ -66,6 +66,140 @@ def get_symbol(unit):
     return None
 
 
+def latex2text(latex):
+    """Convert LaTeX to UTF-8."""
+
+    def fscript(m):
+        """Convert superscripts and subscripts from regex match object `m`."""
+        op, _, _, exp1, exp2 = m.groups()
+        exp = exp1 or exp2
+        assert op in "^_"
+        table = str.maketrans(
+            "0123456789+-",
+            "\u2070\u00b9\u00b2\u00b3\u2074\u2075\u2076\u2077"
+            "\u2078\u2079\u207a\u207b" if op == "^" else
+            "\u2080\u2081\u2082\u2083\u2084\u2085\u2086\u2087"
+            "\u2088\u2089\u208a\u208b"
+        )
+        return exp.translate(table)
+
+    subs = {
+        r"\,": " ",
+        r'\"': '"',
+        r"\'": "'",
+        r"\pm": "\u00b1",
+        r"\cdot": "\u00b7",
+        r"\times": "\u00d7",
+        r"\div": "\u00f7",
+        r"\neg": "\u00ac",
+        r"\ast": "\u2217",
+        r"\star": "\u22c6",
+        r"\sqrt": "\u221a",
+        r"\cuberoot": "\u221b",
+        r"\forthroot": "\u221c",
+        r"\infty": "\u221e",
+        r"\sum": "\u2211",
+        r"\prod": "\u220f",
+        r"\int": "\u222b",
+        r"\vedge": "\u2227",
+        r"\vee": "\u2228",
+        r"\cap": "\u2229",
+        r"\cup": "\u222a",
+        r"\prime": "\u2032",
+        r"\dprime": "\u2033",
+        r"\tprime": "\u2034",
+        r"\forall": "\u2200",
+        r"\complement": "\u2201",
+        r"\exists": "\u2203",
+        r"\nexists": "\u2204",
+        r"\nothing": "\u2205",
+        r"\varnothing": "\u2205",
+        r"\top": "\u22a4",
+        r"\bot": "\u22a5",
+        r"\in": "\u2208",
+        r"\notin": "\u2209",
+        r"\ni": "\u220b",
+        r"\nni": "\u220c",
+        r"\subset": "\u2282",
+        r"\supset": "\u2283",
+        r"\nsubset": "\u2284",
+        r"\nsupset": "\u2285",
+        r"\diameter": "\u2300",
+        r"\propto": "\u221d",
+        r"\mid": "\u2223",
+        r"\sim": "\u223c",
+        r"\approx": "\u2248",
+        r"\equiv": "\u2261",
+        r"\nequiv": "\u2262",
+        r"\leq": "\u2264",
+        r"\geq": "\u2265",
+        r"\ll": "\u226a",
+        r"\gg": "\u226b",
+        r"\leftarrow": "\u2190",
+        r"\rightarrow": "\u2192",
+        r"\leftrightarrow": "\u2194",
+        r"\Leftarrow": "\u21d0",
+        r"\Rightarrow": "\u21d2",
+        r"\leftrightarrow": "\u21d4",
+        r"\hslash": "\u210f",
+        r"\alpha": "\u03b1",
+        r"\beta": "\u03b2",
+        r"\gamma": "\u03b3",
+        r"\delta": "\u03b4",
+        r"\epsilon": "\u03b5",
+        r"\zeta": "\u03b6",
+        r"\eta": "\u03b7",
+        r"\theta": "\u03b8",
+        r"\iota": "\u03b9",
+        r"\kappa": "\u03ba",
+        r"\lambda": "\u03bb",
+        r"\mu": "\u03bc",
+        r"\nu": "\u03bd",
+        r"\xi": "\u03be",
+        r"\omicron": "\u03bf",
+        r"\pi": "\u03c0",
+        r"\rho": "\u03c1",
+        r"\sigma": "\u03c3",
+        r"\tau": "\u03c4",
+        r"\upsilon": "\u03c5",
+        r"\phi": "\u03c6",
+        r"\chi": "\u03c7",
+        r"\psi": "\u03c8",
+        r"\omega": "\u03c9",
+        r"\Gamma": "\u0393",
+        r"\Delta": "\u0394",
+        r"\Theta": "\u0398",
+        r"\Lambda": "\u039b",
+        r"\Xi": "\u039e",
+        r"\Pi": "\u03a0",
+        r"\Sigma": "\u03a3",
+        r"\Upsilon": "\u03a5",
+        r"\Phi": "\u03a6",
+        r"\Psi": "\u03a8",
+        r"\Omega": "\u03a9",
+        r"\AA{}": "\u00c5",
+        r"\euro": "\u20ac",
+    }
+    # Strip of inline equations
+    sub1 = re.sub(r"\\?\\\((.*?)\\?\\\)", r"\1", latex)
+    # Convert subscripts and superscripts
+    sub2 = re.sub("([_^])((\{([-+]?[0-9]+)\})|([-+]?[0-9]+))", fscript, sub1)
+    # Convert latex symbols
+    for k, v in subs.items():
+        sub2 = sub2.replace(rf"\{k}", v)
+        sub2 = sub2.replace(k, v)
+    # Strip off \frac
+    sub3 = re.sub(r"\\frac\{([^}]*)\}\{([^}]*)\}", r"(\1)/(\2)", sub2)
+    # Strip off remaining latex macros
+    sub4 = re.sub(r"\\[a-zA-Z]+\{['`]?([^}]+?)['`]?\}", r"`\1`", sub3)
+    return sub4
+
+
+def htmlstrip(s):
+    """Strip off html tags in string `s`."""
+    return re.sub("<[^>]+>", "", s).replace("&quot;", '"')
+
+
 # Declare datatypes (must be done before loading ontologies)
 class double(float):
     """Python datatype for xsd:double."""
@@ -255,10 +389,9 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
     # Create new unit and assign properties and restrictions
     unit = onto.new_entity(prefLabel, bases)
     units[qudtunit] = unit
-    if qudt_descr:
-        unit.elucidation.append(en(str(qudt_descr)))
-    elif dc_descr:
-        unit.elucidation.append(en(str(dc_descr)))
+    if qudt_descr or dc_descr:
+        descr = htmlstrip(latex2text(qudt_descr or dc_descr))
+        unit.elucidation.append(en(descr + "\n\n-- QUDT"))
     unit.prefLabel.append(en(prefLabel))
     if prefLabel != label:
         unit.altLabel.append(en(label))
@@ -375,6 +508,25 @@ for unit in units.values():
         unit.prefLabel = ["".join(newlabel)]
 
 
+# Add description with citations
+for qudtunit, unit in units.items():
+    qudt_descr = ts.value(qudtunit, QUDT.plainTextDescription)
+    dc_descr = ts.value(qudtunit, DCTERMS.description)
+    unit = onto[unit.prefLabel.first()]
+    if (qudt_descr or dc_descr) and (
+            not unit.elucidation or
+            unit.elucidation.first() in (qudt_descr, dc_descr)
+    ):
+        print("***", unit.elucidation.first())
+        descr = htmlstrip(latex2text(qudt_descr or dc_descr))
+        #sub1 = re.sub(r"\\?\\\((.*?)\\?\\\)", r"\1", qudt_descr or dc_descr)
+        #sub2 = re.sub(r"\{([^}]*)\} ", r"\1 ", sub1)
+        #descr = sub2.replace(r"\,", "").replace(r"\cdot", "·")
+        citation = "\n\n-- QUDT"
+        unit.elucidation.clear()
+        unit.elucidation.append(en(descr + citation))
+
+
 # Correct QUDT errors
 # -------------------
 # Mobility has wrong dimensionality.  We have already added ElectricMobility
@@ -425,6 +577,7 @@ def set_turtle_prefix(filename, prefix, base=None):
             f.write(f"@base <{base1}> .\n")
         for line in lines[i:]:
             f.write(line)
+
 
 
 set_turtle_prefix(disciplinesdir / "sidimensionalunits.ttl", EMMO, EMMO)
