@@ -3,6 +3,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owlr: <http://www.lesfleursdunormal.fr/static/_downloads/owlready_ontology.owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -11,6 +12,7 @@
 <http://emmo.info/emmo#> rdf:type owl:Ontology ;
                           owl:versionIRI <http://emmo.info/emmo/1.0.0-beta4/disciplines/sidimensionalunits> ;
                           owl:imports <http://emmo.info/emmo/1.0.0-beta4/disciplines/metrology> ;
+                          :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" ;
                           dcterms:abstract """The module 'sidimensionalunits' defines SI dimensional unit classes.  These classes provide a categorisation of all units according to their SI physical dimensions.
 
 This module provides a connection between physical quantities defined in the 'isq' modules and the units defined in the 'siunits' and 'unitsextension' modules."""@en ;
@@ -24,8 +26,7 @@ This module provides a connection between physical quantities defined in the 'is
                           dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                           dcterms:publisher "EMMC ASBL" ;
                           dcterms:title "SI dimensional units"@en ;
-                          rdfs:comment "Contacts: emmo@emmc.eu"@en ,
-                                       "Note: this file has automatically been populated with dimensional units from QUDT."@en ,
+                          rdfs:comment "Note: this file has automatically been populated with dimensional units from QUDT."@en ,
                                        "The EMMO should be reasoned with HermiT to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
                           owl:versionInfo "1.0.0-beta4" .
 
@@ -46,7 +47,10 @@ This module provides a connection between physical quantities defined in the 'is
 #################################################################
 
 ###  http://emmo.info/emmo#EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9
-:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 rdf:type owl:DatatypeProperty .
+:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 rdf:type owl:DatatypeProperty ;
+                                           rdfs:range xsd:string ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Relates a SI dimensional unit to a dimension string."@en ;
+                                           skos:prefLabel "hasDimensionString"@en .
 
 
 #################################################################
@@ -593,16 +597,6 @@ This module provides a connection between physical quantities defined in the 'is
                                            skos:prefLabel "MassPerLengthUnit"@en .
 
 
-###  http://emmo.info/emmo#EMMO_431ce3bc-3d54-481d-a10d-7c4a4418732a
-:EMMO_431ce3bc-3d54-481d-a10d-7c4a4418732a rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
-                                                                 owl:hasValue "T-2 L+3 M+1 I-1 Θ0 N0 J0"
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "MagneticDipoleMomentUnit"@en .
-
-
 ###  http://emmo.info/emmo#EMMO_43e499a1_ca67_4380_ac08_cfc52a93ad04
 :EMMO_43e499a1_ca67_4380_ac08_cfc52a93ad04 rdf:type owl:Class ;
                                            owl:equivalentClass [ rdf:type owl:Restriction ;
@@ -843,16 +837,6 @@ This module provides a connection between physical quantities defined in the 'is
                                            skos:prefLabel "ReciprocalMassUnit"@en .
 
 
-###  http://emmo.info/emmo#EMMO_5c003f53_20a2_4bd7_8445_58187e582578
-:EMMO_5c003f53_20a2_4bd7_8445_58187e582578 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
-                                                                 owl:hasValue "T+3 L-1 M-1 I0 Θ0 N0 J+1"
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "LuminousEfficacyUnit"@en .
-
-
 ###  http://emmo.info/emmo#EMMO_5d2d48c4_4fb6_4f33_bfc0_273129429c30
 :EMMO_5d2d48c4_4fb6_4f33_bfc0_273129429c30 rdf:type owl:Class ;
                                            owl:equivalentClass [ rdf:type owl:Restriction ;
@@ -861,6 +845,24 @@ This module provides a connection between physical quantities defined in the 'is
                                                                ] ;
                                            rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
                                            skos:prefLabel "AmountPerMassTimeUnit"@en .
+
+
+###  http://emmo.info/emmo#EMMO_5ebd5e01_0ed3_49a2_a30d_cd05cbe72978
+:EMMO_5ebd5e01_0ed3_49a2_a30d_cd05cbe72978 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
+                                                                 owl:hasValue "T0 L0 M0 I0 Θ0 N0 J0"
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0 ;
+                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/UNITLESS" ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "Represents the number 1, used as an explicit unit to say something has no units."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"The unit one is the neutral element of any system of units – necessary and present automatically.\"
+
+-- SI Brochure"""@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Refractive index or volume fraction."@en ,
+                                                                                      "Typically used for ratios of two units whos dimensions cancels out."@en ;
+                                           skos:altLabel "Unitless"@en ;
+                                           skos:prefLabel "UnitOne"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_5f375229_de0c_46bf_b11f_da9d3b742253
@@ -940,7 +942,7 @@ This module provides a connection between physical quantities defined in the 'is
                                                                  owl:hasValue "T0 L0 M-2 I0 Θ0 N0 J0"
                                                                ] ;
                                            rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "InverseMass_SquaredUnit"@en .
+                                           skos:prefLabel "InverseSquareMassUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_6b8bf0c9_4ec7_452c_bee5_26e5149a4f05
@@ -1101,10 +1103,6 @@ This module provides a connection between physical quantities defined in the 'is
                                                                ] ;
                                            rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
                                            skos:prefLabel "FrequencyPerAreaTimeUnit"@en .
-
-
-###  http://emmo.info/emmo#EMMO_803ab206_db21_4e55_a5eb_c9b4156dad3c
-:EMMO_803ab206_db21_4e55_a5eb_c9b4156dad3c rdf:type owl:Class .
 
 
 ###  http://emmo.info/emmo#EMMO_835f4e4e-680d-404c-8c73-92a6a570f6eb
@@ -1274,7 +1272,7 @@ This module provides a connection between physical quantities defined in the 'is
                                                                  owl:hasValue "T-2 L+1 M+1 I-1 Θ0 N0 J0"
                                                                ] ;
                                            rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "MagneticVectorPotentialUnit"@en .
+                                           skos:prefLabel "MagneticPotentialUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_8f36559a_a494_4b00_abc5_60bbc1475009
@@ -1429,33 +1427,27 @@ This module provides a connection between physical quantities defined in the 'is
 
 ###  http://emmo.info/emmo#EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc
 :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_803ab206_db21_4e55_a5eb_c9b4156dad3c ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbol that, following SI specifications, describe the physical dimensionality of a physical quantity and the exponents of the base units in a measurement unit."@en ;
-                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "quantity dimension"@en ;
-                                           rdfs:comment """All physical quantities, with the exception of counts, are derived quantities, which may be written in terms of base quantities according to the equations of physics. The dimensions of the derived quantities are written as products of powers of the dimensions of the base quantities using the equations that relate the derived quantities to the base quantities.
+                                           rdfs:subClassOf :EMMO_cbdea88b_fef1_4c7c_b69f_ae1f0f241c4a ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Dimensional unit with its physical dimensionality described accortind to the International System of Units (SI)."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "In SI are the physical dimensions of the base quantities time (T), length (L), mass (M), electric current (I), thermodynamic temperature (Θ), amount of substance (N) and luminous intensity (J)."@en ,
+                                                                                      """In SI are the physical dimensions of the base quantities time (T), length (L), mass (M), electric current (I), thermodynamic temperature (Θ), amount of substance (N) and luminous intensity (J).
+
 In general the dimension of any quantity Q is written in the form of a dimensional product,
 
-dim Q = T^α L^β M^γ I^δ Θ^ε N^ζ J^η
+    dim Q = T^α L^β M^γ I^δ Θ^ε N^ζ J^η
 
 where the exponents α, β, γ, δ, ε, ζ and η, which are generally small integers, which can be positive, negative, or zero, are called the dimensional exponents.
-(SI brochure)"""@en ,
-                                                        """The conventional symbolic representation of the dimension of a base quantity is a single upper case letter in roman (upright) type. The conventional symbolic representation of the dimension of a derived quantity is the product of powers of the dimensions of the base quantities according to the definition of the derived quantity. The dimension of a quantity Q is denoted by dim Q.
-ISO 80000-1"""@en ,
-                                                        """The expression used by the EMMO for physical dimensions is a metrological symbol (but a string at meta level, i.e. the ontologist level) like this:
+-- SI brouchure
 
-Ta Lb Mc Id Θe Nf Jg
+The SI dimensional units are equivalent to dimensional strings that uniquely defines their dimensionality by specifying the values of the coefficients α, β, γ, δ, ε, ζ and η. A dimensional string is a space-separated string of the physical dimension symbols followed by the value of the exponent (including it sign). They should always match the following regular expression:
 
-where a, b, c, d, e, f and g are 0 or signed integers.
-
-Regex for the physical dimension symbol for the EMMO is:
 ^T([+-][1-9]|0) L([+-][1-9]|0) M([+-][1-9]|0) I([+-][1-9]|0) Θ([+-][1-9]|0) N([+-][1-9]|0) J([+-][1-9]|0)$
 
-Examples of correspondance between base units and physical dimensions are:
-mol -> T0 L0 M0 I0 Θ0 N+1 J0
-s -> T+1 L0 M0 I0 Θ0 N0 J0
-A/m2 -> T0 L0 M-2 I+1 Θ0 N0 J0"""@en ;
-                                           skos:altLabel "PhysicalDimension"@en ,
-                                                         "QuantityDimension"@en ;
+Examples of correspondance between dimensional units and their dimensional units are:
+
+AmountOfSubstanceUnit <-> \"T0 L0 M0 I0 Θ0 N+1 J0\"
+TimeUnit <-> T+1 L0 M0 I0 Θ0 N0 J0
+ElectricCurrentDensityUnit <-> T0 L-2 M0 I+1 Θ0 N0 J0"""@en ;
                                            skos:prefLabel "SIDimensionalUnit"@en .
 
 
@@ -1666,7 +1658,7 @@ A/m2 -> T0 L0 M-2 I+1 Θ0 N0 J0"""@en ;
                                                                  owl:hasValue "T+10 L-2 M-3 I+4 Θ0 N0 J0"
                                                                ] ;
                                            rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "ElectricDipoleMoment_QuarticPerEnergy_CubicUnit"@en .
+                                           skos:prefLabel "QuarticElectricDipoleMomentPerCubicEnergyUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_c0f32e02_44d7_4c99_986e_c368d7219e4c
@@ -1696,7 +1688,7 @@ A/m2 -> T0 L0 M-2 I+1 Θ0 N0 J0"""@en ;
                                                                  owl:hasValue "T-2 L0 M0 I0 Θ+1 N0 J0"
                                                                ] ;
                                            rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "TemperaturePerTime_SquaredUnit"@en .
+                                           skos:prefLabel "TemperaturePerSquareTimeUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_c8d084ad_f88e_4596_8e4d_982c6655ce6f
@@ -1916,7 +1908,7 @@ A/m2 -> T0 L0 M-2 I+1 Θ0 N0 J0"""@en ;
                                                                  owl:hasValue "T0 L-1 M0 I+1 Θ0 N0 J0"
                                                                ] ;
                                            rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-                                           skos:prefLabel "LinearElectricCurrentDensityUnit"@en .
+                                           skos:prefLabel "ElectricCurrentDensityUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_e9348e5b_af4f_4898_bbfe_c4583cf44b80
@@ -2037,6 +2029,13 @@ A/m2 -> T0 L0 M-2 I+1 Θ0 N0 J0"""@en ;
                                                                ] ;
                                            rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
                                            skos:prefLabel "SquarePressurePerSquareTimeUnit"@en .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+:Kilogram skos:prefLabel "KiloGram" .
 
 
 ###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi

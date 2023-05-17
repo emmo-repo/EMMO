@@ -324,7 +324,7 @@ for unit in units.values():
                 if refname in onto:
                     refunit = onto[refname]
                     if get_symbol(refunit) == symbol[len(s):]:
-                        unit.is_a.append(onto.hasReferenceUnit.some(refunit))
+                        unit.is_a.append(onto.hasMetrologicalReference.some(refunit))
                 break
 
 
@@ -441,6 +441,6 @@ with open(disciplinesdir / "unitsextension_gen.ttl", "rt") as f:
         ) for line in f
     ]
 
-with open(disciplinesdir / "unitsextension_gen.ttl", "rt") as f:
+with open(disciplinesdir / "unitsextension.ttl", "wt") as f:
     for line in lines:
         f.write(line)
