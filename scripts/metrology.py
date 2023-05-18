@@ -508,23 +508,19 @@ for unit in units.values():
         unit.prefLabel = ["".join(newlabel)]
 
 
-# Add description with citations
-for qudtunit, unit in units.items():
-    qudt_descr = ts.value(qudtunit, QUDT.plainTextDescription)
-    dc_descr = ts.value(qudtunit, DCTERMS.description)
-    unit = onto[unit.prefLabel.first()]
-    if (qudt_descr or dc_descr) and (
-            not unit.elucidation or
-            unit.elucidation.first() in (qudt_descr, dc_descr)
-    ):
-        print("***", unit.elucidation.first())
-        descr = htmlstrip(latex2text(qudt_descr or dc_descr))
-        #sub1 = re.sub(r"\\?\\\((.*?)\\?\\\)", r"\1", qudt_descr or dc_descr)
-        #sub2 = re.sub(r"\{([^}]*)\} ", r"\1 ", sub1)
-        #descr = sub2.replace(r"\,", "").replace(r"\cdot", "·")
-        citation = "\n\n-- QUDT"
-        unit.elucidation.clear()
-        unit.elucidation.append(en(descr + citation))
+# Add description with citations - should not be needed any more...
+if False:
+    for qudtunit, unit in units.items():
+        qudt_descr = ts.value(qudtunit, QUDT.plainTextDescription)
+        dc_descr = ts.value(qudtunit, DCTERMS.description)
+        unit = onto[unit.prefLabel.first()]
+        if (qudt_descr or dc_descr) and (
+                not unit.elucidation or
+                unit.elucidation.first() in (qudt_descr, dc_descr)
+        ):
+            descr = htmlstrip(latex2text(qudt_descr or dc_descr))
+            unit.elucidation.clear()
+            unit.elucidation.append(en(descr + "\n\n-- QUDT"))
 
 
 # Correct QUDT errors
