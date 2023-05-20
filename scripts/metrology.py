@@ -276,6 +276,7 @@ corrected_preflabels = {
     "MilliW": "MilliWatt",
     "MicroM3": "CubicMicroMetre",
     "Angstrom": "Ångström",
+    "AU": "AstronomicalUnit",
 }
 
 
