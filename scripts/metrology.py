@@ -36,13 +36,16 @@ thisdir = Path(__file__).resolve().parent
 disciplinesdir = thisdir.parent / "disciplines"
 
 
-# Corrected preflabels (will be further populated...)
-# Map QUDT name to correct prefLabel
+# Corrected preflabels. Maps QUDT label to correct prefLabel
 corrected_preflabels = {
     "MilliW": "MilliWatt",
     "MicroM3": "CubicMicroMetre",
     "Angstrom": "Ångström",
     "AU": "AstronomicalUnit",
+    "Absiemen": "Absiemens",
+    "Kilopond": "KiloPond",
+    "CubicCentimeterPerMoleSecond": "CubicCentiMetrePerMoleSecond",
+    "PicofaradPerMetre": "PicoFaradPerMetre",
 }
 
 # Corrected symbols that are wrong in QUDT...
@@ -176,6 +179,8 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
         prefLabel = as_preflabel(label)
     else:
         prefLabel = as_preflabel(qudtunit.rsplit("/", 1)[-1])
+    if prefLabel in corrected_preflabels:
+        prefLabel = corrected_preflabels[prefLabel]
 
     symbol = corrected_qudt_symbols.get(
         prefLabel, ts.value(qudtunit, QUDT.symbol)
@@ -328,13 +333,11 @@ if False:
             new.isReplacedBy.append(onto[preflabel].iri)
 
 
-# Correct preflabels
+# Correct preflabels -- should not be needed any more...
 # Each component should start with a big case.
 # Trailing "s"'s after a prefixed unit are removed.
 if False:
     for unit in units.values():
-        #print("***", unit, unit.prefLabel)
-    #for unit in onto.classes():
         prefLabel = unit.prefLabel.first()
         if prefLabel in {"Ångström", }:
             continue
@@ -376,9 +379,50 @@ if False:
             unit.elucidation.append(en(descr + "\n\n-- QUDT"))
 
 
-for cls in onto.classes():
-    if cls.prefLabel.first() != cls.name:
-        print(f"*** {cls.name} : {cls.prefLabel.first()}")
+# Rename classes - should not be needed any more...
+if True:
+    ignored = "Ångström", "CGSUnit", "SIAcceptedSpecialUnit", "OffSystemUnit"
+    for cls in onto.classes():
+        preflabel = cls.prefLabel.first()
+        if preflabel != cls.name:
+            if preflabel not in ignored:
+                cls.name = preflabel
+
+
+# Change hasMetrologicalReference to hasUnitSymbol for prefixed units
+if True:
+    ignored = "CGSUnit", "SIAcceptedSpecialUnit", "OffSystemUnit"
+    for unit in onto.classes():
+        if unit in ignored:
+            continue
+        if unit.name.startswith("Ab"):
+            refname = unit.name[2].upper() + unit.name[3:]
+            if refname in onto:
+                ref = onto.hasUnitSymbol.some(onto[refname])
+                if ref not in unit.is_a:
+                    unit.is_a.append(ref)
+            else:
+                print(f"*** Missing unit symbol '{refname}' for '{unit.name}")
+        else:
+            for prefix in prefixes.keys():
+                if unit.name.startswith(prefix):
+                    for i, r in enumerate(unit.is_a):
+                        if (isinstance(r, owlready2.Restriction) and
+                            r.property == onto.hasMetrologicalReference):
+                            unit.is_a[i] = onto.hasUnitSymbol.some(r.value)
+                            break
+                    else:
+                        n = len(prefix)
+                        refname = unit.name[n].upper() + unit.name[n+1:]
+                        if refname in onto:
+                            ref = onto.hasUnitSymbol.some(onto[refname])
+                            if ref not in unit.is_a:
+                                unit.is_a.append(ref)
+                        else:
+                            print(f"*** Missing unit symbol '{refname}' for '{unit.name}")
+
+
+
 
 
 # Correct QUDT errors
