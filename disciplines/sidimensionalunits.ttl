@@ -1,39 +1,10 @@
 @prefix : <http://emmo.info/emmo#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix owlr: <http://www.lesfleursdunormal.fr/static/_downloads/owlready_ontology.owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @base <http://emmo.info/emmo#> .
-
-<http://emmo.info/emmo/disciplines/sidimensionalunits> a owl:Ontology ;
-    :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" ;
-    dcterms:abstract """The module 'sidimensionalunits' defines SI dimensional unit classes.  These classes provide a categorisation of all units according to their SI physical dimensions.
-
-This module provides a connection between physical quantities defined in the 'isq' modules and the units defined in the 'siunits' and 'unitsextension' modules."""@en ;
-    dcterms:contributor "Frabcesca L. Bleken, SINTEF (NO)",
-        "Francesco A. Zaccarini, University of Bologna (IT)",
-        "Gerhard Goldbeck, Boldbeck Consulting Ltd (UK)",
-        "Ilaria Maria Paponetti, University of Bologna (IT)",
-        "Simon Clark, SINTEF (NO)" ;
-    dcterms:creator "Emanuele Ghedini, University of Bologna (IT)",
-        "Jesper Friis, SINTEF (NO)" ;
-    dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
-    dcterms:publisher "EMMC ASBL" ;
-    dcterms:title "SI dimensional units"@en ;
-    rdfs:comment "Note: this file has automatically been populated with dimensional units from QUDT."@en,
-        "The EMMO should be reasoned with HermiT to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-    owl:imports <http://emmo.info/emmo/1.0.0-beta4/disciplines/metrology> ;
-    owl:versionIRI <http://emmo.info/emmo/1.0.0-beta4/disciplines/sidimensionalunits> ;
-    owl:versionInfo "1.0.0-beta4" .
-
-:EMMO_431ce3bc-3d54-481d-a10d-7c4a4418732a a owl:Class ;
-    rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
-    owl:equivalentClass [ a owl:Restriction ;
-            owl:hasValue "T-2 L+3 M+1 I-1 Θ+1 N0 J0" ;
-            owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
-    skos:prefLabel "NewtonSquareMetrePerAmpereUnit"@en .
 
 :EMMO_002e4002_58c7_4aea_ac1f_bba5188818ff a owl:Class ;
     rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
@@ -413,6 +384,13 @@ This module provides a connection between physical quantities defined in the 'is
             owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
     skos:prefLabel "MassPerLengthUnit"@en .
 
+:EMMO_431ce3bc-3d54-481d-a10d-7c4a4418732a a owl:Class ;
+    rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "T-2 L+3 M+1 I-1 Θ+1 N0 J0" ;
+            owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
+    skos:prefLabel "NewtonSquareMetrePerAmpereUnit"@en .
+
 :EMMO_43e499a1_ca67_4380_ac08_cfc52a93ad04 a owl:Class ;
     rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
     owl:equivalentClass [ a owl:Restriction ;
@@ -496,6 +474,13 @@ This module provides a connection between physical quantities defined in the 'is
             owl:hasValue "T-1 L+2 M+1 I0 Θ0 N0 J0" ;
             owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
     skos:prefLabel "AngularMomentumUnit"@en .
+
+:EMMO_5073dc80-aec2-4a3b-8057-fababfcbfe11 a owl:Class ;
+    rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "T-2 L+3 M+1 I-1 Θ0 N0 J0"^^xsd:string ;
+            owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
+    skos:prefLabel "MagneticDipoleMomentUnit"@en .
 
 :EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 a owl:Class ;
     rdfs:subClassOf :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
@@ -1408,6 +1393,27 @@ This module provides a connection between physical quantities defined in the 'is
             owl:onProperty :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ] ;
     skos:prefLabel "SquarePressurePerSquareTimeUnit"@en .
 
+<http://emmo.info/emmo/disciplines/sidimensionalunits> a owl:Ontology ;
+    :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" ;
+    dcterms:abstract """The module 'sidimensionalunits' defines SI dimensional unit classes.  These classes provide a categorisation of all units according to their SI physical dimensions.
+
+This module provides a connection between physical quantities defined in the 'isq' modules and the units defined in the 'siunits' and 'unitsextension' modules."""@en ;
+    dcterms:contributor "Frabcesca L. Bleken, SINTEF (NO)",
+        "Francesco A. Zaccarini, University of Bologna (IT)",
+        "Gerhard Goldbeck, Boldbeck Consulting Ltd (UK)",
+        "Ilaria Maria Paponetti, University of Bologna (IT)",
+        "Simon Clark, SINTEF (NO)" ;
+    dcterms:creator "Emanuele Ghedini, University of Bologna (IT)",
+        "Jesper Friis, SINTEF (NO)" ;
+    dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+    dcterms:publisher "EMMC ASBL" ;
+    dcterms:title "SI dimensional units"@en ;
+    rdfs:comment "Note: this file has automatically been populated with dimensional units from QUDT."@en,
+        "The EMMO should be reasoned with HermiT to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
+    owl:imports <http://emmo.info/emmo/1.0.0-beta4/disciplines/metrology> ;
+    owl:versionIRI <http://emmo.info/emmo/1.0.0-beta4/disciplines/sidimensionalunits> ;
+    owl:versionInfo "1.0.0-beta4" .
+
 :EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc a owl:Class ;
     :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Dimensional unit with its physical dimensionality described accortind to the International System of Units (SI)."@en ;
     :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """In SI are the physical dimensions of the base quantities time (T), length (L), mass (M), electric current (I), thermodynamic temperature (Θ), amount of substance (N) and luminous intensity (J).
@@ -1433,6 +1439,5 @@ Examples of correspondance between dimensional units and their dimensional units
 
 :EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 a owl:DatatypeProperty ;
     :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Relates a SI dimensional unit to a dimension string."@en ;
-    owlr:python_name "hasDimensionString"@en ;
     rdfs:range xsd:string ;
     skos:prefLabel "hasDimensionString"@en .
