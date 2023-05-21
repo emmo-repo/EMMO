@@ -203,6 +203,15 @@ The label of this class was also changed from PhysicsDimension to PhysicalDimens
                                            skos:prefLabel "hasUnit"@en .
 
 
+###  http://emmo.info/emmo#EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4
+:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                           rdfs:domain :EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ;
+                                           rdfs:range :EMMO_216f448e_cdbc_4aeb_a529_7a5fe7fc38bb ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Relates a prefixed unit to its unit symbol part."@en ;
+                                           skos:prefLabel "hasUnitSymbol"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_eeb06032_dd4f_476e_9da6_aa24302b7588
 :EMMO_eeb06032_dd4f_476e_9da6_aa24302b7588 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
@@ -448,15 +457,6 @@ barn"""@en ;
                                            skos:prefLabel "CategorizedPhysicalQuantity"@en .
 
 
-###  http://emmo.info/emmo#EMMO_7d2afa66_ae9e_4095_a9bf_421d0be401b6
-:EMMO_7d2afa66_ae9e_4095_a9bf_421d0be401b6 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_985bec21_989f_4b9e_a4b3_735d88099c3c ,
-                                                           :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Dimensionless multiplicative unit prefix."@en ;
-                                           rdfs:seeAlso "https://en.wikipedia.org/wiki/Metric_prefix" ;
-                                           skos:prefLabel "MetricPrefix"@en .
-
-
 ###  http://emmo.info/emmo#EMMO_7dea2572_ab42_45bd_9fd7_92448cec762a
 :EMMO_7dea2572_ab42_45bd_9fd7_92448cec762a rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_9be5fcc4_0d8b_481d_b984_6338d4b55588 ,
@@ -491,12 +491,6 @@ barn"""@en ;
                                                                                :EMMO_216f448e_cdbc_4aeb_a529_7a5fe7fc38bb
                                                                              )
                                                                ] ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                                             owl:allValuesFrom [ rdf:type owl:Class ;
-                                                                                 owl:complementOf :EMMO_7d2afa66_ae9e_4095_a9bf_421d0be401b6
-                                                                               ]
-                                                           ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A measurement unit symbol that do not have a metric prefix as a direct spatial part."@en ;
                                            skos:prefLabel "NonPrefixedUnit"@en .
 
@@ -641,22 +635,9 @@ International vocabulary of metrology (VIM)"""@en ;
 ###  http://emmo.info/emmo#EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e
 :EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                                             owl:allValuesFrom [ rdf:type owl:Class ;
-                                                                                 owl:unionOf ( :EMMO_216f448e_cdbc_4aeb_a529_7a5fe7fc38bb
-                                                                                               :EMMO_7d2afa66_ae9e_4095_a9bf_421d0be401b6
-                                                                                             )
-                                                                               ]
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                                             owl:onProperty :EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
                                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                                              owl:onClass :EMMO_216f448e_cdbc_4aeb_a529_7a5fe7fc38bb
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                             owl:onClass :EMMO_7d2afa66_ae9e_4095_a9bf_421d0be401b6
                                                            ] ;
                                            owl:disjointUnionOf ( :EMMO_62f0d847_3603_45b4_bfc4_dd4511355ff2
                                                                  :EMMO_a2f94f33_71fa_443c_a1fb_d1685fc537ec
