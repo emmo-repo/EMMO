@@ -10,9 +10,8 @@ sidimensionalunits and unitsextension.
 
 Hence, it is safe to manually edit sidimensionalunits and
 unitsextension and run this script multiple times.
-
 """
-import sys
+# pylint: disable=invalid-name
 import json
 import logging
 import re
@@ -28,7 +27,7 @@ from tripper import DCTERMS, EMMO, OWL, RDF, RDFS, XSD
 
 from emmoutils import (
     en, as_preflabel, dimension_string, get_symbol, latex2text, htmlstrip,
-    set_turtle_prefix
+    remove_python_name, set_turtle_prefix
 )
 
 
@@ -37,17 +36,33 @@ thisdir = Path(__file__).resolve().parent
 disciplinesdir = thisdir.parent / "disciplines"
 
 
+# Corrected preflabels (will be further populated...)
+# Map QUDT name to correct prefLabel
+corrected_preflabels = {
+    "MilliW": "MilliWatt",
+    "MicroM3": "CubicMicroMetre",
+    "Angstrom": "Ångström",
+    "AU": "AstronomicalUnit",
+}
+
+# Corrected symbols that are wrong in QUDT...
+corrected_qudt_symbols = {
+    "Picometre": "pm",
+}
+
+
 # Declare datatypes (must be done before loading ontologies)
 class double(float):
     """Python datatype for xsd:double."""
 
 owlready2.declare_datatype(
+    # pylint: disable=unnecessary-lambda
     double, XSD.double, lambda x: double(x), lambda v: str(v)
 )
 
 
 # Load metrology data
-with open(thisdir / "metrology.json", "rt") as f:
+with open(thisdir / "metrology.json", "rt", encoding="utf-8") as f:
     metrology_data = json.load(f)
 
 
@@ -92,7 +107,7 @@ symbols.remove(None)
 # Map QUDT unit IRI to corresponding Owlready2 class
 units = {}
 
-# Map names to corresponding symbol. Ex: {"Kilo": "k", ...}
+# Map prefix names to corresponding symbol. Ex: {"Kilo": "k", ...}
 prefixes = {
     prefix: (onto[prefix+"PrefixedUnit"] if prefix+"PrefixedUnit" in onto
              else None, symbol)
@@ -103,18 +118,11 @@ prefixes = {
 # QUDT units to skip
 qudt_skip = metrology_data["qudt_skip"]
 
-# Corrected symbols that are wrong in QUDT...
-corrected_qudt_symbols = {
-    "Picometre": "pm",
+# QUDT IRIs of units already loaded from QUDT
+existing_qudtiris = {
+    c.qudtReference.first() for c in onto.classes() if hasattr(c, "qudtReference")
 }
 
-# Corrected preflabels (will be further populated...)
-corrected_preflabels = {
-    "MilliW": "MilliWatt",
-    "MicroM3": "CubicMicroMetre",
-    "Angstrom": "Ångström",
-    "AU": "AstronomicalUnit",
-}
 
 
 # Extend dimensional_units from physical_dimensions
@@ -135,7 +143,7 @@ for dimstr in set(physical_dimensions).difference(set(dimensional_units)):
 # Loop over all units in QUDT and add them to `onto` if they are
 # not already in the ontology
 for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
-    if qudtunit in qudt_skip:
+    if qudtunit in qudt_skip or qudtunit in existing_qudtiris:
         continue
 
     # Infer the superclasses of current unit
@@ -169,10 +177,9 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
     else:
         prefLabel = as_preflabel(qudtunit.rsplit("/", 1)[-1])
 
-    if prefLabel in corrected_qudt_symbols:
-        symbol = corrected_qudt_symbols[prefLabel]
-    else:
-        symbol = ts.value(qudtunit, QUDT.symbol)
+    symbol = corrected_qudt_symbols.get(
+        prefLabel, ts.value(qudtunit, QUDT.symbol)
+    )
 
     isReplacedBy = ts.value(qudtunit, DCTERMS.isReplacedBy)
     if isReplacedBy:
@@ -324,29 +331,34 @@ if False:
 # Correct preflabels
 # Each component should start with a big case.
 # Trailing "s"'s after a prefixed unit are removed.
-for unit in units.values():
-    prefLabel = unit.prefLabel.first()
-    if prefLabel in {"Ångström", }:
-        continue
-    unit.prefLabel.clear()
-    if prefLabel in corrected_preflabels:
-        unit.prefLabel = [en(corrected_preflabels[prefLabel])]
-    else:
-        newlabel = []
-        for s in re.findall("[A-Z][a-z0-9_]*", prefLabel):
-            for prefix in prefixes.keys():
-                if s.startswith(prefix):
-                    newlabel.append(prefix)
-                    s = s[len(prefix):].title()
-                    break
-            if s in onto:
-                newlabel.append(s)
-            elif s.endswith("s") and s[:-1] in onto:
-                newlabel.append(s[:-1])
-            else:
-                newlabel.append(s)
-        unit.prefLabel = [en("".join(newlabel))]
-
+if False:
+    for unit in units.values():
+        #print("***", unit, unit.prefLabel)
+    #for unit in onto.classes():
+        prefLabel = unit.prefLabel.first()
+        if prefLabel in {"Ångström", }:
+            continue
+        unit.prefLabel.clear()
+        if prefLabel in corrected_preflabels:
+            unit.name = corrected_preflabels[prefLabel]
+            unit.prefLabel.append(en(corrected_preflabels[prefLabel]))
+        else:
+            newlabel = []
+            for s in re.findall("[A-Z][a-z0-9_]*", prefLabel):
+                for prefix in prefixes.keys():
+                    if s.startswith(prefix):
+                        newlabel.append(prefix)
+                        s = s[len(prefix):].title()
+                        break
+                if s in onto:
+                    newlabel.append(s)
+                elif s.endswith("s") and s[:-1] in onto:
+                    newlabel.append(s[:-1])
+                else:
+                    newlabel.append(s)
+            label = "".join(newlabel)
+            unit.name = label
+            unit.prefLabel.append(en(label))
 
 
 # Add description with citations - should not be needed any more...
@@ -364,6 +376,11 @@ if False:
             unit.elucidation.append(en(descr + "\n\n-- QUDT"))
 
 
+for cls in onto.classes():
+    if cls.prefLabel.first() != cls.name:
+        print(f"*** {cls.name} : {cls.prefLabel.first()}")
+
+
 # Correct QUDT errors
 # -------------------
 # Mobility has wrong dimensionality.  We have already added ElectricMobility
@@ -374,19 +391,21 @@ if 'MobilityUnit' in du:
 
 # Save ontologies
 # ---------------
+remove_python_name(du)
+
 du.save(disciplinesdir / "sidimensionalunits.ttl", format="turtle", overwrite=True)
-onto.save(disciplinesdir / f"unitsextension_gen.ttl", format="turtle", overwrite=True)
+onto.save(disciplinesdir / f"unitsextension.ttl", format="turtle", overwrite=True)
 
 
 set_turtle_prefix(disciplinesdir / "sidimensionalunits.ttl", EMMO, EMMO)
-set_turtle_prefix(disciplinesdir / "unitsextension_gen.ttl", EMMO, EMMO)
+set_turtle_prefix(disciplinesdir / "unitsextension.ttl", EMMO, EMMO)
 
 
 # Simply replace all owl:hasValue from decimal to xsd:double
-with open(disciplinesdir / "unitsextension_gen.ttl", "rt") as f:
+with open(disciplinesdir / "unitsextension.ttl", "rt") as f:
     lines = [
         re.sub(
-            "owl:hasValue +([0-9.]+)(\s|$)",
+            r"owl:hasValue +([0-9.]+)(\s|$)",
             r'owl:hasValue "\1"^^xsd:double ',
             line
         ) for line in f

@@ -1,5 +1,6 @@
 """Module with utility functions.
 """
+# pylint: disable=invalid-name
 import re
 
 import owlready2
@@ -41,6 +42,64 @@ def get_symbol(unit):
     return None
 
 
+# def fix_preflabel(label, prefixes, corrected_preflabels=None):
+#     """Convert `label` to a valid prefLabel.
+#     Each component will start with a big case.
+#     Trailing "s"'s after a prefixed unit are removed.
+#
+#     Arguments:
+#         label: Label to convert.
+#         prefixes: Dict mapping prefix names to corresponding symbol.
+#             Ex: {"Kilo": "k", ...}
+#         corrected_preflabels: Optional dict for handling special cases.
+#             It should map `label` to correct preflabel.
+#
+#     Returns:
+#         Valid prefLabel.
+#     """
+#     if corrected_preflabels and label in corrected_preflabels:
+#         return corrected_preflabels[label]
+#
+#     newlabel = []
+#     for s in re.findall("[A-Z][a-z0-9_]*", label):
+#         for prefix in prefixes.keys():
+#             if s.startswith(prefix):
+#                 newlabel.append(prefix)
+#                 s = s[len(prefix):].title()
+#                 break
+#         if s in onto:
+#             newlabel.append(s)
+#         elif s.endswith("s") and s[:-1] in onto:
+#             newlabel.append(s[:-1])
+#         else:
+#             newlabel.append(s)
+#     return "".join(newlabel)
+
+
+    for unit in units.values():
+        prefLabel = unit.prefLabel.first()
+        if prefLabel in {"Ångström", }:
+            continue
+        unit.prefLabel.clear()
+        if prefLabel in corrected_preflabels:
+            unit.prefLabel = [en(corrected_preflabels[prefLabel])]
+        else:
+            newlabel = []
+            for s in re.findall("[A-Z][a-z0-9_]*", prefLabel):
+                for prefix in prefixes.keys():
+                    if s.startswith(prefix):
+                        newlabel.append(prefix)
+                        s = s[len(prefix):].title()
+                        break
+                if s in onto:
+                    newlabel.append(s)
+                elif s.endswith("s") and s[:-1] in onto:
+                    newlabel.append(s[:-1])
+                else:
+                    newlabel.append(s)
+            unit.prefLabel = [en("".join(newlabel))]
+
+
 def latex2text(latex):
     """Convert LaTeX to UTF-8."""
 
@@ -60,7 +119,7 @@ def latex2text(latex):
 
     subs = {
         r"\,": " ",
-        r'\"': '"',
+        r'\"': r'\"',
         r"\'": "'",
         r"\pm": "\u00b1",
         r"\cdot": "\u00b7",
@@ -115,7 +174,7 @@ def latex2text(latex):
         r"\leftrightarrow": "\u2194",
         r"\Leftarrow": "\u21d0",
         r"\Rightarrow": "\u21d2",
-        r"\leftrightarrow": "\u21d4",
+        r"\Leftrightarrow": "\u21d4",
         r"\hslash": "\u210f",
         r"\alpha": "\u03b1",
         r"\beta": "\u03b2",
@@ -158,7 +217,7 @@ def latex2text(latex):
     # Strip of inline equations
     sub1 = re.sub(r"\\?\\\((.*?)\\?\\\)", r"\1", latex)
     # Convert subscripts and superscripts
-    sub2 = re.sub("([_^])((\{([-+]?[0-9]+)\})|([-+]?[0-9]+))", fscript, sub1)
+    sub2 = re.sub(r"([_^])((\{([-+]?[0-9]+)\})|([-+]?[0-9]+))", fscript, sub1)
     # Convert latex symbols
     for k, v in subs.items():
         sub2 = sub2.replace(rf"\{k}", v)
@@ -167,7 +226,7 @@ def latex2text(latex):
     sub3 = re.sub(r"\\frac\{([^}]*)\}\{([^}]*)\}", r"(\1)/(\2)", sub2)
     # Strip off remaining latex macros
     sub4 = re.sub(r"\\[a-zA-Z]+\{['`]?([^}]+?)['`]?\}", r"`\1`", sub3)
-    return sub4
+    return sub4.replace(r"\'", "'").replace(r" \\; ", " ").replace(r"\\(", "").replace(r"^\\circ", "\u00b0")
 
 
 def htmlstrip(s):
@@ -175,13 +234,26 @@ def htmlstrip(s):
     return re.sub("<[^>]+>", "", s).replace("&quot;", '"')
 
 
+def remove_python_name(onto):
+    """Strip off all uses of owlr:python_name from ontology."""
+    storid = onto._abbreviate(
+        "http://www.lesfleursdunormal.fr/static/_downloads/"
+        "owlready_ontology.owl#python_name"
+    )
+    for s, p, o, d in onto._get_triples_spod_spod(None, 2, None):
+        if d is None:
+            onto._del_obj_triple_spo(s, p, o)
+        else:
+            onto._del_data_triple_spod(s, p, o, d)
+
+
 def set_turtle_prefix(filename, prefix, base=None):
     """Set/overwrite @prefix in top of a turtle file.  Optionally, also set @base."""
-    with open(filename, "rt") as f:
+    with open(filename, "rt", encoding="utf-8") as f:
         lines = f.readlines()
 
     prefix1 = base1 = None
-    for i in range(len(lines)):
+    for i in range(len(lines)):  # pylint: disable=consider-using-enumerate
         line = lines[i]
         if not line.startswith("@"):
             break
@@ -195,13 +267,12 @@ def set_turtle_prefix(filename, prefix, base=None):
                 base1 = match.groups()[0]
                 lines.pop(i)
 
-    with open(filename, "wt") as f:
+    with open(filename, "wt", encoding="utf-8") as f:
         if prefix:
             f.write(f"@prefix : <{prefix}> .\n")
         elif prefix is None and prefix1:
             f.write(f"@prefix : <{prefix1}> .\n")
-        for i in range(len(lines)):
-            line = lines[i]
+        for line in lines:
             if not line.startswith("@"):
                 break
             f.write(line)
