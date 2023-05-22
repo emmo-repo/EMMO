@@ -137,7 +137,9 @@ for dimstr in set(physical_dimensions).difference(set(dimensional_units)):
         dim = du.new_entity(iri, (onto.SIDimensionalUnit, ))
         dim.prefLabel = en(preflabel.replace("Dimension", "Unit"))
         dim.iri = iri
-        dim.equivalent_to.append(onto.hasDimensionString.value(dimstr))
+        r = onto.hasDimensionString.value(dimstr)
+        if r not in dim.equivalent_to:
+            dim.equivalent_to.append(r)
         dimensional_units[dimstr] = dim
 
 
@@ -179,7 +181,7 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
         prefLabel = as_preflabel(label)
     else:
         prefLabel = as_preflabel(qudtunit.rsplit("/", 1)[-1])
-    if prefLabel in corrected_preflabels:
+    if prefLabel in corrected_preflabels:  # pylint: disable=consider-using-get
         prefLabel = corrected_preflabels[prefLabel]
 
     symbol = corrected_qudt_symbols.get(
@@ -233,7 +235,9 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
             dim = du.new_entity(iri, (onto.SIDimensionalUnit, ))
             dim.prefLabel = en(name)
             dim.iri = iri
-            dim.equivalent_to.append(onto.hasDimensionString.value(dimstr))
+            r = onto.hasDimensionString.value(dimstr)
+            if r not in dim.equivalent_to:
+                dim.equivalent_to.append(r)
             dimensional_units[dimstr] = dim
 
     # Create new unit and assign properties and restrictions
@@ -323,7 +327,7 @@ for unit in onto.DerivedUnit.descendants():
 
 
 # Add deprecated classes with old IRIs - moved to separate ontology
-if False:
+if False:  # pylint: disable=using-constant-test
     for preflabel, d in metrology_data["units"].items():
         iri, s = d['iri'], d['symbol']
         if not world[iri]:
@@ -336,7 +340,7 @@ if False:
 # Correct preflabels -- should not be needed any more...
 # Each component should start with a big case.
 # Trailing "s"'s after a prefixed unit are removed.
-if False:
+if False:  # pylint: disable=using-constant-test
     for unit in units.values():
         prefLabel = unit.prefLabel.first()
         if prefLabel in {"Ångström", }:
@@ -365,7 +369,7 @@ if False:
 
 
 # Add description with citations - should not be needed any more...
-if False:
+if False:  # pylint: disable=using-constant-test
     for qudtunit, unit in units.items():
         qudt_descr = ts.value(qudtunit, QUDT.plainTextDescription)
         dc_descr = ts.value(qudtunit, DCTERMS.description)
@@ -380,7 +384,7 @@ if False:
 
 
 # Rename classes - should not be needed any more...
-if True:
+if False:  # pylint: disable=using-constant-test
     ignored = "Ångström", "CGSUnit", "SIAcceptedSpecialUnit", "OffSystemUnit"
     for cls in onto.classes():
         preflabel = cls.prefLabel.first()
@@ -390,7 +394,7 @@ if True:
 
 
 # Change hasMetrologicalReference to hasUnitSymbol for prefixed units
-if True:
+if True:  # pylint: disable=using-constant-test
     ignored = "CGSUnit", "SIAcceptedSpecialUnit", "OffSystemUnit"
     for unit in onto.classes():
         if unit in ignored:
@@ -402,7 +406,7 @@ if True:
                 if ref not in unit.is_a:
                     unit.is_a.append(ref)
             else:
-                print(f"*** Missing unit symbol '{refname}' for '{unit.name}")
+                info(f"*** Missing unit symbol '{refname}' for '{unit.name}")
         else:
             for prefix in prefixes.keys():
                 if unit.name.startswith(prefix):
@@ -419,7 +423,8 @@ if True:
                             if ref not in unit.is_a:
                                 unit.is_a.append(ref)
                         else:
-                            print(f"*** Missing unit symbol '{refname}' for '{unit.name}")
+                            info(f"*** Missing unit symbol '{refname}' "
+                                 "for '{unit.name}")
 
 
 
