@@ -339,6 +339,12 @@ A set of quantites being attributed to a measurand (measured quantitative proper
 
 ###  http://emmo.info/emmo#EMMO_18ce5200_00f5_45bb_8c6f_6fb128cd41ae
 :EMMO_18ce5200_00f5_45bb_8c6f_6fb128cd41ae rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_acd1a504_ca32_4f30_86ad_0b62cea5bc02
+                                                                               :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4
+                                                                               :EMMO_c9c8f824_9127_4f93_bc21_69fe78a7f6f2
+                                                                             )
+                                                               ] ;
                                            rdfs:subClassOf :EMMO_985bec21_989f_4b9e_a4b3_735d88099c3c ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A reference can be a measurement unit, a measurement procedure, a reference material, or a combination of such.
 International vocabulary of metrology (VIM)"""@en ;
@@ -597,7 +603,6 @@ ISO 80000-1"""@en ;
 
 ###  http://emmo.info/emmo#EMMO_acd1a504_ca32_4f30_86ad_0b62cea5bc02
 :EMMO_acd1a504_ca32_4f30_86ad_0b62cea5bc02 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_18ce5200_00f5_45bb_8c6f_6fb128cd41ae ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A reference unit provided by a reference material.
 International vocabulary of metrology (VIM)"""@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Arbitrary amount-of-substance concentration of lutropin in a given sample of plasma (WHO international standard 80/552): 5.0 International Unit/l"@en ;
@@ -606,7 +611,7 @@ International vocabulary of metrology (VIM)"""@en ;
 
 ###  http://emmo.info/emmo#EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4
 :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_18ce5200_00f5_45bb_8c6f_6fb128cd41ae ;
+                                           owl:disjointWith :EMMO_c9c8f824_9127_4f93_bc21_69fe78a7f6f2 ;
                                            owl:disjointUnionOf ( :EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0
                                                                  :EMMO_cbdea88b_fef1_4c7c_b69f_ae1f0f241c4a
                                                                ) ,
@@ -618,7 +623,8 @@ International vocabulary of metrology (VIM)"""@en ;
 m/s
 km"""@en ;
                                            :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "measurement unit"@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Quantitative value are expressed as a multiple of the 'MeasurementUnit'."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Measurement units and procedure units are disjoint."@en ,
+                                                                                      "Quantitative value are expressed as a multiple of the 'MeasurementUnit'."@en ;
                                            rdfs:comment """\"Real scalar quantity, defined and adopted by convention, with which any other quantity of the same kind can be compared to express the ratio of the second quantity to the first one as a number\"
 ISO 80000-1"""@en ,
                                                         """\"Unit symbols are mathematical entities and not abbreviations.\"
@@ -672,9 +678,9 @@ International vocabulary of metrology (VIM)"""@en ;
 
 ###  http://emmo.info/emmo#EMMO_c9c8f824_9127_4f93_bc21_69fe78a7f6f2
 :EMMO_c9c8f824_9127_4f93_bc21_69fe78a7f6f2 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_18ce5200_00f5_45bb_8c6f_6fb128cd41ae ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A reference unit provided by a measurement procedure."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Rockwell C hardness of a given sample (150 kg load): 43.5HRC(150 kg)"@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Procedure units and measurement units are disjoint."@en ;
                                            skos:prefLabel "ProcedureUnit"@en .
 
 
