@@ -76,6 +76,10 @@ du = world.get_ontology(
     disciplinesdir / "sidimensionalunits.ttl"
 ).load()
 
+pu = world.get_ontology(
+    disciplinesdir / "prefixedunits.ttl"
+).load()
+
 onto = world.get_ontology(
     disciplinesdir / "unitsextension.ttl"
 ).load()
@@ -394,7 +398,7 @@ if False:  # pylint: disable=using-constant-test
 
 
 # Change hasMetrologicalReference to hasUnitSymbol for prefixed units
-if True:  # pylint: disable=using-constant-test
+if False:  # pylint: disable=using-constant-test
     ignored = "CGSUnit", "SIAcceptedSpecialUnit", "OffSystemUnit"
     for unit in onto.classes():
         if unit in ignored:
@@ -427,6 +431,28 @@ if True:  # pylint: disable=using-constant-test
                                  "for '{unit.name}")
 
 
+# Move prefixed units to an own ontology - should not be needed any more...
+if True:  # pylint: disable=using-constant-test
+    for cls in onto.classes():
+        preflabel = cls.prefLabel.first()
+        for prefix in prefixes.keys():
+            if preflabel.startswith(prefix):
+                new = pu.new_entity(cls.name, (owlready2.Thing,))
+                for k, v in cls.get_annotations().items():
+                    getattr(new, k).extend(v)
+                new.equivalent_to.extend(cls.equivalent_to)
+                new.is_a.extend(cls.is_a)
+                new.disjoint_unions.extend(cls.disjoint_unions)
+    for cls in onto.classes():
+        if cls.name in pu:
+            disjoints = [pu[c.prefLabel.first()] for c in cls.disjoints()]
+            if disjoints:
+                disjoints.append(pu[cls.prefLabel.first()])
+                with pu:
+                    owlready2.AllDisjoint(disjoints)
+    destroy = [cls for cls in onto.classes() if cls.name in pu]
+    for c in destroy:
+        owlready2.destroy_entity(c)
 
 
 
@@ -443,23 +469,26 @@ if 'MobilityUnit' in du:
 remove_python_name(du)
 
 du.save(disciplinesdir / "sidimensionalunits.ttl", format="turtle", overwrite=True)
+pu.save(disciplinesdir / "prefixedunits.ttl", format="turtle", overwrite=True)
 onto.save(disciplinesdir / f"unitsextension.ttl", format="turtle", overwrite=True)
 
 
 set_turtle_prefix(disciplinesdir / "sidimensionalunits.ttl", EMMO, EMMO)
+set_turtle_prefix(disciplinesdir / "prefixedunits.ttl", EMMO, EMMO)
 set_turtle_prefix(disciplinesdir / "unitsextension.ttl", EMMO, EMMO)
 
 
-# Simply replace all owl:hasValue from decimal to xsd:double
-with open(disciplinesdir / "unitsextension.ttl", "rt") as f:
-    lines = [
-        re.sub(
-            r"owl:hasValue +([0-9.]+)(\s|$)",
-            r'owl:hasValue "\1"^^xsd:double ',
-            line
-        ) for line in f
-    ]
+# Replace all owl:hasValue from decimal to xsd:double
+if False:
+    with open(disciplinesdir / "unitsextension.ttl", "rt") as f:
+        lines = [
+            re.sub(
+                r"owl:hasValue +([0-9.]+)(\s|$)",
+                r'owl:hasValue "\1"^^xsd:double ',
+                line
+            ) for line in f
+        ]
 
-with open(disciplinesdir / "unitsextension.ttl", "wt") as f:
-    for line in lines:
-        f.write(line)
+    with open(disciplinesdir / "unitsextension.ttl", "wt") as f:
+        for line in lines:
+            f.write(line)
