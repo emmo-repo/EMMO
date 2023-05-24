@@ -380,16 +380,22 @@ emmo:AbvoltSecond rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#Acidity
 emmo:Acidity rdf:type owl:Class ;
-             rdfs:subClassOf emmo:EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0 ,
-                             emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ;
+             rdfs:subClassOf emmo:EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0 ;
              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PH" ;
              emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "[pH]" ;
              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "pH" ;
-             emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """the negative decadic logarithmus of the concentration of free protons (or hydronium ions) expressed in 1 mol/l.
+             emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The negative decadic logarithmus of the concentration of free protons (or hydronium ions) expressed in 1 mol/l.
 
 -- QUDT"""@en ;
+             emmo:EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Standard state: c0 is 1 mol/L. c of H+ of pure water is determined by the amount of dissociated water. The dissociation constant of water is 10^-14 and since there are qeal amounts of H+ and OH- we get 10^-7 mol H+ /L. -log(10^-7) = 7. The gamma is the activity coefficient which is assumed to be 1 when we say pH = -log[H+]."@en ,
+                                                            """The proper definition of pH is
+
+    pH = -log(a)
+
+where `a` is the activity of H+ ions in an aqueus solution."""@en ;
              rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-             skos:prefLabel "Acidity"@en .
+             skos:altLabel "Acidity"@en ;
+             skos:prefLabel "pH"@en .
 
 
 ###  http://emmo.info/emmo#Acre
@@ -1663,15 +1669,7 @@ emmo:Biot rdf:type owl:Class ;
 ###  http://emmo.info/emmo#Bit
 emmo:Bit rdf:type owl:Class ;
          rdfs:subClassOf emmo:EMMO_15d62b55_38ea_4aec_b7c4_25db1a2e5a01 ,
-                         emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                           owl:hasValue "0.6931472"^^xsd:double
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                           owl:hasValue "0.0"^^xsd:double
-                         ] ;
+                         emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ;
          emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/BIT" ;
          emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "bit" ;
          emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "b" ;
@@ -6883,33 +6881,6 @@ emmo:Erlang rdf:type owl:Class ;
             skos:prefLabel "Erlang"@en .
 
 
-###  http://emmo.info/emmo#ExbiByte
-emmo:ExbiByte rdf:type owl:Class ;
-              rdfs:subClassOf emmo:EMMO_15d62b55_38ea_4aec_b7c4_25db1a2e5a01 ,
-                              emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                owl:someValuesFrom emmo:Byte
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                owl:hasValue "6.393154E18"^^xsd:double
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                owl:hasValue "0.0"^^xsd:double
-                              ] ;
-              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/ExbiBYTE" ;
-              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "EiB" ;
-              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The exbibyte is a multiple of the unit byte for digital information. The prefix exbi means 1024⁶
-
--- QUDT"""@en ;
-              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Byte#Multiple-byte_units" ;
-              rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-              skos:altLabel "ExbiByte"@en ;
-              skos:prefLabel "ExbiByte" .
-
-
 ###  http://emmo.info/emmo#FailuresInTime
 emmo:FailuresInTime rdf:type owl:Class ;
                     rdfs:subClassOf emmo:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 ,
@@ -8100,33 +8071,6 @@ emmo:Gi_Us_Per_Sec rdf:type owl:Class ;
                    rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
                    skos:altLabel "Gill (US) Per Second"@en ;
                    skos:prefLabel "Gi_Us_Per_Sec"@en .
-
-
-###  http://emmo.info/emmo#GibiByte
-emmo:GibiByte rdf:type owl:Class ;
-              rdfs:subClassOf emmo:EMMO_15d62b55_38ea_4aec_b7c4_25db1a2e5a01 ,
-                              emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                owl:someValuesFrom emmo:Byte
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                owl:hasValue "5.954089E9"^^xsd:double
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                owl:hasValue "0.0"^^xsd:double
-                              ] ;
-              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/GibiBYTE" ;
-              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "GiB" ;
-              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The gibibyte is a multiple of the unit byte for digital information storage. The prefix gibi means 1024³
-
--- QUDT"""@en ;
-              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Byte#Multiple-byte_units" ;
-              rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-              skos:altLabel "GibiByte"@en ;
-              skos:prefLabel "GibiByte" .
 
 
 ###  http://emmo.info/emmo#Gilbert
@@ -10491,33 +10435,6 @@ emmo:KelvinSquareMetrePerKiloGramPerSecond rdf:type owl:Class ;
                                            skos:prefLabel "KelvinSquareMetrePerKiloGramPerSecond" .
 
 
-###  http://emmo.info/emmo#KibiByte
-emmo:KibiByte rdf:type owl:Class ;
-              rdfs:subClassOf emmo:EMMO_15d62b55_38ea_4aec_b7c4_25db1a2e5a01 ,
-                              emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                owl:someValuesFrom emmo:Byte
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                owl:hasValue "5678.262"^^xsd:double
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                owl:hasValue "0.0"^^xsd:double
-                              ] ;
-              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KibiBYTE" ;
-              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "KiB" ;
-              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The kibibyte is a multiple of the unit byte for digital information equivalent to 1024 bytes.
-
--- QUDT"""@en ;
-              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Byte#Multiple-byte_units" ;
-              rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-              skos:altLabel "KibiByte"@en ;
-              skos:prefLabel "KibiByte" .
-
-
 ###  http://emmo.info/emmo#KiloPascalAbsolute
 emmo:KiloPascalAbsolute rdf:type owl:Class ;
                         rdfs:subClassOf emmo:EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b ,
@@ -11416,32 +11333,6 @@ emmo:MeanJulianMonth rdf:type owl:Class ;
                      rdfs:seeAlso "http://aurora.regenstrief.org/~ucum/ucum.html#iso1000" ;
                      skos:altLabel "Mean Julian Month"@en ;
                      skos:prefLabel "MeanJulianMonth"@en .
-
-
-###  http://emmo.info/emmo#MebiByte
-emmo:MebiByte rdf:type owl:Class ;
-              rdfs:subClassOf emmo:EMMO_15d62b55_38ea_4aec_b7c4_25db1a2e5a01 ,
-                              emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                owl:someValuesFrom emmo:Byte
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                owl:hasValue "5814540.0"^^xsd:double
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                owl:hasValue "0.0"^^xsd:double
-                              ] ;
-              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MebiBYTE" ;
-              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "MiB" ;
-              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The mebibyte is a multiple of the unit byte for digital information equivalent to 1024² bytes or 2²⁰ bytes.
-
--- QUDT"""@en ;
-              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Byte#Multiple-byte_units" ;
-              rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-              skos:prefLabel "MebiByte" .
 
 
 ###  http://emmo.info/emmo#MegaAmperePerSquareMetre
@@ -15182,33 +15073,6 @@ emmo:PascalSquareRootMeter rdf:type owl:Class ;
                            rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
                            skos:altLabel "Pascal Square Root Meter"@en ;
                            skos:prefLabel "PascalSquareRootMeter"@en .
-
-
-###  http://emmo.info/emmo#PebiByte
-emmo:PebiByte rdf:type owl:Class ;
-              rdfs:subClassOf emmo:EMMO_15d62b55_38ea_4aec_b7c4_25db1a2e5a01 ,
-                              emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                owl:someValuesFrom emmo:Byte
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                owl:hasValue "6.243315E15"^^xsd:double
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                owl:hasValue "0.0"^^xsd:double
-                              ] ;
-              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PebiBYTE" ;
-              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "PiB" ;
-              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The pebibyte is a standards-based binary multiple (prefix pebi, symbol Pi) of the byte, a unit of digital information storage. The pebibyte unit symbol is PiB. 1 pebibyte =  1125899906842624bytes = 1024 tebibytes The pebibyte is closely related to the petabyte, which is defined as 10¹⁵ bytes = 1,000,000,000,000,000 bytes.
-
--- QUDT"""@en ;
-              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Pebibyte?oldid=492685015" ;
-              rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-              skos:altLabel "PebiByte"@en ;
-              skos:prefLabel "PebiByte" .
 
 
 ###  http://emmo.info/emmo#PennyWeight
@@ -21257,33 +21121,6 @@ emmo:Teaspoon rdf:type owl:Class ;
               emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Teaspoon?oldid=490940468" ;
               rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
               skos:prefLabel "Teaspoon"@en .
-
-
-###  http://emmo.info/emmo#TebiByte
-emmo:TebiByte rdf:type owl:Class ;
-              rdfs:subClassOf emmo:EMMO_15d62b55_38ea_4aec_b7c4_25db1a2e5a01 ,
-                              emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                owl:someValuesFrom emmo:Byte
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                owl:hasValue "6.096987E12"^^xsd:double
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                owl:hasValue "0.0"^^xsd:double
-                              ] ;
-              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/TebiBYTE" ;
-              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "TiB" ;
-              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The tebibyte is a multiple of the unit byte for digital information. The prefix tebi means 1024⁴
-
--- QUDT"""@en ;
-              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Byte#Multiple-byte_units" ;
-              rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-              skos:altLabel "TebiByte"@en ;
-              skos:prefLabel "TebiByte" .
 
 
 ###  http://emmo.info/emmo#TechnicalAtmosphere
