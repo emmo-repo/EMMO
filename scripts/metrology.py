@@ -433,26 +433,35 @@ if False:  # pylint: disable=using-constant-test
 
 # Move prefixed units to an own ontology - should not be needed any more...
 if True:  # pylint: disable=using-constant-test
+    disjoint_unions = set()
+    disjoints = set()
     for cls in onto.classes():
         preflabel = cls.prefLabel.first()
         for prefix in prefixes.keys():
             if preflabel.startswith(prefix):
-                new = pu.new_entity(cls.name, (owlready2.Thing,))
+                with pu:
+                    new = pu.new_entity(cls.name, (owlready2.Thing,))
                 for k, v in cls.get_annotations().items():
                     getattr(new, k).extend(v)
                 new.equivalent_to.extend(cls.equivalent_to)
                 new.is_a.extend(cls.is_a)
                 new.disjoint_unions.extend(cls.disjoint_unions)
-    for cls in onto.classes():
-        if cls.name in pu:
-            disjoints = [pu[c.prefLabel.first()] for c in cls.disjoints()]
-            if disjoints:
-                disjoints.append(pu[cls.prefLabel.first()])
-                with pu:
-                    owlready2.AllDisjoint(disjoints)
-    destroy = [cls for cls in onto.classes() if cls.name in pu]
-    for c in destroy:
-        owlready2.destroy_entity(c)
+
+                for d in cls.disjoint_unions:
+                    disjoint_unions.add(c.prefLabel.first() for c in d)
+                for d in cls.disjoints():
+                    names = set(c.prefLabel.first() for c in d)
+                    names.add(preflabel)
+                    disjoints.add(names)
+
+    for names in disjoints.difference(disjoint_unions):
+        with pu:
+            owlready2.AllDisjoint(pu[name] for name in names)
+    for unit in pu.classes():
+        #print("***", unit)
+        preflabel = unit.prefLabel.first()
+        with onto:
+            owlready2.destroy_entity(onto[preflabel])
 
 
 
