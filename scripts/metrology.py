@@ -432,7 +432,7 @@ if False:  # pylint: disable=using-constant-test
 
 
 # Move prefixed units to an own ontology - should not be needed any more...
-if True:  # pylint: disable=using-constant-test
+if False:  # pylint: disable=using-constant-test
     disjoint_unions = set()
     disjoints = set()
     for cls in onto.classes():
@@ -458,9 +458,9 @@ if True:  # pylint: disable=using-constant-test
         with pu:
             owlready2.AllDisjoint(pu[name] for name in names)
     for unit in pu.classes():
-        #print("***", unit)
         preflabel = unit.prefLabel.first()
         with onto:
+            # This doesn't seem to work...
             owlready2.destroy_entity(onto[preflabel])
 
 
