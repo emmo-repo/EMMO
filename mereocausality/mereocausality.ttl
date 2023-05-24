@@ -752,7 +752,6 @@ _:genid16 rdf:type owl:Restriction ;
 
 ###  http://emmo.info/emmo#EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68
 :EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68 rdf:type owl:Class ;
-                                           rdfs:subClassOf _:genid19 ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """A quantum is the most fundamental item (both mereologically and causally) and is considered causally self-connected by definition.
 The quantum concept recalls the fact that there is lower epistemological limit to our knowledge of the universe, related to the uncertainity principle.
 Space and time emerge following the network of causal connections between quantum objects. So quantum objects are adimensional objects, that precede space and time dimensions: they are simple beings (in greek οντα).
@@ -764,17 +763,6 @@ However, the quantum mereotopology approach is not restricted only to physics. F
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A quantum is the EMMO mereological atomistic and causal reductionistic entity.  To avoid confusion with the concept of atom coming from physics and to underline the causal reductionistic approach, we will use the expression quantum mereology, instead of atomistic mereology."@en ;
                                            skos:prefLabel "Quantum"@en .
 
-_:genid19 rdf:type owl:Restriction ;
-           owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
-           owl:allValuesFrom owl:Nothing .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68 ;
-   owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid19 ;
-   :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This axiom defines the quantum as a mereological atomistic entity, having no proper parts."@en
- ] .
-
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68 ;
    owl:annotatedProperty skos:prefLabel ;
@@ -785,8 +773,8 @@ _:genid19 rdf:type owl:Restriction ;
 
 ###  http://emmo.info/emmo#EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf
 :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf rdf:type owl:Class ;
-                                           rdfs:subClassOf _:genid22 ,
-                                                           _:genid24 ;
+                                           rdfs:subClassOf _:genid20 ,
+                                                           _:genid22 ;
                                            owl:disjointUnionOf ( :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31
                                                                  :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de
                                                                ) ;
@@ -802,11 +790,11 @@ The EMMO conceptualisation does not allow the existence of space without a tempo
 For this reason, the EMMO entities that are not quantum or elementaries, may be considered to be always spatiotemporal. The EMMO poses no constraints to the number of spatial dimensions for a causal system (except being higher than one)."""@en ;
                                            skos:prefLabel "EMMO"@en .
 
-_:genid22 rdf:type owl:Restriction ;
+_:genid20 rdf:type owl:Restriction ;
            owl:onProperty :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
            owl:someValuesFrom :EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68 .
 
-_:genid24 rdf:type owl:Restriction ;
+_:genid22 rdf:type owl:Restriction ;
            owl:onProperty [ owl:inverseOf :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f
                           ] ;
            owl:hasValue :EMMO_08cb807c_e626_447b_863f_e2835540e918 .
@@ -814,14 +802,14 @@ _:genid24 rdf:type owl:Restriction ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid22 ;
+   owl:annotatedTarget _:genid20 ;
    :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Every entity is made of quantum parts. This axiomatisation is the expression of the radical reductionistic approach of the EMMO."@en
  ] .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid24 ;
+   owl:annotatedTarget _:genid22 ;
    :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "All EMMO individuals are part of the most comprehensive entity which is the universe."@en
  ] .
 
@@ -852,21 +840,6 @@ Disjointness means that a collection cannot be an item and viceversa, representi
  ] .
 
 
-###  http://emmo.info/emmo#EMMO_a5b14ff5_d428_4c41_85fa_f3e80866666e
-:EMMO_a5b14ff5_d428_4c41_85fa_f3e80866666e rdf:type owl:Class ;
-                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A causal multipath system is a system made of causal paths that are not interacting between each others, or possibly merge and fork."@en ;
-                                           skos:prefLabel "CausalMultiPathSystem"@en .
-
-
-###  http://emmo.info/emmo#EMMO_a6d8e2e2_5e61_4838_977b_9a5dea421fc1
-:EMMO_a6d8e2e2_5e61_4838_977b_9a5dea421fc1 rdf:type owl:Class ;
-                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """It is natural to define entities made or more than one smaller parts according to some unity criteria. One of the most general one applicable to causal systems is to ask that all the quantum parts of the system are bonded to the rest.
-In other words, causal convexity excludes all quantums that leave the system (no more interacting), or that are not yet part of it (not yet interacting).
-So, a photon leaving a body is not part of the body as convex system, while a photon the is carrier of electromagnetic interaction between two molecular parts of the body, is part of the convex body."""@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A CausalSystem whose quantum parts are all bonded to the rest of the system."@en ;
-                                           skos:prefLabel "CausalConvexSystem"@en .
-
-
 ###  http://emmo.info/emmo#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d
 :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d rdf:type owl:Class ;
                                            owl:disjointUnionOf ( :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360
@@ -895,12 +868,6 @@ The unity criterion beyond the definition of a causal structure (the most genera
    owl:annotatedTarget "CausalStructure"@en ;
    :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin causa (“reason, sake, cause”), and from Latin struere (“arrange, assemble, build”)."@en
  ] .
-
-
-###  http://emmo.info/emmo#EMMO_e5aab4ee_994b_4729_8aec_8c64d87f3cb4
-:EMMO_e5aab4ee_994b_4729_8aec_8c64d87f3cb4 rdf:type owl:Class ;
-                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A causally bonded system is a system in which there are at least two causal paths that are interacting."@en ;
-                                           skos:prefLabel "CausalBondedSystem"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac
