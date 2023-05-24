@@ -6,7 +6,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <http://emmo.info/emmo/perspectives/standardmodel> .
+@base <http://emmo.info/emmo#> .
 
 <http://emmo.info/emmo/perspectives/standardmodel> rdf:type owl:Ontology ;
                                                     owl:versionIRI <http://emmo.info/emmo/1.0.0-beta4/perspectives/standardmodel> ;
@@ -48,6 +48,12 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                                                ) ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Up_quark" ;
                                            skos:prefLabel "UpQuark"@en .
+
+
+###  http://emmo.info/emmo#EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360
+:EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 owl:disjointUnionOf ( :EMMO_7b79b2ac_3cf2_4d3b_8cdc_bcabb59d869e
+                                                                 <http://emmo.info/emmo#5e00b1db_48fc_445b_82e8_ab0e2255bf52>
+                                                               ) .
 
 
 ###  http://emmo.info/emmo#EMMO_124c07b7_38ea_405c_81b1_5c65eee1a41a
@@ -107,7 +113,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
 
 ###  http://emmo.info/emmo#EMMO_1f2bfb9f_ecc6_46a0_9e41_2d6fcbf59e4b
 :EMMO_1f2bfb9f_ecc6_46a0_9e41_2d6fcbf59e4b rdf:type owl:Class ;
-                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A causal collapse is a fundamental causal system that is expressed as a complete bipartite directed graph Kmn, when m>n."@en ;
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A causal collapse is a fundamental interaction that is expressed as a complete bipartite directed graph K(m,n), when m>n."@en ;
                                            skos:prefLabel "CausalCollapse"@en .
 
 
@@ -219,9 +225,9 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """A fundamental physical process is made of one or more standard particles as input, and one or more standard particles as output, where each input is direct cause of each output.
 Each fundamental physical phenomena refers to a Feynman diagram, hence is made at least of three standard model particles.
 This requirement implies that a physical phenomena is either a decay, annihilation, interaction, collapse or creation phenomena (fundamental) or a composition of them (non-fundamental)."""@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causal system that is the represneation of a Feynman diagram."@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A fundamental system is expressed as a complete bipartite directed graph Kmn of quantums, m being the number of originating quantums, and n being the receiving quantums."@en ;
-                                           skos:prefLabel "FundamentalCausalSystem"@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causal system that is the representation of a Feynman diagram, where quantum represents the real particles entering and exiting the system."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A fundamental system is expressed as a complete bipartite directed graph K(m,n) of quantums, m being the number of originating quantums, and n being the receiving quantums."@en ;
+                                           skos:prefLabel "FundamentalInteraction"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_470697b1_a5bd_44b9_b00d_a77c9bcfb066
@@ -265,18 +271,14 @@ This requirement implies that a physical phenomena is either a decay, annihilati
 
 ###  http://emmo.info/emmo#EMMO_50afa1a9_2c4e_40fd_aa93_0e33511f1f27
 :EMMO_50afa1a9_2c4e_40fd_aa93_0e33511f1f27 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_a6d8e2e2_5e61_4838_977b_9a5dea421fc1 ,
-                                                           :EMMO_e5aab4ee_994b_4729_8aec_8c64d87f3cb4 ;
-                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A causal interaction is a fundamental causal system that is expressed as a complete bupartite directed graph Kmn, when m=n."@en ;
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A causal interaction is a fundamental causal system that is expressed as a complete bupartite directed graph K(m,n), when m=n."@en ;
                                            skos:prefLabel "CausalInteraction"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_523f4260_31df_4967_84a6_218fd7d503b1
 :EMMO_523f4260_31df_4967_84a6_218fd7d503b1 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_1f2bfb9f_ecc6_46a0_9e41_2d6fcbf59e4b ,
-                                                           :EMMO_44d3cbc8_e6c3_4654_9f01_2f40a62bda8e ,
-                                                           :EMMO_a5b14ff5_d428_4c41_85fa_f3e80866666e ;
-                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A quantum annihilation is a fundamental causal system that is expressed as a complete bipartite directed graph Km1."@en ;
+                                           rdfs:subClassOf :EMMO_1f2bfb9f_ecc6_46a0_9e41_2d6fcbf59e4b ;
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A quantum annihilation is a fundamental causal system that is expressed as a complete bipartite directed graph K(m,1)."@en ;
                                            skos:prefLabel "QuantumAnnihilation"@en .
 
 
@@ -317,10 +319,8 @@ This requirement implies that a physical phenomena is either a decay, annihilati
 
 ###  http://emmo.info/emmo#EMMO_6fe3d1d5_4107_4a52_b1d0_3b7c4f871159
 :EMMO_6fe3d1d5_4107_4a52_b1d0_3b7c4f871159 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_44d3cbc8_e6c3_4654_9f01_2f40a62bda8e ,
-                                                           :EMMO_a5b14ff5_d428_4c41_85fa_f3e80866666e ,
-                                                           :EMMO_a9891fff_fa7a_4806_b7bd_786de7358e8d ;
-                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A quantum decay is a fundamental causal system that is expressed as a complete bipartite directed graph K1n."@en ;
+                                           rdfs:subClassOf :EMMO_a9891fff_fa7a_4806_b7bd_786de7358e8d ;
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A quantum decay is a fundamental causal system that is expressed as a complete bipartite directed graph K(1,n)."@en ;
                                            skos:prefLabel "QuantumDecay"@en .
 
 
@@ -389,6 +389,24 @@ This requirement implies that a physical phenomena is either a decay, annihilati
                                            skos:prefLabel "FirstGenerationFermion"@en .
 
 
+###  http://emmo.info/emmo#EMMO_7b79b2ac_3cf2_4d3b_8cdc_bcabb59d869e
+:EMMO_7b79b2ac_3cf2_4d3b_8cdc_bcabb59d869e rdf:type owl:Class ;
+                                           owl:disjointUnionOf ( :EMMO_820619ca_b23e_4c7a_8543_18a17722abc0
+                                                                 :EMMO_cafd0f10_ce85_48b9_9a36_2b0af141ce21
+                                                               ) ;
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "An elementary particle is a causal chain of quantum entities of the same type. For example, an elementary electron is a sequence of fundamental electrons only."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A chausal chain whose quantum parts are of the same standard model fundamental type."@en ;
+                                           skos:altLabel "SingleParticleChain"@en ;
+                                           skos:prefLabel "ElementaryParticle"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_7b79b2ac_3cf2_4d3b_8cdc_bcabb59d869e ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "ElementaryParticle"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin elementārius (“elementary”), from elementum (“one of the four elements of antiquity; fundamentals”)."@en
+ ] .
+
+
 ###  http://emmo.info/emmo#EMMO_7db59e56_f68b_48b7_ae99_891c35ae5c3b
 :EMMO_7db59e56_f68b_48b7_ae99_891c35ae5c3b rdf:type owl:Class ;
                                            owl:disjointUnionOf ( :EMMO_299f6949_6bf2_4ee6_9ec7_fd742881fb27
@@ -415,6 +433,10 @@ This requirement implies that a physical phenomena is either a decay, annihilati
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals that stand for electrons elementary particles belonging to the first generation of leptons."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Electron" ;
                                            skos:prefLabel "Electron"@en .
+
+
+###  http://emmo.info/emmo#EMMO_820619ca_b23e_4c7a_8543_18a17722abc0
+:EMMO_820619ca_b23e_4c7a_8543_18a17722abc0 rdf:type owl:Class .
 
 
 ###  http://emmo.info/emmo#EMMO_82d6c4b3_a037_49de_9622_0407af40bdeb
@@ -551,7 +573,7 @@ This requirement implies that a physical phenomena is either a decay, annihilati
 
 ###  http://emmo.info/emmo#EMMO_a9891fff_fa7a_4806_b7bd_786de7358e8d
 :EMMO_a9891fff_fa7a_4806_b7bd_786de7358e8d rdf:type owl:Class ;
-                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A causal expansion is a fundamental causal system that is expressed as a complete bipartite directed graph Kmn, when m<n."@en ;
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A causal expansion is a fundamental causal system that is expressed as a complete bipartite directed graph K(m,n), when m<n."@en ;
                                            skos:prefLabel "CausalExpansion"@en .
 
 
@@ -636,6 +658,10 @@ In the EMMO the virtual particles (off the mass shell), the internal propagators
                                                                  :EMMO_ad6b0980_fa04_4ec3_b033_6aed9f4ed17c
                                                                ) ;
                                            skos:prefLabel "BlueAntiQuark"@en .
+
+
+###  http://emmo.info/emmo#EMMO_cafd0f10_ce85_48b9_9a36_2b0af141ce21
+:EMMO_cafd0f10_ce85_48b9_9a36_2b0af141ce21 rdf:type owl:Class .
 
 
 ###  http://emmo.info/emmo#EMMO_cc741dde_2c7c_46ef_bb66_16a6d12c2a88
@@ -910,4 +936,9 @@ For this reason graviton is an useful concept to homogenize the approach between
                                            skos:prefLabel "GreenAntiQuark"@en .
 
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  http://emmo.info/emmo#5e00b1db_48fc_445b_82e8_ab0e2255bf52
+<http://emmo.info/emmo#5e00b1db_48fc_445b_82e8_ab0e2255bf52> rdf:type owl:Class ;
+                                                             skos:prefLabel "MultiParticlePath"@en .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
