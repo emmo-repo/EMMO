@@ -45,11 +45,11 @@ email: emanuele.ghedini@unibo.it"""@en ,
 
 ###  http://emmo.info/emmo#EMMO_09f0ac34_c349_46b5_acf0_0edeae52cca1
 :EMMO_09f0ac34_c349_46b5_acf0_0edeae52cca1 rdf:type owl:Class ;
-                                           owl:disjointUnionOf ( :EMMO_38b579de_4331_40e0_803d_09efa298e726
-                                                                 :EMMO_5cc4e111_3eb1_44a3_9369_5af3846cf605
+                                           owl:disjointUnionOf ( :EMMO_5cc4e111_3eb1_44a3_9369_5af3846cf605
+                                                                 :b56c3aa6_28e5_4f9b_a4a5_93d8c68e1570
                                                                ) ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causally bonded system is a system in which there are at least thwo causal paths that are interacting."@en ;
-                                           skos:prefLabel "PhysicallyBonded"@en .
+                                           skos:prefLabel "PhysicallyInteracting"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_0b15f4ae_092e_4487_9100_3c44176c545c
@@ -86,7 +86,8 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
 ###  http://emmo.info/emmo#EMMO_0f19d84e_05b4_47c9_a5de_bb2a913d211b
 :EMMO_0f19d84e_05b4_47c9_a5de_bb2a913d211b rdf:type owl:Class ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causal multipath system is a system made of causal paths that are not interacting between each others, or possibly merge and fork."@en ;
-                                           skos:prefLabel "PhysicallyUnbounded"@en .
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A physically unbounded system is a combination of decays and/or annihilations, without any space-like interaction between elementary particles."@en ;
+                                           skos:prefLabel "PhysicallyNonInteracting"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_12a9a254_9791_4a00_b045_f397bc3ab2bc
@@ -179,11 +180,6 @@ Note that the name of a compound may refer to the respective molecular entity or
    owl:annotatedTarget "The subject of condensed matter physics that deals with the macroscopic and microscopic physical properties of matter, especially the solid and liquid phases which arise from electromagnetic forces between atoms. More generally, the subject deals with \"condensed\" phases of matter: systems of many constituents with strong interactions between them."@en ;
    :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Condensed_matter_physics"@en
  ] .
-
-
-###  http://emmo.info/emmo#EMMO_245ec786_f477_4096_bd63_59e02388d2aa
-:EMMO_245ec786_f477_4096_bd63_59e02388d2aa rdf:type owl:Class ;
-                                           skos:prefLabel "HeterogeneousSystem"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_24dda193_ada8_433b_bb74_6ca4a0b89a20
@@ -280,8 +276,8 @@ e.g. you cannot remove H from H₂0 without changing the molecule type (essentia
 
 ###  http://emmo.info/emmo#EMMO_38b579de_4331_40e0_803d_09efa298e726
 :EMMO_38b579de_4331_40e0_803d_09efa298e726 rdf:type owl:Class ;
-                                           owl:disjointUnionOf ( :EMMO_4207e895_8b83_4318_996a_72cfb32acd94
-                                                                 :EMMO_8b1367d6_0133_4b56_acc1_fa8b058169e3
+                                           owl:disjointUnionOf ( :EMMO_8b1367d6_0133_4b56_acc1_fa8b058169e3
+                                                                 <http://emmo.info/emmo#57d977ab_0036_4779_b59a_e47620afdb9c>
                                                                ) ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A CausalSystem whose quantum parts are all bonded to the rest of the system."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """It is natural to define entities made or more than one smaller parts according to some unity criteria. One of the most general one applicable to causal systems is to ask that all the quantum parts of the system are bonded to the rest. 
@@ -323,12 +319,11 @@ So, a photon leaving a body is not part of the body as convex system, while a ph
 
 ###  http://emmo.info/emmo#EMMO_4207e895_8b83_4318_996a_72cfb32acd94
 :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_660a4964_0333_4663_bc66_e93ef59b0679
-                                                                               :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2
-                                                                             )
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_5b2222df_4da6_442f_8244_96e9e45887d1 ;
+                                           rdfs:subClassOf :EMMO_5b2222df_4da6_442f_8244_96e9e45887d1 ,
+                                                           <http://emmo.info/emmo#57d977ab_0036_4779_b59a_e47620afdb9c> ;
+                                           owl:disjointUnionOf ( :EMMO_660a4964_0333_4663_bc66_e93ef59b0679
+                                                                 :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2
+                                                               ) ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A matter individual that stands for a real world object representing an amount of a physical substance (or mixture of substances) in different states of matter or phases."@en ;
                                            rdfs:comment "A instance of a material (e.g. nitrogen) can represent different states of matter. The fact that the individual also belongs to other classes (e.g. Gas) would reveal the actual form in which the material is found."@en ,
                                                         "Material usually means some definite kind, quality, or quantity of matter, especially as intended for use."@en ;
@@ -461,6 +456,7 @@ So, a photon leaving a body is not part of the body as convex system, while a ph
 
 ###  http://emmo.info/emmo#EMMO_5b2222df_4da6_442f_8244_96e9e45887d1
 :EMMO_5b2222df_4da6_442f_8244_96e9e45887d1 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_38b579de_4331_40e0_803d_09efa298e726 ;
                                            owl:disjointUnionOf ( :EMMO_1c16bb7f_5400_4498_8ef2_54392908da4e
                                                                  :EMMO_6e9cb807_fc68_4bcf_b3ba_5fccc887c644
                                                                  :EMMO_f13672a3_59cc_40ed_8def_65009a8f74e6
@@ -556,24 +552,6 @@ The term phase is sometimes used as a synonym for state of matter, but there can
                                            skos:prefLabel "OrdinaryMatter"@en .
 
 
-###  http://emmo.info/emmo#EMMO_70dac51e_bddd_48c2_8a98_7d8395e91fc2
-:EMMO_70dac51e_bddd_48c2_8a98_7d8395e91fc2 rdf:type owl:Class ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An entity that have only real bosons particles."@en ;
-                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Photon scattering."@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """This class does not include the virtual bosons that are responsible of the interactions within a Feynman diagram (internal propagators), and hence do not respect the E²-p²c²=m²c⁴ energy-momentum equality (off the mass shell). 
-In the EMMO the virtual particles are not represented as mereological entities but as object relations (binary predicates)."""@en ,
-                                                                                      """Vacuum in the EMMO is not the absence of particles: vacuum is the absence of matter particles in an entity. In the EMMO there is no such a thing as void, i.e. spatiotemporal regions without entities. In other words there are no entities without particles.
-This assumption negates the existence of a spacetime fabric independent by particles. What we call spacetime is the outcome of particle interactions. Without particles there are no interactions and then no spacetime."""@en ;
-                                           skos:prefLabel "Vacuum"@en .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_70dac51e_bddd_48c2_8a98_7d8395e91fc2 ;
-   owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "Vacuum"@en ;
-   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin vacuus, “empty”."@en
- ] .
-
-
 ###  http://emmo.info/emmo#EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba
 :EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8 ;
@@ -603,25 +581,6 @@ This assumption negates the existence of a spacetime fabric independent by parti
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Particles composed of two or more quarks."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Hadron" ;
                                            skos:prefLabel "Hadron"@en .
-
-
-###  http://emmo.info/emmo#EMMO_7b79b2ac_3cf2_4d3b_8cdc_bcabb59d869e
-:EMMO_7b79b2ac_3cf2_4d3b_8cdc_bcabb59d869e rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 ;
-                                           owl:disjointUnionOf ( :EMMO_820619ca_b23e_4c7a_8543_18a17722abc0
-                                                                 :EMMO_cafd0f10_ce85_48b9_9a36_2b0af141ce21
-                                                               ) ;
-                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "An elementary particle is a causal chain of quantum entities of the same type. For example, an elementary electron is a sequence of fundamental electrons only."@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A chausal chain whose quantum parts are of the same standard model fundamental type."@en ;
-                                           skos:altLabel "SingleParticleChain"@en ;
-                                           skos:prefLabel "ElementaryParticle"@en .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_7b79b2ac_3cf2_4d3b_8cdc_bcabb59d869e ;
-   owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "ElementaryParticle"@en ;
-   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin elementārius (“elementary”), from elementum (“one of the four elements of antiquity; fundamentals”)."@en
- ] .
 
 
 ###  http://emmo.info/emmo#EMMO_820619ca_b23e_4c7a_8543_18a17722abc0
@@ -796,13 +755,6 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
                                            skos:prefLabel "SolidGasSuspension"@en .
 
 
-###  http://emmo.info/emmo#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d
-:EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d owl:disjointUnionOf ( :EMMO_245ec786_f477_4096_bd63_59e02388d2aa
-                                                                 :EMMO_5b2222df_4da6_442f_8244_96e9e45887d1
-                                                                 :EMMO_70dac51e_bddd_48c2_8a98_7d8395e91fc2
-                                                               ) .
-
-
 ###  http://emmo.info/emmo#EMMO_cafd0f10_ce85_48b9_9a36_2b0af141ce21
 :EMMO_cafd0f10_ce85_48b9_9a36_2b0af141ce21 rdf:type owl:Class ;
                                            skos:prefLabel "ElementaryBoson"@en .
@@ -965,6 +917,24 @@ We cannot say that H₂ molecule has direct part two H atoms, but has direct par
 :EMMO_f895cb83_2280_42e9_9f4c_047273e70d3c rdf:type owl:Class ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A meson with spin two."@en ;
                                            skos:prefLabel "TensorMeson"@en .
+
+
+###  http://emmo.info/emmo#b56c3aa6_28e5_4f9b_a4a5_93d8c68e1570
+:b56c3aa6_28e5_4f9b_a4a5_93d8c68e1570 rdf:type owl:Class ;
+                                      owl:disjointUnionOf ( :EMMO_38b579de_4331_40e0_803d_09efa298e726
+                                                            :fdae3f5a_8f8c_4875_a784_5beda43d3009
+                                                          ) ;
+                                      skos:prefLabel "PhysicallyInteractingConvex"@en .
+
+
+###  http://emmo.info/emmo#fdae3f5a_8f8c_4875_a784_5beda43d3009
+:fdae3f5a_8f8c_4875_a784_5beda43d3009 rdf:type owl:Class ;
+                                      skos:prefLabel "PhysicalyUnbonded"@en .
+
+
+###  http://emmo.info/emmo#57d977ab_0036_4779_b59a_e47620afdb9c
+<http://emmo.info/emmo#57d977ab_0036_4779_b59a_e47620afdb9c> rdf:type owl:Class ;
+                                                             skos:prefLabel "Substance"@en .
 
 
 #################################################################
