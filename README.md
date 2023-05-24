@@ -1,6 +1,7 @@
 ![CI tests](https://github.com/emmo-repo/EMMO/workflows/Check%20conventions/badge.svg)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![GitHub release](https://img.shields.io/github/v/release/emmo-repo/emmo)](https://emmo-repo.github.io/)
+[![DOI](https://zenodo.org/badge/189387204.svg)](https://zenodo.org/badge/latestdoi/189387204)
 
 
 
