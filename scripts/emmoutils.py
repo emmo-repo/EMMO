@@ -37,7 +37,7 @@ def get_symbol(unit):
         return unit.unitSymbol.first()
     for r in unit.is_a:
         if (isinstance(r, owlready2.Restriction) and
-            r.property == onto.hasSymbolData):
+            r.property == onto.hasUnitSymbol):
             return r.value
     return None
 

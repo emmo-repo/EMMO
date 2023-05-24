@@ -463,6 +463,9 @@ if False:  # pylint: disable=using-constant-test
             # This doesn't seem to work...
             owlready2.destroy_entity(onto[preflabel])
 
+for unit in pu.classes():
+    unit.is_a.remove(owlready2.Thing)
+
 
 
 # Correct QUDT errors
