@@ -191,7 +191,7 @@ The label of this class was also changed from PhysicsDimension to PhysicalDimens
                                            rdfs:domain :EMMO_f658c301_ce93_46cf_9639_4eace2c5d1d5 ;
                                            rdfs:range :EMMO_4ce76d7f_03f8_45b6_9003_90052a79bfaa ;
                                            rdfs:comment "Relates a quantity to its numerical value through spatial direct parthood."@en ;
-                                           skos:prefLabel "hasNumericalValue"@en .
+                                           skos:prefLabel "hasNumericalPart"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_b8f79e53_2ad4_441d_87ff_284a5c419e46
@@ -209,7 +209,7 @@ The label of this class was also changed from PhysicsDimension to PhysicalDimens
                                            rdfs:range :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Length hasUnit only LengthUnit"@en ;
                                            rdfs:comment "A conventional semiotic relation that relates a physical quantity to its unit."@en ;
-                                           skos:prefLabel "hasUnit"@en .
+                                           skos:prefLabel "hasMeasurementUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4
@@ -227,7 +227,7 @@ The label of this class was also changed from PhysicsDimension to PhysicalDimens
                                            rdfs:domain :EMMO_f658c301_ce93_46cf_9639_4eace2c5d1d5 ;
                                            rdfs:range :EMMO_18ce5200_00f5_45bb_8c6f_6fb128cd41ae ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Relates a quantity to its reference unit through spatial direct parthood."@en ;
-                                           skos:prefLabel "hasExplicitReferenceUnit"@en .
+                                           skos:prefLabel "hasReferencePart"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_fd689787_31b0_41cf_bf03_0d69af76469d
@@ -471,7 +471,6 @@ J stands for N m"""@en ;
 
 ###  http://emmo.info/emmo#EMMO_591e02fd_8d37_45a6_9d11_bb21cef391a0
 :EMMO_591e02fd_8d37_45a6_9d11_bb21cef391a0 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A measurement unit that does not belong to any system of units."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """eV
 barn"""@en ;
@@ -655,6 +654,9 @@ International vocabulary of metrology (VIM)"""@en ;
                                            owl:disjointUnionOf ( :EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0
                                                                  :EMMO_cbdea88b_fef1_4c7c_b69f_ae1f0f241c4a
                                                                ) ,
+                                                               ( :EMMO_591e02fd_8d37_45a6_9d11_bb21cef391a0
+                                                                 <http://emmo.info/emmo#3eb993a1_61ae_4a20_b168_dda853f51c14>
+                                                               ) ,
                                                                ( :EMMO_868ae137_4d25_493e_b270_21ea3d94849e
                                                                  :EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e
                                                                ) ;
@@ -782,6 +784,11 @@ Then I have two different physical quantities that are properties thanks to two 
 
 ###  http://emmo.info/emmo#EMMO_db716151_6b73_45ff_910c_d182fdcbb4f5
 :EMMO_db716151_6b73_45ff_910c_d182fdcbb4f5 rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296
+                                                                            ] ;
+                                                             owl:allValuesFrom :EMMO_acaaa124_3dde_48b6_86e6_6ec6f364f408
+                                                           ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A set of units that correspond to the base quantities in a system of units."@en ;
                                            :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "base unit"@en ;
                                            skos:prefLabel "BaseUnit"@en .
@@ -846,6 +853,11 @@ So, for the EMMO the symbol \"kg\" is not a physical quantity but simply a 'Symb
 
 While the string \"1 kg\" is a 'QuantityValue'."""@en ;
                                            skos:prefLabel "QuantityValue"@en .
+
+
+###  http://emmo.info/emmo#3eb993a1_61ae_4a20_b168_dda853f51c14
+<http://emmo.info/emmo#3eb993a1_61ae_4a20_b168_dda853f51c14> rdf:type owl:Class ;
+                                                             skos:prefLabel "SystemUnit"@en .
 
 
 ###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
