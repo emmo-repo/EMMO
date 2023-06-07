@@ -167,14 +167,14 @@ for qudtunit in ts.subjects(RDF.type, QUDT.Unit):
         if parent == QUDT.ScaledUnit:
             bases.add(onto.PrefixedUnit)
         if parent == QUDT.CountingUnit:
-            bases.add(onto.PureNumberUnit)
+            bases.add(onto.CountingUnit)
         if parent == QUDT.DimensionLessUnit:
             bases.add(onto.DimensionLessUnit)
         if parent == QUDT.LogarithmicUnit:
             bases.add(onto.LogarithmicUnit)
     if not bases:
         bases.add(onto.MeasurementUnit)
-    if onto.PureNumberUnit in bases and onto.UnitOne in bases:
+    if onto.CountingUnit in bases and onto.UnitOne in bases:
         bases.remove(onto.UnitOne)
 
     # Fetch some annotations from QUDT
@@ -463,8 +463,24 @@ if False:  # pylint: disable=using-constant-test
             # This doesn't seem to work...
             owlready2.destroy_entity(onto[preflabel])
 
-for unit in pu.classes():
-    unit.is_a.remove(owlready2.Thing)
+
+# Remove explicit subclassing of owl:Thing for prefixed units
+if False:
+    for unit in pu.classes():
+        if owlready2.Thing in unit.is_a:
+            unit.is_a.remove(owlready2.Thing)
+
+
+# Determine whether units are SI units
+siunits = onto.SIBaseUnit.disjoint_unions[0] + onto.SISpecialUnit.disjoint_unions[0]
+siallowed = set(siunits + ["Per", "Inverse"])
+for unit in onto.classes():
+    label = unit.prefLabel.first()
+    for token in re.findall("[A-Z][a-z0-9_]*", label):
+        if token in siallowed:
+
+    print(label)
+
 
 
 
