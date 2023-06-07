@@ -6,7 +6,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <http://emmo.info/emmo/perspectives/reductionistic> .
+@base <http://emmo.info/emmo#> .
 
 <http://emmo.info/emmo/perspectives/reductionistic> rdf:type owl:Ontology ;
                                                      owl:versionIRI <http://emmo.info/emmo/1.0.0-beta4/perspectives/reductionistic> ;
@@ -42,7 +42,6 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            rdfs:subPropertyOf :EMMO_7efab93d_c8fe_49c7_ba8e_d21d13b38c85 ;
                                            rdf:type owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
-                                           rdfs:domain :EMMO_ee0466e4_780d_4236_8281_ace7ad3fc5d2 ;
                                            rdfs:range :EMMO_504ad89e_dd4a_4fa6_aeb6_15c8ce0cde9b ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that establishes for the whole a univocal tessellation in temporal parts." ;
                                            skos:altLabel "hasTemporalDirectPart"@en ;
@@ -54,7 +53,6 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            rdfs:subPropertyOf :EMMO_7efab93d_c8fe_49c7_ba8e_d21d13b38c85 ;
                                            rdf:type owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
-                                           rdfs:domain :EMMO_ee0466e4_780d_4236_8281_ace7ad3fc5d2 ;
                                            rdfs:range :EMMO_d4c95fa1_5bda_4063_a22d_62c81fcea284 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that establishes for the whole a univocal tessellation in spatio temporal parts." ;
                                            skos:prefLabel "hasJunctionTile"@en .
@@ -73,11 +71,13 @@ email: emanuele.ghedini@unibo.it"""@en ,
 ###  http://emmo.info/emmo#EMMO_7efab93d_c8fe_49c7_ba8e_d21d13b38c85
 :EMMO_7efab93d_c8fe_49c7_ba8e_d21d13b38c85 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_74a75cf1_3418_4244_b43c_b5db94635d42 ;
-                                           rdf:type owl:InverseFunctionalProperty ,
-                                                    owl:AsymmetricProperty ,
+                                           rdf:type owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
+                                           rdfs:domain :EMMO_e12dcfa4-c9f1-4546-9a12-8457c052e6ba ;
+                                           rdfs:range :EMMO_2e46d966-9f14-4673-821e-7c7cf2957926 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A tile that is connected with other tiles with bi-directional causal relations that fall under hasNext (or its inverse) or hasContact."@en ;
-                                           skos:prefLabel "hasWellFormedTile"@en .
+                                           skos:altLabel "hasWellFormedTile"@en ;
+                                           skos:prefLabel "hasSpatioTemporalTile" .
 
 
 ###  http://emmo.info/emmo#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe
@@ -85,7 +85,6 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            rdfs:subPropertyOf :EMMO_7efab93d_c8fe_49c7_ba8e_d21d13b38c85 ;
                                            rdf:type owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
-                                           rdfs:domain :EMMO_ee0466e4_780d_4236_8281_ace7ad3fc5d2 ;
                                            rdfs:range :EMMO_4cf484af_082a_40f5_9f11_930bf4634482 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that establishes for the whole a univocal tessellation in spatial parts." ;
                                            skos:altLabel "hasSpatialDirectPart"@en ;
@@ -95,26 +94,17 @@ email: emanuele.ghedini@unibo.it"""@en ,
 ###  http://emmo.info/emmo#EMMO_c0f48dc6_4a32_4d9a_a956_d68415954a8e
 :EMMO_c0f48dc6_4a32_4d9a_a956_d68415954a8e rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d ;
-                                           rdf:type owl:FunctionalProperty ,
-                                                    owl:AsymmetricProperty ,
+                                           rdf:type owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between the whole and the last direct temporal part of a sequence." ;
                                            skos:altLabel "hasTemporalLast"@en ;
                                            skos:prefLabel "hasEndTile"@en .
 
 
-###  http://emmo.info/emmo#EMMO_ea55b233_f47b_4bcf_98a0_ec1abeb82b81
-:EMMO_ea55b233_f47b_4bcf_98a0_ec1abeb82b81 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_74a75cf1_3418_4244_b43c_b5db94635d42 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A tile that is connected with other tiles with bi-directional causal relations that does not fall under hasNext (or its inverse) or hasContact."@en ;
-                                           skos:prefLabel "hasNonWellFormedTile"@en .
-
-
 ###  http://emmo.info/emmo#EMMO_fe63194f_7c04_4dbd_a244_524b38b6699b
 :EMMO_fe63194f_7c04_4dbd_a244_524b38b6699b rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d ;
-                                           rdf:type owl:FunctionalProperty ,
-                                                    owl:AsymmetricProperty ,
+                                           rdf:type owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between the whole and the first direct temporal part of a sequence." ;
                                            skos:altLabel "hasTemporalFirst"@en ;
@@ -174,8 +164,10 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                                                                :EMMO_fa595892_070d_455e_9459_06c97179c080
                                                                              )
                                                                ] ;
+                                           rdfs:subClassOf :EMMO_9953c19f_ee33_4af8_be5e_dbf6d1e33581 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_22c91e99_61f8_4433_8853_432d44a2a46a ;
-                                           skos:prefLabel "WellFormedTile"@en .
+                                           skos:altLabel "WellFormedTile"@en ;
+                                           skos:prefLabel "SpatioTemporalTile" .
 
 
 ###  http://emmo.info/emmo#EMMO_36c79456_e29c_400d_8bd3_0eedddb82652
@@ -196,16 +188,6 @@ This does not mean that there cannot be a change in the internal structure of th
 :EMMO_4cf484af_082a_40f5_9f11_930bf4634482 rdf:type owl:Class ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A direct part that is obtained by partitioning a whole purely in spatial parts."@en ;
                                            skos:prefLabel "SpatialTile"@en .
-
-
-###  http://emmo.info/emmo#EMMO_4f786965-5b4b-4441-8776-e8cd7435d816
-:EMMO_4f786965-5b4b-4441-8776-e8cd7435d816 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_74a75cf1_3418_4244_b43c_b5db94635d42 ;
-                                                             owl:someValuesFrom :EMMO_d5ba4872-a576-44bf-86c0-eefb3fbbbe7f
-                                                           ] ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A tessellation in which some tiles are non well formed."@en ;
-                                           skos:prefLabel "NonWellFormedTessellation"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_504ad89e_dd4a_4fa6_aeb6_15c8ce0cde9b
@@ -266,11 +248,6 @@ Moreover, due to inverse functionality, a 'State' can be part of only one 'Exist
 
 ###  http://emmo.info/emmo#EMMO_9953c19f_ee33_4af8_be5e_dbf6d1e33581
 :EMMO_9953c19f_ee33_4af8_be5e_dbf6d1e33581 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_2e46d966-9f14-4673-821e-7c7cf2957926
-                                                                               :EMMO_d5ba4872-a576-44bf-86c0-eefb3fbbbe7f
-                                                                             )
-                                                               ] ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
                                                              owl:onProperty [ owl:inverseOf :EMMO_74a75cf1_3418_4244_b43c_b5db94635d42
                                                                             ] ;
@@ -302,14 +279,7 @@ Moreover, due to inverse functionality, a 'State' can be part of only one 'Exist
                                                              owl:someValuesFrom :EMMO_2b1fb71c_0eb0_445c_9be7_fb5d30ae79fd
                                                            ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A direct part that is obtained by partitioning a whole hybridly in spatial, temporal and spatiotemporal parts."@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "https://raw.githubusercontent.com/wiki/emmo-repo/EMMO/junction_tile.png" ;
                                            skos:prefLabel "JunctionTile"@en .
-
-
-###  http://emmo.info/emmo#EMMO_d5ba4872-a576-44bf-86c0-eefb3fbbbe7f
-:EMMO_d5ba4872-a576-44bf-86c0-eefb3fbbbe7f rdf:type owl:Class ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_ad6a320d_6c32_4e0b_9fb8_5a4bf771a6dd ;
-                                           skos:prefLabel "NonWellFormedTile"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_e12dcfa4-c9f1-4546-9a12-8457c052e6ba
@@ -324,8 +294,9 @@ Moreover, due to inverse functionality, a 'State' can be part of only one 'Exist
                                                              owl:onProperty :EMMO_7efab93d_c8fe_49c7_ba8e_d21d13b38c85 ;
                                                              owl:someValuesFrom :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de
                                                            ] ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A tessellation in which all tiles are well formed."@en ;
-                                           skos:prefLabel "WellFormedTessellation"@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A tessellation in which all tiles are connected through spatiotemporal relations hasNext or contacts."@en ;
+                                           skos:altLabel "WellFormedTessellation"@en ;
+                                           skos:prefLabel "SpatioTemporalTessellation" .
 
 
 ###  http://emmo.info/emmo#EMMO_edf72228_e040_4edc_8b46_78b2a47c72d7
@@ -337,11 +308,6 @@ Moreover, due to inverse functionality, a 'State' can be part of only one 'Exist
 
 ###  http://emmo.info/emmo#EMMO_ee0466e4_780d_4236_8281_ace7ad3fc5d2
 :EMMO_ee0466e4_780d_4236_8281_ace7ad3fc5d2 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_4f786965-5b4b-4441-8776-e8cd7435d816
-                                                                               :EMMO_e12dcfa4-c9f1-4546-9a12-8457c052e6ba
-                                                                             )
-                                                               ] ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_74a75cf1_3418_4244_b43c_b5db94635d42 ;
                                                              owl:someValuesFrom :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de
@@ -434,4 +400,4 @@ Moreover, due to inverse functionality, a 'State' can be part of only one 'Exist
                                          ]
  ] .
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
