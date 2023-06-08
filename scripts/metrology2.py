@@ -32,7 +32,8 @@ from emmoutils import (
     en, as_preflabel, dimension_string, get_symbol, latex2text, htmlstrip,
     remove_python_name, replace, set_turtle_prefix, get_metricprefix_value,
     get_siconversion_multiplier, get_siconversion_offset,
-    has_siconversion_multiplier, has_siconversion_offset
+    has_siconversion_multiplier, has_siconversion_offset,
+    add_is_a, del_is_a,
 )
 
 
@@ -122,7 +123,10 @@ siunits = set(
     u.prefLabel.first() for u in
     onto.SIBaseUnit.disjoint_unions[0] + onto.SISpecialUnit.disjoint_unions[0]
 )
-
+prefixed_units = tuple(
+    onto.SIMultipleUnit.disjoint_unions[0] +
+    onto.SISubMultipleUnit.disjoint_unions[0]
+)
 
 
 # Correct preflabels
@@ -199,24 +203,42 @@ if True:  # pylint: disable=using-constant-test
                     print(f"*** unknown: {preflabel}: {token}")
                 break
 
-        print(f"--- {preflabel}: {known=}, {prefixed=}, {coherent=}, {mult=}")
+        #print(f"--- {preflabel}: {known=}, {prefixed=}, {coherent=}, {mult=}")
 
         if known:
             if not has_siconversion_multiplier(unit):
                 unit.is_a.append(onto.hasSIConversionMultiplier.value(mult))
 
-                if not has_siconversion_offset(unit):
-                    unit.is_a.append(onto.hasSIConversionOffset.value(0.0))
+            if not has_siconversion_offset(unit):
+                unit.is_a.append(onto.hasSIConversionOffset.value(0.0))
 
-        #hasMult = hasOff = False
-        #for r in unit.is_a:
-        #    if isinstance(r, owlready2.Restriction):
-        #        if r.property == onto.hasSIConversionMultiplier:
-        #            hasMult = True
-        #        if r.property == onto.hasSIConversionOffset:
-        #            hasOff = True
-        #if not hasMult or not hasOff:
-        #    print("*x*", preflabel, hasMult, hasOff)
+            if coherent:
+                if len(tokens) == 1:
+                    #add_is_a(unit, onto.SIUnitSymbol)
+                    print(f"--- UnitSymbol: {preflabel}")
+                else:
+                    #add_is_a(unit, onto.SICoherentDerivedUnit)
+                    print(f"--- Derived: {preflabel}")
+                #del_is_a(unit, onto.SINonCoherentUnit)
+            else:
+                pass
+                #add_is_a(unit, onto.SINonCoherentUnit)
+                #del_is_a(unit, onto.SIUnitSymbol)
+                #del_is_a(unit, onto.SICoherentDerivedUnit)
+                #del_is_a(unit, onto.SICoherentUnit)
+
+            if prefixed:
+                if not issubclass(unit, prefixed_units):
+                    #add_is_a(unit, onto.SINonPrefixedUnit)
+                    print("=== help needed:", unit)
+        else:
+            pass
+            #add_is_a(unit, onto.NonSIUnit)
+            #del_is_a(unit, onto.SIUnit)
+            #del_is_a(unit, onto.SINonCoherentUnit)
+            #del_is_a(unit, onto.SIUnitSymbol)
+            #del_is_a(unit, onto.SICoherentDerivedUnit)
+            #del_is_a(unit, onto.SICoherentUnit)
 
 
 # Save ontologies

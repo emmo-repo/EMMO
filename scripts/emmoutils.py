@@ -327,3 +327,15 @@ def has_siconversion_offset(unit):
             r.property == onto.hasSIConversionOffset):
             return True
     return False
+
+
+def add_is_a(cls, r):
+    """Add restriction `r` to class `cls` (if it doesn't already exists)."""
+    if r not in cls.is_a:
+        cls.is_a.append(r)
+
+
+def del_is_a(cls, r):
+    """Remove restriction `r` from class `cls` (if it exists)."""
+    if r in cls.is_a:
+        cls.is_a.remove(r)
