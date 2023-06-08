@@ -277,6 +277,7 @@ def replace(filename, replacements):
 
 def get_metricprefix_value(prefix):
     """Returns the numerical value of a metric prefix."""
+    onto = prefix.namespace.ontology
     for r in prefix.is_a:
         if (isinstance(r, owlready2.Restriction) and
             r.property == onto.hasNumericalValue):
@@ -286,8 +287,29 @@ def get_metricprefix_value(prefix):
 
 def get_siconversion_multiplier(unit):
     """Returns the SI conversion multiplier of the given unit."""
+    onto = unit.namespace.ontology
     for r in unit.is_a:
         if (isinstance(r, owlready2.Restriction) and
             r.property == onto.hasSIConversionMultiplier):
             return r.value
     raise TypeError(f"missing SI conversion multiplier: {unit}")
+
+
+def has_siconversion_multiplier(unit):
+    """Returns whether a a SI conversion multiplier is defined for the unit."""
+    onto = unit.namespace.ontology
+    for r in unit.is_a:
+        if (isinstance(r, owlready2.Restriction) and
+            r.property == onto.hasSIConversionMultiplier):
+            return True
+    return False
+
+
+def has_siconversion_offset(unit):
+    """Returns whether a a SI conversion offset is defined for the unit."""
+    onto = unit.namespace.ontology
+    for r in unit.is_a:
+        if (isinstance(r, owlready2.Restriction) and
+            r.property == onto.hasSIConversionOffset):
+            return True
+    return False

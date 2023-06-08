@@ -31,7 +31,7 @@ from tripper import DCTERMS, EMMO, OWL, RDF, RDFS, XSD
 from emmoutils import (
     en, as_preflabel, dimension_string, get_symbol, latex2text, htmlstrip,
     remove_python_name, replace, set_turtle_prefix, get_metricprefix_value,
-    get_siconversion_multiplier
+    get_siconversion_multiplier, has_siconversion_multiplier, has_siconversion_offset
 )
 
 
@@ -88,7 +88,7 @@ else:
     ts.serialize(qudtcache)
 
 
-
+onto = onto_pu
 
 # Create namespaces
 QUDT = ts.bind("qudt", "http://qudt.org/schema/qudt/")
@@ -99,13 +99,24 @@ units = {
     u: u.qudtReference for u in onto_pu.classes(imported=True)
     if u.qudtReference
 }
+exclude = [
+    onto.Quantity,
+    onto.DimensionlessUnit,
+    onto.UnitOne,
+    onto.LogarithmicUnit,
+    onto.CountingUnit,
+]
+for u in exclude:
+    del units[u]
+
+
 # Maps preflabel to unit
 preflabels = {u.prefLabel.first(): u for u in units}
 
 
-onto = onto_pu
 corrected_preflabels = metrology_data["corrected_preflabels"]
 prefixes = metrology_data["prefixes"]
+metric_prefixes = set(onto[p] for p in orefixes)
 siunits = set(
     u.prefLabel.first() for u in
     onto.SIBaseUnit.disjoint_unions[0] + onto.SISpecialUnit.disjoint_unions[0]
@@ -120,6 +131,13 @@ if True:  # pylint: disable=using-constant-test
     for unit in units:
         preflabel = unit.prefLabel.first()
         unit.prefLabel = en(preflabel)
+        if preflabel.startswith((
+                "Cal_", "Bu_", "Btu", "Bbl_", "Gi_", "M2_",
+                 "Oz_", "Pk_", "Qt_", "Ton_"
+        )):
+            continue
+        if unit in siunits:
+            continue
         prefixed = False
         coherent = True
 
@@ -134,7 +152,7 @@ if True:  # pylint: disable=using-constant-test
                 coherent = False
                 prefix = onto[token]
                 mult *= inv * get_metricprefix_value(prefix)
-            elif token in {"Per", "Inverse", "Resiprocal"}:
+            elif token in {"Per", "Inverse", "Reciprocal"}:
                 inv = -1
             elif token == "Square":
                 u = onto[tokens[i+1]]
@@ -150,10 +168,13 @@ if True:  # pylint: disable=using-constant-test
                 mult *= inv * get_siconversion_multiplier(u)
 
         if not has_siconversion_multiplier(unit):
-            unit.hasSIConversionMultiplier.value(mult)
+            unit.is_a.append(onto.hasSIConversionMultiplier.value(mult))
 
         if not has_siconversion_offset(unit):
-            unit.hasSIConversionOffset.value(0.0)
+            unit.is_a.append(onto.hasSIConversionOffset.value(0.0))
+
+        print("*** {preflabel}: {prefixed=}, {coherent=}, {mult=}")
+
 
         hasMult = hasOff = False
         for r in unit.is_a:
@@ -163,7 +184,7 @@ if True:  # pylint: disable=using-constant-test
                 if r.property == onto.hasSIConversionOffset:
                     hasOff = True
         if not hasMult or not hasOff:
-            print("***", preflabel, hasMult, hasOff)
+            print("*x*", preflabel, hasMult, hasOff)
 
 
 # Save ontologies
