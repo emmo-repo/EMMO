@@ -30,7 +30,8 @@ from tripper import DCTERMS, EMMO, OWL, RDF, RDFS, XSD
 
 from emmoutils import (
     en, as_preflabel, dimension_string, get_symbol, latex2text, htmlstrip,
-    remove_python_name, replace, set_turtle_prefix
+    remove_python_name, replace, set_turtle_prefix, get_metricprefix_value,
+    get_siconversion_multiplier
 )
 
 
@@ -93,11 +94,14 @@ else:
 QUDT = ts.bind("qudt", "http://qudt.org/schema/qudt/")
 UNIT = ts.bind("unit", "http://qudt.org/vocab/unit/")
 
-# All units
+# Maps unit to QUDT reference
 units = {
     u: u.qudtReference for u in onto_pu.classes(imported=True)
     if u.qudtReference
 }
+# Maps preflabel to unit
+preflabels = {u.prefLabel.first(): u for u in units}
+
 
 onto = onto_pu
 corrected_preflabels = metrology_data["corrected_preflabels"]
@@ -108,26 +112,58 @@ siunits = set(
 )
 
 
+
 # Correct preflabels
 # Each component should start with a big case.
 # Trailing "s"'s after a prefixed unit are removed.
 if True:  # pylint: disable=using-constant-test
     for unit in units:
         preflabel = unit.prefLabel.first()
+        unit.prefLabel = en(preflabel)
         prefixed = False
         coherent = True
 
         tokens = re.findall("[A-ZÅ][a-zö0-9_]*", preflabel)
-        for token in tokens:
-            if token in prefixes:
+        inv = 1
+        mult = 1.0
+        for i, token in enumerate(tokens):
+            if token in siunits:
+                pass
+            elif token in prefixes:
                 prefixed = True
                 coherent = False
-            elif token in siunits.union(("Per", "Inverse", "Resiprocal", "Square", "Cube")):
-                pass
+                prefix = onto[token]
+                mult *= inv * get_metricprefix_value(prefix)
+            elif token in {"Per", "Inverse", "Resiprocal"}:
+                inv = -1
+            elif token == "Square":
+                u = onto[tokens[i+1]]
+                mult *= inv * get_siconversion_multiplier(u)
+            elif token == "Cube":
+                u = onto[tokens[i+1]]
+                mult *= inv * get_siconversion_multiplier(u)**2
+            elif token == "Squared":
+                print("Unexpected unit token '{token}' in '{preflabel}'")
             else:
                 coherent = False
-                if token == "Mol":
-                    print("***", token, preflabel)
+                u = onto[token]
+                mult *= inv * get_siconversion_multiplier(u)
+
+        if not has_siconversion_multiplier(unit):
+            unit.hasSIConversionMultiplier.value(mult)
+
+        if not has_siconversion_offset(unit):
+            unit.hasSIConversionOffset.value(0.0)
+
+        hasMult = hasOff = False
+        for r in unit.is_a:
+            if isinstance(r, owlready2.Restriction):
+                if r.property == onto.hasSIConversionMultiplier:
+                    hasMult = True
+                if r.property == onto.hasSIConversionOffset:
+                    hasOff = True
+        if not hasMult or not hasOff:
+            print("***", preflabel, hasMult, hasOff)
 
 
 # Save ontologies

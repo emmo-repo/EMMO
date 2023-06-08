@@ -273,3 +273,21 @@ def replace(filename, replacements):
             for k, v in replacements.items():
                 line = re.sub(k, v, line)
             f.write(line)
+
+
+def get_metricprefix_value(prefix):
+    """Returns the numerical value of a metric prefix."""
+    for r in prefix.is_a:
+        if (isinstance(r, owlready2.Restriction) and
+            r.property == onto.hasNumericalValue):
+            return r.value
+    raise TypeError(f"not a metric prefix: {prefix}")
+
+
+def get_siconversion_multiplier(unit):
+    """Returns the SI conversion multiplier of the given unit."""
+    for r in unit.is_a:
+        if (isinstance(r, owlready2.Restriction) and
+            r.property == onto.hasSIConversionMultiplier):
+            return r.value
+    raise TypeError(f"missing SI conversion multiplier: {unit}")
