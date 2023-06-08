@@ -38,6 +38,7 @@ disciplinesdir = thisdir.parent / "disciplines"
 
 # Corrected preflabels. Maps QUDT label to correct prefLabel
 corrected_preflabels = {
+    "Milliw": "MilliWatt",
     "MilliW": "MilliWatt",
     "MicroM3": "CubicMicroMetre",
     "Angstrom": "Ångström",
@@ -46,6 +47,8 @@ corrected_preflabels = {
     "Kilopond": "KiloPond",
     "CubicCentimeterPerMoleSecond": "CubicCentiMetrePerMoleSecond",
     "PicofaradPerMetre": "PicoFaradPerMetre",
+    "pH": "pH",
+    "Decare": "Decare",
 }
 
 # Corrected symbols that are wrong in QUDT...
@@ -321,13 +324,14 @@ for unit in units.values():
 
 # QUDT marks some prefixed units as derived units. Ex: AttoCoulomb.
 # Remove such inconsistencies!
-for unit in onto.DerivedUnit.descendants():
-    if onto.DerivedUnit in unit.is_a:
-        for r in unit.is_a:
-            if r in (onto.SINonCoherentUnit, onto.PrefixedUnit):
-                info(f"fix QUDT inconsistency, make non-derived unit: {unit}")
-                unit.is_a.remove(onto.DerivedUnit)
-                break
+if False:
+    for unit in onto.DerivedUnit.descendants():
+        if onto.DerivedUnit in unit.is_a:
+            for r in unit.is_a:
+                if r in (onto.SINonCoherentUnit, onto.PrefixedUnit):
+                    info(f"fix QUDT inconsistency, make non-derived unit: {unit}")
+                    unit.is_a.remove(onto.DerivedUnit)
+                    break
 
 
 # Add deprecated classes with old IRIs - moved to separate ontology
@@ -341,17 +345,19 @@ if False:  # pylint: disable=using-constant-test
             new.isReplacedBy.append(onto[preflabel].iri)
 
 
-# Correct preflabels -- should not be needed any more...
+# Correct preflabels
 # Each component should start with a big case.
 # Trailing "s"'s after a prefixed unit are removed.
-if False:  # pylint: disable=using-constant-test
-    for unit in units.values():
+if True:  # pylint: disable=using-constant-test
+    #for unit in units.values():
+    for unit in onto.classes():
         prefLabel = unit.prefLabel.first()
         if prefLabel in {"Ångström", }:
             continue
-        unit.prefLabel.clear()
+        #unit.prefLabel.clear()
         if prefLabel in corrected_preflabels:
             unit.name = corrected_preflabels[prefLabel]
+            unit.prefLabel.clear()
             unit.prefLabel.append(en(corrected_preflabels[prefLabel]))
         else:
             newlabel = []
@@ -369,7 +375,10 @@ if False:  # pylint: disable=using-constant-test
                     newlabel.append(s)
             label = "".join(newlabel)
             unit.name = label
+            #unit.prefLabel.clear()
             unit.prefLabel.append(en(label))
+            if label != prefLabel:
+                print(f"*** {prefLabel} --> {label}")
 
 
 # Add description with citations - should not be needed any more...
@@ -476,10 +485,18 @@ siunits = onto.SIBaseUnit.disjoint_unions[0] + onto.SISpecialUnit.disjoint_union
 siallowed = set(siunits + ["Per", "Inverse"])
 for unit in onto.classes():
     label = unit.prefLabel.first()
-    for token in re.findall("[A-Z][a-z0-9_]*", label):
-        if token in siallowed:
+    tokens = re.findall("[A-ZÅ][a-zö0-9_]*", label)
+    is_prefixed = tokens[0] in prefixes
+    is_coherent = True
+    is_si = True
+    for token in tokens:
+        if token in prefixes:
+            si_coherent = False
+        elif token not in siallowed:
+            is_si = False
 
-    print(label)
+
+    #print(label)
 
 
 
