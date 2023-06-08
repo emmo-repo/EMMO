@@ -17,18 +17,19 @@
 
 This module provides a connection between physical quantities defined in the 'isq' modules and the units defined in the 'siunits' and 'unitsextension' modules."""@en ;
                                                         dcterms:contributor "Frabcesca L. Bleken, SINTEF (NO)" ,
-                                                                            "Francesco A. Zaccarini, University of Bologna (IT)" ,
-                                                                            "Gerhard Goldbeck, Boldbeck Consulting Ltd (UK)" ,
-                                                                            "Ilaria Maria Paponetti, University of Bologna (IT)" ,
-                                                                            "Simon Clark, SINTEF (NO)" ;
+                                                                         "Francesco A. Zaccarini, University of Bologna (IT)" ,
+                                                                         "Gerhard Goldbeck, Boldbeck Consulting Ltd (UK)" ,
+                                                                         "Ilaria Maria Paponetti, University of Bologna (IT)" ,
+                                                                         "Simon Clark, SINTEF (NO)" ;
                                                         dcterms:creator "Emanuele Ghedini, University of Bologna (IT)" ,
-                                                                        "Jesper Friis, SINTEF (NO)" ;
+                                                                     "Jesper Friis, SINTEF (NO)" ;
                                                         dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                                         dcterms:publisher "EMMC ASBL" ;
                                                         dcterms:title "SI dimensional units"@en ;
                                                         rdfs:comment "Note: this file has automatically been populated with dimensional units from QUDT."@en ,
                                                                      "The EMMO should be reasoned with HermiT to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
                                                         owl:versionInfo "1.0.0-beta4" .
+
 
 #################################################################
 #    Data properties
@@ -38,6 +39,7 @@ This module provides a connection between physical quantities defined in the 'is
 emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 rdf:type owl:DatatypeProperty ;
                                                rdfs:range xsd:string ;
                                                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Relates a SI dimensional unit to a dimension string."@en ;
+                                               <http://www.lesfleursdunormal.fr/static/_downloads/owlready_ontology.owl#python_name> "hasDimensionString"@en ;
                                                skos:prefLabel "hasDimensionString"@en .
 
 
@@ -83,6 +85,16 @@ emmo:EMMO_02e894c3_b793_4197_b120_3442e08f58d1 rdf:type owl:Class ;
                                                                    ] ;
                                                rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
                                                skos:prefLabel "TimeUnit"@en .
+
+
+###  http://emmo.info/emmo#EMMO_044f83a6-ade4-4441-9c73-5490dd93344f
+emmo:EMMO_044f83a6-ade4-4441-9c73-5490dd93344f rdf:type owl:Class ;
+                                               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
+                                                                     owl:hasValue "T+3 L-2 M-1 I0 Θ0 N0 J+1"
+                                                                   ] ;
+                                               rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                               skos:prefLabel "LuminousEfficacyUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_052e9796_1144_43ae_a798_c5755cd6cd81
@@ -711,6 +723,16 @@ emmo:EMMO_501f9b3a_c469_48f7_9281_2e6a8d805d7a rdf:type owl:Class ;
                                                                    ] ;
                                                rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
                                                skos:prefLabel "AngularMomentumUnit"@en .
+
+
+###  http://emmo.info/emmo#EMMO_5073dc80-aec2-4a3b-8057-fababfcbfe11
+emmo:EMMO_5073dc80-aec2-4a3b-8057-fababfcbfe11 rdf:type owl:Class ;
+                                               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
+                                                                     owl:hasValue "T-2 L+3 M+1 I-1 Θ0 N0 J0"
+                                                                   ] ;
+                                               rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                               skos:prefLabel "MagneticDipoleMomentUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_515b5579_d526_4842_9e6f_ecc34db6f368
