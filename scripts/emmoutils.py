@@ -42,62 +42,38 @@ def get_symbol(unit):
     return None
 
 
-# def fix_preflabel(label, prefixes, corrected_preflabels=None):
-#     """Convert `label` to a valid prefLabel.
-#     Each component will start with a big case.
-#     Trailing "s"'s after a prefixed unit are removed.
-#
-#     Arguments:
-#         label: Label to convert.
-#         prefixes: Dict mapping prefix names to corresponding symbol.
-#             Ex: {"Kilo": "k", ...}
-#         corrected_preflabels: Optional dict for handling special cases.
-#             It should map `label` to correct preflabel.
-#
-#     Returns:
-#         Valid prefLabel.
-#     """
-#     if corrected_preflabels and label in corrected_preflabels:
-#         return corrected_preflabels[label]
-#
-#     newlabel = []
-#     for s in re.findall("[A-Z][a-z0-9_]*", label):
-#         for prefix in prefixes.keys():
-#             if s.startswith(prefix):
-#                 newlabel.append(prefix)
-#                 s = s[len(prefix):].title()
-#                 break
-#         if s in onto:
-#             newlabel.append(s)
-#         elif s.endswith("s") and s[:-1] in onto:
-#             newlabel.append(s[:-1])
-#         else:
-#             newlabel.append(s)
-#     return "".join(newlabel)
+def fix_preflabel(label, onto, prefixes, corrected_preflabels=None):
+    """Convert `label` to a valid prefLabel.
+    Each component will start with a big case.
+    Trailing "s"'s after a prefixed unit are removed.
 
+    Arguments:
+        label: Label to convert.
+        onto: Ontology to look for unit components in.
+        prefixes: Dict mapping prefix names to corresponding symbol.
+            Ex: {"Kilo": "k", ...}
+        corrected_preflabels: Optional dict for handling special cases.
+            It should map `label` to correct preflabel.
 
-    for unit in units.values():
-        prefLabel = unit.prefLabel.first()
-        if prefLabel in {"Ångström", }:
-            continue
-        unit.prefLabel.clear()
-        if prefLabel in corrected_preflabels:
-            unit.prefLabel = [en(corrected_preflabels[prefLabel])]
+    Returns:
+        Valid prefLabel.
+    """
+    if corrected_preflabels and label in corrected_preflabels:
+        return corrected_preflabels[label]
+    newlabel = []
+    for s in re.findall("[A-ZÅ][a-zö0-9_]*", label):
+        for prefix in prefixes.keys():
+            if s.startswith(prefix):
+                newlabel.append(prefix)
+                s = s[len(prefix):].title()
+                break
+        if s in onto:
+            newlabel.append(onto[s].prefLabel.first())
+        elif s.endswith("s") and s[:-1] in onto:
+            newlabel.append(onto[s[:-1]].prefLabel.first())
         else:
-            newlabel = []
-            for s in re.findall("[A-Z][a-z0-9_]*", prefLabel):
-                for prefix in prefixes.keys():
-                    if s.startswith(prefix):
-                        newlabel.append(prefix)
-                        s = s[len(prefix):].title()
-                        break
-                if s in onto:
-                    newlabel.append(s)
-                elif s.endswith("s") and s[:-1] in onto:
-                    newlabel.append(s[:-1])
-                else:
-                    newlabel.append(s)
-            unit.prefLabel = [en("".join(newlabel))]
+            newlabel.append(s)
+    return "".join(newlabel)
 
 
 def latex2text(latex):
@@ -281,4 +257,19 @@ def set_turtle_prefix(filename, prefix, base=None):
         elif base is None and base1:
             f.write(f"@base <{base1}> .\n")
         for line in lines[i:]:
+            f.write(line)
+
+
+def replace(filename, replacements):
+    """For the given filename, replace each occurence of `replacements`
+    keys with corresponding values.
+
+    """
+    with open(filename, "rt", encoding="utf-8") as f:
+        lines = f.readlines()
+
+    with open(filename, "wt", encoding="utf-8") as f:
+        for line in lines:
+            for k, v in replacements.items():
+                line = line.replace(k, v)
             f.write(line)

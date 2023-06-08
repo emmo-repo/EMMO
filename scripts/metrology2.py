@@ -30,7 +30,7 @@ from tripper import DCTERMS, EMMO, OWL, RDF, RDFS, XSD
 
 from emmoutils import (
     en, as_preflabel, dimension_string, get_symbol, latex2text, htmlstrip,
-    remove_python_name, set_turtle_prefix
+    remove_python_name, replace, set_turtle_prefix
 )
 
 
@@ -69,6 +69,8 @@ onto_pu = world.get_ontology(
     disciplinesdir / "prefixedunits.ttl"
 ).load()
 
+skos = world['http://www.w3.org/2004/02/skos/core#prefLabel'].namespace
+skos.prefix = "skos"
 onto_pu.sync_python_names()
 
 
@@ -97,22 +99,45 @@ units = {
     if u.qudtReference
 }
 
+corrected_preflabels = metrology_data["corrected_preflabels"]
+prefixes = metrology_data["prefixes"]
 
+
+# Correct preflabels
+# Each component should start with a big case.
+# Trailing "s"'s after a prefixed unit are removed.
+if True:  # pylint: disable=using-constant-test
+    onto = onto_pu
+    for unit in units:
+        preflabel = unit.prefLabel.first()
+        tokens = re.findall("[A-ZÅ][a-zö0-9_]*", preflabel)
+        prefixed = False
+        coherent = False
+        prefixed = False
 
 
 
 # Save ontologies
 # ---------------
-#remove_python_name(onto_du)
 info("saving ontologies...")
+remove_python_name(onto_du)
+
 onto_du.save(disciplinesdir / "sidimensionalunits.ttl", format="turtle", overwrite=True)
+onto_ue.save(disciplinesdir / "unitsextension.ttl", format="turtle", overwrite=True)
 onto_pu.save(disciplinesdir / "prefixedunits.ttl", format="turtle", overwrite=True)
-onto_ue.save(disciplinesdir / f"unitsextension.ttl", format="turtle", overwrite=True)
 
+set_turtle_prefix(disciplinesdir / "sidimensionalunits.ttl", EMMO,
+                  EMMO / "disciplines/sidimensionalunits")
+set_turtle_prefix(disciplinesdir / "unitsextension.ttl", EMMO,
+                  EMMO / "disciplines/unitsextension")
+set_turtle_prefix(disciplinesdir / "prefixedunits.ttl", EMMO,
+                  EMMO / "disciplines/prefixedunits")
 
-set_turtle_prefix(disciplinesdir / "sidimensionalunits.ttl", EMMO, EMMO)
-set_turtle_prefix(disciplinesdir / "prefixedunits.ttl", EMMO, EMMO)
-set_turtle_prefix(disciplinesdir / "unitsextension.ttl", EMMO, EMMO)
+# Correct prefixes
+prefixfix = {"core:": "skos:", "term:": "dcterms:"}
+replace(disciplinesdir / "sidimensionalunits.ttl", prefixfix)
+replace(disciplinesdir / "unitsextension.ttl", prefixfix)
+replace(disciplinesdir / "prefixedunits.ttl", prefixfix)
 
 
 # Replace all owl:hasValue from decimal to xsd:double
