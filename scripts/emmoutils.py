@@ -271,5 +271,5 @@ def replace(filename, replacements):
     with open(filename, "wt", encoding="utf-8") as f:
         for line in lines:
             for k, v in replacements.items():
-                line = line.replace(k, v)
+                line = re.sub(k, v, line)
             f.write(line)

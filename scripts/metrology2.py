@@ -99,22 +99,35 @@ units = {
     if u.qudtReference
 }
 
+onto = onto_pu
 corrected_preflabels = metrology_data["corrected_preflabels"]
 prefixes = metrology_data["prefixes"]
+siunits = set(
+    u.prefLabel.first() for u in
+    onto.SIBaseUnit.disjoint_unions[0] + onto.SISpecialUnit.disjoint_unions[0]
+)
 
 
 # Correct preflabels
 # Each component should start with a big case.
 # Trailing "s"'s after a prefixed unit are removed.
 if True:  # pylint: disable=using-constant-test
-    onto = onto_pu
     for unit in units:
         preflabel = unit.prefLabel.first()
-        tokens = re.findall("[A-ZÅ][a-zö0-9_]*", preflabel)
         prefixed = False
-        coherent = False
-        prefixed = False
+        coherent = True
 
+        tokens = re.findall("[A-ZÅ][a-zö0-9_]*", preflabel)
+        for token in tokens:
+            if token in prefixes:
+                prefixed = True
+                coherent = False
+            elif token in siunits.union(("Per", "Inverse", "Resiprocal", "Square", "Cube")):
+                pass
+            else:
+                coherent = False
+                if token == "Mol":
+                    print("***", token, preflabel)
 
 
 # Save ontologies
@@ -138,19 +151,3 @@ prefixfix = {"core:": "skos:", "term:": "dcterms:"}
 replace(disciplinesdir / "sidimensionalunits.ttl", prefixfix)
 replace(disciplinesdir / "unitsextension.ttl", prefixfix)
 replace(disciplinesdir / "prefixedunits.ttl", prefixfix)
-
-
-# Replace all owl:hasValue from decimal to xsd:double
-if False:
-    with open(disciplinesdir / "unitsextension.ttl", "rt") as f:
-        lines = [
-            re.sub(
-                r"owl:hasValue +([0-9.]+)(\s|$)",
-                r'owl:hasValue "\1"^^xsd:double ',
-                line
-            ) for line in f
-        ]
-
-    with open(disciplinesdir / "unitsextension.ttl", "wt") as f:
-        for line in lines:
-            f.write(line)
