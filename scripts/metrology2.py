@@ -31,7 +31,8 @@ from tripper import DCTERMS, EMMO, OWL, RDF, RDFS, XSD
 from emmoutils import (
     en, as_preflabel, dimension_string, get_symbol, latex2text, htmlstrip,
     remove_python_name, replace, set_turtle_prefix, get_metricprefix_value,
-    get_siconversion_multiplier, has_siconversion_multiplier, has_siconversion_offset
+    get_siconversion_multiplier, get_siconversion_offset,
+    has_siconversion_multiplier, has_siconversion_offset
 )
 
 
@@ -116,7 +117,7 @@ preflabels = {u.prefLabel.first(): u for u in units}
 
 corrected_preflabels = metrology_data["corrected_preflabels"]
 prefixes = metrology_data["prefixes"]
-metric_prefixes = set(onto[p] for p in orefixes)
+metric_prefixes = {onto[p]: get_metricprefix_value(onto[p]) for p in prefixes}
 siunits = set(
     u.prefLabel.first() for u in
     onto.SIBaseUnit.disjoint_unions[0] + onto.SISpecialUnit.disjoint_unions[0]
@@ -133,17 +134,18 @@ if True:  # pylint: disable=using-constant-test
         unit.prefLabel = en(preflabel)
         if preflabel.startswith((
                 "Cal_", "Bu_", "Btu", "Bbl_", "Gi_", "M2_",
-                 "Oz_", "Pk_", "Qt_", "Ton_"
+                 "Oz_", "Pk_", "Qt_", "Ton_", "W_M2",
         )):
             continue
-        if unit in siunits:
+        if unit in siunits or unit in metric_prefixes:
             continue
         prefixed = False
         coherent = True
 
         tokens = re.findall("[A-ZÅ][a-zö0-9_]*", preflabel)
-        inv = 1
+        power = 1
         mult = 1.0
+        known = True
         for i, token in enumerate(tokens):
             if token in siunits:
                 pass
@@ -151,40 +153,70 @@ if True:  # pylint: disable=using-constant-test
                 prefixed = True
                 coherent = False
                 prefix = onto[token]
-                mult *= inv * get_metricprefix_value(prefix)
+                mult *= metric_prefixes[prefix]**power
+            elif token in {"Number"}:
+                pass
             elif token in {"Per", "Inverse", "Reciprocal"}:
-                inv = -1
+                power = -1
             elif token == "Square":
+                if not tokens[i+1] in onto:
+                    known = False
+                    break
                 u = onto[tokens[i+1]]
-                mult *= inv * get_siconversion_multiplier(u)
-            elif token == "Cube":
+                if u in metric_prefixes:
+                    mult *= metric_prefixes[u]**power
+                    if not tokens[i+2] in onto:
+                        known = False
+                        break
+                    u = onto[tokens[i+2]]
+                mult *= get_siconversion_multiplier(u)**power
+            elif token == "Cubic":
+                if not tokens[i+1] in onto:
+                    known = False
+                    break
                 u = onto[tokens[i+1]]
-                mult *= inv * get_siconversion_multiplier(u)**2
+                if u in metric_prefixes:
+                    mult *= metric_prefixes[u]**(2*power)
+                    if not tokens[i+2] in onto:
+                        known = False
+                        break
+                    u = onto[tokens[i+2]]
+                mult *= get_siconversion_multiplier(u)**(2*power)
             elif token == "Squared":
                 print("Unexpected unit token '{token}' in '{preflabel}'")
-            else:
+            elif token in onto:
                 coherent = False
                 u = onto[token]
-                mult *= inv * get_siconversion_multiplier(u)
+                if issubclass(u, onto.DimensionlessUnit):
+                    pass
+                elif has_siconversion_multiplier(u):
+                    mult *= get_siconversion_multiplier(u)**power
+                else:
+                    print(f"*** cannot convert: {preflabel}: {u}")
+            else:
+                known = False
+                if not has_siconversion_multiplier(unit):
+                    print(f"*** unknown: {preflabel}: {token}")
+                break
 
-        if not has_siconversion_multiplier(unit):
-            unit.is_a.append(onto.hasSIConversionMultiplier.value(mult))
+        print(f"--- {preflabel}: {known=}, {prefixed=}, {coherent=}, {mult=}")
 
-        if not has_siconversion_offset(unit):
-            unit.is_a.append(onto.hasSIConversionOffset.value(0.0))
+        if known:
+            if not has_siconversion_multiplier(unit):
+                unit.is_a.append(onto.hasSIConversionMultiplier.value(mult))
 
-        print("*** {preflabel}: {prefixed=}, {coherent=}, {mult=}")
+                if not has_siconversion_offset(unit):
+                    unit.is_a.append(onto.hasSIConversionOffset.value(0.0))
 
-
-        hasMult = hasOff = False
-        for r in unit.is_a:
-            if isinstance(r, owlready2.Restriction):
-                if r.property == onto.hasSIConversionMultiplier:
-                    hasMult = True
-                if r.property == onto.hasSIConversionOffset:
-                    hasOff = True
-        if not hasMult or not hasOff:
-            print("*x*", preflabel, hasMult, hasOff)
+        #hasMult = hasOff = False
+        #for r in unit.is_a:
+        #    if isinstance(r, owlready2.Restriction):
+        #        if r.property == onto.hasSIConversionMultiplier:
+        #            hasMult = True
+        #        if r.property == onto.hasSIConversionOffset:
+        #            hasOff = True
+        #if not hasMult or not hasOff:
+        #    print("*x*", preflabel, hasMult, hasOff)
 
 
 # Save ontologies

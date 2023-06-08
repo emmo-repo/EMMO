@@ -292,7 +292,21 @@ def get_siconversion_multiplier(unit):
         if (isinstance(r, owlready2.Restriction) and
             r.property == onto.hasSIConversionMultiplier):
             return r.value
+    if unit in onto.SIBaseUnit.disjoint_unions[0] + onto.SISpecialUnit.disjoint_unions[0]:
+        return 1.0
     raise TypeError(f"missing SI conversion multiplier: {unit}")
+
+
+def get_siconversion_offset(unit):
+    """Returns the SI conversion offset of the given unit."""
+    onto = unit.namespace.ontology
+    for r in unit.is_a:
+        if (isinstance(r, owlready2.Restriction) and
+            r.property == onto.hasSIConversionOffset):
+            return r.value
+    if unit in onto.SIBaseUnit.disjoint_unions[0] + onto.SISpecialUnit.disjoint_unions[0]:
+        return 0.0
+    raise TypeError(f"missing SI conversion offset: {unit}")
 
 
 def has_siconversion_multiplier(unit):
