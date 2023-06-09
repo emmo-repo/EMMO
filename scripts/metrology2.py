@@ -140,6 +140,12 @@ if True:  # pylint: disable=using-constant-test
                 "Cal_", "Bu_", "Btu", "Bbl_", "Gi_", "M2_",
                  "Oz_", "Pk_", "Qt_", "Ton_", "W_M2",
         )):
+            add_is_a(unit, onto.NonSIUnit)
+            del_is_a(unit, onto.SIUnit)
+            del_is_a(unit, onto.SINonCoherentUnit)
+            del_is_a(unit, onto.SIUnitSymbol)
+            del_is_a(unit, onto.SICoherentDerivedUnit)
+            del_is_a(unit, onto.SICoherentUnit)
             continue
         if unit in siunits or unit in metric_prefixes:
             continue
@@ -214,31 +220,30 @@ if True:  # pylint: disable=using-constant-test
 
             if coherent:
                 if len(tokens) == 1:
-                    #add_is_a(unit, onto.SIUnitSymbol)
+                    add_is_a(unit, onto.SIUnitSymbol)
                     print(f"--- UnitSymbol: {preflabel}")
                 else:
-                    #add_is_a(unit, onto.SICoherentDerivedUnit)
+                    add_is_a(unit, onto.SICoherentDerivedUnit)
                     print(f"--- Derived: {preflabel}")
-                #del_is_a(unit, onto.SINonCoherentUnit)
+                del_is_a(unit, onto.SINonCoherentUnit)
             else:
-                pass
-                #add_is_a(unit, onto.SINonCoherentUnit)
-                #del_is_a(unit, onto.SIUnitSymbol)
-                #del_is_a(unit, onto.SICoherentDerivedUnit)
-                #del_is_a(unit, onto.SICoherentUnit)
+                add_is_a(unit, onto.SINonCoherentUnit)
+                del_is_a(unit, onto.SIUnitSymbol)
+                del_is_a(unit, onto.SICoherentDerivedUnit)
+                del_is_a(unit, onto.SICoherentUnit)
 
             if prefixed:
                 if not issubclass(unit, prefixed_units):
-                    #add_is_a(unit, onto.SINonPrefixedUnit)
+                    add_is_a(unit, onto.PrefixedUnit)
+                    del_is_a(unit, onto.NonPrefixedUnit)
                     print("=== help needed:", unit)
         else:
-            pass
-            #add_is_a(unit, onto.NonSIUnit)
-            #del_is_a(unit, onto.SIUnit)
-            #del_is_a(unit, onto.SINonCoherentUnit)
-            #del_is_a(unit, onto.SIUnitSymbol)
-            #del_is_a(unit, onto.SICoherentDerivedUnit)
-            #del_is_a(unit, onto.SICoherentUnit)
+            add_is_a(unit, onto.NonSIUnit)
+            del_is_a(unit, onto.SIUnit)
+            del_is_a(unit, onto.SINonCoherentUnit)
+            del_is_a(unit, onto.SIUnitSymbol)
+            del_is_a(unit, onto.SICoherentDerivedUnit)
+            del_is_a(unit, onto.SICoherentUnit)
 
 
 # Save ontologies
