@@ -124,8 +124,8 @@ siunits = set(
     onto.SIBaseUnit.disjoint_unions[0] + onto.SISpecialUnit.disjoint_unions[0]
 )
 prefixed_units = tuple(
-    onto.SIMultipleUnit.disjoint_unions[0] +
-    onto.SISubMultipleUnit.disjoint_unions[0]
+    onto.MultipleUnit.disjoint_unions[0] +
+    onto.SubMultipleUnit.disjoint_unions[0]
 )
 
 
@@ -138,13 +138,11 @@ if True:  # pylint: disable=using-constant-test
         """Returns new multiplier and value of known."""
         if not tokens[i+1] in onto:
             known = False
-            break
         u = onto[tokens[i+1]]
         if u in metric_prefixes:
             mult *= metric_prefixes[u]**((order-1)*power)
             if not tokens[i+2] in onto:
                 known = False
-                break
             u = onto[tokens[i+2]]
         mult *= get_siconversion_multiplier(u)**((order-1)*power)
         return mult, known
@@ -169,6 +167,9 @@ if True:  # pylint: disable=using-constant-test
         coherent = True
         known = True
         siunit = True
+
+        if preflabel != 'AbamperePerSquareCentiMetre':
+            continue
 
         tokens = re.findall("[A-ZÅ][a-zö0-9_]*", preflabel)
         power = 1
@@ -215,7 +216,6 @@ if True:  # pylint: disable=using-constant-test
                 print("Unexpected unit token '{token}' in '{preflabel}'")
             elif token in onto:
                 coherent = False
-                if token in
                 u = onto[token]
                 if issubclass(u, onto.DimensionlessUnit):
                     pass
@@ -252,11 +252,6 @@ if True:  # pylint: disable=using-constant-test
                 del_is_a(unit, onto.SICoherentDerivedUnit)
                 del_is_a(unit, onto.SICoherentUnit)
 
-            if prefixed:
-                if not issubclass(unit, prefixed_units):
-                    add_is_a(unit, onto.PrefixedUnit)
-                    del_is_a(unit, onto.NonPrefixedUnit)
-                    print("=== help needed:", unit)
         else:
             add_is_a(unit, onto.NonSIUnit)
             del_is_a(unit, onto.SIUnit)
@@ -264,6 +259,32 @@ if True:  # pylint: disable=using-constant-test
             del_is_a(unit, onto.SIUnitSymbol)
             del_is_a(unit, onto.SICoherentDerivedUnit)
             del_is_a(unit, onto.SICoherentUnit)
+
+
+        if prefixed:
+            print("*** add prefix", unit)
+            print("Before:")
+            for r in unit.is_a:
+                print("  - ", r)
+            add_is_a(unit, onto.PrefixedUnit)
+            del_is_a(unit, onto.NonPrefixedUnit)
+            print("After:")
+            for r in unit.is_a:
+                print("  - ", r)
+        else:
+            print("del prefix", unit)
+            add_is_a(unit, onto.NonPrefixedUnit)
+            del_is_a(unit, onto.PrefixedUnit)
+
+
+    for unit in units:
+        if onto.NonSIUnit in unit.is_a:
+            del_is_a(unit, onto.SIUnit)
+            del_is_a(unit, onto.SINonCoherentUnit)
+            del_is_a(unit, onto.SIUnitSymbol)
+            del_is_a(unit, onto.SICoherentDerivedUnit)
+            del_is_a(unit, onto.SICoherentUnit)
+
 
 
 # Save ontologies

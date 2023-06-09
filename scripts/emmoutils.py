@@ -335,7 +335,21 @@ def add_is_a(cls, r):
         cls.is_a.append(r)
 
 
+def has_is_a(cls, r):
+    """Returns whether given restriction or property is in the is_a list.."""
+    if isinstance(r, owlready2.Restriction):
+        return r in cls.is_a
+
+    for t in cls.is_a:
+        if isinstance(t, owlready2.Restriction):
+            if t.property == r:
+                return True
+
+    return False
+
+
 def del_is_a(cls, r):
     """Remove restriction `r` from class `cls` (if it exists)."""
     if r in cls.is_a:
+        print("# remove:", r)
         cls.is_a.remove(r)
