@@ -133,12 +133,28 @@ prefixed_units = tuple(
 # Each component should start with a big case.
 # Trailing "s"'s after a prefixed unit are removed.
 if True:  # pylint: disable=using-constant-test
+
+    def powermult(i, tokens, order, power, mult, known):
+        """Returns new multiplier and value of known."""
+        if not tokens[i+1] in onto:
+            known = False
+            break
+        u = onto[tokens[i+1]]
+        if u in metric_prefixes:
+            mult *= metric_prefixes[u]**((order-1)*power)
+            if not tokens[i+2] in onto:
+                known = False
+                break
+            u = onto[tokens[i+2]]
+        mult *= get_siconversion_multiplier(u)**((order-1)*power)
+        return mult, known
+
     for unit in units:
         preflabel = unit.prefLabel.first()
         unit.prefLabel = en(preflabel)
         if preflabel.startswith((
                 "Cal_", "Bu_", "Btu", "Bbl_", "Gi_", "M2_",
-                 "Oz_", "Pk_", "Qt_", "Ton_", "W_M2",
+                "Oz_", "Pk_", "Qt_", "Ton_", "W_M2",
         )):
             add_is_a(unit, onto.NonSIUnit)
             del_is_a(unit, onto.SIUnit)
@@ -151,11 +167,12 @@ if True:  # pylint: disable=using-constant-test
             continue
         prefixed = False
         coherent = True
+        known = True
+        siunit = True
 
         tokens = re.findall("[A-ZÅ][a-zö0-9_]*", preflabel)
         power = 1
         mult = 1.0
-        known = True
         for i, token in enumerate(tokens):
             if token in siunits:
                 pass
@@ -192,10 +209,13 @@ if True:  # pylint: disable=using-constant-test
                         break
                     u = onto[tokens[i+2]]
                 mult *= get_siconversion_multiplier(u)**(2*power)
+            elif token == "Sectic":
+                mult, known = powermult(i, tokens, 6, power, mult, known)
             elif token == "Squared":
                 print("Unexpected unit token '{token}' in '{preflabel}'")
             elif token in onto:
                 coherent = False
+                if token in
                 u = onto[token]
                 if issubclass(u, onto.DimensionlessUnit):
                     pass
