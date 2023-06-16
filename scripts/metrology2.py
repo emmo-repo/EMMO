@@ -148,8 +148,15 @@ if True:  # pylint: disable=using-constant-test
         return mult, known
 
     for unit in units:
+
         preflabel = unit.prefLabel.first()
         unit.prefLabel = en(preflabel)
+
+        # Remove duplicated subclasses
+        subclasses = set(unit.is_a)
+        unit.is_a.clear()
+        unit.is_a.extend(subclasses)
+
         if preflabel.startswith((
                 "Cal_", "Bu_", "Btu", "Bbl_", "Gi_", "M2_",
                 "Oz_", "Pk_", "Qt_", "Ton_", "W_M2",
@@ -167,9 +174,6 @@ if True:  # pylint: disable=using-constant-test
         coherent = True
         known = True
         siunit = True
-
-        if preflabel != 'AbamperePerSquareCentiMetre':
-            continue
 
         tokens = re.findall("[A-ZÅ][a-zö0-9_]*", preflabel)
         power = 1
