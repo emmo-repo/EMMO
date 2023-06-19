@@ -7,11 +7,11 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <http://emmo.info/emmo/disciplines/coherentsiunits> .
+@base <http://emmo.info/emmo/disciplines/coherentsiunits#> .
 
 <http://emmo.info/emmo/disciplines/coherentsiunits> rdf:type owl:Ontology ;
                                                      owl:versionIRI <http://emmo.info/emmo/1.0.0-beta4/disciplines/coherentsiunits> ;
-                                                     owl:imports <http://emmo.info/emmo/1.0.0-beta4/disciplines/prefixedunits> ;
+                                                     owl:imports <http://emmo.info/emmo/1.0.0-beta4/disciplines/siunits> ;
                                                      dcterms:abstract "The module 'coherentsiunits' contain coherent derived SI units.  For each physical dimensionality there exists one and only one coherent derived SI unit.  Examples of such units are m/s, Pa·m, etc..."@en ;
                                                      dcterms:contributor "Adham Hashibon, Fraunhofer IWM (DE)" ,
                                                                          "Francesca L. Bleken, SINTEF (NO)" ,
@@ -366,7 +366,6 @@ emmo:CandelaPerSquareMetre rdf:type owl:Class ;
 emmo:CoulombMetre rdf:type owl:Class ;
                   rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                   emmo:EMMO_8515e948_bc2f_423b_8025_e4830f2b21dd ,
-                                  emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                     owl:hasValue "1.0"^^xsd:double
@@ -832,56 +831,9 @@ emmo:CubicMetrePerSquareSecond rdf:type owl:Class ;
                                skos:prefLabel "CubicMetrePerSquareSecond"@en .
 
 
-###  http://emmo.info/emmo#CubicMicroMetrePerCubicMetre
-emmo:CubicMicroMetrePerCubicMetre rdf:type owl:Class ;
-                                  rdfs:subClassOf emmo:EMMO_15344998_4490_4b40_b242_c3d92e5cdc27 ,
-                                                  emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                                  emmo:EMMO_9fd1e79d_41d1_44f8_8142_66dbdf0fc7ad ,
-                                                  [ rdf:type owl:Restriction ;
-                                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                                    owl:hasValue "1.0E-18"^^xsd:double
-                                                  ] ,
-                                                  [ rdf:type owl:Restriction ;
-                                                    owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                                    owl:hasValue "0.0"^^xsd:double
-                                                  ] ;
-                                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MicroM3-PER-M3" ;
-                                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "um3.m-3" ;
-                                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "µm³/m³" ;
-                                  rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                                  skos:altLabel "Cubic micrometre per cubic metre"@en ;
-                                  skos:prefLabel "CubicMicroMetrePerCubicMetre" .
-
-
-###  http://emmo.info/emmo#DegreeKelvinPerMetre
-emmo:DegreeKelvinPerMetre rdf:type owl:Class ;
-                          rdfs:subClassOf emmo:EMMO_720a469f_a19c_4a88_900c_29b3938f5092 ,
-                                          emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                          emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                          emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
-                                          [ rdf:type owl:Restriction ;
-                                            owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                            owl:hasValue "1.0"^^xsd:double
-                                          ] ,
-                                          [ rdf:type owl:Restriction ;
-                                            owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                            owl:hasValue "0.0"^^xsd:double
-                                          ] ;
-                          emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/K-PER-M" ;
-                          emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "K.m-1" ;
-                          emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "K/m" ;
-                          emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A change of temperature on the Kelvin temperature scale in one SI unit of length.
-
--- QUDT"""@en ;
-                          rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                          skos:altLabel "Degrees Kelvin per metre"@en ;
-                          skos:prefLabel "DegreeKelvinPerMetre" .
-
-
 ###  http://emmo.info/emmo#FaradPerMetre
 emmo:FaradPerMetre rdf:type owl:Class ;
-                   rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                   emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                   rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                    emmo:EMMO_5f89cb0c_3171_47ee_b2ab_027a07c34c4b ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -905,9 +857,7 @@ emmo:FaradPerMetre rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#Fraction
 emmo:Fraction rdf:type owl:Class ;
-              rdfs:subClassOf emmo:EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0 ,
-                              emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                              emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+              rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                               emmo:EMMO_c2f5ee66_579c_44c6_a2e9_fa2eaa9fa4da ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -1137,10 +1087,8 @@ emmo:JoulePerCubicMetre rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#JoulePerCubicMetreKelvin
 emmo:JoulePerCubicMetreKelvin rdf:type owl:Class ;
-                              rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                              emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                              rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                               emmo:EMMO_1275ac79_7280_4d99_ab61_3d98e00c053e ,
-                                              emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                               [ rdf:type owl:Restriction ;
                                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                 owl:hasValue "1.0"^^xsd:double
@@ -1162,10 +1110,8 @@ emmo:JoulePerCubicMetreKelvin rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#JoulePerKelvin
 emmo:JoulePerKelvin rdf:type owl:Class ;
-                    rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                    emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                    rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                     emmo:EMMO_3ecff38b_b3cf_4a78_b49f_8580abf8715b ,
-                                    emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                     [ rdf:type owl:Restriction ;
                                       owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                       owl:hasValue "1.0"^^xsd:double
@@ -1187,10 +1133,8 @@ emmo:JoulePerKelvin rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#JoulePerKilogram
 emmo:JoulePerKilogram rdf:type owl:Class ;
-                      rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                      emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                      rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                       emmo:EMMO_847f1d9f_205e_46c1_8cb6_a9e479421f88 ,
-                                      emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                       [ rdf:type owl:Restriction ;
                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                         owl:hasValue "1.0"^^xsd:double
@@ -1213,10 +1157,8 @@ emmo:JoulePerKilogram rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#JoulePerKilogramKelvin
 emmo:JoulePerKilogramKelvin rdf:type owl:Class ;
-                            rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                            emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                            rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                             emmo:EMMO_7cef5aae_baae_42d1_959a_ee70a7cf7a73 ,
-                                            emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                             [ rdf:type owl:Restriction ;
                                               owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                               owl:hasValue "1.0"^^xsd:double
@@ -1238,10 +1180,8 @@ emmo:JoulePerKilogramKelvin rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#JoulePerKilogramKelvinCubicMetre
 emmo:JoulePerKilogramKelvinCubicMetre rdf:type owl:Class ;
-                                      rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                                      emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                      rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                       emmo:EMMO_7cef5aae_baae_42d1_959a_ee70a7cf7a73 ,
-                                                      emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                                       [ rdf:type owl:Restriction ;
                                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                         owl:hasValue "1.0"^^xsd:double
@@ -1260,10 +1200,8 @@ emmo:JoulePerKilogramKelvinCubicMetre rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#JoulePerKilogramKelvinPerPascal
 emmo:JoulePerKilogramKelvinPerPascal rdf:type owl:Class ;
-                                     rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                                     emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                     rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                      emmo:EMMO_7cef5aae_baae_42d1_959a_ee70a7cf7a73 ,
-                                                     emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                                      [ rdf:type owl:Restriction ;
                                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                        owl:hasValue "1.0"^^xsd:double
@@ -1282,10 +1220,8 @@ emmo:JoulePerKilogramKelvinPerPascal rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#JoulePerMetre
 emmo:JoulePerMetre rdf:type owl:Class ;
-                   rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                   emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                   rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                    emmo:EMMO_53e825d9_1a09_483c_baa7_37501ebfbe1c ,
-                                   emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                      owl:hasValue "1.0"^^xsd:double
@@ -1305,10 +1241,8 @@ emmo:JoulePerMetre rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#JoulePerMole
 emmo:JoulePerMole rdf:type owl:Class ;
-                  rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                  emmo:EMMO_0972cb08_48bd_4524_ac03_8a2e7f30f02f ,
+                  rdfs:subClassOf emmo:EMMO_0972cb08_48bd_4524_ac03_8a2e7f30f02f ,
                                   emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                  emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                     owl:hasValue "1.0"^^xsd:double
@@ -1330,10 +1264,8 @@ emmo:JoulePerMole rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#JoulePerMoleKelvin
 emmo:JoulePerMoleKelvin rdf:type owl:Class ;
-                        rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                        emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                        rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                         emmo:EMMO_3cb55500_dc5b_4586_bbf3_1d4158afac35 ,
-                                        emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                         [ rdf:type owl:Restriction ;
                                           owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                           owl:hasValue "1.0"^^xsd:double
@@ -1355,9 +1287,7 @@ emmo:JoulePerMoleKelvin rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#JoulePerQuarticMetre
 emmo:JoulePerQuarticMetre rdf:type owl:Class ;
-                          rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                          emmo:EMMO_15344998_4490_4b40_b242_c3d92e5cdc27 ,
-                                          emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                          rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                           emmo:EMMO_ddcc1e64_69cc_4a0c_9ee8_08aca78b3c85 ;
                           emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/J-PER-M4" ;
                           emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "J.m-4" ;
@@ -1373,8 +1303,6 @@ emmo:JoulePerQuarticMetre rdf:type owl:Class ;
 ###  http://emmo.info/emmo#JoulePerSecond
 emmo:JoulePerSecond rdf:type owl:Class ;
                     rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                    emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                    emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                     emmo:EMMO_c8d084ad_f88e_4596_8e4d_982c6655ce6f ,
                                     [ rdf:type owl:Restriction ;
                                       owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -1397,9 +1325,7 @@ emmo:JoulePerSecond rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#JoulePerSquareMetre
 emmo:JoulePerSquareMetre rdf:type owl:Class ;
-                         rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                         emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                         emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                         rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                          emmo:EMMO_d46e131b_f51a_4ae7_9301_824d718c56fa ,
                                          [ rdf:type owl:Restriction ;
                                            owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -1424,8 +1350,6 @@ emmo:JoulePerSquareMetre rdf:type owl:Class ;
 ###  http://emmo.info/emmo#JoulePerSquareTesla
 emmo:JoulePerSquareTesla rdf:type owl:Class ;
                          rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                         emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                         emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                          emmo:EMMO_df1d3a25_eba2_4530_9803_d82d349f4051 ,
                                          [ rdf:type owl:Restriction ;
                                            owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -1449,10 +1373,8 @@ emmo:JoulePerSquareTesla rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#JoulePerTesla
 emmo:JoulePerTesla rdf:type owl:Class ;
-                   rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                   emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                   rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                    emmo:EMMO_1c2226a9_22f0_40c8_8928_5a01d398f96e ,
-                                   emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                      owl:hasValue "1.0"^^xsd:double
@@ -1474,10 +1396,8 @@ emmo:JoulePerTesla rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#JouleSecond
 emmo:JouleSecond rdf:type owl:Class ;
-                 rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                 emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                 rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                  emmo:EMMO_501f9b3a_c469_48f7_9281_2e6a8d805d7a ,
-                                 emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                    owl:hasValue "1.0"^^xsd:double
@@ -1501,8 +1421,6 @@ emmo:JouleSecond rdf:type owl:Class ;
 emmo:JouleSecondPerMole rdf:type owl:Class ;
                         rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                         emmo:EMMO_4fdf946a_9c40_4d71_80ab_e4221ff6a534 ,
-                                        emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                        emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                         [ rdf:type owl:Restriction ;
                                           owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                           owl:hasValue "1.0"^^xsd:double
@@ -1524,9 +1442,7 @@ emmo:JouleSecondPerMole rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#JouleSquareMetre
 emmo:JouleSquareMetre rdf:type owl:Class ;
-                      rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                      emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                      emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                      rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                       emmo:EMMO_88f36585_bd30_4160_b975_61362f3468a9 ,
                                       [ rdf:type owl:Restriction ;
                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -1546,9 +1462,7 @@ emmo:JouleSquareMetre rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#JouleSquareMetrePerKilogram
 emmo:JouleSquareMetrePerKilogram rdf:type owl:Class ;
-                                 rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                                 emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                                 emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                                 rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                  emmo:EMMO_c0f32e02_44d7_4c99_986e_c368d7219e4c ,
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -1569,8 +1483,6 @@ emmo:JouleSquareMetrePerKilogram rdf:type owl:Class ;
 ###  http://emmo.info/emmo#KelvinMetre
 emmo:KelvinMetre rdf:type owl:Class ;
                  rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                 emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                 emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                  emmo:EMMO_d02c92e0_99ba_4c09_b01f_0d7a7dd7b24e ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -1592,8 +1504,6 @@ emmo:KelvinMetre rdf:type owl:Class ;
 emmo:KelvinMetrePerSecond rdf:type owl:Class ;
                           rdfs:subClassOf emmo:EMMO_0d4bdfcd_f4f0_4b8f_b470_e3f654e37d33 ,
                                           emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                          emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                          emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                             owl:hasValue "1.0"^^xsd:double
@@ -1614,8 +1524,6 @@ emmo:KelvinMetrePerSecond rdf:type owl:Class ;
 emmo:KelvinMetrePerWatt rdf:type owl:Class ;
                         rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                         emmo:EMMO_33b6c84d_e139_418c_8f8c_f1d45f94df46 ,
-                                        emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                        emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                         [ rdf:type owl:Restriction ;
                                           owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                           owl:hasValue "1.0"^^xsd:double
@@ -1639,8 +1547,6 @@ emmo:KelvinMetrePerWatt rdf:type owl:Class ;
 emmo:KelvinPascalPerSecond rdf:type owl:Class ;
                            rdfs:subClassOf emmo:EMMO_0cd4c619_b123_4ae4_b778_3c9adaad65e7 ,
                                            emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                           emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                           emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                            [ rdf:type owl:Restriction ;
                                              owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                              owl:hasValue "1.0"^^xsd:double
@@ -1660,8 +1566,6 @@ emmo:KelvinPascalPerSecond rdf:type owl:Class ;
 ###  http://emmo.info/emmo#KelvinPerKelvin
 emmo:KelvinPerKelvin rdf:type owl:Class ;
                      rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                     emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                     emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                      emmo:EMMO_c2f5ee66_579c_44c6_a2e9_fa2eaa9fa4da ,
                                      [ rdf:type owl:Restriction ;
                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -1682,12 +1586,33 @@ emmo:KelvinPerKelvin rdf:type owl:Class ;
                      skos:prefLabel "KelvinPerKelvin"@en .
 
 
+###  http://emmo.info/emmo#KelvinPerMetre
+emmo:KelvinPerMetre rdf:type owl:Class ;
+                    rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                    emmo:EMMO_720a469f_a19c_4a88_900c_29b3938f5092 ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                      owl:hasValue "1.0"^^xsd:double
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                      owl:hasValue "0.0"^^xsd:double
+                                    ] ;
+                    emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/K-PER-M" ;
+                    emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "K.m-1" ;
+                    emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "K/m" ;
+                    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A change of temperature on the Kelvin temperature scale in one SI unit of length.
+
+-- QUDT"""@en ;
+                    rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                    skos:altLabel "KelvinPerMeter"@en ;
+                    skos:prefLabel "KelvinPerMetre"@en .
+
+
 ###  http://emmo.info/emmo#KelvinPerSecond
 emmo:KelvinPerSecond rdf:type owl:Class ;
                      rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                      emmo:EMMO_4f245147_f072_4431_b535_6241e8e87eb8 ,
-                                     emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                     emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                      [ rdf:type owl:Restriction ;
                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                        owl:hasValue "1.0"^^xsd:double
@@ -1711,8 +1636,6 @@ emmo:KelvinPerSecond rdf:type owl:Class ;
 ###  http://emmo.info/emmo#KelvinPerSquareSecond
 emmo:KelvinPerSquareSecond rdf:type owl:Class ;
                            rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                           emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                           emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                            emmo:EMMO_c7188d13-52e6-43f7-9b6d-aba4c161fa8f ,
                                            [ rdf:type owl:Restriction ;
                                              owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -1737,8 +1660,6 @@ emmo:KelvinPerSquareSecond rdf:type owl:Class ;
 ###  http://emmo.info/emmo#KelvinPerTesla
 emmo:KelvinPerTesla rdf:type owl:Class ;
                     rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                    emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                    emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                     emmo:EMMO_f6fac54d_6b6d_4255_b217_4363a83f1834 ,
                                     [ rdf:type owl:Restriction ;
                                       owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -1761,9 +1682,7 @@ emmo:KelvinPerTesla rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#KelvinPerWatt
 emmo:KelvinPerWatt rdf:type owl:Class ;
-                   rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                   emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                   emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                   rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                    emmo:EMMO_cff9f930_f3f7_43c6_9228_28bf3e1ec706 ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -1789,8 +1708,6 @@ emmo:KelvinPerWatt rdf:type owl:Class ;
 emmo:KelvinSecond rdf:type owl:Class ;
                   rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                   emmo:EMMO_3df1408c_df34_4037_8584_c25f854bb346 ,
-                                  emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                  emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                     owl:hasValue "1.0"^^xsd:double
@@ -1811,8 +1728,6 @@ emmo:KelvinSecond rdf:type owl:Class ;
 emmo:KelvinSquareMetrePerKilogramPerSecond rdf:type owl:Class ;
                                            rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                            emmo:EMMO_66e91d9a_05c1_4906_9731_3f4d8c4f3fd8 ,
-                                                           emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                                           emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                              owl:hasValue "1.0"^^xsd:double
@@ -1833,8 +1748,6 @@ emmo:KelvinSquareMetrePerKilogramPerSecond rdf:type owl:Class ;
 emmo:LumenPerWatt rdf:type owl:Class ;
                   rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                   emmo:EMMO_5c003f53_20a2_4bd7_8445_58187e582578 ,
-                                  emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                  emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                     owl:hasValue "1.0"^^xsd:double
@@ -1857,8 +1770,6 @@ emmo:LumenPerWatt rdf:type owl:Class ;
 ###  http://emmo.info/emmo#LumenSecond
 emmo:LumenSecond rdf:type owl:Class ;
                  rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                 emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                 emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                  emmo:EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -1881,9 +1792,7 @@ emmo:LumenSecond rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#MetreKelvin
 emmo:MetreKelvin rdf:type owl:Class ;
-                 rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                 emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                 emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                 rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                  emmo:EMMO_d02c92e0_99ba_4c09_b01f_0d7a7dd7b24e ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -1906,10 +1815,8 @@ emmo:MetreKelvin rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#MetreKelvinPerWatt
 emmo:MetreKelvinPerWatt rdf:type owl:Class ;
-                        rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                        emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                        rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                         emmo:EMMO_33b6c84d_e139_418c_8f8c_f1d45f94df46 ,
-                                        emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                         [ rdf:type owl:Restriction ;
                                           owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                           owl:hasValue "1.0"^^xsd:double
@@ -1931,10 +1838,8 @@ emmo:MetreKelvinPerWatt rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#MetreKilogram
 emmo:MetreKilogram rdf:type owl:Class ;
-                   rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                   emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                   rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                    emmo:EMMO_3fe66e46_9343_4a36_b101_a732ad5f4f76 ,
-                                   emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                      owl:hasValue "1.0"^^xsd:double
@@ -1953,9 +1858,7 @@ emmo:MetreKilogram rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#MetrePerFarad
 emmo:MetrePerFarad rdf:type owl:Class ;
-                   rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                   emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                   emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                   rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                    emmo:EMMO_d2a20142_b3a4_4d3b_a7e1_e17597e7f177 ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -1973,37 +1876,10 @@ emmo:MetrePerFarad rdf:type owl:Class ;
                    skos:prefLabel "MetrePerFarad"@en .
 
 
-###  http://emmo.info/emmo#MetrePerHour
-emmo:MetrePerHour rdf:type owl:Class ;
-                  rdfs:subClassOf emmo:EMMO_4f5c7c54_1c63_4d17_b12b_ea0792c2b187 ,
-                                  emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                  emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                    owl:hasValue "2.777778E-4"^^xsd:double
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                    owl:hasValue "0.0"^^xsd:double
-                                  ] ;
-                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M-PER-HR" ;
-                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m.h-1" ,
-                                                                 "m/h" ;
-                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m/h" ;
-                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Metre per hour is a metric unit of both speed (scalar) and velocity (Vector (geometry)). Its symbol is m/h or mu00b7h-1 (not to be confused with the imperial unit symbol mph. By definition, an object travelling at a speed of 1 m/h for an hour would move 1 metre.
-
--- QUDT"""@en ;
-                  rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                  skos:altLabel "Metre per Hour"@en ;
-                  skos:prefLabel "MetrePerHour"@en .
-
-
 ###  http://emmo.info/emmo#MetrePerKelvin
 emmo:MetrePerKelvin rdf:type owl:Class ;
-                    rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                    emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                    rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                     emmo:EMMO_793f3567_b351_42ef_a1d4_5111d53999c4 ,
-                                    emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                     [ rdf:type owl:Restriction ;
                                       owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                       owl:hasValue "1.0"^^xsd:double
@@ -2024,7 +1900,6 @@ emmo:MetrePerKelvin rdf:type owl:Class ;
 emmo:MetrePerSecond rdf:type owl:Class ;
                     rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                     emmo:EMMO_4f5c7c54_1c63_4d17_b12b_ea0792c2b187 ,
-                                    emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                     [ rdf:type owl:Restriction ;
                                       owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                       owl:hasValue "1.0"^^xsd:double
@@ -2047,10 +1922,8 @@ The official SI symbolic abbreviation is mu00b7s-1, or equivalently either m/s.
 
 ###  http://emmo.info/emmo#MetrePerSquareSecond
 emmo:MetrePerSquareSecond rdf:type owl:Class ;
-                          rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                          emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                          rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                           emmo:EMMO_2da7408f_d389_4245_887d_a1743b81a9b6 ,
-                                          emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                             owl:hasValue "1.0"^^xsd:double
@@ -2073,9 +1946,7 @@ emmo:MetrePerSquareSecond rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#MolPerKilogram
 emmo:MolPerKilogram rdf:type owl:Class ;
-                    rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                    emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                    emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                    rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                     emmo:EMMO_95971713_d589_4002_a5a7_affc5c74cfdb ,
                                     [ rdf:type owl:Restriction ;
                                       owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -2099,10 +1970,8 @@ emmo:MolPerKilogram rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#MoleKelvin
 emmo:MoleKelvin rdf:type owl:Class ;
-                rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                 emmo:EMMO_3d254432_6f8f_4a6d_9eb3_4ab54388171b ,
-                                emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                   owl:hasValue "1.0"^^xsd:double
@@ -2124,9 +1993,7 @@ emmo:MoleKelvin rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#MolePerCubicMetre
 emmo:MolePerCubicMetre rdf:type owl:Class ;
-                       rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                       emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                       emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                       rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                        emmo:EMMO_e9348e5b_af4f_4898_bbfe_c4583cf44b80 ,
                                        [ rdf:type owl:Restriction ;
                                          owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -2151,8 +2018,6 @@ emmo:MolePerCubicMetre rdf:type owl:Class ;
 ###  http://emmo.info/emmo#MolePerCubicMetrePerSecond
 emmo:MolePerCubicMetrePerSecond rdf:type owl:Class ;
                                 rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                                emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                                emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                 emmo:EMMO_c5ac5c53_14de_47ce_b424_2576d042d241 ,
                                                 [ rdf:type owl:Restriction ;
                                                   owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -2175,10 +2040,8 @@ emmo:MolePerCubicMetrePerSecond rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#MolePerKilogramPascal
 emmo:MolePerKilogramPascal rdf:type owl:Class ;
-                           rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                           emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                           rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                            emmo:EMMO_2d66cf6d_9396_40c8_bb82_324ab19067ce ,
-                                           emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                            [ rdf:type owl:Restriction ;
                                              owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                              owl:hasValue "1.0"^^xsd:double
@@ -2198,37 +2061,9 @@ emmo:MolePerKilogramPascal rdf:type owl:Class ;
                            skos:prefLabel "MolePerKilogramPascal" .
 
 
-###  http://emmo.info/emmo#MolePerLitre
-emmo:MolePerLitre rdf:type owl:Class ;
-                  rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                  emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                  emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
-                                  emmo:EMMO_e9348e5b_af4f_4898_bbfe_c4583cf44b80 ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                    owl:hasValue "1000.0"^^xsd:double
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                    owl:hasValue "0.0"^^xsd:double
-                                  ] ;
-                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MOL-PER-L" ;
-                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mol.L-1" ,
-                                                                 "mol/L" ;
-                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mol/L" ;
-                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """SI base unit mol divided by the unit litre
-
--- QUDT"""@en ;
-                  rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                  skos:altLabel "Mole Per Litre"@en ;
-                  skos:prefLabel "MolePerLitre"@en .
-
-
 ###  http://emmo.info/emmo#MolePerMole
 emmo:MolePerMole rdf:type owl:Class ;
                  rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                 emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                 emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                  emmo:EMMO_f76f5a24_d703_4e8c_b368_f9a7777cb73a ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -2252,8 +2087,6 @@ emmo:MolePerMole rdf:type owl:Class ;
 ###  http://emmo.info/emmo#MolePerSecond
 emmo:MolePerSecond rdf:type owl:Class ;
                    rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                   emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                   emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                    emmo:EMMO_ce7d4720_aa20_4a8c_93e8_df41a35b6723 ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -2279,8 +2112,6 @@ emmo:MolePerSecond rdf:type owl:Class ;
 emmo:MolePerSquareMetre rdf:type owl:Class ;
                         rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                         emmo:EMMO_183f6fac_8543_44e0_bd59_434aa7054f4c ,
-                                        emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                        emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                         [ rdf:type owl:Restriction ;
                                           owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                           owl:hasValue "1.0"^^xsd:double
@@ -2303,9 +2134,7 @@ emmo:MolePerSquareMetre rdf:type owl:Class ;
 ###  http://emmo.info/emmo#MolePerSquareMetrePerSecond
 emmo:MolePerSquareMetrePerSecond rdf:type owl:Class ;
                                  rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                                 emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                                  emmo:EMMO_a94aec97_71ff_4574_b111_a52d77d2c230 ,
-                                                 emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                    owl:hasValue "1.0"^^xsd:double
@@ -2328,8 +2157,6 @@ emmo:MolePerSquareMetrePerSecond rdf:type owl:Class ;
 ###  http://emmo.info/emmo#MolePerSquareMetrePerSecondPerMetre
 emmo:MolePerSquareMetrePerSecondPerMetre rdf:type owl:Class ;
                                          rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                                         emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                                         emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                          emmo:EMMO_c5ac5c53_14de_47ce_b424_2576d042d241 ,
                                                          [ rdf:type owl:Restriction ;
                                                            owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -2350,8 +2177,6 @@ emmo:MolePerSquareMetrePerSecondPerMetre rdf:type owl:Class ;
 ###  http://emmo.info/emmo#MolePerSquareMetrePerSecondPerMetrePerSteradian
 emmo:MolePerSquareMetrePerSecondPerMetrePerSteradian rdf:type owl:Class ;
                                                      rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                                                     emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                                                     emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                                      emmo:EMMO_c5ac5c53_14de_47ce_b424_2576d042d241 ,
                                                                      [ rdf:type owl:Restriction ;
                                                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -2372,9 +2197,7 @@ emmo:MolePerSquareMetrePerSecondPerMetrePerSteradian rdf:type owl:Class ;
 ###  http://emmo.info/emmo#MolePerSquareMetrePerSecondPerSteradian
 emmo:MolePerSquareMetrePerSecondPerSteradian rdf:type owl:Class ;
                                              rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                                             emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                                              emmo:EMMO_a94aec97_71ff_4574_b111_a52d77d2c230 ,
-                                                             emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                              [ rdf:type owl:Restriction ;
                                                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                                owl:hasValue "1.0"^^xsd:double
@@ -2391,30 +2214,9 @@ emmo:MolePerSquareMetrePerSecondPerSteradian rdf:type owl:Class ;
                                              skos:prefLabel "MolePerSquareMetrePerSecondPerSteradian" .
 
 
-###  http://emmo.info/emmo#NanoGramPerSquareMetrePerPascalPerSecond
-emmo:NanoGramPerSquareMetrePerPascalPerSecond rdf:type owl:Class ;
-                                              rdfs:subClassOf emmo:EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1 ,
-                                                              emmo:EMMO_ab2ee5cd_4de3_46b6_bec5_29e293b33422 ,
-                                                              [ rdf:type owl:Restriction ;
-                                                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                                                owl:hasValue "1.0E-12"^^xsd:double
-                                                              ] ,
-                                                              [ rdf:type owl:Restriction ;
-                                                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                                                owl:hasValue "0.0"^^xsd:double
-                                                              ] ;
-                                              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/NanoGM-PER-M2-PA-SEC" ;
-                                              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kg/(m²⋅s⋅Pa)" ;
-                                              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Perm_(unit)" ;
-                                              rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                                              skos:altLabel "Nanograms per square metre per Pascal per second"@en ;
-                                              skos:prefLabel "NanoGramPerSquareMetrePerPascalPerSecond" .
-
-
 ###  http://emmo.info/emmo#NewtonMetre
 emmo:NewtonMetre rdf:type owl:Class ;
                  rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                 emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                  emmo:EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -2437,8 +2239,6 @@ emmo:NewtonMetre rdf:type owl:Class ;
 emmo:NewtonMetrePerAmpere rdf:type owl:Class ;
                           rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                           emmo:EMMO_4c49ab58_a6f6_409e_b849_f873ae1dcbee ,
-                                          emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                          emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                             owl:hasValue "1.0"^^xsd:double
@@ -2462,8 +2262,6 @@ emmo:NewtonMetrePerAmpere rdf:type owl:Class ;
 emmo:NewtonMetrePerKilogram rdf:type owl:Class ;
                             rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                             emmo:EMMO_847f1d9f_205e_46c1_8cb6_a9e479421f88 ,
-                                            emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                            emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                             [ rdf:type owl:Restriction ;
                                               owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                               owl:hasValue "1.0"^^xsd:double
@@ -2487,8 +2285,6 @@ emmo:NewtonMetrePerKilogram rdf:type owl:Class ;
 emmo:NewtonMetrePerMetre rdf:type owl:Class ;
                          rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                          emmo:EMMO_53e825d9_1a09_483c_baa7_37501ebfbe1c ,
-                                         emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                         emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                          [ rdf:type owl:Restriction ;
                                            owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                            owl:hasValue "1.0"^^xsd:double
@@ -2511,8 +2307,6 @@ emmo:NewtonMetrePerMetre rdf:type owl:Class ;
 emmo:NewtonMetrePerMetrePerRadian rdf:type owl:Class ;
                                   rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                   emmo:EMMO_53e825d9_1a09_483c_baa7_37501ebfbe1c ,
-                                                  emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                                  emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                   [ rdf:type owl:Restriction ;
                                                     owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                     owl:hasValue "1.0"^^xsd:double
@@ -2531,8 +2325,6 @@ emmo:NewtonMetrePerMetrePerRadian rdf:type owl:Class ;
 ###  http://emmo.info/emmo#NewtonMetrePerRadian
 emmo:NewtonMetrePerRadian rdf:type owl:Class ;
                           rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                          emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                          emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                           emmo:EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f ,
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -2555,8 +2347,6 @@ emmo:NewtonMetrePerRadian rdf:type owl:Class ;
 ###  http://emmo.info/emmo#NewtonMetrePerSquareMetre
 emmo:NewtonMetrePerSquareMetre rdf:type owl:Class ;
                                rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                               emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                               emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                emmo:EMMO_d46e131b_f51a_4ae7_9301_824d718c56fa ,
                                                [ rdf:type owl:Restriction ;
                                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -2579,10 +2369,8 @@ emmo:NewtonMetrePerSquareMetre rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#NewtonMetreSecond
 emmo:NewtonMetreSecond rdf:type owl:Class ;
-                       rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                       emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                       rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                        emmo:EMMO_501f9b3a_c469_48f7_9281_2e6a8d805d7a ,
-                                       emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                        [ rdf:type owl:Restriction ;
                                          owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                          owl:hasValue "1.0"^^xsd:double
@@ -2606,8 +2394,6 @@ emmo:NewtonMetreSecond rdf:type owl:Class ;
 ###  http://emmo.info/emmo#NewtonMetreSecondPerMetre
 emmo:NewtonMetreSecondPerMetre rdf:type owl:Class ;
                                rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                               emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                               emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                emmo:EMMO_ec987ba8_a548_4fc9_9df6_a834daebd140 ,
                                                [ rdf:type owl:Restriction ;
                                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -2631,8 +2417,6 @@ emmo:NewtonMetreSecondPerMetre rdf:type owl:Class ;
 emmo:NewtonMetreSecondPerRadian rdf:type owl:Class ;
                                 rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                 emmo:EMMO_501f9b3a_c469_48f7_9281_2e6a8d805d7a ,
-                                                emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                                emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                 [ rdf:type owl:Restriction ;
                                                   owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                   owl:hasValue "1.0"^^xsd:double
@@ -2654,9 +2438,7 @@ emmo:NewtonMetreSecondPerRadian rdf:type owl:Class ;
 ###  http://emmo.info/emmo#NewtonPerAmpere
 emmo:NewtonPerAmpere rdf:type owl:Class ;
                      rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                     emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                      emmo:EMMO_8cf32f24_ada1_4350_af2c_50eb0e5f6415 ,
-                                     emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                      [ rdf:type owl:Restriction ;
                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                        owl:hasValue "1.0"^^xsd:double
@@ -2678,9 +2460,7 @@ emmo:NewtonPerAmpere rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#NewtonPerCoulomb
 emmo:NewtonPerCoulomb rdf:type owl:Class ;
-                      rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                      emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                      emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                      rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                       emmo:EMMO_ebf9a5c6_ca80_45d4_a991_24a1bf4b6720 ,
                                       [ rdf:type owl:Restriction ;
                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -2704,8 +2484,6 @@ emmo:NewtonPerCoulomb rdf:type owl:Class ;
 ###  http://emmo.info/emmo#NewtonPerCubicMetre
 emmo:NewtonPerCubicMetre rdf:type owl:Class ;
                          rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                         emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                         emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                          emmo:EMMO_ddcc1e64_69cc_4a0c_9ee8_08aca78b3c85 ,
                                          [ rdf:type owl:Restriction ;
                                            owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -2725,10 +2503,8 @@ emmo:NewtonPerCubicMetre rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#NewtonPerKilogram
 emmo:NewtonPerKilogram rdf:type owl:Class ;
-                       rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                       emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                       rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                        emmo:EMMO_2da7408f_d389_4245_887d_a1743b81a9b6 ,
-                                       emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                        [ rdf:type owl:Restriction ;
                                          owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                          owl:hasValue "1.0"^^xsd:double
@@ -2750,9 +2526,7 @@ emmo:NewtonPerKilogram rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#NewtonPerMetre
 emmo:NewtonPerMetre rdf:type owl:Class ;
-                    rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                    emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                    emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                    rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                     emmo:EMMO_d46e131b_f51a_4ae7_9301_824d718c56fa ,
                                     [ rdf:type owl:Restriction ;
                                       owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -2778,8 +2552,6 @@ emmo:NewtonPerMetre rdf:type owl:Class ;
 emmo:NewtonPerRadian rdf:type owl:Class ;
                      rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                      emmo:EMMO_53e825d9_1a09_483c_baa7_37501ebfbe1c ,
-                                     emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                     emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                      [ rdf:type owl:Restriction ;
                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                        owl:hasValue "1.0"^^xsd:double
@@ -2800,10 +2572,8 @@ emmo:NewtonPerRadian rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#NewtonPerSquareMetre
 emmo:NewtonPerSquareMetre rdf:type owl:Class ;
-                          rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                          emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                          rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                           emmo:EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b ,
-                                          emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                             owl:hasValue "1.0"^^xsd:double
@@ -2827,8 +2597,6 @@ emmo:NewtonPerSquareMetre rdf:type owl:Class ;
 ###  http://emmo.info/emmo#NewtonSecond
 emmo:NewtonSecond rdf:type owl:Class ;
                   rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                  emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                  emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                   emmo:EMMO_ec987ba8_a548_4fc9_9df6_a834daebd140 ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -2851,9 +2619,7 @@ emmo:NewtonSecond rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#NewtonSecondPerCubicMetre
 emmo:NewtonSecondPerCubicMetre rdf:type owl:Class ;
-                               rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                               emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                               emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                               rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                emmo:EMMO_e35d4936_b2e3_4cd6_a437_f1c864b3d450 ,
                                                [ rdf:type owl:Restriction ;
                                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -2876,9 +2642,7 @@ emmo:NewtonSecondPerCubicMetre rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#NewtonSecondPerMetre
 emmo:NewtonSecondPerMetre rdf:type owl:Class ;
-                          rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                          emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                          emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                          rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                           emmo:EMMO_8826aefb_0bf6_4378_8732_fc80aa95654c ,
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -2902,8 +2666,6 @@ emmo:NewtonSecondPerMetre rdf:type owl:Class ;
 ###  http://emmo.info/emmo#NewtonSecondPerRadian
 emmo:NewtonSecondPerRadian rdf:type owl:Class ;
                            rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                           emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                           emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                            emmo:EMMO_ec987ba8_a548_4fc9_9df6_a834daebd140 ,
                                            [ rdf:type owl:Restriction ;
                                              owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -2925,9 +2687,7 @@ emmo:NewtonSecondPerRadian rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#NewtonSquareMetre
 emmo:NewtonSquareMetre rdf:type owl:Class ;
-                       rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                       emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                       emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                       rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                        emmo:EMMO_cb77e107_43ed_4a97_bf39_03b3587404d3 ,
                                        [ rdf:type owl:Restriction ;
                                          owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -2946,10 +2706,8 @@ emmo:NewtonSquareMetre rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#NewtonSquareMetrePerAmpere
 emmo:NewtonSquareMetrePerAmpere rdf:type owl:Class ;
-                                rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                                emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                 emmo:EMMO_431ce3bc-3d54-481d-a10d-7c4a4418732a ,
-                                                emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                                 [ rdf:type owl:Restriction ;
                                                   owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                   owl:hasValue "1.0"^^xsd:double
@@ -2971,8 +2729,6 @@ emmo:NewtonSquareMetrePerAmpere rdf:type owl:Class ;
 emmo:NewtonSquareMetrePerSquareKilogram rdf:type owl:Class ;
                                         rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                         emmo:EMMO_3181bb28_623b_4411_ad79_80277c661322 ,
-                                                        emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                                        emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                         [ rdf:type owl:Restriction ;
                                                           owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                           owl:hasValue "1.0"^^xsd:double
@@ -2996,8 +2752,6 @@ emmo:NewtonSquareMetrePerSquareKilogram rdf:type owl:Class ;
 emmo:OhmMetre rdf:type owl:Class ;
               rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                               emmo:EMMO_359312ca_1d9d_4765_b20b_28d9f45d77e7 ,
-                              emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                              emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                 owl:hasValue "1.0"^^xsd:double
@@ -3019,8 +2773,6 @@ emmo:OhmMetre rdf:type owl:Class ;
 emmo:OhmSquareMetrePerMetre rdf:type owl:Class ;
                             rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                             emmo:EMMO_359312ca_1d9d_4765_b20b_28d9f45d77e7 ,
-                                            emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                            emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                             [ rdf:type owl:Restriction ;
                                               owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                               owl:hasValue "1.0"^^xsd:double
@@ -3040,8 +2792,6 @@ emmo:OhmSquareMetrePerMetre rdf:type owl:Class ;
 ###  http://emmo.info/emmo#PascalCubicMetrePerSecond
 emmo:PascalCubicMetrePerSecond rdf:type owl:Class ;
                                rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                               emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                               emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                emmo:EMMO_c8d084ad_f88e_4596_8e4d_982c6655ce6f ,
                                                [ rdf:type owl:Restriction ;
                                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -3062,36 +2812,9 @@ emmo:PascalCubicMetrePerSecond rdf:type owl:Class ;
                                skos:prefLabel "PascalCubicMetrePerSecond"@en .
 
 
-###  http://emmo.info/emmo#PascalLitrePerSecond
-emmo:PascalLitrePerSecond rdf:type owl:Class ;
-                          rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                          emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                          emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
-                                          emmo:EMMO_c8d084ad_f88e_4596_8e4d_982c6655ce6f ,
-                                          [ rdf:type owl:Restriction ;
-                                            owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                            owl:hasValue "0.001"^^xsd:double
-                                          ] ,
-                                          [ rdf:type owl:Restriction ;
-                                            owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                            owl:hasValue "0.0"^^xsd:double
-                                          ] ;
-                          emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PA-L-PER-SEC" ;
-                          emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Pa.L.s-1" ;
-                          emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Pa⋅L/s" ;
-                          emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """product out of the SI derived unit pascal and the unit litre divided by the SI base unit second
-
--- QUDT"""@en ;
-                          rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                          skos:altLabel "Pascal Litre Per Second"@en ;
-                          skos:prefLabel "PascalLitrePerSecond"@en .
-
-
 ###  http://emmo.info/emmo#PascalMetre
 emmo:PascalMetre rdf:type owl:Class ;
                  rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                 emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                 emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                  emmo:EMMO_d46e131b_f51a_4ae7_9301_824d718c56fa ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -3113,8 +2836,6 @@ emmo:PascalMetre rdf:type owl:Class ;
 emmo:PascalMetrePerSecond rdf:type owl:Class ;
                           rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                           emmo:EMMO_539d8d92_d3a5_4f46_858f_081fed5b4190 ,
-                                          emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                          emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                             owl:hasValue "1.0"^^xsd:double
@@ -3135,8 +2856,6 @@ emmo:PascalMetrePerSecond rdf:type owl:Class ;
 emmo:PascalMetrePerSquareSecond rdf:type owl:Class ;
                                 rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                 emmo:EMMO_30261696_a8a4_44ce_9bf5_b18201a83c76 ,
-                                                emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                                emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                 [ rdf:type owl:Restriction ;
                                                   owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                   owl:hasValue "1.0"^^xsd:double
@@ -3157,8 +2876,6 @@ emmo:PascalMetrePerSquareSecond rdf:type owl:Class ;
 emmo:PascalPerKelvin rdf:type owl:Class ;
                      rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                      emmo:EMMO_1275ac79_7280_4d99_ab61_3d98e00c053e ,
-                                     emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                     emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                      [ rdf:type owl:Restriction ;
                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                        owl:hasValue "1.0"^^xsd:double
@@ -3178,8 +2895,6 @@ emmo:PascalPerKelvin rdf:type owl:Class ;
 ###  http://emmo.info/emmo#PascalPerMetre
 emmo:PascalPerMetre rdf:type owl:Class ;
                     rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                    emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                    emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                     emmo:EMMO_ddcc1e64_69cc_4a0c_9ee8_08aca78b3c85 ,
                                     [ rdf:type owl:Restriction ;
                                       owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -3204,8 +2919,6 @@ emmo:PascalPerMetre rdf:type owl:Class ;
 ###  http://emmo.info/emmo#PascalPerSecond
 emmo:PascalPerSecond rdf:type owl:Class ;
                      rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                     emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                     emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                      emmo:EMMO_fced2382_9c23_47a1_8246_a5dcd45ad99c ,
                                      [ rdf:type owl:Restriction ;
                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -3229,10 +2942,8 @@ emmo:PascalPerSecond rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#PascalSecond
 emmo:PascalSecond rdf:type owl:Class ;
-                  rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                  emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                  rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                   emmo:EMMO_2c224eb4_cb86_44a4_a067_8969ead598d7 ,
-                                  emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                     owl:hasValue "1.0"^^xsd:double
@@ -3254,9 +2965,7 @@ emmo:PascalSecond rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#PascalSecondPerCubicMetre
 emmo:PascalSecondPerCubicMetre rdf:type owl:Class ;
-                               rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                               emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                               emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                               rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                emmo:EMMO_9cffc70d_4b60_4187_a7cd_706f5740ae87 ,
                                                [ rdf:type owl:Restriction ;
                                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -3280,9 +2989,7 @@ emmo:PascalSecondPerCubicMetre rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#PascalSecondPerMetre
 emmo:PascalSecondPerMetre rdf:type owl:Class ;
-                          rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                          emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                          emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                          rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                           emmo:EMMO_e35d4936_b2e3_4cd6_a437_f1c864b3d450 ,
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -3306,9 +3013,7 @@ emmo:PascalSecondPerMetre rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#QuarticCoulombMetrePerCubicEnergy
 emmo:QuarticCoulombMetrePerCubicEnergy rdf:type owl:Class ;
-                                       rdfs:subClassOf emmo:EMMO_15344998_4490_4b40_b242_c3d92e5cdc27 ,
-                                                       emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                                       emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
+                                       rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                        emmo:EMMO_c0487653-66e8-454e-bb11-e50167e412e4 ;
                                        emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/C4-M4-PER-J3" ;
                                        emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "C4.m4.J-3" ,
@@ -3324,10 +3029,8 @@ emmo:QuarticCoulombMetrePerCubicEnergy rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#QuarticMetre
 emmo:QuarticMetre rdf:type owl:Class ;
-                  rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                  emmo:EMMO_15344998_4490_4b40_b242_c3d92e5cdc27 ,
-                                  emmo:EMMO_8627410d_01f8_4ed1_8f2b_aba69d791ad3 ,
-                                  emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ;
+                  rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                  emmo:EMMO_8627410d_01f8_4ed1_8f2b_aba69d791ad3 ;
                   emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M4" ;
                   emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m4" ;
                   emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m⁴" ;
@@ -3341,10 +3044,8 @@ emmo:QuarticMetre rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#QuarticMetrePerSecond
 emmo:QuarticMetrePerSecond rdf:type owl:Class ;
-                           rdfs:subClassOf emmo:EMMO_15344998_4490_4b40_b242_c3d92e5cdc27 ,
-                                           emmo:EMMO_6cfc5b82_b47b_47bc_bb45_c23c273d2e06 ,
-                                           emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                           emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ;
+                           rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                           emmo:EMMO_6cfc5b82_b47b_47bc_bb45_c23c273d2e06 ;
                            emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M4-PER-SEC" ;
                            emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m4.s-1" ;
                            emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m⁴/s" ;
@@ -3355,9 +3056,7 @@ emmo:QuarticMetrePerSecond rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#QuinticMetre
 emmo:QuinticMetre rdf:type owl:Class ;
-                  rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                  emmo:EMMO_15344998_4490_4b40_b242_c3d92e5cdc27 ,
-                                  emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                  rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                   emmo:EMMO_e55d4f6d-2506-4f63-8e01-1963efe7071e ;
                   emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M5" ;
                   emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m⁵" ;
@@ -3368,10 +3067,8 @@ emmo:QuinticMetre rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#RadianPerMetre
 emmo:RadianPerMetre rdf:type owl:Class ;
-                    rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                    emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                    rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                     emmo:EMMO_608a1b30_df6f_4bbb_9dc3_5c0de92fd9cf ,
-                                    emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                     [ rdf:type owl:Restriction ;
                                       owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                       owl:hasValue "1.0"^^xsd:double
@@ -3391,10 +3088,8 @@ emmo:RadianPerMetre rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#RadianPerSecond
 emmo:RadianPerSecond rdf:type owl:Class ;
-                     rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                     emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                     rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                      emmo:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 ,
-                                     emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                      [ rdf:type owl:Restriction ;
                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                        owl:hasValue "1.0"^^xsd:double
@@ -3417,10 +3112,8 @@ emmo:RadianPerSecond rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#RadianPerSquareSecond
 emmo:RadianPerSquareSecond rdf:type owl:Class ;
-                           rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                           emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                           rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                            emmo:EMMO_78487bf1_c0bc_4db8_99dd_d8b7cc8b3bac ,
-                                           emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                            [ rdf:type owl:Restriction ;
                                              owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                              owl:hasValue "1.0"^^xsd:double
@@ -3445,8 +3138,6 @@ emmo:RadianPerSquareSecond rdf:type owl:Class ;
 emmo:RadianSquareMetrePerKilogram rdf:type owl:Class ;
                                   rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                   emmo:EMMO_4817e479_e401_437e_a49b_54540b93d2a1 ,
-                                                  emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                                  emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                   [ rdf:type owl:Restriction ;
                                                     owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                     owl:hasValue "1.0"^^xsd:double
@@ -3466,9 +3157,7 @@ emmo:RadianSquareMetrePerKilogram rdf:type owl:Class ;
 ###  http://emmo.info/emmo#RadianSquareMetrePerMole
 emmo:RadianSquareMetrePerMole rdf:type owl:Class ;
                               rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                              emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                               emmo:EMMO_973656ed_870e_40ba_8bc0_c879687a335a ,
-                                              emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                               [ rdf:type owl:Restriction ;
                                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                 owl:hasValue "1.0"^^xsd:double
@@ -3488,9 +3177,7 @@ emmo:RadianSquareMetrePerMole rdf:type owl:Class ;
 ###  http://emmo.info/emmo#ReciprocalCubicMetre
 emmo:ReciprocalCubicMetre rdf:type owl:Class ;
                           rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                          emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                           emmo:EMMO_95a9bf22_eabc_4a84_863d_9ea398c8a52e ,
-                                          emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                             owl:hasValue "1.0"^^xsd:double
@@ -3513,10 +3200,8 @@ emmo:ReciprocalCubicMetre rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#ReciprocalCubicMetreSecond
 emmo:ReciprocalCubicMetreSecond rdf:type owl:Class ;
-                                rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                                emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                 emmo:EMMO_43e499a1_ca67_4380_ac08_cfc52a93ad04 ,
-                                                emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                                 [ rdf:type owl:Restriction ;
                                                   owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                   owl:hasValue "1.0"^^xsd:double
@@ -3537,8 +3222,6 @@ emmo:ReciprocalCubicMetreSecond rdf:type owl:Class ;
 emmo:ReciprocalHenry rdf:type owl:Class ;
                      rdfs:subClassOf emmo:EMMO_07f571cd_252b_4421_8f98_94b6690d2ab9 ,
                                      emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                     emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                     emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                      [ rdf:type owl:Restriction ;
                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                        owl:hasValue "1.0"^^xsd:double
@@ -3559,8 +3242,6 @@ emmo:ReciprocalHenry rdf:type owl:Class ;
 emmo:ReciprocalJouleCubicMetre rdf:type owl:Class ;
                                rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                emmo:EMMO_2a068ad0_582c_4f50_90d2_89d9e28977c1 ,
-                                               emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                               emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                [ rdf:type owl:Restriction ;
                                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                  owl:hasValue "1.0"^^xsd:double
@@ -3582,8 +3263,6 @@ emmo:ReciprocalJouleCubicMetre rdf:type owl:Class ;
 emmo:ReciprocalKelvin rdf:type owl:Class ;
                       rdfs:subClassOf emmo:EMMO_02a935c8_c2d4_4a00_bd6f_b89d05aac79e ,
                                       emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                      emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                      emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                       [ rdf:type owl:Restriction ;
                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                         owl:hasValue "1.0"^^xsd:double
@@ -3607,8 +3286,6 @@ emmo:ReciprocalKelvin rdf:type owl:Class ;
 emmo:ReciprocalMetre rdf:type owl:Class ;
                      rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                      emmo:EMMO_608a1b30_df6f_4bbb_9dc3_5c0de92fd9cf ,
-                                     emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                     emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                      [ rdf:type owl:Restriction ;
                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                        owl:hasValue "1.0"^^xsd:double
@@ -3633,8 +3310,6 @@ emmo:ReciprocalMetre rdf:type owl:Class ;
 emmo:ReciprocalMetreKelvin rdf:type owl:Class ;
                            rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                            emmo:EMMO_61eec472_f9af_4861_bedd_d741f022a7e5 ,
-                                           emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                           emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                            [ rdf:type owl:Restriction ;
                                              owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                              owl:hasValue "1.0"^^xsd:double
@@ -3657,9 +3332,7 @@ emmo:ReciprocalMetreKelvin rdf:type owl:Class ;
 ###  http://emmo.info/emmo#ReciprocalMetrePerSecond
 emmo:ReciprocalMetrePerSecond rdf:type owl:Class ;
                               rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                              emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                               emmo:EMMO_9f0338b9_326f_44c2_893c_2d815b763130 ,
-                                              emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                               [ rdf:type owl:Restriction ;
                                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                 owl:hasValue "1.0"^^xsd:double
@@ -3680,8 +3353,6 @@ emmo:ReciprocalMetrePerSecond rdf:type owl:Class ;
 emmo:ReciprocalMetrePerSteradian rdf:type owl:Class ;
                                  rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                  emmo:EMMO_608a1b30_df6f_4bbb_9dc3_5c0de92fd9cf ,
-                                                 emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                                 emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                    owl:hasValue "1.0"^^xsd:double
@@ -3700,9 +3371,7 @@ emmo:ReciprocalMetrePerSteradian rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#ReciprocalMole
 emmo:ReciprocalMole rdf:type owl:Class ;
-                    rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                    emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                    emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                    rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                     emmo:EMMO_af24ae20_8ef2_435a_86a1_2ea44488b318 ,
                                     [ rdf:type owl:Restriction ;
                                       owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -3725,10 +3394,8 @@ emmo:ReciprocalMole rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#ReciprocalPascal
 emmo:ReciprocalPascal rdf:type owl:Class ;
-                      rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                      emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                      rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                       emmo:EMMO_2a068ad0_582c_4f50_90d2_89d9e28977c1 ,
-                                      emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                       [ rdf:type owl:Restriction ;
                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                         owl:hasValue "1.0"^^xsd:double
@@ -3750,8 +3417,6 @@ emmo:ReciprocalPascal rdf:type owl:Class ;
 emmo:ReciprocalPascalPerSecond rdf:type owl:Class ;
                                rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                emmo:EMMO_2f31340f_59ca_4a57_8513_269837af3796 ,
-                                               emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                               emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                [ rdf:type owl:Restriction ;
                                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                  owl:hasValue "1.0"^^xsd:double
@@ -3770,10 +3435,8 @@ emmo:ReciprocalPascalPerSecond rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#ReciprocalSecond
 emmo:ReciprocalSecond rdf:type owl:Class ;
-                      rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                      emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                      rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                       emmo:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 ,
-                                      emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                       [ rdf:type owl:Restriction ;
                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                         owl:hasValue "1.0"^^xsd:double
@@ -3797,9 +3460,7 @@ emmo:ReciprocalSecond rdf:type owl:Class ;
 ###  http://emmo.info/emmo#ReciprocalSecondSquareMetre
 emmo:ReciprocalSecondSquareMetre rdf:type owl:Class ;
                                  rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                                 emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                                  emmo:EMMO_9b075686_4ac2_43bb_b2a3_17b3ea24ff17 ,
-                                                 emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                    owl:hasValue "1.0"^^xsd:double
@@ -3823,9 +3484,7 @@ emmo:ReciprocalSecondSquareMetre rdf:type owl:Class ;
 ###  http://emmo.info/emmo#ReciprocalSecondSquareMetreSteradian
 emmo:ReciprocalSecondSquareMetreSteradian rdf:type owl:Class ;
                                           rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                                          emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                                           emmo:EMMO_9b075686_4ac2_43bb_b2a3_17b3ea24ff17 ,
-                                                          emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                             owl:hasValue "1.0"^^xsd:double
@@ -3850,8 +3509,6 @@ emmo:ReciprocalSecondSquareMetreSteradian rdf:type owl:Class ;
 emmo:ReciprocalSecondSteradian rdf:type owl:Class ;
                                rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                emmo:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 ,
-                                               emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                               emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                [ rdf:type owl:Restriction ;
                                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                  owl:hasValue "1.0"^^xsd:double
@@ -3875,9 +3532,7 @@ emmo:ReciprocalSecondSteradian rdf:type owl:Class ;
 ###  http://emmo.info/emmo#ReciprocalSquareJoule
 emmo:ReciprocalSquareJoule rdf:type owl:Class ;
                            rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                           emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                            emmo:EMMO_87b5dd20_e4fe_422d_9e70_1eee54ec9496 ,
-                                           emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                            [ rdf:type owl:Restriction ;
                                              owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                              owl:hasValue "1.0"^^xsd:double
@@ -3901,8 +3556,6 @@ emmo:ReciprocalSquareJoule rdf:type owl:Class ;
 emmo:ReciprocalSquareKilogram rdf:type owl:Class ;
                               rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                               emmo:EMMO_6aa04359-50d6-43d7-b3a7-296bd391bf7d ,
-                                              emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                              emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                               [ rdf:type owl:Restriction ;
                                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                 owl:hasValue "1.0"^^xsd:double
@@ -3924,10 +3577,8 @@ emmo:ReciprocalSquareKilogram rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#ReciprocalSquareMetre
 emmo:ReciprocalSquareMetre rdf:type owl:Class ;
-                           rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                           emmo:EMMO_11708648_fc62_46c6_bae5_3a10693e416e ,
+                           rdfs:subClassOf emmo:EMMO_11708648_fc62_46c6_bae5_3a10693e416e ,
                                            emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                           emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                            [ rdf:type owl:Restriction ;
                                              owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                              owl:hasValue "1.0"^^xsd:double
@@ -3950,9 +3601,7 @@ emmo:ReciprocalSquareMetre rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#ReciprocalSquareMetreSecond
 emmo:ReciprocalSquareMetreSecond rdf:type owl:Class ;
-                                 rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                                 emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                                 emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                                 rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                  emmo:EMMO_9b075686_4ac2_43bb_b2a3_17b3ea24ff17 ,
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -3974,8 +3623,6 @@ emmo:ReciprocalSquareMetreSecond rdf:type owl:Class ;
 emmo:ReciprocalSquareSecond rdf:type owl:Class ;
                             rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                             emmo:EMMO_78487bf1_c0bc_4db8_99dd_d8b7cc8b3bac ,
-                                            emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                            emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                             [ rdf:type owl:Restriction ;
                                               owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                               owl:hasValue "1.0"^^xsd:double
@@ -3995,8 +3642,6 @@ emmo:ReciprocalSquareSecond rdf:type owl:Class ;
 ###  http://emmo.info/emmo#ReciprocalSteradian
 emmo:ReciprocalSteradian rdf:type owl:Class ;
                          rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                         emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                         emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                          emmo:EMMO_c2f5ee66_579c_44c6_a2e9_fa2eaa9fa4da ,
                                          [ rdf:type owl:Restriction ;
                                            owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -4018,8 +3663,6 @@ emmo:ReciprocalSteradian rdf:type owl:Class ;
 emmo:ReciprocalTeslaMetre rdf:type owl:Class ;
                           rdfs:subClassOf emmo:EMMO_01cd670e_d37c_424f_b91e_c2c2bbb5ea43 ,
                                           emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                          emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                          emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                             owl:hasValue "1.0"^^xsd:double
@@ -4041,10 +3684,8 @@ emmo:ReciprocalTeslaMetre rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#ReciprocalTeslaSecond
 emmo:ReciprocalTeslaSecond rdf:type owl:Class ;
-                           rdfs:subClassOf emmo:EMMO_15344998_4490_4b40_b242_c3d92e5cdc27 ,
-                                           emmo:EMMO_4dbe2b16_3e84_4049_898d_eb89bcc925a2 ,
-                                           emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                           emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ;
+                           rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                           emmo:EMMO_4dbe2b16_3e84_4049_898d_eb89bcc925a2 ;
                            emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-T-SEC" ;
                            emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "T-1.s-1" ;
                            emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/T⋅s" ;
@@ -4059,9 +3700,7 @@ emmo:ReciprocalTeslaSecond rdf:type owl:Class ;
 ###  http://emmo.info/emmo#SecondPerMetre
 emmo:SecondPerMetre rdf:type owl:Class ;
                     rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                    emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                     emmo:EMMO_ab2ee5cd_4de3_46b6_bec5_29e293b33422 ,
-                                    emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                     [ rdf:type owl:Restriction ;
                                       owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                       owl:hasValue "1.0"^^xsd:double
@@ -4082,8 +3721,6 @@ emmo:SecondPerMetre rdf:type owl:Class ;
 emmo:SecondPerRadianCubicMetre rdf:type owl:Class ;
                                rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                emmo:EMMO_6f76f9bf_feb3_4e27_9bcb_45b5f3526050 ,
-                                               emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                               emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                [ rdf:type owl:Restriction ;
                                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                  owl:hasValue "1.0"^^xsd:double
@@ -4103,10 +3740,8 @@ emmo:SecondPerRadianCubicMetre rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#SexticMetre
 emmo:SexticMetre rdf:type owl:Class ;
-                 rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                 emmo:EMMO_15344998_4490_4b40_b242_c3d92e5cdc27 ,
-                                 emmo:EMMO_21bc99ae_f2ba_4eb3_90c1_d81968c429e2 ,
-                                 emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ;
+                 rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                 emmo:EMMO_21bc99ae_f2ba_4eb3_90c1_d81968c429e2 ;
                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M6" ;
                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m⁶" ;
                  rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
@@ -4117,9 +3752,7 @@ emmo:SexticMetre rdf:type owl:Class ;
 ###  http://emmo.info/emmo#SiemensPerMetre
 emmo:SiemensPerMetre rdf:type owl:Class ;
                      rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                     emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                      emmo:EMMO_86ffe1bb_d457_4948_9e39_35f363b9a9fe ,
-                                     emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                      [ rdf:type owl:Restriction ;
                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                        owl:hasValue "1.0"^^xsd:double
@@ -4144,8 +3777,6 @@ emmo:SiemensPerMetre rdf:type owl:Class ;
 emmo:SiemensSquareMetrePerMole rdf:type owl:Class ;
                                rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                emmo:EMMO_14235b93_650f_4452_8395_a23b8f645c9a ,
-                                               emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                               emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                [ rdf:type owl:Restriction ;
                                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                  owl:hasValue "1.0"^^xsd:double
@@ -4165,8 +3796,6 @@ emmo:SiemensSquareMetrePerMole rdf:type owl:Class ;
 ###  http://emmo.info/emmo#SquareCoulombSquareMetrePerJoule
 emmo:SquareCoulombSquareMetrePerJoule rdf:type owl:Class ;
                                       rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                                      emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                                      emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                       emmo:EMMO_cd9ad446_04f7_44ff_b9ea_ae7389574fa6 ,
                                                       [ rdf:type owl:Restriction ;
                                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -4191,8 +3820,6 @@ emmo:SquareCoulombSquareMetrePerJoule rdf:type owl:Class ;
 ###  http://emmo.info/emmo#SquareKelvin
 emmo:SquareKelvin rdf:type owl:Class ;
                   rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                  emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                  emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                   emmo:EMMO_bdee99f6_389b_4816_8a1c_a7903a2df00a ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -4214,8 +3841,6 @@ emmo:SquareKelvin rdf:type owl:Class ;
 emmo:SquareKilogramPerSquareSecond rdf:type owl:Class ;
                                    rdfs:subClassOf emmo:EMMO_109e8c69_4148_4cb0_9ceb_fbd526befca0 ,
                                                    emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                                   emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                                   emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                    [ rdf:type owl:Restriction ;
                                                      owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                      owl:hasValue "1.0"^^xsd:double
@@ -4236,7 +3861,6 @@ emmo:SquareKilogramPerSquareSecond rdf:type owl:Class ;
 emmo:SquareMetre rdf:type owl:Class ;
                  rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                  emmo:EMMO_33433bb1_c68f_45ee_a466_f01e2c57b214 ,
-                                 emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                    owl:hasValue "1.0"^^xsd:double
@@ -4260,8 +3884,6 @@ emmo:SquareMetre rdf:type owl:Class ;
 emmo:SquareMetreCubicHertz rdf:type owl:Class ;
                            rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                            emmo:EMMO_835f4e4e-680d-404c-8c73-92a6a570f6eb ,
-                                           emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                           emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                            [ rdf:type owl:Restriction ;
                                              owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                              owl:hasValue "1.0"^^xsd:double
@@ -4281,8 +3903,6 @@ emmo:SquareMetreCubicHertz rdf:type owl:Class ;
 ###  http://emmo.info/emmo#SquareMetreHertz
 emmo:SquareMetreHertz rdf:type owl:Class ;
                       rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                      emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                      emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                       emmo:EMMO_b33cc5b5_a9dc_4082_b497_14d1654c5591 ,
                                       [ rdf:type owl:Restriction ;
                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -4302,9 +3922,7 @@ emmo:SquareMetreHertz rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#SquareMetreKelvin
 emmo:SquareMetreKelvin rdf:type owl:Class ;
-                       rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                       emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                       emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                       rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                        emmo:EMMO_ceaa4c6b_f5b7_46f4_bfcd_16eb4afab945 ,
                                        [ rdf:type owl:Restriction ;
                                          owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -4327,9 +3945,7 @@ emmo:SquareMetreKelvin rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#SquareMetreKelvinPerWatt
 emmo:SquareMetreKelvinPerWatt rdf:type owl:Class ;
-                              rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                              emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                              emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                              rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                               emmo:EMMO_869e6e4f_a9b5_4db8_a978_8ad050239933 ,
                                               [ rdf:type owl:Restriction ;
                                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -4354,9 +3970,7 @@ emmo:SquareMetreKelvinPerWatt rdf:type owl:Class ;
 ###  http://emmo.info/emmo#SquareMetrePerHertz
 emmo:SquareMetrePerHertz rdf:type owl:Class ;
                          rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                         emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                          emmo:EMMO_959c9715_14fb_4ce8_a93b_79678b2959b9 ,
-                                         emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                          [ rdf:type owl:Restriction ;
                                            owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                            owl:hasValue "1.0"^^xsd:double
@@ -4375,9 +3989,7 @@ emmo:SquareMetrePerHertz rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#SquareMetrePerJoule
 emmo:SquareMetrePerJoule rdf:type owl:Class ;
-                         rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                         emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                         emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                         rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                          emmo:EMMO_f508dec1_e2d8_43d5_ae65_c386c7b330f9 ,
                                          [ rdf:type owl:Restriction ;
                                            owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -4398,9 +4010,7 @@ emmo:SquareMetrePerJoule rdf:type owl:Class ;
 ###  http://emmo.info/emmo#SquareMetrePerKelvin
 emmo:SquareMetrePerKelvin rdf:type owl:Class ;
                           rdfs:subClassOf emmo:EMMO_002e4002_58c7_4aea_ac1f_bba5188818ff ,
-                                          emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
                                           emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                          emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                             owl:hasValue "1.0"^^xsd:double
@@ -4419,10 +4029,8 @@ emmo:SquareMetrePerKelvin rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#SquareMetrePerKilogram
 emmo:SquareMetrePerKilogram rdf:type owl:Class ;
-                            rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                            emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                            rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                             emmo:EMMO_4817e479_e401_437e_a49b_54540b93d2a1 ,
-                                            emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                             [ rdf:type owl:Restriction ;
                                               owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                               owl:hasValue "1.0"^^xsd:double
@@ -4444,9 +4052,7 @@ emmo:SquareMetrePerKilogram rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#SquareMetrePerMole
 emmo:SquareMetrePerMole rdf:type owl:Class ;
-                        rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                        emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                        emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                        rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                         emmo:EMMO_973656ed_870e_40ba_8bc0_c879687a335a ,
                                         [ rdf:type owl:Restriction ;
                                           owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -4471,8 +4077,6 @@ emmo:SquareMetrePerMole rdf:type owl:Class ;
 emmo:SquareMetrePerNewton rdf:type owl:Class ;
                           rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                           emmo:EMMO_2a068ad0_582c_4f50_90d2_89d9e28977c1 ,
-                                          emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                          emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                             owl:hasValue "1.0"^^xsd:double
@@ -4494,9 +4098,7 @@ emmo:SquareMetrePerNewton rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#SquareMetrePerSecond
 emmo:SquareMetrePerSecond rdf:type owl:Class ;
-                          rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                          emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                          emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                          rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                           emmo:EMMO_b33cc5b5_a9dc_4082_b497_14d1654c5591 ,
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -4522,8 +4124,6 @@ emmo:SquareMetrePerSecond rdf:type owl:Class ;
 emmo:SquareMetrePerSquareHertz rdf:type owl:Class ;
                                rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                emmo:EMMO_7855043d_a466_4585_97a9_b9fe4ce0c12d ,
-                                               emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                               emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                [ rdf:type owl:Restriction ;
                                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                  owl:hasValue "1.0"^^xsd:double
@@ -4544,8 +4144,6 @@ emmo:SquareMetrePerSquareHertz rdf:type owl:Class ;
 emmo:SquareMetrePerSquareMetre rdf:type owl:Class ;
                                rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                emmo:EMMO_6f4d704a_a7c6_4c07_b8a7_ea0bab04128f ,
-                                               emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                               emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                [ rdf:type owl:Restriction ;
                                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                  owl:hasValue "1.0"^^xsd:double
@@ -4568,8 +4166,6 @@ emmo:SquareMetrePerSquareMetre rdf:type owl:Class ;
 emmo:SquareMetrePerSquareSecond rdf:type owl:Class ;
                                 rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                 emmo:EMMO_847f1d9f_205e_46c1_8cb6_a9e479421f88 ,
-                                                emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                                emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                 [ rdf:type owl:Restriction ;
                                                   owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                   owl:hasValue "1.0"^^xsd:double
@@ -4588,10 +4184,8 @@ emmo:SquareMetrePerSquareSecond rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#SquareMetrePerSteradian
 emmo:SquareMetrePerSteradian rdf:type owl:Class ;
-                             rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                             emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                             rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                              emmo:EMMO_33433bb1_c68f_45ee_a466_f01e2c57b214 ,
-                                             emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                              [ rdf:type owl:Restriction ;
                                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                owl:hasValue "1.0"^^xsd:double
@@ -4611,9 +4205,7 @@ emmo:SquareMetrePerSteradian rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#SquareMetrePerSteradianJoule
 emmo:SquareMetrePerSteradianJoule rdf:type owl:Class ;
-                                  rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                                  emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                                  emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                                  rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                   emmo:EMMO_f508dec1_e2d8_43d5_ae65_c386c7b330f9 ,
                                                   [ rdf:type owl:Restriction ;
                                                     owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -4633,9 +4225,7 @@ emmo:SquareMetrePerSteradianJoule rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#SquareMetrePerVoltSecond
 emmo:SquareMetrePerVoltSecond rdf:type owl:Class ;
-                              rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                              emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                              emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                              rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                               [ rdf:type owl:Restriction ;
                                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                 owl:hasValue "1.0"^^xsd:double
@@ -4654,10 +4244,8 @@ emmo:SquareMetrePerVoltSecond rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#SquareMetreQuarticHertz
 emmo:SquareMetreQuarticHertz rdf:type owl:Class ;
-                             rdfs:subClassOf emmo:EMMO_15344998_4490_4b40_b242_c3d92e5cdc27 ,
-                                             emmo:EMMO_27c8e4db_eb18_402c_951e_6a38751cf1d0 ,
-                                             emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                             emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ;
+                             rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                             emmo:EMMO_27c8e4db_eb18_402c_951e_6a38751cf1d0 ;
                              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M2-HZ4" ;
                              emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m2.Hz4" ;
                              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m²⋅Hz⁴" ;
@@ -4669,9 +4257,7 @@ emmo:SquareMetreQuarticHertz rdf:type owl:Class ;
 ###  http://emmo.info/emmo#SquareMetreSecondPerRadian
 emmo:SquareMetreSecondPerRadian rdf:type owl:Class ;
                                 rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                                emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                                 emmo:EMMO_959c9715_14fb_4ce8_a93b_79678b2959b9 ,
-                                                emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                 [ rdf:type owl:Restriction ;
                                                   owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                   owl:hasValue "1.0"^^xsd:double
@@ -4692,8 +4278,6 @@ emmo:SquareMetreSecondPerRadian rdf:type owl:Class ;
 emmo:SquareMetreSquareHertz rdf:type owl:Class ;
                             rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                             emmo:EMMO_847f1d9f_205e_46c1_8cb6_a9e479421f88 ,
-                                            emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                            emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                             [ rdf:type owl:Restriction ;
                                               owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                               owl:hasValue "1.0"^^xsd:double
@@ -4712,10 +4296,8 @@ emmo:SquareMetreSquareHertz rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#SquareMetreSteradian
 emmo:SquareMetreSteradian rdf:type owl:Class ;
-                          rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                          emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                          rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                           emmo:EMMO_33433bb1_c68f_45ee_a466_f01e2c57b214 ,
-                                          emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                             owl:hasValue "1.0"^^xsd:double
@@ -4735,36 +4317,9 @@ emmo:SquareMetreSteradian rdf:type owl:Class ;
                           skos:prefLabel "SquareMetreSteradian"@en .
 
 
-###  http://emmo.info/emmo#SquareMicroMetre
-emmo:SquareMicroMetre rdf:type owl:Class ;
-                      rdfs:subClassOf emmo:EMMO_33433bb1_c68f_45ee_a466_f01e2c57b214 ,
-                                      emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                      emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
-                                      emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                        owl:hasValue "1.0E-12"^^xsd:double
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                        owl:hasValue "0.0"^^xsd:double
-                                      ] ;
-                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MicroM2" ;
-                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "um2" ;
-                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "μm²" ;
-                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.000000000001-fold of the power of the SI base unit metre with the exponent 2
-
--- QUDT"""@en ;
-                      rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                      skos:altLabel "Square Micrometre"@en ;
-                      skos:prefLabel "SquareMicroMetre" .
-
-
 ###  http://emmo.info/emmo#SquarePascalPerSquareSecond
 emmo:SquarePascalPerSquareSecond rdf:type owl:Class ;
                                  rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                                 emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                                 emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                  emmo:EMMO_ffbacbc4_c3be_4cc5_9539_94344e72f7a6 ,
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -4784,9 +4339,7 @@ emmo:SquarePascalPerSquareSecond rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#SquarePascalSecond
 emmo:SquarePascalSecond rdf:type owl:Class ;
-                        rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                        emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                        emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                        rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                         emmo:EMMO_886eb0fb_4d36_4b7d_99e4_e5915a06aff1 ,
                                         [ rdf:type owl:Restriction ;
                                           owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -4810,9 +4363,7 @@ emmo:SquarePascalSecond rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#SquareSecond
 emmo:SquareSecond rdf:type owl:Class ;
-                  rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                  emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                  emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                  rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                   emmo:EMMO_f2c1a072_4ccb_46c4_a0f8_ac801d328d0f ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -4837,8 +4388,6 @@ emmo:SquareSecond rdf:type owl:Class ;
 emmo:SquareVoltPerSquareKelvin rdf:type owl:Class ;
                                rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                emmo:EMMO_58c5b65c_c896_4740_80d9_ff9a7643c7e8 ,
-                                               emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                               emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                [ rdf:type owl:Restriction ;
                                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                  owl:hasValue "1.0"^^xsd:double
@@ -4859,8 +4408,6 @@ emmo:SquareVoltPerSquareKelvin rdf:type owl:Class ;
 ###  http://emmo.info/emmo#VoltAmpere
 emmo:VoltAmpere rdf:type owl:Class ;
                 rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                 emmo:EMMO_c8d084ad_f88e_4596_8e4d_982c6655ce6f ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -4884,9 +4431,7 @@ emmo:VoltAmpere rdf:type owl:Class ;
 ###  http://emmo.info/emmo#VoltPerKelvin
 emmo:VoltPerKelvin rdf:type owl:Class ;
                    rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                   emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                    emmo:EMMO_96ffda63_71e7_451b_85ee_2cc8e341ff11 ,
-                                   emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                      owl:hasValue "1.0"^^xsd:double
@@ -4906,9 +4451,7 @@ emmo:VoltPerKelvin rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#VoltPerMetre
 emmo:VoltPerMetre rdf:type owl:Class ;
-                  rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                  emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                  emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                  rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                   emmo:EMMO_ebf9a5c6_ca80_45d4_a991_24a1bf4b6720 ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -4934,8 +4477,6 @@ emmo:VoltPerMetre rdf:type owl:Class ;
 emmo:VoltPerSecond rdf:type owl:Class ;
                    rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                    emmo:EMMO_6837b106_7220_4ec6_b7c9_d549d6163672 ,
-                                   emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                   emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                      owl:hasValue "1.0"^^xsd:double
@@ -4959,9 +4500,7 @@ emmo:VoltPerSecond rdf:type owl:Class ;
 ###  http://emmo.info/emmo#VoltPerSquareMetre
 emmo:VoltPerSquareMetre rdf:type owl:Class ;
                         rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                        emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                         emmo:EMMO_a5111335_6d14_49d9_ba7a_10c10b2189e7 ,
-                                        emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                         [ rdf:type owl:Restriction ;
                                           owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                           owl:hasValue "1.0"^^xsd:double
@@ -4985,9 +4524,7 @@ emmo:VoltPerSquareMetre rdf:type owl:Class ;
 ###  http://emmo.info/emmo#VoltSecondPerMetre
 emmo:VoltSecondPerMetre rdf:type owl:Class ;
                         rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                        emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                         emmo:EMMO_8cf32f24_ada1_4350_af2c_50eb0e5f6415 ,
-                                        emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                         [ rdf:type owl:Restriction ;
                                           owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                           owl:hasValue "1.0"^^xsd:double
@@ -5011,8 +4548,6 @@ emmo:VoltSecondPerMetre rdf:type owl:Class ;
 emmo:WattMetrePerSquareMetreSteradian rdf:type owl:Class ;
                                       rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                       emmo:EMMO_3371fb68_5f07_467c_ada6_5aa3da3808d0 ,
-                                                      emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                                      emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                       [ rdf:type owl:Restriction ;
                                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                         owl:hasValue "1.0"^^xsd:double
@@ -5035,8 +4570,6 @@ emmo:WattMetrePerSquareMetreSteradian rdf:type owl:Class ;
 ###  http://emmo.info/emmo#WattPerCubicMetre
 emmo:WattPerCubicMetre rdf:type owl:Class ;
                        rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                       emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                       emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                        emmo:EMMO_fced2382_9c23_47a1_8246_a5dcd45ad99c ,
                                        [ rdf:type owl:Restriction ;
                                          owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -5059,10 +4592,8 @@ emmo:WattPerCubicMetre rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#WattPerKelvin
 emmo:WattPerKelvin rdf:type owl:Class ;
-                   rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                   emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                   rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                    emmo:EMMO_21a91e48_b6d3_4558_b08f_246433d43860 ,
-                                   emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                      owl:hasValue "1.0"^^xsd:double
@@ -5086,8 +4617,6 @@ emmo:WattPerKelvin rdf:type owl:Class ;
 emmo:WattPerKilogram rdf:type owl:Class ;
                      rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                      emmo:EMMO_835f4e4e-680d-404c-8c73-92a6a570f6eb ,
-                                     emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                     emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                      [ rdf:type owl:Restriction ;
                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                        owl:hasValue "1.0"^^xsd:double
@@ -5112,8 +4641,6 @@ emmo:WattPerKilogram rdf:type owl:Class ;
 emmo:WattPerMetre rdf:type owl:Class ;
                   rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                   emmo:EMMO_3371fb68_5f07_467c_ada6_5aa3da3808d0 ,
-                                  emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                  emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                     owl:hasValue "1.0"^^xsd:double
@@ -5132,10 +4659,8 @@ emmo:WattPerMetre rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#WattPerMetreKelvin
 emmo:WattPerMetreKelvin rdf:type owl:Class ;
-                        rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                        emmo:EMMO_0f3ec0ad_3fcf_42b2_8f34_6dca89e35a4f ,
+                        rdfs:subClassOf emmo:EMMO_0f3ec0ad_3fcf_42b2_8f34_6dca89e35a4f ,
                                         emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                        emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                         [ rdf:type owl:Restriction ;
                                           owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                           owl:hasValue "1.0"^^xsd:double
@@ -5155,10 +4680,8 @@ emmo:WattPerMetreKelvin rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#WattPerSquareMetre
 emmo:WattPerSquareMetre rdf:type owl:Class ;
-                        rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                        emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                        rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                         emmo:EMMO_539d8d92_d3a5_4f46_858f_081fed5b4190 ,
-                                        emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                         [ rdf:type owl:Restriction ;
                                           owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                           owl:hasValue "1.0"^^xsd:double
@@ -5182,10 +4705,8 @@ emmo:WattPerSquareMetre rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#WattPerSquareMetreKelvin
 emmo:WattPerSquareMetreKelvin rdf:type owl:Class ;
-                              rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                              emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                              rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                               emmo:EMMO_4b2c223f_89fb_4407_b1b6_24774b7fe770 ,
-                                              emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                               [ rdf:type owl:Restriction ;
                                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                 owl:hasValue "1.0"^^xsd:double
@@ -5207,10 +4728,8 @@ emmo:WattPerSquareMetreKelvin rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#WattPerSquareMetrePascal
 emmo:WattPerSquareMetrePascal rdf:type owl:Class ;
-                              rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                              emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                              rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                               emmo:EMMO_4f5c7c54_1c63_4d17_b12b_ea0792c2b187 ,
-                                              emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                               [ rdf:type owl:Restriction ;
                                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                 owl:hasValue "1.0"^^xsd:double
@@ -5233,8 +4752,6 @@ emmo:WattPerSquareMetrePascal rdf:type owl:Class ;
 ###  http://emmo.info/emmo#WattPerSquareMetrePerMetre
 emmo:WattPerSquareMetrePerMetre rdf:type owl:Class ;
                                 rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                                emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                                emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                 emmo:EMMO_fced2382_9c23_47a1_8246_a5dcd45ad99c ,
                                                 [ rdf:type owl:Restriction ;
                                                   owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -5255,8 +4772,6 @@ emmo:WattPerSquareMetrePerMetre rdf:type owl:Class ;
 ###  http://emmo.info/emmo#WattPerSquareMetrePerMetrePerSteradian
 emmo:WattPerSquareMetrePerMetrePerSteradian rdf:type owl:Class ;
                                             rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                                            emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                                            emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                                             emmo:EMMO_fced2382_9c23_47a1_8246_a5dcd45ad99c ,
                                                             [ rdf:type owl:Restriction ;
                                                               owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -5276,9 +4791,7 @@ emmo:WattPerSquareMetrePerMetrePerSteradian rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#WattPerSquareMetreQuarticKelvin
 emmo:WattPerSquareMetreQuarticKelvin rdf:type owl:Class ;
-                                     rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                                     emmo:EMMO_15344998_4490_4b40_b242_c3d92e5cdc27 ,
-                                                     emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                                     rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                      emmo:EMMO_971b3dff_28b4_4538_b082_3ec9fa5af294 ;
                                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/W-PER-M2-K4" ;
                                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "W.m-2.K-4" ;
@@ -5293,10 +4806,8 @@ emmo:WattPerSquareMetreQuarticKelvin rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#WattPerSquareMetreSteradian
 emmo:WattPerSquareMetreSteradian rdf:type owl:Class ;
-                                 rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                                 emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                 rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                                  emmo:EMMO_539d8d92_d3a5_4f46_858f_081fed5b4190 ,
-                                                 emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                    owl:hasValue "1.0"^^xsd:double
@@ -5320,9 +4831,7 @@ emmo:WattPerSquareMetreSteradian rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo#WattPerSteradian
 emmo:WattPerSteradian rdf:type owl:Class ;
-                      rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                      emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                      emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                      rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                       emmo:EMMO_c8d084ad_f88e_4596_8e4d_982c6655ce6f ,
                                       [ rdf:type owl:Restriction ;
                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -5346,8 +4855,6 @@ emmo:WattPerSteradian rdf:type owl:Class ;
 ###  http://emmo.info/emmo#WattSecond
 emmo:WattSecond rdf:type owl:Class ;
                 rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                 emmo:EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -5371,8 +4878,6 @@ emmo:WattSecond rdf:type owl:Class ;
 ###  http://emmo.info/emmo#WattSecondPerSquareMetre
 emmo:WattSecondPerSquareMetre rdf:type owl:Class ;
                               rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                              emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                              emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                               emmo:EMMO_d46e131b_f51a_4ae7_9301_824d718c56fa ,
                                               [ rdf:type owl:Restriction ;
                                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -5390,37 +4895,10 @@ emmo:WattSecondPerSquareMetre rdf:type owl:Class ;
                               skos:prefLabel "WattSecondPerSquareMetre" .
 
 
-###  http://emmo.info/emmo#WatthourPerCubicMetre
-emmo:WatthourPerCubicMetre rdf:type owl:Class ;
-                           rdfs:subClassOf emmo:EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b ,
-                                           emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                           emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                           emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
-                                           [ rdf:type owl:Restriction ;
-                                             owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                             owl:hasValue "3600.0"^^xsd:double
-                                           ] ,
-                                           [ rdf:type owl:Restriction ;
-                                             owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                             owl:hasValue "0.0"^^xsd:double
-                                           ] ;
-                           emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/W-HR-PER-M3" ;
-                           emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "W.h.m-3" ;
-                           emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "W⋅hr/m³" ;
-                           emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The watt hour per cubic meter is a unit of energy density, equal to 3,600 joule per cubic meter.
-
--- QUDT"""@en ;
-                           rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                           skos:altLabel "Watthour per Cubic metre"@en ;
-                           skos:prefLabel "WattHourPerCubicMetre"@en .
-
-
 ###  http://emmo.info/emmo#WeberMetre
 emmo:WeberMetre rdf:type owl:Class ;
-                rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                 emmo:EMMO_431ce3bc-3d54-481d-a10d-7c4a4418732a ,
-                                emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                   owl:hasValue "1.0"^^xsd:double
@@ -5441,9 +4919,7 @@ emmo:WeberMetre rdf:type owl:Class ;
 ###  http://emmo.info/emmo#WeberPerMetre
 emmo:WeberPerMetre rdf:type owl:Class ;
                    rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                   emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                    emmo:EMMO_8cf32f24_ada1_4350_af2c_50eb0e5f6415 ,
-                                   emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                      owl:hasValue "1.0"^^xsd:double
