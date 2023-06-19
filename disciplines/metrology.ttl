@@ -182,6 +182,16 @@ The label of this class was also changed from PhysicsDimension to PhysicalDimens
                                            skos:prefLabel "hasMetrologicalReference"@en .
 
 
+###  http://emmo.info/emmo#EMMO_78c79b48_4b76_4cbe_812f_b32dbb04fd44
+:EMMO_78c79b48_4b76_4cbe_812f_b32dbb04fd44 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                           rdfs:domain :EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ;
+                                           rdfs:range :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Relates a prefixed unit to its non-prefixed part."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "For example the unit CentiNewtonMetre has prefix \"Centi\" and non-prefix part \"NewtonMetre\"."@en ;
+                                           skos:prefLabel "hasUnitNonPrefixPart"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0
 :EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
@@ -236,16 +246,6 @@ The label of this class was also changed from PhysicsDimension to PhysicalDimens
                                            rdfs:range :EMMO_873b0ab3_88e6_4054_b901_5531e01f14a4 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Assigns a quantity to an object via a well-defined measurement procedure."@en ;
                                            skos:prefLabel "hasMeasuredProperty"@en .
-
-
-###  http://emmo.info/emmo/disciplines/metrology#EMMO_78c79b48_4b76_4cbe_812f_b32dbb04fd44
-:EMMO_78c79b48_4b76_4cbe_812f_b32dbb04fd44 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                           rdfs:domain :EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ;
-                                           rdfs:range :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Relates a prefixed unit to its non-prefixed part."@en ;
-                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "For example the unit CentiNewtonMetre has prefix \"Centi\" and non-prefix part \"NewtonMetre\"."@en ;
-                                           skos:prefLabel "hasUnitNonPrefixPart"@en .
 
 
 #################################################################
@@ -728,6 +728,11 @@ International vocabulary of metrology (VIM)"""@en ;
 ###  http://emmo.info/emmo#EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e
 :EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_4be0acad_af05_426f_aa6d_fe7531072564 ;
+                                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                             owl:onClass :EMMO_442bd91e_a724_4e9f_89c1_18423016fb75
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
                                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                                              owl:onClass :EMMO_216f448e_cdbc_4aeb_a529_7a5fe7fc38bb
