@@ -350,5 +350,5 @@ def has_is_a(cls, r):
 
 def del_is_a(cls, r):
     """Remove restriction `r` from class `cls` (if it exists)."""
-    if r in cls.is_a:
+    while r in cls.is_a:
         cls.is_a.remove(r)
