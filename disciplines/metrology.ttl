@@ -50,7 +50,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
 :EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 rdf:type owl:AnnotationProperty ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The UN/CEFACT Recommendation 20 provides three character alphabetic and alphanumeric codes for representing units of measurement for length, area, volume/capacity, mass (weight), time, and other quantities used in international trade. The codes are intended for use in manual and/or automated systems for the exchange of information between participants in international trade."@en ;
                                            skos:prefLabel "uneceCommonCode"@en ;
-                                           rdfs:subPropertyOf rdfs:seeAlso ;
+                                           rdfs:subPropertyOf <http://emmo.info/emmo#58e7c821_4af0_4394_89f7_a9649735f4d2> ;
                                            rdfs:range xsd:string ;
                                            rdfs:domain :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 .
 
@@ -60,7 +60,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "URL to corresponing entity in QUDT."@en ;
                                            rdfs:seeAlso "http://www.qudt.org/2.1/catalog/qudt-catalog.html"@en ;
                                            skos:prefLabel "qudtReference"@en ;
-                                           rdfs:subPropertyOf rdfs:seeAlso .
+                                           rdfs:subPropertyOf <http://emmo.info/emmo#58e7c821_4af0_4394_89f7_a9649735f4d2> .
 
 
 ###  http://emmo.info/emmo#EMMO_209ba1b3_149f_4ff0_b672_941610eafd72
@@ -69,7 +69,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            rdfs:seeAlso "https://enterpriseintegrationlab.github.io/icity/OM/doc/index-en.html" ,
                                                         "https://github.com/HajoRijgersberg/OM" ;
                                            skos:prefLabel "omReference"@en ;
-                                           rdfs:subPropertyOf rdfs:seeAlso .
+                                           rdfs:subPropertyOf <http://emmo.info/emmo#58e7c821_4af0_4394_89f7_a9649735f4d2> .
 
 
 ###  http://emmo.info/emmo#EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652
@@ -78,7 +78,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The Unified Code for Units of Measure (UCUM) is a code system intended to include all units of measures being contemporarily used in international science, engineering, and business. The purpose is to facilitate unambiguous electronic communication of quantities together with their units."@en ;
                                            rdfs:seeAlso "https://ucum.org/"^^xsd:anyURI ;
                                            skos:prefLabel "ucumCode"@en ;
-                                           rdfs:subPropertyOf rdfs:seeAlso ;
+                                           rdfs:subPropertyOf <http://emmo.info/emmo#58e7c821_4af0_4394_89f7_a9649735f4d2> ;
                                            rdfs:range xsd:string ;
                                            rdfs:domain :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 .
 
@@ -86,9 +86,11 @@ email: emanuele.ghedini@unibo.it"""@en ,
 ###  http://emmo.info/emmo#EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6
 :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 rdf:type owl:AnnotationProperty ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "quantity value (term in VIM that corresponds to Quantity in EMMO)"@en ;
-                                           rdfs:comment "The term in the International vocabulary of metrology (VIM) (JCGM 200:2008) that corresponds to the annotated term in EMMO."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The term in the International vocabulary of metrology (VIM) (JCGM 200:2008) that corresponds to the annotated term in EMMO."@en ;
+                                           rdfs:seeAlso "https://www.bipm.org/documents/20126/2071204/JCGM_200_2012.pdf"^^xsd:anyURI ;
                                            skos:prefLabel "VIMTerm"@en ;
-                                           rdfs:subPropertyOf rdfs:isDefinedBy .
+                                           rdfs:subPropertyOf <http://emmo.info/emmo#58e7c821_4af0_4394_89f7_a9649735f4d2> ,
+                                                              rdfs:isDefinedBy .
 
 
 ###  http://emmo.info/emmo#EMMO_fe015383_afb3_44a6_ae86_043628697aa2
@@ -98,6 +100,12 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            skos:prefLabel "iupacReference"@en ;
                                            rdfs:subPropertyOf rdfs:seeAlso ;
                                            rdfs:range xsd:anyURI .
+
+
+###  http://emmo.info/emmo#58e7c821_4af0_4394_89f7_a9649735f4d2
+<http://emmo.info/emmo#58e7c821_4af0_4394_89f7_a9649735f4d2> rdf:type owl:AnnotationProperty ;
+                                                             skos:prefLabel "metrologicalReference"@en ;
+                                                             rdfs:subPropertyOf rdfs:seeAlso .
 
 
 #################################################################
@@ -369,15 +377,12 @@ Unit of degeneracy in quantum mechanics"""@en ;
                                                                              )
                                                                ] ;
                                            rdfs:subClassOf :EMMO_985bec21_989f_4b9e_a4b3_735d88099c3c ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A reference can be a measurement unit, a measurement procedure, a reference material, or a combination of such.
-International vocabulary of metrology (VIM)"""@en ;
-                                           rdfs:comment """A symbolic is recognized as reference unit also if it is not part of a quatity (e.g. as in the sentence \"the Bq is the reference unit of Becquerel\").
-
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A reference can be a measurement unit, a measurement procedure, a reference material, or a combination of such (VIM3 1.1 NOTE 2)."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """A symbolic is recognized as reference unit also if it is not part of a quantity (e.g. as in the sentence \"the Bq is the reference unit of Becquerel\").
 For this reason we can't declare the axiom:
 MetrologicalReference SubClassOf: inverse(hasMetrologicalReference) some Quantity
 because there exist reference units without being part of a quantity.
-
-This is peculiar to EMMO, where quantities (symbolic) are distinct with properties (semiotics)."""@en ;
+This is peculiar to EMMO, where quantities as syntatic entities (explicit quantities) are distinct with quantities as semantic entities (properties)."""@en ;
                                            skos:prefLabel "MetrologicalReference"@en .
 
 
@@ -479,16 +484,6 @@ J stands for N m"""@en ;
                                            skos:prefLabel "MetrologicalSymbol"@en .
 
 
-###  http://emmo.info/emmo#EMMO_591e02fd_8d37_45a6_9d11_bb21cef391a0
-:EMMO_591e02fd_8d37_45a6_9d11_bb21cef391a0 rdf:type owl:Class ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A measurement unit that does not belong to any system of units."@en ;
-                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """eV
-barn"""@en ;
-                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "off-system measurement unit"@en ,
-                                                                                      "off-system unit"@en ;
-                                           skos:prefLabel "OffSystemUnit"@en .
-
-
 ###  http://emmo.info/emmo#EMMO_5ebd5e01_0ed3_49a2_a30d_cd05cbe72978
 :EMMO_5ebd5e01_0ed3_49a2_a30d_cd05cbe72978 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0 ;
@@ -501,13 +496,6 @@ barn"""@en ;
                                                                                       "Typically used for ratios of two units whos dimensions cancels out."@en ;
                                            skos:altLabel "Unitless"@en ;
                                            skos:prefLabel "UnitOne"@en .
-
-
-###  http://emmo.info/emmo#EMMO_62f0d847_3603_45b4_bfc4_dd4511355ff2
-:EMMO_62f0d847_3603_45b4_bfc4_dd4511355ff2 rdf:type owl:Class ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Measurement unit obtained by multiplying a given measurement unit by an integer greater than one."@en ;
-                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "multiple of a unit"@en ;
-                                           skos:prefLabel "MultipleUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3
@@ -613,11 +601,16 @@ It is advisory to create a uniquely defined subclass these units for concrete us
 ###  http://emmo.info/emmo#EMMO_985bec21_989f_4b9e_a4b3_735d88099c3c
 :EMMO_985bec21_989f_4b9e_a4b3_735d88099c3c rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_d8d2144e_5c8d_455d_a643_5caf4d8d9df8 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A language object used in metrology."@en ;
-                                           rdfs:comment """Metrology includes all theoretical and practical aspects of measurement, whatever the measurement uncertainty and field of application.
-
--- International vocabulary of metrology (VIM)"""@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A language entity used in the metrology discipline."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Metrology is the science of measurement and its application and includes all theoretical and practical aspects of measurement, whatever the measurement uncertainty and field of application (VIM3 2.2)"@en ;
                                            skos:prefLabel "Metrological"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_985bec21_989f_4b9e_a4b3_735d88099c3c ;
+   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
+   owl:annotatedTarget "Metrology is the science of measurement and its application and includes all theoretical and practical aspects of measurement, whatever the measurement uncertainty and field of application (VIM3 2.2)"@en ;
+   rdfs:isDefinedBy "https://www.bipm.org/documents/20126/2071204/JCGM_200_2012.pdf"
+ ] .
 
 
 ###  http://emmo.info/emmo#EMMO_9c407ac0_fd4c_4178_8763_95fad9fe29ec
@@ -625,13 +618,6 @@ It is advisory to create a uniquely defined subclass these units for concrete us
                                            rdfs:subClassOf :EMMO_02c0621e_a527_4790_8a0f_2bb51973c819 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for all physical quantities classes that are categorized according to a standard (e.g. ISQ)." ;
                                            skos:prefLabel "StandardizedPhysicalQuantity"@en .
-
-
-###  http://emmo.info/emmo#EMMO_a2f94f33_71fa_443c_a1fb_d1685fc537ec
-:EMMO_a2f94f33_71fa_443c_a1fb_d1685fc537ec rdf:type owl:Class ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Measurement unit obtained by dividing a given measurement unit by an integer greater than one."@en ;
-                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "submultiple of a unit"@en ;
-                                           skos:prefLabel "SubMultipleUnit"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_a9a6ddf8_7e16_420a_9f3d_df7d5cfe3536
@@ -655,6 +641,7 @@ ISO 80000-1"""@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A reference unit provided by a reference material.
 International vocabulary of metrology (VIM)"""@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Arbitrary amount-of-substance concentration of lutropin in a given sample of plasma (WHO international standard 80/552): 5.0 International Unit/l"@en ;
+                                           skos:altLabel "ReferenceMaterial" ;
                                            skos:prefLabel "StandardUnit"@en .
 
 
@@ -664,9 +651,6 @@ International vocabulary of metrology (VIM)"""@en ;
                                            owl:disjointUnionOf ( :EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0
                                                                  :EMMO_cbdea88b_fef1_4c7c_b69f_ae1f0f241c4a
                                                                ) ,
-                                                               ( :EMMO_591e02fd_8d37_45a6_9d11_bb21cef391a0
-                                                                 <http://emmo.info/emmo#3eb993a1_61ae_4a20_b168_dda853f51c14>
-                                                               ) ,
                                                                ( :EMMO_868ae137_4d25_493e_b270_21ea3d94849e
                                                                  :EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e
                                                                ) ;
@@ -674,18 +658,16 @@ International vocabulary of metrology (VIM)"""@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """kg
 m/s
 km"""@en ;
-                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "measurement unit"@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Measurement units and procedure units are disjoint."@en ,
-                                                                                      "Quantitative value are expressed as a multiple of the 'MeasurementUnit'."@en ;
-                                           rdfs:comment """\"Real scalar quantity, defined and adopted by convention, with which any other quantity of the same kind can be compared to express the ratio of the second quantity to the first one as a number\"
+                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "measurement unit (VIM3 1.9)"@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """\"Real scalar quantity, defined and adopted by convention, with which any other quantity of the same kind can be compared to express the ratio of the second quantity to the first one as a number\"
 ISO 80000-1"""@en ,
-                                                        """\"Unit symbols are mathematical entities and not abbreviations.\"
+                                                                                      """\"Unit symbols are mathematical entities and not abbreviations.\"
 
 \"Symbols for units are treated as mathematical entities. In expressing the value of a quantity as the product of a numerical value and a unit, both the numerical value and the unit may be treated by the ordinary rules of algebra.\"
 
 https://www.bipm.org/utils/common/pdf/si-brochure/SI-Brochure-9-EN.pdf"""@en ,
-                                                        """While the SI brochure treats 'MeasurementUnit' as a 'PhysicalQuantity', in the EMMO this is not possible since the quantities are semiotic while units are symbolic.
-."""@en ;
+                                                                                      "Measurement units and procedure units are disjoint."@en ,
+                                                                                      "Quantitative value are expressed as a multiple of the 'MeasurementUnit'."@en ;
                                            skos:prefLabel "MeasurementUnit"@en .
 
 
@@ -737,9 +719,6 @@ International vocabulary of metrology (VIM)"""@en ;
                                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                                              owl:onClass :EMMO_216f448e_cdbc_4aeb_a529_7a5fe7fc38bb
                                                            ] ;
-                                           owl:disjointUnionOf ( :EMMO_62f0d847_3603_45b4_bfc4_dd4511355ff2
-                                                                 :EMMO_a2f94f33_71fa_443c_a1fb_d1685fc537ec
-                                                               ) ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A measurement unit that is made of a metric prefix and a unit symbol."@en ;
                                            skos:prefLabel "PrefixedUnit"@en .
 
@@ -749,6 +728,7 @@ International vocabulary of metrology (VIM)"""@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A reference unit provided by a measurement procedure."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Rockwell C hardness of a given sample (150 kg load): 43.5HRC(150 kg)"@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Procedure units and measurement units are disjoint."@en ;
+                                           skos:altLabel "MeasurementProcedure" ;
                                            skos:prefLabel "ProcedureUnit"@en .
 
 
@@ -872,6 +852,7 @@ While the string \"1 kg\" is a 'QuantityValue'."""@en ;
 
 ###  http://emmo.info/emmo#3eb993a1_61ae_4a20_b168_dda853f51c14
 <http://emmo.info/emmo#3eb993a1_61ae_4a20_b168_dda853f51c14> rdf:type owl:Class ;
+                                                             rdfs:subClassOf :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ;
                                                              skos:prefLabel "SystemUnit"@en .
 
 
