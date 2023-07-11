@@ -91,7 +91,7 @@ while read version name; do
     if $remake || [ ! -f "$d/emmo-inferred.owl" ]; then
         echo "Generate inferred ontology"
         ontoconvert "$d/emmo.owl" "$d/emmo-inferred.owl" \
-                    -i -b http://emmo.info/emmo-inferred
+                    -i HermiT -b http://emmo.info/emmo-inferred
     fi
     if $remake || [ ! -f "$d/emmo-inferred.ttl" ]; then
         ontoconvert "$d/emmo-inferred.owl" "$d/emmo-inferred.ttl"
