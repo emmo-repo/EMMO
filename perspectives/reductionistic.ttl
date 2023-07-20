@@ -43,7 +43,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            rdf:type owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
                                            rdfs:range :EMMO_504ad89e_dd4a_4fa6_aeb6_15c8ce0cde9b ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that establishes for the whole a univocal tessellation in temporal parts." ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that establishes for the whole a univocal tessellation in temporal parts forming the tessellation." ;
                                            skos:altLabel "hasTemporalDirectPart"@en ;
                                            skos:prefLabel "hasTemporalTile"@en .
 
@@ -54,7 +54,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            rdf:type owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
                                            rdfs:range :EMMO_d4c95fa1_5bda_4063_a22d_62c81fcea284 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that establishes for the whole a univocal tessellation in spatio temporal parts." ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation between the whole and one of its tiles, where the tile is both spatially and temporally connected with the other tiles forming the tessellation." ;
                                            skos:prefLabel "hasJunctionTile"@en .
 
 
@@ -69,7 +69,8 @@ email: emanuele.ghedini@unibo.it"""@en ,
 The criteria are implemented in specialised versions of the direct parthood relation (e.g., metrological direct part, XML format direct part).
 The direct parts (tiles) and the tessellated entity (tessellation) are causally self connected (i.e., items), coherently with the concept behind the definition of the reductionistic perspective.""" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation grouping all direct parthood relations used in the reductionistic perspective."@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This relation is not antitransitive, to enable partitioning of a causal object with more than one tiling scheme (e.g. time and space partitioning)."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This relation is not antitransitive, to enable partitioning of a causal structure with more than one tiling scheme (e.g. time and space partitioning)."@en ,
+                                                                                      "This relation is a simple collector of all relations inverse functional direct parthoods that can be defined in specialised theories using reductionism." ;
                                            skos:prefLabel "hasDirectPart"@en .
 
 
@@ -81,6 +82,7 @@ The direct parts (tiles) and the tessellated entity (tessellation) are causally 
                                            rdfs:domain :EMMO_e12dcfa4-c9f1-4546-9a12-8457c052e6ba ;
                                            rdfs:range :EMMO_2e46d966-9f14-4673-821e-7c7cf2957926 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A tile that is connected with other tiles with bi-directional causal relations that fall under hasNext (or its inverse) or hasContact."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This owl:ObjectProperty is, like its super property, a mere collector of direct parthoods that manifest a spatiotemporal meaningful shape." ;
                                            skos:altLabel "hasWellFormedTile"@en ;
                                            skos:prefLabel "hasSpatioTemporalTile" .
 
@@ -91,7 +93,7 @@ The direct parts (tiles) and the tessellated entity (tessellation) are causally 
                                            rdf:type owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
                                            rdfs:range :EMMO_4cf484af_082a_40f5_9f11_930bf4634482 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that establishes for the whole a univocal tessellation in spatial parts." ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation between the whole and one of its tiles, where the tile is only spatially temporally connected with the other tiles forming the tessellation." ;
                                            skos:altLabel "hasSpatialDirectPart"@en ;
                                            skos:prefLabel "hasSpatialTile"@en .
 
@@ -101,7 +103,7 @@ The direct parts (tiles) and the tessellated entity (tessellation) are causally 
                                            rdfs:subPropertyOf :EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d ;
                                            rdf:type owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between the whole and the last direct temporal part of a sequence." ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between the whole and a temporal tile that has only ingoing temporal connections." ;
                                            skos:altLabel "hasTemporalLast"@en ;
                                            skos:prefLabel "hasEndTile"@en .
 
@@ -111,7 +113,7 @@ The direct parts (tiles) and the tessellated entity (tessellation) are causally 
                                            rdfs:subPropertyOf :EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d ;
                                            rdf:type owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between the whole and the first direct temporal part of a sequence." ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between the whole and a temporal tile that has only outgoing temporal connections." ;
                                            skos:altLabel "hasTemporalFirst"@en ;
                                            skos:prefLabel "hasBeginTile"@en .
 
@@ -224,6 +226,7 @@ Tiles are related to the 'Existent' through temporal direct parthood, enforcing 
                                                         """Being hasTemporalDirectPart a proper parthood relation, there cannot be 'Existent' made of a single 'State'.
 
 Moreover, due to inverse functionality, a 'State' can be part of only one 'Existent', preventing overlapping between 'Existent'-s."""@en ;
+                                           owl:deprecated "true"^^xsd:boolean ;
                                            skos:prefLabel "Existent"@en .
 
 [ rdf:type owl:Axiom ;
