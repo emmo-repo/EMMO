@@ -301,7 +301,7 @@ onto_ue.save(disciplinesdir / "unitsextension.ttl", format="turtle", overwrite=T
 onto_pu.save(disciplinesdir / "prefixedunits.ttl", format="turtle", overwrite=True)
 
 set_turtle_prefix(disciplinesdir / "sidimensionalunits.ttl", EMMO,
-                  EMMO / "disciplines/sidimensionalunits")
+                  EMMO / "disciplines/units/sidimensionalunits")
 set_turtle_prefix(disciplinesdir / "unitsextension.ttl", EMMO,
                   EMMO / "disciplines/unitsextension")
 set_turtle_prefix(disciplinesdir / "prefixedunits.ttl", EMMO,
