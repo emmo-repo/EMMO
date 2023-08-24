@@ -112,7 +112,7 @@ onto.metadata.license.append(en(
     'https://creativecommons.org/licenses/by/4.0/legalcode'))
 onto.metadata.versionInfo.append(en(version))
 onto.metadata.comment.append(en(
-    'The EMMO requires FacT++ reasoner plugin in order to visualize all '
+    'The EMMO requires HermiT reasoner plugin in order to visualize all '
     'inferences and class hierarchy (ctrl+R hotkey in Protege).'))
 onto.metadata.comment.append(en(
     'This ontology is generated with EMMOntoPy using data from the ASE '
