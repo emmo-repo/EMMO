@@ -6,7 +6,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <http://emmo.info/emmo/disciplines/materials> .
+@base <http://emmo.info/emmo#> .
 
 <http://emmo.info/emmo/disciplines/materials> rdf:type owl:Ontology ;
                                                owl:versionIRI <http://emmo.info/emmo/1.0.0-beta5/disciplines/materials> ;
@@ -100,21 +100,6 @@ H=∑ni=1hia∗i  (n≥3)""" ;
                                            skos:prefLabel "StandaloneAtom"@en .
 
 
-###  http://emmo.info/emmo#EMMO_4207e895_8b83_4318_996a_72cfb32acd94
-:EMMO_4207e895_8b83_4318_996a_72cfb32acd94 owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_0afc19b0_2d43_4b3d_8da0_9ffb63bc1492
-                                                                               :EMMO_f1025834_0cd2_42a1_bfeb_13bec41c8655
-                                                                             )
-                                                               ] ,
-                                                               [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_4c1f58cd_6e2c_48fb_8098_1cbb762abb05
-                                                                               :EMMO_c5e9e390_8836_4440_b4fd_c906fdd4f438
-                                                                               :EMMO_f678173d_f036_4df1_a86b_2894560be617
-                                                                               :EMMO_fb27e6d6_159e_48a6_9c29_76dc31d8a860
-                                                                             )
-                                                               ] .
-
-
 ###  http://emmo.info/emmo#EMMO_4588526f_8553_4f4d_aa73_a483e88d599b
 :EMMO_4588526f_8553_4f4d_aa73_a483e88d599b rdf:type owl:Class ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A standalone atom that has no net charge."@en ;
@@ -128,14 +113,14 @@ H=∑ni=1hia∗i  (n≥3)""" ;
 
 ###  http://emmo.info/emmo#EMMO_5d659e25_a508_43ed_903c_3707c7c7cd4b
 :EMMO_5d659e25_a508_43ed_903c_3707c7c7cd4b rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ;
+                                           rdfs:subClassOf :e4e80813_f379_4091_b017_ee059811f806 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Nanomaterials are Materials possessing, at minimum, one external dimension measuring 1-100nm"@en ;
                                            skos:prefLabel "NanoMaterial"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_68390bfb_e307_479d_8f78_d66d8773cb1d
 :EMMO_68390bfb_e307_479d_8f78_d66d8773cb1d rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ;
+                                           rdfs:subClassOf :a96e2152_40e7_409c_a53a_fdb9f141eb6a ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A material that takes active part in a chemical reaction."@en ;
                                            skos:prefLabel "ReactiveMaterial"@en .
 
@@ -187,20 +172,44 @@ In general, metallic and ionic bonds have atoms sharing electrons."""@en ,
                                            skos:prefLabel "PolymericMaterial"@en .
 
 
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+###  http://emmo.info/emmo#a96e2152_40e7_409c_a53a_fdb9f141eb6a
+:a96e2152_40e7_409c_a53a_fdb9f141eb6a rdf:type owl:Class ;
+                                      rdfs:subClassOf :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ;
+                                      skos:prefLabel "ChemicallyDefinedMaterial"@en .
+
+
+###  http://emmo.info/emmo#e4e80813_f379_4091_b017_ee059811f806
+:e4e80813_f379_4091_b017_ee059811f806 rdf:type owl:Class ;
+                                      rdfs:subClassOf :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ;
+                                      skos:prefLabel "SizeDefinedMaterial"@en .
+
+
+###  http://emmo.info/emmo#39348191_08fd_4bb6_9b1e_012d5b2f1ff6
+<http://emmo.info/emmo#39348191_08fd_4bb6_9b1e_012d5b2f1ff6> rdf:type owl:Class ;
+                                                             owl:equivalentClass [ rdf:type owl:Class ;
+                                                                                   owl:unionOf ( :EMMO_0afc19b0_2d43_4b3d_8da0_9ffb63bc1492
+                                                                                                 :EMMO_f1025834_0cd2_42a1_bfeb_13bec41c8655
+                                                                                               )
+                                                                                 ] ,
+                                                                                 [ rdf:type owl:Class ;
+                                                                                   owl:unionOf ( :EMMO_4c1f58cd_6e2c_48fb_8098_1cbb762abb05
+                                                                                                 :EMMO_c5e9e390_8836_4440_b4fd_c906fdd4f438
+                                                                                                 :EMMO_f678173d_f036_4df1_a86b_2894560be617
+                                                                                                 :EMMO_fb27e6d6_159e_48a6_9c29_76dc31d8a860
+                                                                                               )
+                                                                                 ] ;
+                                                             rdfs:subClassOf :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ;
+                                                             skos:prefLabel "ClassicallyDefinedMaterial"@en .
+
+
+###  http://emmo.info/emmo#8820f251_ad36_43f4_a693_c0e86a89cc1f
+<http://emmo.info/emmo#8820f251_ad36_43f4_a693_c0e86a89cc1f> rdf:type owl:Class ;
+                                                             rdfs:subClassOf :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ;
+                                                             skos:prefLabel "FunctionallyDefinedMaterial"@en .
+
+
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
 ] .
-
-[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
 
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
@@ -208,4 +217,16 @@ In general, metallic and ionic bonds have atoms sharing electrons."""@en ,
 [ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
  ] .
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
