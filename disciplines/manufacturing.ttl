@@ -6,7 +6,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <http://emmo.info/emmo/disciplines/manufacturing> .
+@base <http://emmo.info/emmo#> .
 
 <http://emmo.info/emmo/disciplines/manufacturing> rdf:type owl:Ontology ;
                                                    owl:versionIRI <http://emmo.info/emmo/1.0.0-beta5/disciplines/manufacturing> ;
@@ -60,7 +60,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
 ###  http://emmo.info/emmo#EMMO_0e86a108_9d4d_4582_8126_f0c527d81901
 :EMMO_0e86a108_9d4d_4582_8126_f0c527d81901 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_0ee9e6a2_9240_4b1d_ac9a_f72416c7dc70 ;
-                                           rdfs:domain :EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c ;
+                                           rdfs:domain :EMMO_a4d66059_5dd3_4b90_b4cb_10960559441b ;
                                            rdfs:range :EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad ;
                                            skos:prefLabel "hasManufacturedOutput"@en .
 
@@ -86,7 +86,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
 ###  http://emmo.info/emmo#EMMO_00b85655_f20c_4e83_b90e_094e8ea7e48f
 :EMMO_00b85655_f20c_4e83_b90e_094e8ea7e48f rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_82fc8506_1f84_4add_9683_abea077bd1e3 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An product that is ready for commercialization."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An product that is ready for commercialisation."@en ;
                                            skos:altLabel "Product"@en ;
                                            skos:prefLabel "CommercialProduct"@en .
 
@@ -365,6 +365,8 @@ sintering: process of heating a powder metal compact to increase density and/or 
                                            rdfs:subClassOf :EMMO_03eb9b46_8ff0_4fcd_b1a0_73f65ae7434e ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Fabrication of objects through the deposition of a material using a print head, nozzle or another printer technology."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This term is often used in a non-technical context synonymously with additive manufacturing and, in these cases, typically associated with machines used for non-industrial purposes including personal use."@en ;
+                                           rdfs:comment """fabrication of objects through the deposition of a material using a print head, nozzle or another printer technology
+Note 1 to entry: This term is often used in a non-technical context synonymously with additive manufacturing (3.1.2) and, in these cases, typically associated with machines used for non-industrial purposes including personal use.""" ;
                                            skos:prefLabel "3DPrinting"@en .
 
 [ rdf:type owl:Axiom ;
@@ -1053,7 +1055,7 @@ e.g. the fact that steel comes in sheets is not relevant for the definition of s
                                            :EMMO_3aa37f92_8dc5_4ee4_8438_e41e6ae20c62 "https://www.iso.org/obp/ui/#iso:std:iso:9000:ed-3:v1:en:term:3.4.2"@en ;
                                            :EMMO_964568dd_64d2_454b_a12f_ac389f1c5e7f "https://www.iso.org/obp/ui/#iso:std:iso:14040:ed-2:v1:en:term:3.9"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The overall lifetime of an holistic that has been the output of an intentional process."@en ;
-                                           rdfs:comment """This concepts encompass the overall lifetime of a product.
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """This concepts encompass the overall lifetime of a product.
 Is temporaly fundamental, meaning that it can have other products as holistic spatial parts, but its holistic temporal parts are not products. In other words, the individual must encompass the whole lifetime from creation to disposal.
 A product can be a tangible object (e.g. a manufactured object), a process (e.g. service). It can be the outcome of a natural or an artificially driven process.
 It must have and initial stage of its life that is also an outcome of a intentional process."""@en ;
@@ -1134,6 +1136,7 @@ It must have and initial stage of its life that is also an outcome of a intentio
    owl:annotatedTarget "ManufacturedProduct"@en ;
    :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin manufacture: \"made by hand\"."@en
  ] .
+
 
 ###  http://emmo.info/emmo#EMMO_8786cb47_8e1f_4968_9b15_f6d41fc51252
 :EMMO_8786cb47_8e1f_4968_9b15_f6d41fc51252 rdf:type owl:Class ;
@@ -1822,4 +1825,4 @@ manufacturing process: set of processes in manufacturing involving a flow and/or
                                            skos:prefLabel "fromWorkPIecetoWorkPiece"@en .
 
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
