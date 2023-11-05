@@ -11,7 +11,8 @@
 <http://emmo.info/emmo/disciplines/computerscience> rdf:type owl:Ontology ;
                                                      owl:versionIRI <http://emmo.info/emmo/1.0.0-beta5/disciplines/computerscience> ;
                                                      owl:imports <http://emmo.info/emmo/1.0.0-beta5/multiperspective/symbolic> ,
-                                                                 <http://emmo.info/emmo/1.0.0-beta5/perspectives/semiotics> ;
+                                                                 <http://emmo.info/emmo/1.0.0-beta5/perspectives/semiotics> ,
+                                                                 <http://emmo.info/emmo/1.0.0-beta5/disiplines/models> ;
                                                      dcterms:abstract "The domain module is a container that imports some common domain extensions of EMMO perspectives. The intension is to provide examples for developers of EMMO-based domain ontologies."@en ;
                                                      dcterms:contributor "Access, DE" ,
                                                                          "Fraunhofer IWM, DE" ,
@@ -79,10 +80,27 @@ email: emanuele.ghedini@unibo.it"""@en ,
 #    Classes
 #################################################################
 
+###  http://emmo.info/emmo#EMMO_03d4cd70_0d16_4403_b68c_d41a9117f981
+:EMMO_03d4cd70_0d16_4403_b68c_d41a9117f981 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_b45fbdc6_2519_4885_aa49_c56b394c3910 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A computer language used to describe simulations."@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Simulation_language"^^xsd:anyURI ;
+                                           skos:prefLabel "SimulationLanguage"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_09007bc0_b5f2_4fb9_af01_caf948cf2044
 :EMMO_09007bc0_b5f2_4fb9_af01_caf948cf2044 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_1461e904_a2bf_4558_ad74_2706f5706b34 ;
                                            skos:prefLabel "Java"@en .
+
+
+###  http://emmo.info/emmo#EMMO_13fea749_0b3b_4756_9c81_22cce620fc25
+:EMMO_13fea749_0b3b_4756_9c81_22cce620fc25 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_b45fbdc6_2519_4885_aa49_c56b394c3910 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A computer language that is domain-independent and can be used for expressing data from any kind of discipline."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "JSON, YAML, XML"@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Data_exchange#Data_exchange_languages"^^xsd:anyURI ;
+                                           skos:prefLabel "DataExchangeLanguage"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_1461e904_a2bf_4558_ad74_2706f5706b34
@@ -97,11 +115,30 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            skos:prefLabel "JavaScript"@en .
 
 
+###  http://emmo.info/emmo#EMMO_18c4634c_b821_49a3_beff_5eb7515ffc40
+:EMMO_18c4634c_b821_49a3_beff_5eb7515ffc40 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_b45fbdc6_2519_4885_aa49_c56b394c3910 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An artificial computer language used to express information or knowledge, often for use in computer system design."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Architecture description language – used as a language (or a conceptual model) to describe and represent system architectures."@en ,
+                                                                                      "Hardware description language – used to model integrated circuits."@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Modeling_language"^^xsd:anyURI ;
+                                           skos:prefLabel "ModellingLanguage"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_268a8a97_3a6f_4022_93da_962a66827cdc
 :EMMO_268a8a97_3a6f_4022_93da_962a66827cdc rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_1461e904_a2bf_4558_ad74_2706f5706b34 ;
                                            skos:altLabel "C#"@en ;
                                            skos:prefLabel "CSharp"@en .
+
+
+###  http://emmo.info/emmo#EMMO_29791c75_2899_47a8_bfad_fc239aa4dd2d
+:EMMO_29791c75_2899_47a8_bfad_fc239aa4dd2d rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_3ab914c1_5d8d_4a6e_804b_84aa89623c48 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A construction language used to make queries in databases and information systems."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "SQL, SPARQL"@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Query_language"^^xsd:anyURI ;
+                                           skos:prefLabel "QueryLanguage"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_348d39f7_6a17_49d1_9860_9b33b69b51de
@@ -125,6 +162,24 @@ email: emanuele.ghedini@unibo.it"""@en ,
 :EMMO_36a9bf69_483b_42fd_8a0c_7ac9206320bc rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_1461e904_a2bf_4558_ad74_2706f5706b34 ;
                                            skos:prefLabel "C"@en .
+
+
+###  http://emmo.info/emmo#EMMO_3997e1f5_f478_4572_a030_4b8e7e5cc63a
+:EMMO_3997e1f5_f478_4572_a030_4b8e7e5cc63a rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_3ab914c1_5d8d_4a6e_804b_84aa89623c48 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A construction language used to write configuration files."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a ".ini files"@en ,
+                                                                                      "Files in the standard .config directory on Unix systems."@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Configuration_file#Configuration_languages"^^xsd:anyURI ;
+                                           skos:prefLabel "ConfigurationLanguage"@en .
+
+
+###  http://emmo.info/emmo#EMMO_3ab914c1_5d8d_4a6e_804b_84aa89623c48
+:EMMO_3ab914c1_5d8d_4a6e_804b_84aa89623c48 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_b45fbdc6_2519_4885_aa49_c56b394c3910 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A computer language by which a human can specify an executable problem solution to a computer."@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Software_construction#Construction_languages"^^xsd:anyURI ;
+                                           skos:prefLabel "ConstructionLanguage"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_3b031fa9_8623_4ea5_8b57_bcafb70c5c8b
@@ -264,7 +319,7 @@ Here we explicitly include in the definition also all the data (e.g. source code
 
 ###  http://emmo.info/emmo#EMMO_9ffffb55_3496_4307_82b8_a0d78fe1fcd8
 :EMMO_9ffffb55_3496_4307_82b8_a0d78fe1fcd8 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_b45fbdc6_2519_4885_aa49_c56b394c3910 ;
+                                           rdfs:subClassOf :EMMO_3ab914c1_5d8d_4a6e_804b_84aa89623c48 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A language object that follows syntactic rules of a programming language."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A programming language object can also be a fragment (e.g. a C function) not suitable for exectution."@en ,
                                                                                       "Entities are not necessarily digital data, but can be code fragments printed on paper."@en ;
@@ -288,13 +343,29 @@ Here we explicitly include in the definition also all the data (e.g. source code
 ###  http://emmo.info/emmo#EMMO_af7b627d_6528_4fdb_97df_ba4579c4bb5d
 :EMMO_af7b627d_6528_4fdb_97df_ba4579c4bb5d rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_b45fbdc6_2519_4885_aa49_c56b394c3910 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A grammar for annotating a document in a way that is syntactically distinguishable from the text."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "HTML"@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Markup_language"^^xsd:anyURI ;
                                            skos:prefLabel "MarkupLanguage"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_b45fbdc6_2519_4885_aa49_c56b394c3910
 :EMMO_b45fbdc6_2519_4885_aa49_c56b394c3910 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_d8d2144e_5c8d_455d_a643_5caf4d8d9df8 ;
-                                           skos:prefLabel "ComputerScience"@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A formal language that can be interpreted by a computer."@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Computer_language"^^xsd:anyURI ;
+                                           skos:altLabel "ComputerScience"@en ;
+                                           skos:prefLabel "ComputerLanguage"@en .
+
+
+###  http://emmo.info/emmo#EMMO_c8fe15d0_caf7_46f7_883c_0e98081987f1
+:EMMO_c8fe15d0_caf7_46f7_883c_0e98081987f1 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_3ab914c1_5d8d_4a6e_804b_84aa89623c48 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An interpreted computer language for job control in computing."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """Unix shell.
+Batch programming languages."""@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Command_language"^^xsd:anyURI ;
+                                           skos:prefLabel "CommandLanguage"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_db99b1e5_2f34_467b_a784_d104946d9f00
@@ -324,6 +395,23 @@ Here we explicitly include in the definition also all the data (e.g. source code
    owl:annotatedTarget "A path is a string of characters used to uniquely identify a location in a directory structure." ;
    :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Path_(computing)#Universal_Naming_Convention"
  ] .
+
+
+###  http://emmo.info/emmo#EMMO_ea00dafc_ac92_4e67_aa65_ce5a29e77fcf
+:EMMO_ea00dafc_ac92_4e67_aa65_ce5a29e77fcf rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_3ab914c1_5d8d_4a6e_804b_84aa89623c48 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A construction language designed to transform some input text in a certain formal language into a modified output text that meets some specific goal."@en ,
+                                                                                      "https://en.wikipedia.org/wiki/Transformation_language"^^xsd:anyURI ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Tritium, XSLT, XQuery, STX, FXT, XDuce, CDuce, HaXml, XMLambda, FleXML"@en ;
+                                           skos:prefLabel "TransformationLanguage"@en .
+
+
+###  http://emmo.info/emmo#EMMO_f42a0e95_c130_4a69_9660_6bfdbb897d4a
+:EMMO_f42a0e95_c130_4a69_9660_6bfdbb897d4a rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_c8fe15d0_caf7_46f7_883c_0e98081987f1 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A command language designed to be run by a command-line interpreter, like a Unix shell."@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Shell_script" ;
+                                           skos:prefLabel "ShellScript"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_f84b1b92_1dc8_4146_99f0_b03cd53e455b
