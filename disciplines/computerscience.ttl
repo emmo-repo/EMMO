@@ -10,7 +10,8 @@
 
 <http://emmo.info/emmo/disciplines/computerscience> rdf:type owl:Ontology ;
                                                      owl:versionIRI <http://emmo.info/emmo/1.0.0-beta5/disciplines/computerscience> ;
-                                                     owl:imports <http://emmo.info/emmo/1.0.0-beta5/multiperspective/symbolic> ,
+                                                     owl:imports <http://emmo.info/emmo/1.0.0-beta5/disciplines/math> ,
+                                                                 <http://emmo.info/emmo/1.0.0-beta5/multiperspective/symbolic> ,
                                                                  <http://emmo.info/emmo/1.0.0-beta5/perspectives/semiotics> ;
                                                      dcterms:abstract "The domain module is a container that imports some common domain extensions of EMMO perspectives. The intension is to provide examples for developers of EMMO-based domain ontologies."@en ;
                                                      dcterms:contributor "Access, DE" ,
@@ -36,6 +37,14 @@ University of Bologna (IT)
 email: emanuele.ghedini@unibo.it"""@en ,
                                                                   "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
                                                      owl:versionInfo "1.0.0-beta5" .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#JSON
+rdf:JSON rdf:type rdfs:Datatype .
+
 
 #################################################################
 #    Object Properties
@@ -74,6 +83,10 @@ email: emanuele.ghedini@unibo.it"""@en ,
 :EMMO_b7493aee_366c_442d_8f59_49ac7aa664d7 rdf:type owl:DatatypeProperty ;
                                            rdfs:subPropertyOf :EMMO_b35e92d7_7fa0_4661_aa5a_5cea7c8e6925 ;
                                            skos:prefLabel "hasURNValue"@en .
+
+
+###  http://emmo.info/emmo#EMMO_faf79f53_749d_40b2_807c_d34244c192f4
+:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 rdfs:range owl:real .
 
 
 #################################################################
@@ -183,6 +196,10 @@ email: emanuele.ghedini@unibo.it"""@en ,
 
 ###  http://emmo.info/emmo#EMMO_6470bbfa_04a6_4360_9534_1aa18d68329b
 :EMMO_6470bbfa_04a6_4360_9534_1aa18d68329b rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom xsd:anyURI
+                                                               ] ;
                                            rdfs:subClassOf :EMMO_b45fbdc6_2519_4885_aa49_c56b394c3910 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A Uniform Resource Identifier (URI) is a compact sequence of characters that identifies an abstract or physical resource."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "URI = scheme \":\" [\"//\" authority] path [\"?\" query] [\"#\" fragment]"@en ;
@@ -236,6 +253,14 @@ Here we explicitly include in the definition also all the data (e.g. source code
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_8681074a_e225_4e38_b586_e85b0f43ce38 ;
+   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
+   owl:annotatedTarget """Software is usually used as a generic term for programs. However, in its broadest sense it can refer to all information (i.e., both programs and data) in electronic form and can provide a distinction from hardware, which refers to computers or other electronic systems on which software can exist and be use.
+Here we explicitly include in the definition also all the data (e.g. source code, script files) that takes part to the building of the executable, are necessary to the execution of a program or that document it for the users."""@en ;
+   rdfs:seeAlso "http://www.linfo.org/program.html"^^xsd:anyURI
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_8681074a_e225_4e38_b586_e85b0f43ce38 ;
    owl:annotatedProperty skos:prefLabel ;
    owl:annotatedTarget "Software"@en ;
    :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From soft +‎ -ware, by contrast with hardware (“the computer itself”). Coined by Paul Niquette in 1953."@en
@@ -246,14 +271,6 @@ Here we explicitly include in the definition also all the data (e.g. source code
    owl:annotatedProperty :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 ;
    owl:annotatedTarget "All or part of the programs, procedures, rules, and associated documentation of an information processing system."@en ;
    rdfs:isDefinedBy "https://www.iso.org/obp/ui/fr/#iso:std:iso-iec:2382:-1:ed-3:en"@en
- ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_8681074a_e225_4e38_b586_e85b0f43ce38 ;
-   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
-   owl:annotatedTarget """Software is usually used as a generic term for programs. However, in its broadest sense it can refer to all information (i.e., both programs and data) in electronic form and can provide a distinction from hardware, which refers to computers or other electronic systems on which software can exist and be use.
-Here we explicitly include in the definition also all the data (e.g. source code, script files) that takes part to the building of the executable, are necessary to the execution of a program or that document it for the users."""@en ;
-   rdfs:seeAlso "http://www.linfo.org/program.html"^^xsd:anyURI
  ] .
 
 

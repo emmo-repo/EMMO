@@ -25,9 +25,17 @@ The symbolic module includes symbols, symbolic constructs and formal languages."
                                                    dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                                    dcterms:publisher "EMMC ASBL" ;
                                                    dcterms:title "Symbolic"@en ;
-                                                   rdfs:comment "Contacts: emmo@emmc.eu" ,
-                                                                "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
+                                                   rdfs:comment "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ,
+                                                                "Contacts: emmo@emmc.eu" ;
                                                    owl:versionInfo "1.0.0-beta5" .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#JSON
+rdf:JSON rdf:type rdfs:Datatype .
+
 
 #################################################################
 #    Data properties
@@ -37,7 +45,7 @@ The symbolic module includes symbols, symbolic constructs and formal languages."
 :EMMO_02face50_43a1_40ce_a909_dfe54d5e186b rdf:type owl:DatatypeProperty ;
                                            rdfs:subPropertyOf :b6292331_94af_4f00_976b_ea55960c2f1c ;
                                            rdf:type owl:FunctionalProperty ;
-                                           rdfs:domain :EMMO_50ea1ec5_f157_41b0_b46b_a9032f17ca10 ;
+                                           rdfs:domain :EMMO_5f334606_f67d_4f0e_acb9_eeb21cb10c66 ;
                                            rdfs:range xsd:string ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The owl:dataProperty that provides a serialisation of an EMMO string data entity." ;
                                            skos:prefLabel "hasStringValue"@en .
@@ -47,7 +55,7 @@ The symbolic module includes symbols, symbolic constructs and formal languages."
 :EMMO_23b579e1_8088_45b5_9975_064014026c42 rdf:type owl:DatatypeProperty ;
                                            rdfs:subPropertyOf :b6292331_94af_4f00_976b_ea55960c2f1c ;
                                            rdf:type owl:FunctionalProperty ;
-                                           rdfs:domain :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ;
+                                           rdfs:domain :EMMO_5f334606_f67d_4f0e_acb9_eeb21cb10c66 ;
                                            rdfs:range xsd:string ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The owl:dataProperty that provides a serialisation of an EMMO symbol data entity." ;
                                            skos:prefLabel "hasSymbolValue"@en .
@@ -85,10 +93,81 @@ For example, text is made of words, spaces and punctuations. Words are made of c
  ] .
 
 
+###  http://emmo.info/emmo#EMMO_0e03a375_8af8_46db_88ae_a45fe2d2940f
+:EMMO_0e03a375_8af8_46db_88ae_a45fe2d2940f rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom xsd:dateTime
+                                                               ] ;
+                                           skos:prefLabel "DateTimeData"@en .
+
+
+###  http://emmo.info/emmo#EMMO_10bbe9e9_46b6_4b5d_8b51_ed759fc21f21
+:EMMO_10bbe9e9_46b6_4b5d_8b51_ed759fc21f21 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom xsd:dateTimeStamp
+                                                               ] ;
+                                           skos:prefLabel "DateTimeStampData"@en .
+
+
+###  http://emmo.info/emmo#EMMO_18d180e4_5e3e_42f7_820c_e08951223486
+:EMMO_18d180e4_5e3e_42f7_820c_e08951223486 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom owl:real
+                                                               ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data representing a real number."@en ;
+                                           skos:prefLabel "RealData"@en .
+
+
+###  http://emmo.info/emmo#EMMO_2ff657b6_1c9f_4335_bba2_ea4428422977
+:EMMO_2ff657b6_1c9f_4335_bba2_ea4428422977 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_9e49caad_b29e_4cf1_9be4_80419fd1e45c ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The datatype for bidimensional arrays."@en ;
+                                           skos:prefLabel "MatrixData"@en .
+
+
+###  http://emmo.info/emmo#EMMO_3a53b946_4dfd_4a38_bb5b_aa78d7b0db9c
+:EMMO_3a53b946_4dfd_4a38_bb5b_aa78d7b0db9c rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom xsd:unsignedInt
+                                                               ] ;
+                                           skos:prefLabel "UnsignedIntData"@en .
+
+
+###  http://emmo.info/emmo#EMMO_3c87fd89_b0f0_477a_86b6_d949c2b982ee
+:EMMO_3c87fd89_b0f0_477a_86b6_d949c2b982ee rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom xsd:byte
+                                                               ] ;
+                                           skos:prefLabel "ByteData"@en .
+
+
+###  http://emmo.info/emmo#EMMO_42eee73b_e4d2_4a0f_b468_3d2ce0475af6
+:EMMO_42eee73b_e4d2_4a0f_b468_3d2ce0475af6 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom xsd:nonNegativeInteger
+                                                               ] ;
+                                           skos:prefLabel "NonNegativeIntegerData"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_432192c4_111f_4e80_b7cd_c6ce1c1129ea
 :EMMO_432192c4_111f_4e80_b7cd_c6ce1c1129ea rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ;
                                            skos:prefLabel "Spacing"@en .
+
+
+###  http://emmo.info/emmo#EMMO_443198a5_934c_44fa_b89e_28eca13b25b2
+:EMMO_443198a5_934c_44fa_b89e_28eca13b25b2 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom xsd:short
+                                                               ] ;
+                                           skos:prefLabel "ShortData"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_50ea1ec5_f157_41b0_b46b_a9032f17ca10
@@ -105,10 +184,90 @@ If an 'interpreter' skilled in english language is involved in a 'semiotic' proc
                                            skos:prefLabel "String"@en .
 
 
+###  http://emmo.info/emmo#EMMO_51f93d8c_57fa_4314_a68d_8d69c2609c97
+:EMMO_51f93d8c_57fa_4314_a68d_8d69c2609c97 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom xsd:long
+                                                               ] ;
+                                           skos:prefLabel "LongData"@en .
+
+
+###  http://emmo.info/emmo#EMMO_54dc83cb_06e1_4739_9e45_bc09cead7f48
+:EMMO_54dc83cb_06e1_4739_9e45_bc09cead7f48 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom xsd:boolean
+                                                               ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data repesenting a boolean number."@en ;
+                                           skos:prefLabel "BooleanData"@en .
+
+
+###  http://emmo.info/emmo#EMMO_58f76a09_205c_44f2_b237_88de54e8e001
+:EMMO_58f76a09_205c_44f2_b237_88de54e8e001 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom xsd:positiveInteger
+                                                               ] ;
+                                           skos:prefLabel "PositiveIntegerData"@en .
+
+
+###  http://emmo.info/emmo#EMMO_5f334606_f67d_4f0e_acb9_eeb21cb10c66
+:EMMO_5f334606_f67d_4f0e_acb9_eeb21cb10c66 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom xsd:string
+                                                               ] ;
+                                           skos:prefLabel "StringData"@en .
+
+
+###  http://emmo.info/emmo#EMMO_648c17b7_a012_4060_a096_c76bd407804b
+:EMMO_648c17b7_a012_4060_a096_c76bd407804b rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom xsd:negativeInteger
+                                                               ] ;
+                                           skos:prefLabel "NegativeIntegerData"@en .
+
+
+###  http://emmo.info/emmo#EMMO_69ebb235_9c5e_443d_9a3b_7042b1005f1f
+:EMMO_69ebb235_9c5e_443d_9a3b_7042b1005f1f rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom owl:rational
+                                                               ] ;
+                                           skos:prefLabel "RationalData"@en .
+
+
+###  http://emmo.info/emmo#EMMO_70bbb94e_2ca7_4d73_ba01_6397f134d172
+:EMMO_70bbb94e_2ca7_4d73_ba01_6397f134d172 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_057e7d57_aff0_49de_911a_8861d85cef40 ;
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A symbolic data is a a data that is rooted on some symbolic based encoding, such as floating point numbers, strings, integer. They are not to be intended as mathematical entities (even if they may be interpreted as such) but as syntactic structures (datastructures or datatypes) based on concatenated tokens (or symbols, letters) that can deliver data."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class for entities which stands for data expressed using a symbolic encoding."@en ;
+                                           rdfs:seeAlso "https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#built-in-datatypes"^^xsd:anyURI ,
+                                                        "https://www.w3.org/TR/2012/REC-owl2-syntax-20121211/#Datatype_Maps" ,
+                                                        "https://www.w3schools.com/xml/schema_dtypes_numeric.asp" ;
+                                           skos:altLabel "LiteralData" ;
+                                           skos:prefLabel "SymbolicData"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_74b05aed_66bf_43c8_aa2c_752a9ca8be03
 :EMMO_74b05aed_66bf_43c8_aa2c_752a9ca8be03 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ;
                                            skos:prefLabel "Numeral"@en .
+
+
+###  http://emmo.info/emmo#EMMO_88a34881_b8d0_474b_9a08_40dbd414d834
+:EMMO_88a34881_b8d0_474b_9a08_40dbd414d834 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                                      owl:unionOf ( xsd:double
+                                                                                                    xsd:float
+                                                                                                  )
+                                                                                    ]
+                                                               ] ;
+                                           skos:prefLabel "FloatingPointData"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_89a0c87c_0804_4013_937a_6fe234d9499c
@@ -121,6 +280,21 @@ If an 'interpreter' skilled in english language is involved in a 'semiotic' proc
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbolic entity made of other symbolic entities according to a specific spatial configuration."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This class collects individuals that represents arrangements of strings, or other symbolic compositions, without any particular predifined arrangement schema."@en ;
                                            skos:prefLabel "SymbolicConstruct"@en .
+
+
+###  http://emmo.info/emmo#EMMO_9e49caad_b29e_4cf1_9be4_80419fd1e45c
+:EMMO_9e49caad_b29e_4cf1_9be4_80419fd1e45c rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                             owl:someValuesFrom rdf:JSON
+                                                           ] ;
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "An array is a datatype representing an ordered collection of elements (or values) that can be accessed by indexes. Arrays have an analog mathematical counterpart in vectors and matrixes, but are separate concepts. Arrays may be multidimensionals."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """In the EMMO we use the following JSON based syntax to represent arrays:
+- mono-dimensional array [v1,v2,...,vn]
+- bi-dimensional array [[v1,v2,...,vn],[w1,w2,...,2n]]
+
+This notation can be extended to multidimensional arrays."""@en ;
+                                           skos:prefLabel "ArrayData"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527
@@ -147,10 +321,37 @@ Symbols of a formal language must be capable of being specified without any refe
                                            skos:prefLabel "Punctuation"@en .
 
 
+###  http://emmo.info/emmo#EMMO_aa972cc9_5d9e_47a2_abc5_00243d6b3917
+:EMMO_aa972cc9_5d9e_47a2_abc5_00243d6b3917 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom xsd:int
+                                                               ] ;
+                                           skos:prefLabel "IntData"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_bed2fe4c_dc7e_43a8_8200_6aac44030bff
 :EMMO_bed2fe4c_dc7e_43a8_8200_6aac44030bff rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ;
                                            skos:prefLabel "Letter"@en .
+
+
+###  http://emmo.info/emmo#EMMO_cf0f8f57_8a9e_410c_8fe4_a436673fa3d3
+:EMMO_cf0f8f57_8a9e_410c_8fe4_a436673fa3d3 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom xsd:nonPositiveInteger
+                                                               ] ;
+                                           skos:prefLabel "NonPositiveIntegerData"@en .
+
+
+###  http://emmo.info/emmo#EMMO_d43546df_7fd7_44d5_9d7c_0f2bf56cefe3
+:EMMO_d43546df_7fd7_44d5_9d7c_0f2bf56cefe3 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom xsd:decimal
+                                                               ] ;
+                                           skos:prefLabel "DecimalData"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_d8d2144e_5c8d_455d_a643_5caf4d8d9df8
@@ -167,10 +368,54 @@ Symbols of a formal language must be capable of being specified without any refe
  ] .
 
 
+###  http://emmo.info/emmo#EMMO_d95ff9c8_e43f_4701_a761_f2ed601eb61d
+:EMMO_d95ff9c8_e43f_4701_a761_f2ed601eb61d rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_9e49caad_b29e_4cf1_9be4_80419fd1e45c ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The datatype for monodimensional arrays." ;
+                                           skos:prefLabel "VectorData"@en .
+
+
+###  http://emmo.info/emmo#EMMO_dc6e40f6_5b6c_473b_a715_d36622ada5ad
+:EMMO_dc6e40f6_5b6c_473b_a715_d36622ada5ad rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom xsd:unsignedShort
+                                                               ] ;
+                                           skos:prefLabel "UnsignedShortData"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_e13b2173_1dec_4b97_9ac1_1dc4b418612a
 :EMMO_e13b2173_1dec_4b97_9ac1_1dc4b418612a rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ;
                                            skos:prefLabel "UTF8"@en .
 
 
-###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
+###  http://emmo.info/emmo#EMMO_e99aec47_9ae6_4a1d_bddd_b87bb456c52a
+:EMMO_e99aec47_9ae6_4a1d_bddd_b87bb456c52a rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom xsd:unsignedByte
+                                                               ] ;
+                                           skos:prefLabel "UnsignedByteData"@en .
+
+
+###  http://emmo.info/emmo#EMMO_f1ee5c02_5cc0_45ba_a09a_2e6319f75fc8
+:EMMO_f1ee5c02_5cc0_45ba_a09a_2e6319f75fc8 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom xsd:unsignedLong
+                                                               ] ;
+                                           skos:prefLabel "UnsignedLongData"@en .
+
+
+###  http://emmo.info/emmo#EMMO_f8bd64d5_5d3e_4ad4_a46e_c30714fecb7f
+:EMMO_f8bd64d5_5d3e_4ad4_a46e_c30714fecb7f rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom xsd:integer
+                                                               ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data representing an integer number."@en ;
+                                           skos:prefLabel "IntegerData"@en .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
