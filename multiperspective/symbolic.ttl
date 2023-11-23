@@ -141,13 +141,23 @@ rdf:JSON a rdfs:Datatype .
 
 :EMMO_23b579e1_8088_45b5_9975_064014026c42 a owl:DatatypeProperty, owl:FunctionalProperty;
   rdfs:subPropertyOf :b6292331_94af_4f00_976b_ea55960c2f1c;
-  rdfs:domain :EMMO_5f334606_f67d_4f0e_acb9_eeb21cb10c66;
-  rdfs:range xsd:string;
+  rdfs:domain _:genid1;
   :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The owl:dataProperty that provides a serialisation of an EMMO symbol data entity.";
   skos:prefLabel "hasSymbolValue"@en .
 
+_:genid1 a owl:Class;
+  owl:intersectionOf _:genid3 .
+
+_:genid3 a rdf:List;
+  rdf:first :EMMO_70bbb94e_2ca7_4d73_ba01_6397f134d172;
+  rdf:rest _:genid2 .
+
+_:genid2 a rdf:List;
+  rdf:first :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527;
+  rdf:rest rdf:nil .
+
 :EMMO_057e7d57_aff0_49de_911a_8861d85cef40 a owl:Class;
-  owl:equivalentClass _:genid1;
+  owl:equivalentClass _:genid4;
   rdfs:subClassOf :EMMO_be8592a7_68d1_4a06_ad23_82f2b56ef926;
   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A discrete data whose elements can be decoded as tokens from one or more alphabets, without necessarily respecting syntactic rules."@en;
   :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """fe780
@@ -161,45 +171,45 @@ In other words, a sequence of bit \"1000010\" in a RAM (a non-graphical entity) 
 For example, text is made of words, spaces and punctuations. Words are made of characters (i.e. atomic symbols)."""@en;
   skos:prefLabel "Symbolic"@en .
 
-_:genid1 a owl:Class;
-  owl:unionOf _:genid3 .
+_:genid4 a owl:Class;
+  owl:unionOf _:genid6 .
 
-_:genid3 a rdf:List;
+_:genid6 a rdf:List;
   rdf:first :EMMO_89a0c87c_0804_4013_937a_6fe234d9499c;
-  rdf:rest _:genid2 .
+  rdf:rest _:genid5 .
 
-_:genid2 a rdf:List;
+_:genid5 a rdf:List;
   rdf:first :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527;
   rdf:rest rdf:nil .
 
-_:genid4 a owl:Axiom;
+_:genid7 a owl:Axiom;
   owl:annotatedSource :EMMO_057e7d57_aff0_49de_911a_8861d85cef40;
   owl:annotatedProperty skos:prefLabel;
   owl:annotatedTarget "Symbolic"@en;
   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Ancient Greek σύμβολον (súmbolon, “a sign by which one infers something; a mark, token, badge, ticket, tally, check, a signal, watchword, outward sign”), from συμβάλλω (sumbállō, “I throw together, dash together, compare, correspond, tally, come to a conclusion”), from σύν (sún, “with, together”) + βάλλω (bállō, “I throw, put”)." .
 
 :EMMO_0e03a375_8af8_46db_88ae_a45fe2d2940f a owl:Class;
-  owl:equivalentClass _:genid5;
+  owl:equivalentClass _:genid8;
   skos:prefLabel "DateTimeData"@en .
 
-_:genid5 a owl:Restriction;
+_:genid8 a owl:Restriction;
   owl:someValuesFrom xsd:dateTime;
   owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c .
 
 :EMMO_10bbe9e9_46b6_4b5d_8b51_ed759fc21f21 a owl:Class;
-  owl:equivalentClass _:genid6;
+  owl:equivalentClass _:genid9;
   skos:prefLabel "DateTimeStampData"@en .
 
-_:genid6 a owl:Restriction;
+_:genid9 a owl:Restriction;
   owl:someValuesFrom xsd:dateTimeStamp;
   owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c .
 
 :EMMO_18d180e4_5e3e_42f7_820c_e08951223486 a owl:Class;
-  owl:equivalentClass _:genid7;
+  owl:equivalentClass _:genid10;
   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data representing a real number."@en;
   skos:prefLabel "RealData"@en .
 
-_:genid7 a owl:Restriction;
+_:genid10 a owl:Restriction;
   owl:someValuesFrom owl:real;
   owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c .
 
@@ -209,26 +219,26 @@ _:genid7 a owl:Restriction;
   skos:prefLabel "MatrixData"@en .
 
 :EMMO_3a53b946_4dfd_4a38_bb5b_aa78d7b0db9c a owl:Class;
-  owl:equivalentClass _:genid8;
+  owl:equivalentClass _:genid11;
   skos:prefLabel "UnsignedIntData"@en .
 
-_:genid8 a owl:Restriction;
+_:genid11 a owl:Restriction;
   owl:someValuesFrom xsd:unsignedInt;
   owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c .
 
 :EMMO_3c87fd89_b0f0_477a_86b6_d949c2b982ee a owl:Class;
-  owl:equivalentClass _:genid9;
+  owl:equivalentClass _:genid12;
   skos:prefLabel "ByteData"@en .
 
-_:genid9 a owl:Restriction;
+_:genid12 a owl:Restriction;
   owl:someValuesFrom xsd:byte;
   owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c .
 
 :EMMO_42eee73b_e4d2_4a0f_b468_3d2ce0475af6 a owl:Class;
-  owl:equivalentClass _:genid10;
+  owl:equivalentClass _:genid13;
   skos:prefLabel "NonNegativeIntegerData"@en .
 
-_:genid10 a owl:Restriction;
+_:genid13 a owl:Restriction;
   owl:someValuesFrom xsd:nonNegativeInteger;
   owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c .
 
@@ -237,10 +247,10 @@ _:genid10 a owl:Restriction;
   skos:prefLabel "Spacing"@en .
 
 :EMMO_443198a5_934c_44fa_b89e_28eca13b25b2 a owl:Class;
-  owl:equivalentClass _:genid11;
+  owl:equivalentClass _:genid14;
   skos:prefLabel "ShortData"@en .
 
-_:genid11 a owl:Restriction;
+_:genid14 a owl:Restriction;
   owl:someValuesFrom xsd:short;
   owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c .
 
@@ -257,51 +267,51 @@ If an 'interpreter' skilled in english language is involved in a 'semiotic' proc
   skos:prefLabel "String"@en .
 
 :EMMO_51f93d8c_57fa_4314_a68d_8d69c2609c97 a owl:Class;
-  owl:equivalentClass _:genid12;
+  owl:equivalentClass _:genid15;
   skos:prefLabel "LongData"@en .
 
-_:genid12 a owl:Restriction;
+_:genid15 a owl:Restriction;
   owl:someValuesFrom xsd:long;
   owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c .
 
 :EMMO_54dc83cb_06e1_4739_9e45_bc09cead7f48 a owl:Class;
-  owl:equivalentClass _:genid13;
+  owl:equivalentClass _:genid16;
   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data repesenting a boolean number."@en;
   skos:prefLabel "BooleanData"@en .
 
-_:genid13 a owl:Restriction;
+_:genid16 a owl:Restriction;
   owl:someValuesFrom xsd:boolean;
   owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c .
 
 :EMMO_58f76a09_205c_44f2_b237_88de54e8e001 a owl:Class;
-  owl:equivalentClass _:genid14;
+  owl:equivalentClass _:genid17;
   skos:prefLabel "PositiveIntegerData"@en .
 
-_:genid14 a owl:Restriction;
+_:genid17 a owl:Restriction;
   owl:someValuesFrom xsd:positiveInteger;
   owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c .
 
 :EMMO_5f334606_f67d_4f0e_acb9_eeb21cb10c66 a owl:Class;
-  owl:equivalentClass _:genid15;
+  owl:equivalentClass _:genid18;
   skos:prefLabel "StringData"@en .
 
-_:genid15 a owl:Restriction;
+_:genid18 a owl:Restriction;
   owl:someValuesFrom xsd:string;
   owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c .
 
 :EMMO_648c17b7_a012_4060_a096_c76bd407804b a owl:Class;
-  owl:equivalentClass _:genid16;
+  owl:equivalentClass _:genid19;
   skos:prefLabel "NegativeIntegerData"@en .
 
-_:genid16 a owl:Restriction;
+_:genid19 a owl:Restriction;
   owl:someValuesFrom xsd:negativeInteger;
   owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c .
 
 :EMMO_69ebb235_9c5e_443d_9a3b_7042b1005f1f a owl:Class;
-  owl:equivalentClass _:genid17;
+  owl:equivalentClass _:genid20;
   skos:prefLabel "RationalData"@en .
 
-_:genid17 a owl:Restriction;
+_:genid20 a owl:Restriction;
   owl:someValuesFrom owl:rational;
   owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c .
 
@@ -319,31 +329,31 @@ _:genid17 a owl:Restriction;
   skos:prefLabel "Numeral"@en .
 
 :EMMO_88a34881_b8d0_474b_9a08_40dbd414d834 a owl:Class;
-  owl:equivalentClass _:genid18;
+  owl:equivalentClass _:genid21;
   skos:prefLabel "FloatingPointData"@en .
 
-_:genid18 a owl:Restriction;
-  owl:someValuesFrom _:genid19;
+_:genid21 a owl:Restriction;
+  owl:someValuesFrom _:genid22;
   owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c .
 
-_:genid19 a rdfs:Datatype;
-  owl:unionOf _:genid21 .
+_:genid22 a rdfs:Datatype;
+  owl:unionOf _:genid24 .
 
-_:genid21 a rdf:List;
+_:genid24 a rdf:List;
   rdf:first xsd:double;
-  rdf:rest _:genid20 .
+  rdf:rest _:genid23 .
 
-_:genid20 a rdf:List;
+_:genid23 a rdf:List;
   rdf:first xsd:float;
   rdf:rest rdf:nil .
 
 :EMMO_89a0c87c_0804_4013_937a_6fe234d9499c a owl:Class;
-  rdfs:subClassOf :EMMO_057e7d57_aff0_49de_911a_8861d85cef40, _:genid22;
+  rdfs:subClassOf :EMMO_057e7d57_aff0_49de_911a_8861d85cef40, _:genid25;
   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbolic entity made of other symbolic entities according to a specific spatial configuration."@en;
   :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This class collects individuals that represents arrangements of strings, or other symbolic compositions, without any particular predifined arrangement schema."@en;
   skos:prefLabel "SymbolicConstruct"@en .
 
-_:genid22 a owl:Restriction;
+_:genid25 a owl:Restriction;
   owl:someValuesFrom :EMMO_057e7d57_aff0_49de_911a_8861d85cef40;
   owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 .
 
@@ -377,10 +387,10 @@ Symbols of a formal language must be capable of being specified without any refe
   skos:prefLabel "Punctuation"@en .
 
 :EMMO_aa972cc9_5d9e_47a2_abc5_00243d6b3917 a owl:Class;
-  owl:equivalentClass _:genid23;
+  owl:equivalentClass _:genid26;
   skos:prefLabel "IntData"@en .
 
-_:genid23 a owl:Restriction;
+_:genid26 a owl:Restriction;
   owl:someValuesFrom xsd:int;
   owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c .
 
@@ -389,18 +399,18 @@ _:genid23 a owl:Restriction;
   skos:prefLabel "Letter"@en .
 
 :EMMO_cf0f8f57_8a9e_410c_8fe4_a436673fa3d3 a owl:Class;
-  owl:equivalentClass _:genid24;
+  owl:equivalentClass _:genid27;
   skos:prefLabel "NonPositiveIntegerData"@en .
 
-_:genid24 a owl:Restriction;
+_:genid27 a owl:Restriction;
   owl:someValuesFrom xsd:nonPositiveInteger;
   owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c .
 
 :EMMO_d43546df_7fd7_44d5_9d7c_0f2bf56cefe3 a owl:Class;
-  owl:equivalentClass _:genid25;
+  owl:equivalentClass _:genid28;
   skos:prefLabel "DecimalData"@en .
 
-_:genid25 a owl:Restriction;
+_:genid28 a owl:Restriction;
   owl:someValuesFrom xsd:decimal;
   owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c .
 
@@ -409,7 +419,7 @@ _:genid25 a owl:Restriction;
   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A language object is a discrete data entity respecting a specific language syntactic rules (a well-formed formula)."@en;
   skos:prefLabel "Language"@en .
 
-_:genid26 a owl:Axiom;
+_:genid29 a owl:Axiom;
   owl:annotatedSource :EMMO_d8d2144e_5c8d_455d_a643_5caf4d8d9df8;
   owl:annotatedProperty skos:prefLabel;
   owl:annotatedTarget "Language"@en;
@@ -421,10 +431,10 @@ _:genid26 a owl:Axiom;
   skos:prefLabel "VectorData"@en .
 
 :EMMO_dc6e40f6_5b6c_473b_a715_d36622ada5ad a owl:Class;
-  owl:equivalentClass _:genid27;
+  owl:equivalentClass _:genid30;
   skos:prefLabel "UnsignedShortData"@en .
 
-_:genid27 a owl:Restriction;
+_:genid30 a owl:Restriction;
   owl:someValuesFrom xsd:unsignedShort;
   owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c .
 
@@ -433,26 +443,26 @@ _:genid27 a owl:Restriction;
   skos:prefLabel "UTF8"@en .
 
 :EMMO_e99aec47_9ae6_4a1d_bddd_b87bb456c52a a owl:Class;
-  owl:equivalentClass _:genid28;
+  owl:equivalentClass _:genid31;
   skos:prefLabel "UnsignedByteData"@en .
 
-_:genid28 a owl:Restriction;
+_:genid31 a owl:Restriction;
   owl:someValuesFrom xsd:unsignedByte;
   owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c .
 
 :EMMO_f1ee5c02_5cc0_45ba_a09a_2e6319f75fc8 a owl:Class;
-  owl:equivalentClass _:genid29;
+  owl:equivalentClass _:genid32;
   skos:prefLabel "UnsignedLongData"@en .
 
-_:genid29 a owl:Restriction;
+_:genid32 a owl:Restriction;
   owl:someValuesFrom xsd:unsignedLong;
   owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c .
 
 :EMMO_f8bd64d5_5d3e_4ad4_a46e_c30714fecb7f a owl:Class;
-  owl:equivalentClass _:genid30;
+  owl:equivalentClass _:genid33;
   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data representing an integer number."@en;
   skos:prefLabel "IntegerData"@en .
 
-_:genid30 a owl:Restriction;
+_:genid33 a owl:Restriction;
   owl:someValuesFrom xsd:integer;
   owl:onProperty :b6292331_94af_4f00_976b_ea55960c2f1c .
