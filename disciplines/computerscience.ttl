@@ -42,6 +42,16 @@ email: emanuele.ghedini@unibo.it"""@en ,
 #    Object Properties
 #################################################################
 
+###  http://emmo.info/emmo#EMMO_104b1892_b287_41ab_b10a_eb521e428ec3
+:EMMO_104b1892_b287_41ab_b10a_eb521e428ec3 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_39c3815d_8cae_4c8f_b2ff_eeba24bec455 ;
+                                           rdfs:domain :EMMO_1a23bdf2_b3b0_4ae4_8672_598ef5e1727e ,
+                                                       :EMMO_881606d0_6f2f_4947_bc8b_75c5b7b2b688 ;
+                                           rdfs:range :EMMO_19fe0747_6954_40cb_9f8f_b87498bc8e78 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A semiotic relation that connects a recognised semiotic object (like a file) to a computer language (an icon) in a cognition process."@en ;
+                                           skos:prefLabel "hasComputerLanguage"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_67339084_e659_42be_9e76_7e22fca63c48
 :EMMO_67339084_e659_42be_9e76_7e22fca63c48 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_e1097637_70d2_4895_973f_2396f04fa204 ;
@@ -82,7 +92,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
 
 ###  http://emmo.info/emmo#EMMO_03d4cd70_0d16_4403_b68c_d41a9117f981
 :EMMO_03d4cd70_0d16_4403_b68c_d41a9117f981 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_b45fbdc6_2519_4885_aa49_c56b394c3910 ,
+                                           rdfs:subClassOf :EMMO_18c4634c_b821_49a3_beff_5eb7515ffc40 ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty [ owl:inverseOf :EMMO_c58c799e_cc6c_4310_a3f1_78da70705b2a
                                                                             ] ;
@@ -101,7 +111,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
 
 ###  http://emmo.info/emmo#EMMO_13fea749_0b3b_4756_9c81_22cce620fc25
 :EMMO_13fea749_0b3b_4756_9c81_22cce620fc25 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_b45fbdc6_2519_4885_aa49_c56b394c3910 ;
+                                           rdfs:subClassOf :EMMO_19fe0747_6954_40cb_9f8f_b87498bc8e78 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A computer language that is domain-independent and can be used for expressing data from any kind of discipline."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "JSON, YAML, XML"@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Data_exchange#Data_exchange_languages"^^xsd:anyURI ;
@@ -122,7 +132,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
 
 ###  http://emmo.info/emmo#EMMO_18c4634c_b821_49a3_beff_5eb7515ffc40
 :EMMO_18c4634c_b821_49a3_beff_5eb7515ffc40 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_b45fbdc6_2519_4885_aa49_c56b394c3910 ;
+                                           rdfs:subClassOf :EMMO_19fe0747_6954_40cb_9f8f_b87498bc8e78 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An artificial computer language used to express information or knowledge, often for use in computer system design."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Architecture description language – used as a language (or a conceptual model) to describe and represent system architectures."@en ,
                                                                                       """Hardware description language – used to model integrated circuits.
@@ -132,6 +142,25 @@ Architecture description language – used as a language (or a conceptual model)
 Algebraic Modeling Language which is a high-level programming languages for describing and solving high complexity problems like large-scale optimisation."""@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Modeling_language"^^xsd:anyURI ;
                                            skos:prefLabel "ModellingLanguage"@en .
+
+
+###  http://emmo.info/emmo#EMMO_19fe0747_6954_40cb_9f8f_b87498bc8e78
+:EMMO_19fe0747_6954_40cb_9f8f_b87498bc8e78 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_b45fbdc6_2519_4885_aa49_c56b394c3910 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A formal language used to communicate with a computer."@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Computer_language" ;
+                                           skos:prefLabel "ComputerLanguage"@en .
+
+
+###  http://emmo.info/emmo#EMMO_1a23bdf2_b3b0_4ae4_8672_598ef5e1727e
+:EMMO_1a23bdf2_b3b0_4ae4_8672_598ef5e1727e rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_998dd3a0-c85f-4c8d-9fb8-816a93cc3bb8 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_104b1892_b287_41ab_b10a_eb521e428ec3 ;
+                                                             owl:someValuesFrom :EMMO_19fe0747_6954_40cb_9f8f_b87498bc8e78
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A file that an agent recognises to be written in a specific computer language."@en ;
+                                           skos:prefLabel "LanguageInterpretableFile"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_268a8a97_3a6f_4022_93da_962a66827cdc
@@ -185,7 +214,7 @@ Algebraic Modeling Language which is a high-level programming languages for desc
 
 ###  http://emmo.info/emmo#EMMO_3ab914c1_5d8d_4a6e_804b_84aa89623c48
 :EMMO_3ab914c1_5d8d_4a6e_804b_84aa89623c48 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_b45fbdc6_2519_4885_aa49_c56b394c3910 ;
+                                           rdfs:subClassOf :EMMO_19fe0747_6954_40cb_9f8f_b87498bc8e78 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A computer language by which a human can specify an executable problem solution to a computer."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Software_construction#Construction_languages"^^xsd:anyURI ;
                                            skos:prefLabel "ConstructionLanguage"@en .
@@ -220,13 +249,6 @@ Algebraic Modeling Language which is a high-level programming languages for desc
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Any physical or virtual component of limited availability within a computer system."@en ;
                                            skos:altLabel "Resource"@en ;
                                            skos:prefLabel "SystemResource"@en .
-
-
-###  http://emmo.info/emmo#EMMO_52867015_cd2b_4697_8c8f_3acb32c13587
-:EMMO_52867015_cd2b_4697_8c8f_3acb32c13587 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_998dd3a0-c85f-4c8d-9fb8-816a93cc3bb8 ,
-                                                           :EMMO_b45fbdc6_2519_4885_aa49_c56b394c3910 ;
-                                           skos:prefLabel "LanguageInterpretableFile"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_53dd6f2a_f9de_4f83_b925_1bf39a4ab9a6
@@ -335,7 +357,9 @@ Here we explicitly include in the definition also all the data (e.g. source code
 
 ###  http://emmo.info/emmo#EMMO_998dd3a0-c85f-4c8d-9fb8-816a93cc3bb8
 :EMMO_998dd3a0-c85f-4c8d-9fb8-816a93cc3bb8 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4db96fb7_e9e0_466d_942b_f6f17bfdc145 ;
+                                           rdfs:subClassOf :EMMO_4db96fb7_e9e0_466d_942b_f6f17bfdc145 ,
+                                                           :EMMO_51f1ba0d_e92b_4be2_9a9d_4640b16ac7ed ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "In computing, a computer file is a resource for recording data on a computer storage device, primarily identified by its filename."@en ;
                                            skos:prefLabel "File"@en .
 
 
@@ -358,7 +382,7 @@ Here we explicitly include in the definition also all the data (e.g. source code
 
 ###  http://emmo.info/emmo#EMMO_ad8b1096_4df1_44f5_a3b9_fc2ec9e7f5b1
 :EMMO_ad8b1096_4df1_44f5_a3b9_fc2ec9e7f5b1 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_b45fbdc6_2519_4885_aa49_c56b394c3910 ;
+                                           rdfs:subClassOf :EMMO_19fe0747_6954_40cb_9f8f_b87498bc8e78 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A computer language that expresses the presentation of structured documents."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "CSS"@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Style_sheet_language"^^xsd:anyURI ;
@@ -373,7 +397,7 @@ Here we explicitly include in the definition also all the data (e.g. source code
 
 ###  http://emmo.info/emmo#EMMO_af7b627d_6528_4fdb_97df_ba4579c4bb5d
 :EMMO_af7b627d_6528_4fdb_97df_ba4579c4bb5d rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_b45fbdc6_2519_4885_aa49_c56b394c3910 ;
+                                           rdfs:subClassOf :EMMO_19fe0747_6954_40cb_9f8f_b87498bc8e78 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A grammar for annotating a document in a way that is syntactically distinguishable from the text."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "HTML"@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Markup_language"^^xsd:anyURI ;
@@ -393,12 +417,12 @@ Here we explicitly include in the definition also all the data (e.g. source code
 :EMMO_c404e6d9_261d_4d2e_ab0d_ba4e05062647 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_b45fbdc6_2519_4885_aa49_c56b394c3910 ,
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_c58c799e_cc6c_4310_a3f1_78da70705b2a
+                                                             owl:onProperty [ owl:inverseOf :EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b
                                                                             ] ;
                                                              owl:someValuesFrom :EMMO_51f1ba0d_e92b_4be2_9a9d_4640b16ac7ed
                                                            ] ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A formal computer-interpretable description of a system resource."@en ;
-                                           skos:prefLabel "ResourceDescription"@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A formal computer-interpretable identifier of a system resource."@en ;
+                                           skos:prefLabel "ResourceIdentifier"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_c8fe15d0_caf7_46f7_883c_0e98081987f1
@@ -427,8 +451,7 @@ Batch programming languages."""@en ;
 
 ###  http://emmo.info/emmo#EMMO_e7848014_ad79_422d_be02_74df892f7c11
 :EMMO_e7848014_ad79_422d_be02_74df892f7c11 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_19608340_178c_4bfd_bd4d_0d3b935c6fec ,
-                                                           :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ;
+                                           rdfs:subClassOf :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Electronic device capable of processing data, typically in binary form, according to instructions given to it in a variable program."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Computer"^^xsd:anyURI ;
                                            skos:altLabel "Computer"@en ;
@@ -476,7 +499,7 @@ Batch programming languages."""@en ;
 
 ###  http://emmo.info/emmo#EMMO_fb294e8d_603c_4fe5_bd71_8f4d152b2fb5
 :EMMO_fb294e8d_603c_4fe5_bd71_8f4d152b2fb5 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_b45fbdc6_2519_4885_aa49_c56b394c3910 ;
+                                           rdfs:subClassOf :EMMO_19fe0747_6954_40cb_9f8f_b87498bc8e78 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A language used to describe what a computer system should do."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "ACSL, VDM, LOTUS, MML, ..."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Specification_language"^^xsd:anyURI ;
@@ -494,6 +517,8 @@ Batch programming languages."""@en ;
 ###  http://emmo.info/emmo#8d9db119_139d_48dc_9350_369e8fdbe608
 <http://emmo.info/emmo#8d9db119_139d_48dc_9350_369e8fdbe608> rdf:type owl:Class ;
                                                              rdfs:subClassOf :EMMO_be8592a7_68d1_4a06_ad23_82f2b56ef926 ;
+                                                             :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A descrete data that has a given structure."@en ;
+                                                             :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The structure of a data structure can be described mereologically."@en ;
                                                              skos:prefLabel "DataStructure"@en .
 
 
