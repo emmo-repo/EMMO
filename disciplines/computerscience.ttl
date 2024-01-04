@@ -54,13 +54,22 @@ email: emanuele.ghedini@unibo.it"""@en ,
 
 ###  http://emmo.info/emmo#EMMO_67339084_e659_42be_9e76_7e22fca63c48
 :EMMO_67339084_e659_42be_9e76_7e22fca63c48 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_e1097637_70d2_4895_973f_2396f04fa204 ;
+                                           rdfs:subPropertyOf :EMMO_0aa934ee_1ad4_4345_8a7f_bc73ec67c7e5 ;
                                            rdfs:range :EMMO_6470bbfa_04a6_4360_9534_1aa18d68329b ;
                                            skos:prefLabel "hasURI"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_e1097637_70d2_4895_973f_2396f04fa204
 :EMMO_e1097637_70d2_4895_973f_2396f04fa204 rdf:type owl:ObjectProperty .
+
+
+###  http://emmo.info/emmo/disciplines/computerscience#EMMO_a592c856_4103_43cf_8635_1982a1e5d5de
+:EMMO_a592c856_4103_43cf_8635_1982a1e5d5de rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_0aa934ee_1ad4_4345_8a7f_bc73ec67c7e5 ;
+                                           rdfs:domain :EMMO_998dd3a0-c85f-4c8d-9fb8-816a93cc3bb8 ;
+                                           rdfs:range :EMMO_e94a9156_fb6c_4e16_88ee_829ac9933155 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Relates a file to its path on the local system."@en ;
+                                           skos:prefLabel "hasPath"@en .
 
 
 #################################################################
@@ -266,6 +275,16 @@ Algebraic Modeling Language which is a high-level programming languages for desc
                                            skos:prefLabel "SystemProgram"@en .
 
 
+###  http://emmo.info/emmo#EMMO_5c15f8c4_d2de_47a0_acdd_470b8dda979b
+:EMMO_5c15f8c4_d2de_47a0_acdd_470b8dda979b rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_c404e6d9_261d_4d2e_ab0d_ba4e05062647 ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An Internationalized Resource Identifier (IRI) is a compact sequence of characters that identifies an abstract or physical resource. It is similar to URI, but greatly extends the allowed character set from ASCII to the Universal Character Set."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "https://en.wiktionary.org/wiki/Ῥόδος"^^xsd:anyURI ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "IRIs are commonly used as identifiers for ontological entities, although the extended unicode character set is rarely used."@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier"^^xsd:anyURI ;
+                                           skos:prefLabel "IRI"@en .
+
+
 ###  http://emmo.info/emmo#EMMO_6470bbfa_04a6_4360_9534_1aa18d68329b
 :EMMO_6470bbfa_04a6_4360_9534_1aa18d68329b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_5c15f8c4_d2de_47a0_acdd_470b8dda979b ;
@@ -359,8 +378,12 @@ Here we explicitly include in the definition also all the data (e.g. source code
 ###  http://emmo.info/emmo#EMMO_998dd3a0-c85f-4c8d-9fb8-816a93cc3bb8
 :EMMO_998dd3a0-c85f-4c8d-9fb8-816a93cc3bb8 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_4db96fb7_e9e0_466d_942b_f6f17bfdc145 ,
-                                                           :EMMO_51f1ba0d_e92b_4be2_9a9d_4640b16ac7ed ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "In computing, a computer file is a resource for recording data on a computer storage device, primarily identified by its filename."@en ;
+                                                           :EMMO_51f1ba0d_e92b_4be2_9a9d_4640b16ac7ed ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_a592c856_4103_43cf_8635_1982a1e5d5de ;
+                                                             owl:someValuesFrom :EMMO_e94a9156_fb6c_4e16_88ee_829ac9933155
+                                                           ] ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "In computing, a computer file is a resource for recording data on a computer storage device, primarily identified by its file path."@en ;
                                            skos:prefLabel "File"@en .
 
 
@@ -522,14 +545,11 @@ Batch programming languages."""@en ;
                                                              skos:prefLabel "DataStructure"@en .
 
 
-###  http://emmo.info/emmo/disciplines/computerscience#EMMO_5c15f8c4_d2de_47a0_acdd_470b8dda979b
-:EMMO_5c15f8c4_d2de_47a0_acdd_470b8dda979b rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_c404e6d9_261d_4d2e_ab0d_ba4e05062647 ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An Internationalized Resource Identifier (IRI) is a compact sequence of characters that identifies an abstract or physical resource. It is similar to URI, but greatly extends the allowed character set from ASCII to the Universal Character Set."@en ;
-                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "https://en.wiktionary.org/wiki/Ῥόδος"^^xsd:anyURI ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "IRIs are commonly used as identifiers for ontological entities, although the extended unicode character set is rarely used."@en ;
-                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier"^^xsd:anyURI ;
-                                           skos:prefLabel "IRI"@en .
+###  http://emmo.info/emmo/disciplines/computerscience#EMMO_51645022_3a21_4fa9_a9ce_a795eebbeca7
+:EMMO_51645022_3a21_4fa9_a9ce_a795eebbeca7 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_64963ed6_39c9_4258_85e0_6466c4b5420c ;
+                                           rdfs:comment "An instruction to a computer system to perform a given task."@en ;
+                                           skos:prefLabel "Command"@en .
 
 
 ###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
