@@ -32,12 +32,16 @@ if not int(rdflib.__version__.split('.')[0]) >= 5:
 #world = World(filename='periodictable.sqlite3')
 world = World()
 chemistry = world.get_ontology(os.path.join(thisdir, 'chemistry.ttl')).load()
-perceptual = world.get_ontology(os.path.join(thisdir, '../perspectives/perceptual.ttl')).load()
+perceptual = world.get_ontology(
+    os.path.join(thisdir, '../perspectives/perceptual.ttl')
+).load()
 #emmo_middle.sync_python_names()
 
 # Create new ontology
 onto = world.get_ontology('http://emmo.info/emmo/disciplines/periodictable#')
-onto.base_iri = 'http://emmo.info/emmo/disciplines/periodictable#'
+onto.iri = 'http://emmo.info/emmo/disciplines/periodictable#'
+onto.base_iri = 'http://emmo.info/emmo#'
+onto.prefix = 'emmo'
 onto.imported_ontologies.append(perceptual)
 onto.imported_ontologies.append(chemistry)
 onto.sync_python_names()
@@ -80,7 +84,9 @@ with onto:
 
         print(Z, symbol, name, mass)
 
-        Element = types.new_class(name.capitalize() + 'Symbol', (onto.ChemicalElement, ))
+        Element = types.new_class(
+            name.capitalize() + 'Symbol', (onto.ChemicalElement, )
+        )
         Element.is_a.append(onto.hasSymbolValue.value(symbol))
 
         AtomClass = types.new_class(name.capitalize() + 'Atom', (onto.Atom, ))
@@ -143,4 +149,6 @@ for abbrev_iri in onto.world._get_obj_triples_sp_o(
         onto._abbreviate(version_iri))
 
 # Save new ontology as turtle
-onto.save(os.path.join(thisdir, 'periodictable.ttl'), format='turtle', overwrite=True)
+onto.save(
+    os.path.join(thisdir, 'periodictable.ttl'), format='turtle', overwrite=True
+)
