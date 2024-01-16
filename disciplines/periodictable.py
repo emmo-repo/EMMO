@@ -81,7 +81,7 @@ with onto:
         print(Z, symbol, name, mass)
 
         Element = types.new_class(name.capitalize() + 'Symbol', (onto.ChemicalElement, ))
-        Element.is_a.append(onto.hasSymbolData.value(symbol))
+        Element.is_a.append(onto.hasSymbolValue.value(symbol))
 
         AtomClass = types.new_class(name.capitalize() + 'Atom', (onto.Atom, ))
         AtomClass.elucidation.append(en('Atom subclass for %s.' % name.lower()))
