@@ -39,7 +39,7 @@ perceptual = world.get_ontology(
 
 # Create new ontology
 onto = world.get_ontology('http://emmo.info/emmo/disciplines/periodictable#')
-onto.iri = 'http://emmo.info/emmo/disciplines/periodictable#'
+onto.iri = 'http://emmo.info/emmo/disciplines/periodictable'
 onto.base_iri = 'http://emmo.info/emmo#'
 onto.prefix = 'emmo'
 onto.imported_ontologies.append(perceptual)
