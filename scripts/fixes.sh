@@ -17,3 +17,6 @@ done
 for i in $(find . -name "*ttl" -exec grep -il '<http://emmo.info/emmo#[0-9a-f]*_[0-9a-f]*_[0-9a-f]*_[0-9a-f]*_[0-9a-f]*>' '{}' \;); do
  sed -i -E 's/<http:\/\/emmo.info\/emmo#([0-9a-f]+)_([0-9a-f]+)_([0-9a-f]+)_([0-9a-f]+)_([0-9a-f]+)>/:EMMO_\1_\2_\3_\4_\5/g' "$i";
 done
+
+# Change triples double-quotes (""") to single ones (").
+find . -name "*ttl" -exec sed -i 's/"""/"/g' '{}' \;
