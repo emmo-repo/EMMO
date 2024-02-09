@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 for i in $(find . -name "*ttl");
 do
   # Change triples double-quotes (""") to single ones (").
