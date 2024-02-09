@@ -157,14 +157,14 @@
   dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode";
   dcterms:publisher "EMMC ASBL";
   dcterms:title "Math"@en;
-  rdfs:comment "Contacts:
+  rdfs:comment """Contacts:
 Gerhard Goldbeck
 Goldbeck Consulting Ltd (UK)
 email: gerhard@goldbeck-consulting.com
 
 Emanuele Ghedini
 University of Bologna (IT)
-email: emanuele.ghedini@unibo.it"@en,
+email: emanuele.ghedini@unibo.it"""@en,
     "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en;
   owl:versionInfo "1.0.0-beta5" .
 
@@ -246,8 +246,8 @@ _:genid6 a owl:Restriction;
 :EMMO_1eed0732_e3f1_4b2c_a9c4_b4e75eeb5895 a owl:Class;
   rdfs:subClassOf :EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0;
   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A variable is a symbolic object that stands for any other mathematical object, such as  number, a vector, a matrix, a function, the argument of a function, a set, an element of a set."@en;
-  :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "x
-k"@en;
+  :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """x
+k"""@en;
   skos:prefLabel "Variable"@en .
 
 _:genid7 a owl:Axiom;
@@ -277,12 +277,12 @@ _:genid9 a owl:Restriction;
   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A numerical data value."@en;
   rdfs:comment "A number individual provides the link between the ontology and the actual data, through the data property hasNumericalValue."@en,
     "A number is actually a string (e.g. 1.4, 1e-8) of numerical digits and other symbols. However, in order not to increase complexity of the taxonomy and relations, here we take a number as an \"atomic\" object, without decomposit it in digits (i.e. we do not include digits in the EMMO as alphabet for numbers)."@en,
-    "In math usually number and numeral are distinct concepts, the numeral being the symbol or a composition of symbols (e.g. 3.14, 010010, three) and the number is the idea behind it.
+    """In math usually number and numeral are distinct concepts, the numeral being the symbol or a composition of symbols (e.g. 3.14, 010010, three) and the number is the idea behind it.
 More than one numeral stands for the same number.
 In the EMMO abstract entities do not exists, and numbers are simply defined by other numerals, so that a number is the class of all the numerals that are equivalent (e.g. 3 and 0011 are numerals that stands for the same number).
 Or alternatively, an integer numeral may also stands for a set of a specific cardinality (e.g. 3 stands for a set of three apples). Rational and real numbers are simply a syntactic arrangment of integers (digits, in decimal system).
 The fact that you can't give a name to a number without using a numeral or, in case of positive integers, without referring to a real world objects set with specific cardinality, suggests that the abstract concept of number is not a concept that can be practically used.
-For these reasons, the EMMO will consider numerals and numbers as the same concept."@en;
+For these reasons, the EMMO will consider numerals and numbers as the same concept."""@en;
   skos:altLabel "Numeral"@en;
   skos:prefLabel "Number"@en .
 
@@ -298,24 +298,24 @@ For these reasons, the EMMO will consider numerals and numbers as the same conce
 :EMMO_28fbea28_2204_4613_87ff_6d877b855fcd a owl:Class;
   rdfs:subClassOf :EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0;
   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Arrays are ordered mathematical objects who's elementary spatial parts are numbers. Their dimensionality is constructed with spatial direct parthood, where 1-dimensional arrays have spatial direct parts Number and n-dimensional array have spatial direct parts (n-1)-dimensional arrays."@en;
-  :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A Vector is a 1-dimensional Array with Number as spatial direct parts,
+  :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """A Vector is a 1-dimensional Array with Number as spatial direct parts,
 a Matrix is a 2-dimensional Array with Vector as spatial direct parts,
 an Array3D is a 3-dimensional Array with Matrix as spatial direct parts,
-and so forth..."@en;
-  rdfs:comment "Array subclasses with a specific shape can be constructed with cardinality restrictions.
+and so forth..."""@en;
+  rdfs:comment """Array subclasses with a specific shape can be constructed with cardinality restrictions.
 
-See Shape4x3Matrix as an example."@en,
+See Shape4x3Matrix as an example."""@en,
     "Arrays are ordered objects, since they are a subclasses of Arrangement."@en;
   skos:prefLabel "Array"@en .
 
 :EMMO_29afdf54_90ae_4c98_8845_fa9ea3f143a8 a owl:Class;
   rdfs:subClassOf :EMMO_e56ee3eb_7609_4ae1_8bed_51974f0960a6;
   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An equation that define a new variable in terms of other mathematical entities."@en;
-  :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "The definition of velocity as v = dx/dt.
+  :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """The definition of velocity as v = dx/dt.
 
 The definition of density as mass/volume.
 
-y = f(x)"@en;
+y = f(x)"""@en;
   skos:prefLabel "DefiningEquation"@en .
 
 :EMMO_2b1303e8_d4c3_453b_9918_76f1d009543f a owl:Class;
@@ -515,15 +515,15 @@ _:genid27 a owl:Restriction;
   rdfs:subClassOf :EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0, :EMMO_88470739_03d3_4c47_a03e_b30a1288d50c,
     _:genid28;
   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of 'mathematical'-s that stand for a statement of equality between two mathematical expressions."@en;
-  :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "2+3 = 5
+  :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """2+3 = 5
 x^2 +3x  = 5x
 dv/dt = a
-sin(x) = y"@en;
-  rdfs:comment "An equation with variables can always be represented as:
+sin(x) = y"""@en;
+  rdfs:comment """An equation with variables can always be represented as:
 
 f(v0, v1, ..., vn) = g(v0, v1, ..., vn)
 
-where f is the left hand and g the right hand  side expressions and v0, v1, ..., vn are the variables."@en;
+where f is the left hand and g the right hand  side expressions and v0, v1, ..., vn are the variables."""@en;
   skos:prefLabel "Equation"@en .
 
 _:genid28 a owl:Restriction;
