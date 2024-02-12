@@ -13,17 +13,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Setup git identity
       run: |
         git config --global user.email "emmo.github.action@github.com"
         git config --global user.name "EMMO GitHub Action"
 
-    - name: Setup Python 3.7
-      uses: actions/setup-python@v1
+    - name: Setup Python 3.11
+      uses: actions/setup-python@v5
       with:
-        python-version: 3.7
+        python-version: 3.11
+
+    - name: Debug info
+      run: |
+        echo "GITHUB_REF_NAME=${GITHUB_REF_NAME}"
 
     - name: Install EMMO-python
       run: |
@@ -44,7 +48,7 @@ jobs:
         pip install semver
 
     - name: Checkout GitHub Pages for EMMO-repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         repository: emmo-repo/emmo-repo.github.io
         path: ".github/pages"
