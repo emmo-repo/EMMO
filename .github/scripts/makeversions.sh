@@ -115,12 +115,12 @@ while read version name; do
             || true
     fi
 
-    # Create symlinks
+    # Create stable versions
     cd "$pagesdir"
-    if [ ! -z "$name" ]; then
-        rm -f $name
-        ln -sf versions/$version $name
+    if [ "$name" = "stable" ]; then
+        cp $d/*.ttl *.owl .
     fi
+
 done < "$ghdir/versions.txt"
 
 
@@ -130,5 +130,5 @@ if [ -d "$tmpdir" ]; then
 fi
 
 
-# Make sure that we exit with non-zero
+# Make sure that we exit with zero on success
 exit 0
