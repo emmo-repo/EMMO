@@ -9,7 +9,7 @@ from emmo.graph import (plot_modules, get_module_dependencies,
 
 
 # Plot module dependencies
-iri = 'http://emmo.info/emmo/1.0.0-beta5'
+iri = 'https://w3id.org/emmo/1.0.0-beta5'
 emmo = get_ontology(iri)
 emmo.load()
 modules = get_module_dependencies(emmo)
