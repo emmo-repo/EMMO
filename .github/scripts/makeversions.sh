@@ -14,7 +14,7 @@
 set -e
 
 rootdir="$(git rev-parse --show-toplevel)"
-remote=$(git remote -v | awk '{print $2; exit}')
+remote=$(git remote -v | awk '/^origin/ {print $2; exit}')
 ghdir="$rootdir/.github"
 pagesdir="$ghdir/pages"
 scriptsdir="$ghdir/scripts"
@@ -83,35 +83,35 @@ while read version name; do
         else
             echo "missing source in EMMO $version" >&2; exit 1
         fi
-        ontoconvert "$src" "$d/emmo.owl" -s -a
-        ontoconvert "$src" "$d/emmo.ttl" -s -a
+        ontoconvert -saw "$src" "$d/emmo.owl"
+        ontoconvert -saw "$src" "$d/emmo.ttl"
     fi
 
     # Generate inferred ontology
-    if $remake || [ ! -f "$d/emmo-inferred.owl" ]; then
-        echo "Generate inferred ontology"
-        ontoconvert "$d/emmo.owl" "$d/emmo-inferred.owl" \
-                    -i HermiT -b http://emmo.info/emmo-inferred
-    fi
     if $remake || [ ! -f "$d/emmo-inferred.ttl" ]; then
-        ontoconvert "$d/emmo-inferred.owl" "$d/emmo-inferred.ttl"
+        echo "Generate inferred ontology"
+        #ontoconvert -i HermiT -wsa "$d/emmo.ttl" "$d/emmo-inferred.ttl"
+        ontoconvert -w -i HermiT "$d/emmo.ttl" "$d/emmo-inferred.ttl"
+    fi
+    if $remake || [ ! -f "$d/emmo-inferred.owl" ]; then
+        ontoconvert -w "$d/emmo-inferred.ttl" "$d/emmo-inferred.owl"
     fi
 
     # Generate renamed ontology
     if $remake || [ ! -f "$d/emmo-renamed.owl" ]; then
         echo "Generate renamed ontology"
-        ontoconvert "$d/emmo-inferred.owl" "$d/emmo-renamed.owl" \
-                    -s -a -R -b http://emmo.info/emmo-renamed || true
+        ontoconvert "$d/emmo-inferred.ttl" "$d/emmo-renamed.owl" \
+                    -w -R -b http://emmo.info/emmo-renamed || true
     fi
     if $remake || [ ! -f "$d/emmo-renamed.ttl" ]; then
-        ontoconvert "$d/emmo-inferred.owl" "$d/emmo-renamed.ttl" \
-                    -s -a -R -b http://emmo.info/emmo-renamed || true
+        ontoconvert "$d/emmo-inferred.ttl" "$d/emmo-renamed.ttl" \
+                    -w -R -b http://emmo.info/emmo-renamed || true
     fi
 
     # Generate documentation
     if $remake || [ ! -f "$d/emmo.html" ]; then
         echo "Generate documentation"
-        "$scriptsdir/makedoc.sh" "$d/emmo-inferred.owl" $version "$d" \
+        "$scriptsdir/makedoc.sh" "$d/emmo-inferred.ttl" $version "$d" \
             || true
     fi
 
