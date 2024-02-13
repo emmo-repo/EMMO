@@ -61,8 +61,6 @@ while read version name; do
     tdlink $d/emmo.ttl          $version $l/emmo.ttl          >> "$tmpfile"
     tdlink $d/emmo-inferred.owl $version $l/emmo-inferred.owl >> "$tmpfile"
     tdlink $d/emmo-inferred.ttl $version $l/emmo-inferred.ttl >> "$tmpfile"
-    tdlink $d/emmo-renamed.owl  $version $l/emmo-renamed.owl  >> "$tmpfile"
-    tdlink $d/emmo-renamed.ttl  $version $l/emmo-renamed.ttl  >> "$tmpfile"
     tdlink $d/emmo.html         $version $l/emmo.html         >> "$tmpfile"
     tdlink $d/emmo.pdf          $version $l/emmo.pdf          >> "$tmpfile"
     echo "  </tr>" >> "$tmpfile"

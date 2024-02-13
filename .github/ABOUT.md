@@ -37,7 +37,7 @@ Directory content
 
     The format is simple - each line starts with a version
     number. Optionally it may be followed by label indicating the
-    status.  Use either "unstable" or "latest" or leave it out as
+    status.  Use either "development" or "stable" or leave it out as
     default.
 
 
