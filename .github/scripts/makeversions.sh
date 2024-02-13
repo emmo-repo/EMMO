@@ -98,15 +98,15 @@ while read version name; do
     fi
 
     # Generate renamed ontology
-    if $remake || [ ! -f "$d/emmo-renamed.owl" ]; then
-        echo "Generate renamed ontology"
-        ontoconvert "$d/emmo-inferred.ttl" "$d/emmo-renamed.owl" \
-                    -w -R -b http://emmo.info/emmo-renamed || true
-    fi
-    if $remake || [ ! -f "$d/emmo-renamed.ttl" ]; then
-        ontoconvert "$d/emmo-inferred.ttl" "$d/emmo-renamed.ttl" \
-                    -w -R -b http://emmo.info/emmo-renamed || true
-    fi
+    #if $remake || [ ! -f "$d/emmo-renamed.owl" ]; then
+    #    echo "Generate renamed ontology"
+    #    ontoconvert "$d/emmo-inferred.ttl" "$d/emmo-renamed.owl" \
+    #                -w -R -b http://emmo.info/emmo-renamed || true
+    #fi
+    #if $remake || [ ! -f "$d/emmo-renamed.ttl" ]; then
+    #    ontoconvert "$d/emmo-inferred.ttl" "$d/emmo-renamed.ttl" \
+    #                -w -R -b http://emmo.info/emmo-renamed || true
+    #fi
 
     # Generate documentation
     if $remake || [ ! -f "$d/emmo.html" ]; then
@@ -118,7 +118,7 @@ while read version name; do
     # Create stable versions
     cd "$pagesdir"
     if [ "$name" = "stable" ]; then
-        cp $d/*.ttl *.owl .
+        cp $d/*.ttl $d/*.owl .
     fi
 
 done < "$ghdir/versions.txt"
