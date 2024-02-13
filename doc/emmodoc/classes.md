@@ -74,7 +74,7 @@ branch of mereotopology.
 
 
 
-%BRANCHDOC PhysicalDimension     rankdir=RL
+%% %BRANCHDOC PhysicalDimension     rankdir=RL
 %BRANCHDOC PhysicalQuantity
 %BRANCHDOC StandardizedPhysicalQuantity
 %BRANCHDOC CategorizedPhysicalQuantity
@@ -92,7 +92,7 @@ branch of mereotopology.
 %BRANCHDOC Process
 
 
-%BRANCHDOC Physicalistic
+%% %BRANCHDOC Physicalistic
 %BRANCHDOC ElementaryParticle
 %BRANCHDOC Matter
 %BRANCHDOC Fluid
