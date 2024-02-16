@@ -38,9 +38,9 @@ perceptual = world.get_ontology(
 #emmo_middle.sync_python_names()
 
 # Create new ontology
-onto = world.get_ontology('http://emmo.info/emmo/disciplines/periodictable#')
-onto.iri = 'http://emmo.info/emmo/disciplines/periodictable'
-onto.base_iri = 'http://emmo.info/emmo#'
+onto = world.get_ontology('https://w3id.org/emmo/disciplines/periodictable#')
+onto.iri = 'https://w3id.org/emmo/disciplines/periodictable'
+onto.base_iri = 'https://w3id.org/emmo#'
 onto.prefix = 'emmo'
 onto.imported_ontologies.append(perceptual)
 onto.imported_ontologies.append(chemistry)
@@ -98,7 +98,7 @@ with onto:
 
 # Set ontology metadata
 version = chemistry.get_version()
-version_iri = f'http://emmo.info/emmo/{version}/disciplines/periodictable'
+version_iri = f'https://w3id.org/emmo/{version}/disciplines/periodictable'
 onto.set_version(version_iri=version_iri)
 
 onto.metadata.abstract.append(en(
