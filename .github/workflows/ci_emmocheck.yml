@@ -4,24 +4,24 @@ on: [push]
 jobs:
 
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     strategy:
       max-parallel: 1
       matrix:
-        python-version: [3.7]
+        python-version: [3.11]
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v4
 
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
 
-    - name: Install EMMO-python
+    - name: Install EMMOntoPy
       run: |
         pip install --upgrade pip
-        pip install EMMO
+        pip install EMMOntoPy
 
     - name: Check EMMO
       run: |
