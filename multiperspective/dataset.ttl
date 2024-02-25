@@ -1,0 +1,79 @@
+@prefix : <https://w3id.org/emmo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/emmo#> .
+
+<https://w3id.org/emmo/multiperspective/dataset> rdf:type owl:Ontology ;
+                                                  owl:versionIRI <https://w3id.org/emmo/1.0.0-beta7/multiperspective/dataset> ;
+                                                  owl:imports <https://w3id.org/emmo/1.0.0-beta7/multiperspective/information> ,
+                                                              <https://w3id.org/emmo/1.0.0-beta7/multiperspective/symbolic> ;
+                                                  dcterms:abstract "Shared representation of datasets."@en ;
+                                                  dcterms:contributor "Francesca Lønstad Bleken, SINTEF, NO"@en ,
+                                                                      "Gerhard Goldbeck, Goldbeck Consulting Ltd, UK"@en ,
+                                                                      "Otello Roscioni, Goldbeck Consulting Ltd, UK"@en ;
+                                                  dcterms:creator "Emanuele Ghedini, University of Bologna, IT"@en ,
+                                                                  "Jesper Friis, SINTEF, NO"@en ;
+                                                  dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+                                                  dcterms:publisher "EMMC ASBL"@en ;
+                                                  dcterms:title "Dataset"@en ;
+                                                  rdfs:comment "Contact: emmo@emmc.eu"@en ,
+                                                               "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
+                                                  owl:versionInfo "1.0.0-beta7" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/emmo#EMMO_66dfec4b_f72b_4631_8dd3_19eb4fdcc769
+:EMMO_66dfec4b_f72b_4631_8dd3_19eb4fdcc769 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b ;
+                                           rdfs:range :EMMO_5eaac623_0f51_4f74_b128_54a11a8dcd7d ;
+                                           skos:prefLabel "hasShape"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A semiotic relation that connects a datum in a dataset to its shape."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The connection between the datum and its shape is done in a declaration process."@en .
+
+
+###  https://w3id.org/emmo#EMMO_6b78c119_f86c_4b5e_ba6c_b42d25a64122
+:EMMO_6b78c119_f86c_4b5e_ba6c_b42d25a64122 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                           skos:prefLabel "hasDatum"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Relates a dataset to its datum."@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/emmo#EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490
+:EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_6b78c119_f86c_4b5e_ba6c_b42d25a64122 ;
+                                                             owl:someValuesFrom :EMMO_50d6236a_7667_4883_8ae1_9bb5d190423a
+                                                           ] .
+
+
+###  https://w3id.org/emmo#EMMO_5eaac623_0f51_4f74_b128_54a11a8dcd7d
+:EMMO_5eaac623_0f51_4f74_b128_54a11a8dcd7d rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_92829beb_6ed4_4c88_bbd5_3bc7403e2895 ;
+                                           skos:prefLabel "Shape"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Sequence of dimension individuals describing the shape of a datum."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A datum representing the temperature on a two-dimensional grid may have a shape that is a sequence of 2 dimension symbols: `[\"x_dimension\", \"y_dimension\"]`."@en ,
+                                                                                      "A datum that represent a list of measured forces during a tensile test may have a shape that is a sequence of 1 dimension symbols, containing the number of measurements. Ex: `[\"number_of_measurements\"]`."@en .
+
+
+###  https://w3id.org/emmo#EMMO_b4c97fa0_d82c_406a_bda7_597d6e190654
+:EMMO_b4c97fa0_d82c_406a_bda7_597d6e190654 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ;
+                                           skos:prefLabel "Dimension"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbol that stands for a dimension."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """Examples:
+- \"x-dimension\": The spatial dimension along the x-direction.
+- \"emergy-dimension\": The energy dimension in an energy spectrum.
+- \"number_of_samples\": Countable dimension for indexing a given sample in a time-series of dimensions."""@en .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
