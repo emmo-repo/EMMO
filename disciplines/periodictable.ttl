@@ -1,4 +1,5 @@
 @prefix : <https://w3id.org/emmo#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -864,23 +865,21 @@
                                            skos:prefLabel "FluorineSymbol"@en .
 
 
-###  https://w3id.org/emmo#EMMO_36ab7281_0187_568f_b0b4_61e33dc08cfc
-:EMMO_36ab7281_0187_568f_b0b4_61e33dc08cfc rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_eb77076b_a104_42ac_a065_798b2d2809ad ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_79c0edfa_06f9_5149_b754_28c589035b8a ;
-                                                             owl:someValuesFrom :EMMO_e82869a8_32a8_5d57_81a8_e2d618976f23
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_43de6d01_276c_55ed_a166_ad097ec75575 ;
-                                                             owl:hasValue 107.8682
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_a585728e_36c8_5df4_9d95_aa128d2a0e7f ;
-                                                             owl:hasValue 47
-                                                           ] ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Atom subclass for silver."@en ;
-                                           skos:prefLabel "SilverAtom"@en .
+<https://w3id.org/emmo/disciplines/periodictable> a owl:Ontology ;
+    dcterms:abstract "The periodic table domain ontology provide a simple reference implementation of all atoms in the periodic table with a few selected conventional properties.  It is ment as both an example for other domain ontologies as well as a useful assert by itself. Periodic table is released under the Creative Commons Attribution 4.0 International license (CC BY 4.0)."@en ;
+    dcterms:creator "Emanuele Ghedini, University of Bologna, IT"@en,
+        "Francesca Lønstad Bleken, SINTEF, NO"@en,
+        "Jesper Friis, SINTEF, NO"@en ;
+    dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode"@en ;
+    dcterms:publisher "EMMC ASBL"@en ;
+    dcterms:title "Periodic table"@en ;
+    rdfs:comment "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en,
+        "This ontology is generated with EMMOntoPy using data from the ASE Python package."@en,
+        "You can contact EMMO Authors via emmo@emmc.eu"@en ;
+    owl:imports <https://w3id.org/emmo/1.0.0-beta7/disciplines/chemistry>,
+        <https://w3id.org/emmo/1.0.0-beta7/perspectives/perceptual> ;
+    owl:versionIRI <https://w3id.org/emmo/1.0.0-beta7/disciplines/periodictable> ;
+    owl:versionInfo "1.0.0-beta7"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_380f1ba6_b4f3_51e2_a63f_ceeeca2ed2f4

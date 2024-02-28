@@ -62,9 +62,9 @@ while read version name; do
         cp -f README.md LICENSE.md "$d/."
     fi
 
-    # Generate single-file EMMO in turtle and owl (rfdxml) formats
+    # Generate squashed ontology (single file)
     if $remake || [ ! -f "$d/emmo.owl" ]; then
-        echo "Generate single-file EMMO in turtle and owl (rfdxml) formats"
+        echo "Generate squashed ontology (single file)"
         if [ ! -d "$tmpdir" ]; then
             tmpdir="$(mktemp -d)"
             echo "tmpdir=$tmpdir"
@@ -83,8 +83,14 @@ while read version name; do
         else
             echo "missing source in EMMO $version" >&2; exit 1
         fi
-        ontoconvert -saw "$src" "$d/emmo.owl"
-        ontoconvert -saw "$src" "$d/emmo.ttl"
+        ontoconvert -saw \
+            --base-iri "https://w3id.org/emmo#" \
+            --iri "https://w3id.org/emmo" \
+            "$src" "$d/emmo.ttl"
+        ontoconvert -saw \
+            --base-iri "https://w3id.org/emmo#" \
+            --iri "https://w3id.org/emmo" \
+            "$src" "$d/emmo.owl"
     fi
 
     # Generate inferred ontology
