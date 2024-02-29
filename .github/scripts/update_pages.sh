@@ -59,8 +59,10 @@ if ! $noadd; then
     git add --all
     [ -n "$(git status --porcelain -uno)" ] && \
         git commit -m 'Updated releasetable' && \
+        git pull && \
         git push
     if ! $local; then
+        git pull origin master && \
         git push origin master
     fi
 fi
