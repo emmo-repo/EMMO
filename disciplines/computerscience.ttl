@@ -27,6 +27,14 @@
                                                      owl:versionInfo "1.0.0-beta7" .
 
 #################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#JSON
+rdf:JSON rdf:type rdfs:Datatype .
+
+
+#################################################################
 #    Object Properties
 #################################################################
 
@@ -55,6 +63,7 @@
 ###  https://w3id.org/emmo#EMMO_b35e92d7_7fa0_4661_aa5a_5cea7c8e6925
 :EMMO_b35e92d7_7fa0_4661_aa5a_5cea7c8e6925 rdf:type owl:DatatypeProperty ;
                                            rdfs:subPropertyOf :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                           rdfs:domain :EMMO_6470bbfa_04a6_4360_9534_1aa18d68329b ;
                                            rdfs:range xsd:anyURI ;
                                            skos:prefLabel "hasURIValue"@en .
 
@@ -65,9 +74,22 @@
                                            skos:prefLabel "hasURNValue"@en .
 
 
+###  https://w3id.org/emmo#EMMO_faf79f53_749d_40b2_807c_d34244c192f4
+:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 rdfs:domain :EMMO_8b305b63_6fa3_44dd_9679_17eb8403a07a .
+
+
 #################################################################
 #    Classes
 #################################################################
+
+###  https://w3id.org/emmo#EMMO_0266ec8c_bd13_4c9c_be77_607498793ed3
+:EMMO_0266ec8c_bd13_4c9c_be77_607498793ed3 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom xsd:NCName
+                                                               ] ;
+                                           skos:prefLabel "NCNameData"@en .
+
 
 ###  https://w3id.org/emmo#EMMO_03d4cd70_0d16_4403_b68c_d41a9117f981
 :EMMO_03d4cd70_0d16_4403_b68c_d41a9117f981 rdf:type owl:Class ;
@@ -133,6 +155,15 @@ Guide to the Software Engineering Body of Knowledge (SWEBOK(R)): Version 3.0, Ja
 https://www.computer.org/education/bodies-of-knowledge/software-engineering"""@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Computer_language"^^xsd:anyURI ;
                                            skos:prefLabel "ComputerLanguage"@en .
+
+
+###  https://w3id.org/emmo#EMMO_1abe0ea7_2378_402f_b950_89b0795d2f45
+:EMMO_1abe0ea7_2378_402f_b950_89b0795d2f45 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom xsd:NMTOKEN
+                                                               ] ;
+                                           skos:prefLabel "NMTOKENData"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_268a8a97_3a6f_4022_93da_962a66827cdc
@@ -209,6 +240,13 @@ https://www.computer.org/education/bodies-of-knowledge/software-engineering"""@e
                                            skos:altLabel "BinaryData"@en ;
                                            skos:prefLabel "DigitalData"@en .
 
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_4db96fb7_e9e0_466d_942b_f6f17bfdc145 ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "DigitalData"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin digitus (“finger”)."
+ ] .
+
 
 ###  https://w3id.org/emmo#EMMO_51645022_3a21_4fa9_a9ce_a795eebbeca7
 :EMMO_51645022_3a21_4fa9_a9ce_a795eebbeca7 rdf:type owl:Class ;
@@ -249,13 +287,14 @@ https://www.computer.org/education/bodies-of-knowledge/software-engineering"""@e
 
 ###  https://w3id.org/emmo#EMMO_5c15f8c4_d2de_47a0_acdd_470b8dda979b
 :EMMO_5c15f8c4_d2de_47a0_acdd_470b8dda979b rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_c404e6d9_261d_4d2e_ab0d_ba4e05062647 ,
+                                           rdfs:subClassOf :EMMO_70bbb94e_2ca7_4d73_ba01_6397f134d172 ,
+                                                           :EMMO_c404e6d9_261d_4d2e_ab0d_ba4e05062647 ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_f68030be_94b8_4c61_a161_886468558054 ;
                                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                                              owl:onClass :EMMO_e94a9156_fb6c_4e16_88ee_829ac9933155
                                                            ] ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An Internationalized Resource Identifier (IRI) is a compact sequence of characters that identifies an abstract or physical resource. It is similar to URI, but greatly extends the allowed character set from ASCII to the Universal Character Set."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An Internationalized Resource Identifier (IRI) is a compact sequence of characters that identifies an abstract or physical resource. It is similar to URI, but greatly extends the allowed character set from ASCII to the Universal Character Set (Unicode/ISO 10646).."@en ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "https://en.wiktionary.org/wiki/Ῥόδος"^^xsd:anyURI ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "IRIs are commonly used as identifiers for ontological entities, although the extended unicode character set is rarely used."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier"^^xsd:anyURI ;
@@ -264,14 +303,19 @@ https://www.computer.org/education/bodies-of-knowledge/software-engineering"""@e
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_5c15f8c4_d2de_47a0_acdd_470b8dda979b ;
    owl:annotatedProperty :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 ;
-   owl:annotatedTarget "An Internationalized Resource Identifier (IRI) is a compact sequence of characters that identifies an abstract or physical resource. It is similar to URI, but greatly extends the allowed character set from ASCII to the Universal Character Set."@en ;
+   owl:annotatedTarget "An Internationalized Resource Identifier (IRI) is a compact sequence of characters that identifies an abstract or physical resource. It is similar to URI, but greatly extends the allowed character set from ASCII to the Universal Character Set (Unicode/ISO 10646).."@en ;
    rdfs:isDefinedBy "https://datatracker.ietf.org/doc/rfc3987/"^^xsd:anyURI
  ] .
 
 
 ###  https://w3id.org/emmo#EMMO_6470bbfa_04a6_4360_9534_1aa18d68329b
 :EMMO_6470bbfa_04a6_4360_9534_1aa18d68329b rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_5c15f8c4_d2de_47a0_acdd_470b8dda979b ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom xsd:anyURI
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_5c15f8c4_d2de_47a0_acdd_470b8dda979b ,
+                                                           :EMMO_b45fbdc6_2519_4885_aa49_c56b394c3910 ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A Uniform Resource Identifier (URI) is a compact sequence of characters that identifies an abstract or physical resource."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "URI = scheme \":\" [\"//\" authority] path [\"?\" query] [\"#\" fragment]"@en ;
                                            :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://en.wikipedia.org/wiki/File:URI_syntax_diagram.svg"^^xsd:anyURI ;
@@ -312,6 +356,24 @@ https://www.computer.org/education/bodies-of-knowledge/software-engineering"""@e
    owl:annotatedTarget "A program is a sequence of instructions understandable by a computer's central processing unit (CPU) that indicates which operations the computer should perform on a set of data."@en ;
    rdfs:isDefinedBy "http://www.linfo.org/program.html"^^xsd:anyURI
  ] .
+
+
+###  https://w3id.org/emmo#EMMO_6796ec88_e49f_4628_b28d_6559f9dd630a
+:EMMO_6796ec88_e49f_4628_b28d_6559f9dd630a rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom xsd:Name
+                                                               ] ;
+                                           skos:prefLabel "NameData"@en .
+
+
+###  https://w3id.org/emmo#EMMO_826bd296_d8e2_4c43_8f54_d684bf00090a
+:EMMO_826bd296_d8e2_4c43_8f54_d684bf00090a rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom xsd:normalizedString
+                                                               ] ;
+                                           skos:prefLabel "NormalizedStringData"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_8681074a_e225_4e38_b586_e85b0f43ce38
@@ -359,8 +421,18 @@ Here we explicitly include in the definition also all the data (e.g. source code
  ] .
 
 
-###  https://w3id.org/emmo#EMMO_998dd3a0_c85f_4c8d_9fb8_816a93cc3bb8
-:EMMO_998dd3a0_c85f_4c8d_9fb8_816a93cc3bb8 rdf:type owl:Class ;
+###  https://w3id.org/emmo#EMMO_90bfd475_ba4a_4065_b0c1_1f08230be252
+:EMMO_90bfd475_ba4a_4065_b0c1_1f08230be252 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom rdf:JSON
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_b45fbdc6_2519_4885_aa49_c56b394c3910 ;
+                                           skos:prefLabel "JSONData"@en .
+
+
+###  https://w3id.org/emmo#EMMO_998dd3a0-c85f-4c8d-9fb8-816a93cc3bb8
+:EMMO_998dd3a0-c85f-4c8d-9fb8-816a93cc3bb8 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_4db96fb7_e9e0_466d_942b_f6f17bfdc145 ,
                                                            :EMMO_51f1ba0d_e92b_4be2_9a9d_4640b16ac7ed ,
                                                            [ rdf:type owl:Restriction ;
@@ -369,6 +441,15 @@ Here we explicitly include in the definition also all the data (e.g. source code
                                                            ] ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "In computing, a computer file is a resource for recording data on a computer storage device, primarily identified by its file path."@en ;
                                            skos:prefLabel "File"@en .
+
+
+###  https://w3id.org/emmo#EMMO_9e5f464a_658c_4b34_b80d_a5f8d5ec811a
+:EMMO_9e5f464a_658c_4b34_b80d_a5f8d5ec811a rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom xsd:language
+                                                               ] ;
+                                           skos:prefLabel "LanguageData"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_9ffffb55_3496_4307_82b8_a0d78fe1fcd8
@@ -418,6 +499,15 @@ Here we explicitly include in the definition also all the data (e.g. source code
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A well-formed formula that follows the syntactic rules of computer science."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A well-formed formula in computer science may be or not be interpreted by a computer. For example pseudo-code is only intended for human consumption."@en ;
                                            skos:prefLabel "ComputerScience"@en .
+
+
+###  https://w3id.org/emmo#EMMO_be8680e5_28ec_4168_9206_d1cd33fbd458
+:EMMO_be8680e5_28ec_4168_9206_d1cd33fbd458 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                                                 owl:someValuesFrom xsd:token
+                                                               ] ;
+                                           skos:prefLabel "TokenData"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_c404e6d9_261d_4d2e_ab0d_ba4e05062647
@@ -523,4 +613,4 @@ C:\\\\Users\\\\John\\\\Desktop  (DOS-like path)"""@en ;
                                                              skos:prefLabel "ApplicationSpecificScript"@en .
 
 
-###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

@@ -37,6 +37,28 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                                owl:versionInfo "1.0.0-beta7" .
 
 #################################################################
+#    Annotation properties
+#################################################################
+
+###  https://w3id.org/emmo/disciplines/chemistry#EMMO_2856bbc2_96e1_485b_b5f8_2fdfcb0c9b92
+:EMMO_2856bbc2_96e1_485b_b5f8_2fdfcb0c9b92 rdf:type owl:AnnotationProperty ;
+                                           rdfs:seeAlso "https://inchi.info/inchikey_overview_en.html"^^xsd:anyURI ;
+                                           skos:prefLabel "inchiKey"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A hash of the full International Chemical Identifier (InChi) for a chemical substance."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The InChiKey is a hash of the full InChi identifier using the SHA-256 algorithm, designed to allow for easy web searches of chemical compounds."@en ;
+                                           rdfs:subPropertyOf rdfs:seeAlso .
+
+
+###  https://w3id.org/emmo/disciplines/chemistry#EMMO_2e0b0f1b_ba90_4827_af5a_92b826cb90de
+:EMMO_2e0b0f1b_ba90_4827_af5a_92b826cb90de rdf:type owl:AnnotationProperty ;
+                                           rdfs:seeAlso "http://opensmiles.org/opensmiles.html"^^xsd:anyURI ;
+                                           skos:prefLabel "smileReference"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "OpenSMILE representation of a molecular structure."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "OpenSMILES is an open specification of the SMILE language for specifying molecular structures, which has become a defacto standard for exchange of molecular structures."@en ;
+                                           rdfs:subPropertyOf rdfs:seeAlso .
+
+
+#################################################################
 #    Classes
 #################################################################
 
@@ -78,7 +100,9 @@ email: emanuele.ghedini@unibo.it"""@en ,
 
 
 ###  https://w3id.org/emmo#EMMO_21205421_5783_4d3e_81e5_10c5d894a88a
-:EMMO_21205421_5783_4d3e_81e5_10c5d894a88a rdfs:comment """Molecular entity is used as a general term for singular entities, irrespective of their nature, while chemical species stands for sets or ensembles of molecular entities.
+:EMMO_21205421_5783_4d3e_81e5_10c5d894a88a :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Hydrogen molecule is an adequate definition of a certain molecular entity for some purposes, whereas for others it is necessary to distinguish the electronic state and/or vibrational state and/or nuclear spin, etc. of the hydrogen molecule." ,
+                                                                                      "Methane, may mean a single molecule of CH4 (molecular entity) or a molar amount, specified or not (chemical species), participating in a reaction. The degree of precision necessary to describe a molecular entity depends on the context." ;
+                                           rdfs:comment """Molecular entity is used as a general term for singular entities, irrespective of their nature, while chemical species stands for sets or ensembles of molecular entities.
 
 Note that the name of a compound may refer to the respective molecular entity or to the chemical species,""" ;
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Hydrogen molecule is an adequate definition of a certain molecular entity for some purposes, whereas for others it is necessary to distinguish the electronic state and/or vibrational state and/or nuclear spin, etc. of the hydrogen molecule." ,
@@ -309,7 +333,6 @@ Sodium Chloride""" ;
 
 Chemical species is the macroscopic equivalent of molecular entity and refers to sets or ensembles of molecular entities.""" ;
                                            :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.CT06859" .
-
 
 ###  https://w3id.org/emmo#EMMO_d2a47cd8_662f_438f_855a_b4378eb992ff
 :EMMO_d2a47cd8_662f_438f_855a_b4378eb992ff rdf:type owl:Class ;
