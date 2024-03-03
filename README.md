@@ -125,14 +125,14 @@ The reference ontologies are intended to be used by domain ontologies and import
 
 | Reference ontology | IRI                                                                                                                                               |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Materials          | [http://emmo.info/emmo/multiperspective/materials](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta7/multiperspective/materials.ttl)   |
-| Math               | [http://emmo.info/emmo/multiperspective/math](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta7/multiperspective/math.ttl)             |
-| Models             | [http://emmo.info/emmo/multiperspective/models](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta7/multiperspective/models.ttl)         |
-| Properties         | [http://emmo.info/emmo/multiperspective/properties](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta7/multiperspective/properties.ttl) |
-| Metrology          | [http://emmo.info/emmo/multiperspective/metrology](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta7/multiperspective/metrology.ttl)   |
-| Isq                | [http://emmo.info/emmo/multiperspective/isq](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta7/multiperspective/isq.ttl)               |
-| Siunits            | [http://emmo.info/emmo/domain/siunits](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta7/domain/siunits.ttl)                           |
-| Chemistry          | [http://emmo.info/emmo/multiperspective/chemistry](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta7/multiperspective/chemistry.ttl)   |
+| Materials          | [https://w3id.org/emmo/multiperspective/materials](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta7/multiperspective/materials.ttl)   |
+| Math               | [https://w3id.org/emmo/multiperspective/math](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta7/multiperspective/math.ttl)             |
+| Models             | [https://w3id.org/emmo/multiperspective/models](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta7/multiperspective/models.ttl)         |
+| Properties         | [https://w3id.org/emmo/multiperspective/properties](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta7/multiperspective/properties.ttl) |
+| Metrology          | [https://w3id.org/emmo/multiperspective/metrology](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta7/multiperspective/metrology.ttl)   |
+| Isq                | [https://w3id.org/emmo/multiperspective/isq](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta7/multiperspective/isq.ttl)               |
+| Siunits            | [https://w3id.org/emmo/domain/siunits](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta7/domain/siunits.ttl)                           |
+| Chemistry          | [https://w3id.org/emmo/multiperspective/chemistry](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-beta7/multiperspective/chemistry.ttl)   |
 
 
 ### Domain Ontologies
@@ -177,7 +177,7 @@ The figure below shows the full graph of all relations of in the middle level EM
 
 
 ## Repository Description
-You can find the EMMO ontology at [http://emmo.info/emmo](http://emmo.info/emmo).  The basic structure of the EMMO is collected by the [top](top/top.ttl) ontology.
+You can find the EMMO ontology at [https://w3id.org/emmo](https://w3id.org/emmo).  The basic structure of the EMMO is collected by the [top](top/top.ttl) ontology.
 
 The overall middle level ontologies are collected by the [emmo](emmo.ttl) ontology.
 
@@ -194,7 +194,7 @@ In order to be able to view and navigate the EMMO ontology we recommend to downl
 
 See [these instructions](doc/protege-setup.md) for how to set up Protégé for working with EMMO-based ontologies.
 
-The fastest way to access the EMMO is to open the ontology via Protégé via the menu under *File -> Open from URL...* and copy the URL [http://emmo.info/emmo](http://emmo.info/emmo):
+The fastest way to access the EMMO is to open the ontology via Protégé via the menu under *File -> Open from URL...* and copy the URL [https://w3id.org/emmo](https://w3id.org/emmo):
 Protégé will automatically download all the necessary dependencies.
 
 The EMMO hierarchy will be visible only after reasoning inference: use *ctrl-R* to start the reasoner and under the *Entities* tab, select the *Classes* subtab and *Inferred* in the scroll button.

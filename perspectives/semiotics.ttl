@@ -85,8 +85,13 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            rdfs:subPropertyOf :EMMO_2337e25c_3c60_43fc_a8f9_b11a3f974291 ;
                                            rdfs:domain :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d ;
                                            rdfs:range :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee ;
-                                           skos:prefLabel "hasInterpreter"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation connecting a sign to the interpreter in a semiotic process."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation connecting a sign to the interpreter in a semiotic process."@en ;
+                                           owl:propertyChainAxiom ( [ owl:inverseOf :EMMO_60577dea_9019_4537_ac41_80b0fb563d41
+                                                                    ]
+                                                                    [ owl:inverseOf :EMMO_f2fc1ce9_cc3b_4eb5_a112_3c85d1b1374a
+                                                                    ]
+                                                                  ) ;
+                                           skos:prefLabel "hasInterpreter"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_51e72e5c_ab21_4d0e_ad9f_b168eca89cf4
@@ -112,8 +117,13 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            rdfs:subPropertyOf :EMMO_2337e25c_3c60_43fc_a8f9_b11a3f974291 ;
                                            rdfs:domain :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b ;
                                            rdfs:range :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d ;
-                                           skos:prefLabel "hasSign"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that connects the semiotic object to the sign in a semiotic process."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that connects the semiotic object to the sign in a semiotic process."@en ;
+                                           owl:propertyChainAxiom ( [ owl:inverseOf :EMMO_f2fc1ce9_cc3b_4eb5_a112_3c85d1b1374a
+                                                                    ]
+                                                                    [ owl:inverseOf :EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d
+                                                                    ]
+                                                                  ) ;
+                                           skos:prefLabel "hasSign"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_7fb7fe7e_bdf9_4eeb_adad_e384dd5285c6
@@ -175,6 +185,12 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            rdfs:subPropertyOf :EMMO_2337e25c_3c60_43fc_a8f9_b11a3f974291 ;
                                            rdfs:domain :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee ;
                                            rdfs:range :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that connects the interpreter to the semiotic object in a semiotic process."@en ;
+                                           owl:propertyChainAxiom ( [ owl:inverseOf :EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d
+                                                                    ]
+                                                                    [ owl:inverseOf :EMMO_60577dea_9019_4537_ac41_80b0fb563d41
+                                                                    ]
+                                                                  ) ;
                                            skos:altLabel "hasSemioticObject"@en ;
                                            skos:prefLabel "hasReferent"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that connects the interpreter to the semiotic object in a semiotic process."@en .
@@ -200,7 +216,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                                                              )
                                                                ] ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
                                                              owl:someValuesFrom :EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b
                                                            ] ;
                                            skos:prefLabel "Semiosis"@en ;
@@ -222,15 +238,19 @@ the cat perceived by my mind -> interpretant
                                                                              )
                                                                ] ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_f68030be_94b8_4c61_a161_886468558054 ;
+                                                             owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
                                                              owl:someValuesFrom :EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b
                                                            ] ,
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                             owl:onProperty [ owl:inverseOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
                                                                             ] ;
                                                              owl:someValuesFrom :EMMO_008fd3b2_4013_451f_8827_52bceab11841
                                                            ] ;
-                                           rdfs:comment """The interpreter is not the ontologist, being the ontologist acting outside the ontology at the meta-ontology level.
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The entity (or agent, or observer, or cognitive entity) who connects 'Sign', 'Interpretant' and 'Object'."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """For example, the ontologist may be interest in cataloguing in the EMMO how the same object (e.g. a cat) is addressed using different signs (e.g. cat, gatto, chat) by different interpreters (e.g. english, italian or french people).
+
+The same applies for the results of measurements: the ontologist may be interest to represent in the EMMO how different measurement processes (i.e. semiosis) lead to different quantitative results (i.e. signs) according to different measurement devices (i.e. interpreters)."""@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The interpreter is not the ontologist, being the ontologist acting outside the ontology at the meta-ontology level.
 
 On the contrary, the interpreter is an agent recognized by the ontologist. The semiotic branch of the EMMO is the tool used by the ontologist to represent an interpreter's semiotic activity."""@en ;
                                            skos:prefLabel "Interpreter"@en ;
@@ -238,7 +258,6 @@ On the contrary, the interpreter is an agent recognized by the ontologist. The s
                                            :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """For example, the ontologist may be interest in cataloguing in the EMMO how the same object (e.g. a cat) is addressed using different signs (e.g. cat, gatto, chat) by different interpreters (e.g. english, italian or french people).
 
 The same applies for the results of measurements: the ontologist may be interest to represent in the EMMO how different measurement processes (i.e. semiosis) lead to different quantitative results (i.e. signs) according to different measurement devices (i.e. interpreters)."""@en .
-
 
 ###  https://w3id.org/emmo#EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b
 :EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b rdf:type owl:Class ;
@@ -250,7 +269,7 @@ The same applies for the results of measurements: the ontologist may be interest
 ###  https://w3id.org/emmo#EMMO_0cd58641_824c_4851_907f_f4c3be76630c
 :EMMO_0cd58641_824c_4851_907f_f4c3be76630c rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                             owl:onProperty [ owl:inverseOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
                                                                             ] ;
                                                              owl:someValuesFrom :EMMO_39a4e2a4_d835_426d_b497_182d06e1caff
                                                            ] ;
@@ -275,11 +294,11 @@ My facial expression stands for my emotional status."""@en .
                                                                              )
                                                                ] ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
                                                              owl:someValuesFrom :EMMO_1b52ee70_121e_4d8d_8419_3f97cd0bd89c
                                                            ] ,
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
                                                              owl:someValuesFrom :EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba
                                                            ] ;
                                            skos:altLabel "Characterisation"@en ;
@@ -291,7 +310,7 @@ My facial expression stands for my emotional status."""@en .
 ###  https://w3id.org/emmo#EMMO_19608340_178c_4bfd_bd4d_0d3b935c6fec
 :EMMO_19608340_178c_4bfd_bd4d_0d3b935c6fec rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                             owl:onProperty [ owl:inverseOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
                                                                             ] ;
                                                              owl:someValuesFrom :EMMO_7cdc375d_d371_4d78_acd5_d51732f52126
                                                            ] ;
@@ -315,7 +334,7 @@ My facial expression stands for my emotional status."""@en .
                                                                              )
                                                                ] ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                             owl:onProperty [ owl:inverseOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
                                                                             ] ;
                                                              owl:someValuesFrom :EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069
                                                            ] ;
@@ -332,7 +351,7 @@ My facial expression stands for my emotional status."""@en .
 ###  https://w3id.org/emmo#EMMO_1c0b22a2_be82_4fa8_9e2b_a569a625d442
 :EMMO_1c0b22a2_be82_4fa8_9e2b_a569a625d442 rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                             owl:onProperty [ owl:inverseOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
                                                                             ] ;
                                                              owl:someValuesFrom :EMMO_4a1c73f1_b6f5_4d10_a3a6_5de90bac7cd0
                                                            ] ;
@@ -379,7 +398,7 @@ This class refers to what is commonly known as physical property, i.e. a measura
                                                                              )
                                                                ] ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                             owl:onProperty [ owl:inverseOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
                                                                             ] ;
                                                              owl:someValuesFrom :EMMO_47bf3513_4ae6_4858_9c45_76e23230d68d
                                                            ] ;
@@ -397,7 +416,7 @@ This class refers to what is commonly known as physical property, i.e. a measura
                                                                              )
                                                                ] ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                             owl:onProperty [ owl:inverseOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
                                                                             ] ;
                                                              owl:someValuesFrom :EMMO_47bf3513_4ae6_4858_9c45_76e23230d68d
                                                            ] ;
@@ -418,7 +437,7 @@ This class refers to what is commonly known as physical property, i.e. a measura
 ###  https://w3id.org/emmo#EMMO_36a4c1ca_5085_49ca_9e13_4c70d00c50a5
 :EMMO_36a4c1ca_5085_49ca_9e13_4c70d00c50a5 rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                             owl:onProperty [ owl:inverseOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
                                                                             ] ;
                                                              owl:someValuesFrom :EMMO_39a4e2a4_d835_426d_b497_182d06e1caff
                                                            ] ;
@@ -431,15 +450,15 @@ This class refers to what is commonly known as physical property, i.e. a measura
 ###  https://w3id.org/emmo#EMMO_39a4e2a4_d835_426d_b497_182d06e1caff
 :EMMO_39a4e2a4_d835_426d_b497_182d06e1caff rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
                                                              owl:someValuesFrom :EMMO_0cd58641_824c_4851_907f_f4c3be76630c
                                                            ] ,
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
                                                              owl:someValuesFrom :EMMO_36a4c1ca_5085_49ca_9e13_4c70d00c50a5
                                                            ] ,
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
                                                              owl:someValuesFrom :EMMO_669d2749_bece_460a_b26a_9a909fd8ca4d
                                                            ] ;
                                            skos:altLabel "IndexSemiosis"@en ;
@@ -449,7 +468,7 @@ This class refers to what is commonly known as physical property, i.e. a measura
 ###  https://w3id.org/emmo#EMMO_3b19eab4_79be_4b02_bdaf_ecf1f0067a68
 :EMMO_3b19eab4_79be_4b02_bdaf_ecf1f0067a68 rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                             owl:onProperty [ owl:inverseOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
                                                                             ] ;
                                                              owl:someValuesFrom :EMMO_ea67caa5_2609_4e91_98ae_81103f2d5c25
                                                            ] ;
@@ -479,15 +498,15 @@ This class refers to what is commonly known as physical property, i.e. a measura
                                                                              )
                                                                ] ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
                                                              owl:someValuesFrom :EMMO_2d72e38c_d587_437f_98f6_f2718fb130eb
                                                            ] ,
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
                                                              owl:someValuesFrom :EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9
                                                            ] ,
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
                                                              owl:someValuesFrom :EMMO_c9805ac9_a943_4be4_ac4b_6da64ba36c73
                                                            ] ;
                                            skos:altLabel "ConventionalSemiosis"@en ;
@@ -527,7 +546,7 @@ This class refers to what is commonly known as physical property, i.e. a measura
 ###  https://w3id.org/emmo#EMMO_6e78433a_dbb9_409a_a7c0_4037f79d4ed8
 :EMMO_6e78433a_dbb9_409a_a7c0_4037f79d4ed8 rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                             owl:onProperty [ owl:inverseOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
                                                                             ] ;
                                                              owl:someValuesFrom :EMMO_e999f9e0_7d63_4564_9028_07246580a267
                                                            ] ;
@@ -572,7 +591,7 @@ In this way the 'sign'-ed entity becomes an 'object', and the 'object' is the ba
                                                                              )
                                                                ] ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                             owl:onProperty [ owl:inverseOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
                                                                             ] ;
                                                              owl:someValuesFrom :EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069
                                                            ] ;
@@ -595,15 +614,15 @@ This can be used in material characterization, to define exactly the type of mea
 ###  https://w3id.org/emmo#EMMO_7cdc375d_d371_4d78_acd5_d51732f52126
 :EMMO_7cdc375d_d371_4d78_acd5_d51732f52126 rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
                                                              owl:someValuesFrom :EMMO_19608340_178c_4bfd_bd4d_0d3b935c6fec
                                                            ] ,
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
                                                              owl:someValuesFrom :EMMO_881606d0_6f2f_4947_bc8b_75c5b7b2b688
                                                            ] ,
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
+                                                             owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
                                                              owl:someValuesFrom :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168
                                                            ] ;
                                            skos:altLabel "IconSemiosis"@en ;
@@ -673,17 +692,10 @@ Just like an 'Elementary' in the 'Physical' branch, each 'Sign' branch should ha
 
 Each of them are 'sign'-s.
 
-A character can be the a-tomistic 'sign' for the class of texts.
-
-The horizontal segment in the character \"A\" is direct part of \"A\" but it is not a 'sign' itself.
-
-For plain text we can propose the ASCII symbols, for math the fundamental math symbols."""@en .
-
-
 ###  https://w3id.org/emmo#EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba
 :EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba rdf:type owl:Class ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                             owl:onProperty [ owl:inverseOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
                                                                             ] ;
                                                              owl:someValuesFrom :EMMO_10a5fd39_06aa_4648_9e70_f962a9cb2069
                                                            ] ;
@@ -711,7 +723,7 @@ Vickers hardness is a subclass of hardness that involves the procedures and inst
                                                                              )
                                                                ] ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                             owl:onProperty [ owl:inverseOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
                                                                             ] ;
                                                              owl:someValuesFrom :EMMO_008fd3b2_4013_451f_8827_52bceab11841
                                                            ] ;
@@ -760,7 +772,7 @@ This class includes also the 'interpeter' i.e. the entity that connects the 'sig
                                                                              )
                                                                ] ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
+                                                             owl:onProperty [ owl:inverseOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
                                                                             ] ;
                                                              owl:someValuesFrom :EMMO_7cdc375d_d371_4d78_acd5_d51732f52126
                                                            ] ;
