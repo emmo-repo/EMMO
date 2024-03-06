@@ -37,6 +37,21 @@ The symbolic module includes symbols, symbolic constructs and formal languages."
 rdf:JSON rdf:type rdfs:Datatype .
 
 
+###  https://w3id.org/emmo#EMMO_6cefba88_8190_4b37_8a84_24bd8d0ebdc9
+:EMMO_6cefba88_8190_4b37_8a84_24bd8d0ebdc9 rdf:type rdfs:Datatype ;
+                                           skos:prefLabel "imaginary"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An imaginary number represented as a real with a \"j\" prepended to it."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "5j"@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The choice of \"j\" instead of \"i\" is in line with existing conventions in electric engineering as well as the Python programming language."@en .
+
+
+###  https://w3id.org/emmo#EMMO_862c7610_6f1c_4561_a267_273693d20077
+:EMMO_862c7610_6f1c_4561_a267_273693d20077 rdf:type rdfs:Datatype ;
+                                           skos:prefLabel "complex"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A complex number represented as the sum of its real and imaginary part."@en ;
+                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "3.2+1.0j"@en .
+
+
 #################################################################
 #    Data properties
 #################################################################
@@ -120,7 +135,7 @@ For example, text is made of words, spaces and punctuations. Words are made of c
                                                                  owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
                                                                  owl:someValuesFrom owl:real
                                                                ] ;
-                                           rdfs:subClassOf :EMMO_8b305b63_6fa3_44dd_9679_17eb8403a07a ;
+                                           rdfs:subClassOf :EMMO_c987ae7d_942f_4a5b_b365_f79a883396a7 ;
                                            skos:prefLabel "RealData"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data representing a real number."@en .
 
@@ -198,6 +213,13 @@ For example, text is made of words, spaces and punctuations. Words are made of c
                                                                  owl:someValuesFrom xsd:short
                                                                ] ;
                                            skos:prefLabel "ShortData"@en .
+
+
+###  https://w3id.org/emmo#EMMO_467ac384_6d18_49a9_913f_dc731947f43b
+:EMMO_467ac384_6d18_49a9_913f_dc731947f43b rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_c987ae7d_942f_4a5b_b365_f79a883396a7 ;
+                                           rdfs:label "ImaginaryData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data representing an imaginary number."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_50ea1ec5_f157_41b0_b46b_a9032f17ca10
@@ -318,7 +340,8 @@ If an 'interpreter' skilled in english language is involved in a 'semiotic' proc
 ###  https://w3id.org/emmo#EMMO_8b305b63_6fa3_44dd_9679_17eb8403a07a
 :EMMO_8b305b63_6fa3_44dd_9679_17eb8403a07a rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_70bbb94e_2ca7_4d73_ba01_6397f134d172 ;
-                                           skos:prefLabel "NumericData"@en .
+                                           skos:prefLabel "NumericData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbolic data representing a number."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_9e49caad_b29e_4cf1_9be4_80419fd1e45c
@@ -386,6 +409,24 @@ Symbols of a formal language must be capable of being specified without any refe
 :EMMO_bed2fe4c_dc7e_43a8_8200_6aac44030bff rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ;
                                            skos:prefLabel "Letter"@en .
+
+
+###  https://w3id.org/emmo#EMMO_c987ae7d_942f_4a5b_b365_f79a883396a7
+:EMMO_c987ae7d_942f_4a5b_b365_f79a883396a7 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_8b305b63_6fa3_44dd_9679_17eb8403a07a ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+                                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                             owl:onClass :EMMO_18d180e4_5e3e_42f7_820c_e08951223486
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+                                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                             owl:onClass :EMMO_467ac384_6d18_49a9_913f_dc731947f43b
+                                                           ] ;
+                                           rdfs:label "ComplexData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbolic data representing a complex number."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Complex numbers are here represented with their real and imaginary parts."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_cf0f8f57_8a9e_410c_8fe4_a436673fa3d3
