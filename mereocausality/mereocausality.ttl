@@ -89,6 +89,10 @@ skos:altLabel rdf:type owl:AnnotationProperty ;
               rdfs:subPropertyOf rdfs:label .
 
 
+###  http://www.w3.org/2004/02/skos/core#example
+skos:example rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.w3.org/2004/02/skos/core#hiddenLabel
 skos:hiddenLabel rdf:type owl:AnnotationProperty ;
                  rdfs:subPropertyOf rdfs:label .
@@ -159,9 +163,9 @@ skos:prefLabel rdf:type owl:AnnotationProperty ;
 
 ###  https://w3id.org/emmo#EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a
 :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a rdf:type owl:AnnotationProperty ;
-                                           skos:prefLabel "example"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Illustrative example of how the entity is used."@en ;
-                                           rdfs:subPropertyOf rdfs:comment .
+                                           rdfs:comment "Will be removed with 1.0.0 release due to duplicated scope of emmo:example with respect to skos:example" ;
+                                           owl:deprecated "true"^^xsd:boolean ;
+                                           rdfs:subPropertyOf skos:example .
 
 
 ###  https://w3id.org/emmo#EMMO_c6e77b51_681b_4d04_b20d_a08f2b977470
@@ -199,7 +203,7 @@ skos:prefLabel rdf:type owl:AnnotationProperty ;
 <https://w3id.org/emmo#157fdf31_6387_42be_8e72_10530519214a> rdf:type owl:AnnotationProperty ;
                                                              skos:prefLabel "figure"@en ;
                                                              :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A link to a graphical representation aimed to facilitate understanding of the concept, or of an annotation." ;
-                                                             rdfs:subPropertyOf rdfs:comment ;
+                                                             rdfs:subPropertyOf rdfs:seeAlso ;
                                                              rdfs:range xsd:anyURI .
 
 
@@ -717,7 +721,7 @@ While the EMMO FOL introduces the quantum causality relation C(x,y) as primitive
                                            skos:prefLabel "CausalPath"@en ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A causal chain is an ordered causal sequence of entities that does not host any bifurcation within itself (a chain). A chain can only be partitioned in time."@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of entities that possess a temporal structure but no spatial structure."@en ;
-                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "An electron with at least one causal interaction with another particle."@en ;
+                                           skos:example "An electron with at least one causal interaction with another particle."@en ;
                                            :EMMO_c6e77b51_681b_4d04_b20d_a08f2b977470 "hasTemporalPart min 2 (Elementary or Quantum)"@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The causal path class can be defined univocally in FOL."@en .
 
@@ -758,7 +762,7 @@ While the EMMO FOL introduces the quantum causality relation C(x,y) as primitive
 A collection can be partitioned in maximally connected items called members. The members are self-connected entities and there is no direct causality relation between them.
 The combination of collection and item concepts is the EMMO mereocausality alternative to set theory. However, two items can be members only if they are non direct causally connected, giving some constraints to a collection definition. For example, two entities which are directly connected cannot be two distinct members, while their interiors (i.e. the entities obtained by removing the layer of parts that provides the causal contact between them) can be."""@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of not direct causally self-connected world entities."@en ;
-                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "The collection of users of a particular software, the collection of atoms that have been part of that just dissociated molecule."@en .
+                                           skos:example "The collection of users of a particular software, the collection of atoms that have been part of that just dissociated molecule."@en .
 
 _:genid19 rdf:type owl:Restriction ;
            owl:onProperty :EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4 ;
@@ -791,7 +795,7 @@ Using physics concepts, we can think the quantum as an elementary particle (e.g.
 A quantum stands for an incoming or outcoming real particle in a Feynman diagram."""@en ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The class of entities without proper parts."@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of the mereological and causal fundamental entities."@en ;
-                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """From a physics perspective a quantum can be related to smallest identifiable entities, according to the limits imposed by the uncertainty principle in space and time measurements.
+                                           skos:example """From a physics perspective a quantum can be related to smallest identifiable entities, according to the limits imposed by the uncertainty principle in space and time measurements.
 However, the quantum mereotopology approach is not restricted only to physics. For example, in a manpower management ontology, a quantum can stand for an hour (time) of a worker (space) activity."""@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A quantum is the EMMO mereological atomistic and causal reductionistic entity.  To avoid confusion with the concept of atom coming from physics and to underline the causal reductionistic approach, we will use the expression quantum mereology, instead of atomistic mereology."@en .
 
@@ -935,7 +939,7 @@ The unity criterion beyond the definition of a causal structure (the most genera
                                            skos:prefLabel "CausalSystem"@en ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A causal system provides the most general concept of system, being a union of causal structures interacting together. In its most simple form, a causal system is an interlacement of causal paths (the most simple structure type)."@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A non-path causal structure"@en ;
-                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A electron binded by a nucleus."@en .
+                                           skos:example "A electron binded by a nucleus."@en .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac ;
