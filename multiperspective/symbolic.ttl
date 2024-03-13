@@ -29,6 +29,7 @@ The symbolic module includes symbols, symbolic constructs and formal languages."
                                                                 "Contacts: emmo@emmc.eu" ;
                                                    owl:versionInfo "1.0.0-rc1" .
 
+
 #################################################################
 #    Datatypes
 #################################################################
@@ -120,7 +121,7 @@ For example, text is made of words, spaces and punctuations. Words are made of c
                                                                  owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
                                                                  owl:someValuesFrom owl:real
                                                                ] ;
-                                           rdfs:subClassOf :EMMO_8b305b63_6fa3_44dd_9679_17eb8403a07a ;
+                                           rdfs:subClassOf :EMMO_4ca129f3_5341_4dbf_b081_bbe0df9d081a ;
                                            skos:prefLabel "RealData"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data representing a real number."@en .
 
@@ -230,7 +231,8 @@ If an 'interpreter' skilled in english language is involved in a 'semiotic' proc
                                                                  owl:someValuesFrom xsd:double
                                                                ] ;
                                            rdfs:subClassOf :EMMO_88a34881_b8d0_474b_9a08_40dbd414d834 ;
-                                           skos:prefLabel "DoubleData"@en .
+                                           skos:prefLabel "DoubleData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A numeric data representing a double precision (64 bit) floating point number."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_54dc83cb_06e1_4739_9e45_bc09cead7f48
@@ -300,7 +302,10 @@ If an 'interpreter' skilled in english language is involved in a 'semiotic' proc
 ###  https://w3id.org/emmo#EMMO_88a34881_b8d0_474b_9a08_40dbd414d834
 :EMMO_88a34881_b8d0_474b_9a08_40dbd414d834 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_8b305b63_6fa3_44dd_9679_17eb8403a07a ;
-                                           skos:prefLabel "FloatingPointData"@en .
+                                           skos:prefLabel "FloatingPointData"@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Floating points are defined in the ANSI/IEEE Standard 754-1985 for Binary Floating-Point Arithmetic."@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "A numerical data representing a generic floating point number following the IEEE 754 standard."@en ,
+                                                                                      "https://en.wikipedia.org/wiki/IEEE_754"^^xsd:anyURI .
 
 
 ###  https://w3id.org/emmo#EMMO_89a0c87c_0804_4013_937a_6fe234d9499c
@@ -379,7 +384,8 @@ Symbols of a formal language must be capable of being specified without any refe
                                                                  owl:someValuesFrom xsd:float
                                                                ] ;
                                            rdfs:subClassOf :EMMO_88a34881_b8d0_474b_9a08_40dbd414d834 ;
-                                           skos:prefLabel "FloatData"@en .
+                                           skos:prefLabel "FloatData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A numeric data representing a single precision (32 bit) floating point number."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_bed2fe4c_dc7e_43a8_8200_6aac44030bff
@@ -468,6 +474,21 @@ Symbols of a formal language must be capable of being specified without any refe
                                                                ] ;
                                            skos:prefLabel "IntegerData"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data representing an integer number."@en .
+
+
+###  https://w3id.org/emmo/multiperspective/symbolic#EMMO_4ca129f3_5341_4dbf_b081_bbe0df9d081a
+:EMMO_4ca129f3_5341_4dbf_b081_bbe0df9d081a rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_8b305b63_6fa3_44dd_9679_17eb8403a07a ;
+                                           skos:prefLabel "ComplexData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A numerical data representing a complex number."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Complex numbers may be represented in different ways, e.g. as real and imaginary parts or as with radial coordinates with radius and angle."@en .
+
+
+###  https://w3id.org/emmo/multiperspective/symbolic#EMMO_ba65b982_6f48_479a_a326_0b50fdc433de
+:EMMO_ba65b982_6f48_479a_a326_0b50fdc433de rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_4ca129f3_5341_4dbf_b081_bbe0df9d081a ;
+                                           skos:prefLabel "ImarginaryData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A numerical data representing an imaginary number."@en .
 
 
 ###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
