@@ -329,7 +329,8 @@ This means that the causing entity can be in direct and optionally indirect caus
 
 ###  https://w3id.org/emmo#EMMO_55354438_7000_4284_b1b9_59d60c2261b9
 :EMMO_55354438_7000_4284_b1b9_59d60c2261b9 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+                                           rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ,
+                                                              <https://w3id.org/emmo#76413949_896c_4363_a955_de4722c6e149> ;
                                            rdf:type owl:AsymmetricProperty ;
                                            rdfs:domain :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
                                            owl:propertyDisjointWith :EMMO_c37d451b_e245_439f_bd94_9050e04ec9f7 ;
@@ -449,7 +450,11 @@ Contacts between two entities exclude the possibility of other causal relations 
                                            rdf:type owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
                                            skos:prefLabel "hasProperPart"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between an entity and one of its parts, when both entities are distinct."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between an entity and one of its parts, when both entities are distinct."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The proper part relation has the following pair-covering sub-relations:
+- hasMembers xor hasPiece
+- hasPortionPart xor hasGatheredPart
+. hasItemPart xor hasScatteredPart"""@en .
 
 
 ###  https://w3id.org/emmo#EMMO_9a50a0ae_841a_46fe_8b23_3df319b60611
@@ -608,7 +613,8 @@ b) y and x are non-overlapping"""@en ;
 ###  https://w3id.org/emmo#EMMO_e1805abe_f5b7_4c40_810a_1a01950546be
 :EMMO_e1805abe_f5b7_4c40_810a_1a01950546be rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_49e17ba8_dd17_4c28_b8c8_c8c5d5a9aab9 ,
-                                                              :EMMO_c37d451b_e245_439f_bd94_9050e04ec9f7 ;
+                                                              :EMMO_c37d451b_e245_439f_bd94_9050e04ec9f7 ,
+                                                              <https://w3id.org/emmo#76413949_896c_4363_a955_de4722c6e149> ;
                                            skos:prefLabel "hasFractionalCollection"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A sub collection realtion where the proper part is cutting members of the collection."@en .
 
@@ -661,7 +667,8 @@ b) y and x are non-overlapping"""@en ;
 ###  https://w3id.org/emmo#0558e802_46a4_45de_af85_47aff4dc427e
 <https://w3id.org/emmo#0558e802_46a4_45de_af85_47aff4dc427e> rdf:type owl:ObjectProperty ;
                                                              rdfs:subPropertyOf :EMMO_c37d451b_e245_439f_bd94_9050e04ec9f7 ,
-                                                                                <https://w3id.org/emmo#3bd4339b_e01f_43e5_a011_74a4ef3ffa90> ;
+                                                                                <https://w3id.org/emmo#3bd4339b_e01f_43e5_a011_74a4ef3ffa90> ,
+                                                                                <https://w3id.org/emmo#76413949_896c_4363_a955_de4722c6e149> ;
                                                              skos:prefLabel "hasFractionalMember"@en ;
                                                              :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between a collection and a non maximal self-connect part of one of its member."@en .
 
@@ -683,7 +690,8 @@ b) y and x are non-overlapping"""@en ;
                                                              skos:altLabel "hasMaximalPart"@en ;
                                                              skos:prefLabel "hasMembers"@en ;
                                                              :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A proper part which is not connected with the rest of the whole."@en ;
-                                                             :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between individuals representing a collection and one or more of its members." .
+                                                             :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between individuals representing a collection and one or more of its members." ;
+                                                             :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A maximal part is a proper part that is not connected with the rest of the whole."@en .
 
 
 ###  https://w3id.org/emmo#5fa16188_d95b_4dd2_ac63_eae63fe01504
@@ -693,6 +701,15 @@ b) y and x are non-overlapping"""@en ;
                                                              rdfs:range :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ;
                                                              skos:prefLabel "hasScatteredPortion"@en ;
                                                              :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between individuals representing an item and one of its not self-connected proper parts."@en .
+
+
+###  https://w3id.org/emmo#76413949_896c_4363_a955_de4722c6e149
+<https://w3id.org/emmo#76413949_896c_4363_a955_de4722c6e149> rdf:type owl:ObjectProperty ;
+                                                             rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+                                                             skos:altLabel "hasNotMaximalPart"@en ;
+                                                             skos:prefLabel "hasPiece"@en ;
+                                                             :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between two individuals representing an entity and a non-maximal proper part, meaning the the latter is connected with the rest of the whole."@en ;
+                                                             :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A non-maximal part is a proper part that is connected with the rest of the whole."@en .
 
 
 #################################################################
