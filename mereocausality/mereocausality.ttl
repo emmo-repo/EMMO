@@ -230,11 +230,11 @@ skos:prefLabel rdf:type owl:AnnotationProperty ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "All other mereology relations can be defined in FOL using hasPart as primitive."@en .
 
 
-###  https://w3id.org/emmo#EMMO_2a33ee61_8235_4da4_b9a1_ca62cb87a016
-:EMMO_2a33ee61_8235_4da4_b9a1_ca62cb87a016 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 ;
-                                           skos:prefLabel "hasTemporalSlice"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A temporal part that capture the overall spatial extension of the causal object."@en .
+###  https://w3id.org/emmo#EMMO_339d8e1a_f52a_42cd_8df5_57b5328b939e
+:EMMO_339d8e1a_f52a_42cd_8df5_57b5328b939e rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf <https://w3id.org/emmo#76413949_896c_4363_a955_de4722c6e149> ;
+                                           skos:prefLabel "hasFragment"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between two individuals representing a collection and a non-maximal proper part, meaning the the latter is connected with the rest of the whole."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_3733bd38_ca2b_4264_a92a_3075a1715598
@@ -276,6 +276,7 @@ https://en.wiktionary.org/wiki/mereology"""@en
 ###  https://w3id.org/emmo#EMMO_408a46b2_3930_46da_b936_e9ce72ffdde9
 :EMMO_408a46b2_3930_46da_b936_e9ce72ffdde9 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_9a50a0ae_841a_46fe_8b23_3df319b60611 ;
+                                           owl:propertyDisjointWith :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
                                            skos:altLabel "hasSpatioTemporalPart"@en ;
                                            skos:prefLabel "hasJunctionPart"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The part is connected with the rest item or members with hasNext (or its inverse) and hasContact relations only."@en .
@@ -299,23 +300,6 @@ This means that the causing entity can be in direct and optionally indirect caus
                                                                                       "This relation is asymmetric and irreflexive."@en .
 
 
-###  https://w3id.org/emmo#EMMO_49e17ba8_dd17_4c28_b8c8_c8c5d5a9aab9
-:EMMO_49e17ba8_dd17_4c28_b8c8_c8c5d5a9aab9 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_c37d451b_e245_439f_bd94_9050e04ec9f7 ,
-                                                              :EMMO_cc0df52b_6211_4167_9e22_5cc3ba201bd9 ;
-                                           rdfs:range :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ;
-                                           skos:prefLabel "hasSubCollection"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation between individual representing a collection and one of its non self-connected proper parts."@en .
-
-
-###  https://w3id.org/emmo#EMMO_5022e4cb_125f_429d_8556_c3e635c561f2
-:EMMO_5022e4cb_125f_429d_8556_c3e635c561f2 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_2a33ee61_8235_4da4_b9a1_ca62cb87a016 ,
-                                                              :EMMO_a32021dc_58d8_454b_915d_3951b413b8b7 ;
-                                           skos:prefLabel "hasTemporalItemSlice"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A temporal part that is an item."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_54d0d0f4_d9fa_4179_a9b5_4110c49dafff
 :EMMO_54d0d0f4_d9fa_4179_a9b5_4110c49dafff rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_d67ee67e_4fac_4676_82c9_aec361dba698 ;
@@ -333,9 +317,9 @@ This means that the causing entity can be in direct and optionally indirect caus
                                                               <https://w3id.org/emmo#76413949_896c_4363_a955_de4722c6e149> ;
                                            rdf:type owl:AsymmetricProperty ;
                                            rdfs:domain :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
-                                           owl:propertyDisjointWith :EMMO_c37d451b_e245_439f_bd94_9050e04ec9f7 ;
                                            skos:prefLabel "hasPortionPart"@en ;
-                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A proper part relation with domain restricted to items."@en .
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A proper part relation with domain restricted to items."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A part of an item is always non-maximal, meaning that is causally connected with the rest."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_555d0261_da5e_4301_b7f9_46f604a32e91
@@ -375,42 +359,23 @@ It does not exclude the possibility of indirect causal routes between proper par
 
 ###  https://w3id.org/emmo#EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4
 :EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_c37d451b_e245_439f_bd94_9050e04ec9f7 ,
-                                                              <https://w3id.org/emmo#3bd4339b_e01f_43e5_a011_74a4ef3ffa90> ,
-                                                              <https://w3id.org/emmo#33fd15ab_7662_4cc6_8bf6_988422efc631> ;
+                                           rdfs:subPropertyOf <https://w3id.org/emmo#33fd15ab_7662_4cc6_8bf6_988422efc631> ;
                                            rdf:type owl:AsymmetricProperty ;
+                                           owl:propertyDisjointWith <https://w3id.org/emmo#0528e41d_edd2_49f9_bd2a_aeabdc215515> ;
                                            skos:altLabel "hasMember"@en ;
                                            skos:prefLabel "hasSingleMember"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between a collection and one of its item members."@en .
 
 
-###  https://w3id.org/emmo#EMMO_6e046dd0_9634_4013_b2b1_9cc468087c83
-:EMMO_6e046dd0_9634_4013_b2b1_9cc468087c83 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
-                                           skos:altLabel "hasSpatialPartialPart"@en ;
-                                           skos:prefLabel "hasSpatialSection"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A proper part of the whole that is not Spatial or Temporal."@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This relation identifies parts of a 4D object that do not fully cover the lifetime extent of the whole (spatial) nor the full spatial extent (temporal)."@en ,
-                                                                                      """This relation is a filler, to categorise the parts of an entity that are not covered by the other parthood relations.
-A proper part is then the disjoint union of: spatial part, temporal part and spatio temporal part relations."""@en .
-
-
 ###  https://w3id.org/emmo#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6
 :EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_55354438_7000_4284_b1b9_59d60c2261b9 ;
+                                           owl:propertyDisjointWith :EMMO_9a50a0ae_841a_46fe_8b23_3df319b60611 ;
                                            skos:prefLabel "hasTemporalPart"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that identify a proper item part of the whole, whose parts always cover the full spatial extension of the whole within a time interval."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """A temporal part of an item cannot both cause and be caused by any other proper part of the item.
 A temporal part is not constraint to be causally self-connected, i.e. it can be either an item or a collection. We therefore introduce two subproperties in order to distinguish between both cases."""@en ,
                                                                                       "In EMMO FOL this is a defined property. In OWL temporal relations are primitive."@en .
-
-
-###  https://w3id.org/emmo#EMMO_850b976f_0726_4408_b1b2_1f0ae367faf6
-:EMMO_850b976f_0726_4408_b1b2_1f0ae367faf6 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_2a33ee61_8235_4da4_b9a1_ca62cb87a016 ,
-                                                              <https://w3id.org/emmo#5fa16188_d95b_4dd2_ac63_eae63fe01504> ;
-                                           skos:prefLabel "hasTemporalCollectionSlice"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A temporal part that is a collection."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_8785be5a_2493_4b12_8f39_31907ab11748
@@ -431,16 +396,6 @@ Contacts between two entities exclude the possibility of other causal relations 
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An interaction that is the sum of direct causality relations between two entities that are interpretable as fundamental physical interactions."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Spatial contact is symmetric and irreflexive."@en ,
                                                                                       "The contact relation is not an ordering relation since is symmetric."@en .
-
-
-###  https://w3id.org/emmo#EMMO_8e742d6f_7fbb_40cf_949b_6806ab0d801f
-:EMMO_8e742d6f_7fbb_40cf_949b_6806ab0d801f rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
-                                           rdf:type owl:AsymmetricProperty ;
-                                           rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
-                                           owl:propertyDisjointWith :EMMO_cc0df52b_6211_4167_9e22_5cc3ba201bd9 ;
-                                           skos:prefLabel "hasItemPart"@en ;
-                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A proper part relation with range restricted to items."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
@@ -474,16 +429,6 @@ Contacts between two entities exclude the possibility of other causal relations 
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between an entity that overlaps another without being its part."@en .
 
 
-###  https://w3id.org/emmo#EMMO_a32021dc_58d8_454b_915d_3951b413b8b7
-:EMMO_a32021dc_58d8_454b_915d_3951b413b8b7 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_55354438_7000_4284_b1b9_59d60c2261b9 ,
-                                                              :EMMO_8e742d6f_7fbb_40cf_949b_6806ab0d801f ;
-                                           rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
-                                           owl:propertyDisjointWith <https://w3id.org/emmo#5fa16188_d95b_4dd2_ac63_eae63fe01504> ;
-                                           skos:prefLabel "hasConnectedPortion"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between individuals representing an item and one of its self-connected proper parts."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_a8bd7094_6b40_47af_b1f4_a69d81a3afbd
 :EMMO_a8bd7094_6b40_47af_b1f4_a69d81a3afbd rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 ;
@@ -513,13 +458,6 @@ Embracing a strong reductionistic view, causality originates at quantum entities
                                                                                       "Each pair of entities is either in isCauseOf or isNotCauseOf relation. The two are mutually exclusive."@en .
 
 
-###  https://w3id.org/emmo#EMMO_aef8af39_0a22_4be8_a523_4e47ca36e035
-:EMMO_aef8af39_0a22_4be8_a523_4e47ca36e035 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 ;
-                                           skos:prefLabel "hasTemporalSection"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A temporal part that is not a slice."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_b3c8ba10_6bee_45e7_9416_e9019aa9f023
 :EMMO_b3c8ba10_6bee_45e7_9416_e9019aa9f023 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_9cb984ca_48ad_4864_b09e_50d3fff19420 ;
@@ -536,24 +474,6 @@ Embracing a strong reductionistic view, causality originates at quantum entities
                                            skos:prefLabel "isIndirectCauseOf"@en ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "An indirect cause is a relation between two entities that is mediated by a intermediate entity. In other words, there are no quantum parts of the causing entity that are direct cause of quantum parts of the caused entity."@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causal relation between the effected and the causing entities with intermediaries."@en .
-
-
-###  https://w3id.org/emmo#EMMO_c37d451b_e245_439f_bd94_9050e04ec9f7
-:EMMO_c37d451b_e245_439f_bd94_9050e04ec9f7 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
-                                           rdf:type owl:AsymmetricProperty ;
-                                           rdfs:domain :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ;
-                                           skos:prefLabel "hasGatheredPart"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A proper part relation with domain restricted to collections."@en .
-
-
-###  https://w3id.org/emmo#EMMO_cc0df52b_6211_4167_9e22_5cc3ba201bd9
-:EMMO_cc0df52b_6211_4167_9e22_5cc3ba201bd9 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
-                                           rdf:type owl:AsymmetricProperty ;
-                                           rdfs:range :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ;
-                                           skos:prefLabel "hasScatteredPart"@en ;
-                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A proper part relation with range restricted to collections."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_d01b3ee2_91a5_4ce2_95cd_f0d2c333c6d3
@@ -610,15 +530,6 @@ b) y and x are non-overlapping"""@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "In EMMO FOL this is a defined property. In OWL temporal relations are primitive."@en .
 
 
-###  https://w3id.org/emmo#EMMO_e1805abe_f5b7_4c40_810a_1a01950546be
-:EMMO_e1805abe_f5b7_4c40_810a_1a01950546be rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_49e17ba8_dd17_4c28_b8c8_c8c5d5a9aab9 ,
-                                                              :EMMO_c37d451b_e245_439f_bd94_9050e04ec9f7 ,
-                                                              <https://w3id.org/emmo#76413949_896c_4363_a955_de4722c6e149> ;
-                                           skos:prefLabel "hasFractionalCollection"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A sub collection realtion where the proper part is cutting members of the collection."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_e4f66254_7312_4de5_a86a_6e0808baaaab
 :EMMO_e4f66254_7312_4de5_a86a_6e0808baaaab rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 ;
@@ -646,61 +557,23 @@ b) y and x are non-overlapping"""@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class for all relations used by the EMMO."@en .
 
 
-###  https://w3id.org/emmo#EMMO_f68030be_94b8_4c61_a161_886468558054
-:EMMO_f68030be_94b8_4c61_a161_886468558054 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
-                                           skos:altLabel "hasSpatialIntegralPart"@en ;
-                                           skos:prefLabel "hasSpatialSlice"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that identify a proper part of the whole that extends itself in time along the overall lifetime of the whole, and whose parts never cover the full spatial extension of the 4D whole."@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "In EMMO FOL this is a defined property. In OWL spatial relations are primitive."@en .
-
-
 ###  https://w3id.org/emmo#0528e41d_edd2_49f9_bd2a_aeabdc215515
 <https://w3id.org/emmo#0528e41d_edd2_49f9_bd2a_aeabdc215515> rdf:type owl:ObjectProperty ;
-                                                             rdfs:subPropertyOf :EMMO_49e17ba8_dd17_4c28_b8c8_c8c5d5a9aab9 ,
-                                                                                :EMMO_c37d451b_e245_439f_bd94_9050e04ec9f7 ,
-                                                                                <https://w3id.org/emmo#33fd15ab_7662_4cc6_8bf6_988422efc631> ;
+                                                             rdfs:subPropertyOf <https://w3id.org/emmo#33fd15ab_7662_4cc6_8bf6_988422efc631> ;
                                                              skos:prefLabel "hasMultipleMembers"@en ;
                                                              :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A sub collection realtion where the proper part is fully encompasses some of the members of the collection." .
 
 
-###  https://w3id.org/emmo#0558e802_46a4_45de_af85_47aff4dc427e
-<https://w3id.org/emmo#0558e802_46a4_45de_af85_47aff4dc427e> rdf:type owl:ObjectProperty ;
-                                                             rdfs:subPropertyOf :EMMO_c37d451b_e245_439f_bd94_9050e04ec9f7 ,
-                                                                                <https://w3id.org/emmo#3bd4339b_e01f_43e5_a011_74a4ef3ffa90> ,
-                                                                                <https://w3id.org/emmo#76413949_896c_4363_a955_de4722c6e149> ;
-                                                             skos:prefLabel "hasFractionalMember"@en ;
-                                                             :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between a collection and a non maximal self-connect part of one of its member."@en .
-
-
-###  https://w3id.org/emmo#3bd4339b_e01f_43e5_a011_74a4ef3ffa90
-<https://w3id.org/emmo#3bd4339b_e01f_43e5_a011_74a4ef3ffa90> rdf:type owl:ObjectProperty ;
-                                                             rdfs:subPropertyOf :EMMO_8e742d6f_7fbb_40cf_949b_6806ab0d801f ,
-                                                                                :EMMO_c37d451b_e245_439f_bd94_9050e04ec9f7 ;
-                                                             rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
-                                                             skos:prefLabel "hasSubItem"@en ;
-                                                             :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A item proper part of a collection."@en .
-
-
 ###  https://w3id.org/emmo#33fd15ab_7662_4cc6_8bf6_988422efc631
 <https://w3id.org/emmo#33fd15ab_7662_4cc6_8bf6_988422efc631> rdf:type owl:ObjectProperty ;
-                                                             rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ,
-                                                                                :EMMO_c37d451b_e245_439f_bd94_9050e04ec9f7 ;
+                                                             rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
                                                              rdfs:domain :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ;
+                                                             owl:propertyDisjointWith <https://w3id.org/emmo#76413949_896c_4363_a955_de4722c6e149> ;
                                                              skos:altLabel "hasMaximalPart"@en ;
                                                              skos:prefLabel "hasMembers"@en ;
                                                              :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A proper part which is not connected with the rest of the whole."@en ;
                                                              :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between individuals representing a collection and one or more of its members." ;
                                                              :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A maximal part is a proper part that is not connected with the rest of the whole."@en .
-
-
-###  https://w3id.org/emmo#5fa16188_d95b_4dd2_ac63_eae63fe01504
-<https://w3id.org/emmo#5fa16188_d95b_4dd2_ac63_eae63fe01504> rdf:type owl:ObjectProperty ;
-                                                             rdfs:subPropertyOf :EMMO_55354438_7000_4284_b1b9_59d60c2261b9 ,
-                                                                                :EMMO_cc0df52b_6211_4167_9e22_5cc3ba201bd9 ;
-                                                             rdfs:range :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ;
-                                                             skos:prefLabel "hasScatteredPortion"@en ;
-                                                             :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between individuals representing an item and one of its not self-connected proper parts."@en .
 
 
 ###  https://w3id.org/emmo#76413949_896c_4363_a955_de4722c6e149
