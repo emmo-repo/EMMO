@@ -220,13 +220,6 @@ skos:prefLabel rdf:type owl:AnnotationProperty ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "x isNotCauseOf y iff not(x isCauseOf y)"@en .
 
 
-###  https://w3id.org/emmo#EMMO_0eb37d3d_b633_4ea4_a863_8b7a27c6fdb4
-:EMMO_0eb37d3d_b633_4ea4_a863_8b7a27c6fdb4 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_9a50a0ae_841a_46fe_8b23_3df319b60611 ;
-                                           skos:prefLabel "hasHeterogeneousPart"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The part is not connected with the rest item or members with hasNext (or its inverse) only or hasContact relations only."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f
 :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 ;
@@ -252,6 +245,7 @@ skos:prefLabel rdf:type owl:AnnotationProperty ;
                                                     owl:IrreflexiveProperty ;
                                            owl:propertyDisjointWith :EMMO_d01b3ee2_91a5_4ce2_95cd_f0d2c333c6d3 ;
                                            skos:altLabel "isAntecedentOf"@en ;
+                                           skos:example "My life between 18-24 years has successor my life between 32-40 years, since there is an intermediary (i.e. my life between 25-32 years)."@en ;
                                            skos:prefLabel "hasSuccessor"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causal relation between the y effected and the x causing entities with intermediaries, where x isCauseOf y and not(y isCauseOf x)."@en .
 
@@ -281,8 +275,7 @@ https://en.wiktionary.org/wiki/mereology"""@en
 
 ###  https://w3id.org/emmo#EMMO_408a46b2_3930_46da_b936_e9ce72ffdde9
 :EMMO_408a46b2_3930_46da_b936_e9ce72ffdde9 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_0eb37d3d_b633_4ea4_a863_8b7a27c6fdb4 ,
-                                                              :EMMO_9a50a0ae_841a_46fe_8b23_3df319b60611 ;
+                                           rdfs:subPropertyOf :EMMO_9a50a0ae_841a_46fe_8b23_3df319b60611 ;
                                            skos:altLabel "hasSpatioTemporalPart"@en ;
                                            skos:prefLabel "hasJunctionPart"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The part is connected with the rest item or members with hasNext (or its inverse) and hasContact relations only."@en .
@@ -296,6 +289,8 @@ https://en.wiktionary.org/wiki/mereology"""@en
                                                     owl:IrreflexiveProperty ;
                                            owl:propertyDisjointWith :EMMO_8785be5a_2493_4b12_8f39_31907ab11748 ;
                                            skos:altLabel "isBefore"@en ;
+                                           skos:example "My life between 18-24 years has next my life between 24-32 years."@en ,
+                                                        "The raw sample has next the treated sampled, which has next the examined sample. In this sense the whole sample is made of three states, connected by the has next relation, following its evolution in time."@en ;
                                            skos:prefLabel "hasNext"@en ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """A temporal relation between two entities occurs when the two entities are in a one directional causality relation. The idea is that a temporal relation always implies a one-directional causality between two entities, leading to a asymmetric relation.
 This means that the causing entity can be in direct and optionally indirect causality relation with the effect entity. On the contrary, the effect entity cannot be in any causal relation (direct or indirect) with the causing entity."""@en ;
@@ -309,7 +304,8 @@ This means that the causing entity can be in direct and optionally indirect caus
                                            rdfs:subPropertyOf :EMMO_c37d451b_e245_439f_bd94_9050e04ec9f7 ,
                                                               :EMMO_cc0df52b_6211_4167_9e22_5cc3ba201bd9 ;
                                            rdfs:range :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ;
-                                           skos:prefLabel "hasSubCollection"@en .
+                                           skos:prefLabel "hasSubCollection"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation between individual representing a collection and one of its non self-connected proper parts."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_5022e4cb_125f_429d_8556_c3e635c561f2
@@ -326,7 +322,9 @@ This means that the causing entity can be in direct and optionally indirect caus
                                            rdf:type owl:SymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
                                            owl:propertyDisjointWith :EMMO_ebc9e62c_5dc4_44db_9060_7923740bdf78 ;
-                                           skos:prefLabel "isSpatiallyRelatedWith"@en .
+                                           skos:prefLabel "isSpatiallyRelatedWith"@en ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A relation jointly covered by Contact and InteractWith relations, which are mutually exclusive."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between entities that express a mutual causation."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_55354438_7000_4284_b1b9_59d60c2261b9
@@ -371,8 +369,8 @@ It does not exclude the possibility of indirect causal routes between proper par
                                            rdf:type owl:SymmetricProperty ;
                                            owl:propertyDisjointWith :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
                                            skos:prefLabel "equalsTo"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between two entities that stands for the same individuals." ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Equality is here defined following a mereological approach." .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between two individuals representing the same entity."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Equality is here defined following a mereological approach."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4
@@ -381,7 +379,8 @@ It does not exclude the possibility of indirect causal routes between proper par
                                                               <https://w3id.org/emmo#3bd4339b_e01f_43e5_a011_74a4ef3ffa90> ,
                                                               <https://w3id.org/emmo#33fd15ab_7662_4cc6_8bf6_988422efc631> ;
                                            rdf:type owl:AsymmetricProperty ;
-                                           skos:prefLabel "hasMember"@en ;
+                                           skos:altLabel "hasMember"@en ;
+                                           skos:prefLabel "hasSingleMember"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between a collection and one of its item members."@en .
 
 
@@ -402,7 +401,6 @@ A proper part is then the disjoint union of: spatial part, temporal part and spa
                                            skos:prefLabel "hasTemporalPart"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that identify a proper item part of the whole, whose parts always cover the full spatial extension of the whole within a time interval."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """A temporal part of an item cannot both cause and be caused by any other proper part of the item.
-
 A temporal part is not constraint to be causally self-connected, i.e. it can be either an item or a collection. We therefore introduce two subproperties in order to distinguish between both cases."""@en ,
                                                                                       "In EMMO FOL this is a defined property. In OWL temporal relations are primitive."@en .
 
@@ -424,6 +422,8 @@ A temporal part is not constraint to be causally self-connected, i.e. it can be 
                                            rdfs:domain :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d ;
                                            rdfs:range :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d ;
                                            skos:altLabel "hasSpatialnteractionWith"@en ;
+                                           skos:example "An elementary electron is in contact with another elementary electron in a scattering process."@en ,
+                                                        "The laptop is in contact with the desk, since there is a double-directional causality."@en ;
                                            skos:prefLabel "contacts"@en ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """A spatial contact between two entities occurs when the two entities are in an interaction relation whose causal structure is a representation of the fundamental interactions between elementary particles (Feynman diagrams).
 It means that if two entities are in contact, then there is at least a couple of elementary particles, one part of the first and one part of the second, interacting according to one of the fundamental interactions through virtual particles. This kind of connection is space-like (i.e. interconnecting force carrier particle is offshelf).
@@ -450,7 +450,11 @@ Contacts between two entities exclude the possibility of other causal relations 
                                            rdf:type owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
                                            skos:prefLabel "hasProperPart"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between an entity and one of its parts, when both entities are distinct."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between an entity and one of its parts, when both entities are distinct."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The proper part relation has the following pair-covering sub-relations:
+- hasMembers xor hasPiece
+- hasPortionPart xor hasGatheredPart
+. hasItemPart xor hasScatteredPart"""@en .
 
 
 ###  https://w3id.org/emmo#EMMO_9a50a0ae_841a_46fe_8b23_3df319b60611
@@ -470,13 +474,32 @@ Contacts between two entities exclude the possibility of other causal relations 
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between an entity that overlaps another without being its part."@en .
 
 
+###  https://w3id.org/emmo#EMMO_a32021dc_58d8_454b_915d_3951b413b8b7
+:EMMO_a32021dc_58d8_454b_915d_3951b413b8b7 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_55354438_7000_4284_b1b9_59d60c2261b9 ,
+                                                              :EMMO_8e742d6f_7fbb_40cf_949b_6806ab0d801f ;
+                                           rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
+                                           owl:propertyDisjointWith <https://w3id.org/emmo#5fa16188_d95b_4dd2_ac63_eae63fe01504> ;
+                                           skos:prefLabel "hasConnectedPortion"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between individuals representing an item and one of its self-connected proper parts."@en .
+
+
+###  https://w3id.org/emmo#EMMO_a8bd7094_6b40_47af_b1f4_a69d81a3afbd
+:EMMO_a8bd7094_6b40_47af_b1f4_a69d81a3afbd rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 ;
+                                           rdfs:seeAlso :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
+                                           skos:prefLabel "isPartOf"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The inverse relation of hasPart."@en .
+
+
 ###  https://w3id.org/emmo#EMMO_aa987900_caf1_4ce2_82fa_6b1d6fbd2ead
 :EMMO_aa987900_caf1_4ce2_82fa_6b1d6fbd2ead rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_3f2e4ac2_8ef3_4a14_b826_60d37f15f8ee ;
                                            rdf:type owl:SymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
                                            owl:propertyDisjointWith :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 ;
-                                           skos:prefLabel "notOverlaps"@en .
+                                           skos:prefLabel "notOverlaps"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between individuals representing non-overlapping entities (i.e. that have no parts in common)."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_ad0e72fc_dcaa_490d_8371_b4d814dcda2c
@@ -486,7 +509,8 @@ Contacts between two entities exclude the possibility of other causal relations 
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """Causality is the fundamental concept describing how entities affect each other, and occurs before time and space relations.
 Embracing a strong reductionistic view, causality originates at quantum entities level."""@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass of all causal EMMO relations."@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Each pair of entities is either in isCauseOf or isNotCauseOf relation. The two are mutually exclusive."@en .
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Causality in the EMMO is intended as physical causation and not counter-factual. Meaning that causality is an expression of actual physical interactions, and not of a counterfactual depence such as “I didn't water the flowers, hence, I'm the cause of their death”."@en ,
+                                                                                      "Each pair of entities is either in isCauseOf or isNotCauseOf relation. The two are mutually exclusive."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_aef8af39_0a22_4be8_a523_4e47ca36e035
@@ -520,7 +544,7 @@ Embracing a strong reductionistic view, causality originates at quantum entities
                                            rdf:type owl:AsymmetricProperty ;
                                            rdfs:domain :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ;
                                            skos:prefLabel "hasGatheredPart"@en ;
-                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A proper part relation with domain restricted to collections."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A proper part relation with domain restricted to collections."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_cc0df52b_6211_4167_9e22_5cc3ba201bd9
@@ -541,6 +565,7 @@ Embracing a strong reductionistic view, causality originates at quantum entities
                                            rdfs:domain :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d ;
                                            rdfs:range :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d ;
                                            skos:altLabel "alongsideOf" ;
+                                           skos:example "I'm interacting with another tennis player through a ball. Or, two people in a webconference are interacting using a mediator which is the network signal."@en ;
                                            skos:prefLabel "interactsWith"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between two causally reachable entities through a path of contacts relations (i.e. representing physical interactions)."@en .
 
@@ -549,17 +574,16 @@ Embracing a strong reductionistic view, causality originates at quantum entities
 :EMMO_d67ee67e_4fac_4676_82c9_aec361dba698 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_ad0e72fc_dcaa_490d_8371_b4d814dcda2c ;
                                            rdf:type owl:IrreflexiveProperty ;
+                                           skos:example "John yesterday is the cause of John today, is an example of temporal-like causality. The desk supporting my laptop is a space-like causality." ;
                                            skos:prefLabel "isCauseOf"@en ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """We say that an entity causes another if there is a quantum part of the first that is in causal relation with a quantum parts of the second.
 An entity cannot cause itself (causal loops are forbidden) or a part of itself. For this reasons causality between entities excludes reflexivity and prevents them to overlap."""@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The relation between an individuals x and y, that holds if and only if:
-a)  y having a part that is causing an effect on a part of x
-b) y and x non-overlapping"""@en ;
-                                           :EMMO_c6e77b51_681b_4d04_b20d_a08f2b977470 ":isCauseOf owl:propertyDisjointWith :overlaps"@en ;
+a) y having a part that is causing an effect on a part of x
+b) y and x are non-overlapping"""@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Each pair of causally connected entities is either in isDirectCauseOf or isIndirectCauseOf relation. The two are mutually exclusive."@en ,
                                                                                       "It applies to both quantums and macro-entities (entities made of more than one quantum). It is admissible for two entities to be one the cause of the other, excepts when they are both quantums."@en ,
-                                                                                      """The OWL 2 DL version of the EMMO introduces this object property as primitive causal relation. It refers to the macro causality relation mC(x,y), defined in the EMMO FOL version. 
-While the EMMO FOL introduces the quantum causality relation C(x,y) as primitive, the OWL 2 DL version substantially simplifies the theory, neglecting these lower level relations that are well above DL expressivity."""@en .
+                                                                                      "The OWL 2 DL version of the EMMO introduces this object property as primitive causal relation. It refers to the macro causality relation mC(x,y), defined in the EMMO FOL version. While the EMMO FOL introduces the quantum causality relation C(x,y) as primitive, the OWL 2 DL version substantially simplifies the theory, neglecting these lower level relations that are well above DL expressivity."@en .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_d67ee67e_4fac_4676_82c9_aec361dba698 ;
@@ -568,20 +592,13 @@ While the EMMO FOL introduces the quantum causality relation C(x,y) as primitive
    :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin causa (“reason, sake, cause”)."@en
  ] .
 
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_d67ee67e_4fac_4676_82c9_aec361dba698 ;
-   owl:annotatedProperty :EMMO_c6e77b51_681b_4d04_b20d_a08f2b977470 ;
-   owl:annotatedTarget ":isCauseOf owl:propertyDisjointWith :overlaps"@en ;
-   :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Due to the transitivity characteristic of :overlaps subclasses, that makes it a composite property."
- ] .
-
 
 ###  https://w3id.org/emmo#EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6
 :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_3f2e4ac2_8ef3_4a14_b826_60d37f15f8ee ;
                                            rdf:type owl:SymmetricProperty ;
                                            skos:prefLabel "overlaps"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between two entities that share at least one of their parts."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between two individuals representing entities that share at least one of their parts."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
@@ -598,7 +615,16 @@ While the EMMO FOL introduces the quantum causality relation C(x,y) as primitive
                                            rdfs:subPropertyOf :EMMO_49e17ba8_dd17_4c28_b8c8_c8c5d5a9aab9 ,
                                                               :EMMO_c37d451b_e245_439f_bd94_9050e04ec9f7 ,
                                                               <https://w3id.org/emmo#76413949_896c_4363_a955_de4722c6e149> ;
-                                           skos:prefLabel "hasFractionalCollection"@en .
+                                           skos:prefLabel "hasFractionalCollection"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A sub collection realtion where the proper part is cutting members of the collection."@en .
+
+
+###  https://w3id.org/emmo#EMMO_e4f66254_7312_4de5_a86a_6e0808baaaab
+:EMMO_e4f66254_7312_4de5_a86a_6e0808baaaab rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 ;
+                                           rdfs:seeAlso :EMMO_9cb984ca_48ad_4864_b09e_50d3fff19420 ;
+                                           skos:prefLabel "isOvercrossedBy"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The inverse relation for overcrosses."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_ebc9e62c_5dc4_44db_9060_7923740bdf78
@@ -606,7 +632,9 @@ While the EMMO FOL introduces the quantum causality relation C(x,y) as primitive
                                            rdfs:subPropertyOf :EMMO_d67ee67e_4fac_4676_82c9_aec361dba698 ;
                                            rdf:type owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
-                                           skos:prefLabel "isTemporallyBefore"@en .
+                                           skos:prefLabel "isTemporallyBefore"@en ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A relation jointly covered by hasNext and hasSuccessor relations, which are mutually exclusive."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation between entities that are only one-directionally causally connected."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_ec2472ae_cf4a_46a5_8555_1556f5a6c3c5
@@ -627,33 +655,13 @@ While the EMMO FOL introduces the quantum causality relation C(x,y) as primitive
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "In EMMO FOL this is a defined property. In OWL spatial relations are primitive."@en .
 
 
-###  https://w3id.org/emmo#a32021dc_58d8_454b_915d_3951b413b8b7
-:EMMO_a32021dc_58d8_454b_915d_3951b413b8b7 rdf:type owl:ObjectProperty ;
-                                      rdfs:subPropertyOf :EMMO_55354438_7000_4284_b1b9_59d60c2261b9 ,
-                                                         :EMMO_8e742d6f_7fbb_40cf_949b_6806ab0d801f ;
-                                      rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
-                                      owl:propertyDisjointWith <https://w3id.org/emmo#5fa16188_d95b_4dd2_ac63_eae63fe01504> ;
-                                      skos:prefLabel "hasConnectedPortion"@en .
-
-
-###  https://w3id.org/emmo#a8bd7094_6b40_47af_b1f4_a69d81a3afbd
-:EMMO_a8bd7094_6b40_47af_b1f4_a69d81a3afbd rdf:type owl:ObjectProperty ;
-                                      rdfs:subPropertyOf :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 ;
-                                      skos:prefLabel "isPartOf"@en .
-
-
-###  https://w3id.org/emmo#e4f66254_7312_4de5_a86a_6e0808baaaab
-:EMMO_e4f66254_7312_4de5_a86a_6e0808baaaab rdf:type owl:ObjectProperty ;
-                                      rdfs:subPropertyOf :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 ;
-                                      skos:prefLabel "isOvercrossedBy"@en .
-
-
 ###  https://w3id.org/emmo#0528e41d_edd2_49f9_bd2a_aeabdc215515
 <https://w3id.org/emmo#0528e41d_edd2_49f9_bd2a_aeabdc215515> rdf:type owl:ObjectProperty ;
                                                              rdfs:subPropertyOf :EMMO_49e17ba8_dd17_4c28_b8c8_c8c5d5a9aab9 ,
                                                                                 :EMMO_c37d451b_e245_439f_bd94_9050e04ec9f7 ,
                                                                                 <https://w3id.org/emmo#33fd15ab_7662_4cc6_8bf6_988422efc631> ;
-                                                             skos:prefLabel "hasMaximalCollection"@en .
+                                                             skos:prefLabel "hasMultipleMembers"@en ;
+                                                             :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A sub collection realtion where the proper part is fully encompasses some of the members of the collection." .
 
 
 ###  https://w3id.org/emmo#0558e802_46a4_45de_af85_47aff4dc427e
@@ -661,7 +669,8 @@ While the EMMO FOL introduces the quantum causality relation C(x,y) as primitive
                                                              rdfs:subPropertyOf :EMMO_c37d451b_e245_439f_bd94_9050e04ec9f7 ,
                                                                                 <https://w3id.org/emmo#3bd4339b_e01f_43e5_a011_74a4ef3ffa90> ,
                                                                                 <https://w3id.org/emmo#76413949_896c_4363_a955_de4722c6e149> ;
-                                                             skos:prefLabel "hasFractionalMember"@en .
+                                                             skos:prefLabel "hasFractionalMember"@en ;
+                                                             :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between a collection and a non maximal self-connect part of one of its member."@en .
 
 
 ###  https://w3id.org/emmo#3bd4339b_e01f_43e5_a011_74a4ef3ffa90
@@ -669,14 +678,20 @@ While the EMMO FOL introduces the quantum causality relation C(x,y) as primitive
                                                              rdfs:subPropertyOf :EMMO_8e742d6f_7fbb_40cf_949b_6806ab0d801f ,
                                                                                 :EMMO_c37d451b_e245_439f_bd94_9050e04ec9f7 ;
                                                              rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
-                                                             skos:prefLabel "hasSubItem"@en .
+                                                             skos:prefLabel "hasSubItem"@en ;
+                                                             :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A item proper part of a collection."@en .
 
 
 ###  https://w3id.org/emmo#33fd15ab_7662_4cc6_8bf6_988422efc631
 <https://w3id.org/emmo#33fd15ab_7662_4cc6_8bf6_988422efc631> rdf:type owl:ObjectProperty ;
-                                                             rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
-                                                             owl:propertyDisjointWith <https://w3id.org/emmo#76413949_896c_4363_a955_de4722c6e149> ;
-                                                             skos:prefLabel "hasMaximalPart"@en .
+                                                             rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ,
+                                                                                :EMMO_c37d451b_e245_439f_bd94_9050e04ec9f7 ;
+                                                             rdfs:domain :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ;
+                                                             skos:altLabel "hasMaximalPart"@en ;
+                                                             skos:prefLabel "hasMembers"@en ;
+                                                             :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A proper part which is not connected with the rest of the whole."@en ;
+                                                             :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between individuals representing a collection and one or more of its members." ;
+                                                             :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A maximal part is a proper part that is not connected with the rest of the whole."@en .
 
 
 ###  https://w3id.org/emmo#5fa16188_d95b_4dd2_ac63_eae63fe01504
@@ -684,13 +699,17 @@ While the EMMO FOL introduces the quantum causality relation C(x,y) as primitive
                                                              rdfs:subPropertyOf :EMMO_55354438_7000_4284_b1b9_59d60c2261b9 ,
                                                                                 :EMMO_cc0df52b_6211_4167_9e22_5cc3ba201bd9 ;
                                                              rdfs:range :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ;
-                                                             skos:prefLabel "hasScatteredPortion"@en .
+                                                             skos:prefLabel "hasScatteredPortion"@en ;
+                                                             :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between individuals representing an item and one of its not self-connected proper parts."@en .
 
 
 ###  https://w3id.org/emmo#76413949_896c_4363_a955_de4722c6e149
 <https://w3id.org/emmo#76413949_896c_4363_a955_de4722c6e149> rdf:type owl:ObjectProperty ;
                                                              rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
-                                                             skos:prefLabel "hasNonMaximalPart"@en .
+                                                             skos:altLabel "hasNotMaximalPart"@en ;
+                                                             skos:prefLabel "hasPiece"@en ;
+                                                             :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between two individuals representing an entity and a non-maximal proper part, meaning the the latter is connected with the rest of the whole."@en ;
+                                                             :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A non-maximal part is a proper part that is connected with the rest of the whole."@en .
 
 
 #################################################################
@@ -716,13 +735,11 @@ While the EMMO FOL introduces the quantum causality relation C(x,y) as primitive
                                                                                ]
                                                            ] ;
                                            skos:altLabel "CausalChain"@en ,
-                                                         "CausalParticle"@en ,
                                                          "Elementary"@en ;
+                                           skos:example "An electron with at least one causal interaction with another particle."@en ;
                                            skos:prefLabel "CausalPath"@en ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A causal chain is an ordered causal sequence of entities that does not host any bifurcation within itself (a chain). A chain can only be partitioned in time."@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of entities that possess a temporal structure but no spatial structure."@en ;
-                                           skos:example "An electron with at least one causal interaction with another particle."@en ;
-                                           :EMMO_c6e77b51_681b_4d04_b20d_a08f2b977470 "hasTemporalPart min 2 (Elementary or Quantum)"@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The causal path class can be defined univocally in FOL."@en .
 
 [ rdf:type owl:Axiom ;
@@ -730,13 +747,6 @@ While the EMMO FOL introduces the quantum causality relation C(x,y) as primitive
    owl:annotatedProperty skos:altLabel ;
    owl:annotatedTarget "CausalChain"@en ;
    :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Old French chaine, chaene (“chain”), from Latin catēna (“chain”)."@en
- ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 ;
-   owl:annotatedProperty skos:altLabel ;
-   owl:annotatedTarget "CausalParticle"@en ;
-   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin particula (“small part, particle”), diminutive of pars (“part, piece”)."@en
  ] .
 
 [ rdf:type owl:Axiom ;
@@ -756,15 +766,15 @@ While the EMMO FOL introduces the quantum causality relation C(x,y) as primitive
 
 ###  https://w3id.org/emmo#EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31
 :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 rdf:type owl:Class ;
-                                           rdfs:subClassOf _:genid19 ;
+                                           rdfs:subClassOf _:genid17 ;
+                                           skos:example "The collection of users of a particular software, the collection of atoms that have been part of that just dissociated molecule."@en ;
                                            skos:prefLabel "Collection"@en ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """A collection is the concept that complements the item concept, being an entity that possesses at least one part non directly causally connected with the rest.
 A collection can be partitioned in maximally connected items called members. The members are self-connected entities and there is no direct causality relation between them.
 The combination of collection and item concepts is the EMMO mereocausality alternative to set theory. However, two items can be members only if they are non direct causally connected, giving some constraints to a collection definition. For example, two entities which are directly connected cannot be two distinct members, while their interiors (i.e. the entities obtained by removing the layer of parts that provides the causal contact between them) can be."""@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of not direct causally self-connected world entities."@en ;
-                                           skos:example "The collection of users of a particular software, the collection of atoms that have been part of that just dissociated molecule."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of not direct causally self-connected world entities."@en .
 
-_:genid19 rdf:type owl:Restriction ;
+_:genid17 rdf:type owl:Restriction ;
            owl:onProperty :EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4 ;
            owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
            owl:onClass :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de .
@@ -772,7 +782,7 @@ _:genid19 rdf:type owl:Restriction ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid19 ;
+   owl:annotatedTarget _:genid17 ;
    :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Every collection has at least two item members, since a collection of one item is a self-connected entity (and then an item)."@en
  ] .
 
@@ -787,6 +797,8 @@ _:genid19 rdf:type owl:Restriction ;
 ###  https://w3id.org/emmo#EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68
 :EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68 rdf:type owl:Class ;
                                            skos:altLabel "RealParticle"@en ;
+                                           skos:example """From a physics perspective a quantum can be related to smallest identifiable entities, according to the limits imposed by the uncertainty principle in space and time measurements.
+However, the quantum mereotopology approach is not restricted only to physics. For example, in a manpower management ontology, a quantum can stand for an hour (time) of a worker (space) activity."""@en ;
                                            skos:prefLabel "Quantum"@en ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """A quantum is the most fundamental item (both mereologically and causally) and is considered causally self-connected by definition.
 The quantum concept recalls the fact that there is lower epistemological limit to our knowledge of the universe, related to the uncertainity principle.
@@ -795,8 +807,6 @@ Using physics concepts, we can think the quantum as an elementary particle (e.g.
 A quantum stands for an incoming or outcoming real particle in a Feynman diagram."""@en ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The class of entities without proper parts."@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of the mereological and causal fundamental entities."@en ;
-                                           skos:example """From a physics perspective a quantum can be related to smallest identifiable entities, according to the limits imposed by the uncertainty principle in space and time measurements.
-However, the quantum mereotopology approach is not restricted only to physics. For example, in a manpower management ontology, a quantum can stand for an hour (time) of a worker (space) activity."""@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A quantum is the EMMO mereological atomistic and causal reductionistic entity.  To avoid confusion with the concept of atom coming from physics and to underline the causal reductionistic approach, we will use the expression quantum mereology, instead of atomistic mereology."@en .
 
 [ rdf:type owl:Axiom ;
@@ -814,7 +824,17 @@ However, the quantum mereotopology approach is not restricted only to physics. F
                                                                                :EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68
                                                                              )
                                                                ] ;
-                                           skos:prefLabel "CausalParticle"@en .
+                                           skos:prefLabel "CausalParticle"@en ;
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A causal particle represents the most elementary entity in physics, being it a simple state of an elementary particle, called quantum in the EMMO, or a chain of causally connected quanta."@en ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The disjoint union of CausalPath and Quantum classes."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals representing causal particles."@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_52b8a39b_e5ff_46d3_b972_65bc43077a07 ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "CausalParticle"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin particula (“small part, particle”), diminutive of pars (“part, piece”)."@en
+ ] .
 
 
 ###  https://w3id.org/emmo#EMMO_53ed8611_2cd7_4286_9ef0_36572117b963
@@ -824,9 +844,18 @@ However, the quantum mereotopology approach is not restricted only to physics. F
                                                                                :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d
                                                                              )
                                                                ] ;
+                                           skos:example "An atom, a group of persons, a fluid."@en ;
                                            skos:prefLabel "Fusion"@en ;
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A fusion is any entity that is made up of two or more quantum entities, regardless of the fact that they are or not self-connected."@en ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The union of the CausalCluster and CausalStructure classes."@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of all mereological fusions that consist of two or more quantum entities."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals representing mereological fusions consisting of two or more quantum entities."@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_53ed8611_2cd7_4286_9ef0_36572117b963 ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "Fusion"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin fusio, from fundere ‘pour, melt’."@en
+ ] .
 
 
 ###  https://w3id.org/emmo#EMMO_76bd5e44_bf5a_49f9_a517_eea5e8bcbc2d
@@ -836,13 +865,23 @@ However, the quantum mereotopology approach is not restricted only to physics. F
                                                                                :EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac
                                                                              )
                                                                ] ;
-                                           skos:prefLabel "CausalCluster"@en .
+                                           skos:prefLabel "CausalCluster"@en ;
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "With the causal cluster term we address an heterogenous group of entities, which possess the common feature of having at least two causally non connected quanta. It comprises collections (non self-connected entities) and causal systems (entities extended in space)."@en ;
+                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The disjoint union of the CausalSystem and Collection classes."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals representing causal clusters."@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_76bd5e44_bf5a_49f9_a517_eea5e8bcbc2d ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "CausalCluster"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Proto-Germanic *klas-, *klus- (“to clump, lump together”)."@en
+ ] .
 
 
 ###  https://w3id.org/emmo#EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf
 :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf rdf:type owl:Class ;
-                                           rdfs:subClassOf _:genid32 ,
-                                                           _:genid34 ;
+                                           rdfs:subClassOf _:genid33 ,
+                                                           _:genid35 ;
                                            owl:disjointUnionOf ( :EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360
                                                                  :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31
                                                                  :EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68
@@ -855,16 +894,16 @@ The fundamental distinction between world entities is direct causality self-conn
 Void regions do not exist in the EMMO, or in other words there is no spacetime without entities, since space and time are measured quantities following a causality relation between entities (spacetime emerges as relational property not as a self-standing entity).
 Entities are not placed in space or time: space and time are always relative between entities and are measured. In other words, space and time relations originates from causality interactions."""@en ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The disjoint union of the fundamental mereocausal classes of Quantum, CausalPath, CausalSystem and Collection."@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of all the OWL individuals declared by EMMO as standing for world entities."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of all the OWL individuals representing world entities according to EMMO conceptualisation."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """EMMO entities dimensionality is related to their mereocausal structures. From the no-dimensional quantum entity, we introduce time dimension with the elementary concept, and the spacetime with the causal system concept.
 The EMMO conceptualisation does not allow the existence of space without a temporal dimension, the latter coming from a causal relation between entities.
 For this reason, the EMMO entities that are not quantum or elementaries, may be considered to be always spatiotemporal. The EMMO poses no constraints to the number of spatial dimensions for a causal system (except being higher than one)."""@en .
 
-_:genid32 rdf:type owl:Restriction ;
+_:genid33 rdf:type owl:Restriction ;
            owl:onProperty :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
            owl:someValuesFrom :EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68 .
 
-_:genid34 rdf:type owl:Restriction ;
+_:genid35 rdf:type owl:Restriction ;
            owl:onProperty [ owl:inverseOf :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f
                           ] ;
            owl:hasValue :EMMO_08cb807c_e626_447b_863f_e2835540e918 .
@@ -872,14 +911,14 @@ _:genid34 rdf:type owl:Restriction ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid32 ;
+   owl:annotatedTarget _:genid33 ;
    :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Every entity is made of quantum parts. This axiomatisation is the expression of the radical reductionistic approach of the EMMO."@en
  ] .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid34 ;
+   owl:annotatedTarget _:genid35 ;
    :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "All EMMO individuals are part of the most comprehensive entity which is the universe."@en
  ] .
 
@@ -905,7 +944,7 @@ Entities are not placed in space or time: space and time are always relative bet
    owl:annotatedSource :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf ;
    owl:annotatedProperty :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 ;
    owl:annotatedTarget "The disjoint union of the fundamental mereocausal classes of Quantum, CausalPath, CausalSystem and Collection."@en ;
-   :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """World entities can only be items or collections (standing for a collection of causally disconnected items).
+   :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """World entities can be classified in many ways, but one of the more important classification for the EMMO is the one between items (causally self-connected entities) and collections (not causally self-connected entities). 
 A collection cannot be an item and viceversa, representing the fact that a world entity cannot be causally self-connected and non-self connected at the same time."""@en
  ] .
 
@@ -922,9 +961,8 @@ A collection cannot be an item and viceversa, representing the fact that a world
 - is made of at least two quantums (a structure is not a simple entity)
 - all quantum parts form a causally connected graph""" ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The disjoint union of Causal Path and CausalSystem classes." ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals standing for direct causally self-connected world entities." ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """A causal structure expresses itself in time and space thanks to the underlying causality relations between its constituent quantum entities. It must at least provide two temporal parts.
-The unity criterion beyond the definition of a causal structure (the most general concept of structure) is the existence of an undirected causal path between each of its parts.""" .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals representing causally self-connected world entities." ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A causal structure expresses itself in time and space thanks to the underlying causality relations between its constituent quantum entities. It must at least provide two temporal parts. The unity criterion beyond the definition of a causal structure (the most general concept of structure) is the existence of an undirected causal path between each of its parts." .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d ;
@@ -936,10 +974,11 @@ The unity criterion beyond the definition of a causal structure (the most genera
 
 ###  https://w3id.org/emmo#EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac
 :EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac rdf:type owl:Class ;
+                                           skos:example "A electron binded by a nucleus."@en ;
                                            skos:prefLabel "CausalSystem"@en ;
-                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A causal system provides the most general concept of system, being a union of causal structures interacting together. In its most simple form, a causal system is an interlacement of causal paths (the most simple structure type)."@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A non-path causal structure"@en ;
-                                           skos:example "A electron binded by a nucleus."@en .
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """A causal system provides the most general concept of system, being a union of causal structures interacting together. In its most simple form, a causal system is an interlacement of causal paths (the most simple structure type).
+A causal system is always a spatial-like structure, and is represented as a multiple topologically orderable direct acyclic graph, with quanta as nodes and causality relations as edges."""@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals representing a causal system."@en .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac ;
@@ -957,14 +996,15 @@ The unity criterion beyond the definition of a causal structure (the most genera
                                                                              )
                                                                ] ;
                                            skos:altLabel "CausalObject"@en ;
+                                           skos:example "A person life, an interval of a person life. The lifetime of two components, from the production in separate manufacturing lines, their being connected components in a device, including their eparation and decommissioning."@en ;
                                            skos:prefLabel "Item"@en ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """A world entity is direct causally self-connected if any two parts that make up the whole are direct causally connected to each other. In the EMMO, topological connectivity is based on causality.
 All physical objects, i.e. entities whose behaviour is explained by physics laws, are represented only by items. In other words, a physical object part is embedded in a direct causal graph that provides always a path between two of its parts.
 Members of a collection lack such direct causality connection, i.e. they do not constitute a physical object.
-
 Following graph theory concepts, the quantums of an item are all connected together within a network of causal relations, forming a connected causal graph. A collection is then a set of disconnected graphs."""@en ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The disjoint union of Particle and CausalStructure classes."@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals standing for quantum or causally self-connected world entities."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals standing for quantum or causally self-connected world entities."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The concept of self-connectivity is applied using a 4D approach. Given that, the entity made of an electron and a proton that travel, interact, and then depart from each other is an item, since we don't focus only on the beginning or the end stage but to the overall 4D entity, being the interaction the connectivity bridge between the two particles." .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
