@@ -29,13 +29,8 @@
 #    Object Properties
 #################################################################
 
-###  https://w3id.org/emmo#EMMO_66dfec4b_f72b_4631_8dd3_19eb4fdcc769
-:EMMO_66dfec4b_f72b_4631_8dd3_19eb4fdcc769 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b ;
-                                           rdfs:range :EMMO_5eaac623_0f51_4f74_b128_54a11a8dcd7d ;
-                                           skos:prefLabel "hasShape"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A semiotic relation that connects a datum in a dataset to its shape."@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The connection between the datum and its shape is done in a declaration process."@en .
+###  https://w3id.org/emmo#EMMO_60577dea_9019_4537_ac41_80b0fb563d41
+:EMMO_60577dea_9019_4537_ac41_80b0fb563d41 owl:inverseOf :EMMO_61f264fa_1f23_47f0_aa1c_c947d0be56fc .
 
 
 ###  https://w3id.org/emmo#EMMO_6b78c119_f86c_4b5e_ba6c_b42d25a64122
@@ -47,10 +42,35 @@
 
 ###  https://w3id.org/emmo#EMMO_7159549c_16a3_4dd3_b37d_e992ad0b0879
 :EMMO_7159549c_16a3_4dd3_b37d_e992ad0b0879 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b ;
+                                           rdfs:subPropertyOf :EMMO_e58bd4f4_a343_4831_be59_bf753075edb0 ;
                                            owl:inverseOf :EMMO_c58c799e_cc6c_4310_a3f1_78da70705b2a ;
+                                           rdfs:seeAlso :EMMO_c58c799e_cc6c_4310_a3f1_78da70705b2a ;
                                            skos:prefLabel "isDescriptionFor"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A semiotic relation that connects a description to a declared semiotic object in a declaration process."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The inverse relation of hasDescription."@en .
+
+
+###  https://w3id.org/emmo#EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b
+:EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b owl:inverseOf :EMMO_e58bd4f4_a343_4831_be59_bf753075edb0 .
+
+
+###  https://w3id.org/emmo/multiperspective/dataset#EMMO_61f264fa_1f23_47f0_aa1c_c947d0be56fc
+:EMMO_61f264fa_1f23_47f0_aa1c_c947d0be56fc rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_2337e25c_3c60_43fc_a8f9_b11a3f974291 ;
+                                           rdfs:domain :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d ;
+                                           rdfs:range :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b ;
+                                           rdfs:seeAlso :EMMO_60577dea_9019_4537_ac41_80b0fb563d41 ;
+                                           skos:prefLabel "isSignFor"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The inverse relation of hasSign."@en .
+
+
+###  https://w3id.org/emmo/multiperspective/dataset#EMMO_e58bd4f4_a343_4831_be59_bf753075edb0
+:EMMO_e58bd4f4_a343_4831_be59_bf753075edb0 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_61f264fa_1f23_47f0_aa1c_c947d0be56fc ;
+                                           rdfs:domain :EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9 ;
+                                           rdfs:range :EMMO_c9805ac9_a943_4be4_ac4b_6da64ba36c73 ;
+                                           rdfs:seeAlso :EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b ;
+                                           skos:prefLabel "isConventionFor"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The inverse relation of hasConvention."@en .
 
 
 #################################################################
@@ -64,24 +84,15 @@
                                                            ] .
 
 
-###  https://w3id.org/emmo#EMMO_5eaac623_0f51_4f74_b128_54a11a8dcd7d
-:EMMO_5eaac623_0f51_4f74_b128_54a11a8dcd7d rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_92829beb_6ed4_4c88_bbd5_3bc7403e2895 ;
-                                           skos:prefLabel "Shape"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Sequence of dimension individuals describing the shape of a datum."@en ;
-                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A datum representing the temperature on a two-dimensional grid may have a shape that is a sequence of 2 dimension symbols: `[\"x_dimension\", \"y_dimension\"]`."@en ,
-                                                                                      "A datum that represent a list of measured forces during a tensile test may have a shape that is a sequence of 1 dimension symbols, containing the number of measurements. Ex: `[\"number_of_measurements\"]`."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_b4c97fa0_d82c_406a_bda7_597d6e190654
 :EMMO_b4c97fa0_d82c_406a_bda7_597d6e190654 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ;
+                                           rdfs:subClassOf :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d ;
+                                           skos:example """Examples of some Dimension individuals:
+-  'x-dimension': stand for the spatial dimension along the x-direction.
+- 'emergy_dimension': stand for the energy dimension in an energy spectrum.
+- 'number_of_samples': is a countable dimension that may stand for the index of a given sample in a series of samples."""@en ;
                                            skos:prefLabel "Dimension"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbol that stands for a dimension."@en ;
-                                           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """Examples:
-- \"x-dimension\": The spatial dimension along the x-direction.
-- \"emergy-dimension\": The energy dimension in an energy spectrum.
-- \"number_of_samples\": Countable dimension for indexing a given sample in a time-series of dimensions."""@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A sign that stands for a dimension."@en .
 
 
 ###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
