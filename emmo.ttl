@@ -5,9 +5,9 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix bibo: <http://purl.org/ontology/bibo/> .
 @prefix emmo: <https://w3id.org/emmo#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @base <https://w3id.org/emmo#> .
@@ -24,25 +24,25 @@ It provides the connection between the physical world, materials characterisatio
 EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)."""@en ;
                          dcterms:alternative "EMMO"@en ;
                          dcterms:bibliographicCitation "F. A. Zaccarini, C. Masolo, E. Ghedini, and S. Borgo. From Causation (and Parthood) to Time: The Case of EMMO (2023) doi: 10.3233/FAIA231120" ;
-                         dcterms:contributor "Access, DE" ,
-                                             "Fraunhofer IWM, DE" ,
-                                             "Goldbeck Consulting Ltd (UK)" ,
-                                             "SINTEF, NO" ,
-                                             "University of Bologna, IT" ;
+                         dcterms:contributor <https://orcid.org/0009-0007-5850-6628> ,
+                                             <https://orcid.org/0009-0008-8009-5009> ;
                          dcterms:created "2024-03" ;
-                         dcterms:creator "Adham Hashibon" ,
-                                         "Emanuele Ghedini" ,
-                                         "Georg Schmitz" ,
-                                         "Gerhard Goldbeck" ,
-                                         "Jesper Friis" ;
+                         dcterms:creator <https://orcid.org/0000-0002-1560-809X> ,
+                                         <https://orcid.org/0000-0002-4181-2852> ,
+                                         <https://orcid.org/0000-0003-0514-9229> ,
+                                         <https://orcid.org/0000-0003-3805-8761> ,
+                                         <https://orcid.org/0000-0003-4065-9742> ;
                          dcterms:hasFormat <https://www.w3.org/TR/turtle/> ;
                          dcterms:issued "2018-05-03" ;
                          dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                          dcterms:modified "2024-03" ;
                          dcterms:publisher "EMMC ASBL" ;
                          dcterms:title "Elementary Multiperspective Material Ontology (EMMO)"@en ;
+                         dcterms:source "European Commission, Directorate-General for Research and Innovation, Baas, A., What makes a material function? - Let me compute the ways - Modelling in H2020 LEIT-NMBP programme materials and nanotechnology projects -Sixth version - Short version, Baas, A.(editor), Publications Office of the European Union, 2017, https://data.europa.eu/doi/10.2777/404734"@en ;
+                         dcterms:source "CWA 17815, Materials characterisation - Terminology, metadata and classification. Led by EMMC. 2017. https://www.cencenelec.eu/media/CEN-CENELEC/CWAs/ICT/cwa17815.pdf" ;
                          bibo:doi "10.5281/zenodo.6528495" ;
-                         vann:preferredNamespacePrefix "emmo"@en ;
+                         bibo:status "First release candidate for v1.0.0 of the top-level ontology." ;
+                         vann:preferredNamespacePrefix "emmo" ;
                          vann:preferredNamespaceUri "https://w3id.org/emmo" ;
                          rdfs:comment "The EMMO should be reasoned in order to visualize all inferences and class hierarchy in Protege (ctrl+R hotkey).  It is tested with both the HermiT (preferred) and HermiT reasoners."@en ;
                          owl:priorVersion "1.0.0-beta7" ;
@@ -93,15 +93,90 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 
 ###  http://xmlns.com/foaf/0.1/homepage
-<http://xmlns.com/foaf/0.1/homepage> rdf:type owl:AnnotationProperty .
+foaf:homepage rdf:type owl:AnnotationProperty .
 
 
 ###  http://xmlns.com/foaf/0.1/logo
-<http://xmlns.com/foaf/0.1/logo> rdf:type owl:AnnotationProperty .
+foaf:logo rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/name
+foaf:name rdf:type owl:AnnotationProperty .
 
 
 ###  http://xmlns.com/foaf/0.1/page
-<http://xmlns.com/foaf/0.1/page> rdf:type owl:AnnotationProperty .
+foaf:page rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/workplaceHomepage
+foaf:workplaceHomepage rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://xmlns.com/foaf/0.1/Person
+foaf:Person rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://orcid.org/0000-0002-1560-809X
+<https://orcid.org/0000-0002-1560-809X> rdf:type owl:NamedIndividual ,
+                                                 foaf:Person ;
+                                        skos:prefLabel "Jesper Friis" ;
+                                        foaf:name "Jesper Friis" ;
+                                        foaf:workplaceHomepage <https://www.sintef.no/en/> .
+
+
+###  https://orcid.org/0000-0002-4181-2852
+<https://orcid.org/0000-0002-4181-2852> rdf:type owl:NamedIndividual ,
+                                                 foaf:Person ;
+                                        skos:prefLabel "Gerhard Goldbeck" ;
+                                        foaf:name "Gerhard Goldbeck" ;
+                                        foaf:workplaceHomepage <https://materialsmodelling.com/> .
+
+
+###  https://orcid.org/0000-0003-0514-9229
+<https://orcid.org/0000-0003-0514-9229> rdf:type owl:NamedIndividual ,
+                                                 foaf:Person ;
+                                        skos:prefLabel "Adham Hashibon" ;
+                                        foaf:name "Adham Hashibon" ;
+                                        foaf:workplaceHomepage <https://www.ucl.ac.uk/> .
+
+
+###  https://orcid.org/0000-0003-3805-8761
+<https://orcid.org/0000-0003-3805-8761> rdf:type owl:NamedIndividual ,
+                                                 foaf:Person ;
+                                        skos:prefLabel "Emanuele Ghedini" ;
+                                        foaf:name "Emanuele Ghedini" ;
+                                        foaf:workplaceHomepage <https://www.unibo.it/en/> .
+
+
+###  https://orcid.org/0000-0003-4065-9742
+<https://orcid.org/0000-0003-4065-9742> rdf:type owl:NamedIndividual ,
+                                                 foaf:Person ;
+                                        skos:prefLabel "Georg J. Schmitz" ;
+                                        foaf:name "Georg J. Schmitz" .
+
+
+###  https://orcid.org/0009-0007-5850-6628
+<https://orcid.org/0009-0007-5850-6628> rdf:type owl:NamedIndividual ,
+                                                 foaf:Person ;
+                                        skos:prefLabel "Anne de Baas" ;
+                                        foaf:name "Anne de Baas" ;
+                                        foaf:workplaceHomepage <https://materialsmodelling.com/> .
+
+
+###  https://orcid.org/0009-0008-8009-5009
+<https://orcid.org/0009-0008-8009-5009> rdf:type owl:NamedIndividual ,
+                                                 foaf:Person ;
+                                        skos:prefLabel "Francesco A. Zaccarini" ;
+                                        foaf:name "Francesco A. Zaccarini" ;
+                                        foaf:workplaceHomepage <https://www.unibo.it/en/> .
 
 
 ###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
