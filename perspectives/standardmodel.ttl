@@ -45,7 +45,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            owl:disjointUnionOf ( :EMMO_5cc4e111_3eb1_44a3_9369_5af3846cf605
                                                                  :EMMO_b56c3aa6_28e5_4f9b_a4a5_93d8c68e1570
                                                                ) ;
-                                           skos:prefLabel "PhysicallyInteracting"@en ;
+                                           skos:prefLabel "InteractingSystem"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causally bonded system is a system in which there are at least thwo causal paths that are interacting."@en .
 
 
@@ -61,7 +61,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
 
 ###  https://w3id.org/emmo#EMMO_0f19d84e_05b4_47c9_a5de_bb2a913d211b
 :EMMO_0f19d84e_05b4_47c9_a5de_bb2a913d211b rdf:type owl:Class ;
-                                           skos:prefLabel "PhysicallyNonInteracting"@en ;
+                                           skos:prefLabel "NonInteractingSystem"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causal multipath system is a system made of causal paths that are not interacting between each others, or possibly merge and fork."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A physically unbounded system is a combination of decays and/or annihilations, without any space-like interaction between elementary particles."@en .
 
@@ -129,8 +129,9 @@ email: emanuele.ghedini@unibo.it"""@en ,
 
 ###  https://w3id.org/emmo#EMMO_1f2bfb9f_ecc6_46a0_9e41_2d6fcbf59e4b
 :EMMO_1f2bfb9f_ecc6_46a0_9e41_2d6fcbf59e4b rdf:type owl:Class ;
-                                           skos:prefLabel "CausalCollapse"@en ;
-                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A causal collapse is a fundamental interaction that is expressed as a complete bipartite directed graph K(m,n), when m>n."@en .
+                                           rdfs:subClassOf :EMMO_0f19d84e_05b4_47c9_a5de_bb2a913d211b ;
+                                           skos:prefLabel "Collapse"@en ;
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A collapse is a fundamental interaction that is expressed as a complete bipartite directed graph K(m,1) with m>1."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_1f8f92a8_4cc9_4fa3_9b5f_d5af5bab4fd2
@@ -242,7 +243,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                                                  :EMMO_50afa1a9_2c4e_40fd_aa93_0e33511f1f27
                                                                  :EMMO_a9891fff_fa7a_4806_b7bd_786de7358e8d
                                                                ) ;
-                                           skos:prefLabel "FundamentalInteraction"@en ;
+                                           skos:prefLabel "FundamentalParticleProcess"@en ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """A fundamental physical process is made of one or more standard particles as input, and one or more standard particles as output, where each input is direct cause of each output.
 Each fundamental physical phenomena refers to a Feynman diagram, hence is made at least of three standard model particles.
 This requirement implies that a physical phenomena is either a decay, annihilation, interaction, collapse or creation phenomena (fundamental) or a composition of them (non-fundamental)."""@en ;
@@ -258,11 +259,6 @@ This requirement implies that a physical phenomena is either a decay, annihilati
 ###  https://w3id.org/emmo#EMMO_4a465306_cb91_4458_a94a_2d0584d9aa95
 :EMMO_4a465306_cb91_4458_a94a_2d0584d9aa95 rdf:type owl:Class ;
                                            skos:prefLabel "GreenUpAntiQuark"@en .
-
-
-###  https://w3id.org/emmo#EMMO_4bb03d40_78d2_45a4_9cb0_4336c9fc3b70
-:EMMO_4bb03d40_78d2_45a4_9cb0_4336c9fc3b70 rdf:type owl:Class ;
-                                           skos:prefLabel "CausallHairedSystem"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_4cc06415_9c11_4071_b732_fd05ad750f07
@@ -296,15 +292,9 @@ This requirement implies that a physical phenomena is either a decay, annihilati
 
 ###  https://w3id.org/emmo#EMMO_50afa1a9_2c4e_40fd_aa93_0e33511f1f27
 :EMMO_50afa1a9_2c4e_40fd_aa93_0e33511f1f27 rdf:type owl:Class ;
-                                           skos:prefLabel "CausalInteraction"@en ;
-                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A causal interaction is a fundamental causal system that is expressed as a complete bupartite directed graph K(m,n), when m=n."@en .
-
-
-###  https://w3id.org/emmo#EMMO_523f4260_31df_4967_84a6_218fd7d503b1
-:EMMO_523f4260_31df_4967_84a6_218fd7d503b1 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_1f2bfb9f_ecc6_46a0_9e41_2d6fcbf59e4b ;
-                                           skos:prefLabel "QuantumAnnihilation"@en ;
-                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A quantum annihilation is a fundamental causal system that is expressed as a complete bipartite directed graph K(m,1)."@en .
+                                           rdfs:subClassOf :EMMO_09f0ac34_c349_46b5_acf0_0edeae52cca1 ;
+                                           skos:prefLabel "Interaction"@en ;
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A causal interaction is a fundamental causal system that is expressed as a complete bupartite directed graph K(m,n), when m,n>1"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_5293c41e_4bbf_4aaa_8479_efd0737a0e8d
@@ -354,13 +344,6 @@ For example, a path starting from an elementary  photon, then through the electr
                                                                  :EMMO_fbf354a6_a466_4467_9473_a90b68f5d032
                                                                ) ;
                                            skos:prefLabel "CharmAntiQuark"@en .
-
-
-###  https://w3id.org/emmo#EMMO_6fe3d1d5_4107_4a52_b1d0_3b7c4f871159
-:EMMO_6fe3d1d5_4107_4a52_b1d0_3b7c4f871159 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_a9891fff_fa7a_4806_b7bd_786de7358e8d ;
-                                           skos:prefLabel "QuantumDecay"@en ;
-                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A quantum decay is a fundamental causal system that is expressed as a complete bipartite directed graph K(1,n)."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_70a1c163_7436_4ce3_9784_3aab0e62b900
@@ -622,8 +605,9 @@ So, a photon leaving a body is not part of the body as convex system, while a ph
 
 ###  https://w3id.org/emmo#EMMO_a9891fff_fa7a_4806_b7bd_786de7358e8d
 :EMMO_a9891fff_fa7a_4806_b7bd_786de7358e8d rdf:type owl:Class ;
-                                           skos:prefLabel "CausalExpansion"@en ;
-                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A causal expansion is a fundamental causal system that is expressed as a complete bipartite directed graph K(m,n), when m<n."@en .
+                                           rdfs:subClassOf :EMMO_0f19d84e_05b4_47c9_a5de_bb2a913d211b ;
+                                           skos:prefLabel "Decay"@en ;
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A decay is a fundamental particle process that is expressed as a complete bipartite directed graph K(1,n), when n>1."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_ab5ba485_7c16_4c9e_b65e_4cb7560f8e8c
@@ -864,9 +848,6 @@ In the EMMO the virtual particles (off the mass shell), the internal propagators
 ###  https://w3id.org/emmo#EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac
 :EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac owl:disjointUnionOf ( :EMMO_09f0ac34_c349_46b5_acf0_0edeae52cca1
                                                                  :EMMO_0f19d84e_05b4_47c9_a5de_bb2a913d211b
-                                                               ) ,
-                                                               ( :EMMO_4bb03d40_78d2_45a4_9cb0_4336c9fc3b70
-                                                                 :EMMO_a6d8e2e2_5e61_4838_977b_9a5dea421fc1
                                                                ) .
 
 
@@ -1001,4 +982,4 @@ For this reason graviton is an useful concept to homogenize the approach between
                                            skos:prefLabel "GreenAntiQuark"@en .
 
 
-###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
