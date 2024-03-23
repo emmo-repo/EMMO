@@ -61,18 +61,48 @@ email: emanuele.ghedini@unibo.it"""@en ,
 #    Classes
 #################################################################
 
+###  https://w3id.org/emmo#EMMO_0ab0485c_9e5b_4257_a679_90a2dfba5c7c
+:EMMO_0ab0485c_9e5b_4257_a679_90a2dfba5c7c rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_b5957cef_a287_442d_a3ce_fd39f20ba1cd ;
+                                           skos:altLabel "0-manifold"@en ;
+                                           skos:prefLabel "ZeroManifold"@en .
+
+
+###  https://w3id.org/emmo#EMMO_0c576e13_4ee7_4f3d_bfe9_1614243df018
+:EMMO_0c576e13_4ee7_4f3d_bfe9_1614243df018 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_b5957cef_a287_442d_a3ce_fd39f20ba1cd ;
+                                           skos:altLabel "1-manifold"@en ;
+                                           skos:prefLabel "OneManifold"@en .
+
+
 ###  https://w3id.org/emmo#EMMO_0d1c0018_42e2_4506_bc3d_f53c117c1ad3
 :EMMO_0d1c0018_42e2_4506_bc3d_f53c117c1ad3 rdf:type owl:Class ;
+                                           skos:example "A vynil contain continuous information about the recorded sound."@en ;
                                            skos:prefLabel "AnalogData"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data that are decoded retaining its continuous variations characteristic."@en ;
-                                           skos:example "A vynil contain continuous information about the recorded sound."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The fact that there may be a finite granularity in the variations of the material basis (e.g. the smallest peak in a vynil that can be recognized by the piezo-electric transducer) does not prevent a data to be analog. It means only that the focus on such data encoding is on a scale that makes such variations negligible, making them practically a continuum."@en .
+
+
+###  https://w3id.org/emmo#EMMO_0ef4ff4a_5458_4f2a_b51f_4689d472a3f2
+:EMMO_0ef4ff4a_5458_4f2a_b51f_4689d472a3f2 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_0c576e13_4ee7_4f3d_bfe9_1614243df018 ;
+                                           skos:prefLabel "Curve"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a
 :EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a rdf:type owl:Class ;
                                            skos:prefLabel "DataSet"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Encoded data made of more than one datum."@en .
+
+
+###  https://w3id.org/emmo#EMMO_1da53c06_9577_4008_8652_272fa3b62be7
+:EMMO_1da53c06_9577_4008_8652_272fa3b62be7 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_c74da218_9147_4f03_92d1_8894abca55f3 ;
+                                           skos:example """A drawing of a cat.
+A circle on a paper sheet.
+The Mona Lisa."""@en ;
+                                           skos:prefLabel "Pictorial"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Graphical' that stands for a real world object that shows a recognizable pictorial pattern without being necessarily associated to a symbolic language."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_1e877c70_3b01_45a8_a8f6_8ce4f6a24660
@@ -102,6 +132,24 @@ Variations are pure physical variations and do not necessarily possess semantic 
  ] .
 
 
+###  https://w3id.org/emmo#EMMO_25f5ca8e_8f7f_44d8_a392_bd3fe8894458
+:EMMO_25f5ca8e_8f7f_44d8_a392_bd3fe8894458 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_9268958f_7f54_48ab_a693_febe2645892b ;
+                                           skos:prefLabel "Plane"@en .
+
+
+###  https://w3id.org/emmo#EMMO_39362460_2a97_4367_8f93_0418c2ac9a08
+:EMMO_39362460_2a97_4367_8f93_0418c2ac9a08 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_0ab0485c_9e5b_4257_a679_90a2dfba5c7c ;
+                                           skos:prefLabel "Point"@en .
+
+
+###  https://w3id.org/emmo#EMMO_3e309118_e8b7_4021_80f4_642d2df65d94
+:EMMO_3e309118_e8b7_4021_80f4_642d2df65d94 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_0c576e13_4ee7_4f3d_bfe9_1614243df018 ;
+                                           skos:prefLabel "Line"@en .
+
+
 ###  https://w3id.org/emmo#EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490
 :EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 rdf:type owl:Class ;
                                            owl:equivalentClass [ rdf:type owl:Class ;
@@ -126,15 +174,15 @@ Variations are pure physical variations and do not necessarily possess semantic 
                                                                ] ;
                                            rdfs:comment "Data"@en ;
                                            skos:altLabel "EncodedVariation"@en ;
-                                           skos:prefLabel "EncodedData"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causal object whose properties variation are encoded by an agent and that can be decoded by another agent according to a specific rule."@en ;
                                            skos:example """A Radio Morse Code transmission can be addressed by combination of perspectives.
 
 Physicalistic: the electromagnetic pulses can be defined as individual A (of type Field) and the strip of paper coming out a printer receiver can be defined as individual B (of type Matter).
 Data: both A and B are also DiscreteData class individuals. In particular they may belong to a MorseData class, subclass of DiscreteData.
 Perceptual: B is an individual belonging to the graphical entities expressing symbols. In particular is a formula under the MorseLanguage class, made of a combination of . and - symbols.
 Semiotics: A and B can be signs if they refers to something else (e.g. a report about a fact, names)."""@en ,
-                                                                                      "A signal through a cable. A sound wave. Words on a page. The pattern of excited states within a computer RAM."@en ;
+                                                        "A signal through a cable. A sound wave. Words on a page. The pattern of excited states within a computer RAM."@en ;
+                                           skos:prefLabel "EncodedData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causal object whose properties variation are encoded by an agent and that can be decoded by another agent according to a specific rule."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """Variations in data are generated by an agent (not necessarily human) and are intended to be decoded by the same or another agent using the same encoding rules.
 Data are always generated by an agent but not necessarily possess a semantic meaninig, either because it's lost or unknown or because simply they possess none (e.g. a random generation of symbols).
 A data object may be used as the physical basis for a sign, under Semiotics perspective."""@en ,
@@ -158,21 +206,92 @@ We call \"interpreting\" the act of providing semantic meaning to data, which is
  ] .
 
 
+###  https://w3id.org/emmo#EMMO_46f0f8df_4dc6_418f_8036_10427a3a288e
+:EMMO_46f0f8df_4dc6_418f_8036_10427a3a288e rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_b5957cef_a287_442d_a3ce_fd39f20ba1cd ;
+                                           skos:altLabel "3-manifold"@en ;
+                                           skos:prefLabel "ThreeManifold"@en .
+
+
+###  https://w3id.org/emmo#EMMO_4b3afb22_27cf_4ce3_88bc_492bfccb546b
+:EMMO_4b3afb22_27cf_4ce3_88bc_492bfccb546b rdf:type owl:Class ;
+                                           rdfs:comment "'acoustical' refers to the perception mechanism of the observer that can occur through a microphone, a ear."@en ;
+                                           skos:altLabel "Sound"@en ;
+                                           skos:example """When we use the term 'sound' what are we referring to? The EMMO identifis a sound as the physical object that can be heard by the observer (more exactly, by the sensor of the observer). 
+
+In this sense, a sound (which is an acoustical object) is to be identified as the air region that manifests the sound wave and is able to be perceived by an observer. In case the wave is travelling through water or steel, then these other media regions are the sounds.
+
+If the waveform is travelling through a cable as electronic signal (analog or digital) it is no more a sound, since it cannot be perceived by an observer as an acoustical object. This electrical waveform (or digital packet) is another physical that may stand for a sound if interpreted by a device (e.g. an amplifier, a DA converter)."""@en ;
+                                           skos:prefLabel "Auditory"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Perceptual' which stands for a real world object whose spatiotemporal pattern makes it identifiable by an observer as a sound."@en .
+
+
 ###  https://w3id.org/emmo#EMMO_50d6236a_7667_4883_8ae1_9bb5d190423a
 :EMMO_50d6236a_7667_4883_8ae1_9bb5d190423a rdf:type owl:Class ;
+                                           skos:example "A character, a bit, a song in a CD."@en ;
                                            skos:prefLabel "Datum"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A self-consistent encoded data entity."@en ;
-                                           skos:example "A character, a bit, a song in a CD."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A self-consistent encoded data entity."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_5a10e288_c6a5_409a_a16a_98a2fb8be4f3
 :EMMO_5a10e288_c6a5_409a_a16a_98a2fb8be4f3 rdf:type owl:Class ;
                                            skos:altLabel "EnvironmentalData"@en ;
+                                           skos:example "A cloud in the sky. The radiative spectrum of a star."@en ;
                                            skos:prefLabel "NonEncodedData"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data that occurs naturally without an encoding agent producing it."@en ;
-                                           skos:example "A cloud in the sky. The radiative spectrum of a star."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """This is a really broad class that gathers all physical phenomena in which a variation occurs naturally, such as cloud patterns, tree rings, stains.
 It doesn't mean that such variations cannot be used to deduce something: in fact thaty can be seen as indexes (in semiotic sense) of a causally connected pehnomena. Simply, there is no agent behind that variation with the intention to transmit data."""@en .
+
+
+###  https://w3id.org/emmo#EMMO_5f278af9_8593_4e27_a717_ccc9e07a0ddf
+:EMMO_5f278af9_8593_4e27_a717_ccc9e07a0ddf rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_46f0f8df_4dc6_418f_8036_10427a3a288e ;
+                                           skos:prefLabel "EuclideanSpace"@en .
+
+
+###  https://w3id.org/emmo#EMMO_649bf97b_4397_4005_90d9_219755d92e34
+:EMMO_649bf97b_4397_4005_90d9_219755d92e34 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_4b3afb22_27cf_4ce3_88bc_492bfccb546b
+                                                                               :EMMO_8f207971_aaab_48dc_a10d_55a6b4331410
+                                                                               :EMMO_c5ae6d8e_6b39_431f_8de4_ae4e357abc04
+                                                                               :EMMO_dd14d055_2db0_4b81_bc97_ef6c2f72b8a0
+                                                                               :EMMO_e1021593_06da_4237_8a02_29d8f6fef76d
+                                                                             )
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_1e877c70_3b01_45a8_a8f6_8ce4f6a24660 ;
+                                           rdfs:comment """This class is the most general superclass for the categorization of contrasts that are perceivable through a specific human-related perception mechanism. This perspective is based on human characterization of perceptions.
+
+A 'Perceptual' can stand for another object in an EMMO described semiotic process (acting as sign or as object), just like a word on a paper (the perceptual object) may refer semiotically to another object. However, a perceptual is not necessarily a 'Sign' (e.g. a line sketched on a blackboard is a recognizable 'Perceptual' but it may stand for nothing).
+
+A 'Perceptual' becomes a semiotic object, when it is part of a 'Semiotic' process described by the ontologist within the EMMO, and it's done always specifying for which interpreter this relation occurs."""@en ;
+                                           skos:example """A line scratched on a surface.
+A sound.
+A smell.
+The word 'cat' and the sound of the word 'cat' (the first one is graphical and the second acoustical)."""@en ,
+                                                        """The meta-semiotic process:
+I see a cloud in the sky. Since I'm an EMMO ontologist, I create an individual named Cloud under the 'Perceptual' class, meaning that I recognize the cloud as an object thanks to a specific perceptual channel (e.g. through my eyes). This semiotic process occurs at meta-level: it's how I use the EMMO as tool for a direct representation of the world, understandable by others ontologists.
+
+The semiotic process within EMMO:
+My friend looks at the same cloud and says: \"It is an elephant\".
+I use the EMMO to record this experience by declaring:
+    - my friend as MyFriend individual, belonging to 'Interpreter' classes
+    - the sound of the word \"elephant\" as an acoustical perception individual named ElephantWord, belonging to 'Perceptual'
+    - a relation hasSign between Cloud and ElephantWord, that makes ElephantWord also belonging to 'Sign' class and Cloud belonging also to 'Object' class
+    - a 'Semiosis' individual called MyFriendElephantCloud that hasParticipant: Cloud, ElephantWord and MyFriend, respectively as object, sign and interpreter.
+
+So, the Perceptual class is here to categorized real-world objects at meta-level using common perceptual channels, for practical ontology usage.
+
+We could have represented the word \"elephant\" within a physicalistic approach, by identifying it as a pressure wave in the air."""@en ;
+                                           skos:prefLabel "Perceptual"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class constrast individuals standing for entities that can stimulate a perception (e.g. a retina impression) to a human being and that are categorized accordingly to human perception mechanisms."@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_649bf97b_4397_4005_90d9_219755d92e34 ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "Perceptual"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin percipiō, past participle perceptus (“take hold of, obtain, receive, observe”), from per (“by, through”) + capiō (“to take”)."@en
+ ] .
 
 
 ###  https://w3id.org/emmo#EMMO_6fa1feac_c388_44cc_a721_283499d5addc
@@ -185,10 +304,28 @@ It doesn't mean that such variations cannot be used to deduce something: in fact
 :EMMO_70bbb94e_2ca7_4d73_ba01_6397f134d172 rdf:type owl:Class .
 
 
+###  https://w3id.org/emmo#EMMO_86060335_31c2_4820_b433_27c64aea0366
+:EMMO_86060335_31c2_4820_b433_27c64aea0366 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_9268958f_7f54_48ab_a693_febe2645892b ;
+                                           skos:prefLabel "Torus"@en .
+
+
 ###  https://w3id.org/emmo#EMMO_888a5dea_3b7d_4dc0_93f2_d4e345a1f903
 :EMMO_888a5dea_3b7d_4dc0_93f2_d4e345a1f903 rdf:type owl:Class ;
                                            skos:prefLabel "NumericalData"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data that can be decoded under a quantitative schema and also associated with a graphical number symbols."@en .
+
+
+###  https://w3id.org/emmo#EMMO_8f207971_aaab_48dc_a10d_55a6b4331410
+:EMMO_8f207971_aaab_48dc_a10d_55a6b4331410 rdf:type owl:Class ;
+                                           skos:prefLabel "Somatosensory"@en .
+
+
+###  https://w3id.org/emmo#EMMO_9268958f_7f54_48ab_a693_febe2645892b
+:EMMO_9268958f_7f54_48ab_a693_febe2645892b rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_b5957cef_a287_442d_a3ce_fd39f20ba1cd ;
+                                           skos:altLabel "2-manifold"@en ;
+                                           skos:prefLabel "TwoManifold"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_ac1a05c5_0c17_4387_bac0_683f2a86f3ed
@@ -197,13 +334,99 @@ It doesn't mean that such variations cannot be used to deduce something: in fact
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data that are non-quantitatively interpreted (e.g., qualitative data, types)."@en .
 
 
+###  https://w3id.org/emmo#EMMO_b2a234a8_579a_422c_9305_b8f7e72c76cd
+:EMMO_b2a234a8_579a_422c_9305_b8f7e72c76cd rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_0c576e13_4ee7_4f3d_bfe9_1614243df018 ;
+                                           skos:prefLabel "Circle"@en .
+
+
+###  https://w3id.org/emmo#EMMO_b5957cef_a287_442d_a3ce_fd39f20ba1cd
+:EMMO_b5957cef_a287_442d_a3ce_fd39f20ba1cd rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_c5ae6d8e_6b39_431f_8de4_ae4e357abc04 ;
+                                           skos:example """A geometrical object can be expressed in many different forms. 
+
+For example, a line can be expressed by:
+a) an equation like y=mx+q, which is both an 'equation' and a 'geometrical'
+b) a line drawn with a pencil on a paper, which is simply a 'graphical' object
+c) a set of axioms, when the properties of a line are inferred by the interpreter reading them, that are both 'graphical' and also 'formula'
+
+The case a) is a geometrical and mathematical, b) is geometrical and pictorial, while c) is geometrical and a composition of idiomatic strings."""@en ;
+                                           skos:prefLabel "Geometrical"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'graphical' aimed to represent a geometrical concept."@en .
+
+
 ###  https://w3id.org/emmo#EMMO_be8592a7_68d1_4a06_ad23_82f2b56ef926
 :EMMO_be8592a7_68d1_4a06_ad23_82f2b56ef926 rdf:type owl:Class ;
+                                           skos:example "A text is a collection of discrete symbols. A compact disc is designed to host discrete states in the form of pits and lands."@en ;
                                            skos:prefLabel "DiscreteData"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data whose variations are decoded according to a discrete schema."@en ;
-                                           skos:example "A text is a collection of discrete symbols. A compact disc is designed to host discrete states in the form of pits and lands."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """A discrete schema may be based on a continuum material basis that is filtered according to its variations. For example, a continuous voltage based signal can be considered 1 or 0 according to some threshold.
 Discrete does not mean that the material basis is discrete, but that the data are encoded according to such step-based rules."""@en .
+
+
+###  https://w3id.org/emmo#EMMO_c5ae6d8e_6b39_431f_8de4_ae4e357abc04
+:EMMO_c5ae6d8e_6b39_431f_8de4_ae4e357abc04 rdf:type owl:Class ;
+                                           skos:example """A cloud.
+A picture.
+A colour gradient on a wall.
+A stain.
+A mail."""@en ;
+                                           skos:prefLabel "Visual"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Perceptual' which stands for a real world object whose spatiotemporal pattern makes it identifiable by an observer through an optical perception employing the visible part of the electromagnetic spectrum."@en .
+
+
+###  https://w3id.org/emmo#EMMO_c74da218_9147_4f03_92d1_8894abca55f3
+:EMMO_c74da218_9147_4f03_92d1_8894abca55f3 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_c5ae6d8e_6b39_431f_8de4_ae4e357abc04 ;
+                                           rdfs:comment "This concept includes only things that are purposely created by an agent."@en ;
+                                           skos:example "'Graphical' objects include writings, pictures, sketches ..."@en ;
+                                           skos:prefLabel "Graphical"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Perceptual' which stands for a real world object whose spatial configuration is due to an explicit graphical procedure and shows an identifiable pattern."@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_c74da218_9147_4f03_92d1_8894abca55f3 ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "Graphical"@en ;
+   rdfs:comment "The term graphical is used in etymological sense, comprising both writings and visual arts."@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From the Ancient Greek γραφή (graphḗ) which means drawing, painting, writing, a writing, description, and from γράφω (gráphō) which means scratch, carve."@en
+ ] .
+
+
+###  https://w3id.org/emmo#EMMO_ccdc1a41_6e96_416b_92ec_efe67917434a
+:EMMO_ccdc1a41_6e96_416b_92ec_efe67917434a rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_c74da218_9147_4f03_92d1_8894abca55f3 ;
+                                           skos:prefLabel "Document"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An heterogenous object made of different graphical object parts."@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_ccdc1a41_6e96_416b_92ec_efe67917434a ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "Document"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin documentum, from the verb doceō (“teach”) +‎ -mentum."@en
+ ] .
+
+
+###  https://w3id.org/emmo#EMMO_d7bf784a_db94_4dd9_861c_54f262846fbf
+:EMMO_d7bf784a_db94_4dd9_861c_54f262846fbf rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_9268958f_7f54_48ab_a693_febe2645892b ;
+                                           skos:prefLabel "Sphere"@en .
+
+
+###  https://w3id.org/emmo#EMMO_dd14d055_2db0_4b81_bc97_ef6c2f72b8a0
+:EMMO_dd14d055_2db0_4b81_bc97_ef6c2f72b8a0 rdf:type owl:Class ;
+                                           skos:prefLabel "Gustatory"@en .
+
+
+###  https://w3id.org/emmo#EMMO_e1021593_06da_4237_8a02_29d8f6fef76d
+:EMMO_e1021593_06da_4237_8a02_29d8f6fef76d rdf:type owl:Class ;
+                                           skos:prefLabel "Olfactory"@en .
+
+
+###  https://w3id.org/emmo#EMMO_eb7de1a1_c30e_4f0d_94c6_fe70414d7e61
+:EMMO_eb7de1a1_c30e_4f0d_94c6_fe70414d7e61 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_c74da218_9147_4f03_92d1_8894abca55f3 ;
+                                           skos:prefLabel "Representation"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A graphical object aimed to represent schematically the conceptual, tempral or spatial structure of another object." .
 
 
 ###  https://w3id.org/emmo#EMMO_ed257e78_8b59_44c3_9d61_06c261184f55
