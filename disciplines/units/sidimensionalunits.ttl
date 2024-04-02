@@ -12,7 +12,6 @@
 <https://w3id.org/emmo/disciplines/units/sidimensionalunits> rdf:type owl:Ontology ;
                                                               owl:versionIRI <https://w3id.org/emmo/1.0.0-rc1/disciplines/units/sidimensionalunits> ;
                                                               owl:imports <https://w3id.org/emmo/1.0.0-rc1/disciplines/metrology> ;
-                                                              emmo:EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" ;
                                                               dcterms:abstract """The module 'sidimensionalunits' defines SI dimensional unit classes.  These classes provide a categorisation of all units according to their SI physical dimensions.
 
 This module provides a connection between physical quantities defined in the 'isq' modules and the units defined in the 'siunits' and 'unitsextension' modules."""@en ;
@@ -29,7 +28,8 @@ This module provides a connection between physical quantities defined in the 'is
                                                               rdfs:comment """Note: this file has automatically been populated with dimensional units from QUDT.
 
 We kindly acknowledge NIST for reusing their content, including the physical dimensionality of units."""@en ,
-                                                                           "The EMMO should be reasoned with HermiT to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en .
+                                                                           "The EMMO should be reasoned with HermiT to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
+                                                              emmo:EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
 
 #################################################################
 #    Data properties
@@ -38,8 +38,8 @@ We kindly acknowledge NIST for reusing their content, including the physical dim
 ###  https://w3id.org/emmo#EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9
 emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 rdf:type owl:DatatypeProperty ;
                                                rdfs:range xsd:string ;
-                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Relates a SI dimensional unit to a dimension string."@en ;
-                                               skos:prefLabel "hasDimensionString"@en .
+                                               skos:prefLabel "hasDimensionString"@en ;
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Relates a SI dimensional unit to a dimension string."@en .
 
 
 #################################################################
@@ -269,9 +269,9 @@ emmo:EMMO_183f6fac_8543_44e0_bd59_434aa7054f4c rdf:type owl:Class ;
 ###  https://w3id.org/emmo#EMMO_18448443_dcf1_49b8_a321_cf46e2c393e1
 emmo:EMMO_18448443_dcf1_49b8_a321_cf46e2c393e1 rdf:type owl:Class ;
                                                rdfs:subClassOf emmo:EMMO_c2f5ee66_579c_44c6_a2e9_fa2eaa9fa4da ;
-                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Unit for quantities of dimension one that are the fraction of two masses."@en ;
                                                skos:example "Unit for mass fraction."@en ;
-                                               skos:prefLabel "MassFractionUnit"@en .
+                                               skos:prefLabel "MassFractionUnit"@en ;
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Unit for quantities of dimension one that are the fraction of two masses."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_197095a5_6d0c_4747_bcd7_f239203217dc
@@ -997,9 +997,9 @@ emmo:EMMO_6d753e0c_a967_4de4_ad22_c2fecb3913be rdf:type owl:Class ;
 ###  https://w3id.org/emmo#EMMO_6f4d704a_a7c6_4c07_b8a7_ea0bab04128f
 emmo:EMMO_6f4d704a_a7c6_4c07_b8a7_ea0bab04128f rdf:type owl:Class ;
                                                rdfs:subClassOf emmo:EMMO_c2f5ee66_579c_44c6_a2e9_fa2eaa9fa4da ;
-                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Unit for quantities of dimension one that are the fraction of two areas."@en ;
                                                skos:example "Unit for solid angle."@en ;
-                                               skos:prefLabel "AreaFractionUnit"@en .
+                                               skos:prefLabel "AreaFractionUnit"@en ;
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Unit for quantities of dimension one that are the fraction of two areas."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_6f76f9bf_feb3_4e27_9bcb_45b5f3526050
@@ -1445,6 +1445,7 @@ emmo:EMMO_9794a778_47d7_45d5_b4ab_ae6a8db04c78 rdf:type owl:Class ;
 ###  https://w3id.org/emmo#EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc
 emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc rdf:type owl:Class ;
                                                rdfs:subClassOf emmo:EMMO_cbdea88b_fef1_4c7c_b69f_ae1f0f241c4a ;
+                                               skos:prefLabel "SIDimensionalUnit"@en ;
                                                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Dimensional unit with its physical dimensionality described accortind to the International System of Units (SI)."@en ;
                                                emmo:EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """In SI are the physical dimensions of the base quantities time (T), length (L), mass (M), electric current (I), thermodynamic temperature (Θ), amount of substance (N) and luminous intensity (J).
 
@@ -1463,8 +1464,7 @@ Examples of correspondance between dimensional units and their dimensional units
 
 - AmountOfSubstanceUnit <=> \"T0 L0 M0 I0 Θ0 N+1 J0\"
 - TimeUnit <=> \"T+1 L0 M0 I0 Θ0 N0 J0\"
-- ElectricCurrentDensityUnit <=> \"T0 L-2 M0 I+1 Θ0 N0 J0\""""@en ;
-                                               skos:prefLabel "SIDimensionalUnit"@en .
+- ElectricCurrentDensityUnit <=> \"T0 L-2 M0 I+1 Θ0 N0 J0\""""@en .
 
 
 ###  https://w3id.org/emmo#EMMO_9b075686_4ac2_43bb_b2a3_17b3ea24ff17
@@ -1500,8 +1500,8 @@ emmo:EMMO_9cffc70d_4b60_4187_a7cd_706f5740ae87 rdf:type owl:Class ;
 ###  https://w3id.org/emmo#EMMO_9d09022c_e7ae_4379_a765_4803a8a502a1
 emmo:EMMO_9d09022c_e7ae_4379_a765_4803a8a502a1 rdf:type owl:Class ;
                                                rdfs:subClassOf emmo:EMMO_c2f5ee66_579c_44c6_a2e9_fa2eaa9fa4da ;
-                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Unit for quantities of dimension one that are the fraction of two pressures."@en ;
-                                               skos:prefLabel "PressureFractionUnit"@en .
+                                               skos:prefLabel "PressureFractionUnit"@en ;
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Unit for quantities of dimension one that are the fraction of two pressures."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_9f0338b9_326f_44c2_893c_2d815b763130
@@ -1517,9 +1517,9 @@ emmo:EMMO_9f0338b9_326f_44c2_893c_2d815b763130 rdf:type owl:Class ;
 ###  https://w3id.org/emmo#EMMO_9fd1e79d_41d1_44f8_8142_66dbdf0fc7ad
 emmo:EMMO_9fd1e79d_41d1_44f8_8142_66dbdf0fc7ad rdf:type owl:Class ;
                                                rdfs:subClassOf emmo:EMMO_c2f5ee66_579c_44c6_a2e9_fa2eaa9fa4da ;
-                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Unit for quantities of dimension one that are the fraction of two volumes."@en ;
                                                skos:example "Unit for volume fraction."@en ;
-                                               skos:prefLabel "VolumeFractionUnit"@en .
+                                               skos:prefLabel "VolumeFractionUnit"@en ;
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Unit for quantities of dimension one that are the fraction of two volumes."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_a4edc0c9_6d1d_4358_8030_b61db6c84176
@@ -1775,9 +1775,9 @@ emmo:EMMO_cd9ad446_04f7_44ff_b9ea_ae7389574fa6 rdf:type owl:Class ;
 ###  https://w3id.org/emmo#EMMO_cdc962d8_f3ea_4764_a57a_c7caa4859179
 emmo:EMMO_cdc962d8_f3ea_4764_a57a_c7caa4859179 rdf:type owl:Class ;
                                                rdfs:subClassOf emmo:EMMO_c2f5ee66_579c_44c6_a2e9_fa2eaa9fa4da ;
-                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Unit for quantities of dimension one that are the fraction of two lengths."@en ;
                                                skos:example "Unit for plane angle."@en ;
-                                               skos:prefLabel "LengthFractionUnit"@en .
+                                               skos:prefLabel "LengthFractionUnit"@en ;
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Unit for quantities of dimension one that are the fraction of two lengths."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_ce7d4720_aa20_4a8c_93e8_df41a35b6723
@@ -1953,9 +1953,9 @@ emmo:EMMO_e6b83139_ba92_4fbd_a8b2_c8dde55844a1 rdf:type owl:Class ;
 ###  https://w3id.org/emmo#EMMO_e7bc8939_7ff8_4917_beb5_c42730b390f3
 emmo:EMMO_e7bc8939_7ff8_4917_beb5_c42730b390f3 rdf:type owl:Class ;
                                                rdfs:subClassOf emmo:EMMO_c2f5ee66_579c_44c6_a2e9_fa2eaa9fa4da ;
-                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Unit for quantities of dimension one that are the fraction of two speeds."@en ;
                                                skos:example "Unit for refractive index."@en ;
-                                               skos:prefLabel "SpeedFractionUnit"@en .
+                                               skos:prefLabel "SpeedFractionUnit"@en ;
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Unit for quantities of dimension one that are the fraction of two speeds."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_e9348e5b_af4f_4898_bbfe_c4583cf44b80
@@ -2051,9 +2051,9 @@ emmo:EMMO_f6fac54d_6b6d_4255_b217_4363a83f1834 rdf:type owl:Class ;
 ###  https://w3id.org/emmo#EMMO_f76f5a24_d703_4e8c_b368_f9a7777cb73a
 emmo:EMMO_f76f5a24_d703_4e8c_b368_f9a7777cb73a rdf:type owl:Class ;
                                                rdfs:subClassOf emmo:EMMO_c2f5ee66_579c_44c6_a2e9_fa2eaa9fa4da ;
-                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Unit for quantities of dimension one that are the fraction of two amount of substance."@en ;
                                                skos:example "Unit for amount fraction."@en ;
-                                               skos:prefLabel "AmountFractionUnit"@en .
+                                               skos:prefLabel "AmountFractionUnit"@en ;
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Unit for quantities of dimension one that are the fraction of two amount of substance."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_fa9c8c56_314f_4a5a_a71d_bae66446b185
@@ -2086,4 +2086,14 @@ emmo:EMMO_ffbacbc4_c3be_4cc5_9539_94344e72f7a6 rdf:type owl:Class ;
                                                skos:prefLabel "SquarePressurePerSquareTimeUnit"@en .
 
 
-###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
+###  https://w3id.org/emmo/disciplines/units/sidimensionalunits#EMMO_fee2a014_3322_48f9_91ab_d947a6e54556
+:EMMO_fee2a014_3322_48f9_91ab_d947a6e54556 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_19d925d0_2cf1_40e5_a391_1a99d68409c9 ;
+                                                                 owl:hasValue "T0 L-1 M0 I0 Θ0 N0 J0"
+                                                               ] ;
+                                           rdfs:subClassOf emmo:EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc ;
+                                           skos:prefLabel "PerLengthUnit"@en .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

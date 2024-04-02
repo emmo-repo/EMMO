@@ -65,6 +65,15 @@ rdf:JSON rdf:type rdfs:Datatype .
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The owl:dataProperty that provides a serialisation of an EMMO symbol data entity." .
 
 
+###  https://w3id.org/emmo#EMMO_b6292331_94af_4f00_976b_ea55960c2f1c
+:EMMO_b6292331_94af_4f00_976b_ea55960c2f1c rdf:type owl:DatatypeProperty ;
+                                           rdfs:subPropertyOf owl:topDataProperty ;
+                                           rdfs:domain :EMMO_70bbb94e_2ca7_4d73_ba01_6397f134d172 ;
+                                           skos:prefLabel "hasDataValue"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The owl:dataProperty that provides a serialisation of an EMMO data entity." ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This is the superproperty of all data properties used to serialise a fundamental data type in the EMMO Data perspective. An entity can have only one data value expressing its serialisation (e.g. a Real entity cannot have two different real values)." .
+
+
 #################################################################
 #    Classes
 #################################################################
@@ -77,13 +86,13 @@ rdf:JSON rdf:type rdfs:Datatype .
                                                                              )
                                                                ] ;
                                            rdfs:subClassOf :EMMO_be8592a7_68d1_4a06_ad23_82f2b56ef926 ;
-                                           skos:prefLabel "Symbolic"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A discrete data whose elements can be decoded as tokens from one or more alphabets, without necessarily respecting syntactic rules."@en ;
                                            skos:example """fe780
 emmo
 !5*a
 cat
 for(i=0;i<N;++i)"""@en ;
+                                           skos:prefLabel "Symbolic"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A discrete data whose elements can be decoded as tokens from one or more alphabets, without necessarily respecting syntactic rules."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """A symbolic entity is not necessarily graphical (e.g. it doesn't necessarily have the physical shape of a letter), but its elements can be decoded and put in relation with an alphabet.
 In other words, a sequence of bit \"1000010\" in a RAM (a non-graphical entity) is a valid symbol since it can be decoded through ASCII rules as the letter \"B\". The same holds for an entity standing for the sound of a voice saying: \"Hello\", since it can be decomposed in discrete parts, each of them being associated to a letter of an alphabet."""@en ,
                                                                                       """A symbolic object possesses a reductionistic oriented structure.
@@ -204,13 +213,13 @@ For example, text is made of words, spaces and punctuations. Words are made of c
 ###  https://w3id.org/emmo#EMMO_50ea1ec5_f157_41b0_b46b_a9032f17ca10
 :EMMO_50ea1ec5_f157_41b0_b46b_a9032f17ca10 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_89a0c87c_0804_4013_937a_6fe234d9499c ;
-                                           skos:prefLabel "String"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A physical made of more than one symbol sequentially arranged."@en ;
                                            skos:example """The word \"cat\" considered as a collection of 'symbol'-s respecting the rules of english language.
 
 In this example the 'symbolic' entity \"cat\" is not related to the real cat, but it is only a word (like it would be to an italian person that ignores the meaning of this english word).
 
 If an 'interpreter' skilled in english language is involved in a 'semiotic' process with this word, that \"cat\" became also a 'sign' i.e. it became for the 'interpreter' a representation for a real cat."""@en ;
+                                           skos:prefLabel "String"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A physical made of more than one symbol sequentially arranged."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A string is made of concatenated symbols whose arrangement is one-dimensional. Each symbol can have only one previous and one next neighborhood (bidirectional list)."@en ,
                                                                                       "A string is not requested to respect any syntactic rule: it's simply directly made of symbols."@en .
 
@@ -348,9 +357,9 @@ This notation can be extended to multidimensional arrays."""@en .
 :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_057e7d57_aff0_49de_911a_8861d85cef40 ;
                                            skos:altLabel "AlphabeticEntity"@en ;
+                                           skos:example "The class of letter \"A\" is the symbol as idea and the letter A that you see on the screen is the mark that can be represented by an individual belonging to \"A\"."@en ;
                                            skos:prefLabel "Symbol"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals that stand for an elementary mark of a specific symbolic code (alphabet)."@en ;
-                                           skos:example "The class of letter \"A\" is the symbol as idea and the letter A that you see on the screen is the mark that can be represented by an individual belonging to \"A\"."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """Subclasses of 'Symbol' are alphabets, in formal languages terminology. A 'Symbol' is atomic for that alphabet, i.e. it has no parts that are symbols for the same alphabet.
 e.g. a math symbol is not made of other math symbols
 A Symbol may be a String in another language.
