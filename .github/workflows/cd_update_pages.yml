@@ -47,7 +47,10 @@ jobs:
     - name: Generate html documentation
       run: |
         ontodoc --iri-regex=https://w3id.org/emmo --imported emmo.ttl build/emmo.rst
-        sphinx-build build public
+        ls
+        ls build
+        ls public
+        sphinx-build build public/
 
     - name: Publish
       uses: peaceiris/actions-gh-pages@v3
