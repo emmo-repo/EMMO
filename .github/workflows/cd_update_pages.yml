@@ -35,9 +35,10 @@ jobs:
         pip install sphinx git+https://github.com/emmo-repo/EMMOntoPy.git@ontodoc2
         #pip install sphinx EMMOntoPy
 
-    - name: Create working directories
+    - name: Create and prepare build and public directories
       run: |
         mkdir build public
+        if [ -d doc/_static ]; then cp -rf doc/_static/* build/. ; fi
 
     - name: Create ontologies for publishing
       run: |
@@ -57,9 +58,13 @@ jobs:
         ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
         ssh-strict: no
 
+    - name: Copy to GitHub Pages
+      run: |
+        rm public/index.html
+        cp -rf public/* pages/.
+
     - name: Push to GitHub Pages
       run: |
-        cp -rf public/* pages/.
         cd pages
         git config --global user.email "emmo@emmc.eu"
         git config --global user.name "EMMO Developer"
@@ -69,6 +74,7 @@ jobs:
           git pull origin master; \
           git push origin master; \
         fi
+
 
     #- name: Publish
     #  uses: peaceiris/actions-gh-pages@v3
