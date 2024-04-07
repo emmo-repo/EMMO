@@ -5,8 +5,10 @@ on:
     branches:
       - '[0-9]+.[0-9]+.[0-9]+'
       - '[0-9]+.[0-9]+.[0-9]+-*'
-      - update_pages
-      - fix-github-workflow
+
+env:
+  GIT_USER_NAME: EMMO Developers
+  GIT_USER_EMAIL: "emmo@emmc.eu"
 
 jobs:
 
@@ -14,48 +16,71 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-    - name: Setup git identity
+    - name: Debug info
       run: |
-        git config --global user.email "emmo.github.action@github.com"
-        git config --global user.name "EMMO GitHub Action"
+        echo "GITHUB_REF_NAME=${GITHUB_REF_NAME}"
 
     - name: Setup Python 3.11
       uses: actions/setup-python@v5
       with:
         python-version: 3.11
 
-    - name: Debug info
-      run: |
-        echo "GITHUB_REF_NAME=${GITHUB_REF_NAME}"
-
-    - name: Install EMMO-python
+    - name: Install dependencies
       run: |
         pip install --upgrade pip
-        pip install EMMOntoPy
+        pip install EMMOntoPy sphinx
 
-    - name: Install pandoc 2.1.2
+    - name: Create working directories
       run: |
-        #sudo apt-get install pandoc  # we need v2.1.2
-        wget https://github.com/jgm/pandoc/releases/download/2.1.2/pandoc-2.1.2-1-amd64.deb
-        sudo apt-get install ./pandoc-2.1.2-1-amd64.deb
+        mkdir build public
 
-    - name: Install other dependencies
+    - name: Create ontologies for publishing
       run: |
-        sudo apt-get install graphviz
-        sudo apt-get install texlive-xetex
-        sudo apt-get install texlive-latex-extra
-        pip install semver
+        ontoconvert -sawe --base-iri="https://w3id.org/emmo#" --iri=https://w3id.org/emmo emmo.ttl public/emmo.ttl
+        ontoconvert public/emmo.ttl public/emmo.owl
 
-    - name: Checkout GitHub Pages for EMMO-repo
-      uses: actions/checkout@v4
+    - name: Generate html documentation
+      run: |
+        ontodoc --iri-regex=https://w3id.org/emmo --imported emmo.ttl build/emmo.rst
+        sphinx-build build public
+
+    - name: Publish
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == 'refs/heads/master'
       with:
-        repository: emmo-repo/emmo-repo.github.io
-        path: ".github/pages"
-        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
-        ssh-strict: no
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public
+        keep_files: true
+        external_repository: emmo-repo emmo-repo.github.io
 
-    - name: Update GitHub Pages
-      run: |
-        .github/scripts/update_pages.sh -v -V ${GITHUB_REF_NAME}
+        #publish_branch: master
+        #force_orphan: true
+
+
+#    - name: Install pandoc 2.1.2
+#      run: |
+#        #sudo apt-get install pandoc  # we need v2.1.2
+#        wget https://github.com/jgm/pandoc/releases/download/2.1.2/pandoc-2.1.2-1-amd64.deb
+#        sudo apt-get install ./pandoc-2.1.2-1-amd64.deb
+#
+#    - name: Install other dependencies
+#      run: |
+#        sudo apt-get install graphviz
+#        sudo apt-get install texlive-xetex
+#        sudo apt-get install texlive-latex-extra
+#        pip install semver
+#
+#    - name: Checkout GitHub Pages for EMMO-repo
+#      uses: actions/checkout@v4
+#      with:
+#        repository: emmo-repo/emmo-repo.github.io
+#        path: ".github/pages"
+#        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+#        ssh-strict: no
+#
+#    - name: Update GitHub Pages
+#      run: |
+#        .github/scripts/update_pages.sh -v -V ${GITHUB_REF_NAME}
