@@ -47,9 +47,6 @@ jobs:
     - name: Generate html documentation
       run: |
         ontodoc --iri-regex=https://w3id.org/emmo --imported emmo.ttl build/emmo.rst
-        ls -LR
-        cat build/conf.py
-        sphinx-build --version
         sphinx-build "build/" "public/"
 
     - name: Publish
@@ -58,8 +55,8 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./public
-        keep_files: true
-        external_repository: emmo-repo emmo-repo.github.io
+        #keep_files: true
+        #external_repository: emmo-repo emmo-repo.github.io
 
         #publish_branch: master
         #force_orphan: true
