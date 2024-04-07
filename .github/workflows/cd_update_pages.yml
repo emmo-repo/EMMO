@@ -32,7 +32,8 @@ jobs:
     - name: Install dependencies
       run: |
         pip install --upgrade pip
-        pip install sphinx git+https://github.com/emmo-repo/EMMOntoPy.git@ontodoc2
+        pip install sphinx sphinxcontrib-globalsubs sphinx_design nbsphinx
+        pip install git+https://github.com/emmo-repo/EMMOntoPy.git@ontodoc2
         #pip install sphinx EMMOntoPy
 
     - name: Create and prepare build and public directories
@@ -60,6 +61,7 @@ jobs:
 
     - name: Copy to GitHub Pages
       run: |
+        # Do not overwrite index.html
         rm public/index.html
         cp -rf public/* pages/.
 
