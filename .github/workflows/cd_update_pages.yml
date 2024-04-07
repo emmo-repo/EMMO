@@ -61,6 +61,8 @@ jobs:
       run: |
         cp -rf public/* pages/.
         cd pages
+        git config --global user.email "emmo@emmc.eu"
+        git config --global user.name "EMMO Developer"
         git add --all
         if [ -n "$(git status --porcelain -uno)" ]; then \
           git commit -m 'Updated releasetable'; \
