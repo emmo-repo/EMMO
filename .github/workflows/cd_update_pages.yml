@@ -49,9 +49,16 @@ jobs:
         ontodoc --iri-regex=https://w3id.org/emmo --imported emmo.ttl build/emmo.rst
         sphinx-build "build/" "public/"
 
-    - name: Publish to GitHub Pages
+    - name: Checkout GitHub Pages for EMMO-repo
+      uses: actions/checkout@v4
+      with:
+        repository: emmo-repo/emmo-repo.github.io
+        path: pages
+        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        ssh-strict: no
+
+    - name: Push to GitHub Pages
       run: |
-        git clone git@github.com:emmo-repo/emmo-repo.github.io.git pages
         cp -rf public/* pages/.
         cd pages
         git add --all
