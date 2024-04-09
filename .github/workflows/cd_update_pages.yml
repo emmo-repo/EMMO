@@ -65,6 +65,9 @@ jobs:
         rm public/index.html
         cp -rf public/* pages/.
 
+      # Domain repositories can use peaceiris/actions-gh-pages@v3.
+      # However, since EMMO for historical reasons uses a separate repo
+      # for its GitHub Pages, it is easier to use git directly.
     - name: Push to GitHub Pages
       run: |
         cd pages
