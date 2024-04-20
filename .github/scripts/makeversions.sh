@@ -93,7 +93,8 @@ while read version name; do
             "$src" "$d/emmo.owl"
     fi
 
-    # Generate inferred ontology
+    # Generate inferred ontology (may fail)
+    set +e
     if $remake || [ ! -f "$d/emmo-inferred.ttl" ]; then
         echo "Generate inferred ontology"
         #ontoconvert -i HermiT -wsa "$d/emmo.ttl" "$d/emmo-inferred.ttl"
@@ -102,6 +103,7 @@ while read version name; do
     if $remake || [ ! -f "$d/emmo-inferred.owl" ]; then
         ontoconvert -w "$d/emmo-inferred.ttl" "$d/emmo-inferred.owl"
     fi
+    set -e
 
     # Generate renamed ontology
     #if $remake || [ ! -f "$d/emmo-renamed.owl" ]; then
