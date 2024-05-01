@@ -32,9 +32,6 @@ if not int(rdflib.__version__.split('.')[0]) >= 5:
 #world = World(filename='periodictable.sqlite3')
 world = World()
 chemistry = world.get_ontology(os.path.join(thisdir, 'chemistry.ttl')).load()
-perceptual = world.get_ontology(
-    os.path.join(thisdir, '../perspectives/perceptual.ttl')
-).load()
 #emmo_middle.sync_python_names()
 
 # Create new ontology
@@ -42,7 +39,6 @@ onto = world.get_ontology('https://w3id.org/emmo/disciplines/periodictable#')
 onto.iri = 'https://w3id.org/emmo/disciplines/periodictable'
 onto.base_iri = 'https://w3id.org/emmo#'
 onto.prefix = 'emmo'
-onto.imported_ontologies.append(perceptual)
 onto.imported_ontologies.append(chemistry)
 onto.sync_python_names()
 

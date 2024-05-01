@@ -10,7 +10,8 @@
 
 <https://w3id.org/emmo/disciplines/chemistry> rdf:type owl:Ontology ;
                                                owl:versionIRI <https://w3id.org/emmo/1.0.0-rc1/disciplines/chemistry> ;
-                                               owl:imports <https://w3id.org/emmo/1.0.0-rc1/disciplines/isq> ;
+                                               owl:imports <https://w3id.org/emmo/1.0.0-rc1/disciplines/perceptual> ,
+                                                           <https://w3id.org/emmo/1.0.0-rc1/disciplines/isq> ;
                                                dcterms:abstract "The chemistry module populates the physicalistic perspective with materials subclasses categorised according to modern applied chemistry."@en ;
                                                dcterms:contributor "Access, DE" ,
                                                                    "Fraunhofer IWM, DE" ,
@@ -40,7 +41,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
 #    Annotation properties
 #################################################################
 
-###  https://w3id.org/emmo/disciplines/chemistry#EMMO_2856bbc2_96e1_485b_b5f8_2fdfcb0c9b92
+###  https://w3id.org/emmo#EMMO_2856bbc2_96e1_485b_b5f8_2fdfcb0c9b92
 :EMMO_2856bbc2_96e1_485b_b5f8_2fdfcb0c9b92 rdf:type owl:AnnotationProperty ;
                                            rdfs:seeAlso "https://inchi.info/inchikey_overview_en.html"^^xsd:anyURI ;
                                            skos:prefLabel "inchiKey"@en ;
@@ -49,7 +50,7 @@ email: emanuele.ghedini@unibo.it"""@en ,
                                            rdfs:subPropertyOf rdfs:seeAlso .
 
 
-###  https://w3id.org/emmo/disciplines/chemistry#EMMO_2e0b0f1b_ba90_4827_af5a_92b826cb90de
+###  https://w3id.org/emmo#EMMO_2e0b0f1b_ba90_4827_af5a_92b826cb90de
 :EMMO_2e0b0f1b_ba90_4827_af5a_92b826cb90de rdf:type owl:AnnotationProperty ;
                                            rdfs:seeAlso "http://opensmiles.org/opensmiles.html"^^xsd:anyURI ;
                                            skos:prefLabel "smileReference"@en ;
@@ -100,13 +101,11 @@ email: emanuele.ghedini@unibo.it"""@en ,
 
 
 ###  https://w3id.org/emmo#EMMO_21205421_5783_4d3e_81e5_10c5d894a88a
-:EMMO_21205421_5783_4d3e_81e5_10c5d894a88a skos:example "Hydrogen molecule is an adequate definition of a certain molecular entity for some purposes, whereas for others it is necessary to distinguish the electronic state and/or vibrational state and/or nuclear spin, etc. of the hydrogen molecule." ,
-                                                                                      "Methane, may mean a single molecule of CH4 (molecular entity) or a molar amount, specified or not (chemical species), participating in a reaction. The degree of precision necessary to describe a molecular entity depends on the context." ;
-                                           rdfs:comment """Molecular entity is used as a general term for singular entities, irrespective of their nature, while chemical species stands for sets or ensembles of molecular entities.
+:EMMO_21205421_5783_4d3e_81e5_10c5d894a88a rdfs:comment """Molecular entity is used as a general term for singular entities, irrespective of their nature, while chemical species stands for sets or ensembles of molecular entities.
 
 Note that the name of a compound may refer to the respective molecular entity or to the chemical species,""" ;
                                            skos:example "Hydrogen molecule is an adequate definition of a certain molecular entity for some purposes, whereas for others it is necessary to distinguish the electronic state and/or vibrational state and/or nuclear spin, etc. of the hydrogen molecule." ,
-                                                                                      "Methane, may mean a single molecule of CH4 (molecular entity) or a molar amount, specified or not (chemical species), participating in a reaction. The degree of precision necessary to describe a molecular entity depends on the context." .
+                                                        "Methane, may mean a single molecule of CH4 (molecular entity) or a molar amount, specified or not (chemical species), participating in a reaction. The degree of precision necessary to describe a molecular entity depends on the context." .
 
 
 ###  https://w3id.org/emmo#EMMO_26586828_3b8c_4d8b_9c6c_0bc2502f26ae
@@ -122,16 +121,16 @@ Note that the name of a compound may refer to the respective molecular entity or
                                                              owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
                                                              owl:someValuesFrom :EMMO_4f40def1_3cd7_4067_9596_541e9a5134cf
                                                            ] ;
+                                           skos:example "Hydrogen peroxide is H2O2" ;
                                            skos:prefLabel "MolecularFormula"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An expression that provides information about the element types that constiture a molecule or a molecular substance and their number." ;
-                                           skos:example "Hydrogen peroxide is H2O2" .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An expression that provides information about the element types that constiture a molecule or a molecular substance and their number." .
 
 
 ###  https://w3id.org/emmo#EMMO_436b11bd_1756_4821_9f14_c9ed6b67552e
 :EMMO_436b11bd_1756_4821_9f14_c9ed6b67552e rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_df96cbb6_b5ee_4222_8eab_b3675df24bea ;
                                            skos:altLabel "PureSubstance"@en ;
-                                           skos:prefLabel "ElementalSubstance" ;
+                                           skos:prefLabel "ElementalSubstance"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A chemical substance composed of atoms with the same number of protons in the atomic nucleus." ;
                                            :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.C01022" .
 
@@ -187,9 +186,9 @@ This qualifies a chemical element as a name and not a matter obejct that can sta
 ###  https://w3id.org/emmo#EMMO_6afdb7e8_2a0b_444d_bde3_8d67d98180c0
 :EMMO_6afdb7e8_2a0b_444d_bde3_8d67d98180c0 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_9236d0aa_cb39_43a1_bbdd_6a2a714951c8 ;
+                                           skos:example "Hydrogen peroxide is HO" ;
                                            skos:prefLabel "EmpiricalFormula"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An expression that provide information about the element type of a compound and their relative ratio." ;
-                                           skos:example "Hydrogen peroxide is HO" .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An expression that provide information about the element type of a compound and their relative ratio." .
 
 
 ###  https://w3id.org/emmo#EMMO_704630b8_fee3_49b9_baca_40e2dd276370
@@ -303,12 +302,9 @@ This qualifies a chemical element as a name and not a matter obejct that can sta
 ###  https://w3id.org/emmo#EMMO_bf836c2b_7800_474d_b674_f5d629fa0bb1
 :EMMO_bf836c2b_7800_474d_b674_f5d629fa0bb1 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_9236d0aa_cb39_43a1_bbdd_6a2a714951c8 ;
-                                           skos:prefLabel "CondensedFormula"@en ;
-                                           skos:example "An expression that provides information about the element types that constiture a molecule or a molecular substance and their number, together with simple information about the connectivity of its groups by using parenthesis or by goruping element names according to its molecular structure." .
+                                           skos:example "An expression that provides information about the element types that constiture a molecule or a molecular substance and their number, together with simple information about the connectivity of its groups by using parenthesis or by goruping element names according to its molecular structure." ;
+                                           skos:prefLabel "CondensedFormula"@en .
 
-
-###  https://w3id.org/emmo#EMMO_c74da218_9147_4f03_92d1_8894abca55f3
-:EMMO_c74da218_9147_4f03_92d1_8894abca55f3 rdf:type owl:Class .
 
 
 ###  https://w3id.org/emmo#EMMO_cbcf8fe6_6da6_49e0_ab4d_00f737ea9689
@@ -334,12 +330,13 @@ Sodium Chloride""" ;
 Chemical species is the macroscopic equivalent of molecular entity and refers to sets or ensembles of molecular entities.""" ;
                                            :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.CT06859" .
 
+
 ###  https://w3id.org/emmo#EMMO_d2a47cd8_662f_438f_855a_b4378eb992ff
 :EMMO_d2a47cd8_662f_438f_855a_b4378eb992ff rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_643d99dd_fae6_4121_a76f_47f486a4480b ;
+                                           skos:example "Water is 7732-18-5" ;
                                            skos:prefLabel "CASRN"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Chemical Abstact Service registry number for a chemical substance from the American Chemical Society" ;
-                                           skos:example "Water is 7732-18-5" .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Chemical Abstact Service registry number for a chemical substance from the American Chemical Society" .
 
 
 ###  https://w3id.org/emmo#EMMO_d357e0dd_3497_4590_af6f_7954db7fecf7
@@ -383,9 +380,6 @@ Chemical species is the macroscopic equivalent of molecular entity and refers to
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Chemical_compound" .
 
 
-###  https://w3id.org/emmo#EMMO_eb7de1a1_c30e_4f0d_94c6_fe70414d7e61
-:EMMO_eb7de1a1_c30e_4f0d_94c6_fe70414d7e61 rdf:type owl:Class .
-
 
 ###  https://w3id.org/emmo#EMMO_ecc4efe9_77a2_47e3_8190_f9a883d54ac6
 :EMMO_ecc4efe9_77a2_47e3_8190_f9a883d54ac6 rdf:type owl:Class ;
@@ -394,4 +388,4 @@ Chemical species is the macroscopic equivalent of molecular entity and refers to
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A representation of objects belonging to the chemistry field." .
 
 
-###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
