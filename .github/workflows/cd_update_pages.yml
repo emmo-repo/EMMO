@@ -45,6 +45,8 @@ jobs:
       run: |
         ontoconvert -sawe --base-iri="https://w3id.org/emmo#" --iri=https://w3id.org/emmo emmo.ttl public/emmo.ttl
         ontoconvert public/emmo.ttl public/emmo.owl
+        ontoconvert --reasoner=Pellet public/emmo.ttl public/emmo-inferred.ttl
+        ontoconvert public/emmo-inferred.ttl public/emmo-inferred.owl
 
     - name: Generate html documentation
       run: |
