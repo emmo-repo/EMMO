@@ -33,7 +33,7 @@ jobs:
       run: |
         pip install --upgrade pip
         pip install sphinx sphinxcontrib-globalsubs sphinx_design nbsphinx pydata-sphinx-theme
-        pip install git+https://github.com/emmo-repo/EMMOntoPy.git@ontodoc2
+        pip install git+https://github.com/emmo-repo/EMMOntoPy.git@master
         #pip install sphinx EMMOntoPy
 
     - name: Create and prepare build and public directories
@@ -45,6 +45,8 @@ jobs:
       run: |
         ontoconvert -sawe --base-iri="https://w3id.org/emmo#" --iri=https://w3id.org/emmo emmo.ttl public/emmo.ttl
         ontoconvert public/emmo.ttl public/emmo.owl
+        ontoconvert --reasoner=Pellet public/emmo.ttl public/emmo-inferred.ttl
+        ontoconvert public/emmo-inferred.ttl public/emmo-inferred.owl
 
     - name: Generate html documentation
       run: |
