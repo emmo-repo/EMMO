@@ -7,7 +7,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <https://w3id.org/emmo#> .
+@base <https://w3id.org/emmo/disciplines/units/coherentsiunits#> .
 
 <https://w3id.org/emmo/disciplines/units/coherentsiunits> rdf:type owl:Ontology ;
                                                            owl:versionIRI <https://w3id.org/emmo/1.0.0-rc1/disciplines/units/coherentsiunits> ;
@@ -16,17 +16,25 @@
                                                            dcterms:contributor <https://orcid.org/0000-0001-8869-3718> ,
                                                                                <https://orcid.org/0000-0002-4181-2852> ,
                                                                                <https://orcid.org/0000-0002-8758-6109> ;
-                                                           dcterms:creator <https://orcid.org/0000-0003-3805-8761> ,
-                                                                           <https://orcid.org/0000-0002-1560-809X> ;
+                                                           dcterms:creator <https://orcid.org/0000-0002-1560-809X> ,
+                                                                           <https://orcid.org/0000-0003-3805-8761> ;
                                                            dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                                            dcterms:publisher <https://emmc.eu> ;
                                                            dcterms:title "Coherent SI units"@en ;
-                                                           :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" ;
                                                            rdfs:comment """Note: this file has automatically been populated with units from QUDT.
 
 We kindly acknowledge NIST for reusing their content, including the selection of units, their elucidations and conversion multiplier."""@en ,
                                                                         "The EMMO should be reasoned with HermiT to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                                           owl:versionInfo "1.0.0-rc1" .
+                                                           owl:versionInfo "1.0.0-rc1" ;
+                                                           :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  https://w3id.org/emmo/disciplines/units/coherentsiunits#EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17
+:EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 rdf:type owl:AnnotationProperty .
+
 
 #################################################################
 #    Classes
@@ -143,12 +151,12 @@ emmo:AmperePerSquareMetreSquareKelvin rdf:type owl:Class ;
                                                       ] ;
                                       rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
                                       rdfs:seeAlso "http://www.iso.org/iso/catalogue_detail?csnumber=31897" ;
-                                      skos:altLabel "Ampere per Square Metre Square Kelvin"@en ;
                                       skos:prefLabel "AmperePerSquareMetreSquareKelvin"@en ;
                                       emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/A-PER-M2-K2" ;
                                       emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "A.m-2.K-2" ,
                                                                                      "A/(m2.K2)" ;
-                                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "A/m²⋅k²" .
+                                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "A/m²⋅k²" ;
+                                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Ampere per square metre and square Kelvin."@en .
 
 
 ###  https://w3id.org/emmo#AmpereSecond
@@ -313,12 +321,12 @@ emmo:BecquerelPerSquareMetre rdf:type owl:Class ;
                                                owl:hasValue "0.0"^^xsd:double
                                              ] ;
                              rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                             skos:altLabel "Becquerel per Square Metre"@en ;
                              skos:prefLabel "BecquerelPerSquareMetre"@en ;
                              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/BQ-PER-M2" ;
                              emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Bq.m-2" ,
                                                                             "Bq/m2" ;
-                             emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Bq/m²" .
+                             emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Bq/m²" ;
+                             emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Becquerel per square metre."@en .
 
 
 ###  https://w3id.org/emmo#BecquerelSecondPerCubicMetre
@@ -334,14 +342,11 @@ emmo:BecquerelSecondPerCubicMetre rdf:type owl:Class ;
                                                     owl:hasValue "0.0"^^xsd:double
                                                   ] ;
                                   rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                                  skos:altLabel "Becquerels second per cubic metre"@en ;
                                   skos:prefLabel "BecquerelSecondPerCubicMetre" ;
                                   emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/BQ-SEC-PER-M3" ;
                                   emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Bq.s.m-3" ;
                                   emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Bq⋅s/m³" ;
-                                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """TBD
-
--- QUDT"""@en .
+                                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Becquerels second per cubic metre."@en .
 
 
 ###  https://w3id.org/emmo#CandelaPerLumen
@@ -357,10 +362,10 @@ emmo:CandelaPerLumen rdf:type owl:Class ;
                                        owl:hasValue "0.0"^^xsd:double
                                      ] ;
                      rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                     skos:altLabel "Candela per Lumen"@en ;
                      skos:prefLabel "CandelaPerLumen"@en ;
                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/CD-PER-LM" ;
-                     emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "cd/lm" .
+                     emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "cd/lm" ;
+                     emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Candela per Lumen."@en .
 
 
 ###  https://w3id.org/emmo#CandelaPerSquareMetre
@@ -665,11 +670,11 @@ emmo:CubicMetrePerCoulomb rdf:type owl:Class ;
                                           ] ;
                           rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
                           rdfs:seeAlso "http://www.iso.org/iso/catalogue_detail?csnumber=31897" ;
-                          skos:altLabel "Cubic Metre per Coulomb"@en ;
                           skos:prefLabel "CubicMetrePerCoulomb"@en ;
                           emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M3-PER-C" ;
                           emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m3.C-1" ;
-                          emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m³/C" .
+                          emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m³/C" ;
+                          emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Cubic metre per Coulomb."@en .
 
 
 ###  https://w3id.org/emmo#CubicMetrePerCubicMetre
@@ -690,7 +695,7 @@ emmo:CubicMetrePerCubicMetre rdf:type owl:Class ;
                              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M3-PER-M3" ;
                              emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m3.m-3" ;
                              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m³/m³" ;
-                             emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """power of the SI base unit metre with the exponent 3 divided by the power of the SI base unit metre with the exponent 3
+                             emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Power of the SI base unit metre with the exponent 3 divided by the power of the SI base unit metre with the exponent 3.
 
 -- QUDT"""@en .
 
@@ -708,11 +713,11 @@ emmo:CubicMetrePerKelvin rdf:type owl:Class ;
                                            owl:hasValue "0.0"^^xsd:double
                                          ] ;
                          rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                         skos:altLabel "Cubic Metre per Kelvin"@en ;
                          skos:prefLabel "CubicMetrePerKelvin"@en ;
                          emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M3-PER-K" ;
                          emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m3.K-1" ;
-                         emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m³/K" .
+                         emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m³/K" ;
+                         emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Cubic metre per Kelvin."@en .
 
 
 ###  https://w3id.org/emmo#CubicMetrePerKilogram
@@ -752,13 +757,13 @@ emmo:CubicMetrePerKilogramSquareSecond rdf:type owl:Class ;
                                                          owl:hasValue "0.0"^^xsd:double
                                                        ] ;
                                        rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                                       skos:altLabel "Cubic Metre per Kilogram Square Second"@en ;
                                        skos:prefLabel "CubicMetrePerKilogramSquareSecond" ;
                                        emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M3-PER-KiloGM-SEC2" ;
                                        emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m3.(kg.s2)-1" ,
                                                                                       "m3.kg-1.s-2" ,
                                                                                       "m3/(kg.s2)" ;
-                                       emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m³/(kg⋅s²)" .
+                                       emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m³/(kg⋅s²)" ;
+                                       emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Cubic metre per kilogram and square second."@en .
 
 
 ###  https://w3id.org/emmo#CubicMetrePerMole
@@ -1216,11 +1221,11 @@ emmo:JoulePerKilogramKelvinCubicMetre rdf:type owl:Class ;
                                                         owl:hasValue "0.0"^^xsd:double
                                                       ] ;
                                       rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                                      skos:altLabel "Joule per Kilogram Kelvin Cubic Metre"@en ;
                                       skos:prefLabel "JoulePerKilogramKelvinCubicMetre" ;
                                       emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/J-PER-KiloGM-K-M3" ;
                                       emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "J.kg-1.K.m-3" ;
-                                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "J/(kg⋅K⋅m³)" .
+                                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "J/(kg⋅K⋅m³)" ;
+                                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Joule per kilogram and Kelvin and cubic metre."@en .
 
 
 ###  https://w3id.org/emmo#JoulePerKilogramKelvinPerPascal
@@ -1236,11 +1241,11 @@ emmo:JoulePerKilogramKelvinPerPascal rdf:type owl:Class ;
                                                        owl:hasValue "0.0"^^xsd:double
                                                      ] ;
                                      rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                                     skos:altLabel "Joule per Kilogram Kelvin per Pascal"@en ;
                                      skos:prefLabel "JoulePerKilogramKelvinPerPascal" ;
                                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/J-PER-KiloGM-K-PA" ;
                                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "J.kg-1.K-1.Pa-1" ;
-                                     emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "J/(kg⋅K⋅Pa)" .
+                                     emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "J/(kg⋅K⋅Pa)" ;
+                                     emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Joule per kilogram and Kelvin and Pascal."@en .
 
 
 ###  https://w3id.org/emmo#JoulePerMetre
@@ -1256,12 +1261,12 @@ emmo:JoulePerMetre rdf:type owl:Class ;
                                      owl:hasValue "0.0"^^xsd:double
                                    ] ;
                    rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                   skos:altLabel "Joule Per Metre"@en ;
                    skos:prefLabel "JoulePerMetre"@en ;
                    emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/J-PER-M" ;
                    emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "J.m-1" ,
                                                                   "J/m" ;
-                   emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "J/m" .
+                   emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "J/m" ;
+                   emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Joule per metre."@en .
 
 
 ###  https://w3id.org/emmo#JoulePerMole
@@ -1478,11 +1483,11 @@ emmo:JouleSquareMetre rdf:type owl:Class ;
                                         owl:hasValue "0.0"^^xsd:double
                                       ] ;
                       rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                      skos:altLabel "Joule Square Metre"@en ;
                       skos:prefLabel "JouleSquareMetre"@en ;
                       emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/J-M2" ;
                       emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "J.m2" ;
-                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "J⋅m²" .
+                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "J⋅m²" ;
+                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Joule square metre."@en .
 
 
 ###  https://w3id.org/emmo#JouleSquareMetrePerKilogram
@@ -1498,11 +1503,11 @@ emmo:JouleSquareMetrePerKilogram rdf:type owl:Class ;
                                                    owl:hasValue "0.0"^^xsd:double
                                                  ] ;
                                  rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                                 skos:altLabel "Joule Square Metre per Kilogram"@en ;
                                  skos:prefLabel "JouleSquareMetrePerKilogram" ;
                                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/J-M2-PER-KiloGM" ;
                                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "J.m2.kg-1" ;
-                                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "j⋅m²/kg" .
+                                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "j⋅m²/kg" ;
+                                 emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Joule square metre per kilogram."@en .
 
 
 ###  https://w3id.org/emmo#KelvinMetre
@@ -1518,11 +1523,11 @@ emmo:KelvinMetre rdf:type owl:Class ;
                                    owl:hasValue "0.0"^^xsd:double
                                  ] ;
                  rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                 skos:altLabel "Kelvin metres"@en ;
                  skos:prefLabel "KelvinMetre" ;
                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/K-M" ;
                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "K.m" ;
-                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "K⋅m" .
+                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "K⋅m" ;
+                 emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Kelvin metre."@en .
 
 
 ###  https://w3id.org/emmo#KelvinMetrePerSecond
@@ -1538,11 +1543,11 @@ emmo:KelvinMetrePerSecond rdf:type owl:Class ;
                                             owl:hasValue "0.0"^^xsd:double
                                           ] ;
                           rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                          skos:altLabel "Kelvin metres per second"@en ;
                           skos:prefLabel "KelvinMetrePerSecond" ;
                           emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/K-M-PER-SEC" ;
                           emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "K.m.s-1" ;
-                          emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "K⋅m/s" .
+                          emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "K⋅m/s" ;
+                          emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Kelvin metre per second."@en .
 
 
 ###  https://w3id.org/emmo#KelvinMetrePerWatt
@@ -1582,11 +1587,11 @@ emmo:KelvinPascalPerSecond rdf:type owl:Class ;
                                              owl:hasValue "0.0"^^xsd:double
                                            ] ;
                            rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                           skos:altLabel "Kelvin Pascals per second"@en ;
                            skos:prefLabel "KelvinPascalPerSecond" ;
                            emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/K-PA-PER-SEC" ;
                            emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "K.Pa.s-1" ;
-                           emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "K⋅Pa/s" .
+                           emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "K⋅Pa/s" ;
+                           emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Kelvin Pascal per second."@en .
 
 
 ###  https://w3id.org/emmo#KelvinPerKelvin
@@ -1743,11 +1748,11 @@ emmo:KelvinSecond rdf:type owl:Class ;
                                     owl:hasValue "0.0"^^xsd:double
                                   ] ;
                   rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                  skos:altLabel "Kelvin second"@en ;
                   skos:prefLabel "KelvinSecond"@en ;
                   emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/K-SEC" ;
                   emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "K.s" ;
-                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "K⋅s" .
+                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "K⋅s" ;
+                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Kelvin second."@en .
 
 
 ###  https://w3id.org/emmo#KelvinSquareMetrePerKilogramPerSecond
@@ -1763,11 +1768,11 @@ emmo:KelvinSquareMetrePerKilogramPerSecond rdf:type owl:Class ;
                                                              owl:hasValue "0.0"^^xsd:double
                                                            ] ;
                                            rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                                           skos:altLabel "Kelvin square metres per kilogram per second"@en ;
                                            skos:prefLabel "KelvinSquareMetrePerKilogramPerSecond" ;
                                            emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/K-M2-PER-KiloGM-SEC" ;
                                            emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "K.m2.kg-1.s-1" ;
-                                           emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "K⋅m²/(kg⋅s)" .
+                                           emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "K⋅m²/(kg⋅s)" ;
+                                           emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Kelvin square metres per kilogram and second."@en .
 
 
 ###  https://w3id.org/emmo#LumenPerWatt
@@ -1852,11 +1857,11 @@ emmo:MetreKilogram rdf:type owl:Class ;
                                      owl:hasValue "0.0"^^xsd:double
                                    ] ;
                    rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                   skos:altLabel "Metre Kilogram"@en ;
                    skos:prefLabel "MetreKilogram"@en ;
                    emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M-KiloGM" ;
                    emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m.kg" ;
-                   emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m⋅kg" .
+                   emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m⋅kg" ;
+                   emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Kilogram metre."@en .
 
 
 ###  https://w3id.org/emmo#MetrePerFarad
@@ -1872,11 +1877,11 @@ emmo:MetrePerFarad rdf:type owl:Class ;
                                      owl:hasValue "0.0"^^xsd:double
                                    ] ;
                    rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                   skos:altLabel "Metre per Farad"@en ;
                    skos:prefLabel "MetrePerFarad"@en ;
                    emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M-PER-FARAD" ;
                    emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m.F-1" ;
-                   emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m/f" .
+                   emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m/f" ;
+                   emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Metre per Farad."@en .
 
 
 ###  https://w3id.org/emmo#MetrePerKelvin
@@ -1892,11 +1897,11 @@ emmo:MetrePerKelvin rdf:type owl:Class ;
                                       owl:hasValue "0.0"^^xsd:double
                                     ] ;
                     rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                    skos:altLabel "Metre per Kelvin"@en ;
                     skos:prefLabel "MetrePerKelvin"@en ;
                     emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M-PER-K" ;
                     emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m/K" ;
-                    emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m/k" .
+                    emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m/k" ;
+                    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Metre per Kelvin."@en .
 
 
 ###  https://w3id.org/emmo#MetrePerSecond
@@ -2147,11 +2152,11 @@ emmo:MolePerSquareMetrePerSecondPerMetre rdf:type owl:Class ;
                                                            owl:hasValue "0.0"^^xsd:double
                                                          ] ;
                                          rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                                         skos:altLabel "Moles per square metre per second per metre"@en ;
                                          skos:prefLabel "MolePerSquareMetrePerSecondPerMetre" ;
                                          emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MOL-PER-M2-SEC-M" ;
                                          emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mol.m-2.s-1.m-1" ;
-                                         emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mol/(m²⋅s⋅m)" .
+                                         emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mol/(m²⋅s⋅m)" ;
+                                         emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Moles per square metre and second and metre."@en .
 
 
 ###  https://w3id.org/emmo#MolePerSquareMetrePerSecondPerMetrePerSteradian
@@ -2167,11 +2172,11 @@ emmo:MolePerSquareMetrePerSecondPerMetrePerSteradian rdf:type owl:Class ;
                                                                        owl:hasValue "0.0"^^xsd:double
                                                                      ] ;
                                                      rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                                                     skos:altLabel "Moles per square metre per second per metre per steradian"@en ;
                                                      skos:prefLabel "MolePerSquareMetrePerSecondPerMetrePerSteradian" ;
                                                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MOL-PER-M2-SEC-M-SR" ;
                                                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mol.m-2.s-1.m-1.sr-1" ;
-                                                     emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mol/(m²⋅s⋅m⋅sr)" .
+                                                     emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mol/(m²⋅s⋅m⋅sr)" ;
+                                                     emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Moles per square metre per second per metre per steradian."@en .
 
 
 ###  https://w3id.org/emmo#MolePerSquareMetrePerSecondPerSteradian
@@ -2187,11 +2192,11 @@ emmo:MolePerSquareMetrePerSecondPerSteradian rdf:type owl:Class ;
                                                                owl:hasValue "0.0"^^xsd:double
                                                              ] ;
                                              rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                                             skos:altLabel "Moles per square metre per second per steradian"@en ;
                                              skos:prefLabel "MolePerSquareMetrePerSecondPerSteradian" ;
                                              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MOL-PER-M2-SEC-SR" ;
                                              emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mol.m-2.s-1.sr-1" ;
-                                             emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mol/(m²⋅s⋅sr)" .
+                                             emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mol/(m²⋅s⋅sr)" ;
+                                             emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Moles per square metre per second per steradian."@en .
 
 
 ###  https://w3id.org/emmo#NewtonMetre
@@ -2296,10 +2301,10 @@ emmo:NewtonMetrePerMetrePerRadian rdf:type owl:Class ;
                                                     owl:hasValue "0.0"^^xsd:double
                                                   ] ;
                                   rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                                  skos:altLabel "Newton Metre per Metre per Radians"@en ;
                                   skos:prefLabel "NewtonMetrePerMetrePerRadian" ;
                                   emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/N-M-PER-M-RAD" ;
-                                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "N⋅m/(m⋅rad)" .
+                                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "N⋅m/(m⋅rad)" ;
+                                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Newton metre per metre and radian."@en .
 
 
 ###  https://w3id.org/emmo#NewtonMetrePerRadian
@@ -2474,11 +2479,11 @@ emmo:NewtonPerCubicMetre rdf:type owl:Class ;
                                            owl:hasValue "0.0"^^xsd:double
                                          ] ;
                          rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                         skos:altLabel "Newtons per cubic metre"@en ;
                          skos:prefLabel "NewtonPerCubicMetre" ;
                          emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/N-PER-M3" ;
                          emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "N.m-3" ;
-                         emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "N/m³" .
+                         emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "N/m³" ;
+                         emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Newton per cubic metre."@en .
 
 
 ###  https://w3id.org/emmo#NewtonPerKilogram
@@ -2678,10 +2683,10 @@ emmo:NewtonSquareMetre rdf:type owl:Class ;
                                          owl:hasValue "0.0"^^xsd:double
                                        ] ;
                        rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                       skos:altLabel "Newton Square Metre"@en ;
                        skos:prefLabel "NewtonSquareMetre"@en ;
                        emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/N-M2" ;
-                       emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "N⋅m²" .
+                       emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "N⋅m²" ;
+                       emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Newton square metre."@en .
 
 
 ###  https://w3id.org/emmo#NewtonSquareMetrePerAmpere
@@ -2697,12 +2702,12 @@ emmo:NewtonSquareMetrePerAmpere rdf:type owl:Class ;
                                                   owl:hasValue "0.0"^^xsd:double
                                                 ] ;
                                 rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                                skos:altLabel "Newton Metre Squared per Ampere"@en ;
                                 skos:prefLabel "NewtonSquareMetrePerAmpere"@en ;
                                 emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/N-M2-PER-A" ;
                                 emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "N.m2.A-1" ,
                                                                                "N.m2/A" ;
-                                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "N⋅m²/A" .
+                                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "N⋅m²/A" ;
+                                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Newton metre squared per Ampere."@en .
 
 
 ###  https://w3id.org/emmo#NewtonSquareMetrePerSquareKilogram
@@ -2742,11 +2747,11 @@ emmo:OhmMetre rdf:type owl:Class ;
                               ] ;
               rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
               rdfs:seeAlso "http://www.iso.org/iso/catalogue_detail?csnumber=31897" ;
-              skos:altLabel "Ohm Metre"@en ;
               skos:prefLabel "OhmMetre"@en ;
               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/OHM-M" ;
               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Ohm.m" ;
-              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Ω⋅m" .
+              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Ω⋅m" ;
+              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Ohm metre."@en .
 
 
 ###  https://w3id.org/emmo#OhmSquareMetrePerMetre
@@ -2762,11 +2767,11 @@ emmo:OhmSquareMetrePerMetre rdf:type owl:Class ;
                                               owl:hasValue "0.0"^^xsd:double
                                             ] ;
                             rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                            skos:altLabel "Ohm Square Metre per Metre"@en ;
                             skos:prefLabel "OhmSquareMetrePerMetre"@en ;
                             emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/OHM-M2-PER-M" ;
                             emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Ohm2.m.m-1" ;
-                            emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Ω⋅m²/m" .
+                            emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Ω⋅m²/m" ;
+                            emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Ohm square metre per metre."@en .
 
 
 ###  https://w3id.org/emmo#PascalCubicMetrePerSecond
@@ -2805,11 +2810,11 @@ emmo:PascalMetre rdf:type owl:Class ;
                                    owl:hasValue "0.0"^^xsd:double
                                  ] ;
                  rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                 skos:altLabel "Pascal metres"@en ;
                  skos:prefLabel "PascalMetre" ;
                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PA-M" ;
                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Pa.m" ;
-                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Pa⋅m" .
+                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Pa⋅m" ;
+                 emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Pascal metre."@en .
 
 
 ###  https://w3id.org/emmo#PascalMetrePerSecond
@@ -2825,11 +2830,11 @@ emmo:PascalMetrePerSecond rdf:type owl:Class ;
                                             owl:hasValue "0.0"^^xsd:double
                                           ] ;
                           rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                          skos:altLabel "Pascal metres per second"@en ;
                           skos:prefLabel "PascalMetrePerSecond" ;
                           emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PA-M-PER-SEC" ;
                           emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Pa.m.s-1" ;
-                          emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Pa⋅m/s" .
+                          emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Pa⋅m/s" ;
+                          emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Pascal metre per second."@en .
 
 
 ###  https://w3id.org/emmo#PascalMetrePerSquareSecond
@@ -2845,11 +2850,11 @@ emmo:PascalMetrePerSquareSecond rdf:type owl:Class ;
                                                   owl:hasValue "0.0"^^xsd:double
                                                 ] ;
                                 rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                                skos:altLabel "Pascal metres per square second"@en ;
                                 skos:prefLabel "PascalMetrePerSquareSecond" ;
                                 emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PA-M-PER-SEC2" ;
                                 emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Pa.m.s-2" ;
-                                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Pa⋅m/s²" .
+                                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Pa⋅m/s²" ;
+                                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Pascal metre per square second."@en .
 
 
 ###  https://w3id.org/emmo#PascalPerKelvin
@@ -2865,11 +2870,11 @@ emmo:PascalPerKelvin rdf:type owl:Class ;
                                        owl:hasValue "0.0"^^xsd:double
                                      ] ;
                      rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                     skos:altLabel "Pascal per Kelvin"@en ;
                      skos:prefLabel "PascalPerKelvin"@en ;
                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PA-PER-K" ;
                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Pa.K-1" ;
-                     emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "P/K" .
+                     emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "P/K" ;
+                     emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Pascal per Kelvin."@en .
 
 
 ###  https://w3id.org/emmo#PascalPerMetre
@@ -2991,6 +2996,559 @@ emmo:PascalSecondPerMetre rdf:type owl:Class ;
 -- QUDT"""@en .
 
 
+###  https://w3id.org/emmo#PerCubicMetre
+emmo:PerCubicMetre rdf:type owl:Class ;
+                   rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                   emmo:EMMO_95a9bf22_eabc_4a84_863d_9ea398c8a52e ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                     owl:hasValue "1.0"^^xsd:double
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                     owl:hasValue "0.0"^^xsd:double
+                                   ] ;
+                   rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                   skos:altLabel "Reciprocal Cubic Metre"@en ;
+                   skos:prefLabel "PerCubicMetre"@en ;
+                   emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-M3" ;
+                   emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "/m3" ,
+                                                                  "m-3" ;
+                   emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/m³" ;
+                   emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Per Cubic Meter\" is a denominator unit with dimensions /m³.
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#PerCubicMetreSecond
+emmo:PerCubicMetreSecond rdf:type owl:Class ;
+                         rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                         emmo:EMMO_43e499a1_ca67_4380_ac08_cfc52a93ad04 ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                           owl:hasValue "1.0"^^xsd:double
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                           owl:hasValue "0.0"^^xsd:double
+                                         ] ;
+                         rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                         skos:prefLabel "PerCubicMetreSecond"@en ;
+                         emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-M3-SEC" ;
+                         emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m-3.s-1" ;
+                         emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/(m³⋅s)" ;
+                         emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Per cubic metre and second."@en .
+
+
+###  https://w3id.org/emmo#PerHenry
+emmo:PerHenry rdf:type owl:Class ;
+              rdfs:subClassOf emmo:EMMO_07f571cd_252b_4421_8f98_94b6690d2ab9 ,
+                              emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                owl:hasValue "1.0"^^xsd:double
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                owl:hasValue "0.0"^^xsd:double
+                              ] ;
+              rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+              skos:altLabel "ReciprocalHenry"@en ;
+              skos:prefLabel "PerHenry"@en ;
+              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-H" ;
+              emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "H-1" ;
+              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/H" ;
+              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Reciprocal Henry."@en .
+
+
+###  https://w3id.org/emmo#PerJouleCubicMetre
+emmo:PerJouleCubicMetre rdf:type owl:Class ;
+                        rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                        emmo:EMMO_2a068ad0_582c_4f50_90d2_89d9e28977c1 ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                          owl:hasValue "1.0"^^xsd:double
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                          owl:hasValue "0.0"^^xsd:double
+                                        ] ;
+                        rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                        rdfs:seeAlso "http://www.iso.org/iso/catalogue_detail?csnumber=31897" ;
+                        skos:prefLabel "PerJouleCubicMetre"@en ;
+                        emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-J-M3" ;
+                        emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "J-1.m-3" ;
+                        emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/(J⋅m³)" ;
+                        emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Per Joule cubic metre."@en .
+
+
+###  https://w3id.org/emmo#PerKelvin
+emmo:PerKelvin rdf:type owl:Class ;
+               rdfs:subClassOf emmo:EMMO_02a935c8_c2d4_4a00_bd6f_b89d05aac79e ,
+                               emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                 owl:hasValue "1.0"^^xsd:double
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                 owl:hasValue "0.0"^^xsd:double
+                               ] ;
+               rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+               skos:altLabel "Reciprocal Kelvin"@en ;
+               skos:prefLabel "PerKelvin"@en ;
+               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-K" ;
+               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "K-1" ;
+               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/K" ;
+               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Per Kelvin Unit is a denominator unit with dimensions /K.
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#PerMetre
+emmo:PerMetre rdf:type owl:Class ;
+              rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                              emmo:EMMO_608a1b30_df6f_4bbb_9dc3_5c0de92fd9cf ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                owl:hasValue "1.0"^^xsd:double
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                owl:hasValue "0.0"^^xsd:double
+                              ] ;
+              rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+              skos:altLabel "Reciprocal metre"@en ;
+              skos:prefLabel "PerMetre"@en ;
+              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-M" ;
+              emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "/m" ,
+                                                             "m-1" ;
+              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/m" ;
+              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Per Meter Unit is a denominator unit with dimensions /m.
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#PerMetreKelvin
+emmo:PerMetreKelvin rdf:type owl:Class ;
+                    rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                    emmo:EMMO_61eec472_f9af_4861_bedd_d741f022a7e5 ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                      owl:hasValue "1.0"^^xsd:double
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                      owl:hasValue "0.0"^^xsd:double
+                                    ] ;
+                    rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                    skos:altLabel "ReciprocalMetreKelvin"@en ;
+                    skos:prefLabel "PerMetreKelvin"@en ;
+                    emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-M-K" ;
+                    emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m-1.K-1" ;
+                    emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/(m⋅K)" ;
+                    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Per Meter Kelvin Unit is a denominator unit with dimensions /m.k.
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#PerMetreSecond
+emmo:PerMetreSecond rdf:type owl:Class ;
+                    rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                    emmo:EMMO_9f0338b9_326f_44c2_893c_2d815b763130 ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                      owl:hasValue "1.0"^^xsd:double
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                      owl:hasValue "0.0"^^xsd:double
+                                    ] ;
+                    rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                    skos:altLabel "ReciprocalMetreSecond"@en ;
+                    skos:prefLabel "PerMetreSecond"@en ;
+                    emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-M-SEC" ;
+                    emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m-1.s-1" ;
+                    emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/(m⋅s)" ;
+                    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Per metre and second."@en .
+
+
+###  https://w3id.org/emmo#PerMetreSteradian
+emmo:PerMetreSteradian rdf:type owl:Class ;
+                       rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                       emmo:EMMO_608a1b30_df6f_4bbb_9dc3_5c0de92fd9cf ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                         owl:hasValue "1.0"^^xsd:double
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                         owl:hasValue "0.0"^^xsd:double
+                                       ] ;
+                       rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                       skos:altLabel "ReciprocalMetreSteradian"@en ;
+                       skos:prefLabel "PerMetreSteradian"@en ;
+                       emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-M-SR" ;
+                       emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m-1.sr-1" ;
+                       emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/(m⋅sr)" ;
+                       emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Per metre and steradian."@en .
+
+
+###  https://w3id.org/emmo#PerMole
+emmo:PerMole rdf:type owl:Class ;
+             rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                             emmo:EMMO_af24ae20_8ef2_435a_86a1_2ea44488b318 ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                               owl:hasValue "1.0"^^xsd:double
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                               owl:hasValue "0.0"^^xsd:double
+                             ] ;
+             rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+             skos:altLabel "ReciprocalMole"@en ;
+             skos:prefLabel "PerMole"@en ;
+             emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-MOL" ;
+             emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mol-1" ;
+             emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/mol" ;
+             emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Per Mole Unit is a denominator unit with dimensions mol⁻¹.
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#PerPascal
+emmo:PerPascal rdf:type owl:Class ;
+               rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                               emmo:EMMO_2a068ad0_582c_4f50_90d2_89d9e28977c1 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                 owl:hasValue "1.0"^^xsd:double
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                 owl:hasValue "0.0"^^xsd:double
+                               ] ;
+               rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+               skos:altLabel "ReciprocalPascal"@en ;
+               skos:prefLabel "PerPascal"@en ;
+               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-PA" ;
+               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Pa-1" ;
+               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/Pa" ;
+               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Per Pascal."@en ;
+               emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Pascal?oldid=492989202" .
+
+
+###  https://w3id.org/emmo#PerPascalSecond
+emmo:PerPascalSecond rdf:type owl:Class ;
+                     rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                     emmo:EMMO_2f31340f_59ca_4a57_8513_269837af3796 ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                       owl:hasValue "1.0"^^xsd:double
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                       owl:hasValue "0.0"^^xsd:double
+                                     ] ;
+                     rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                     skos:altLabel "PerPascalSecond"@en ;
+                     skos:prefLabel "PerPascalSecond"@en ;
+                     emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-PA-SEC" ;
+                     emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Pa-1.s-1" ;
+                     emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/(Pa⋅s)" ;
+                     emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Per Pascal and Second."@en .
+
+
+###  https://w3id.org/emmo#PerSecond
+emmo:PerSecond rdf:type owl:Class ;
+               rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                               emmo:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                 owl:hasValue "1.0"^^xsd:double
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                 owl:hasValue "0.0"^^xsd:double
+                               ] ;
+               rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+               skos:altLabel "ReciprocalSecond"@en ;
+               skos:prefLabel "PerSecond"@en ;
+               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-SEC" ;
+               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "/s" ,
+                                                              "s-1" ;
+               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/s" ;
+               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A reciprical unit of time for `reciprocal second` or `inverse second`. The `Per Second` is a unit of rate.
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#PerSecondSquareMetre
+emmo:PerSecondSquareMetre rdf:type owl:Class ;
+                          rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                          emmo:EMMO_9b075686_4ac2_43bb_b2a3_17b3ea24ff17 ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                            owl:hasValue "1.0"^^xsd:double
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                            owl:hasValue "0.0"^^xsd:double
+                                          ] ;
+                          rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                          skos:altLabel "ReciprocalSecondSquareMetre"@en ;
+                          skos:prefLabel "PerSecondSquareMetre"@en ;
+                          emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-SEC-M2" ;
+                          emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "/(s1.m2)" ,
+                                                                         "s-1.m-2" ;
+                          emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/s⋅m²" ;
+                          emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """`Per Second Square Meter` is a measure of flux with dimensions /sec-m².
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#PerSecondSquareMetreSteradian
+emmo:PerSecondSquareMetreSteradian rdf:type owl:Class ;
+                                   rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                                   emmo:EMMO_9b075686_4ac2_43bb_b2a3_17b3ea24ff17 ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                     owl:hasValue "1.0"^^xsd:double
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                                     owl:hasValue "0.0"^^xsd:double
+                                                   ] ;
+                                   rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                                   skos:altLabel "ReciprocalSecondSquareMetreSteradian"@en ;
+                                   skos:prefLabel "PerSecondSquareMetreSteradian"@en ;
+                                   emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-SEC-M2-SR" ;
+                                   emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "/(s.m2.sr)" ,
+                                                                                  "s-1.m-2.sr-1" ;
+                                   emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/s⋅m²⋅sr" ;
+                                   emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Per Second Square Meter Steradian is a denominator unit with dimensions /sec-m²-sr.
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#PerSecondSteradian
+emmo:PerSecondSteradian rdf:type owl:Class ;
+                        rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                        emmo:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                          owl:hasValue "1.0"^^xsd:double
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                          owl:hasValue "0.0"^^xsd:double
+                                        ] ;
+                        rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                        skos:altLabel "ReciprocalSecondSteradian"@en ;
+                        skos:prefLabel "PerSecondSteradian"@en ;
+                        emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-SEC-SR" ;
+                        emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "/(s.sr)" ,
+                                                                       "s-1.sr-1" ;
+                        emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/s⋅sr" ;
+                        emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Per Second Steradian Unit is a denominator unit with dimensions /sec-sr.
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#PerSquareJoule
+emmo:PerSquareJoule rdf:type owl:Class ;
+                    rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                    emmo:EMMO_87b5dd20_e4fe_422d_9e70_1eee54ec9496 ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                      owl:hasValue "1.0"^^xsd:double
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                      owl:hasValue "0.0"^^xsd:double
+                                    ] ;
+                    rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                    skos:altLabel "ReciprocalSquareJoule"@en ;
+                    skos:prefLabel "PerSquareJoule"@en ;
+                    emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-J2" ;
+                    emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "J-2" ;
+                    emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/J²" ;
+                    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Per Square Joule is a denominator unit with dimensions /eV².
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#PerSquareKilogram
+emmo:PerSquareKilogram rdf:type owl:Class ;
+                       rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                       emmo:EMMO_6aa04359_50d6_43d7_b3a7_296bd391bf7d ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                         owl:hasValue "1.0"^^xsd:double
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                         owl:hasValue "0.0"^^xsd:double
+                                       ] ;
+                       rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                       skos:altLabel "ReciprocalSquareKilogram"@en ;
+                       skos:prefLabel "PerSquareKilogram" ;
+                       emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-KiloGM2" ;
+                       emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kg-2" ;
+                       emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/kg²" ;
+                       emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Per Square Kilogram is a denominator unit with dimensions /kg².
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#PerSquareMetre
+emmo:PerSquareMetre rdf:type owl:Class ;
+                    rdfs:subClassOf emmo:EMMO_11708648_fc62_46c6_bae5_3a10693e416e ,
+                                    emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                      owl:hasValue "1.0"^^xsd:double
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                      owl:hasValue "0.0"^^xsd:double
+                                    ] ;
+                    rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                    skos:altLabel "ReciprocalSquareMetre"@en ;
+                    skos:prefLabel "PerSquareMetre"@en ;
+                    emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-M2" ;
+                    emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "/m2" ,
+                                                                   "m-2" ;
+                    emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/m²" ;
+                    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Per Square Meter\" is a denominator unit with dimensions /m².
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#PerSquareMetreSecond
+emmo:PerSquareMetreSecond rdf:type owl:Class ;
+                          rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                          emmo:EMMO_9b075686_4ac2_43bb_b2a3_17b3ea24ff17 ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                            owl:hasValue "1.0"^^xsd:double
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                            owl:hasValue "0.0"^^xsd:double
+                                          ] ;
+                          rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                          skos:altLabel "ReciprocalSquareMetreSecond"@en ;
+                          skos:prefLabel "PerSquareMetreSecond"@en ;
+                          emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-M2-SEC" ;
+                          emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m-2.s-1" ;
+                          emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/(m²⋅s)" ;
+                          emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Per square metre and second."@en .
+
+
+###  https://w3id.org/emmo#PerSquareSecond
+emmo:PerSquareSecond rdf:type owl:Class ;
+                     rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                     emmo:EMMO_78487bf1_c0bc_4db8_99dd_d8b7cc8b3bac ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                       owl:hasValue "1.0"^^xsd:double
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                       owl:hasValue "0.0"^^xsd:double
+                                     ] ;
+                     rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                     skos:altLabel "ReciprocalSquareSecond"@en ;
+                     skos:prefLabel "PerSquareSecond"@en ;
+                     emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-SEC2" ;
+                     emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "s-2" ;
+                     emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/s²" ;
+                     emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Per square second."@en .
+
+
+###  https://w3id.org/emmo#PerSteradian
+emmo:PerSteradian rdf:type owl:Class ;
+                  rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                  emmo:EMMO_c2f5ee66_579c_44c6_a2e9_fa2eaa9fa4da ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                    owl:hasValue "1.0"^^xsd:double
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                    owl:hasValue "0.0"^^xsd:double
+                                  ] ;
+                  rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                  skos:altLabel "ReciprocalSteradian"@en ;
+                  skos:prefLabel "PerSteradian"@en ;
+                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-SR" ;
+                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "sr-1" ;
+                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/sr" ;
+                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Per steradian."@en .
+
+
+###  https://w3id.org/emmo#PerTeslaMetre
+emmo:PerTeslaMetre rdf:type owl:Class ;
+                   rdfs:subClassOf emmo:EMMO_01cd670e_d37c_424f_b91e_c2c2bbb5ea43 ,
+                                   emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                     owl:hasValue "1.0"^^xsd:double
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                     owl:hasValue "0.0"^^xsd:double
+                                   ] ;
+                   rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                   skos:altLabel "ReciprocalTeslaMetre."@en ;
+                   skos:prefLabel "PerTeslaMetre"@en ;
+                   emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-T-M" ;
+                   emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "T-1.m-1" ;
+                   emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/t⋅m" ;
+                   emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Per Tesla Meter Unit is a denominator unit with dimensions /m .· T.
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#PerTeslaSecond
+emmo:PerTeslaSecond rdf:type owl:Class ;
+                    rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                                    emmo:EMMO_4dbe2b16_3e84_4049_898d_eb89bcc925a2 ;
+                    rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                    skos:altLabel "Per Tesla and Second unit."@en ;
+                    skos:prefLabel "PerTeslaSecond"@en ;
+                    emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-T-SEC" ;
+                    emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "T-1.s-1" ;
+                    emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/T⋅s" ;
+                    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Per Tesla Second Unit is a denominator unit with dimensions /s . T.
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#PerWeber
+emmo:PerWeber rdf:type owl:Class ;
+              rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
+                              emmo:EMMO_53b10105_52c7_4746_ab73_a5a30bd198e2 ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                owl:hasValue "1.0"^^xsd:double
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                owl:hasValue "0.0"^^xsd:double
+                              ] ;
+              rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+              rdfs:seeAlso "http://www.iso.org/iso/catalogue_detail?csnumber=31897" ;
+              skos:altLabel "ReciprocalWeber"@en ;
+              skos:prefLabel "PerWeber"@en ;
+              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-WB" ;
+              emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Wb-1" ;
+              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/Wb" ;
+              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Per Weber unit."@en .
+
+
 ###  https://w3id.org/emmo#QuarticCoulombMetrePerCubicEnergy
 emmo:QuarticCoulombMetrePerCubicEnergy rdf:type owl:Class ;
                                        rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
@@ -3027,11 +3585,11 @@ emmo:QuarticMetrePerSecond rdf:type owl:Class ;
                            rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                            emmo:EMMO_6cfc5b82_b47b_47bc_bb45_c23c273d2e06 ;
                            rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                           skos:altLabel "Metres to the power four per second"@en ;
                            skos:prefLabel "QuarticMetrePerSecond" ;
                            emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M4-PER-SEC" ;
                            emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m4.s-1" ;
-                           emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m⁴/s" .
+                           emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m⁴/s" ;
+                           emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Metre to the power four per second."@en .
 
 
 ###  https://w3id.org/emmo#QuinticMetre
@@ -3039,10 +3597,10 @@ emmo:QuinticMetre rdf:type owl:Class ;
                   rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                   emmo:EMMO_e55d4f6d_2506_4f63_8e01_1963efe7071e ;
                   rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                  skos:altLabel "Quintic Metre"@en ;
                   skos:prefLabel "QuinticMetre"@en ;
                   emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M5" ;
-                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m⁵" .
+                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m⁵" ;
+                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Metre to the power of five."@en .
 
 
 ###  https://w3id.org/emmo#RadianPerMetre
@@ -3059,11 +3617,11 @@ emmo:RadianPerMetre rdf:type owl:Class ;
                                     ] ;
                     rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
                     rdfs:seeAlso "http://www.iso.org/iso/catalogue_detail?csnumber=31897" ;
-                    skos:altLabel "Radian per Metre"@en ;
                     skos:prefLabel "RadianPerMetre"@en ;
                     emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/RAD-PER-M" ;
                     emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "rad.m-1" ;
-                    emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "rad/m" .
+                    emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "rad/m" ;
+                    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Radian per metre."@en .
 
 
 ###  https://w3id.org/emmo#RadianPerSecond
@@ -3127,11 +3685,11 @@ emmo:RadianSquareMetrePerKilogram rdf:type owl:Class ;
                                                     owl:hasValue "0.0"^^xsd:double
                                                   ] ;
                                   rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                                  skos:altLabel "Radian Square Metre per Kilogram"@en ;
                                   skos:prefLabel "RadianSquareMetrePerKilogram" ;
                                   emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/RAD-M2-PER-KiloGM" ;
                                   emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "rad.m2.kg-1" ;
-                                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "rad⋅m²/kg" .
+                                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "rad⋅m²/kg" ;
+                                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Radian square metre per kilogram."@en .
 
 
 ###  https://w3id.org/emmo#RadianSquareMetrePerMole
@@ -3147,555 +3705,11 @@ emmo:RadianSquareMetrePerMole rdf:type owl:Class ;
                                                 owl:hasValue "0.0"^^xsd:double
                                               ] ;
                               rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                              skos:altLabel "Radian Square Metre per Mole"@en ;
                               skos:prefLabel "RadianSquareMetrePerMole"@en ;
                               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/RAD-M2-PER-MOL" ;
                               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "rad.m2.mol-1" ;
-                              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "rad⋅m²/mol" .
-
-
-###  https://w3id.org/emmo#ReciprocalCubicMetre
-emmo:ReciprocalCubicMetre rdf:type owl:Class ;
-                          rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                          emmo:EMMO_95a9bf22_eabc_4a84_863d_9ea398c8a52e ,
-                                          [ rdf:type owl:Restriction ;
-                                            owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                            owl:hasValue "1.0"^^xsd:double
-                                          ] ,
-                                          [ rdf:type owl:Restriction ;
-                                            owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                            owl:hasValue "0.0"^^xsd:double
-                                          ] ;
-                          rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                          skos:altLabel "Reciprocal Cubic Metre"@en ;
-                          skos:prefLabel "ReciprocalCubicMetre"@en ;
-                          emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-M3" ;
-                          emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "/m3" ,
-                                                                         "m-3" ;
-                          emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/m³" ;
-                          emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Per Cubic Meter\" is a denominator unit with dimensions /m³.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#ReciprocalCubicMetreSecond
-emmo:ReciprocalCubicMetreSecond rdf:type owl:Class ;
-                                rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                                emmo:EMMO_43e499a1_ca67_4380_ac08_cfc52a93ad04 ,
-                                                [ rdf:type owl:Restriction ;
-                                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                                  owl:hasValue "1.0"^^xsd:double
-                                                ] ,
-                                                [ rdf:type owl:Restriction ;
-                                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                                  owl:hasValue "0.0"^^xsd:double
-                                                ] ;
-                                rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                                skos:altLabel "Reciprocal Cubic Metre Second"@en ;
-                                skos:prefLabel "ReciprocalCubicMetreSecond"@en ;
-                                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-M3-SEC" ;
-                                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m-3.s-1" ;
-                                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/(m³⋅s)" .
-
-
-###  https://w3id.org/emmo#ReciprocalHenry
-emmo:ReciprocalHenry rdf:type owl:Class ;
-                     rdfs:subClassOf emmo:EMMO_07f571cd_252b_4421_8f98_94b6690d2ab9 ,
-                                     emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                       owl:hasValue "1.0"^^xsd:double
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                       owl:hasValue "0.0"^^xsd:double
-                                     ] ;
-                     rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                     skos:altLabel "Reciprocal Henry"@en ;
-                     skos:prefLabel "ReciprocalHenry"@en ;
-                     emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-H" ;
-                     emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "H-1" ;
-                     emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/H" .
-
-
-###  https://w3id.org/emmo#ReciprocalJouleCubicMetre
-emmo:ReciprocalJouleCubicMetre rdf:type owl:Class ;
-                               rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                               emmo:EMMO_2a068ad0_582c_4f50_90d2_89d9e28977c1 ,
-                                               [ rdf:type owl:Restriction ;
-                                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                                 owl:hasValue "1.0"^^xsd:double
-                                               ] ,
-                                               [ rdf:type owl:Restriction ;
-                                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                                 owl:hasValue "0.0"^^xsd:double
-                                               ] ;
-                               rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                               rdfs:seeAlso "http://www.iso.org/iso/catalogue_detail?csnumber=31897" ;
-                               skos:altLabel "Reciprocal Joule Cubic Metre"@en ;
-                               skos:prefLabel "ReciprocalJouleCubicMetre"@en ;
-                               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-J-M3" ;
-                               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "J-1.m-3" ;
-                               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/(J⋅m³)" .
-
-
-###  https://w3id.org/emmo#ReciprocalKelvin
-emmo:ReciprocalKelvin rdf:type owl:Class ;
-                      rdfs:subClassOf emmo:EMMO_02a935c8_c2d4_4a00_bd6f_b89d05aac79e ,
-                                      emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                        owl:hasValue "1.0"^^xsd:double
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                        owl:hasValue "0.0"^^xsd:double
-                                      ] ;
-                      rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                      skos:altLabel "Reciprocal Kelvin"@en ;
-                      skos:prefLabel "ReciprocalKelvin"@en ;
-                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-K" ;
-                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "K-1" ;
-                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/K" ;
-                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Per Kelvin Unit is a denominator unit with dimensions /k.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#ReciprocalMetre
-emmo:ReciprocalMetre rdf:type owl:Class ;
-                     rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                     emmo:EMMO_608a1b30_df6f_4bbb_9dc3_5c0de92fd9cf ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                       owl:hasValue "1.0"^^xsd:double
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                       owl:hasValue "0.0"^^xsd:double
-                                     ] ;
-                     rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                     skos:altLabel "Reciprocal Metre"@en ;
-                     skos:prefLabel "ReciprocalMetre"@en ;
-                     emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-M" ;
-                     emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "/m" ,
-                                                                    "m-1" ;
-                     emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/m" ;
-                     emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Per Meter Unit is a denominator unit with dimensions /m.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#ReciprocalMetreKelvin
-emmo:ReciprocalMetreKelvin rdf:type owl:Class ;
-                           rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                           emmo:EMMO_61eec472_f9af_4861_bedd_d741f022a7e5 ,
-                                           [ rdf:type owl:Restriction ;
-                                             owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                             owl:hasValue "1.0"^^xsd:double
-                                           ] ,
-                                           [ rdf:type owl:Restriction ;
-                                             owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                             owl:hasValue "0.0"^^xsd:double
-                                           ] ;
-                           rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                           skos:altLabel "Reciprocal Metre Kelvin"@en ;
-                           skos:prefLabel "ReciprocalMetreKelvin"@en ;
-                           emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-M-K" ;
-                           emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m-1.K-1" ;
-                           emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/(m⋅K)" ;
-                           emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Per Meter Kelvin Unit is a denominator unit with dimensions /m.k.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#ReciprocalMetrePerSecond
-emmo:ReciprocalMetrePerSecond rdf:type owl:Class ;
-                              rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                              emmo:EMMO_9f0338b9_326f_44c2_893c_2d815b763130 ,
-                                              [ rdf:type owl:Restriction ;
-                                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                                owl:hasValue "1.0"^^xsd:double
-                                              ] ,
-                                              [ rdf:type owl:Restriction ;
-                                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                                owl:hasValue "0.0"^^xsd:double
-                                              ] ;
-                              rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                              skos:altLabel "Reciprocal metre per second"@en ;
-                              skos:prefLabel "ReciprocalMetrePerSecond"@en ;
-                              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-M-SEC" ;
-                              emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m-1.s-1" ;
-                              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/(m⋅s)" .
-
-
-###  https://w3id.org/emmo#ReciprocalMetrePerSteradian
-emmo:ReciprocalMetrePerSteradian rdf:type owl:Class ;
-                                 rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                                 emmo:EMMO_608a1b30_df6f_4bbb_9dc3_5c0de92fd9cf ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                                   owl:hasValue "1.0"^^xsd:double
-                                                 ] ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                                   owl:hasValue "0.0"^^xsd:double
-                                                 ] ;
-                                 rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                                 skos:altLabel "Reciprocal metre per steradian"@en ;
-                                 skos:prefLabel "ReciprocalMetrePerSteradian"@en ;
-                                 emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-M-SR" ;
-                                 emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m-1.sr-1" ;
-                                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/(m⋅sr)" .
-
-
-###  https://w3id.org/emmo#ReciprocalMole
-emmo:ReciprocalMole rdf:type owl:Class ;
-                    rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                    emmo:EMMO_af24ae20_8ef2_435a_86a1_2ea44488b318 ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                      owl:hasValue "1.0"^^xsd:double
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                      owl:hasValue "0.0"^^xsd:double
-                                    ] ;
-                    rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                    skos:altLabel "Reciprocal Mole"@en ;
-                    skos:prefLabel "ReciprocalMole"@en ;
-                    emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-MOL" ;
-                    emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mol-1" ;
-                    emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/mol" ;
-                    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Per Mole Unit is a denominator unit with dimensions mol⁻¹.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#ReciprocalPascal
-emmo:ReciprocalPascal rdf:type owl:Class ;
-                      rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                      emmo:EMMO_2a068ad0_582c_4f50_90d2_89d9e28977c1 ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                        owl:hasValue "1.0"^^xsd:double
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                        owl:hasValue "0.0"^^xsd:double
-                                      ] ;
-                      rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                      skos:altLabel "Reciprocal Pascal"@en ;
-                      skos:prefLabel "ReciprocalPascal"@en ;
-                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-PA" ;
-                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Pa-1" ;
-                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/Pa" ;
-                      emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Pascal?oldid=492989202" .
-
-
-###  https://w3id.org/emmo#ReciprocalPascalPerSecond
-emmo:ReciprocalPascalPerSecond rdf:type owl:Class ;
-                               rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                               emmo:EMMO_2f31340f_59ca_4a57_8513_269837af3796 ,
-                                               [ rdf:type owl:Restriction ;
-                                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                                 owl:hasValue "1.0"^^xsd:double
-                                               ] ,
-                                               [ rdf:type owl:Restriction ;
-                                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                                 owl:hasValue "0.0"^^xsd:double
-                                               ] ;
-                               rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                               skos:altLabel "Reciprocal Pascal per second"@en ;
-                               skos:prefLabel "ReciprocalPascalPerSecond"@en ;
-                               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-PA-SEC" ;
-                               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Pa-1.s-1" ;
-                               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/(Pa⋅s)" .
-
-
-###  https://w3id.org/emmo#ReciprocalSecond
-emmo:ReciprocalSecond rdf:type owl:Class ;
-                      rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                      emmo:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                        owl:hasValue "1.0"^^xsd:double
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                        owl:hasValue "0.0"^^xsd:double
-                                      ] ;
-                      rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                      skos:altLabel "Reciprocal Second"@en ;
-                      skos:prefLabel "ReciprocalSecond"@en ;
-                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-SEC" ;
-                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "/s" ,
-                                                                     "s-1" ;
-                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/s" ;
-                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A reciprical unit of time for `reciprocal second` or `inverse second`. The `Per Second` is a unit of rate.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#ReciprocalSecondSquareMetre
-emmo:ReciprocalSecondSquareMetre rdf:type owl:Class ;
-                                 rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                                 emmo:EMMO_9b075686_4ac2_43bb_b2a3_17b3ea24ff17 ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                                   owl:hasValue "1.0"^^xsd:double
-                                                 ] ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                                   owl:hasValue "0.0"^^xsd:double
-                                                 ] ;
-                                 rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                                 skos:altLabel "Reciprocal Second Square Metre"@en ;
-                                 skos:prefLabel "ReciprocalSecondSquareMetre"@en ;
-                                 emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-SEC-M2" ;
-                                 emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "/(s1.m2)" ,
-                                                                                "s-1.m-2" ;
-                                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/s⋅m²" ;
-                                 emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """`Per Second Square Meter` is a measure of flux with dimensions /sec-m².
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#ReciprocalSecondSquareMetreSteradian
-emmo:ReciprocalSecondSquareMetreSteradian rdf:type owl:Class ;
-                                          rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                                          emmo:EMMO_9b075686_4ac2_43bb_b2a3_17b3ea24ff17 ,
-                                                          [ rdf:type owl:Restriction ;
-                                                            owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                                            owl:hasValue "1.0"^^xsd:double
-                                                          ] ,
-                                                          [ rdf:type owl:Restriction ;
-                                                            owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                                            owl:hasValue "0.0"^^xsd:double
-                                                          ] ;
-                                          rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                                          skos:altLabel "Reciprocal Second Square Metre Steradian"@en ;
-                                          skos:prefLabel "ReciprocalSecondSquareMetreSteradian"@en ;
-                                          emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-SEC-M2-SR" ;
-                                          emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "/(s.m2.sr)" ,
-                                                                                         "s-1.m-2.sr-1" ;
-                                          emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/s⋅m²⋅sr" ;
-                                          emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Per Second Square Meter Steradian is a denominator unit with dimensions /sec-m²-sr.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#ReciprocalSecondSteradian
-emmo:ReciprocalSecondSteradian rdf:type owl:Class ;
-                               rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                               emmo:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 ,
-                                               [ rdf:type owl:Restriction ;
-                                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                                 owl:hasValue "1.0"^^xsd:double
-                                               ] ,
-                                               [ rdf:type owl:Restriction ;
-                                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                                 owl:hasValue "0.0"^^xsd:double
-                                               ] ;
-                               rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                               skos:altLabel "Reciprocal Second Steradian"@en ;
-                               skos:prefLabel "ReciprocalSecondSteradian"@en ;
-                               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-SEC-SR" ;
-                               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "/(s.sr)" ,
-                                                                              "s-1.sr-1" ;
-                               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/s⋅sr" ;
-                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Per Second Steradian Unit is a denominator unit with dimensions /sec-sr.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#ReciprocalSquareJoule
-emmo:ReciprocalSquareJoule rdf:type owl:Class ;
-                           rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                           emmo:EMMO_87b5dd20_e4fe_422d_9e70_1eee54ec9496 ,
-                                           [ rdf:type owl:Restriction ;
-                                             owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                             owl:hasValue "1.0"^^xsd:double
-                                           ] ,
-                                           [ rdf:type owl:Restriction ;
-                                             owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                             owl:hasValue "0.0"^^xsd:double
-                                           ] ;
-                           rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                           skos:altLabel "Reciprocal Square Joule"@en ;
-                           skos:prefLabel "ReciprocalSquareJoule"@en ;
-                           emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-J2" ;
-                           emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "J-2" ;
-                           emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/J²" ;
-                           emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Per Square Joule is a denominator unit with dimensions /eV².
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#ReciprocalSquareKilogram
-emmo:ReciprocalSquareKilogram rdf:type owl:Class ;
-                              rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                              emmo:EMMO_6aa04359_50d6_43d7_b3a7_296bd391bf7d ,
-                                              [ rdf:type owl:Restriction ;
-                                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                                owl:hasValue "1.0"^^xsd:double
-                                              ] ,
-                                              [ rdf:type owl:Restriction ;
-                                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                                owl:hasValue "0.0"^^xsd:double
-                                              ] ;
-                              rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                              skos:altLabel "Reciprocal Square Kilogram"@en ;
-                              skos:prefLabel "ReciprocalSquareKilogram" ;
-                              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-KiloGM2" ;
-                              emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kg-2" ;
-                              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/kg²" ;
-                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Per Square Kilogram is a denominator unit with dimensions /kg².
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#ReciprocalSquareMetre
-emmo:ReciprocalSquareMetre rdf:type owl:Class ;
-                           rdfs:subClassOf emmo:EMMO_11708648_fc62_46c6_bae5_3a10693e416e ,
-                                           emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                           [ rdf:type owl:Restriction ;
-                                             owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                             owl:hasValue "1.0"^^xsd:double
-                                           ] ,
-                                           [ rdf:type owl:Restriction ;
-                                             owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                             owl:hasValue "0.0"^^xsd:double
-                                           ] ;
-                           rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                           skos:altLabel "Reciprocal Square Metre"@en ;
-                           skos:prefLabel "ReciprocalSquareMetre"@en ;
-                           emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-M2" ;
-                           emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "/m2" ,
-                                                                          "m-2" ;
-                           emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/m²" ;
-                           emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Per Square Meter\" is a denominator unit with dimensions /m².
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#ReciprocalSquareMetreSecond
-emmo:ReciprocalSquareMetreSecond rdf:type owl:Class ;
-                                 rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                                 emmo:EMMO_9b075686_4ac2_43bb_b2a3_17b3ea24ff17 ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                                   owl:hasValue "1.0"^^xsd:double
-                                                 ] ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                                   owl:hasValue "0.0"^^xsd:double
-                                                 ] ;
-                                 rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                                 skos:altLabel "Reciprocal Square Metre Second"@en ;
-                                 skos:prefLabel "ReciprocalSquareMetreSecond"@en ;
-                                 emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-M2-SEC" ;
-                                 emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m-2.s-1" ;
-                                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/(m²⋅s)" .
-
-
-###  https://w3id.org/emmo#ReciprocalSquareSecond
-emmo:ReciprocalSquareSecond rdf:type owl:Class ;
-                            rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                            emmo:EMMO_78487bf1_c0bc_4db8_99dd_d8b7cc8b3bac ,
-                                            [ rdf:type owl:Restriction ;
-                                              owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                              owl:hasValue "1.0"^^xsd:double
-                                            ] ,
-                                            [ rdf:type owl:Restriction ;
-                                              owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                              owl:hasValue "0.0"^^xsd:double
-                                            ] ;
-                            rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                            skos:altLabel "Reciprocal square second"@en ;
-                            skos:prefLabel "ReciprocalSquareSecond"@en ;
-                            emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-SEC2" ;
-                            emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "s-2" ;
-                            emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/s²" .
-
-
-###  https://w3id.org/emmo#ReciprocalSteradian
-emmo:ReciprocalSteradian rdf:type owl:Class ;
-                         rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                         emmo:EMMO_c2f5ee66_579c_44c6_a2e9_fa2eaa9fa4da ,
-                                         [ rdf:type owl:Restriction ;
-                                           owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                           owl:hasValue "1.0"^^xsd:double
-                                         ] ,
-                                         [ rdf:type owl:Restriction ;
-                                           owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                           owl:hasValue "0.0"^^xsd:double
-                                         ] ;
-                         rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                         skos:altLabel "Reciprocal steradian"@en ;
-                         skos:prefLabel "ReciprocalSteradian"@en ;
-                         emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-SR" ;
-                         emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "sr-1" ;
-                         emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/sr" .
-
-
-###  https://w3id.org/emmo#ReciprocalTeslaMetre
-emmo:ReciprocalTeslaMetre rdf:type owl:Class ;
-                          rdfs:subClassOf emmo:EMMO_01cd670e_d37c_424f_b91e_c2c2bbb5ea43 ,
-                                          emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                          [ rdf:type owl:Restriction ;
-                                            owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                            owl:hasValue "1.0"^^xsd:double
-                                          ] ,
-                                          [ rdf:type owl:Restriction ;
-                                            owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                            owl:hasValue "0.0"^^xsd:double
-                                          ] ;
-                          rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                          skos:altLabel "Reciprocal Tesla Metre"@en ;
-                          skos:prefLabel "ReciprocalTeslaMetre"@en ;
-                          emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-T-M" ;
-                          emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "T-1.m-1" ;
-                          emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/t⋅m" ;
-                          emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Per Tesla Meter Unit is a denominator unit with dimensions /m .· T.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#ReciprocalTeslaSecond
-emmo:ReciprocalTeslaSecond rdf:type owl:Class ;
-                           rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                           emmo:EMMO_4dbe2b16_3e84_4049_898d_eb89bcc925a2 ;
-                           rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                           skos:altLabel "Reciprocal Tesla Second Unit"@en ;
-                           skos:prefLabel "ReciprocalTeslaSecond"@en ;
-                           emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-T-SEC" ;
-                           emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "T-1.s-1" ;
-                           emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/T⋅s" ;
-                           emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Per Tesla Second Unit is a denominator unit with dimensions /s . T.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#ReciprocalWeber
-emmo:ReciprocalWeber rdf:type owl:Class ;
-                     rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
-                                     emmo:EMMO_53b10105_52c7_4746_ab73_a5a30bd198e2 ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                       owl:hasValue "1.0"^^xsd:double
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                       owl:hasValue "0.0"^^xsd:double
-                                     ] ;
-                     rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                     rdfs:seeAlso "http://www.iso.org/iso/catalogue_detail?csnumber=31897" ;
-                     skos:altLabel "Reciprocal Weber"@en ;
-                     skos:prefLabel "ReciprocalWeber"@en ;
-                     emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PER-WB" ;
-                     emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Wb-1" ;
-                     emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "/Wb" .
+                              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "rad⋅m²/mol" ;
+                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Radian square metre per mole."@en .
 
 
 ###  https://w3id.org/emmo#SecondPerMetre
@@ -3711,11 +3725,11 @@ emmo:SecondPerMetre rdf:type owl:Class ;
                                       owl:hasValue "0.0"^^xsd:double
                                     ] ;
                     rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                    skos:altLabel "Seconds per metre"@en ;
                     skos:prefLabel "SecondPerMetre" ;
                     emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/SEC-PER-M" ;
                     emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "s.m-1" ;
-                    emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "s/m" .
+                    emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "s/m" ;
+                    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Second per metre."@en .
 
 
 ###  https://w3id.org/emmo#SecondPerRadianCubicMetre
@@ -3732,11 +3746,11 @@ emmo:SecondPerRadianCubicMetre rdf:type owl:Class ;
                                                ] ;
                                rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
                                rdfs:seeAlso "http://www.iso.org/iso/catalogue_detail?csnumber=31897" ;
-                               skos:altLabel "Second per Radian Cubic Metre"@en ;
                                skos:prefLabel "SecondPerRadianCubicMetre"@en ;
                                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/SEC-PER-RAD-M3" ;
                                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "s.rad-1.m-3" ;
-                               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "s/rad⋅m³" .
+                               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "s/rad⋅m³" ;
+                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Second per radian and cubic metre unit."@en .
 
 
 ###  https://w3id.org/emmo#SexticMetre
@@ -3744,10 +3758,10 @@ emmo:SexticMetre rdf:type owl:Class ;
                  rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                  emmo:EMMO_21bc99ae_f2ba_4eb3_90c1_d81968c429e2 ;
                  rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                 skos:altLabel "Sextic Metre"@en ;
                  skos:prefLabel "SexticMetre"@en ;
                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M6" ;
-                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m⁶" .
+                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m⁶" ;
+                 emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Metre to the power of six."@en .
 
 
 ###  https://w3id.org/emmo#SiemensPerMetre
@@ -3769,7 +3783,7 @@ emmo:SiemensPerMetre rdf:type owl:Class ;
                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "S.m-1" ,
                                                                     "S/m" ;
                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "S/m" ;
-                     emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """SI derived unit siemens divided by the SI base unit metre
+                     emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """SI derived unit siemens divided by the SI base unit metre.
 
 -- QUDT"""@en .
 
@@ -3787,11 +3801,11 @@ emmo:SiemensSquareMetrePerMole rdf:type owl:Class ;
                                                  owl:hasValue "0.0"^^xsd:double
                                                ] ;
                                rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                               skos:altLabel "Siemens Square metre per mole"@en ;
                                skos:prefLabel "SiemensSquareMetrePerMole"@en ;
                                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/S-M2-PER-MOL" ;
                                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "S.m2.mol-1" ;
-                               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "S⋅m²/mol" .
+                               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "S⋅m²/mol" ;
+                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Siemens square metre per mole."@en .
 
 
 ###  https://w3id.org/emmo#SquareCoulombSquareMetrePerJoule
@@ -3831,11 +3845,11 @@ emmo:SquareKelvin rdf:type owl:Class ;
                                     owl:hasValue "0.0"^^xsd:double
                                   ] ;
                   rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                  skos:altLabel "Square Kelvin"@en ;
                   skos:prefLabel "SquareKelvin"@en ;
                   emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/K2" ;
                   emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "K2" ;
-                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "K²" .
+                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "K²" ;
+                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Square Kelvin."@en .
 
 
 ###  https://w3id.org/emmo#SquareKilogramPerSquareSecond
@@ -3851,11 +3865,11 @@ emmo:SquareKilogramPerSquareSecond rdf:type owl:Class ;
                                                      owl:hasValue "0.0"^^xsd:double
                                                    ] ;
                                    rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                                   skos:altLabel "Square Kilograms per square second"@en ;
                                    skos:prefLabel "SquareKilogramPerSquareSecond" ;
                                    emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloGM2-PER-SEC2" ;
                                    emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kg2.s-2" ;
-                                   emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kg²/s²" .
+                                   emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kg²/s²" ;
+                                   emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Square kilogram per square second."@en .
 
 
 ###  https://w3id.org/emmo#SquareMetre
@@ -3894,11 +3908,11 @@ emmo:SquareMetreCubicHertz rdf:type owl:Class ;
                                              owl:hasValue "0.0"^^xsd:double
                                            ] ;
                            rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                           skos:altLabel "Square metres cubic Hertz"@en ;
                            skos:prefLabel "SquareMetreCubicHertz" ;
                            emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M2-HZ3" ;
                            emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m2.Hz3" ;
-                           emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m²⋅Hz³" .
+                           emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m²⋅Hz³" ;
+                           emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Square metre and cubic Hertz."@en .
 
 
 ###  https://w3id.org/emmo#SquareMetreHertz
@@ -3914,11 +3928,11 @@ emmo:SquareMetreHertz rdf:type owl:Class ;
                                         owl:hasValue "0.0"^^xsd:double
                                       ] ;
                       rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                      skos:altLabel "Square metres Hertz"@en ;
                       skos:prefLabel "SquareMetreHertz" ;
                       emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M2-HZ" ;
                       emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m2.Hz" ;
-                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m²⋅Hz" .
+                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m²⋅Hz" ;
+                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Square metre Hertz."@en .
 
 
 ###  https://w3id.org/emmo#SquareMetreKelvin
@@ -3981,11 +3995,11 @@ emmo:SquareMetrePerHertz rdf:type owl:Class ;
                                            owl:hasValue "0.0"^^xsd:double
                                          ] ;
                          rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                         skos:altLabel "Square metres per Hertz"@en ;
                          skos:prefLabel "SquareMetrePerHertz" ;
                          emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M2-PER-HZ" ;
                          emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m2.Hz-1" ;
-                         emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m²/Hz" .
+                         emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m²/Hz" ;
+                         emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Square metre per Hertz."@en .
 
 
 ###  https://w3id.org/emmo#SquareMetrePerJoule
@@ -4001,11 +4015,11 @@ emmo:SquareMetrePerJoule rdf:type owl:Class ;
                                            owl:hasValue "0.0"^^xsd:double
                                          ] ;
                          rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                         skos:altLabel "Square Metre per Joule"@en ;
                          skos:prefLabel "SquareMetrePerJoule"@en ;
                          emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M2-PER-J" ;
                          emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m2.J-1" ;
-                         emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m²/j" .
+                         emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m²/j" ;
+                         emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Square metre per Joule."@en .
 
 
 ###  https://w3id.org/emmo#SquareMetrePerKelvin
@@ -4021,11 +4035,11 @@ emmo:SquareMetrePerKelvin rdf:type owl:Class ;
                                             owl:hasValue "0.0"^^xsd:double
                                           ] ;
                           rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                          skos:altLabel "Square Metre per Kelvin"@en ;
                           skos:prefLabel "SquareMetrePerKelvin"@en ;
                           emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M2-PER-K" ;
                           emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m2.K-1" ;
-                          emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m²/k" .
+                          emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m²/k" ;
+                          emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Square metre per Kelvin."@en .
 
 
 ###  https://w3id.org/emmo#SquareMetrePerKilogram
@@ -4134,11 +4148,11 @@ emmo:SquareMetrePerSquareHertz rdf:type owl:Class ;
                                                  owl:hasValue "0.0"^^xsd:double
                                                ] ;
                                rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                               skos:altLabel "Square metres per square Hertz"@en ;
                                skos:prefLabel "SquareMetrePerSquareHertz" ;
                                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M2-PER-HZ2" ;
                                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m2.Hz-2" ;
-                               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m²/Hz²" .
+                               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m²/Hz²" ;
+                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Square metres per square Hertz."@en .
 
 
 ###  https://w3id.org/emmo#SquareMetrePerSquareMetre
@@ -4176,11 +4190,11 @@ emmo:SquareMetrePerSquareSecond rdf:type owl:Class ;
                                                   owl:hasValue "0.0"^^xsd:double
                                                 ] ;
                                 rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                                skos:altLabel "Square metres per square second"@en ;
                                 skos:prefLabel "SquareMetrePerSquareSecond" ;
                                 emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M2-PER-SEC2" ;
                                 emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m2.s-2" ;
-                                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m²/s²" .
+                                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m²/s²" ;
+                                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Square metre per square second."@en .
 
 
 ###  https://w3id.org/emmo#SquareMetrePerSteradian
@@ -4196,11 +4210,11 @@ emmo:SquareMetrePerSteradian rdf:type owl:Class ;
                                                owl:hasValue "0.0"^^xsd:double
                                              ] ;
                              rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                             skos:altLabel "Square Metre per Steradian"@en ;
                              skos:prefLabel "SquareMetrePerSteradian"@en ;
                              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M2-PER-SR" ;
                              emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m2.sr-1" ;
                              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m²/sr" ;
+                             emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Square metre per steradian."@en ;
                              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Steradian?oldid=494317847" .
 
 
@@ -4217,11 +4231,11 @@ emmo:SquareMetrePerSteradianJoule rdf:type owl:Class ;
                                                     owl:hasValue "0.0"^^xsd:double
                                                   ] ;
                                   rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                                  skos:altLabel "Square Metre per Steradian Joule"@en ;
                                   skos:prefLabel "SquareMetrePerSteradianJoule"@en ;
                                   emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M2-PER-SR-J" ;
                                   emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m2.sr-1.J-1" ;
-                                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m²/(sr⋅J)" .
+                                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m²/(sr⋅J)" ;
+                                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Square metre per steradian and Joule."@en .
 
 
 ###  https://w3id.org/emmo#SquareMetrePerVoltSecond
@@ -4236,11 +4250,11 @@ emmo:SquareMetrePerVoltSecond rdf:type owl:Class ;
                                                 owl:hasValue "0.0"^^xsd:double
                                               ] ;
                               rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                              skos:altLabel "Square Metre per Volt Second"@en ;
                               skos:prefLabel "SquareMetrePerVoltSecond"@en ;
                               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M2-PER-V-SEC" ;
                               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m2.V-1.s-1" ;
-                              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m²/(V⋅s)" .
+                              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m²/(V⋅s)" ;
+                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Square metre per volt second."@en .
 
 
 ###  https://w3id.org/emmo#SquareMetreQuarticHertz
@@ -4248,11 +4262,11 @@ emmo:SquareMetreQuarticHertz rdf:type owl:Class ;
                              rdfs:subClassOf emmo:EMMO_1273eb34_de48_43a9_925f_104110469dd2 ,
                                              emmo:EMMO_27c8e4db_eb18_402c_951e_6a38751cf1d0 ;
                              rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                             skos:altLabel "Square metres quartic Hertz"@en ;
                              skos:prefLabel "SquareMetreQuarticHertz" ;
                              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M2-HZ4" ;
                              emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m2.Hz4" ;
-                             emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m²⋅Hz⁴" .
+                             emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m²⋅Hz⁴" ;
+                             emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Square metre and quartic Hertz."@en .
 
 
 ###  https://w3id.org/emmo#SquareMetreSecondPerRadian
@@ -4268,11 +4282,11 @@ emmo:SquareMetreSecondPerRadian rdf:type owl:Class ;
                                                   owl:hasValue "0.0"^^xsd:double
                                                 ] ;
                                 rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                                skos:altLabel "Square metre seconds per radian"@en ;
                                 skos:prefLabel "SquareMetreSecondPerRadian" ;
                                 emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M2-SEC-PER-RAD" ;
                                 emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m2.s.rad-1" ;
-                                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m²⋅s/rad" .
+                                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m²⋅s/rad" ;
+                                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Square metre seconds per radian."@en .
 
 
 ###  https://w3id.org/emmo#SquareMetreSquareHertz
@@ -4288,11 +4302,11 @@ emmo:SquareMetreSquareHertz rdf:type owl:Class ;
                                               owl:hasValue "0.0"^^xsd:double
                                             ] ;
                             rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                            skos:altLabel "Square Metres square Hertz"@en ;
                             skos:prefLabel "SquareMetreSquareHertz" ;
                             emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M2-HZ2" ;
                             emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m2.Hz2" ;
-                            emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m²⋅Hz²" .
+                            emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m²⋅Hz²" ;
+                            emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Square metre and square Hertz."@en .
 
 
 ###  https://w3id.org/emmo#SquareMetreSteradian
@@ -4331,11 +4345,11 @@ emmo:SquarePascalPerSquareSecond rdf:type owl:Class ;
                                                    owl:hasValue "0.0"^^xsd:double
                                                  ] ;
                                  rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                                 skos:altLabel "Square pascal per square second"@en ;
                                  skos:prefLabel "SquarePascalPerSquareSecond"@en ;
                                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PA2-PER-SEC2" ;
                                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Pa2.s-2" ;
-                                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Pa²⋅m/s²" .
+                                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Pa²/s²" ;
+                                 emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Square Pascal per square second."@en .
 
 
 ###  https://w3id.org/emmo#SquarePascalSecond
@@ -4399,11 +4413,11 @@ emmo:SquareVoltPerSquareKelvin rdf:type owl:Class ;
                                                ] ;
                                rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
                                rdfs:seeAlso "http://www.iso.org/iso/catalogue_detail?csnumber=31897" ;
-                               skos:altLabel "Square Volt per Square Kelvin"@en ;
                                skos:prefLabel "SquareVoltPerSquareKelvin"@en ;
                                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/V2-PER-K2" ;
                                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "V2.K-2" ;
-                               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "V²/K²" .
+                               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "V²/K²" ;
+                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Square volt per square Kelvin."@en .
 
 
 ###  https://w3id.org/emmo#VoltAmpere
@@ -4443,11 +4457,11 @@ emmo:VoltPerKelvin rdf:type owl:Class ;
                                    ] ;
                    rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
                    rdfs:seeAlso "http://www.iso.org/iso/catalogue_detail?csnumber=31897" ;
-                   skos:altLabel "Volt per Kelvin"@en ;
                    skos:prefLabel "VoltPerKelvin"@en ;
                    emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/V-PER-K" ;
                    emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "V.K-1" ;
-                   emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "V/K" .
+                   emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "V/K" ;
+                   emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Volt per Kelvin."@en .
 
 
 ###  https://w3id.org/emmo#VoltPerMetre
@@ -4651,11 +4665,11 @@ emmo:WattPerMetre rdf:type owl:Class ;
                                     owl:hasValue "0.0"^^xsd:double
                                   ] ;
                   rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                  skos:altLabel "Watts per metre"@en ;
                   skos:prefLabel "WattPerMetre" ;
                   emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/W-PER-M" ;
                   emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "W.m-1" ;
-                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "W/m" .
+                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "W/m" ;
+                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Watts per metre."@en .
 
 
 ###  https://w3id.org/emmo#WattPerMetreKelvin
@@ -4671,11 +4685,11 @@ emmo:WattPerMetreKelvin rdf:type owl:Class ;
                                           owl:hasValue "0.0"^^xsd:double
                                         ] ;
                         rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                        skos:altLabel "Watt per Metre Kelvin"@en ;
                         skos:prefLabel "WattPerMetreKelvin"@en ;
                         emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/W-PER-M-K" ;
                         emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "W.m-1.K-1" ;
                         emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "W/(m⋅K)" ;
+                        emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Watt per metre and Kelvin unit."@en ;
                         emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Thermal_conductivity" .
 
 
@@ -4763,11 +4777,11 @@ emmo:WattPerSquareMetrePerMetre rdf:type owl:Class ;
                                                   owl:hasValue "0.0"^^xsd:double
                                                 ] ;
                                 rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                                skos:altLabel "Watts per square metre per metre"@en ;
                                 skos:prefLabel "WattPerSquareMetrePerMetre" ;
                                 emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/W-PER-M2-M" ;
                                 emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "W.m-2.m-1" ;
-                                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "W/m²⋅m" .
+                                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "W/m²⋅m" ;
+                                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Watts per square metre per metre."@en .
 
 
 ###  https://w3id.org/emmo#WattPerSquareMetrePerMetrePerSteradian
@@ -4783,11 +4797,11 @@ emmo:WattPerSquareMetrePerMetrePerSteradian rdf:type owl:Class ;
                                                               owl:hasValue "0.0"^^xsd:double
                                                             ] ;
                                             rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                                            skos:altLabel "Watts per square metre per metre per steradian"@en ;
                                             skos:prefLabel "WattPerSquareMetrePerMetrePerSteradian" ;
                                             emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/W-PER-M2-M-SR" ;
                                             emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "W.m-2.m-1.sr-1" ;
-                                            emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "W/m²⋅m⋅sr" .
+                                            emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "W/m²⋅m⋅sr" ;
+                                            emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Watts per square metre and metre and steradian."@en .
 
 
 ###  https://w3id.org/emmo#WattPerSquareMetreQuarticKelvin
@@ -4889,11 +4903,11 @@ emmo:WattSecondPerSquareMetre rdf:type owl:Class ;
                                                 owl:hasValue "0.0"^^xsd:double
                                               ] ;
                               rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                              skos:altLabel "Watt seconds per square metre"@en ;
                               skos:prefLabel "WattSecondPerSquareMetre" ;
                               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/W-SEC-PER-M2" ;
                               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "W.s.m-2" ;
-                              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "W⋅s/m²" .
+                              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "W⋅s/m²" ;
+                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Watt second per square metre."@en .
 
 
 ###  https://w3id.org/emmo#WeberMetre
@@ -4910,11 +4924,11 @@ emmo:WeberMetre rdf:type owl:Class ;
                                 ] ;
                 rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
                 rdfs:seeAlso "http://www.simetric.co.uk/siderived.htm" ;
-                skos:altLabel "Weber Metre"@en ;
                 skos:prefLabel "WeberMetre"@en ;
                 emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/WB-M" ;
                 emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Wb.m" ;
-                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Wb⋅m" .
+                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Wb⋅m" ;
+                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Weber metre."@en .
 
 
 ###  https://w3id.org/emmo#WeberPerMetre
