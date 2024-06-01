@@ -84,6 +84,7 @@ with onto:
             name.capitalize() + 'Symbol', (onto.ChemicalElement, )
         )
         Element.is_a.append(onto.hasSymbolValue.value(symbol))
+        Element.elucidation.append(en(f'The symbol that stands for the {name.lower()} atom.'))
 
         AtomClass = types.new_class(name.capitalize() + 'Atom', (onto.Atom, ))
         AtomClass.elucidation.append(en('Atom subclass for %s.' % name.lower()))
@@ -106,10 +107,10 @@ onto.metadata.abstract.append(en(
     'International license (CC BY 4.0).'))
 
 onto.metadata.title.append(en('Periodic table'))
-onto.metadata.creator.append(en('<https://orcid.org/0000-0002-1560-809X>'))
-onto.metadata.creator.append(en('<https://orcid.org/0000-0001-8869-3718>'))
-onto.metadata.creator.append(en('<https://orcid.org/0000-0003-3805-8761>'))
-onto.metadata.publisher.append(en('<https://emmc.eu>'))
+onto.metadata.creator.append(chemistry['Jesper Friis'])
+onto.metadata.creator.append(chemistry["Francesca Lønstad Bleken"])
+onto.metadata.creator.append(chemistry["Emanuele Ghedini"])
+onto.metadata.publisher.append(chemistry["EMMC ASBL"])
 onto.metadata.license.append(en(
     'https://creativecommons.org/licenses/by/4.0/legalcode'))
 onto.metadata.versionInfo.append(en(version))
