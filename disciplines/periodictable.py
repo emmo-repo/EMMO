@@ -106,10 +106,10 @@ onto.metadata.abstract.append(en(
     'International license (CC BY 4.0).'))
 
 onto.metadata.title.append(en('Periodic table'))
-onto.metadata.creator.append(en('Jesper Friis, SINTEF, NO'))
-onto.metadata.creator.append(en('Francesca Lønstad Bleken, SINTEF, NO'))
-onto.metadata.creator.append(en('Emanuele Ghedini, University of Bologna, IT'))
-onto.metadata.publisher.append(en('EMMC ASBL'))
+onto.metadata.creator.append(en('<https://orcid.org/0000-0002-1560-809X>'))
+onto.metadata.creator.append(en('<https://orcid.org/0000-0001-8869-3718>'))
+onto.metadata.creator.append(en('<https://orcid.org/0000-0003-3805-8761>'))
+onto.metadata.publisher.append(en('<https://emmc.eu>'))
 onto.metadata.license.append(en(
     'https://creativecommons.org/licenses/by/4.0/legalcode'))
 onto.metadata.versionInfo.append(en(version))

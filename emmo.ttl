@@ -3,8 +3,11 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @base <https://w3id.org/emmo#> .
 
@@ -18,37 +21,102 @@ EMMO is a multidisciplinary effort to develop a standard representational framew
 It provides the connection between the physical world, materials characterisation world and materials modelling world.
 
 EMMO is released under a Creative Commons license Attribution 4.0 International (CC BY 4.0)."""@en ;
-                         dcterms:contributor "Access, DE" ,
-                                             "Fraunhofer IWM, DE" ,
-                                             "Goldbeck Consulting Ltd (UK)" ,
-                                             "SINTEF, NO" ,
-                                             "University of Bologna, IT" ;
-                         dcterms:creator "Adham Hashibon" ,
-                                         "Emanuele Ghedini" ,
-                                         "Georg Schmitz" ,
-                                         "Gerhard Goldbeck" ,
-                                         "Jesper Friis" ;
+                         dcterms:alternative "EMMO"@en ;
+                         dcterms:bibliographicCitation "F. A. Zaccarini, C. Masolo, E. Ghedini, and S. Borgo. From Causation (and Parthood) to Time: The Case of EMMO (2023) doi: 10.3233/FAIA231120" ;
+                         dcterms:contributor <https://orcid.org/0009-0007-5850-6628> ,
+                                             <https://orcid.org/0009-0008-8009-5009> ;
+                         dcterms:created "2024-03" ;
+                         dcterms:creator <https://orcid.org/0000-0002-1560-809X> ,
+                                         <https://orcid.org/0000-0002-4181-2852> ,
+                                         <https://orcid.org/0000-0003-0514-9229> ,
+                                         <https://orcid.org/0000-0003-3805-8761> ,
+                                         <https://orcid.org/0000-0003-4065-9742> ;
+                         dcterms:hasFormat <https://www.w3.org/TR/turtle/> ;
+                         dcterms:issued "2018-05-03" ;
                          dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
-                         dcterms:publisher "EMMC ASBL" ;
+                         dcterms:modified "2024-03" ;
+                         dcterms:publisher <https://emmc.eu> ;
                          dcterms:title "Elementary Multiperspective Material Ontology (EMMO)"@en ;
-                         rdfs:comment """Contacts:
-Gerhard Goldbeck
-Goldbeck Consulting Ltd (UK)
-email: gerhard@goldbeck-consulting.com
-
-Emanuele Ghedini
-University of Bologna (IT)
-email: emanuele.ghedini@unibo.it"""@en ,
-                                      "The EMMO should be reasoned in order to visualize all inferences and class hierarchy in Protege (ctrl+R hotkey).  It is tested with both the HermiT (preferred) and HermiT reasoners."@en ;
+                         dcterms:source "European Commission, Directorate-General for Research and Innovation, Baas, A., What makes a material function? - Let me compute the ways - Modelling in H2020 LEIT-NMBP programme materials and nanotechnology projects -Sixth version - Short version, Baas, A.(editor), Publications Office of the European Union, 2017, https://data.europa.eu/doi/10.2777/404734"@en ;
+                         dcterms:source "CWA 17815, Materials characterisation - Terminology, metadata and classification. Led by EMMC. 2017. https://www.cencenelec.eu/media/CEN-CENELEC/CWAs/ICT/cwa17815.pdf" ;
+                         bibo:doi "10.5281/zenodo.6528495" ;
+                         bibo:status "First release candidate for v1.0.0 of the top-level ontology." ;
+                         vann:preferredNamespacePrefix "emmo" ;
+                         vann:preferredNamespaceUri "https://w3id.org/emmo" ;
+                         rdfs:comment "The EMMO should be reasoned in order to visualize all inferences and class hierarchy in Protege (ctrl+R hotkey).  It is tested with both the HermiT (preferred) and HermiT reasoners."@en ;
+                         owl:priorVersion "1.0.0-beta7" ;
                          owl:versionInfo "1.0.0-rc1" ;
-                         <http://xmlns.com/foaf/0.1/logo> "https://github.com/emmo-repo/EMMO/raw/master/doc/emmo-logo.png" .
+                         foaf:homepage <https://github.com/emmo-repo/EMMO> ;
+                         foaf:logo "https://github.com/emmo-repo/EMMO/raw/master/doc/emmo-logo.png" ;
+                         foaf:mbox <mailto:emmo@emmc.eu> ;
+                         :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
 
 #################################################################
 #    Annotation properties
 #################################################################
 
+###  http://purl.org/dc/terms/alternative
+dcterms:alternative rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/bibliographicCitation
+dcterms:bibliographicCitation rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+dcterms:created rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/hasFormat
+dcterms:hasFormat rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/issued
+dcterms:issued rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+dcterms:modified rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/ontology/bibo/doi
+bibo:doi rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/homepage
+foaf:homepage rdf:type owl:AnnotationProperty .
+
+
 ###  http://xmlns.com/foaf/0.1/logo
-<http://xmlns.com/foaf/0.1/logo> rdf:type owl:AnnotationProperty .
+foaf:logo rdf:type owl:AnnotationProperty .
 
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  http://xmlns.com/foaf/0.1/page
+foaf:mbox rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/name
+foaf:name rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/workplaceHomepage
+foaf:workplaceHomepage rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://xmlns.com/foaf/0.1/Person
+foaf:Person rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
