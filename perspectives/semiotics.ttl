@@ -16,15 +16,15 @@
 The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. real world objects (e.g. symbol or sign) that stand for other real world objects that are to be interpreted by an agent. These symbols appear in actions (semiotic processes) meant to communicate meaning by establishing relationships between symbols (signs)."""@en ;
                                                 dcterms:contributor <https://orcid.org/0000-0003-0514-9229> ,
                                                                     <https://orcid.org/0000-0003-4065-9742> ;
-                                                dcterms:creator <https://orcid.org/0000-0003-3805-8761> ,
+                                                dcterms:creator <https://orcid.org/0000-0002-1560-809X> ,
                                                                 <https://orcid.org/0000-0002-4181-2852> ,
-                                                                <https://orcid.org/0000-0002-1560-809X> ;
+                                                                <https://orcid.org/0000-0003-3805-8761> ;
                                                 dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                                 dcterms:publisher <https://emmc.eu> ;
                                                 dcterms:title "Semiotics"@en ;
-                                                :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" ;
                                                 rdfs:comment "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                                owl:versionInfo "1.0.0-rc1" .
+                                                owl:versionInfo "1.0.0-rc1" ;
+                                                :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
 
 #################################################################
 #    Object Properties
@@ -304,7 +304,8 @@ My facial expression stands for my emotional status."""@en ;
 ###  https://w3id.org/emmo#EMMO_1b6a95fb_3df7_44c9_ad3d_419c9c5fe7cb
 :EMMO_1b6a95fb_3df7_44c9_ad3d_419c9c5fe7cb rdf:type owl:Class ;
                                            skos:example "The biography of a person met by the author."@en ;
-                                           skos:prefLabel "Observed"@en .
+                                           skos:prefLabel "Observed"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A coded that has been observed by an interpreter."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_1c0b22a2_be82_4fa8_9e2b_a569a625d442
@@ -417,7 +418,9 @@ This class refers to what is commonly known as physical property, i.e. a measura
                                                              owl:someValuesFrom :EMMO_36a4c1ca_5085_49ca_9e13_4c70d00c50a5
                                                            ] ;
                                            skos:altLabel "IndexSemiosis"@en ;
-                                           skos:prefLabel "Deduction"@en .
+                                           skos:example "The interpreter feels that the plate is hot and assigns the status of the kitchen stove to be on."@en ;
+                                           skos:prefLabel "Deduction"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A semiotic process that assigns a sign by deduction from causal continguity."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_3b19eab4_79be_4b02_bdaf_ecf1f0067a68
@@ -461,7 +464,8 @@ This class refers to what is commonly known as physical property, i.e. a measura
                                                              owl:someValuesFrom :EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9
                                                            ] ;
                                            skos:altLabel "ConventionalSemiosis"@en ;
-                                           skos:prefLabel "Declaration"@en .
+                                           skos:prefLabel "Declaration"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A semiotic process that assigns a sign based on conventions."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_4a1c73f1_b6f5_4d10_a3a6_5de90bac7cd0
@@ -561,7 +565,8 @@ This can be used in material characterization, to define exactly the type of mea
                                                              owl:someValuesFrom :EMMO_d7788d1a_020d_4c78_85a1_13563fcec168
                                                            ] ;
                                            skos:altLabel "IconSemiosis"@en ;
-                                           skos:prefLabel "Cognition"@en .
+                                           skos:prefLabel "Cognition"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A semiotic process that assigns a sign by recognising an object by how it resemble or imitate what the sign stands for, in shape, function or by sharing a similar logical structure."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_8bb6b688_812a_4cb9_b76c_d5a058928719
@@ -594,7 +599,8 @@ This can be used in material characterization, to define exactly the type of mea
 ###  https://w3id.org/emmo#EMMO_9b87d718_9dcc_4f7d_ad20_12c2aa4c76be
 :EMMO_9b87d718_9dcc_4f7d_ad20_12c2aa4c76be rdf:type owl:Class ;
                                            skos:example "The biography of a person that the author have not met."@en ;
-                                           skos:prefLabel "Estimated"@en .
+                                           skos:prefLabel "Estimated"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A coded that is assigned from an estimation."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d
@@ -765,6 +771,18 @@ For example, when a Boeing 747 is used as a sign for another Boeing 747."""@en ,
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A characteriser that declares a property for an object through the specific interaction required by the property definition."@en .
 
 
+[ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The rule for the subproperty chain:
+ inverse (hasReferent) o  inverse (hasInterpreter)=>hasSign"""@en
+] .
+
+[ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The rule for the subproperty chain:
+ inverse (hasInterpreter) o  inverse (hasSign) =>hasReferent"""@en
+ ] .
+
+[ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The rule for the subproperty chain:
+inverse (hasSign) o  inverse (hasReferent) => hasInterpreter"""@en
+ ] .
+
 #################################################################
 #    Rules
 #################################################################
@@ -775,9 +793,33 @@ For example, when a Boeing 747 is used as a sign for another Boeing 747."""@en ,
 
 <urn:swrl:var#z> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
-[ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The rule for the subproperty chain:
- inverse (hasInterpreter) o  inverse (hasSign) =>hasReferent"""@en ;
-   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_f2fc1ce9_cc3b_4eb5_a112_3c85d1b1374a ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_60577dea_9019_4537_ac41_80b0fb563d41 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#z> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#x>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_60577dea_9019_4537_ac41_80b0fb563d41 ;
@@ -803,9 +845,7 @@ For example, when a Boeing 747 is used as a sign for another Boeing 747."""@en ,
                                          ]
  ] .
 
-[ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The rule for the subproperty chain:
-inverse (hasSign) o  inverse (hasReferent) => hasInterpreter"""@en ;
-   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_60577dea_9019_4537_ac41_80b0fb563d41 ;
@@ -824,34 +864,6 @@ inverse (hasSign) o  inverse (hasReferent) => hasInterpreter"""@en ;
    <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#z> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#x>
-                                                     ] ;
-                                           rdf:rest rdf:nil
-                                         ]
- ] .
-
-[ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The rule for the subproperty chain:
- inverse (hasReferent) o  inverse (hasInterpreter)=>hasSign"""@en ;
-   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
-   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
-                                                     ] ;
-                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_f2fc1ce9_cc3b_4eb5_a112_3c85d1b1374a ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
-                                                                ] ;
-                                                      rdf:rest rdf:nil
-                                                    ]
-                                         ] ;
-   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_60577dea_9019_4537_ac41_80b0fb563d41 ;
                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#z> ;
                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#x>
                                                      ] ;
