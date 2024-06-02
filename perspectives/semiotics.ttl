@@ -771,6 +771,18 @@ For example, when a Boeing 747 is used as a sign for another Boeing 747."""@en ,
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A characteriser that declares a property for an object through the specific interaction required by the property definition."@en .
 
 
+[ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The rule for the subproperty chain:
+ inverse (hasReferent) o  inverse (hasInterpreter)=>hasSign"""@en
+] .
+
+[ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The rule for the subproperty chain:
+ inverse (hasInterpreter) o  inverse (hasSign) =>hasReferent"""@en
+ ] .
+
+[ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The rule for the subproperty chain:
+inverse (hasSign) o  inverse (hasReferent) => hasInterpreter"""@en
+ ] .
+
 #################################################################
 #    Rules
 #################################################################
@@ -781,9 +793,33 @@ For example, when a Boeing 747 is used as a sign for another Boeing 747."""@en ,
 
 <urn:swrl:var#z> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
-[ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The rule for the subproperty chain:
- inverse (hasInterpreter) o  inverse (hasSign) =>hasReferent"""@en ;
-   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_f2fc1ce9_cc3b_4eb5_a112_3c85d1b1374a ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_60577dea_9019_4537_ac41_80b0fb563d41 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#z> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#x>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_60577dea_9019_4537_ac41_80b0fb563d41 ;
@@ -809,9 +845,7 @@ For example, when a Boeing 747 is used as a sign for another Boeing 747."""@en ,
                                          ]
  ] .
 
-[ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The rule for the subproperty chain:
-inverse (hasSign) o  inverse (hasReferent) => hasInterpreter"""@en ;
-   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_60577dea_9019_4537_ac41_80b0fb563d41 ;
@@ -830,34 +864,6 @@ inverse (hasSign) o  inverse (hasReferent) => hasInterpreter"""@en ;
    <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#z> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#x>
-                                                     ] ;
-                                           rdf:rest rdf:nil
-                                         ]
- ] .
-
-[ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The rule for the subproperty chain:
- inverse (hasReferent) o  inverse (hasInterpreter)=>hasSign"""@en ;
-   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
-   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
-                                                     ] ;
-                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_f2fc1ce9_cc3b_4eb5_a112_3c85d1b1374a ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
-                                                                ] ;
-                                                      rdf:rest rdf:nil
-                                                    ]
-                                         ] ;
-   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_60577dea_9019_4537_ac41_80b0fb563d41 ;
                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#z> ;
                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#x>
                                                      ] ;
