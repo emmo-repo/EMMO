@@ -12,22 +12,22 @@
                                                    owl:versionIRI <https://w3id.org/emmo/1.0.0-rc1/multiperspective/symbolic> ;
                                                    owl:imports <https://w3id.org/emmo/1.0.0-rc1/perspectives/data> ,
                                                                <https://w3id.org/emmo/1.0.0-rc1/perspectives/reductionistic> ;
-                                                   dcterms:abstract """The symbolic multi-perspective combines the data and reductionistic perspectives to describe symbolic entities.
+                                                   dcterms:abstract """The symbolic multi-perspective combines the contrast and reductionistic perspectives to describe symbolic entities.
 
-A symbolic entity is a descrite data that pocess a reductionistic structure, who's elements can be decoded to tokens from one or more alphabets.
+A symbolic entity is a discrete data that pocess a reductionistic structure, who's elements can be decoded to tokens from one or more alphabets.
 
 The symbolic module includes symbols, symbolic constructs and formal languages."""@en ;
-                                                   dcterms:contributor "Adham Hashibon, University College of London, UK" ,
-                                                                       "Georg Schmitz, Access, DE" ,
-                                                                       "Gerhard Goldbeck, Goldbeck Consulting Ltd, UK" ;
-                                                   dcterms:creator "Emanuele Ghedini, University of Bologna, IT" ,
-                                                                   "Jesper Friis, SINTEF, NO" ;
+                                                   dcterms:contributor <https://orcid.org/0000-0002-4181-2852> ,
+                                                                       <https://orcid.org/0000-0003-0514-9229> ,
+                                                                       <https://orcid.org/0000-0003-4065-9742> ;
+                                                   dcterms:creator <https://orcid.org/0000-0002-1560-809X> ,
+                                                                   <https://orcid.org/0000-0003-3805-8761> ;
                                                    dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
-                                                   dcterms:publisher "EMMC ASBL" ;
+                                                   dcterms:publisher <https://emmc.eu> ;
                                                    dcterms:title "Symbolic"@en ;
-                                                   rdfs:comment "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ,
-                                                                "Contacts: emmo@emmc.eu" ;
-                                                   owl:versionInfo "1.0.0-rc1" .
+                                                   rdfs:comment "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
+                                                   owl:versionInfo "1.0.0-rc1" ;
+                                                   :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
 
 
 #################################################################
@@ -36,6 +36,19 @@ The symbolic module includes symbols, symbolic constructs and formal languages."
 
 ###  http://www.w3.org/1999/02/22-rdf-syntax-ns#JSON
 rdf:JSON rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/emmo#EMMO_e5a34647_a955_40bc_8d81_9b784f0ac527
+:EMMO_e5a34647_a955_40bc_8d81_9b784f0ac527 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
+                                           rdfs:domain :EMMO_9e49caad_b29e_4cf1_9be4_80419fd1e45c ;
+                                           rdfs:range :EMMO_dd8301d8_affa_4b1d_8db8_7b9d0a1f2ee7 ;
+                                           skos:prefLabel "hasScalarData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Relates an array to the scalar data of its basic elements."@en .
 
 
 #################################################################
@@ -96,7 +109,14 @@ for(i=0;i<N;++i)"""@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """A symbolic entity is not necessarily graphical (e.g. it doesn't necessarily have the physical shape of a letter), but its elements can be decoded and put in relation with an alphabet.
 In other words, a sequence of bit \"1000010\" in a RAM (a non-graphical entity) is a valid symbol since it can be decoded through ASCII rules as the letter \"B\". The same holds for an entity standing for the sound of a voice saying: \"Hello\", since it can be decomposed in discrete parts, each of them being associated to a letter of an alphabet."""@en ,
                                                                                       """A symbolic object possesses a reductionistic oriented structure.
-For example, text is made of words, spaces and punctuations. Words are made of characters (i.e. atomic symbols)."""@en .
+For example, text is made of words, spaces and punctuations. Words are made of characters (i.e. atomic symbols)."""@en ,
+                                                                                      """The structure of an array can be expressed mereologically. An array consists of a set of equally sized tiles. The tiles of an n-dimensional array are (n-1)-dimensional,
+the tiles of an (n-1)-dimensional array are (n-2)-dimensional and so forth...
+The tiles of a vector (1-dimensional array) are scalar symbolic data (that is symbolic data that are not subclasses of array).
+
+The `hasSpatialTile` relation, can be used to navigate between dimensions.
+
+The `hasPart` relation can be used to refer to the scalar data"""@en .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_057e7d57_aff0_49de_911a_8861d85cef40 ;
@@ -112,7 +132,9 @@ For example, text is made of words, spaces and punctuations. Words are made of c
                                                                  owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
                                                                  owl:someValuesFrom xsd:dateTime
                                                                ] ;
-                                           skos:prefLabel "DateTimeData"@en .
+                                           rdfs:seeAlso "https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/datatypes.html#dateTime"^^xsd:anyURI ;
+                                           skos:prefLabel "DateTimeData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data that represents instants of time, optionally marked with a particular time zone offset."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_10bbe9e9_46b6_4b5d_8b51_ed759fc21f21
@@ -121,7 +143,9 @@ For example, text is made of words, spaces and punctuations. Words are made of c
                                                                  owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
                                                                  owl:someValuesFrom xsd:dateTimeStamp
                                                                ] ;
-                                           skos:prefLabel "DateTimeStampData"@en .
+                                           rdfs:seeAlso "https://www.w3.org/TR/xmlschema11-2/#dateTimeStamp"^^xsd:anyURI ;
+                                           skos:prefLabel "DateTimeStampData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data that represents instants of time, marked with a particular time zone offset."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_18d180e4_5e3e_42f7_820c_e08951223486
@@ -138,7 +162,8 @@ For example, text is made of words, spaces and punctuations. Words are made of c
 ###  https://w3id.org/emmo#EMMO_1daaf7b2_e7bf_4b3a_b7f6_8aa3f3c3d080
 :EMMO_1daaf7b2_e7bf_4b3a_b7f6_8aa3f3c3d080 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_70bbb94e_2ca7_4d73_ba01_6397f134d172 ;
-                                           skos:prefLabel "BinaryData"@en .
+                                           skos:prefLabel "BinaryData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Symbolic data that can be represented as a sequence of zeros and ones."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_1f96db65_51df_4e8d_afd2_9c6b8bd40058
@@ -148,7 +173,9 @@ For example, text is made of words, spaces and punctuations. Words are made of c
                                                                  owl:someValuesFrom xsd:hexBinary
                                                                ] ;
                                            rdfs:subClassOf :EMMO_1daaf7b2_e7bf_4b3a_b7f6_8aa3f3c3d080 ;
-                                           skos:prefLabel "HexBinaryData"@en .
+                                           rdfs:seeAlso "https://www.w3.org/TR/xmlschema11-2/#hexBinary"^^xsd:anyURI ;
+                                           skos:prefLabel "HexBinaryData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Hexadecimal encoding of binary data, using the alphabeth [0-9a-f]."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_220218b0_bbe2_489e_a68a_232e3610718e
@@ -158,12 +185,18 @@ For example, text is made of words, spaces and punctuations. Words are made of c
                                                                  owl:someValuesFrom xsd:base64Binary
                                                                ] ;
                                            rdfs:subClassOf :EMMO_1daaf7b2_e7bf_4b3a_b7f6_8aa3f3c3d080 ;
-                                           skos:prefLabel "Base64Binary"@en .
+                                           rdfs:seeAlso "https://www.w3.org/TR/xmlschema11-2/#base64Binary"^^xsd:anyURI ;
+                                           skos:prefLabel "Base64Binary"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Base-64 encoding of binary data."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_2ff657b6_1c9f_4335_bba2_ea4428422977
 :EMMO_2ff657b6_1c9f_4335_bba2_ea4428422977 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_9e49caad_b29e_4cf1_9be4_80419fd1e45c ;
+                                           rdfs:subClassOf :EMMO_9e49caad_b29e_4cf1_9be4_80419fd1e45c ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                                             owl:someValuesFrom :EMMO_d95ff9c8_e43f_4701_a761_f2ed601eb61d
+                                                           ] ;
                                            skos:prefLabel "MatrixData"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The datatype for bidimensional arrays."@en .
 
@@ -174,7 +207,9 @@ For example, text is made of words, spaces and punctuations. Words are made of c
                                                                  owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
                                                                  owl:someValuesFrom xsd:unsignedInt
                                                                ] ;
-                                           skos:prefLabel "UnsignedIntData"@en .
+                                           rdfs:seeAlso "https://www.w3.org/TR/xmlschema11-2/#unsignedInt"^^xsd:anyURI ;
+                                           skos:prefLabel "UnsignedIntData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data representing 32-bit non-negative integer number, 0...4294967295."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_3c87fd89_b0f0_477a_86b6_d949c2b982ee
@@ -183,7 +218,9 @@ For example, text is made of words, spaces and punctuations. Words are made of c
                                                                  owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
                                                                  owl:someValuesFrom xsd:byte
                                                                ] ;
-                                           skos:prefLabel "ByteData"@en .
+                                           rdfs:seeAlso "https://www.w3.org/TR/xmlschema11-2/#byte"^^xsd:anyURI ;
+                                           skos:prefLabel "ByteData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data representing 8-bit integer number."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_42eee73b_e4d2_4a0f_b468_3d2ce0475af6
@@ -192,13 +229,16 @@ For example, text is made of words, spaces and punctuations. Words are made of c
                                                                  owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
                                                                  owl:someValuesFrom xsd:nonNegativeInteger
                                                                ] ;
-                                           skos:prefLabel "NonNegativeIntegerData"@en .
+                                           rdfs:seeAlso "https://www.w3.org/TR/xmlschema11-2/#nonNegativeInteger"^^xsd:anyURI ;
+                                           skos:prefLabel "NonNegativeIntegerData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data representing an integer number >= 0."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_432192c4_111f_4e80_b7cd_c6ce1c1129ea
 :EMMO_432192c4_111f_4e80_b7cd_c6ce1c1129ea rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ;
-                                           skos:prefLabel "Spacing"@en .
+                                           skos:prefLabel "Spacing"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Symbol representing a spacing."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_443198a5_934c_44fa_b89e_28eca13b25b2
@@ -207,7 +247,9 @@ For example, text is made of words, spaces and punctuations. Words are made of c
                                                                  owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
                                                                  owl:someValuesFrom xsd:short
                                                                ] ;
-                                           skos:prefLabel "ShortData"@en .
+                                           rdfs:seeAlso "https://www.w3.org/TR/xmlschema11-2/#short"^^xsd:anyURI ;
+                                           skos:prefLabel "ShortData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data representing 16-bit integer number."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_50ea1ec5_f157_41b0_b46b_a9032f17ca10
@@ -230,7 +272,9 @@ If an 'interpreter' skilled in english language is involved in a 'semiotic' proc
                                                                  owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
                                                                  owl:someValuesFrom xsd:long
                                                                ] ;
-                                           skos:prefLabel "LongData"@en .
+                                           rdfs:seeAlso "https://www.w3.org/TR/xmlschema11-2/#long"^^xsd:anyURI ;
+                                           skos:prefLabel "LongData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data representing 64-bit integer number."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_52fa9c76_fc42_4eca_a5c1_6095a1c9caab
@@ -240,8 +284,9 @@ If an 'interpreter' skilled in english language is involved in a 'semiotic' proc
                                                                  owl:someValuesFrom xsd:double
                                                                ] ;
                                            rdfs:subClassOf :EMMO_88a34881_b8d0_474b_9a08_40dbd414d834 ;
+                                           rdfs:seeAlso "https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/datatypes.html#double"^^xsd:anyURI ;
                                            skos:prefLabel "DoubleData"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A numeric data representing a double precision (64 bit) floating point number."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbolic data representing a 64-bit floating point numbers incl. ±Inf, ±0, NaN."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_54dc83cb_06e1_4739_9e45_bc09cead7f48
@@ -250,6 +295,7 @@ If an 'interpreter' skilled in english language is involved in a 'semiotic' proc
                                                                  owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
                                                                  owl:someValuesFrom xsd:boolean
                                                                ] ;
+                                           rdfs:seeAlso "https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/datatypes.html#boolean" ;
                                            skos:prefLabel "BooleanData"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data repesenting a boolean number."@en .
 
@@ -260,7 +306,9 @@ If an 'interpreter' skilled in english language is involved in a 'semiotic' proc
                                                                  owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
                                                                  owl:someValuesFrom xsd:positiveInteger
                                                                ] ;
-                                           skos:prefLabel "PositiveIntegerData"@en .
+                                           rdfs:seeAlso "https://www.w3.org/TR/xmlschema11-2/#positiveInteger"^^xsd:anyURI ;
+                                           skos:prefLabel "PositiveIntegerData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data representing an integer number > 0."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_5f334606_f67d_4f0e_acb9_eeb21cb10c66
@@ -269,7 +317,10 @@ If an 'interpreter' skilled in english language is involved in a 'semiotic' proc
                                                                  owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
                                                                  owl:someValuesFrom xsd:string
                                                                ] ;
-                                           skos:prefLabel "StringData"@en .
+                                           rdfs:seeAlso "https://www.w3.org/TR/xmlschema11-2/#string"^^xsd:anyURI ;
+                                           skos:prefLabel "StringData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Symbolic data that consist of a sequence of characters."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Since a string is a simple type that can contain only characters but not other child elements, is often not suitable for representing human text, that may need additional elements for control of aspects such as bidirectional formatting or ruby annotation."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_648c17b7_a012_4060_a096_c76bd407804b
@@ -278,7 +329,9 @@ If an 'interpreter' skilled in english language is involved in a 'semiotic' proc
                                                                  owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
                                                                  owl:someValuesFrom xsd:negativeInteger
                                                                ] ;
-                                           skos:prefLabel "NegativeIntegerData"@en .
+                                           rdfs:seeAlso "https://www.w3.org/TR/xmlschema11-2/#negativeInteger"^^xsd:anyURI ;
+                                           skos:prefLabel "NegativeIntegerData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data representing an integer number < 0."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_69ebb235_9c5e_443d_9a3b_7042b1005f1f
@@ -287,13 +340,18 @@ If an 'interpreter' skilled in english language is involved in a 'semiotic' proc
                                                                  owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
                                                                  owl:someValuesFrom owl:rational
                                                                ] ;
-                                           skos:prefLabel "RationalData"@en .
+                                           skos:prefLabel "RationalData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbolic data representing a rational number, that is a number that can be expressed exact by `p/q` where `p` and `q` are integer numbers."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_70bbb94e_2ca7_4d73_ba01_6397f134d172
 :EMMO_70bbb94e_2ca7_4d73_ba01_6397f134d172 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_057e7d57_aff0_49de_911a_8861d85cef40 ;
+                                           owl:disjointUnionOf ( :EMMO_9e49caad_b29e_4cf1_9be4_80419fd1e45c
+                                                                 :EMMO_dd8301d8_affa_4b1d_8db8_7b9d0a1f2ee7
+                                                               ) ;
                                            rdfs:seeAlso "https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#built-in-datatypes"^^xsd:anyURI ,
+                                                        "https://www.w3.org/TR/rdf11-concepts/"^^xsd:anyURI ,
                                                         "https://www.w3.org/TR/2012/REC-owl2-syntax-20121211/#Datatype_Maps" ,
                                                         "https://www.w3schools.com/xml/schema_dtypes_numeric.asp" ;
                                            skos:altLabel "LiteralData" ;
@@ -305,7 +363,8 @@ If an 'interpreter' skilled in english language is involved in a 'semiotic' proc
 ###  https://w3id.org/emmo#EMMO_74b05aed_66bf_43c8_aa2c_752a9ca8be03
 :EMMO_74b05aed_66bf_43c8_aa2c_752a9ca8be03 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ;
-                                           skos:prefLabel "Numeral"@en .
+                                           skos:prefLabel "Numeral"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Symbol representing a letter in a digit."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_88a34881_b8d0_474b_9a08_40dbd414d834
@@ -332,25 +391,40 @@ If an 'interpreter' skilled in english language is involved in a 'semiotic' proc
 ###  https://w3id.org/emmo#EMMO_8b305b63_6fa3_44dd_9679_17eb8403a07a
 :EMMO_8b305b63_6fa3_44dd_9679_17eb8403a07a rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_70bbb94e_2ca7_4d73_ba01_6397f134d172 ;
-                                           skos:prefLabel "NumericData"@en .
+                                           skos:prefLabel "NumericData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbolic data representing a numerical value."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_9e49caad_b29e_4cf1_9be4_80419fd1e45c
 :EMMO_9e49caad_b29e_4cf1_9be4_80419fd1e45c rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_70bbb94e_2ca7_4d73_ba01_6397f134d172 ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                                             owl:someValuesFrom :EMMO_70bbb94e_2ca7_4d73_ba01_6397f134d172
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_e5a34647_a955_40bc_8d81_9b784f0ac527 ;
+                                                             owl:someValuesFrom :EMMO_dd8301d8_affa_4b1d_8db8_7b9d0a1f2ee7
+                                                           ] ;
                                            skos:prefLabel "ArrayData"@en ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "An array is a datatype representing an ordered collection of elements (or values) that can be accessed by indexes. Arrays have an analog mathematical counterpart in vectors and matrixes, but are separate concepts. Arrays may be multidimensionals."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """In the EMMO we use the following JSON based syntax to represent arrays:
-- mono-dimensional array [v1,v2,...,vn]
-- bi-dimensional array [[v1,v2,...,vn],[w1,w2,...,2n]]
-This notation can be extended to multidimensional arrays."""@en .
+- mono-dimensional array [v1,v2,...,vn] (vector)
+- bi-dimensional array [[v1,v2,...,vn],[w1,w2,...,2n]] (matrix)
+This notation can be extended to multidimensional arrays."""@en ,
+                                                                                      """The `hasSpatialTile` relation can be used to navigate between the dimensions of an array.
+
+The `hasScalarData` relation can be used to refer to the basic scalar data of the single array elements."""@en ,
+                                                                                      """The structure of an array is expressed mereologically. It consists of a set of equally sized tiles.
+
+The tiles of an n-dimensional array are (n-1) dimensional arrays. The tiles of an (n-1)-dimensional array are (n-2) dimensional arrays, and so forth down to 1-dimensional arrays (vectors), whos tiles are scalar data."""@en .
 
 
 ###  https://w3id.org/emmo#EMMO_9e985b2c_d36d_4ab5_ab01_3290b6747757
 :EMMO_9e985b2c_d36d_4ab5_ab01_3290b6747757 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_70bbb94e_2ca7_4d73_ba01_6397f134d172 ;
-                                           rdfs:isDefinedBy "https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/datatypes.html#date"^^xsd:anyURI ;
-                                           skos:prefLabel "DateData"@en .
+                                           rdfs:seeAlso "https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/datatypes.html#date"^^xsd:anyURI ;
+                                           skos:prefLabel "DateData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data representing a date."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527
@@ -374,7 +448,8 @@ Symbols of a formal language must be capable of being specified without any refe
 ###  https://w3id.org/emmo#EMMO_a817035a_3e3c_4709_8ede_3205df3031a3
 :EMMO_a817035a_3e3c_4709_8ede_3205df3031a3 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ;
-                                           skos:prefLabel "Punctuation"@en .
+                                           skos:prefLabel "Punctuation"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Symbol representing a punctuation character."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_aa972cc9_5d9e_47a2_abc5_00243d6b3917
@@ -383,7 +458,9 @@ Symbols of a formal language must be capable of being specified without any refe
                                                                  owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
                                                                  owl:someValuesFrom xsd:int
                                                                ] ;
-                                           skos:prefLabel "IntData"@en .
+                                           rdfs:seeAlso "https://www.w3.org/TR/xmlschema11-2/#int"^^xsd:anyURI ;
+                                           skos:prefLabel "IntData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data representing 32-bit integer number."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_ac9e518d_b403_4d8b_97e2_06f9d40bac01
@@ -393,14 +470,16 @@ Symbols of a formal language must be capable of being specified without any refe
                                                                  owl:someValuesFrom xsd:float
                                                                ] ;
                                            rdfs:subClassOf :EMMO_88a34881_b8d0_474b_9a08_40dbd414d834 ;
+                                           rdfs:seeAlso "https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/datatypes.html#float"^^xsd:anyURI ;
                                            skos:prefLabel "FloatData"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A numeric data representing a single precision (32 bit) floating point number."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbolic data representing a 32-bit floating point numbers incl. ±Inf, ±0, NaN."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_bed2fe4c_dc7e_43a8_8200_6aac44030bff
 :EMMO_bed2fe4c_dc7e_43a8_8200_6aac44030bff rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ;
-                                           skos:prefLabel "Letter"@en .
+                                           skos:prefLabel "Letter"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Symbol representing a letter in an alphabet."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_cf0f8f57_8a9e_410c_8fe4_a436673fa3d3
@@ -409,7 +488,9 @@ Symbols of a formal language must be capable of being specified without any refe
                                                                  owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
                                                                  owl:someValuesFrom xsd:nonPositiveInteger
                                                                ] ;
-                                           skos:prefLabel "NonPositiveIntegerData"@en .
+                                           rdfs:seeAlso "https://www.w3.org/TR/xmlschema11-2/#nonPositiveInteger"^^xsd:anyURI ;
+                                           skos:prefLabel "NonPositiveIntegerData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data representing an integer number <= 0."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_d43546df_7fd7_44d5_9d7c_0f2bf56cefe3
@@ -418,7 +499,9 @@ Symbols of a formal language must be capable of being specified without any refe
                                                                  owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
                                                                  owl:someValuesFrom xsd:decimal
                                                                ] ;
-                                           skos:prefLabel "DecimalData"@en .
+                                           rdfs:seeAlso "https://www.w3.org/TR/xmlschema11-2/#decimal"^^xsd:anyURI ;
+                                           skos:prefLabel "DecimalData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data representing an arbritrary precision decimal number."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_d8d2144e_5c8d_455d_a643_5caf4d8d9df8
@@ -437,7 +520,11 @@ Symbols of a formal language must be capable of being specified without any refe
 
 ###  https://w3id.org/emmo#EMMO_d95ff9c8_e43f_4701_a761_f2ed601eb61d
 :EMMO_d95ff9c8_e43f_4701_a761_f2ed601eb61d rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_9e49caad_b29e_4cf1_9be4_80419fd1e45c ;
+                                           rdfs:subClassOf :EMMO_9e49caad_b29e_4cf1_9be4_80419fd1e45c ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                                             owl:someValuesFrom :EMMO_dd8301d8_affa_4b1d_8db8_7b9d0a1f2ee7
+                                                           ] ;
                                            skos:prefLabel "VectorData"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The datatype for monodimensional arrays."@en .
 
@@ -448,13 +535,23 @@ Symbols of a formal language must be capable of being specified without any refe
                                                                  owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
                                                                  owl:someValuesFrom xsd:unsignedShort
                                                                ] ;
-                                           skos:prefLabel "UnsignedShortData"@en .
+                                           rdfs:seeAlso "https://www.w3.org/TR/xmlschema11-2/#unsignedShort"^^xsd:anyURI ;
+                                           skos:prefLabel "UnsignedShortData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data representing 16-bit non-negative integer number, 0...65535."@en .
+
+
+###  https://w3id.org/emmo#EMMO_dd8301d8_affa_4b1d_8db8_7b9d0a1f2ee7
+:EMMO_dd8301d8_affa_4b1d_8db8_7b9d0a1f2ee7 rdf:type owl:Class ;
+                                           skos:prefLabel "ScalarData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbolic data that is not array data."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Scalar data are primitive symbolic data that are not built up of other types of symbolic data."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_e13b2173_1dec_4b97_9ac1_1dc4b418612a
 :EMMO_e13b2173_1dec_4b97_9ac1_1dc4b418612a rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ;
-                                           skos:prefLabel "UTF8"@en .
+                                           skos:prefLabel "UTF8"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A unicode character encoded with UTF-8."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_e99aec47_9ae6_4a1d_bddd_b87bb456c52a
@@ -463,7 +560,9 @@ Symbols of a formal language must be capable of being specified without any refe
                                                                  owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
                                                                  owl:someValuesFrom xsd:unsignedByte
                                                                ] ;
-                                           skos:prefLabel "UnsignedByteData"@en .
+                                           rdfs:seeAlso "https://www.w3.org/TR/xmlschema11-2/#unsignedByte"^^xsd:anyURI ;
+                                           skos:prefLabel "UnsignedByteData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data representing 8-bit non-negative integer number, 0...255."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_f1ee5c02_5cc0_45ba_a09a_2e6319f75fc8
@@ -472,7 +571,9 @@ Symbols of a formal language must be capable of being specified without any refe
                                                                  owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
                                                                  owl:someValuesFrom xsd:unsignedLong
                                                                ] ;
-                                           skos:prefLabel "UnsignedLongData"@en .
+                                           rdfs:seeAlso "https://www.w3.org/TR/xmlschema11-2/#unsignedLong"^^xsd:anyURI ;
+                                           skos:prefLabel "UnsignedLongData"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data representing 64-bit non-negative integer number, 0...18446744073709551615."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_f8bd64d5_5d3e_4ad4_a46e_c30714fecb7f
@@ -481,8 +582,9 @@ Symbols of a formal language must be capable of being specified without any refe
                                                                  owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
                                                                  owl:someValuesFrom xsd:integer
                                                                ] ;
+                                           rdfs:seeAlso "https://www.w3.org/TR/xmlschema11-2/#integer"^^xsd:anyURI ;
                                            skos:prefLabel "IntegerData"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data representing an integer number."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data representing an arbritrary sized integer number."@en .
 
 
 ###  https://w3id.org/emmo/multiperspective/symbolic#EMMO_4ca129f3_5341_4dbf_b081_bbe0df9d081a
