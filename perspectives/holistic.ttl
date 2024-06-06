@@ -14,30 +14,21 @@
                                                dcterms:abstract """Defines the holistic perspective which include process and the role of its participants.
 
 Processes are 4D object's that unfolds in time in a way that has a meaning to the ontologist with participants who's role is assigned by the ontologist."""@en ;
-                                               dcterms:contributor <https://orcid.org/0000-0003-0514-9229> ,
-                                                                   <https://orcid.org/0000-0003-4065-9742> ,
+                                               dcterms:contributor <https://orcid.org/0000-0002-1560-809X> ,
                                                                    <https://orcid.org/0000-0002-4181-2852> ,
-                                                                   <https://orcid.org/0000-0002-1560-809X> ;
+                                                                   <https://orcid.org/0000-0003-0514-9229> ,
+                                                                   <https://orcid.org/0000-0003-4065-9742> ;
                                                dcterms:creator <https://orcid.org/0000-0003-3805-8761> ;
                                                dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                                dcterms:publisher <https://emmc.eu> ;
                                                dcterms:title "Holistic"@en ;
-                                               :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" ;
                                                rdfs:comment "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                               owl:versionInfo "1.0.0-rc1" .
+                                               owl:versionInfo "1.0.0-rc1" ;
+                                               :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
 
 #################################################################
 #    Object Properties
 #################################################################
-
-###  https://w3id.org/emmo#EMMO_1328d112_e731_4e56_b9b9_6b6cdd495cd6
-:EMMO_1328d112_e731_4e56_b9b9_6b6cdd495cd6 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
-                                           skos:example "A molecule is a distinct part of a fluid." ;
-                                           skos:prefLabel "hasDistinctPart"@en ;
-                                           :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "DP(x, y) ≡ PP(x, y) ∧ ∃φ[φ(x) ↔ ¬φ(y)]" ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A proper part relation between an entity and one of its proper parts that belongs to different taxonomical branch." .
-
 
 ###  https://w3id.org/emmo#EMMO_3b95deb3_9f2f_4ab0_8574_fb74f01b4bea
 :EMMO_3b95deb3_9f2f_4ab0_8574_fb74f01b4bea rdf:type owl:ObjectProperty ;
@@ -67,18 +58,6 @@ In this sense, the man and the building process overcrosses. and the overlapping
                                                               :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
                                            rdfs:range :EMMO_fcae603e_aa6e_4940_9fa1_9f0909cabf3b ;
                                            skos:prefLabel "hasHolisticSpatialPart"@en .
-
-
-###  https://w3id.org/emmo#EMMO_6786b336_e982_4759_8dee_1905a4106591
-:EMMO_6786b336_e982_4759_8dee_1905a4106591 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
-                                           rdfs:domain :EMMO_bbca6dfa_7463_4e8d_8280_35862ff50ce0 ;
-                                           skos:example "A volume of water has redundand parts other volumes of water. All this volumes have holistic parts some water molecules."@en ;
-                                           skos:prefLabel "hasRedundantPart"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superproperty of the relations between a whole and its mereological parts that are still holistic wholes of the same type."@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The purpose of this relation is to provide a parhood relation that does not go deep enough, in terms of decomposition, to break the holistic definition of the whole.
-
-On the contrary, the holistic parthood, is expected to go that deep."""@en .
 
 
 ###  https://w3id.org/emmo#EMMO_88470630_2a27_4f9e_866a_47ff7789e34b
@@ -181,34 +160,6 @@ This class is expected to host the definition of world objects as they appear in
  ] .
 
 
-###  https://w3id.org/emmo#EMMO_2469e4c6_ac2e_4c8f_b49f_7b2d2e277215
-:EMMO_2469e4c6_ac2e_4c8f_b49f_7b2d2e277215 rdf:type owl:Class ;
-                                           skos:prefLabel "SpatiallyRedundant"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A whole with spatial parts of its same type."@en .
-
-
-###  https://w3id.org/emmo#EMMO_32e701c0_a925_49df_9829_0931b8554807
-:EMMO_32e701c0_a925_49df_9829_0931b8554807 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_57c75ca1_bf8a_42bc_85d9_58cfe38c7df2
-                                                                               :EMMO_bbca6dfa_7463_4e8d_8280_35862ff50ce0
-                                                                             )
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_49267eba_5548_4163_8f36_518d65b583f9 ;
-                                           skos:prefLabel "Structural"@en .
-
-
-###  https://w3id.org/emmo#EMMO_4b32fc1e_5293_4247_9e8d_1175df9f1c0b
-:EMMO_4b32fc1e_5293_4247_9e8d_1175df9f1c0b rdf:type owl:Class ;
-                                           owl:equivalentClass [ owl:intersectionOf ( :EMMO_aaad78a9_abaf_4f97_9c1a_d763a94c4ba3
-                                                                                      :EMMO_f055e217_0b1b_4e7e_b8be_7340211b0c5e
-                                                                                    ) ;
-                                                                 rdf:type owl:Class
-                                                               ] ;
-                                           skos:prefLabel "StrictFundamental"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals that satisfy a whole defining criteria (i.e. belongs to a subclass of whole) and have no proper parts that satisfy that same criteria (no parts that are of the same type of the whole)."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_4f226cf3_6d02_4d35_8566_a9e641bc6ff3
 :EMMO_4f226cf3_6d02_4d35_8566_a9e641bc6ff3 rdf:type owl:Class ;
                                            owl:equivalentClass [ rdf:type owl:Class ;
@@ -254,44 +205,6 @@ This class is expected to host the definition of world objects as they appear in
 This definition provides a clear and precise way to define what a role is.""" .
 
 
-###  https://w3id.org/emmo#EMMO_57c75ca1_bf8a_42bc_85d9_58cfe38c7df2
-:EMMO_57c75ca1_bf8a_42bc_85d9_58cfe38c7df2 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_aaad78a9_abaf_4f97_9c1a_d763a94c4ba3
-                                                                               :EMMO_f055e217_0b1b_4e7e_b8be_7340211b0c5e
-                                                                             )
-                                                               ] ;
-                                           skos:altLabel "Lifetime"@en ,
-                                                         "Maximal"@en ;
-                                           skos:example """A marathon is an example of class whose individuals are always maximal since the criteria satisfied by a marathon 4D entity poses some constraints on its temporal and spatial extent.
-
-On the contrary, the class for a generic running process does not necessarily impose maximality to its individuals. A running individual is maximal only when it extends in time for the minimum amount required to identify a running act, so every possible temporal part is always a non-running.
-
-Following the two examples, a marathon individual is a maximal that can be decomposed into running intervals. The marathon class is a subclass of running."""@en ;
-                                           skos:prefLabel "Fundamental"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A whole that represent the overall lifetime of the world object that represents according to some holistic criteria."@en .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_57c75ca1_bf8a_42bc_85d9_58cfe38c7df2 ;
-   owl:annotatedProperty skos:altLabel ;
-   owl:annotatedTarget "Lifetime"@en ;
-   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Middle English liftime, equivalent to life +‎ time."@en
- ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_57c75ca1_bf8a_42bc_85d9_58cfe38c7df2 ;
-   owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "Fundamental"@en ;
-   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin fundamentum (“foundation”), from fundō (“to lay the foundation (of something), to found”), from fundus (“bottom”)."@en
- ] .
-
-
-###  https://w3id.org/emmo#EMMO_808566db_b810_448d_8a54_48e7f6d30f36
-:EMMO_808566db_b810_448d_8a54_48e7f6d30f36 rdf:type owl:Class ;
-                                           skos:prefLabel "TemporallyRedundant"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A whole with temporal parts of its same type."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_a374f1d4_55b1_4796_a8c6_88668f205cd2
 :EMMO_a374f1d4_55b1_4796_a8c6_88668f205cd2 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62 ;
@@ -301,36 +214,19 @@ Following the two examples, a marathon individual is a maximal that can be decom
 This definition provides a clear and precise way to define what a whole is.""" .
 
 
-###  https://w3id.org/emmo#EMMO_aaad78a9_abaf_4f97_9c1a_d763a94c4ba3
-:EMMO_aaad78a9_abaf_4f97_9c1a_d763a94c4ba3 rdf:type owl:Class ;
-                                           skos:prefLabel "TemporallyFundamental"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals that satisfy a whole defining criteria (i.e. belongs to a subclass of whole) and have no temporal parts that satisfy that same criteria (no parts that are of the same type of the whole)."@en .
-
-
-###  https://w3id.org/emmo#EMMO_bbca6dfa_7463_4e8d_8280_35862ff50ce0
-:EMMO_bbca6dfa_7463_4e8d_8280_35862ff50ce0 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_2469e4c6_ac2e_4c8f_b49f_7b2d2e277215
-                                                                               :EMMO_808566db_b810_448d_8a54_48e7f6d30f36
-                                                                             )
-                                                               ] ;
-                                           rdfs:seeAlso :EMMO_57c75ca1_bf8a_42bc_85d9_58cfe38c7df2 ;
-                                           skos:altLabel "NonMaximal"@en ;
-                                           skos:prefLabel "Redundant"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A whole possessing some proper parts of its same type."@en .
-
-
-###  https://w3id.org/emmo#EMMO_f055e217_0b1b_4e7e_b8be_7340211b0c5e
-:EMMO_f055e217_0b1b_4e7e_b8be_7340211b0c5e rdf:type owl:Class ;
-                                           skos:prefLabel "SpatiallyFundamental"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals that satisfy a whole defining criteria (i.e. belongs to a subclass of whole) and have no spatial parts that satisfy that same criteria (no parts that are of the same type of the whole)."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_fcae603e_aa6e_4940_9fa1_9f0909cabf3b
 :EMMO_fcae603e_aa6e_4940_9fa1_9f0909cabf3b rdf:type owl:Class ;
                                            skos:altLabel "HolisticSpatialPart"@en ;
                                            skos:prefLabel "NonTemporalRole"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An holistic spatial part of a whole."@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://orcid.org/0000-0003-3805-8761
+<https://orcid.org/0000-0003-3805-8761> rdf:type :EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac .
 
 
 ###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
