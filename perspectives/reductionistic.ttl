@@ -115,13 +115,20 @@ The direct parts (tiles) and the tessellated entity (tessellation) are causally 
 #    Classes
 #################################################################
 
+###  http://w3id.org/emmo#EMMO_41c5f63b_f0e7_475e_bfac_a92027585979
+<http://w3id.org/emmo#EMMO_41c5f63b_f0e7_475e_bfac_a92027585979> rdf:type owl:Class ;
+                                                                 rdfs:subClassOf :EMMO_2e46d966_9f14_4673_821e_7c7cf2957926 ;
+                                                                 skos:prefLabel "SpatioTemporalTileByConnection"@en .
+
+
+###  http://w3id.org/emmo#EMMO_5e38e44b_a0d1_4afc_a876_95095c0a589f
+<http://w3id.org/emmo#EMMO_5e38e44b_a0d1_4afc_a876_95095c0a589f> rdf:type owl:Class ;
+                                                                 rdfs:subClassOf :EMMO_2e46d966_9f14_4673_821e_7c7cf2957926 ;
+                                                                 skos:prefLabel "SpatioTemporalTileByPosition"@en .
+
+
 ###  https://w3id.org/emmo#EMMO_15db234d_ecaf_4715_9838_4b4ec424fb13
 :EMMO_15db234d_ecaf_4715_9838_4b4ec424fb13 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_9953c19f_ee33_4af8_be5e_dbf6d1e33581
-                                                                               :EMMO_ee0466e4_780d_4236_8281_ace7ad3fc5d2
-                                                                             )
-                                                               ] ;
                                            rdfs:subClassOf :EMMO_49267eba_5548_4163_8f36_518d65b583f9 ;
                                            skos:prefLabel "Reductionistic"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A class devoted to categorize causal objects by specifying their granularity levels."@en ;
@@ -143,7 +150,8 @@ The direct parts (tiles) and the tessellated entity (tessellation) are causally 
 
 ###  https://w3id.org/emmo#EMMO_2b1fb71c_0eb0_445c_9be7_fb5d30ae79fd
 :EMMO_2b1fb71c_0eb0_445c_9be7_fb5d30ae79fd rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_e12dcfa4_c9f1_4546_9a12_8457c052e6ba ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_74a75cf1_3418_4244_b43c_b5db94635d42 ;
                                                              owl:someValuesFrom :EMMO_d4c95fa1_5bda_4063_a22d_62c81fcea284
                                                            ] ;
@@ -154,18 +162,6 @@ The direct parts (tiles) and the tessellated entity (tessellation) are causally 
 
 ###  https://w3id.org/emmo#EMMO_2e46d966_9f14_4673_821e_7c7cf2957926
 :EMMO_2e46d966_9f14_4673_821e_7c7cf2957926 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_4cf484af_082a_40f5_9f11_930bf4634482
-                                                                               :EMMO_504ad89e_dd4a_4fa6_aeb6_15c8ce0cde9b
-                                                                               :EMMO_d4c95fa1_5bda_4063_a22d_62c81fcea284
-                                                                             )
-                                                               ] ,
-                                                               [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_caa63d00_80b1_4408_ac1b_cd0d23b0ec50
-                                                                               :EMMO_edf72228_e040_4edc_8b46_78b2a47c72d7
-                                                                               :EMMO_fa595892_070d_455e_9459_06c97179c080
-                                                                             )
-                                                               ] ;
                                            rdfs:subClassOf :EMMO_9953c19f_ee33_4af8_be5e_dbf6d1e33581 ;
                                            skos:altLabel "WellFormedTile"@en ;
                                            skos:prefLabel "SpatioTemporalTile" ;
@@ -189,12 +185,14 @@ If we partition the existent in my glass as ice surrounded by several molecules 
 
 ###  https://w3id.org/emmo#EMMO_4cf484af_082a_40f5_9f11_930bf4634482
 :EMMO_4cf484af_082a_40f5_9f11_930bf4634482 rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://w3id.org/emmo#EMMO_41c5f63b_f0e7_475e_bfac_a92027585979> ;
                                            skos:prefLabel "SpatialTile"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A direct part that is obtained by partitioning a whole purely in spatial parts."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_504ad89e_dd4a_4fa6_aeb6_15c8ce0cde9b
 :EMMO_504ad89e_dd4a_4fa6_aeb6_15c8ce0cde9b rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://w3id.org/emmo#EMMO_41c5f63b_f0e7_475e_bfac_a92027585979> ;
                                            skos:prefLabel "TemporalTile"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A direct part that is obtained by partitioning a whole purely in temporal parts."@en .
 
@@ -243,7 +241,8 @@ Moreover, due to inverse functionality, a 'State' can be part of only one 'Exist
 
 ###  https://w3id.org/emmo#EMMO_8944581c_64da_46a9_be29_7074f7cc8098
 :EMMO_8944581c_64da_46a9_be29_7074f7cc8098 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_e12dcfa4_c9f1_4546_9a12_8457c052e6ba ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_7efab93d_c8fe_49c7_ba8e_d21d13b38c85 ;
                                                              owl:allValuesFrom :EMMO_4cf484af_082a_40f5_9f11_930bf4634482
                                                            ] ;
@@ -261,7 +260,8 @@ Moreover, due to inverse functionality, a 'State' can be part of only one 'Exist
 
 ###  https://w3id.org/emmo#EMMO_9953c19f_ee33_4af8_be5e_dbf6d1e33581
 :EMMO_9953c19f_ee33_4af8_be5e_dbf6d1e33581 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_15db234d_ecaf_4715_9838_4b4ec424fb13 ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty [ owl:inverseOf :EMMO_74a75cf1_3418_4244_b43c_b5db94635d42
                                                                             ] ;
                                                              owl:someValuesFrom :EMMO_ee0466e4_780d_4236_8281_ace7ad3fc5d2
@@ -288,14 +288,15 @@ Moreover, due to inverse functionality, a 'State' can be part of only one 'Exist
 
 ###  https://w3id.org/emmo#EMMO_caa63d00_80b1_4408_ac1b_cd0d23b0ec50
 :EMMO_caa63d00_80b1_4408_ac1b_cd0d23b0ec50 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_2e46d966_9f14_4673_821e_7c7cf2957926 ;
+                                           rdfs:subClassOf <http://w3id.org/emmo#EMMO_5e38e44b_a0d1_4afc_a876_95095c0a589f> ;
                                            skos:prefLabel "ThroughTile"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A tile that has next and is next of other tiles within the same tessellation."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_d4c95fa1_5bda_4063_a22d_62c81fcea284
 :EMMO_d4c95fa1_5bda_4063_a22d_62c81fcea284 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf <http://w3id.org/emmo#EMMO_41c5f63b_f0e7_475e_bfac_a92027585979> ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty [ owl:inverseOf :EMMO_663859e5_add3_4c9e_96fb_c99399de278d
                                                                             ] ;
                                                              owl:someValuesFrom :EMMO_2b1fb71c_0eb0_445c_9be7_fb5d30ae79fd
@@ -306,12 +307,6 @@ Moreover, due to inverse functionality, a 'State' can be part of only one 'Exist
 
 ###  https://w3id.org/emmo#EMMO_e12dcfa4_c9f1_4546_9a12_8457c052e6ba
 :EMMO_e12dcfa4_c9f1_4546_9a12_8457c052e6ba rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_2b1fb71c_0eb0_445c_9be7_fb5d30ae79fd
-                                                                               :EMMO_8944581c_64da_46a9_be29_7074f7cc8098
-                                                                               :EMMO_f7f41d20_eabb_4bcb_9a16_0436851fcd5c
-                                                                             )
-                                                               ] ;
                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_7efab93d_c8fe_49c7_ba8e_d21d13b38c85 ;
                                                              owl:someValuesFrom :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de
@@ -323,14 +318,15 @@ Moreover, due to inverse functionality, a 'State' can be part of only one 'Exist
 
 ###  https://w3id.org/emmo#EMMO_edf72228_e040_4edc_8b46_78b2a47c72d7
 :EMMO_edf72228_e040_4edc_8b46_78b2a47c72d7 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_2e46d966_9f14_4673_821e_7c7cf2957926 ;
+                                           rdfs:subClassOf <http://w3id.org/emmo#EMMO_5e38e44b_a0d1_4afc_a876_95095c0a589f> ;
                                            skos:prefLabel "EndTile"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_c0f48dc6_4a32_4d9a_a956_d68415954a8e .
 
 
 ###  https://w3id.org/emmo#EMMO_ee0466e4_780d_4236_8281_ace7ad3fc5d2
 :EMMO_ee0466e4_780d_4236_8281_ace7ad3fc5d2 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_15db234d_ecaf_4715_9838_4b4ec424fb13 ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_74a75cf1_3418_4244_b43c_b5db94635d42 ;
                                                              owl:someValuesFrom :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de
                                                            ] ;
@@ -349,7 +345,8 @@ Moreover, due to inverse functionality, a 'State' can be part of only one 'Exist
 
 ###  https://w3id.org/emmo#EMMO_f7f41d20_eabb_4bcb_9a16_0436851fcd5c
 :EMMO_f7f41d20_eabb_4bcb_9a16_0436851fcd5c rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_e12dcfa4_c9f1_4546_9a12_8457c052e6ba ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_7efab93d_c8fe_49c7_ba8e_d21d13b38c85 ;
                                                              owl:allValuesFrom :EMMO_504ad89e_dd4a_4fa6_aeb6_15c8ce0cde9b
                                                            ] ;
@@ -359,7 +356,7 @@ Moreover, due to inverse functionality, a 'State' can be part of only one 'Exist
 
 ###  https://w3id.org/emmo#EMMO_fa595892_070d_455e_9459_06c97179c080
 :EMMO_fa595892_070d_455e_9459_06c97179c080 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_2e46d966_9f14_4673_821e_7c7cf2957926 ;
+                                           rdfs:subClassOf <http://w3id.org/emmo#EMMO_5e38e44b_a0d1_4afc_a876_95095c0a589f> ;
                                            skos:prefLabel "BeginTile"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_fe63194f_7c04_4dbd_a244_524b38b6699b .
 

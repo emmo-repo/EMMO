@@ -12,17 +12,17 @@
                                                   owl:versionIRI <https://w3id.org/emmo/1.0.0-rc1/perspectives/persistence> ;
                                                   owl:imports <https://w3id.org/emmo/1.0.0-rc1/perspectives/perspective> ;
                                                   dcterms:abstract ""@en ;
-                                                  dcterms:contributor <https://orcid.org/0000-0003-0514-9229> ,
-                                                                      <https://orcid.org/0000-0003-4065-9742> ,
+                                                  dcterms:contributor <https://orcid.org/0000-0002-1560-809X> ,
                                                                       <https://orcid.org/0000-0002-4181-2852> ,
-                                                                      <https://orcid.org/0000-0002-1560-809X> ;
+                                                                      <https://orcid.org/0000-0003-0514-9229> ,
+                                                                      <https://orcid.org/0000-0003-4065-9742> ;
                                                   dcterms:creator <https://orcid.org/0000-0003-3805-8761> ;
                                                   dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                                   dcterms:publisher <https://emmc.eu> ;
                                                   dcterms:title "Persistence"@en ;
-                                                  :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" ;
                                                   rdfs:comment "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                                  owl:versionInfo "1.0.0-rc1" .
+                                                  owl:versionInfo "1.0.0-rc1" ;
+                                                  :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
 
 #################################################################
 #    Classes
@@ -30,6 +30,7 @@
 
 ###  https://w3id.org/emmo#EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce
 :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_e04884d9_eda6_487e_93d5_7722d7eda96b ;
                                            skos:altLabel "Occurrent"@en ,
                                                          "Perdurant"@en ;
                                            skos:example """Practically speaking, the Process class can be populated by primitive subclasses (e.g. Cooking) for each of which holds the axiom that not all the item temporal parts are of the same type of the whole (e.g. breaking an egg, which is not necessarily a cooking process) and there are at least two temporal item parts of different types (e.g. breaking and egg and turning on the stove).
@@ -43,6 +44,7 @@ The definition of every specific process subclass requires a reference type, tha
 
 ###  https://w3id.org/emmo#EMMO_90ae56e4_d197_49b6_be1a_0049e4756606
 :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_e04884d9_eda6_487e_93d5_7722d7eda96b ;
                                            skos:altLabel "Continuant"@en ,
                                                          "Endurant"@en ;
                                            skos:example """Practically speaking, the Object class can be populated by primitive subclasses (e.g. Car) for each of which holds the axiom that all the item parts are of the same type of the whole (e.g. Car SubClassOf hasTemporalItemPart only Car).
@@ -57,11 +59,6 @@ For this reason, the definition of object is done by considering only item tempo
 
 ###  https://w3id.org/emmo#EMMO_e04884d9_eda6_487e_93d5_7722d7eda96b
 :EMMO_e04884d9_eda6_487e_93d5_7722d7eda96b rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce
-                                                                               :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606
-                                                                             )
-                                                               ] ;
                                            rdfs:subClassOf :EMMO_49267eba_5548_4163_8f36_518d65b583f9 ;
                                            skos:prefLabel "Persistence"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The union of the object or process classes."@en ;

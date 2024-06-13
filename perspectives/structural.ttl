@@ -37,17 +37,13 @@
 
 ###  https://w3id.org/emmo#EMMO_2469e4c6_ac2e_4c8f_b49f_7b2d2e277215
 :EMMO_2469e4c6_ac2e_4c8f_b49f_7b2d2e277215 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_bbca6dfa_7463_4e8d_8280_35862ff50ce0 ;
                                            skos:prefLabel "SpatiallyRedundant"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A whole with spatial parts of its same type."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_32e701c0_a925_49df_9829_0931b8554807
 :EMMO_32e701c0_a925_49df_9829_0931b8554807 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_57c75ca1_bf8a_42bc_85d9_58cfe38c7df2
-                                                                               :EMMO_bbca6dfa_7463_4e8d_8280_35862ff50ce0
-                                                                             )
-                                                               ] ;
                                            rdfs:subClassOf :EMMO_49267eba_5548_4163_8f36_518d65b583f9 ;
                                            skos:prefLabel "Structural"@en .
 
@@ -65,11 +61,7 @@
 
 ###  https://w3id.org/emmo#EMMO_57c75ca1_bf8a_42bc_85d9_58cfe38c7df2
 :EMMO_57c75ca1_bf8a_42bc_85d9_58cfe38c7df2 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_aaad78a9_abaf_4f97_9c1a_d763a94c4ba3
-                                                                               :EMMO_f055e217_0b1b_4e7e_b8be_7340211b0c5e
-                                                                             )
-                                                               ] ;
+                                           rdfs:subClassOf :EMMO_32e701c0_a925_49df_9829_0931b8554807 ;
                                            skos:altLabel "Lifetime"@en ,
                                                          "Maximal"@en ;
                                            skos:example """A marathon is an example of class whose individuals are always maximal since the criteria satisfied by a marathon 4D entity poses some constraints on its temporal and spatial extent.
@@ -103,23 +95,21 @@ Following the two examples, a marathon individual is a maximal that can be decom
 
 ###  https://w3id.org/emmo#EMMO_808566db_b810_448d_8a54_48e7f6d30f36
 :EMMO_808566db_b810_448d_8a54_48e7f6d30f36 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_bbca6dfa_7463_4e8d_8280_35862ff50ce0 ;
                                            skos:prefLabel "TemporallyRedundant"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A whole with temporal parts of its same type."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_aaad78a9_abaf_4f97_9c1a_d763a94c4ba3
 :EMMO_aaad78a9_abaf_4f97_9c1a_d763a94c4ba3 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_57c75ca1_bf8a_42bc_85d9_58cfe38c7df2 ;
                                            skos:prefLabel "TemporallyFundamental"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals that satisfy a whole defining criteria (i.e. belongs to a subclass of whole) and have no temporal parts that satisfy that same criteria (no parts that are of the same type of the whole)."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_bbca6dfa_7463_4e8d_8280_35862ff50ce0
 :EMMO_bbca6dfa_7463_4e8d_8280_35862ff50ce0 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_2469e4c6_ac2e_4c8f_b49f_7b2d2e277215
-                                                                               :EMMO_808566db_b810_448d_8a54_48e7f6d30f36
-                                                                             )
-                                                               ] ;
+                                           rdfs:subClassOf :EMMO_32e701c0_a925_49df_9829_0931b8554807 ;
                                            rdfs:seeAlso :EMMO_57c75ca1_bf8a_42bc_85d9_58cfe38c7df2 ;
                                            skos:altLabel "NonMaximal"@en ;
                                            skos:example "A sufficently large volume of liquid water has parts of the same type."@en ;
@@ -137,6 +127,7 @@ Following the two examples, a marathon individual is a maximal that can be decom
 
 ###  https://w3id.org/emmo#EMMO_f055e217_0b1b_4e7e_b8be_7340211b0c5e
 :EMMO_f055e217_0b1b_4e7e_b8be_7340211b0c5e rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_57c75ca1_bf8a_42bc_85d9_58cfe38c7df2 ;
                                            skos:prefLabel "SpatiallyFundamental"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals that satisfy a whole defining criteria (i.e. belongs to a subclass of whole) and have no spatial parts that satisfy that same criteria (no parts that are of the same type of the whole)."@en .
 

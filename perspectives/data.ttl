@@ -41,8 +41,33 @@
 #    Classes
 #################################################################
 
+###  http://w3id.org/emmo#EMMO_1a40459e_10d8_49b3_bb8c_c3595fb1d0bb
+<http://w3id.org/emmo#EMMO_1a40459e_10d8_49b3_bb8c_c3595fb1d0bb> rdf:type owl:Class ;
+                                                                 rdfs:subClassOf :EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 ;
+                                                                 skos:prefLabel "DataByStructure"@en .
+
+
+###  http://w3id.org/emmo#EMMO_1e1cfc11_aa1a_44d4_a8d0_31e26deb2d19
+<http://w3id.org/emmo#EMMO_1e1cfc11_aa1a_44d4_a8d0_31e26deb2d19> rdf:type owl:Class ;
+                                                                 rdfs:subClassOf :EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 ;
+                                                                 skos:prefLabel "DataByQuantum"@en .
+
+
+###  http://w3id.org/emmo#EMMO_c66ad523_3937_485e_91bb_ad488ddb373f
+<http://w3id.org/emmo#EMMO_c66ad523_3937_485e_91bb_ad488ddb373f> rdf:type owl:Class ;
+                                                                 rdfs:subClassOf :EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 ;
+                                                                 skos:prefLabel "DataByDiscretness"@en .
+
+
+###  http://w3id.org/emmo#EMMO_f0fec2df_41f0_4412_b28a_592858c065f0
+<http://w3id.org/emmo#EMMO_f0fec2df_41f0_4412_b28a_592858c065f0> rdf:type owl:Class ;
+                                                                 rdfs:subClassOf :EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 ;
+                                                                 skos:prefLabel "DataByNumerical"@en .
+
+
 ###  https://w3id.org/emmo#EMMO_0d1c0018_42e2_4506_bc3d_f53c117c1ad3
 :EMMO_0d1c0018_42e2_4506_bc3d_f53c117c1ad3 rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://w3id.org/emmo#EMMO_c66ad523_3937_485e_91bb_ad488ddb373f> ;
                                            skos:example "A vynil contain continuous information about the recorded sound."@en ;
                                            skos:prefLabel "AnalogData"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data that are decoded retaining its continuous variations characteristic."@en ;
@@ -51,17 +76,13 @@
 
 ###  https://w3id.org/emmo#EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a
 :EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://w3id.org/emmo#EMMO_1a40459e_10d8_49b3_bb8c_c3595fb1d0bb> ;
                                            skos:prefLabel "DataSet"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Encoded data made of more than one datum."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_1e877c70_3b01_45a8_a8f6_8ce4f6a24660
 :EMMO_1e877c70_3b01_45a8_a8f6_8ce4f6a24660 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490
-                                                                               :EMMO_5a10e288_c6a5_409a_a16a_98a2fb8be4f3
-                                                                             )
-                                                               ] ;
                                            rdfs:subClassOf :EMMO_49267eba_5548_4163_8f36_518d65b583f9 ;
                                            rdfs:seeAlso "Luciano Floridi, \"Information - A very Short Introduction\", Oxford University Press., (2010) ISBN 978-0199551378"@en ;
                                            skos:altLabel "Dedomena"@en ,
@@ -84,26 +105,7 @@ Variations are pure physical variations and do not necessarily possess semantic 
 
 ###  https://w3id.org/emmo#EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490
 :EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_0d1c0018_42e2_4506_bc3d_f53c117c1ad3
-                                                                               :EMMO_be8592a7_68d1_4a06_ad23_82f2b56ef926
-                                                                             )
-                                                               ] ,
-                                                               [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a
-                                                                               :EMMO_50d6236a_7667_4883_8ae1_9bb5d190423a
-                                                                             )
-                                                               ] ,
-                                                               [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_6fa1feac_c388_44cc_a721_283499d5addc
-                                                                               :EMMO_ed257e78_8b59_44c3_9d61_06c261184f55
-                                                                             )
-                                                               ] ,
-                                                               [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_888a5dea_3b7d_4dc0_93f2_d4e345a1f903
-                                                                               :EMMO_ac1a05c5_0c17_4387_bac0_683f2a86f3ed
-                                                                             )
-                                                               ] ;
+                                           rdfs:subClassOf :EMMO_1e877c70_3b01_45a8_a8f6_8ce4f6a24660 ;
                                            owl:disjointWith :EMMO_5a10e288_c6a5_409a_a16a_98a2fb8be4f3 ;
                                            skos:altLabel "EncodedContrast"@en ,
                                                          "EncodedData"@en ;
@@ -142,6 +144,7 @@ We call \"interpreting\" the act of providing semantic meaning to data, which is
 
 ###  https://w3id.org/emmo#EMMO_50d6236a_7667_4883_8ae1_9bb5d190423a
 :EMMO_50d6236a_7667_4883_8ae1_9bb5d190423a rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://w3id.org/emmo#EMMO_1a40459e_10d8_49b3_bb8c_c3595fb1d0bb> ;
                                            skos:example "A character, a bit, a song in a CD."@en ;
                                            skos:prefLabel "Datum"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A self-consistent encoded data entity."@en .
@@ -149,6 +152,7 @@ We call \"interpreting\" the act of providing semantic meaning to data, which is
 
 ###  https://w3id.org/emmo#EMMO_5a10e288_c6a5_409a_a16a_98a2fb8be4f3
 :EMMO_5a10e288_c6a5_409a_a16a_98a2fb8be4f3 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_1e877c70_3b01_45a8_a8f6_8ce4f6a24660 ;
                                            skos:altLabel "EnvironmentalData"@en ;
                                            skos:example "A cloud in the sky. The radiative spectrum of a star."@en ;
                                            skos:prefLabel "NonEncodedContrast"@en ;
@@ -160,24 +164,28 @@ It doesn't mean that such contrasts cannot be used to deduce something: in fact 
 
 ###  https://w3id.org/emmo#EMMO_6fa1feac_c388_44cc_a721_283499d5addc
 :EMMO_6fa1feac_c388_44cc_a721_283499d5addc rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://w3id.org/emmo#EMMO_1e1cfc11_aa1a_44d4_a8d0_31e26deb2d19> ;
                                            skos:prefLabel "QuantumData"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data that are expressed through quantum mechanical principles, and that can have several values ​​/ be in several states in the same place at the same time (quantum superposition), each of them with a certain probability."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_888a5dea_3b7d_4dc0_93f2_d4e345a1f903
 :EMMO_888a5dea_3b7d_4dc0_93f2_d4e345a1f903 rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://w3id.org/emmo#EMMO_f0fec2df_41f0_4412_b28a_592858c065f0> ;
                                            skos:prefLabel "NumericalData"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data that can be decoded under a quantitative schema and also associated with a graphical number symbols."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_ac1a05c5_0c17_4387_bac0_683f2a86f3ed
 :EMMO_ac1a05c5_0c17_4387_bac0_683f2a86f3ed rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://w3id.org/emmo#EMMO_f0fec2df_41f0_4412_b28a_592858c065f0> ;
                                            skos:prefLabel "NonNumericalData"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data that are non-quantitatively interpreted (e.g., qualitative data, types)."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_be8592a7_68d1_4a06_ad23_82f2b56ef926
 :EMMO_be8592a7_68d1_4a06_ad23_82f2b56ef926 rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://w3id.org/emmo#EMMO_c66ad523_3937_485e_91bb_ad488ddb373f> ;
                                            skos:example "A text is a collection of discrete symbols. A compact disc is designed to host discrete states in the form of pits and lands."@en ;
                                            skos:prefLabel "DiscreteData"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data whose variations are decoded according to a discrete schema."@en ;
@@ -187,6 +195,7 @@ Discrete does not mean that the material basis is discrete, but that the data ar
 
 ###  https://w3id.org/emmo#EMMO_ed257e78_8b59_44c3_9d61_06c261184f55
 :EMMO_ed257e78_8b59_44c3_9d61_06c261184f55 rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://w3id.org/emmo#EMMO_1e1cfc11_aa1a_44d4_a8d0_31e26deb2d19> ;
                                            skos:prefLabel "ClassicalData"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data that are expressed through classical physics mechanisms, having one value and one state, and being in the same place at the same time."@en .
 
