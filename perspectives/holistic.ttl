@@ -138,8 +138,11 @@ The holistic perspective is not excluding the reductionistic perspective, on the
 
 ###  https://w3id.org/emmo#EMMO_1efe8b96_e006_4a33_bc9a_421406cbb9f0
 :EMMO_1efe8b96_e006_4a33_bc9a_421406cbb9f0 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_a374f1d4_55b1_4796_a8c6_88668f205cd2 ;
-                                           <https://w3id.org.org/emmo#EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db> "SubClassOf: hasHolisticPart some Role" ;
+                                           rdfs:subClassOf :EMMO_a374f1d4_55b1_4796_a8c6_88668f205cd2 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_8e52c42b_e879_4473_9fa1_4b23428b392b ;
+                                                             owl:someValuesFrom :EMMO_4f226cf3_6d02_4d35_8566_a9e641bc6ff3
+                                                           ] ;
                                            skos:prefLabel "Whole"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass of entities which are defined by requiring the existence of some parts (at least one) of specifically given types, where the specified types are different with respect to the type of the whole."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """A whole is always defined using a criterion expressed through the classical transitive parthood relation.
@@ -155,8 +158,12 @@ This class is expected to host the definition of world objects as they appear in
 
 ###  https://w3id.org/emmo#EMMO_4f226cf3_6d02_4d35_8566_a9e641bc6ff3
 :EMMO_4f226cf3_6d02_4d35_8566_a9e641bc6ff3 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_56cf1cea_bb26_4093_b587_dd64e230bf9b ;
-                                           <https://w3id.org.org/emmo#EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db> "SubClassOf:  inverse (hasHolisticPart) some Whole" ;
+                                           rdfs:subClassOf :EMMO_56cf1cea_bb26_4093_b587_dd64e230bf9b ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_8e52c42b_e879_4473_9fa1_4b23428b392b
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_1efe8b96_e006_4a33_bc9a_421406cbb9f0
+                                                           ] ;
                                            skos:altLabel "HolisticPart"@en ,
                                                          "Part"@en ;
                                            skos:prefLabel "Role"@en ;

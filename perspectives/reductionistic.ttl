@@ -117,14 +117,14 @@ The direct parts (tiles) and the tessellated entity (tessellation) are causally 
 
 ###  https://w3id.org.org/emmo#EMMO_41c5f63b_f0e7_475e_bfac_a92027585979
 <https://w3id.org.org/emmo#EMMO_41c5f63b_f0e7_475e_bfac_a92027585979> rdf:type owl:Class ;
-                                                                 rdfs:subClassOf :EMMO_2e46d966_9f14_4673_821e_7c7cf2957926 ;
-                                                                 skos:prefLabel "SpatioTemporalTileByConnection"@en .
+                                                                      rdfs:subClassOf :EMMO_2e46d966_9f14_4673_821e_7c7cf2957926 ;
+                                                                      skos:prefLabel "SpatioTemporalTileByConnection"@en .
 
 
 ###  https://w3id.org.org/emmo#EMMO_5e38e44b_a0d1_4afc_a876_95095c0a589f
 <https://w3id.org.org/emmo#EMMO_5e38e44b_a0d1_4afc_a876_95095c0a589f> rdf:type owl:Class ;
-                                                                 rdfs:subClassOf :EMMO_2e46d966_9f14_4673_821e_7c7cf2957926 ;
-                                                                 skos:prefLabel "SpatioTemporalTileByPosition"@en .
+                                                                      rdfs:subClassOf :EMMO_2e46d966_9f14_4673_821e_7c7cf2957926 ;
+                                                                      skos:prefLabel "SpatioTemporalTileByPosition"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_15db234d_ecaf_4715_9838_4b4ec424fb13
@@ -150,8 +150,11 @@ The direct parts (tiles) and the tessellated entity (tessellation) are causally 
 
 ###  https://w3id.org/emmo#EMMO_2b1fb71c_0eb0_445c_9be7_fb5d30ae79fd
 :EMMO_2b1fb71c_0eb0_445c_9be7_fb5d30ae79fd rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_e12dcfa4_c9f1_4546_9a12_8457c052e6ba ;
-                                           <https://w3id.org.org/emmo#EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db> "SubClassOf: hasDirectPart some JunctionTile" ;
+                                           rdfs:subClassOf :EMMO_e12dcfa4_c9f1_4546_9a12_8457c052e6ba ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_74a75cf1_3418_4244_b43c_b5db94635d42 ;
+                                                             owl:someValuesFrom :EMMO_d4c95fa1_5bda_4063_a22d_62c81fcea284
+                                                           ] ;
                                            skos:prefLabel "MixedTiling"@en ;
                                            :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc1/doc/figs/MixedTiling.png"^^xsd:anyURI ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A well formed tessellation with at least a junction tile."@en .
@@ -160,10 +163,10 @@ The direct parts (tiles) and the tessellated entity (tessellation) are causally 
 ###  https://w3id.org/emmo#EMMO_2e46d966_9f14_4673_821e_7c7cf2957926
 :EMMO_2e46d966_9f14_4673_821e_7c7cf2957926 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_9953c19f_ee33_4af8_be5e_dbf6d1e33581 ;
-                                           <https://w3id.org.org/emmo#EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db> "EquivalentTo: SpatialTile or TemporalTile or JunctionTile" ,
-                                                                                                            "EquivalentTo: ThroughTile or EndTile or BeginTile" ;
                                            skos:altLabel "WellFormedTile"@en ;
                                            skos:prefLabel "SpatioTemporalTile" ;
+                                           <https://w3id.org.org/emmo#EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db> "EquivalentTo: SpatialTile or TemporalTile or JunctionTile" ,
+                                                                                                                 "EquivalentTo: ThroughTile or EndTile or BeginTile" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_22c91e99_61f8_4433_8853_432d44a2a46a .
 
 
@@ -259,8 +262,12 @@ Moreover, due to inverse functionality, a 'State' can be part of only one 'Exist
 
 ###  https://w3id.org/emmo#EMMO_9953c19f_ee33_4af8_be5e_dbf6d1e33581
 :EMMO_9953c19f_ee33_4af8_be5e_dbf6d1e33581 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_15db234d_ecaf_4715_9838_4b4ec424fb13 ;
-                                           <https://w3id.org.org/emmo#EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db> "SubClassOf:  inverse (hasDirectPart) some Tessellation" ;
+                                           rdfs:subClassOf :EMMO_15db234d_ecaf_4715_9838_4b4ec424fb13 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_74a75cf1_3418_4244_b43c_b5db94635d42
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_ee0466e4_780d_4236_8281_ace7ad3fc5d2
+                                                           ] ;
                                            skos:prefLabel "Tile"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causal object that is direct part of a tessellation."@en .
 
@@ -290,19 +297,26 @@ Moreover, due to inverse functionality, a 'State' can be part of only one 'Exist
 
 ###  https://w3id.org/emmo#EMMO_d4c95fa1_5bda_4063_a22d_62c81fcea284
 :EMMO_d4c95fa1_5bda_4063_a22d_62c81fcea284 rdf:type owl:Class ;
-                                           rdfs:subClassOf <https://w3id.org.org/emmo#EMMO_41c5f63b_f0e7_475e_bfac_a92027585979> ;
-                                           <https://w3id.org.org/emmo#EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db> "SubClassOf:  inverse (hasJunctionTile) some MixedTiling" ;
+                                           rdfs:subClassOf <https://w3id.org.org/emmo#EMMO_41c5f63b_f0e7_475e_bfac_a92027585979> ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_663859e5_add3_4c9e_96fb_c99399de278d
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_2b1fb71c_0eb0_445c_9be7_fb5d30ae79fd
+                                                           ] ;
                                            skos:prefLabel "JunctionTile"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A direct part that is obtained by partitioning a whole hybridly in spatial, temporal and spatiotemporal parts."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_e12dcfa4_c9f1_4546_9a12_8457c052e6ba
 :EMMO_e12dcfa4_c9f1_4546_9a12_8457c052e6ba rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_ee0466e4_780d_4236_8281_ace7ad3fc5d2 ;
-                                           <https://w3id.org.org/emmo#EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db> "EquivalentTo: MixedTiling or SpatialTiling or TemporalTiling" ,
-                                                                                                            "SubClassOf: hasSpatioTemporalTile some Item" ;
+                                           rdfs:subClassOf :EMMO_ee0466e4_780d_4236_8281_ace7ad3fc5d2 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_7efab93d_c8fe_49c7_ba8e_d21d13b38c85 ;
+                                                             owl:someValuesFrom :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de
+                                                           ] ;
                                            skos:altLabel "WellFormedTessellation"@en ;
                                            skos:prefLabel "SpatioTemporalTessellation" ;
+                                           <https://w3id.org.org/emmo#EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db> "EquivalentTo: MixedTiling or SpatialTiling or TemporalTiling" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A tessellation in which all tiles are connected through spatiotemporal relations hasNext or contacts."@en .
 
 
@@ -315,8 +329,11 @@ Moreover, due to inverse functionality, a 'State' can be part of only one 'Exist
 
 ###  https://w3id.org/emmo#EMMO_ee0466e4_780d_4236_8281_ace7ad3fc5d2
 :EMMO_ee0466e4_780d_4236_8281_ace7ad3fc5d2 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_15db234d_ecaf_4715_9838_4b4ec424fb13 ;
-                                           <https://w3id.org.org/emmo#EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db> "SubClassOf: hasDirectPart some Item" ;
+                                           rdfs:subClassOf :EMMO_15db234d_ecaf_4715_9838_4b4ec424fb13 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_74a75cf1_3418_4244_b43c_b5db94635d42 ;
+                                                             owl:someValuesFrom :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de
+                                                           ] ;
                                            skos:altLabel "Tiling"@en ;
                                            skos:prefLabel "Tessellation"@en ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A tessellation (or tiling) is the covering of a surface, often a plane, using one or more geometric shapes, called tiles, with no overlaps and no gaps."@en ;
