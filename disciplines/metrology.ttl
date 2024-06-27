@@ -358,14 +358,9 @@ Unit of degeneracy in quantum mechanics"""@en ;
 
 ###  https://w3id.org/emmo#EMMO_18ce5200_00f5_45bb_8c6f_6fb128cd41ae
 :EMMO_18ce5200_00f5_45bb_8c6f_6fb128cd41ae rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_acd1a504_ca32_4f30_86ad_0b62cea5bc02
-                                                                               :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4
-                                                                               :EMMO_c9c8f824_9127_4f93_bc21_69fe78a7f6f2
-                                                                             )
-                                                               ] ;
                                            rdfs:subClassOf :EMMO_985bec21_989f_4b9e_a4b3_735d88099c3c ;
                                            skos:prefLabel "MetrologicalReference"@en ;
+                                           <https://w3id.org.org/emmo#EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db> "EquivalentTo: StandardUnit or MeasurementUnit or ProcedureUnit" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A reference can be a measurement unit, a measurement procedure, a reference material, or a combination of such (VIM3 1.1 NOTE 2)."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """A symbolic is recognized as reference unit also if it is not part of a quantity (e.g. as in the sentence \"the Bq is the reference unit of Becquerel\").
 For this reason we can't declare the axiom:
@@ -391,6 +386,8 @@ This is peculiar to EMMO, where quantities as syntatic entities (explicit quanti
 
 ###  https://w3id.org/emmo#EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0
 :EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_611e4040_9a3e_4a1a_9fa2_7b1012269401 ;
+                                           owl:disjointWith :EMMO_cbdea88b_fef1_4c7c_b69f_ae1f0f241c4a ;
                                            skos:example """Refractive index
 Plane angle
 Number of apples"""@en ;
@@ -462,6 +459,12 @@ J stands for N m"""@en ;
  ] .
 
 
+###  https://w3id.org/emmo#EMMO_4b965242_29f0_4e42_a4b6_f8a5988052df
+:EMMO_4b965242_29f0_4e42_a4b6_f8a5988052df rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ;
+                                           skos:prefLabel "MeasurementUnitByPrefix"@en .
+
+
 ###  https://w3id.org/emmo#EMMO_50a3552e_859a_4ff7_946d_76d537cabce6
 :EMMO_50a3552e_859a_4ff7_946d_76d537cabce6 rdf:type owl:Class ;
                                            owl:equivalentClass [ owl:intersectionOf ( :EMMO_985bec21_989f_4b9e_a4b3_735d88099c3c
@@ -493,6 +496,12 @@ J stands for N m"""@en ;
 -- SI Brochure"""@en .
 
 
+###  https://w3id.org/emmo#EMMO_611e4040_9a3e_4a1a_9fa2_7b1012269401
+:EMMO_611e4040_9a3e_4a1a_9fa2_7b1012269401 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ;
+                                           skos:prefLabel "MeasurementUnitByDimensionality"@en .
+
+
 ###  https://w3id.org/emmo#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3
 :EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3 rdf:type owl:Class ;
                                            skos:prefLabel "DerivedQuantity"@en ;
@@ -507,7 +516,6 @@ J stands for N m"""@en ;
                                                                                     ) ;
                                                                  rdf:type owl:Class
                                                                ] ;
-                                           rdfs:subClassOf :EMMO_89a0c87c_0804_4013_937a_6fe234d9499c ;
                                            skos:prefLabel "MetrologicalConstruct"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbolic construct used within the discipline of metrology."@en .
 
@@ -554,6 +562,8 @@ J stands for N m"""@en ;
                                                                                :EMMO_216f448e_cdbc_4aeb_a529_7a5fe7fc38bb
                                                                              )
                                                                ] ;
+                                           rdfs:subClassOf :EMMO_4b965242_29f0_4e42_a4b6_f8a5988052df ;
+                                           owl:disjointWith :EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ;
                                            skos:prefLabel "NonPrefixedUnit"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A measurement unit symbol that do not have a metric prefix as a direct spatial part."@en .
 
@@ -645,6 +655,7 @@ ISO 80000-1"""@en ;
 
 ###  https://w3id.org/emmo#EMMO_acd1a504_ca32_4f30_86ad_0b62cea5bc02
 :EMMO_acd1a504_ca32_4f30_86ad_0b62cea5bc02 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_18ce5200_00f5_45bb_8c6f_6fb128cd41ae ;
                                            skos:altLabel "ReferenceMaterial" ;
                                            skos:example "Arbitrary amount-of-substance concentration of lutropin in a given sample of plasma (WHO international standard 80/552): 5.0 International Unit/l"@en ;
                                            skos:prefLabel "StandardUnit"@en ;
@@ -654,17 +665,14 @@ International vocabulary of metrology (VIM)"""@en .
 
 ###  https://w3id.org/emmo#EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4
 :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_18ce5200_00f5_45bb_8c6f_6fb128cd41ae ;
                                            owl:disjointWith :EMMO_c9c8f824_9127_4f93_bc21_69fe78a7f6f2 ;
-                                           owl:disjointUnionOf ( :EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0
-                                                                 :EMMO_cbdea88b_fef1_4c7c_b69f_ae1f0f241c4a
-                                                               ) ,
-                                                               ( :EMMO_868ae137_4d25_493e_b270_21ea3d94849e
-                                                                 :EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e
-                                                               ) ;
                                            skos:example """kg
 m/s
 km"""@en ;
                                            skos:prefLabel "MeasurementUnit"@en ;
+                                           <https://w3id.org.org/emmo#EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db> "DisjointUnionOf: DimensionlessUnit, DimensionalUnit" ,
+                                                                                                                 "DisjointUnionOf: NonPrefixedUnit, PrefixedUnit" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A metrological reference for a physical quantity."@en ;
                                            :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "measurement unit (VIM3 1.9)"@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """\"Real scalar quantity, defined and adopted by convention, with which any other quantity of the same kind can be compared to express the ratio of the second quantity to the first one as a number\"
@@ -716,7 +724,8 @@ International vocabulary of metrology (VIM)"""@en ;
 
 ###  https://w3id.org/emmo#EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e
 :EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_4b965242_29f0_4e42_a4b6_f8a5988052df ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_4be0acad_af05_426f_aa6d_fe7531072564 ;
                                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                                              owl:onClass :EMMO_442bd91e_a724_4e9f_89c1_18423016fb75
@@ -732,6 +741,7 @@ International vocabulary of metrology (VIM)"""@en ;
 
 ###  https://w3id.org/emmo#EMMO_c9c8f824_9127_4f93_bc21_69fe78a7f6f2
 :EMMO_c9c8f824_9127_4f93_bc21_69fe78a7f6f2 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_18ce5200_00f5_45bb_8c6f_6fb128cd41ae ;
                                            skos:altLabel "MeasurementProcedure" ;
                                            skos:example "Rockwell C hardness of a given sample (150 kg load): 43.5HRC(150 kg)"@en ;
                                            skos:prefLabel "ProcedureUnit"@en ;
@@ -741,6 +751,7 @@ International vocabulary of metrology (VIM)"""@en ;
 
 ###  https://w3id.org/emmo#EMMO_cbdea88b_fef1_4c7c_b69f_ae1f0f241c4a
 :EMMO_cbdea88b_fef1_4c7c_b69f_ae1f0f241c4a rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_611e4040_9a3e_4a1a_9fa2_7b1012269401 ;
                                            skos:prefLabel "DimensionalUnit"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A subclass of measurement unit focusing on the physical dimensionality that is carried by the unit."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The current version of EMMO does not provide explicit classes for physical dimensions. Rather it embraces the fact that the physical dimensionality of a physical quantity is carried by its measurement unit.
