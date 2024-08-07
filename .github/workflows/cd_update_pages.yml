@@ -48,9 +48,9 @@ jobs:
         ontoconvert --reasoner=Pellet public/emmo.ttl public/emmo-inferred.ttl
         ontoconvert public/emmo-inferred.ttl public/emmo-inferred.owl
 
-    - name: Generate html documentation
+    - name: Generate html documentation (based on emmo-full)
       run: |
-        ontodoc --iri-regex=https://w3id.org/emmo --imported emmo.ttl build/emmo.rst
+        ontodoc --iri-regex=https://w3id.org/emmo --imported emmo-full.ttl build/emmo.rst
         sphinx-build "build/" "public/"
 
     - name: Checkout GitHub Pages for EMMO-repo
