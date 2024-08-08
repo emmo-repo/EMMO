@@ -32,7 +32,7 @@ jobs:
     - name: Install ROBOT
       run: |
         mkdir bin
-        wget https://github.com/ontodev/robot/releases/download/v1.9.6/robot.jar
+        wget -nv https://github.com/ontodev/robot/releases/download/v1.9.6/robot.jar
         mv robot.jar bin/.
         curl https://raw.githubusercontent.com/ontodev/robot/master/bin/robot > bin/robot
         chmod +x bin/robot
@@ -56,8 +56,8 @@ jobs:
         ontoconvert -sawe --base-iri="https://w3id.org/emmo#" --iri=https://w3id.org/emmo emmo-full.ttl public/emmo-full.ttl
         #ontoconvert --reasoner=Pellet public/emmo.ttl public/emmo-inferred.ttl
         #ontoconvert --reasoner=Pellet public/emmo-full.ttl public/emmo-full-inferred.ttl
-        bin/robot --reasoner ELK --input public/emmo.ttl --output public/emmo-inferred.ttl
-        bin/robot --reasoner ELK --input public/emmo-full.ttl --output public/emmo-full-inferred.ttl
+        bin/robot reason --reasoner ELK --input public/emmo.ttl --output public/emmo-inferred.ttl
+        bin/robot reason --reasoner ELK --input public/emmo-full.ttl --output public/emmo-full-inferred.ttl
         ontoconvert public/emmo.ttl public/emmo.owl
         ontoconvert public/emmo-full.ttl public/emmo-full.owl
         ontoconvert public/emmo-inferred.ttl public/emmo-inferred.owl
