@@ -11,8 +11,8 @@
 
 <https://w3id.org/emmo/disciplines/units/prefixedsiunits> rdf:type owl:Ontology ;
                                                            owl:versionIRI <https://w3id.org/emmo/1.0.0-rc1/disciplines/units/prefixedsiunits> ;
-                                                           owl:imports <https://w3id.org/emmo/1.0.0-rc1/disciplines/units/siacceptedunits> ;
-                                                           dcterms:abstract """The module 'prefixedsiunits' contains prefixed SI units that are made of a metrix prefix and a unit symbol for a SI base, derived or accepted unit. Examples: km, ms, MPa, mg, MeV, etc...
+                                                           owl:imports <https://w3id.org/emmo/1.0.0-rc1/disciplines/units/siunits> ;
+                                                           dcterms:abstract """The module 'prefixedsiunits' contains prefixed SI units that are made of a metrix prefix and a unit symbol for a base or derived SI unit. Examples: km, ms, MPa, mg, etc...
 
 Note that this module is not complete and may be extended with more prefixed SI units over time."""@en ;
                                                            dcterms:contributor <https://orcid.org/0000-0001-8869-3718> ,
@@ -33,10 +33,6 @@ We kindly acknowledge NIST for reusing their content, including the selection of
 #################################################################
 #    Classes
 #################################################################
-
-###  https://w3id.org/emmo#Arcsecond
-emmo:Arcsecond rdf:type owl:Class .
-
 
 ###  https://w3id.org/emmo#AttoCoulomb
 emmo:AttoCoulomb rdf:type owl:Class ;
@@ -147,33 +143,6 @@ emmo:CentiGram rdf:type owl:Class ;
 -- QUDT"""@en .
 
 
-###  https://w3id.org/emmo#CentiLitre
-emmo:CentiLitre rdf:type owl:Class ;
-                rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
-                                emmo:EMMO_b55cd09a_e54d_4eb1_81dd_03c29d1b878e ,
-                                emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                  owl:someValuesFrom emmo:Litre
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                  owl:hasValue "1.0E-5"^^xsd:double
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                  owl:hasValue "0.0"^^xsd:double
-                                ] ;
-                skos:prefLabel "CentiLitre" ;
-                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/CentiL" ;
-                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "cL" ;
-                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "cL" ;
-                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0,01-fold of the unit litre
-
--- QUDT"""@en .
-
-
 ###  https://w3id.org/emmo#CentiMetre
 emmo:CentiMetre rdf:type owl:Class ;
                 rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
@@ -220,10 +189,11 @@ emmo:CentiMole rdf:type owl:Class ;
                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
                                  owl:hasValue "0.0"^^xsd:double
                                ] ;
-               skos:altLabel "CentiMole"@en ;
-               skos:prefLabel "CentiMole" ;
+               skos:altLabel "centimole"@en ;
+               skos:prefLabel "CentiMole"@en ;
                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/CentiMOL" ;
-               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "cmol" .
+               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "cmol" ;
+               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A centimole 0.01 N."@en .
 
 
 ###  https://w3id.org/emmo#CentiNewton
@@ -244,10 +214,10 @@ emmo:CentiNewton rdf:type owl:Class ;
                                    owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
                                    owl:hasValue "0.0"^^xsd:double
                                  ] ;
-                 skos:altLabel "CentiNewton"@en ;
-                 skos:prefLabel "CentiNewton" ;
+                 skos:prefLabel "CentiNewton"@en ;
                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/CentiN" ;
-                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "cN" .
+                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "cN" ;
+                 emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A CentiNewton 0.01 N."@en .
 
 
 ###  https://w3id.org/emmo#DecaCoulomb
@@ -268,8 +238,7 @@ emmo:DecaCoulomb rdf:type owl:Class ;
                                    owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
                                    owl:hasValue "0.0"^^xsd:double
                                  ] ;
-                 skos:altLabel "DecaCoulomb"@en ;
-                 skos:prefLabel "DecaCoulomb" ;
+                 skos:prefLabel "DecaCoulomb"@en ;
                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DecaC" ;
                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "daC" ;
                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "daC" ;
@@ -301,33 +270,6 @@ emmo:DecaGram rdf:type owl:Class ;
               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "dag" ;
               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "dag" ;
               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0,01-fold of the SI base unit kilogram
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#DecaLitre
-emmo:DecaLitre rdf:type owl:Class ;
-               rdfs:subClassOf emmo:EMMO_1d8b370b_c672_4d0c_964e_eaafcbf2f51f ,
-                               emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                               emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
-                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                 owl:someValuesFrom emmo:Litre
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                 owl:hasValue "0.01"^^xsd:double
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                 owl:hasValue "0.0"^^xsd:double
-                               ] ;
-               skos:prefLabel "DecaLitre" ;
-               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DecaL" ;
-               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "daL" ;
-               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "daL" ;
-               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """10-fold of the unit litre
 
 -- QUDT"""@en .
 
@@ -441,33 +383,6 @@ emmo:DeciGram rdf:type owl:Class ;
 -- QUDT"""@en .
 
 
-###  https://w3id.org/emmo#DeciLitre
-emmo:DeciLitre rdf:type owl:Class ;
-               rdfs:subClassOf emmo:EMMO_1181c938_c8f0_4ad6_bc7a_2bfdc0903d29 ,
-                               emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                               emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
-                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                 owl:someValuesFrom emmo:Litre
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                 owl:hasValue "1.0E-4"^^xsd:double
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                 owl:hasValue "0.0"^^xsd:double
-                               ] ;
-               skos:prefLabel "DeciLitre" ;
-               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DeciL" ;
-               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "dL" ;
-               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "dL" ;
-               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.1-fold of the unit litre
-
--- QUDT"""@en .
-
-
 ###  https://w3id.org/emmo#DeciMetre
 emmo:DeciMetre rdf:type owl:Class ;
                rdfs:subClassOf emmo:EMMO_1181c938_c8f0_4ad6_bc7a_2bfdc0903d29 ,
@@ -537,34 +452,11 @@ emmo:DeciSiemens rdf:type owl:Class ;
                                    owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
                                    owl:hasValue "0.0"^^xsd:double
                                  ] ;
-                 skos:altLabel "DeciSiemens"@en ;
-                 skos:prefLabel "DeciSiemens" ;
+                 skos:altLabel "decisiemens"@en ;
+                 skos:prefLabel "DeciSiemens"@en ;
                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DeciS" ;
-                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "dS" .
-
-
-###  https://w3id.org/emmo#DeciTonne
-emmo:DeciTonne rdf:type owl:Class ;
-               rdfs:subClassOf emmo:EMMO_1181c938_c8f0_4ad6_bc7a_2bfdc0903d29 ,
-                               emmo:EMMO_77e9dc31_5b19_463e_b000_44c6e79f98aa ,
-                               emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                 owl:someValuesFrom emmo:Tonne
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                 owl:hasValue "100.0"^^xsd:double
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                 owl:hasValue "0.0"^^xsd:double
-                               ] ;
-               skos:altLabel "DeciTonne"@en ;
-               skos:prefLabel "DeciTonne" ;
-               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DeciTONNE" ;
-               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "dt" .
+                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "dS" ;
+                 emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A decisiemens is 0.1 S."@en .
 
 
 ###  https://w3id.org/emmo#ExaCoulomb
@@ -620,33 +512,6 @@ emmo:ExaJoule rdf:type owl:Class ;
               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """1 000 000 000 000 000 000-fold of the derived SI unit joule
 
 -- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#ExbiByte
-emmo:ExbiByte rdf:type owl:Class ;
-              rdfs:subClassOf emmo:EMMO_15d62b55_38ea_4aec_b7c4_25db1a2e5a01 ,
-                              emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                owl:someValuesFrom emmo:Byte
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                owl:hasValue "1.152922E18"^^xsd:double
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                owl:hasValue "0.0"^^xsd:double
-                              ] ;
-              rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-              skos:altLabel "ExbiByte"@en ;
-              skos:prefLabel "ExbiByte" ;
-              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/ExbiBYTE" ;
-              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "EiB" ;
-              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The exbibyte is a multiple of the unit byte for digital information. The prefix exbi means 1024⁶
-
--- QUDT"""@en ;
-              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Byte#Multiple-byte_units" .
 
 
 ###  https://w3id.org/emmo#FemtoCoulomb
@@ -724,33 +589,6 @@ emmo:FemtoJoule rdf:type owl:Class ;
                 emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "fJ" ;
                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "fJ" ;
                 emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0,000 000 000 000 001-fold of the derived SI unit joule
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#FemtoLitre
-emmo:FemtoLitre rdf:type owl:Class ;
-                rdfs:subClassOf emmo:EMMO_23bfe79a_cade_48f1_9a8c_fd96e6bac8ba ,
-                                emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
-                                emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                  owl:someValuesFrom emmo:Litre
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                  owl:hasValue "1.0E-18"^^xsd:double
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                  owl:hasValue "0.0"^^xsd:double
-                                ] ;
-                skos:prefLabel "FemtoLitre" ;
-                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/FemtoL" ;
-                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "fL" ;
-                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "fL" ;
-                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.000000000000001-fold of the unit litre
 
 -- QUDT"""@en .
 
@@ -856,32 +694,6 @@ emmo:GigaCoulomb rdf:type owl:Class ;
                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/GigaC" ;
                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "GC" ;
                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "GC" .
-
-
-###  https://w3id.org/emmo#GigaElectronVolt
-emmo:GigaElectronVolt rdf:type owl:Class ;
-                      rdfs:subClassOf emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                      emmo:EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                        owl:someValuesFrom emmo:ElectronVolt
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                        owl:hasValue "1.602177E-10"^^xsd:double
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                        owl:hasValue "0.0"^^xsd:double
-                                      ] ;
-                      skos:altLabel "Giga Electron Volt"@en ;
-                      skos:prefLabel "GigaElectronVolt"@en ;
-                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/GigaEV" ;
-                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "GeV" ;
-                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "GeV" ;
-                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Giga Electron Volt\" is a unit for  'Energy And Work' expressed as GeV.
-
--- QUDT"""@en .
 
 
 ###  https://w3id.org/emmo#GigaHertz
@@ -1074,33 +886,6 @@ emmo:HectoGram rdf:type owl:Class ;
 -- QUDT"""@en .
 
 
-###  https://w3id.org/emmo#HectoLitre
-emmo:HectoLitre rdf:type owl:Class ;
-                rdfs:subClassOf emmo:EMMO_21aaefc1_3f86_4208_b7db_a755f31f0f8c ,
-                                emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
-                                emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                  owl:someValuesFrom emmo:Litre
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                  owl:hasValue "0.1"^^xsd:double
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                  owl:hasValue "0.0"^^xsd:double
-                                ] ;
-                skos:prefLabel "HectoLitre" ;
-                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/HectoL" ;
-                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "hL" ;
-                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "hL" ;
-                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """100-fold of the unit litre
-
--- QUDT"""@en .
-
-
 ###  https://w3id.org/emmo#HectoMetre
 emmo:HectoMetre rdf:type owl:Class ;
                 rdfs:subClassOf emmo:EMMO_21aaefc1_3f86_4208_b7db_a755f31f0f8c ,
@@ -1174,10 +959,11 @@ emmo:KiloAmpere rdf:type owl:Class ;
                                   owl:hasValue "0.0"^^xsd:double
                                 ] ;
                 skos:altLabel "kiloampere"@en ;
-                skos:prefLabel "KiloAmpere" ;
+                skos:prefLabel "KiloAmpere"@en ;
                 emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloA" ;
                 emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kA" ;
-                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kA" .
+                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kA" ;
+                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A kiloampere is 1000 A"@en .
 
 
 ###  https://w3id.org/emmo#KiloBecquerel
@@ -1232,32 +1018,6 @@ emmo:KiloCoulomb rdf:type owl:Class ;
                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kC" .
 
 
-###  https://w3id.org/emmo#KiloElectronVolt
-emmo:KiloElectronVolt rdf:type owl:Class ;
-                      rdfs:subClassOf emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                      emmo:EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                        owl:someValuesFrom emmo:ElectronVolt
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                        owl:hasValue "1.602177E-16"^^xsd:double
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                        owl:hasValue "0.0"^^xsd:double
-                                      ] ;
-                      skos:altLabel "Kilo Electron Volt"@en ;
-                      skos:prefLabel "KiloElectronVolt"@en ;
-                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloEV" ;
-                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "keV" ;
-                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "keV" ;
-                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Kilo Electron Volt\" is a unit for  'Energy And Work' expressed as keV.
-
--- QUDT"""@en .
-
-
 ###  https://w3id.org/emmo#KiloHertz
 emmo:KiloHertz rdf:type owl:Class ;
                rdfs:subClassOf emmo:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 ,
@@ -1308,33 +1068,6 @@ emmo:KiloJoule rdf:type owl:Class ;
                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kJ" ;
                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kJ" ;
                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """1 000-fold of the SI derived unit joule
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#KiloLitre
-emmo:KiloLitre rdf:type owl:Class ;
-               rdfs:subClassOf emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
-                               emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                               emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
-                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                 owl:someValuesFrom emmo:Litre
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                 owl:hasValue "1.0"^^xsd:double
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                 owl:hasValue "0.0"^^xsd:double
-                               ] ;
-               skos:prefLabel "KiloLitre" ;
-               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloL" ;
-               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kL" ;
-               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kL" ;
-               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """1 000-fold of the unit litre
 
 -- QUDT"""@en .
 
@@ -1475,30 +1208,6 @@ emmo:KiloPascal rdf:type owl:Class ;
 -- QUDT"""@en .
 
 
-###  https://w3id.org/emmo#KiloTonne
-emmo:KiloTonne rdf:type owl:Class ;
-               rdfs:subClassOf emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
-                               emmo:EMMO_77e9dc31_5b19_463e_b000_44c6e79f98aa ,
-                               emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                 owl:someValuesFrom emmo:Tonne
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                 owl:hasValue "1000000.0"^^xsd:double
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                 owl:hasValue "0.0"^^xsd:double
-                               ] ;
-               skos:altLabel "KiloTonne"@en ;
-               skos:prefLabel "KiloTonne" ;
-               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloTONNE" ;
-               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kt" .
-
-
 ###  https://w3id.org/emmo#KiloVolt
 emmo:KiloVolt rdf:type owl:Class ;
               rdfs:subClassOf emmo:EMMO_2e7e5796_4a80_4d73_bb84_f31138446c0c ,
@@ -1578,10 +1287,6 @@ emmo:KiloWeber rdf:type owl:Class ;
                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kWb" .
 
 
-###  https://w3id.org/emmo#Litre
-emmo:Litre rdf:type owl:Class .
-
-
 ###  https://w3id.org/emmo#MegaAmpere
 emmo:MegaAmpere rdf:type owl:Class ;
                 rdfs:subClassOf emmo:EMMO_5eaecadc_4f0d_4a3a_afc7_1fc0b83cc928 ,
@@ -1633,32 +1338,6 @@ emmo:MegaCoulomb rdf:type owl:Class ;
                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "MC" ;
                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "MC" ;
                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A MegaCoulomb is 10⁶ C.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#MegaElectronVolt
-emmo:MegaElectronVolt rdf:type owl:Class ;
-                      rdfs:subClassOf emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                      emmo:EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                        owl:someValuesFrom emmo:ElectronVolt
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                        owl:hasValue "1.602177E-13"^^xsd:double
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                        owl:hasValue "0.0"^^xsd:double
-                                      ] ;
-                      skos:altLabel "Mega Electron Volt"@en ;
-                      skos:prefLabel "MegaElectronVolt"@en ;
-                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MegaEV" ;
-                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "MeV" ;
-                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "MeV" ;
-                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """`Mega Electron Volt` is a unit for  'Energy And Work' expressed as MeV.
 
 -- QUDT"""@en .
 
@@ -1740,33 +1419,6 @@ emmo:MegaJoule rdf:type owl:Class ;
                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "MJ" ;
                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "MJ" ;
                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """1,000,000-fold of the derived unit joule
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#MegaLitre
-emmo:MegaLitre rdf:type owl:Class ;
-               rdfs:subClassOf emmo:EMMO_5eaecadc_4f0d_4a3a_afc7_1fc0b83cc928 ,
-                               emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                               emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
-                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                 owl:someValuesFrom emmo:Litre
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                 owl:hasValue "1000.0"^^xsd:double
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                 owl:hasValue "0.0"^^xsd:double
-                               ] ;
-               skos:prefLabel "MegaLitre" ;
-               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MegaL" ;
-               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "ML" ;
-               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "ML" ;
-               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """1 000 000-fold of the unit litre
 
 -- QUDT"""@en .
 
@@ -2130,28 +1782,6 @@ emmo:MicroJoule rdf:type owl:Class ;
 -- QUDT"""@en .
 
 
-###  https://w3id.org/emmo#MicroLitre
-emmo:MicroLitre rdf:type owl:Class ;
-                rdfs:subClassOf emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
-                                emmo:EMMO_9ff3bf8e_2168_406e_8251_1d158fc948ae ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                  owl:hasValue "1.0E-9"^^xsd:double
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                  owl:hasValue "0.0"^^xsd:double
-                                ] ;
-                rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                skos:prefLabel "MicroLitre" ;
-                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MicroL" ;
-                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "uL" ;
-                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "μL" ;
-                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.000001-fold of the unit litre
-
--- QUDT"""@en .
-
-
 ###  https://w3id.org/emmo#MicroMetre
 emmo:MicroMetre rdf:type owl:Class ;
                 rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
@@ -2451,40 +2081,12 @@ emmo:MilliAmpere rdf:type owl:Class ;
                                    owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
                                    owl:hasValue "0.0"^^xsd:double
                                  ] ;
-                 skos:altLabel "MilliAmpere"@en ;
-                 skos:prefLabel "MilliAmpere" ;
+                 skos:altLabel "milliampere"@en ;
+                 skos:prefLabel "MilliAmpere"@en ;
                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliA" ;
                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mA" ;
-                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mA" .
-
-
-###  https://w3id.org/emmo#MilliArcsecond
-emmo:MilliArcsecond rdf:type owl:Class ;
-                    rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                    emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
-                                    emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                    emmo:EMMO_cdc962d8_f3ea_4764_a57a_c7caa4859179 ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                      owl:someValuesFrom emmo:Arcsecond
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                      owl:hasValue "4.848137E-9"^^xsd:double
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                      owl:hasValue "0.0"^^xsd:double
-                                    ] ;
-                    skos:altLabel "Milli ArcSecond"@en ;
-                    skos:prefLabel "MilliArcsecond"@en ;
-                    emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliARCSEC" ;
-                    emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m''" ;
-                    emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mas" ;
-                    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A minute of arc, arcminute, or minute arc (MOA), is a unit of angular measurement equal to one sixtieth (1/60) of one degree (circle/21,600), or π /10,800 radians. In turn, a second of arc or arcsecond is one sixtieth (1/60) of one minute of arc. Since one degree is defined as one three hundred and sixtieth (1/360) of a rotation, one minute of arc is 1/21,600 of a rotation.  the milliarcsecond, abbreviated mas, is used in astronomy.
-
--- QUDT"""@en ;
-                    emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Minute_of_arc" .
+                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mA" ;
+                 emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A milliampere is 0.001 A"@en .
 
 
 ###  https://w3id.org/emmo#MilliBecquerel
@@ -2699,33 +2301,6 @@ emmo:MilliJoule rdf:type owl:Class ;
                 emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mJ" ;
                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mJ" ;
                 emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.001-fold of the SI derived unit joule
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#MilliLitre
-emmo:MilliLitre rdf:type owl:Class ;
-                rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
-                                emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
-                                emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                  owl:someValuesFrom emmo:Litre
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                  owl:hasValue "1.0E-6"^^xsd:double
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                  owl:hasValue "0.0"^^xsd:double
-                                ] ;
-                skos:prefLabel "MilliLitre" ;
-                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliL" ;
-                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mL" ;
-                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mL" ;
-                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.001-fold of the unit litre
 
 -- QUDT"""@en .
 
@@ -3046,11 +2621,12 @@ emmo:MilliWatt rdf:type owl:Class ;
                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
                                  owl:hasValue "0.0"^^xsd:double
                                ] ;
-               skos:altLabel "MilliW"@en ;
-               skos:prefLabel "MilliWatt" ;
+               skos:altLabel "milliwatt"@en ;
+               skos:prefLabel "MilliWatt"@en ;
                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliW" ;
                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mW" ;
-               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mW" .
+               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mW" ;
+                 emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A milliwatt 0.01 N."@en .
 
 
 ###  https://w3id.org/emmo#MilliWeber
@@ -3235,33 +2811,6 @@ emmo:NanoHenry rdf:type owl:Class ;
                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "nH" ;
                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "nH" ;
                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.000000001-fold of the SI derived unit henry
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#NanoLitre
-emmo:NanoLitre rdf:type owl:Class ;
-               rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                               emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
-                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                               emmo:EMMO_e1981c25_7c55_4020_aa7a_d2e14ced86d4 ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                 owl:someValuesFrom emmo:Litre
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                 owl:hasValue "1.0E-12"^^xsd:double
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                 owl:hasValue "0.0"^^xsd:double
-                               ] ;
-               skos:prefLabel "NanoLitre" ;
-               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/NanoL" ;
-               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "nL" ;
-               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "nL" ;
-               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.000000001-fold of the unit litre
 
 -- QUDT"""@en .
 
