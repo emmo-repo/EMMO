@@ -35,28 +35,34 @@
 #    Classes
 #################################################################
 
-###  https://w3id.org/emmo#EMMO_2469e4c6_ac2e_4c8f_b49f_7b2d2e277215
-:EMMO_2469e4c6_ac2e_4c8f_b49f_7b2d2e277215 rdf:type owl:Class ;
+###  https://w3id.org/emmo#EMMO_0914449c_ef24_4372_b669_9cdd13b59fed
+:EMMO_0914449c_ef24_4372_b669_9cdd13b59fed rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_57c75ca1_bf8a_42bc_85d9_58cfe38c7df2 ;
+                                           skos:prefLabel "Minimal"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for all classes of entities that have no proper parts of the same type of the whole is proper part of an entity of that type."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A minimal class M (subclass of Minimal) is defined by choosing a reference type φ so that M is subclass of φ, all parts of x are needed to keep φ(x) and x is proper part of a larger φ entity."@en .
+
+
+###  https://w3id.org/emmo#EMMO_2dddfc30_d4e1_4e3e_a0ca_755c4d9d2cf4
+:EMMO_2dddfc30_d4e1_4e3e_a0ca_755c4d9d2cf4 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_bbca6dfa_7463_4e8d_8280_35862ff50ce0 ;
-                                           skos:prefLabel "SpatiallyRedundant"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A whole with spatial parts of its same type."@en .
+                                           skos:prefLabel "Heap"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for all classes of entities that have at least two non overlapping proper parts of the same type of the whole."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A heap class H (subclass of Heap) is defined by choosing a reference type φ, with H subclass of φ, so that each H entity has non overlapping φ parts."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_32e701c0_a925_49df_9829_0931b8554807
 :EMMO_32e701c0_a925_49df_9829_0931b8554807 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_49267eba_5548_4163_8f36_518d65b583f9 ;
-                                           skos:prefLabel "Structural"@en .
+                                           skos:prefLabel "Structural"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A perspective that categorises causal structures according to the merelogical realtions between the whole and the parts, taking into account their types."@en .
 
 
-###  https://w3id.org/emmo#EMMO_4b32fc1e_5293_4247_9e8d_1175df9f1c0b
-:EMMO_4b32fc1e_5293_4247_9e8d_1175df9f1c0b rdf:type owl:Class ;
-                                           owl:equivalentClass [ owl:intersectionOf ( :EMMO_aaad78a9_abaf_4f97_9c1a_d763a94c4ba3
-                                                                                      :EMMO_f055e217_0b1b_4e7e_b8be_7340211b0c5e
-                                                                                    ) ;
-                                                                 rdf:type owl:Class
-                                                               ] ;
-                                           skos:prefLabel "StrictlyFundamental"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals that satisfy a whole defining criteria (i.e. belongs to a subclass of whole) and have no proper parts that satisfy that same criteria (no parts that are of the same type of the whole)."@en .
+###  https://w3id.org/emmo#EMMO_40ff176a_e74d_46cc_88c5_6d02fd6813a7
+:EMMO_40ff176a_e74d_46cc_88c5_6d02fd6813a7 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_e95b9f89_3ffd_4ea5_b682_97c4cc191a8d ;
+                                           skos:prefLabel "NonNuclear"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for all classes of entities that have a proper parts of the same type φ of the whole, but have no φ proper part that is part of other φ proper parts."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_57c75ca1_bf8a_42bc_85d9_58cfe38c7df2
@@ -93,18 +99,33 @@ Following the two examples, a marathon individual is a maximal that can be decom
  ] .
 
 
-###  https://w3id.org/emmo#EMMO_808566db_b810_448d_8a54_48e7f6d30f36
-:EMMO_808566db_b810_448d_8a54_48e7f6d30f36 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_bbca6dfa_7463_4e8d_8280_35862ff50ce0 ;
-                                           skos:prefLabel "TemporallyRedundant"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A whole with temporal parts of its same type."@en .
+###  https://w3id.org/emmo#EMMO_7f92ac53_3a89_41a4_af5c_a8ad320a7936
+:EMMO_7f92ac53_3a89_41a4_af5c_a8ad320a7936 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_8f449738_cedb_436c_bdec_1c8e78bdb644 ;
+                                           skos:prefLabel "NonConvergent"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for all classes of entities that have a proper parts of the same type φ of the whole, and so that for every two distinct φ proper parts one is not part of the other."@en .
 
 
-###  https://w3id.org/emmo#EMMO_aaad78a9_abaf_4f97_9c1a_d763a94c4ba3
-:EMMO_aaad78a9_abaf_4f97_9c1a_d763a94c4ba3 rdf:type owl:Class ;
+###  https://w3id.org/emmo#EMMO_8f449738_cedb_436c_bdec_1c8e78bdb644
+:EMMO_8f449738_cedb_436c_bdec_1c8e78bdb644 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_e95b9f89_3ffd_4ea5_b682_97c4cc191a8d ;
+                                           skos:prefLabel "Nuclear"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for all classes of entities that have a proper parts of the same type of the whole that is part of all the other proper parts of the same type."@en .
+
+
+###  https://w3id.org/emmo#EMMO_b4494d69_6393_4eb4_8346_7fedd4df0bc5
+:EMMO_b4494d69_6393_4eb4_8346_7fedd4df0bc5 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_57c75ca1_bf8a_42bc_85d9_58cfe38c7df2 ;
-                                           skos:prefLabel "TemporallyFundamental"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals that satisfy a whole defining criteria (i.e. belongs to a subclass of whole) and have no temporal parts that satisfy that same criteria (no parts that are of the same type of the whole)."@en .
+                                           skos:prefLabel "Maximal"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for all classes of entities that have no proper parts of the same type of the whole are not proper part of an entity of that type."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A maximal class M (subclass of Maximal) is defined by choosing a reference type φ so that M is subclass of φ, all parts of x are needed to keep φ(x) and if you add something to x, then x is no more a φ."@en .
+
+
+###  https://w3id.org/emmo#EMMO_b501a8ed_ae15_4288_9d92_1026463e95cb
+:EMMO_b501a8ed_ae15_4288_9d92_1026463e95cb rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_8f449738_cedb_436c_bdec_1c8e78bdb644 ;
+                                           skos:prefLabel "Convergent"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for all classes of entities that have a proper parts of the same type φ of the whole, and so that for every two distinct φ proper parts one is part of the other."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_bbca6dfa_7463_4e8d_8280_35862ff50ce0
@@ -125,11 +146,11 @@ Following the two examples, a marathon individual is a maximal that can be decom
  ] .
 
 
-###  https://w3id.org/emmo#EMMO_f055e217_0b1b_4e7e_b8be_7340211b0c5e
-:EMMO_f055e217_0b1b_4e7e_b8be_7340211b0c5e rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_57c75ca1_bf8a_42bc_85d9_58cfe38c7df2 ;
-                                           skos:prefLabel "SpatiallyFundamental"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals that satisfy a whole defining criteria (i.e. belongs to a subclass of whole) and have no spatial parts that satisfy that same criteria (no parts that are of the same type of the whole)."@en .
+###  https://w3id.org/emmo#EMMO_e95b9f89_3ffd_4ea5_b682_97c4cc191a8d
+:EMMO_e95b9f89_3ffd_4ea5_b682_97c4cc191a8d rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_bbca6dfa_7463_4e8d_8280_35862ff50ce0 ;
+                                           skos:prefLabel "Multiplex"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for all classes of entities that have a proper parts of the same type of the whole that overlaps all the oter proper parts of the same type."@en .
 
 
-###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
