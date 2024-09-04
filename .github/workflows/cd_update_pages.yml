@@ -29,6 +29,15 @@ jobs:
       with:
         python-version: 3.11
 
+    - name: Install ROBOT
+      run: |
+        mkdir bin
+        wget -nv https://github.com/ontodev/robot/releases/download/v1.9.6/robot.jar
+        mv robot.jar bin/.
+        curl https://raw.githubusercontent.com/ontodev/robot/master/bin/robot > bin/robot
+        chmod +x bin/robot
+        ls -l bin/
+
     - name: Install dependencies
       run: |
         pip install --upgrade pip
@@ -44,13 +53,20 @@ jobs:
     - name: Create ontologies for publishing
       run: |
         ontoconvert -sawe --base-iri="https://w3id.org/emmo#" --iri=https://w3id.org/emmo emmo.ttl public/emmo.ttl
+        ontoconvert -sawe --base-iri="https://w3id.org/emmo#" --iri=https://w3id.org/emmo emmo-full.ttl public/emmo-full.ttl
+        #ontoconvert --reasoner=Pellet public/emmo.ttl public/emmo-inferred.ttl
+        #ontoconvert --reasoner=Pellet public/emmo-full.ttl public/emmo-full-inferred.ttl
+        bin/robot reason --reasoner ELK --input public/emmo.ttl --output public/emmo-inferred.ttl
+        bin/robot reason --reasoner ELK --input public/emmo-full.ttl --output public/emmo-full-inferred.ttl
         ontoconvert public/emmo.ttl public/emmo.owl
-        ontoconvert --reasoner=Pellet public/emmo.ttl public/emmo-inferred.ttl
+        ontoconvert public/emmo-full.ttl public/emmo-full.owl
         ontoconvert public/emmo-inferred.ttl public/emmo-inferred.owl
+        ontoconvert public/emmo-full-inferred.ttl public/emmo-full-inferred.owl
 
-    - name: Generate html documentation
+    - name: Generate html documentation (based on emmo-full)
       run: |
-        ontodoc --iri-regex=https://w3id.org/emmo --imported emmo.ttl build/emmo.rst
+        #ontodoc --iri-regex=https://w3id.org/emmo --imported public/emmo-full-inferred.ttl build/emmo.rst
+        ontodoc --iri-regex=https://w3id.org/emmo --imported emmo-full.ttl build/emmo.rst
         sphinx-build "build/" "public/"
 
     - name: Checkout GitHub Pages for EMMO-repo

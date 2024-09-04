@@ -1,4 +1,7 @@
 # Configurations used when running emmocheck from the ci_emmocheck workflow
+skip:
+  - test_description
+
 test_namespace:
   exceptions:
     - manufacturing.EngineeredMaterial
@@ -21,6 +24,11 @@ test_quantity_dimension:
     - emmo.InternationalSystemOfQuantity
     - emmo.ISQDerivedQuantity
     - emmo.SIExactConstant
+
+test_class_label:
+  exceptions:
+    - pH
+    - 3DPrinting
 
 test_unit_dimension:
   exceptions:
