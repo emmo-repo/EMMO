@@ -125,14 +125,14 @@ The reference ontologies are intended to be used by domain ontologies and import
 
 | Reference ontology | IRI                                                                                                                                               |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Materials          | [https://w3id.org/emmo/multiperspective/materials](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc1/multiperspective/materials.ttl)   |
-| Math               | [https://w3id.org/emmo/multiperspective/math](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc1/multiperspective/math.ttl)             |
-| Models             | [https://w3id.org/emmo/multiperspective/models](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc1/multiperspective/models.ttl)         |
-| Properties         | [https://w3id.org/emmo/multiperspective/properties](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc1/multiperspective/properties.ttl) |
-| Metrology          | [https://w3id.org/emmo/multiperspective/metrology](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc1/multiperspective/metrology.ttl)   |
-| Isq                | [https://w3id.org/emmo/multiperspective/isq](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc1/multiperspective/isq.ttl)               |
-| Siunits            | [https://w3id.org/emmo/domain/siunits](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc1/domain/siunits.ttl)                           |
-| Chemistry          | [https://w3id.org/emmo/multiperspective/chemistry](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc1/multiperspective/chemistry.ttl)   |
+| Materials          | [https://w3id.org/emmo/multiperspective/materials](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/multiperspective/materials.ttl)   |
+| Math               | [https://w3id.org/emmo/multiperspective/math](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/multiperspective/math.ttl)             |
+| Models             | [https://w3id.org/emmo/multiperspective/models](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/multiperspective/models.ttl)         |
+| Properties         | [https://w3id.org/emmo/multiperspective/properties](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/multiperspective/properties.ttl) |
+| Metrology          | [https://w3id.org/emmo/multiperspective/metrology](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/multiperspective/metrology.ttl)   |
+| Isq                | [https://w3id.org/emmo/multiperspective/isq](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/multiperspective/isq.ttl)               |
+| Siunits            | [https://w3id.org/emmo/domain/siunits](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/domain/siunits.ttl)                           |
+| Chemistry          | [https://w3id.org/emmo/multiperspective/chemistry](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/multiperspective/chemistry.ttl)   |
 
 
 ### Domain Ontologies
@@ -199,7 +199,7 @@ Protégé will automatically download all the necessary dependencies.
 
 The EMMO hierarchy will be visible only after reasoning inference: use *ctrl-R* to start the reasoner and under the *Entities* tab, select the *Classes* subtab and *Inferred* in the scroll button.
 
-From EMMO 1.0.0-rc1 it is recommended to use HermiT as reasoner (distributed by default with Protege).
+From EMMO 1.0.0-rc2 it is recommended to use HermiT as reasoner (distributed by default with Protege).
 For earlier EMMO versions is FaCT++ the recommended reasoner.
 You can select it through the menu *Reasoner*.
 An instruction for how to install the FaCT++ plugin on Protege 5.5.0 on Windows can be found in the [doc subdirectory](doc/installing_factplusplus.md).
