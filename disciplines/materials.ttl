@@ -55,6 +55,7 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/emmo#EMMO_0b15f4ae_092e_4487_9100_3c44176c545c
 :EMMO_0b15f4ae_092e_4487_9100_3c44176c545c rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_ec2c8ac8_98c5_4c74_b85b_ff8e8ca6655c ;
                                            owl:disjointUnionOf ( :EMMO_2031516a_2be7_48e8_9af7_7e1270e308fe
                                                                  :EMMO_4a464c8d_8895_44a8_a628_aed13509f1bd
                                                                  :EMMO_6c487fb3_03d1_4e56_91ed_c2e16dcbef60
@@ -147,6 +148,7 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
                                                                                :EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1
                                                                              )
                                                                ] ;
+                                           rdfs:subClassOf :EMMO_b9695e87_8261_412e_83cd_a86459426a28 ;
                                            skos:prefLabel "CondensedMatter"@en ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "The subject of condensed matter physics that deals with the macroscopic and microscopic physical properties of matter, especially the solid and liquid phases which arise from electromagnetic forces between atoms. More generally, the subject deals with \"condensed\" phases of matter: systems of many constituents with strong interactions between them."@en .
 
@@ -415,7 +417,8 @@ The term phase is sometimes used as a synonym for state of matter, but there can
 
 ###  https://w3id.org/emmo#EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba
 :EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8 ;
+                                           rdfs:subClassOf :EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8 ,
+                                                           :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ;
                                            skos:prefLabel "Liquid"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A liquid is a nearly incompressible fluid that conforms to the shape of its container but retains a (nearly) constant volume independent of pressure."@en .
 
@@ -518,6 +521,7 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
 
 ###  https://w3id.org/emmo#EMMO_b9695e87_8261_412e_83cd_a86459426a28
 :EMMO_b9695e87_8261_412e_83cd_a86459426a28 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ;
                                            owl:disjointUnionOf ( :EMMO_04f2a2d5_e799_4692_a654_420e76f5acc1
                                                                  :EMMO_4c21fb86_fdcf_444e_b498_86fe656295af
                                                                  :EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba
@@ -614,11 +618,6 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
 
 ###  https://w3id.org/emmo#EMMO_f678173d_f036_4df1_a86b_2894560be617
 :EMMO_f678173d_f036_4df1_a86b_2894560be617 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
-                                                             owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
-                                                             owl:onClass :EMMO_4207e895_8b83_4318_996a_72cfb32acd94
-                                                           ] ;
                                            skos:altLabel "Composite"@en ;
                                            skos:prefLabel "CompositeMaterial"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A material that contains two or more constituent materials."@en .
@@ -629,19 +628,22 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
                                            skos:prefLabel "PolymericMaterial"@en .
 
 
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
 ] .
 
-[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
 [ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
