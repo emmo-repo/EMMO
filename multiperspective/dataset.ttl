@@ -1,0 +1,111 @@
+@prefix : <https://w3id.org/emmo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/emmo#> .
+
+<https://w3id.org/emmo/multiperspective/dataset> rdf:type owl:Ontology ;
+                                                  owl:versionIRI <https://w3id.org/emmo/1.0.0-rc1/multiperspective/dataset> ;
+                                                  owl:imports <https://w3id.org/emmo/1.0.0-rc1/multiperspective/information> ,
+                                                              <https://w3id.org/emmo/1.0.0-rc1/multiperspective/symbolic> ;
+                                                  dcterms:abstract "Shared representation of datasets."@en ;
+                                                  dcterms:contributor <https://orcid.org/0000-0001-8869-3718> ,
+                                                                      <https://orcid.org/0000-0002-4181-2852> ,
+                                                                      <https://orcid.org/0000-0001-7815-6636> ;
+                                                  dcterms:creator <https://orcid.org/0000-0003-3805-8761> ,
+                                                                  <https://orcid.org/0000-0002-1560-809X> ;
+                                                  dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+                                                  dcterms:publisher <https://emmc.eu> ;
+                                                  dcterms:title "Dataset"@en ;
+                                                  rdfs:comment "Contact: emmo@emmc.eu"@en ,
+                                                               "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
+                                                  owl:versionInfo "1.0.0-rc1" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/emmo#EMMO_60577dea_9019_4537_ac41_80b0fb563d41
+:EMMO_60577dea_9019_4537_ac41_80b0fb563d41 owl:inverseOf :EMMO_61f264fa_1f23_47f0_aa1c_c947d0be56fc .
+
+
+###  https://w3id.org/emmo#EMMO_61f264fa_1f23_47f0_aa1c_c947d0be56fc
+:EMMO_61f264fa_1f23_47f0_aa1c_c947d0be56fc rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_2337e25c_3c60_43fc_a8f9_b11a3f974291 ;
+                                           rdfs:domain :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d ;
+                                           rdfs:range :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b ;
+                                           rdfs:seeAlso :EMMO_60577dea_9019_4537_ac41_80b0fb563d41 ;
+                                           skos:prefLabel "isSignFor"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The inverse relation of hasSign."@en .
+
+
+###  https://w3id.org/emmo#EMMO_6b78c119_f86c_4b5e_ba6c_b42d25a64122
+:EMMO_6b78c119_f86c_4b5e_ba6c_b42d25a64122 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                           skos:prefLabel "hasDatum"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Relates a dataset to its datum."@en .
+
+
+###  https://w3id.org/emmo#EMMO_7159549c_16a3_4dd3_b37d_e992ad0b0879
+:EMMO_7159549c_16a3_4dd3_b37d_e992ad0b0879 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_e58bd4f4_a343_4831_be59_bf753075edb0 ;
+                                           owl:inverseOf :EMMO_c58c799e_cc6c_4310_a3f1_78da70705b2a ;
+                                           rdfs:seeAlso :EMMO_c58c799e_cc6c_4310_a3f1_78da70705b2a ;
+                                           skos:prefLabel "isDescriptionFor"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The inverse relation of hasDescription."@en .
+
+
+###  https://w3id.org/emmo#EMMO_9ae258e3_f79b_4ff3_a777_9c188b3c019c
+:EMMO_9ae258e3_f79b_4ff3_a777_9c188b3c019c rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_e1097637_70d2_4895_973f_2396f04fa204 ;
+                                           rdfs:domain :EMMO_50d6236a_7667_4883_8ae1_9bb5d190423a ;
+                                           rdfs:range :EMMO_b4c97fa0_d82c_406a_bda7_597d6e190654 ;
+                                           skos:prefLabel "hasDimension"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A semiotic relation that relates a datum to its dimension."@en .
+
+
+###  https://w3id.org/emmo#EMMO_e58bd4f4_a343_4831_be59_bf753075edb0
+:EMMO_e58bd4f4_a343_4831_be59_bf753075edb0 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_61f264fa_1f23_47f0_aa1c_c947d0be56fc ;
+                                           owl:inverseOf :EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b ;
+                                           rdfs:domain :EMMO_35d2e130_6e01_41ed_94f7_00b333d46cf9 ;
+                                           rdfs:seeAlso :EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b ;
+                                           skos:prefLabel "isConventionFor"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The inverse relation of hasConvention."@en .
+
+###  https://w3id.org/emmo#EMMO_c4ca55f0_2795_4bff_b8a9_445ed6e29d6c
+:EMMO_c4ca55f0_2795_4bff_b8a9_445ed6e29d6c rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_e58bd4f4_a343_4831_be59_bf753075edb0;
+                                           owl:inverseOf :EMMO_e1097637_70d2_4895_973f_2396f04fa204 ;
+                                           rdfs:domain :EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba;
+                                           rdfs:range :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b;
+                                           skos:prefLabel "isPropertyFor"@en;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A semiotic relation that connects a property to a semiotic object in a declaration process."@en .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/emmo#EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a
+:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_6b78c119_f86c_4b5e_ba6c_b42d25a64122 ;
+                                                             owl:someValuesFrom :EMMO_50d6236a_7667_4883_8ae1_9bb5d190423a
+                                                           ] .
+
+
+###  https://w3id.org/emmo#EMMO_b4c97fa0_d82c_406a_bda7_597d6e190654
+:EMMO_b4c97fa0_d82c_406a_bda7_597d6e190654 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba ;
+                                           skos:example """Examples of some Dimension individuals:
+-  'x-dimension': stand for the spatial dimension along the x-direction.
+- 'emergy_dimension': stand for the energy dimension in an energy spectrum.
+- 'number_of_samples': is a countable dimension that may stand for the index of a given sample in a series of samples."""@en ;
+                                           skos:prefLabel "Dimension"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A coded sign that stands for a dimension."@en .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

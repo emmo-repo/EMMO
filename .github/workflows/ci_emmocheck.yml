@@ -8,21 +8,27 @@ jobs:
     strategy:
       max-parallel: 1
       matrix:
-        python-version: [3.7]
+        python-version: [3.11]
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v4
 
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
 
-    - name: Install EMMO-python
+    - name: Install EMMOntoPy
       run: |
         pip install --upgrade pip
-        pip install EMMO
+        pip install EMMOntoPy
 
     - name: Check EMMO
       run: |
-        emmocheck --local --url-from-catalog --verbose --check-imported --configfile=.github/emmocheck_conf.yml --skip=test_namespace --skip test_unit_dimension emmo.ttl
+        emmocheck --local --url-from-catalog --verbose --check-imported \
+          --configfile=.github/emmocheck_conf.yml  emmo.ttl
+
+    - name: Check EMMO-full
+      run: |
+        emmocheck --local --url-from-catalog --verbose --check-imported \
+          --configfile=.github/emmocheck_conf.yml  emmo-full.ttl

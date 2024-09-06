@@ -1,0 +1,162 @@
+@prefix : <https://w3id.org/emmo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/emmo#> .
+
+<https://w3id.org/emmo/disciplines/perceptual> rdf:type owl:Ontology ;
+                                                owl:versionIRI <https://w3id.org/emmo/1.0.0-rc1/disciplines/perceptual> ;
+                                                owl:imports <https://w3id.org/emmo/1.0.0-rc1/perspectives/data> ;
+                                                dcterms:abstract "The perceptual module provides classes for the representation of human perceptions."@en ;
+                                                dcterms:creator <https://orcid.org/0000-0003-0514-9229> ,
+                                                                <https://orcid.org/0000-0003-3805-8761> ,
+                                                                <https://orcid.org/0000-0003-4065-9742> ,
+                                                                <https://orcid.org/0000-0002-4181-2852> ,
+                                                                <https://orcid.org/0000-0002-1560-809X> ;
+                                                dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+                                                dcterms:publisher <https://emmc.eu> ;
+                                                dcterms:title "Perceptual"@en ;
+                                                :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" ;
+                                                rdfs:comment "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
+                                                owl:versionInfo "1.0.0-rc1" .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/emmo#EMMO_1da53c06_9577_4008_8652_272fa3b62be7
+:EMMO_1da53c06_9577_4008_8652_272fa3b62be7 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_c74da218_9147_4f03_92d1_8894abca55f3 ;
+                                           skos:example """A drawing of a cat.
+A circle on a paper sheet.
+The Mona Lisa."""@en ;
+                                           skos:prefLabel "Pictorial"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Graphical' that stands for a real world object that shows a recognizable pictorial pattern without being necessarily associated to a symbolic language."@en .
+
+
+###  https://w3id.org/emmo#EMMO_4b3afb22_27cf_4ce3_88bc_492bfccb546b
+:EMMO_4b3afb22_27cf_4ce3_88bc_492bfccb546b rdf:type owl:Class ;
+                                           skos:altLabel "Sound"@en ;
+                                           skos:example """When we use the term 'sound' what are we referring to? The EMMO identifis a sound as the physical object that can be heard by the observer (more exactly, by the sensor of the observer).
+
+In this sense, a sound (which is an acoustical object) is to be identified as the air region that manifests the sound wave and is able to be perceived by an observer. In case the wave is travelling through water or steel, then these other media regions are the sounds.
+
+If the waveform is travelling through a cable as electronic signal (analog or digital) it is no more a sound, since it cannot be perceived by an observer as an acoustical object. This electrical waveform (or digital packet) is another physical that may stand for a sound if interpreted by a device (e.g. an amplifier, a DA converter)."""@en ;
+                                           skos:prefLabel "Auditory"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Perceptual' which stands for a real world object whose spatiotemporal pattern makes it identifiable by an observer as a sound."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "'acoustical' refers to the perception mechanism of the observer that can occur through a microphone, a ear."@en .
+
+
+###  https://w3id.org/emmo#EMMO_649bf97b_4397_4005_90d9_219755d92e34
+:EMMO_649bf97b_4397_4005_90d9_219755d92e34 rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_4b3afb22_27cf_4ce3_88bc_492bfccb546b
+                                                                               :EMMO_8f207971_aaab_48dc_a10d_55a6b4331410
+                                                                               :EMMO_c5ae6d8e_6b39_431f_8de4_ae4e357abc04
+                                                                               :EMMO_dd14d055_2db0_4b81_bc97_ef6c2f72b8a0
+                                                                               :EMMO_e1021593_06da_4237_8a02_29d8f6fef76d
+                                                                             )
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_1e877c70_3b01_45a8_a8f6_8ce4f6a24660 ;
+                                           skos:example """A line scratched on a surface.
+A sound.
+A smell.
+The word 'cat' and the sound of the word 'cat' (the first one is graphical and the second acoustical)."""@en ,
+                                                        """The meta-semiotic process:
+I see a cloud in the sky. Since I'm an EMMO ontologist, I create an individual named Cloud under the 'Perceptual' class, meaning that I recognize the cloud as an object thanks to a specific perceptual channel (e.g. through my eyes). This semiotic process occurs at meta-level: it's how I use the EMMO as tool for a direct representation of the world, understandable by others ontologists.
+
+The semiotic process within EMMO:
+My friend looks at the same cloud and says: \"It is an elephant\".
+I use the EMMO to record this experience by declaring:
+    - my friend as MyFriend individual, belonging to 'Interpreter' classes
+    - the sound of the word \"elephant\" as an acoustical perception individual named ElephantWord, belonging to 'Perceptual'
+    - a relation hasSign between Cloud and ElephantWord, that makes ElephantWord also belonging to 'Sign' class and Cloud belonging also to 'Object' class
+    - a 'Semiosis' individual called MyFriendElephantCloud that hasParticipant: Cloud, ElephantWord and MyFriend, respectively as object, sign and interpreter.
+
+So, the Perceptual class is here to categorized real-world objects at meta-level using common perceptual channels, for practical ontology usage.
+
+We could have represented the word \"elephant\" within a physicalistic approach, by identifying it as a pressure wave in the air."""@en ;
+                                           skos:prefLabel "Perceptual"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class constrast individuals standing for entities that can stimulate a perception (e.g. a retina impression) to a human being and that are categorized accordingly to human perception mechanisms."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """This class is the most general superclass for the categorization of contrasts that are perceivable through a specific human-related perception mechanism. This perspective is based on human characterization of perceptions.
+A 'Perceptual' can stand for another object in an EMMO described semiotic process (acting as sign or as object), just like a word on a paper (the perceptual object) may refer semiotically to another object. However, a perceptual is not necessarily a 'Sign' (e.g. a line sketched on a blackboard is a recognizable 'Perceptual' but it may stand for nothing).
+A 'Perceptual' becomes a semiotic object, when it is part of a 'Semiotic' process described by the ontologist within the EMMO, and it's done always specifying for which interpreter this relation occurs."""@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_649bf97b_4397_4005_90d9_219755d92e34 ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "Perceptual"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin percipiō, past participle perceptus (“take hold of, obtain, receive, observe”), from per (“by, through”) + capiō (“to take”)."@en
+ ] .
+
+
+###  https://w3id.org/emmo#EMMO_8f207971_aaab_48dc_a10d_55a6b4331410
+:EMMO_8f207971_aaab_48dc_a10d_55a6b4331410 rdf:type owl:Class ;
+                                           skos:prefLabel "Somatosensory"@en .
+
+
+###  https://w3id.org/emmo#EMMO_c5ae6d8e_6b39_431f_8de4_ae4e357abc04
+:EMMO_c5ae6d8e_6b39_431f_8de4_ae4e357abc04 rdf:type owl:Class ;
+                                           skos:example """A cloud.
+A picture.
+A colour gradient on a wall.
+A stain.
+A mail."""@en ;
+                                           skos:prefLabel "Visual"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Perceptual' which stands for a real world object whose spatiotemporal pattern makes it identifiable by an observer through an optical perception employing the visible part of the electromagnetic spectrum."@en .
+
+
+###  https://w3id.org/emmo#EMMO_c74da218_9147_4f03_92d1_8894abca55f3
+:EMMO_c74da218_9147_4f03_92d1_8894abca55f3 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 ,
+                                                           :EMMO_c5ae6d8e_6b39_431f_8de4_ae4e357abc04 ;
+                                           skos:example "'Graphical' objects include writings, pictures, sketches ..."@en ;
+                                           skos:prefLabel "Graphical"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Perceptual' which stands for a real world object whose spatial configuration is due to an explicit graphical procedure and shows an identifiable pattern."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This concept includes only things that are purposely created by an agent."@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_c74da218_9147_4f03_92d1_8894abca55f3 ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "Graphical"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From the Ancient Greek γραφή (graphḗ) which means drawing, painting, writing, a writing, description, and from γράφω (gráphō) which means scratch, carve."@en ;
+   :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The term graphical is used in etymological sense, comprising both writings and visual arts."@en
+ ] .
+
+
+###  https://w3id.org/emmo#EMMO_ccdc1a41_6e96_416b_92ec_efe67917434a
+:EMMO_ccdc1a41_6e96_416b_92ec_efe67917434a rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_c74da218_9147_4f03_92d1_8894abca55f3 ;
+                                           skos:prefLabel "Document"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An heterogenous object made of different graphical object parts."@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_ccdc1a41_6e96_416b_92ec_efe67917434a ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "Document"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin documentum, from the verb doceō (“teach”) +‎ -mentum."@en
+ ] .
+
+
+###  https://w3id.org/emmo#EMMO_dd14d055_2db0_4b81_bc97_ef6c2f72b8a0
+:EMMO_dd14d055_2db0_4b81_bc97_ef6c2f72b8a0 rdf:type owl:Class ;
+                                           skos:prefLabel "Gustatory"@en .
+
+
+###  https://w3id.org/emmo#EMMO_e1021593_06da_4237_8a02_29d8f6fef76d
+:EMMO_e1021593_06da_4237_8a02_29d8f6fef76d rdf:type owl:Class ;
+                                           skos:prefLabel "Olfactory"@en .
+
+
+###  https://w3id.org/emmo#EMMO_eb7de1a1_c30e_4f0d_94c6_fe70414d7e61
+:EMMO_eb7de1a1_c30e_4f0d_94c6_fe70414d7e61 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_c74da218_9147_4f03_92d1_8894abca55f3 ;
+                                           skos:prefLabel "Representation"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A graphical object aimed to represent schematically the conceptual, tempral or spatial structure of another object, that may or may not exist."@en .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

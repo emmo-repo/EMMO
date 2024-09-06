@@ -1,0 +1,73 @@
+@prefix : <https://w3id.org/emmo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/emmo#> .
+
+<https://w3id.org/emmo/perspectives/persistence> rdf:type owl:Ontology ;
+                                                  owl:versionIRI <https://w3id.org/emmo/1.0.0-rc1/perspectives/persistence> ;
+                                                  owl:imports <https://w3id.org/emmo/1.0.0-rc1/perspectives/perspective> ;
+                                                  dcterms:abstract ""@en ;
+                                                  dcterms:contributor <https://orcid.org/0000-0003-0514-9229> ,
+                                                                      <https://orcid.org/0000-0003-4065-9742> ,
+                                                                      <https://orcid.org/0000-0002-4181-2852> ,
+                                                                      <https://orcid.org/0000-0002-1560-809X> ;
+                                                  dcterms:creator <https://orcid.org/0000-0003-3805-8761> ;
+                                                  dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+                                                  dcterms:publisher <https://emmc.eu> ;
+                                                  dcterms:title "Persistence"@en ;
+                                                  :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" ;
+                                                  rdfs:comment "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
+                                                  owl:versionInfo "1.0.0-rc1" .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/emmo#EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce
+:EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce rdf:type owl:Class ;
+                                           skos:altLabel "Occurrent"@en ,
+                                                         "Perdurant"@en ;
+                                           skos:example """Practically speaking, the Process class can be populated by primitive subclasses (e.g. Cooking) for each of which holds the axiom that not all the item temporal parts are of the same type of the whole (e.g. breaking an egg, which is not necessarily a cooking process) and there are at least two temporal item parts of different types (e.g. breaking and egg and turning on the stove).
+The intended usage is not for an individual to belong directly to Process, but to belong to a specific subclass of Process that identifies entities with a specific non-type-persistent structure."""@en ;
+                                           skos:prefLabel "Process"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for causal structure classes whose individuals have some temporal item parts that are not of the same type of the whole."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A process can be defined only according to an entity type. The minimum process is an entity made of two entities of different types that are temporally related."@en ,
+                                                                                      """Following the common definition of process, the reader may think that every entity in the EMMO should be a process, since every 4D entity0 always has a time dimension. However, in the EMMO we restrict the concept of process to items whose temporal parts show a change in type (i.e. every 4D object unfolds in time, but not every 4D time unfolding may be of interest for the ontologist and categorized as a process).
+The definition of every specific process subclass requires a reference type, that is expressed by some but not all temporal parts."""@en .
+
+
+###  https://w3id.org/emmo#EMMO_90ae56e4_d197_49b6_be1a_0049e4756606
+:EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 rdf:type owl:Class ;
+                                           skos:altLabel "Continuant"@en ,
+                                                         "Endurant"@en ;
+                                           skos:example """Practically speaking, the Object class can be populated by primitive subclasses (e.g. Car) for each of which holds the axiom that all the item parts are of the same type of the whole (e.g. Car SubClassOf hasTemporalItemPart only Car).
+The intended usage is not for an individual to belong directly to Object, but to belong to a specific subclass of Object that identifies entities with a type-persistent structure."""@en ;
+                                           skos:prefLabel "Object"@en ;
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "An item can be classified as an object according to a type ϕ (a ϕ-object) if it's a ϕ all its temporal item parts are also of type ϕ. This conceptualisation tries to catch the persistency of type in the temporal parts of an entity."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for causal structure classes whose individuals have all temporal item parts of the same type of the whole."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """Indefinitely temporally slicing of an entity leads to temporal parts whose temporal extension is so small that the connectivity relations that define the entity as an item will no longer hold. More generally. a temporal part is no more of type ϕ when the temporal interval is lower than the interval that characterizes the causality interactions between the object parts.
+In other terms, if the time span of a temporal part is lower than the inverse of the frequency of interactions between the constituents, then the constituents in such temporal part are not connected. The object is no more an object, neither an item, but simply a collection of fundamental quantum parts.
+For this reason, the definition of object is done by considering only item temporal parts, meaning that slicing in time has the lower limit of a self-connected (i.e. item) entity."""@en .
+
+
+###  https://w3id.org/emmo#EMMO_e04884d9_eda6_487e_93d5_7722d7eda96b
+:EMMO_e04884d9_eda6_487e_93d5_7722d7eda96b rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce
+                                                                               :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606
+                                                                             )
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_49267eba_5548_4163_8f36_518d65b583f9 ;
+                                           skos:prefLabel "Persistence"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The union of the object or process classes."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The persistence perspective classifies entities according to the persistence of temporal parts of specifc type, introducing the distiction between objects (when a type is conserved through all its time parts) or processes (where a type is not conserved through all its time parts).
+This perspective provides classes aimed to represent concepts similar to the ones of endurant and perdurant (a.k.a. continuant and occurrent). However, in the EMMO case, an entity is defined as an object or a process according to a specific type, and not per-se. For this reason an entity in the EMMO can be classified both object or a process depending on the reference type, due to the underlying 4D framework (e.g. an individual may belong both to the class of runners and the class of running process), and the distinction is purely representational.
+This categorisation has been introduced due to the large use of object/process commonsensical concepts, and the fact that our language distinguish between nouns and verbs to address things, forcing the separation between things that happens and things that persist."""@en .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

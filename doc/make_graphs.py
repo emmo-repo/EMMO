@@ -4,51 +4,87 @@
 # EMMO owl sources using EMMO-python.
 import sys
 import os
+from pathlib import Path
 
-from emmo import get_ontology
-from emmo.graph import OntoGraph
-from emmo.graph import (plot_modules, get_module_dependencies,
-                        check_module_dependencies)
-
-
-# Default inferred ontology
-emmo = get_ontology()
-emmo.load()
+from ontopy import get_ontology
+from ontopy.graph import OntoGraph
+from ontopy.graph import (plot_modules, get_module_dependencies,
+                          check_module_dependencies)
+import owlready2
 
 
-# Visualise some core parts of EMMO
-g = OntoGraph(emmo, emmo.EMMO, leafs=[emmo.Perspective, emmo.Elementary],
-              relations='all', edgelabels=False)
+def add_children(parent, children):
+    """Make sure that `children` are subclasses of `parent`.
+    Also add `children` to global `all_children` set."""
+    for child in children:
+        if parent not in child.is_a:
+            child.is_a.append(parent)
+    all_children.update(children)
+
+
+docdir = Path(__file__).absolute().parent
+rootdir = docdir.parent
+
+
+# Visualise EMMO top-level
+top = get_ontology(str(rootdir / 'top' / 'top.ttl')).load()
+entities = list(top.classes())  # FIXME - needed for correct reasoning
+top.sync_reasoner()
+g = OntoGraph(top, top.EMMO, relations='all', entities=entities)
+#g.add_entities([owlready2.Thing, owlready2.Nothing], relations='all',
+#               style='dashed')
 g.add_legend()
-g.save('top.png')
+g.save(str(docdir / 'top.png'))
 
 
-leafs = set()
-for s in emmo.Perspective.subclasses():
-    leafs.update(s.subclasses())
-g = OntoGraph(emmo, emmo.Perspective, leafs=leafs, parents=1,
-              relations='all', edgelabels=False)
+# Load EMMO middle
+middle = get_ontology(str(rootdir / 'middle' / 'middle.ttl')).load()
+all_entities = list(middle.classes())  # FIXME - needed for reasoning
+middle.sync_reasoner()
+all_entities2 = list(middle.classes())  # FIXME - needed for reasoning
+
+
+# Visualise EMMO middle-level, i.e. perspectives
+# There seems to be problems with the reasoner. Add inferred subclasses manually
+all_children = set()
+add_children(middle.Physicalistic,
+             [middle.Matter, middle.Field, middle.Particle])
+add_children(middle.Reductionistic,
+             [middle.State, middle.Existent])
+add_children(middle.Semiotics,
+             [middle.SemioticEntity, middle.Semiosis])
+add_children(middle.Holistic,
+             [middle.Whole, middle.Role])
+add_children(middle.Persistence,
+             [middle.Object, middle.Process])
+add_children(middle.Perceptual,
+             [middle.Visual, middle.Auditory, middle.Gustatory,
+              middle.Olfactory, middle.Somatosensory])
+g = OntoGraph(middle, root=middle.Perspective, leafs=all_children,
+              relations='all', excluded_nodes=['Particle'])
 g.add_legend()
-g.save('perspectives.png')
+g.save(str(docdir / 'perspective.png'))
 
 
-leafs = {emmo.Interpreter, emmo.Conventional, emmo.Icon, emmo.Observation,
-         emmo.Object}
-exclude = {emmo.SIUnitSymbol, emmo.SpecialUnit, emmo.Manufacturing,
-            emmo.Engineered, emmo.PhysicalPhenomenon}
-g = OntoGraph(emmo)
-g.add_branch(emmo.Holistic, leafs=leafs, exclude=exclude,
-             relations='all', edgelabels=False)
+# All of mid-level ontology
+g = OntoGraph(middle, middle.Perspective, relations='all')
 g.add_legend()
-g.save('semiotics.png')
+g.save(str(docdir / 'middle.png'))
+
+
+# Representation of the standard model in the physicalistic branch
+g = OntoGraph(middle, middle.Particle, relations='all')
+g.add_legend()
+g.save(str(docdir / 'particle.png'))
+
+
+# Relation graph
+g = OntoGraph(middle, middle.EMMORelation)
+g.save(str(docdir / 'relations.png'))
 
 
 # Visualise module dependencies (requires that we load the non-inferred
 # ontology)
-iri = 'http://emmo.info/emmo/1.0.0-beta'
-onto = get_ontology(iri)
-onto.load()
-
-modules = get_module_dependencies(onto)
-plot_modules(iri, filename='modules.png', modules=modules)
+modules = get_module_dependencies(middle)
+plot_modules(modules, filename=str(docdir / 'modules.png'))
 check_module_dependencies(modules)

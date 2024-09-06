@@ -1,16 +1,20 @@
 #!/bin/sh
 
-# Usage: makeversions.sh [-r -v]
+# Usage: makeversions.sh [-N NAME] [-V VERSION] [-r -v]
 #
 # Creates versions sub-directories in local copy of GitHub Pages.
 #
 # Options:
-#   -r  Recreate existing sub-directories and their content.
+#   -N  Recreate version with given name.
+#   -V  Recreate given version.
+#   -r  Recreate all existing sub-directories and their content.
 #   -v  Verbose.  Print commands as they are executed.
+#
+# If the `version` argument is given,
 set -e
 
 rootdir="$(git rev-parse --show-toplevel)"
-remote=$(git remote -v | awk '{print $2; exit}')
+remote=$(git remote -v | awk '/^origin/ {print $2; exit}')
 ghdir="$rootdir/.github"
 pagesdir="$ghdir/pages"
 scriptsdir="$ghdir/scripts"
@@ -19,14 +23,19 @@ tmpdir=""
 $scriptsdir/init_pages.sh
 
 # Parse options
+recreate_version=""
+recreate_name=""
 recreate=false
 verbose=false
-while getopts "rv" arg; do
+while getopts "N:V:rv" arg; do
     case $arg in
+        N)  recreate_name="$OPTARG";;
+        V)  recreate_version="$OPTARG";;
         r)  recreate=true;;
         v)  verbose=true;;
     esac
 done
+shift $(($OPTIND -1))
 
 # If verbose, print commands as they are executed
 if $verbose; then
@@ -42,15 +51,20 @@ while read version name; do
     cd "$rootdir"
     $verbose && echo
     d="$pagesdir/versions/$version"
-    if $recreate || [ ! -d "$d" ]; then
+    remake=$recreate
+    [ -n "$recreate_version" ] && [ "$recreate_version" = "$version" ] && \
+        remake=true
+    [ -n "$recreate_name" ] && [ "$recreate_name" = "$name" ] && \
+        remake=true
+    if $remake || [ ! -d "$d" ]; then
         mkdir -p "$d"
         cd "$rootdir"
         cp -f README.md LICENSE.md "$d/."
     fi
 
-    # Generate single-file EMMO in turtle and owl (rfdxml) formats
-    if $recreate || [ ! -f "$d/emmo.owl" ]; then
-        echo "Generate single-file EMMO in turtle and owl (rfdxml) formats"
+    # Generate squashed ontology (single file)
+    if $remake || [ ! -f "$d/emmo.owl" ]; then
+        echo "Generate squashed ontology (single file)"
         if [ ! -d "$tmpdir" ]; then
             tmpdir="$(mktemp -d)"
             echo "tmpdir=$tmpdir"
@@ -69,40 +83,50 @@ while read version name; do
         else
             echo "missing source in EMMO $version" >&2; exit 1
         fi
-        python "$scriptsdir/ontoconvert.py" -s "$src" "$d/emmo.owl"
-        python "$scriptsdir/ontoconvert.py" -s "$src" "$d/emmo.ttl"
+        ontoconvert -saw \
+            --base-iri "https://w3id.org/emmo#" \
+            --iri "https://w3id.org/emmo" \
+            "$src" "$d/emmo.ttl"
+        ontoconvert -saw \
+            --base-iri "https://w3id.org/emmo#" \
+            --iri "https://w3id.org/emmo" \
+            "$src" "$d/emmo.owl"
     fi
 
-    # Generate inferred ontology
-    if $recreate || [ ! -f "$d/emmo-inferred.owl" ]; then
+    # Generate inferred ontology (may fail)
+    if $remake || [ ! -f "$d/emmo-inferred.ttl" ]; then
         echo "Generate inferred ontology"
-        "$scriptsdir/reason.sh" "$d/emmo.owl" "$d/emmo-inferred.owl"
-        "$scriptsdir/fixinferred.sh" "$d/emmo-inferred.owl" $version
+        #ontoconvert -i HermiT -wsa "$d/emmo.ttl" "$d/emmo-inferred.ttl"
+        ontoconvert -w -i HermiT "$d/emmo.ttl" "$d/emmo-inferred.ttl" || true
     fi
-    if $recreate || [ ! -f "$d/emmo-inferred.ttl" ]; then
-        if [ ! -d "$tmpdir" ]; then
-            tmpdir="$(mktemp -d)"
-        fi
-        python "$scriptsdir/ontoconvert.py" -s \
-               "$d/emmo-inferred.owl" "$tmpdir/emmo-inferred.ttl"
-        # Hmm, for some reason floats are written like "1.0E-09.0" - strip
-        # off the final ".0"
-        sed 's/\([0-9][eE][+-][0-9]*\)\.[0-9]*\(.*\)/\1\2/' \
-            "$tmpdir/emmo-inferred.ttl" > "$d/emmo-inferred.ttl"
+    if $remake || [ ! -f "$d/emmo-inferred.owl" ]; then
+        ontoconvert -w "$d/emmo-inferred.ttl" "$d/emmo-inferred.owl" || true
     fi
+
+    # Generate renamed ontology
+    #if $remake || [ ! -f "$d/emmo-renamed.owl" ]; then
+    #    echo "Generate renamed ontology"
+    #    ontoconvert "$d/emmo-inferred.ttl" "$d/emmo-renamed.owl" \
+    #                -w -R -b http://emmo.info/emmo-renamed || true
+    #fi
+    #if $remake || [ ! -f "$d/emmo-renamed.ttl" ]; then
+    #    ontoconvert "$d/emmo-inferred.ttl" "$d/emmo-renamed.ttl" \
+    #                -w -R -b http://emmo.info/emmo-renamed || true
+    #fi
 
     # Generate documentation
-    if $recreate || [ ! -f "$d/emmo.html" ]; then
+    if $remake || [ ! -f "$d/emmo.html" ]; then
         echo "Generate documentation"
-        "$scriptsdir/makedoc.sh" "$d/emmo-inferred.owl" $version "$d"
+        "$scriptsdir/makedoc.sh" "$d/emmo-inferred.ttl" $version "$d" \
+            || true
     fi
 
-    # Create symlinks
+    # Create stable versions
     cd "$pagesdir"
-    if [ ! -z "$name" ]; then
-        rm -f $name
-        ln -sf versions/$version $name
+    if [ "$name" = "stable" ]; then
+        cp $d/*.ttl $d/*.owl .
     fi
+
 done < "$ghdir/versions.txt"
 
 
@@ -112,5 +136,5 @@ if [ -d "$tmpdir" ]; then
 fi
 
 
-# Make sure that we exit with non-zero
+# Make sure that we exit with zero on success
 exit 0

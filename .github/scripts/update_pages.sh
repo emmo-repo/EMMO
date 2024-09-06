@@ -1,10 +1,12 @@
 #!/bin/sh
 
-# Usage: update_pages.sh [-g -l -v]
+# Usage: update_pages.sh [-N NAME] [-V VERSION] [-n -l -v]
 #
 # This is the main script that updates GitHub Pages.
 #
 # Options:
+#   -N  Recreate version with given name.
+#   -V  Recreate given version.
 #   -n  Just update local copy of GitHub Pages, do not add and commit
 #       changes.
 #   -l  Just work on local copy of GitHub Pages.  Do not push changes.
@@ -19,8 +21,11 @@ scriptsdir="$rootdir/.github/scripts"
 noadd=false
 local=false
 verbose=false
-while getopts "nlv" arg; do
+mvargs=
+while getopts "N:V:nlv" arg; do
     case $arg in
+        N)  mvargs="$mvargs -N $OPTARG";;
+        V)  mvargs="$mvargs -V $OPTARG";;
         n)  noadd=true;;
         l)  local=true;;
         v)  verbose=true;;
@@ -40,7 +45,7 @@ fi
 
 
 # Make version sub-directories on GitHub Pages
-"$scriptsdir/makeversions.sh" $args
+"$scriptsdir/makeversions.sh" $args $mvargs
 
 
 # Create index.html on GitHub Pages
@@ -54,8 +59,10 @@ if ! $noadd; then
     git add --all
     [ -n "$(git status --porcelain -uno)" ] && \
         git commit -m 'Updated releasetable' && \
+        git pull && \
         git push
     if ! $local; then
+        git pull origin master && \
         git push origin master
     fi
 fi

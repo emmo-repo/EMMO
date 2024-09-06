@@ -1,0 +1,39 @@
+td.element-table-key, td.element-table-value {
+    vertical-align: top;
+}
+
+td.element-table-key {
+    text-align: right;
+    padding-right: 2mm;
+    width: 20%;
+}
+
+span.element-table-key {
+    font-weight: bold;
+}
+
+table.element-table {
+    width: 100%;
+    text-align: left;
+}
+
+html table.element-table tr:nth-child(odd) td{
+   background-color: Gainsboro;
+}
+
+table.element-table tr:nth-child(even) td{
+   background-color: GhostWhite;
+}
+
+html[data-theme=dark] table.element-table tr:nth-child(odd) td{
+   background-color: black;
+}
+
+html[data-theme=dark] table.element-table tr:nth-child(even) td{
+   background-color: black;
+}
+/* this fixes darkmode within the json-ld playground iframe
+by inverting all colors if darkmode is active */
+html[data-theme="dark"] iframe[src*="json-ld.org/playground"] {
+   filter: invert(0.9);
+}
