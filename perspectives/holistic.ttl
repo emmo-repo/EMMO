@@ -45,14 +45,6 @@ In this sense, the man and the building process overcrosses. and the overlapping
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This relation is about two wholes that overlap, and whose intersection is an holistic part of both."@en .
 
 
-###  https://w3id.org/emmo#EMMO_5ceab41b_2aea_4041_9e9c_a243f7562cee
-:EMMO_5ceab41b_2aea_4041_9e9c_a243f7562cee rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_8e52c42b_e879_4473_9fa1_4b23428b392b ,
-                                                              :EMMO_9a50a0ae_841a_46fe_8b23_3df319b60611 ;
-                                           rdfs:range :EMMO_fcae603e_aa6e_4940_9fa1_9f0909cabf3b ;
-                                           skos:prefLabel "hasHolisticNonTemporalPart"@en .
-
-
 ###  https://w3id.org/emmo#EMMO_88470630_2a27_4f9e_866a_47ff7789e34b
 :EMMO_88470630_2a27_4f9e_866a_47ff7789e34b rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_b3c8ba10_6bee_45e7_9416_e9019aa9f023 ;
@@ -71,14 +63,6 @@ In this sense, the man and the building process overcrosses. and the overlapping
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between the whole and a proper part of the whole that scale down to the point which it lose the characteristics of the whole and become something else."@en .
 
 
-###  https://w3id.org/emmo#EMMO_9ee42d6b_7242_4a8d_967e_79f8f1c7fe29
-:EMMO_9ee42d6b_7242_4a8d_967e_79f8f1c7fe29 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 ,
-                                                              :EMMO_8e52c42b_e879_4473_9fa1_4b23428b392b ;
-                                           rdfs:range :EMMO_0e1f2009_bf12_49d1_99f3_1422e5287d82 ;
-                                           skos:prefLabel "hasHolisticTemporalPart"@en .
-
-
 ###  https://w3id.org/emmo#EMMO_bcaddc91_a881_4c40_a102_562cbaf61c6c
 :EMMO_bcaddc91_a881_4c40_a102_562cbaf61c6c rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_88470630_2a27_4f9e_866a_47ff7789e34b ;
@@ -88,6 +72,20 @@ In this sense, the man and the building process overcrosses. and the overlapping
 #################################################################
 #    Classes
 #################################################################
+
+###  http://w3id.org/emmo#EMMO_946b5162_95b0_4801_81d4_efef43842a0d
+<http://w3id.org/emmo#EMMO_946b5162_95b0_4801_81d4_efef43842a0d> rdf:type owl:Class ;
+                                                                 rdfs:subClassOf :EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62 ;
+                                                                 skos:altLabel "QualifiedRole"@en ;
+                                                                 skos:prefLabel "QRole"@en .
+
+
+###  http://w3id.org/emmo#EMMO_eb50c9cb_9576_4a61_95ec_f81fb8218187
+<http://w3id.org/emmo#EMMO_eb50c9cb_9576_4a61_95ec_f81fb8218187> rdf:type owl:Class ;
+                                                                 rdfs:subClassOf :EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62 ;
+                                                                 skos:altLabel "QualifiedWhole"@en ;
+                                                                 skos:prefLabel "QWhole"@en .
+
 
 ###  https://w3id.org/emmo#EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62
 :EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62 rdf:type owl:Class ;
@@ -129,7 +127,7 @@ This class allows the picking of parts without necessarily going trough a rigid 
 
 ###  https://w3id.org/emmo#EMMO_1efe8b96_e006_4a33_bc9a_421406cbb9f0
 :EMMO_1efe8b96_e006_4a33_bc9a_421406cbb9f0 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62 ,
+                                           rdfs:subClassOf <http://w3id.org/emmo#EMMO_eb50c9cb_9576_4a61_95ec_f81fb8218187> ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_8e52c42b_e879_4473_9fa1_4b23428b392b ;
                                                              owl:someValuesFrom :EMMO_4f226cf3_6d02_4d35_8566_a9e641bc6ff3
@@ -150,7 +148,7 @@ This class is expected to host the definition of world objects as they appear in
 
 ###  https://w3id.org/emmo#EMMO_4f226cf3_6d02_4d35_8566_a9e641bc6ff3
 :EMMO_4f226cf3_6d02_4d35_8566_a9e641bc6ff3 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62 ,
+                                           rdfs:subClassOf <http://w3id.org/emmo#EMMO_946b5162_95b0_4801_81d4_efef43842a0d> ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty [ owl:inverseOf :EMMO_8e52c42b_e879_4473_9fa1_4b23428b392b
                                                                             ] ;
@@ -197,4 +195,4 @@ The role type requires that also the whole type depends on the existence of part
 <https://orcid.org/0000-0003-3805-8761> rdf:type :EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac .
 
 
-###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
