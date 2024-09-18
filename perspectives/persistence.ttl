@@ -57,7 +57,8 @@
                                            rdfs:subPropertyOf :EMMO_b3c8ba10_6bee_45e7_9416_e9019aa9f023 ;
                                            rdfs:domain :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ;
                                            rdfs:range :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ;
-                                           skos:prefLabel "isRemovedFrom"@en .
+                                           skos:prefLabel "isRemovedFrom"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between an object O1 and a object O2 that proper overlap, where the non overapping part of O2 is caused by O1."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77
@@ -66,7 +67,7 @@
                                            rdfs:domain :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ;
                                            rdfs:range :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
                                            skos:prefLabel "participatesTo"@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The relation between a process P and an object whole O that overcrosses it. The intersection between P and O is a participant of P."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between a process P and an object O that partially overlaps and the intersection between P and O is a participant of P."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_36e69413_8c59_4799_946c_10b05d266e22
@@ -118,8 +119,7 @@ Participation is not under direct parthood since a process is not strictly relat
                                            rdfs:subPropertyOf :EMMO_b3c8ba10_6bee_45e7_9416_e9019aa9f023 ;
                                            rdfs:domain :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
                                            skos:prefLabel "hasOutput"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The outcome of a process."@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The partial overlapping is required since the creating process is distinct with the process in which the output is used or consumed."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The outcome of a process."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_cd24eb82_a11c_4a31_96ea_32f870c5580a
@@ -169,7 +169,8 @@ Participation is not under direct parthood since a process is not strictly relat
                                            rdfs:subPropertyOf :EMMO_b3c8ba10_6bee_45e7_9416_e9019aa9f023 ;
                                            rdfs:domain :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ;
                                            rdfs:range :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ;
-                                           skos:prefLabel "isAddedTo"@en .
+                                           skos:prefLabel "isAddedTo"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between an object O1 and a object O2 that proper overlap, and the overlapping part of O1 is: a) next of the non overlapping part and b) a constituent of O2."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_ebc8c324_8e7a_4b09_bcb5_306e0c461d24
@@ -185,7 +186,8 @@ Participation is not under direct parthood since a process is not strictly relat
                                            rdfs:subPropertyOf :EMMO_b3c8ba10_6bee_45e7_9416_e9019aa9f023 ;
                                            rdfs:domain :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
                                            rdfs:range :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ;
-                                           skos:prefLabel "emergesFrom"@en .
+                                           skos:prefLabel "emergesFrom"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between an object O and a process P that proper overlap, where the non overapping part of P is caused by O."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_f09e1d0a_07ce_4121_8c89_5bd67b7e8116
@@ -210,7 +212,12 @@ Participation is not under direct parthood since a process is not strictly relat
 
 ###  https://w3id.org/emmo#EMMO_13191289_6c2b_4741_93e1_82d53bd0e703
 :EMMO_13191289_6c2b_4741_93e1_82d53bd0e703 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ;
+                                           rdfs:subClassOf :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce
+                                                           ] ;
                                            skos:example "A student during an examination."@en ;
                                            skos:prefLabel "Participant"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An object which is an holistic spatial part of a process."@en .
@@ -218,7 +225,12 @@ Participation is not under direct parthood since a process is not strictly relat
 
 ###  https://w3id.org/emmo#EMMO_210e7e99_c1cf_44cc_87c7_310a10ff068b
 :EMMO_210e7e99_c1cf_44cc_87c7_310a10ff068b rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
+                                           rdfs:subClassOf :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_ebc8c324_8e7a_4b09_bcb5_306e0c461d24
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606
+                                                           ] ;
                                            skos:example "Accelerating is a behaviour of a car."@en ;
                                            skos:prefLabel "Behaviour"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A process which is an holistic temporal part of an object."@en .
@@ -226,7 +238,12 @@ Participation is not under direct parthood since a process is not strictly relat
 
 ###  https://w3id.org/emmo#EMMO_2480b72b_db8d_460f_9a5f_c2912f979046
 :EMMO_2480b72b_db8d_460f_9a5f_c2912f979046 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_13191289_6c2b_4741_93e1_82d53bd0e703 ;
+                                           rdfs:subClassOf :EMMO_13191289_6c2b_4741_93e1_82d53bd0e703 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_cd24eb82_a11c_4a31_96ea_32f870c5580a
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce
+                                                           ] ;
                                            skos:example "A catalyst. A bus driver. A substance that is initiating a reaction that would not occur without its presence."@en ;
                                            skos:prefLabel "Agent"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A participant that is the driver of the process."@en ;
@@ -237,7 +254,12 @@ An agent is a participant of a process that would not occur without it."""@en .
 
 ###  https://w3id.org/emmo#EMMO_2553c342_fc28_47d8_8e19_7a98fa08f150
 :EMMO_2553c342_fc28_47d8_8e19_7a98fa08f150 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ;
+                                           rdfs:subClassOf :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_7329967c_3972_4c99_b478_84f66436620d
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606
+                                                           ] ;
                                            skos:example "If an inhabited house is considered as an house that is occupied by some people in its majority of time, then an interval of inhabited house in which occasionally nobody is in there is no more an inhabited house, but an unhinabited house, since this temporal part does not satisfy the criteria of the whole."@en ;
                                            skos:prefLabel "SubObject"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An object which is an holistic temporal part of another object."@en ;
@@ -260,7 +282,12 @@ The definition of every specific process subclass requires a reference type, tha
 
 ###  https://w3id.org/emmo#EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d
 :EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
+                                           rdfs:subClassOf :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_d43af210_f854_4432_a891_ce3022e3b558
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce
+                                                           ] ;
                                            skos:example "Breathing is a subprocess of living for a human being."@en ;
                                            skos:prefLabel "SubProcess"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A process which is an holistic spatial part of a process."@en ;
@@ -286,7 +313,12 @@ For this reason, the definition of object is done by considering only item tempo
 
 ###  https://w3id.org/emmo#EMMO_a633c6f8_4269_4870_9b28_f5ca1783fd54
 :EMMO_a633c6f8_4269_4870_9b28_f5ca1783fd54 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
+                                           rdfs:subClassOf :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_f22abf74_4538_4f50_ab85_09908cdda707
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce
+                                                           ] ;
                                            skos:example "Moving a leg is a stage of the process of running."@en ;
                                            skos:prefLabel "Stage"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A process which is an holistic temporal part of a process."@en .
@@ -294,7 +326,12 @@ For this reason, the definition of object is done by considering only item tempo
 
 ###  https://w3id.org/emmo#EMMO_ceaaf9f7_fd11_424b_8fda_9afa186af186
 :EMMO_ceaaf9f7_fd11_424b_8fda_9afa186af186 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ;
+                                           rdfs:subClassOf :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_dba27ca1_33c9_4443_a912_1519ce4c39ec
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606
+                                                           ] ;
                                            skos:altLabel "ObjectPart"@en ;
                                            skos:example "A tire is a constituent of a car."@en ;
                                            skos:prefLabel "Constituent"@en ;
@@ -303,7 +340,12 @@ For this reason, the definition of object is done by considering only item tempo
 
 ###  https://w3id.org/emmo#EMMO_d9589ed2_5304_48b3_9795_11bf44e64e9b
 :EMMO_d9589ed2_5304_48b3_9795_11bf44e64e9b rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ;
+                                           rdfs:subClassOf :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_1440d010_e4c5_4597_8858_1d58cb1fb28f
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce
+                                                           ] ;
                                            skos:altLabel "State"@en ;
                                            skos:example "A semi-naked man is a status in the process of a man's dressing."@en ;
                                            skos:prefLabel "Status"@en ;
@@ -323,7 +365,12 @@ This categorisation has been introduced due to the large use of object/process c
 
 ###  https://w3id.org/emmo#EMMO_f68858dd_64f4_4877_b7fb_70d04fbe5bab
 :EMMO_f68858dd_64f4_4877_b7fb_70d04fbe5bab rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
+                                           rdfs:subClassOf :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_e3850f08_8e79_454b_9d83_c517cab42857
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606
+                                                           ] ;
                                            skos:example "Blood circulation in a human body."@en ;
                                            skos:prefLabel "ConstitutiveProcess"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A process which is an holistic spatial part of an object."@en ;
