@@ -14,8 +14,8 @@
                                                 dcterms:abstract """The semiotics module is based on the semiotic theory by Charles S. Peirce. It introduces the triadic semiotic process, called semiosis, with its participants an 'object' that is represented by a 'sign' producing another sign, the 'interpretant' and finally the 'interpreter' who connects the 'object', 'sign' and 'interpretant'.
 
 The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. real world objects (e.g. symbol or sign) that stand for other real world objects that are to be interpreted by an agent. These symbols appear in actions (semiotic processes) meant to communicate meaning by establishing relationships between symbols (signs)."""@en ;
-                                                dcterms:contributor <https://orcid.org/0000-0003-0514-9229> ,
-                                                                    <https://orcid.org/0000-0001-7815-6636> ,
+                                                dcterms:contributor <https://orcid.org/0000-0001-7815-6636> ,
+                                                                    <https://orcid.org/0000-0003-0514-9229> ,
                                                                     <https://orcid.org/0000-0003-4065-9742> ;
                                                 dcterms:creator <https://orcid.org/0000-0002-1560-809X> ,
                                                                 <https://orcid.org/0000-0002-4181-2852> ,
@@ -173,19 +173,22 @@ The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. rea
 ###  https://w3id.org.org/emmo#EMMO_38f31ba5_348f_4ac2_9a67_a62b5dd7aadd
 <https://w3id.org.org/emmo#EMMO_38f31ba5_348f_4ac2_9a67_a62b5dd7aadd> rdf:type owl:Class ;
                                                                       rdfs:subClassOf :EMMO_7286b164_df4c_4c14_a4b5_d41ad9c121f3 ;
-                                                                      skos:prefLabel "CodedByStructure"@en .
+                                                                      skos:prefLabel "CodedByStructure"@en ;
+                                                                      :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A coded classified by its structure."@en .
 
 
 ###  https://w3id.org.org/emmo#EMMO_3d03a403_facd_48c6_b75e_7ab8b9299218
 <https://w3id.org.org/emmo#EMMO_3d03a403_facd_48c6_b75e_7ab8b9299218> rdf:type owl:Class ;
                                                                       rdfs:subClassOf :EMMO_7286b164_df4c_4c14_a4b5_d41ad9c121f3 ;
-                                                                      skos:prefLabel "CodedByObservation"@en .
+                                                                      skos:prefLabel "CodedByObservation"@en ;
+                                                                      :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A coded classified by observation."@en .
 
 
 ###  https://w3id.org.org/emmo#EMMO_4292fdcd_bbba_4d99_95c6_daa533d952ef
 <https://w3id.org.org/emmo#EMMO_4292fdcd_bbba_4d99_95c6_daa533d952ef> rdf:type owl:Class ;
                                                                       rdfs:subClassOf :EMMO_7286b164_df4c_4c14_a4b5_d41ad9c121f3 ;
-                                                                      skos:prefLabel "CodedBySubjectivity"@en .
+                                                                      skos:prefLabel "CodedBySubjectivity"@en ;
+                                                                      :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A coded classified by whether it is determined subjectively or objectively."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_008fd3b2_4013_451f_8827_52bceab11841
@@ -210,12 +213,12 @@ the cat perceived by my mind -> interpretant
 :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 ,
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
-                                                             owl:someValuesFrom :EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_559ab98c_1c7d_4794_996c_8c1d8d56381c ;
                                                              owl:someValuesFrom :EMMO_008fd3b2_4013_451f_8827_52bceab11841
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+                                                             owl:someValuesFrom :EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b
                                                            ] ;
                                            skos:example """For example, the ontologist may be interest in cataloguing in the EMMO how the same object (e.g. a cat) is addressed using different signs (e.g. cat, gatto, chat) by different interpreters (e.g. english, italian or french people).
 
@@ -761,7 +764,7 @@ For example, when a Boeing 747 is used as a sign for another Boeing 747."""@en ,
 
 
 [ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The rule for the subproperty chain:
- inverse (hasInterpreter) o  inverse (hasSign) =>hasReferent"""@en
+ inverse (hasReferent) o  inverse (hasInterpreter)=>hasSign"""@en
 ] .
 
 [ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The rule for the subproperty chain:
@@ -769,7 +772,7 @@ inverse (hasSign) o  inverse (hasReferent) => hasInterpreter"""@en
  ] .
 
 [ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The rule for the subproperty chain:
- inverse (hasReferent) o  inverse (hasInterpreter)=>hasSign"""@en
+ inverse (hasInterpreter) o  inverse (hasSign) =>hasReferent"""@en
  ] .
 
 #################################################################
