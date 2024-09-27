@@ -53,15 +53,17 @@ In addition to direct parthood, the reductionistic module defines 'State' as a t
 
 ###  https://w3id.org/emmo#EMMO_74a75cf1_3418_4244_b43c_b5db94635d42
 :EMMO_74a75cf1_3418_4244_b43c_b5db94635d42 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+                                           rdfs:subPropertyOf :EMMO_814b6b76_e0ca_4953_a832_d1816fb695f1 ;
                                            rdf:type owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
                                            rdfs:domain :EMMO_ee0466e4_780d_4236_8281_ace7ad3fc5d2 ;
                                            rdfs:range :EMMO_9953c19f_ee33_4af8_be5e_dbf6d1e33581 ;
-                                           skos:prefLabel "hasDirectPart"@en ;
-                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """Direct parthood is the non transitive version of parthood enabling the establishment of hierarchy of granularities, starting with an entity and providing several tesselation levels according to specific criteria.
-The criteria are implemented in specialised versions of the direct parthood relation (e.g., metrological direct part, XML format direct part).
-The direct parts (tiles) and the tessellated entity (tessellation) are causally self connected (i.e., items), coherently with the concept behind the definition of the reductionistic perspective.""" ;
+                                           skos:altLabel "hasDirectPart"@en ;
+                                           skos:prefLabel "hasTile"@en ;
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """Tiling parthood enables the establishment of hierarchy of granularities, starting with an entity and providing several tesselation levels according to specific criteria.
+The criteria are implemented in specialised versions of the tiling parthood relation (e.g., metrological direct part, XML format direct part).
+The tiles and the tessellated entity (tessellation) are causally self connected (i.e., items), coherently with the concept behind the definition of the reductionistic perspective.
+The tiles of specific granularity level provide a covering for the whole and are mutually non-overlapping, as the label \"tile\" suggests."""@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation grouping all direct parthood relations used in the reductionistic perspective."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This relation is not antitransitive, to enable partitioning of a causal structure with more than one tiling scheme (e.g. time and space partitioning)."@en ,
                                                                                       "This relation is a simple collector of all relations inverse functional direct parthoods that can be defined in specialised theories using reductionism." .
@@ -199,40 +201,6 @@ If we partition the existent in my glass as ice surrounded by several molecules 
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A direct part that is obtained by partitioning a whole purely in temporal parts."@en .
 
 
-###  https://w3id.org/emmo#EMMO_52211e5e_d767_4812_845e_eb6b402c476a
-:EMMO_52211e5e_d767_4812_845e_eb6b402c476a rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_92829beb_6ed4_4c88_bbd5_3bc7403e2895 ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d ;
-                                                             owl:allValuesFrom :EMMO_36c79456_e29c_400d_8bd3_0eedddb82652
-                                                           ] ;
-                                           rdfs:comment """'Existent' is the EMMO class to be used for representing real world physical objects under a reductionistic perspective (i.e. objects come from the composition of sub-part objects, both in time and space).
-
-'Existent' class collects all individuals that stand for physical objects that can be structured in well defined temporal sub-parts called states, through the temporal direct parthood relation.
-
-This class provides a first granularity hierarchy in time, and a way to axiomatize tessellation principles for a specific whole with a non-transitivity relation (direct parthood) that helps to retain the granularity levels.
-
-e.g. a car, a supersaturated gas with nucleating nanoparticles, an atom that becomes ionized and then recombines with an electron."""@en ,
-                                                        """An 'Existent' individual stands for a real world object for which the ontologist wants to provide univocal tessellation in time.
-
-By definition, the tiles are represented by 'State'-s individual.
-
-Tiles are related to the 'Existent' through temporal direct parthood, enforcing non-transitivity and inverse-functionality."""@en ,
-                                                        """Being hasTemporalDirectPart a proper parthood relation, there cannot be 'Existent' made of a single 'State'.
-
-Moreover, due to inverse functionality, a 'State' can be part of only one 'Existent', preventing overlapping between 'Existent'-s."""@en ;
-                                           owl:deprecated "true"^^xsd:boolean ;
-                                           skos:prefLabel "Existent"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Physical' which is a tessellation of 'State' temporal direct parts."@en .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_52211e5e_d767_4812_845e_eb6b402c476a ;
-   owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "Existent"@en ;
-   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "ex-sistere (latin): to stay (to persist through time) outside others of the same type (to be distinct from the rest)."@en
- ] .
-
-
 ###  https://w3id.org/emmo#EMMO_79aad3fb_2e01_4626_8369_4e914893aa6d
 :EMMO_79aad3fb_2e01_4626_8369_4e914893aa6d rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_2b1fb71c_0eb0_445c_9be7_fb5d30ae79fd ;
@@ -365,4 +333,4 @@ Moreover, due to inverse functionality, a 'State' can be part of only one 'Exist
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_fe63194f_7c04_4dbd_a244_524b38b6699b .
 
 
-###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
