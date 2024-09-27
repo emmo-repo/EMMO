@@ -252,7 +252,8 @@ foaf:workplaceHomepage rdf:type owl:AnnotationProperty .
                                            skos:example "A molecule is a distinct part of a fluid."@en ;
                                            skos:prefLabel "hasDistinctPart"@en ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "DP(x, y) ≡ PP(x, y) ∧ ∃φ[φ(x) ↔ ¬φ(y)]" ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superproperty of all object property relations between an entity and one of its proper parts that belongs to different taxonomical branch."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superproperty of all object property relations between an entity and one of its proper parts that belongs to different taxonomical branch."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A part is always distinct xor redundant."@en .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_1328d112_e731_4e56_b9b9_6b6cdd495cd6 ;
@@ -260,6 +261,13 @@ foaf:workplaceHomepage rdf:type owl:AnnotationProperty .
    owl:annotatedTarget "DP(x, y) ≡ PP(x, y) ∧ ∃φ[φ(x) ↔ ¬φ(y)]" ;
    :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "We usa a predicate template notation as DP<φ>(x,y) to specify subclasses of DP(x,y) for the class φ, meaning that DP<φ>(x, y) ≡ PP(x, y) ∧ (φ(x) ↔ ¬φ(y))"@en ,
                                               "φ is a class of the theory"@en
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_1328d112_e731_4e56_b9b9_6b6cdd495cd6 ;
+   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
+   owl:annotatedTarget "A part is always distinct xor redundant."@en ;
+   rdfs:seeAlso :EMMO_6786b336_e982_4759_8dee_1905a4106591
  ] .
 
 
@@ -395,7 +403,8 @@ It does not exclude the possibility of indirect causal routes between proper par
                                            skos:example "A volume of water has redundand parts other volumes of water. All this volumes have holistic parts some water molecules."@en ;
                                            skos:prefLabel "hasRedundantPart"@en ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "RP(x, y) ≡ PP(x, y) ∧ ∃φ(φ(x) ∧ φ(y))" ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superproperty of the all object property relations between a whole and its mereological parts of the same type."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superproperty of the all object property relations between a whole and its mereological parts of the same type."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A part is always distinct xor redundant."@en .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_6786b336_e982_4759_8dee_1905a4106591 ;
@@ -403,6 +412,13 @@ It does not exclude the possibility of indirect causal routes between proper par
    owl:annotatedTarget "RP(x, y) ≡ PP(x, y) ∧ ∃φ(φ(x) ∧ φ(y))" ;
    :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "We usa a predicate template notation as RP<φ>(x,y) to specify subclasses of RP(x,y) for the class φ, meaning that RP<φ>(x, y) ≡ PP(x, y) ∧ φ(x) ∧ φ(y)"@en ,
                                               "φ is a class of the theory that in the EMMO OWL is supposed to be subclass of CausalStructure."@en
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_6786b336_e982_4759_8dee_1905a4106591 ;
+   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
+   owl:annotatedTarget "A part is always distinct xor redundant."@en ;
+   rdfs:seeAlso :EMMO_1328d112_e731_4e56_b9b9_6b6cdd495cd6
  ] .
 
 
@@ -520,11 +536,19 @@ Contacts between two entities exclude the possibility of other causal relations 
 :EMMO_ad0e72fc_dcaa_490d_8371_b4d814dcda2c rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_ec2472ae_cf4a_46a5_8555_1556f5a6c3c5 ;
                                            skos:prefLabel "causal"@en ;
-                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """Causality is the fundamental concept describing how entities affect each other, and occurs before time and space relations.
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """Causality is the fundamental concept describing how entities affect each other, and occurs before time and space relations. In the EMMO causality is the foundation for space and time relations.
 Embracing a strong reductionistic view, causality originates at quantum entities level."""@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass of all causal EMMO relations."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Causality in the EMMO is intended as physical causation and not counter-factual. Meaning that causality is an expression of actual physical interactions, and not of a counterfactual depence such as “I didn't water the flowers, hence, I'm the cause of their death”."@en ,
                                                                                       "Each pair of entities is either in isCauseOf or isNotCauseOf relation. The two are mutually exclusive."@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_ad0e72fc_dcaa_490d_8371_b4d814dcda2c ;
+   owl:annotatedProperty :EMMO_31252f35_c767_4b97_a877_1235076c3e13 ;
+   owl:annotatedTarget """Causality is the fundamental concept describing how entities affect each other, and occurs before time and space relations. In the EMMO causality is the foundation for space and time relations.
+Embracing a strong reductionistic view, causality originates at quantum entities level."""@en ;
+   rdfs:seeAlso :EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68
+ ] .
 
 
 ###  https://w3id.org/emmo#EMMO_b3c8ba10_6bee_45e7_9416_e9019aa9f023
@@ -712,7 +736,7 @@ b) y and x are non-overlapping"""@en ;
 ###  https://w3id.org/emmo#EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31
 :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_76bd5e44_bf5a_49f9_a517_eea5e8bcbc2d ,
-                                                           _:genid20 ;
+                                                           _:genid23 ;
                                            owl:disjointWith :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
                                            skos:example "The collection of users of a particular software, the collection of atoms that have been part of that just dissociated molecule."@en ;
                                            skos:prefLabel "Collection"@en ;
@@ -721,7 +745,7 @@ A collection can be partitioned in maximally connected items called members. The
 The combination of collection and item concepts is the EMMO mereocausality alternative to set theory. However, two items can be members only if they are non direct causally connected, giving some constraints to a collection definition. For example, two entities which are directly connected cannot be two distinct members, while their interiors (i.e. the entities obtained by removing the layer of parts that provides the causal contact between them) can be."""@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of not direct causally self-connected world entities."@en .
 
-_:genid20 rdf:type owl:Restriction ;
+_:genid23 rdf:type owl:Restriction ;
            owl:onProperty :EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4 ;
            owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
            owl:onClass :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de .
@@ -729,7 +753,7 @@ _:genid20 rdf:type owl:Restriction ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid20 ;
+   owl:annotatedTarget _:genid23 ;
    :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Every collection has at least two item members, since a collection of one item is a self-connected entity (and then an item)."@en
  ] .
 
@@ -751,7 +775,7 @@ However, the quantum mereotopology approach is not restricted only to physics. F
                                            skos:prefLabel "Quantum"@en ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """A quantum is the most fundamental item (both mereologically and causally) and is considered causally self-connected by definition.
 The quantum concept recalls the fact that there is lower epistemological limit to our knowledge of the universe, related to the uncertainity principle.
-Space and time emerge following the network of causal connections between quantum objects. So quantum objects are adimensional objects, that precede space and time dimensions: they are simple beings (in greek οντα).
+In the EMMO, space and time emerge following the network of causal connections between quantum objects. So quantum objects are adimensional objects, that precede space and time dimensions: they are simple beings (in greek οντα).
 Using physics concepts, we can think the quantum as an elementary particle (e.g. an electron) in a specific state between two causal interactions.
 A quantum stands for an incoming or outcoming real particle in a Feynman diagram."""@en ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The class of entities without proper parts."@en ;
@@ -821,8 +845,8 @@ A quantum stands for an incoming or outcoming real particle in a Feynman diagram
 
 ###  https://w3id.org/emmo#EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf
 :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf rdf:type owl:Class ;
-                                           rdfs:subClassOf _:genid27 ,
-                                                           _:genid29 ;
+                                           rdfs:subClassOf _:genid30 ,
+                                                           _:genid32 ;
                                            skos:prefLabel "EMMO"@en ;
                                            <https://w3id.org.org/emmo#EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db> "DisjointUnion: CausalPath, Collection, Quantum, CausalSystem" ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """The EMMO conceptualises the world using the primitive concepts of causality and parthood. Parthood is about the composition of world entities starting from other more fundamental entities. Causality is about the interactions between world entities.
@@ -836,11 +860,11 @@ Entities are not placed in space or time: space and time are always relative bet
 The EMMO conceptualisation does not allow the existence of space without a temporal dimension, the latter coming from a causal relation between entities.
 For this reason, the EMMO entities that are not quantum or elementaries, may be considered to be always spatiotemporal. The EMMO poses no constraints to the number of spatial dimensions for a causal system (except being higher than one)."""@en .
 
-_:genid27 rdf:type owl:Restriction ;
+_:genid30 rdf:type owl:Restriction ;
            owl:onProperty :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
            owl:someValuesFrom :EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68 .
 
-_:genid29 rdf:type owl:Restriction ;
+_:genid32 rdf:type owl:Restriction ;
            owl:onProperty [ owl:inverseOf :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f
                           ] ;
            owl:hasValue :EMMO_08cb807c_e626_447b_863f_e2835540e918 .
@@ -848,14 +872,14 @@ _:genid29 rdf:type owl:Restriction ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid27 ;
+   owl:annotatedTarget _:genid30 ;
    :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Every entity is made of quantum parts. This axiomatisation is the expression of the radical reductionistic approach of the EMMO."@en
  ] .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid29 ;
+   owl:annotatedTarget _:genid32 ;
    :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "All EMMO individuals are part of the most comprehensive entity which is the universe."@en
  ] .
 
