@@ -125,14 +125,14 @@ The reference ontologies are intended to be used by domain ontologies and import
 
 | Reference ontology | IRI                                                                                                                                               |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Materials          | [https://w3id.org/emmo/multiperspective/materials](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/multiperspective/materials.ttl)   |
-| Math               | [https://w3id.org/emmo/multiperspective/math](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/multiperspective/math.ttl)             |
-| Models             | [https://w3id.org/emmo/multiperspective/models](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/multiperspective/models.ttl)         |
-| Properties         | [https://w3id.org/emmo/multiperspective/properties](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/multiperspective/properties.ttl) |
-| Metrology          | [https://w3id.org/emmo/multiperspective/metrology](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/multiperspective/metrology.ttl)   |
-| Isq                | [https://w3id.org/emmo/multiperspective/isq](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/multiperspective/isq.ttl)               |
+| Materials          | [https://w3id.org/emmo/reference/materials](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/reference/materials.ttl)   |
+| Math               | [https://w3id.org/emmo/reference/math](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/reference/math.ttl)             |
+| Models             | [https://w3id.org/emmo/reference/models](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/reference/models.ttl)         |
+| Properties         | [https://w3id.org/emmo/reference/properties](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/reference/properties.ttl) |
+| Metrology          | [https://w3id.org/emmo/reference/metrology](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/reference/metrology.ttl)   |
+| Isq                | [https://w3id.org/emmo/reference/isq](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/reference/isq.ttl)               |
 | Siunits            | [https://w3id.org/emmo/domain/siunits](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/domain/siunits.ttl)                           |
-| Chemistry          | [https://w3id.org/emmo/multiperspective/chemistry](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/multiperspective/chemistry.ttl)   |
+| Chemistry          | [https://w3id.org/emmo/reference/chemistry](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/reference/chemistry.ttl)   |
 
 
 ### Domain Ontologies
