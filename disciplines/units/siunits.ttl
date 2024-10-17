@@ -272,6 +272,13 @@ kg/m^3""" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Superclass for all units prefixed with \"deca\" (10)."@en .
 
 
+###  https://w3id.org/emmo#EMMO_1e85f9fa_ded6_4856_81be_ccca3c474314
+:EMMO_1e85f9fa_ded6_4856_81be_ccca3c474314 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_d41ce84b_4317_41fb_a5d1_6cd281fca106 ;
+                                           rdfs:comment "A SI base unit or SI derived unit with a metric prefix."@en ;
+                                           skos:prefLabel "SIMetricPrefixedUnit"@en .
+
+
 ###  https://w3id.org/emmo#EMMO_2024fca1_b015_45ee_9490_e9e7d36bf704
 :EMMO_2024fca1_b015_45ee_9490_e9e7d36bf704 rdf:type owl:Class ;
                                            owl:disjointUnionOf ( :EMMO_1d8b370b_c672_4d0c_964e_eaafcbf2f51f
@@ -376,6 +383,7 @@ kg/m^3""" ;
 
 ###  https://w3id.org/emmo#EMMO_32129fb5_df25_48fd_a29c_18a2f22a2dd5
 :EMMO_32129fb5_df25_48fd_a29c_18a2f22a2dd5 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_216f448e_cdbc_4aeb_a529_7a5fe7fc38bb ;
                                            owl:disjointUnionOf ( :EMMO_3a185e6c_9e19_4776_b583_19c978156aa0
                                                                  :EMMO_e9ffc696_5228_4ff9_8a60_0f5e05e9931b
                                                                ) ;
@@ -591,7 +599,8 @@ kg/m^3""" ;
 
 ###  https://w3id.org/emmo#EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1
 :EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ;
+                                           rdfs:subClassOf :EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
+                                                           :EMMO_feb03a8a_bbb6_4918_a891_46713ef557f4 ;
                                            skos:example "cm/s" ;
                                            skos:prefLabel "SINonCoherentDerivedUnit"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A derived unit whos numerical factor in front of the product of base units is NOT equal to one."@en .
@@ -627,6 +636,7 @@ kg/m^3""" ;
 
 ###  https://w3id.org/emmo#EMMO_707c6032_e272_4a20_98b5_d35c4f67be68
 :EMMO_707c6032_e272_4a20_98b5_d35c4f67be68 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_feb03a8a_bbb6_4918_a891_46713ef557f4 ;
                                            owl:disjointUnionOf ( :EMMO_1273eb34_de48_43a9_925f_104110469dd2
                                                                  :EMMO_3a185e6c_9e19_4776_b583_19c978156aa0
                                                                  :EMMO_e9ffc696_5228_4ff9_8a60_0f5e05e9931b
@@ -680,8 +690,9 @@ kg/m^3""" ;
 
 ###  https://w3id.org/emmo#EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375
 :EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 rdf:type owl:Class ;
-                                           owl:disjointUnionOf ( :EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1
-                                                                 :EMMO_1e85f9fa_ded6_4856_81be_ccca3c474314
+                                           rdfs:subClassOf :EMMO_feb03a8a_bbb6_4918_a891_46713ef557f4 ;
+                                           owl:disjointUnionOf ( :EMMO_1e85f9fa_ded6_4856_81be_ccca3c474314
+                                                                 :EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1
                                                                ) ;
                                            skos:prefLabel "SINonCoherentUnit"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An SI unit whos numerical factor in front of the product of base SI units is NOT equal to one."@en ;
@@ -1029,10 +1040,10 @@ where `multiplier` and `offset` are specified via the 'hasConversionMultiplier' 
 :EMMO_feb03a8a_bbb6_4918_a891_46713ef557f4 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_3eb993a1_61ae_4a20_b168_dda853f51c14 ;
                                            owl:disjointUnionOf ( :EMMO_1273eb34_de48_43a9_925f_104110469dd2
+                                                                 :EMMO_1e85f9fa_ded6_4856_81be_ccca3c474314
                                                                  :EMMO_3a185e6c_9e19_4776_b583_19c978156aa0
                                                                  :EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1
                                                                  :EMMO_e9ffc696_5228_4ff9_8a60_0f5e05e9931b
-                                                                 :EMMO_1e85f9fa_ded6_4856_81be_ccca3c474314
                                                                ) ;
                                            rdfs:comment "The complete set of SI units includes both the coherent set and the multiples and sub-multiples formed by using the SI prefixes."@en ,
                                                         """The names, symbols and prefixes of SI units are defined by the General Conference on Weights and Measures (CGPM).
@@ -1497,13 +1508,6 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
        :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The SI unit of magnetic flux. \"Flux\" is the rate (per unit of time) at which something crosses a surface perpendicular to the flow. The weber is a large unit, equal to 10⁸ maxwells, and practical fluxes are usually fractions of one weber. The weber is the magnetic flux which, linking a circuit of one turn, would produce in it an electromotive force of 1 volt if it were reduced to zero at a uniform rate in 1 second. In SI base units, the dimensions of the weber are (kg·m²)/(s²·A). The weber is commonly expressed in terms of other derived units as the Tesla-square meter (T·m²), volt-seconds (V·s), or joules per ampere (J/A)."@en ;
        :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Weber_(unit)"^^xsd:anyURI ;
        :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.W06666" .
-
-
-###  https://w3id.org/emmo/disciplines/units/siunits#EMMO_1e85f9fa_ded6_4856_81be_ccca3c474314
-:EMMO_1e85f9fa_ded6_4856_81be_ccca3c474314 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_d41ce84b_4317_41fb_a5d1_6cd281fca106 ;
-                                           rdfs:comment "A SI base unit or SI derived unit with a metric prefix."@en ;
-                                           skos:prefLabel "SIMetricPrefixedUnit"@en .
 
 
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
