@@ -125,14 +125,14 @@ The reference ontologies are intended to be used by domain ontologies and import
 
 | Reference ontology | IRI                                                                                                                                               |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Materials          | [https://w3id.org/emmo/reference/materials](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/reference/materials.ttl)   |
-| Math               | [https://w3id.org/emmo/reference/math](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/reference/math.ttl)             |
-| Models             | [https://w3id.org/emmo/reference/models](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/reference/models.ttl)         |
-| Properties         | [https://w3id.org/emmo/reference/properties](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/reference/properties.ttl) |
-| Metrology          | [https://w3id.org/emmo/reference/metrology](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/reference/metrology.ttl)   |
-| Isq                | [https://w3id.org/emmo/reference/isq](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/reference/isq.ttl)               |
-| Siunits            | [https://w3id.org/emmo/domain/siunits](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/domain/siunits.ttl)                           |
-| Chemistry          | [https://w3id.org/emmo/reference/chemistry](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc2/reference/chemistry.ttl)   |
+| Materials          | [https://w3id.org/emmo/reference/materials](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc3/reference/materials.ttl)   |
+| Math               | [https://w3id.org/emmo/reference/math](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc3/reference/math.ttl)             |
+| Models             | [https://w3id.org/emmo/reference/models](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc3/reference/models.ttl)         |
+| Properties         | [https://w3id.org/emmo/reference/properties](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc3/reference/properties.ttl) |
+| Metrology          | [https://w3id.org/emmo/reference/metrology](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc3/reference/metrology.ttl)   |
+| Isq                | [https://w3id.org/emmo/reference/isq](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc3/reference/isq.ttl)               |
+| Siunits            | [https://w3id.org/emmo/domain/siunits](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc3/domain/siunits.ttl)                           |
+| Chemistry          | [https://w3id.org/emmo/reference/chemistry](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc3/reference/chemistry.ttl)   |
 
 
 ### Domain Ontologies
@@ -199,7 +199,7 @@ Protégé will automatically download all the necessary dependencies.
 
 The EMMO hierarchy will be visible only after reasoning inference: use *ctrl-R* to start the reasoner and under the *Entities* tab, select the *Classes* subtab and *Inferred* in the scroll button.
 
-From EMMO 1.0.0-rc2 it is recommended to use HermiT as reasoner (distributed by default with Protege).
+From EMMO 1.0.0-rc3 it is recommended to use HermiT as reasoner (distributed by default with Protege).
 For earlier EMMO versions is FaCT++ the recommended reasoner.
 You can select it through the menu *Reasoner*.
 An instruction for how to install the FaCT++ plugin on Protege 5.5.0 on Windows can be found in the [doc subdirectory](doc/installing_factplusplus.md).
