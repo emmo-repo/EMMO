@@ -10,7 +10,8 @@
 
 <https://w3id.org/emmo/perspectives/semiotics> rdf:type owl:Ontology ;
                                                 owl:versionIRI <https://w3id.org/emmo/1.0.0-rc2/perspectives/semiotics> ;
-                                                owl:imports <https://w3id.org/emmo/1.0.0-rc2/perspectives/perspective> ;
+                                                owl:imports <https://w3id.org/emmo/1.0.0-rc2/perspectives/holistic> ,
+                                                            <https://w3id.org/emmo/1.0.0-rc2/perspectives/perspective> ;
                                                 dcterms:abstract """The semiotics module is based on the semiotic theory by Charles S. Peirce. It introduces the triadic semiotic process, called semiosis, with its participants an 'object' that is represented by a 'sign' producing another sign, the 'interpretant' and finally the 'interpreter' who connects the 'object', 'sign' and 'interpretant'.
 
 The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. real world objects (e.g. symbol or sign) that stand for other real world objects that are to be interpreted by an agent. These symbols appear in actions (semiotic processes) meant to communicate meaning by establishing relationships between symbols (signs)."""@en ;
@@ -63,6 +64,13 @@ The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. rea
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A semiotic relation that connects a deduced semiotic object to an indexin a deduction process."@en .
 
 
+###  https://w3id.org/emmo#EMMO_326dd646_faaf_42a5_a930_d491297d6281
+:EMMO_326dd646_faaf_42a5_a930_d491297d6281 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_8d4a9d63_cce9_4f93_83bb_b2e05bcf9962 ;
+                                           rdfs:range :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b ;
+                                           skos:prefLabel "hasSemioticObjectPart"@en .
+
+
 ###  https://w3id.org/emmo#EMMO_39c3815d_8cae_4c8f_b2ff_eeba24bec455
 :EMMO_39c3815d_8cae_4c8f_b2ff_eeba24bec455 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_60577dea_9019_4537_ac41_80b0fb563d41 ;
@@ -86,6 +94,13 @@ The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. rea
                                            rdfs:domain :EMMO_19608340_178c_4bfd_bd4d_0d3b935c6fec ;
                                            skos:prefLabel "hasCognised"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A semiotic relation connecting a recognising interpreter to the \"cognised\" semiotic object in a cognition process."@en .
+
+
+###  https://w3id.org/emmo#EMMO_52297da3_5cee_4350_9c58_67ab4b1d0308
+:EMMO_52297da3_5cee_4350_9c58_67ab4b1d0308 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_8d4a9d63_cce9_4f93_83bb_b2e05bcf9962 ;
+                                           rdfs:range :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d ;
+                                           skos:prefLabel "hasSignPart"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_5369d256_5866_4729_adc2_1498ee9a4959
@@ -114,6 +129,13 @@ The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. rea
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation that connects a semiotic object to the interpretant in a semiotic process."@en .
 
 
+###  https://w3id.org/emmo#EMMO_8d4a9d63_cce9_4f93_83bb_b2e05bcf9962
+:EMMO_8d4a9d63_cce9_4f93_83bb_b2e05bcf9962 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_8e52c42b_e879_4473_9fa1_4b23428b392b ;
+                                           rdfs:domain :EMMO_008fd3b2_4013_451f_8827_52bceab11841 ;
+                                           skos:prefLabel "hasSemioticPart"@en .
+
+
 ###  https://w3id.org/emmo#EMMO_a0a2ded8_54e8_408d_a6b0_7fd1b4d7d16d
 :EMMO_a0a2ded8_54e8_408d_a6b0_7fd1b4d7d16d rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_f2fc1ce9_cc3b_4eb5_a112_3c85d1b1374a ;
@@ -137,6 +159,13 @@ The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. rea
                                            rdfs:range :EMMO_2d72e38c_d587_437f_98f6_f2718fb130eb ;
                                            skos:prefLabel "hasDeclarer"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A semiotic relation connecting a conventional sign to the interpreter (declarer) in a declaration process."@en .
+
+
+###  https://w3id.org/emmo#EMMO_da27d905_beb6_44ea_a330_a2dd9c17b263
+:EMMO_da27d905_beb6_44ea_a330_a2dd9c17b263 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_8d4a9d63_cce9_4f93_83bb_b2e05bcf9962 ;
+                                           rdfs:range :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee ;
+                                           skos:prefLabel "hasInterpreterPart"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_e1097637_70d2_4895_973f_2396f04fa204
@@ -193,10 +222,18 @@ The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. rea
 
 ###  https://w3id.org/emmo#EMMO_008fd3b2_4013_451f_8827_52bceab11841
 :EMMO_008fd3b2_4013_451f_8827_52bceab11841 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_8bb6b688_812a_4cb9_b76c_d5a058928719 ,
+                                           rdfs:subClassOf :EMMO_b6ef9afb_a4be_4017_aa1d_917d5b911762 ,
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
-                                                             owl:someValuesFrom :EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b
+                                                             owl:onProperty :EMMO_326dd646_faaf_42a5_a930_d491297d6281 ;
+                                                             owl:someValuesFrom :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_52297da3_5cee_4350_9c58_67ab4b1d0308 ;
+                                                             owl:someValuesFrom :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_da27d905_beb6_44ea_a330_a2dd9c17b263 ;
+                                                             owl:someValuesFrom :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee
                                                            ] ;
                                            skos:example """Me looking a cat and saying loud: \"Cat!\" -> the semiosis process
 
@@ -211,14 +248,20 @@ the cat perceived by my mind -> interpretant
 
 ###  https://w3id.org/emmo#EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee
 :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 ,
+                                           rdfs:subClassOf :EMMO_b6ef9afb_a4be_4017_aa1d_917d5b911762 ,
+                                                           :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 ,
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_559ab98c_1c7d_4794_996c_8c1d8d56381c ;
-                                                             owl:someValuesFrom :EMMO_008fd3b2_4013_451f_8827_52bceab11841
+                                                             owl:onProperty :EMMO_8e52c42b_e879_4473_9fa1_4b23428b392b ;
+                                                             owl:someValuesFrom :EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b
                                                            ] ,
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
-                                                             owl:someValuesFrom :EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b
+                                                             owl:onProperty :EMMO_f2fc1ce9_cc3b_4eb5_a112_3c85d1b1374a ;
+                                                             owl:someValuesFrom :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d
                                                            ] ;
                                            skos:example """For example, the ontologist may be interest in cataloguing in the EMMO how the same object (e.g. a cat) is addressed using different signs (e.g. cat, gatto, chat) by different interpreters (e.g. english, italian or french people).
 
@@ -517,7 +560,16 @@ This class refers to what is commonly known as physical property, i.e. a measura
 
 ###  https://w3id.org/emmo#EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b
 :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 ;
+                                           rdfs:subClassOf :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_60577dea_9019_4537_ac41_80b0fb563d41 ;
+                                                             owl:someValuesFrom :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_f2fc1ce9_cc3b_4eb5_a112_3c85d1b1374a
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee
+                                                           ] ;
                                            rdfs:comment """Here is assumed that the concept of 'object' is always relative to a 'semiotic' process. An 'object' does not exists per se, but it's always part of an interpretation.
 
 The EMMO relies on strong reductionism, i.e. everything real is a formless collection of elementary particles: we give a meaning to real world entities only by giving them boundaries and defining them using 'sign'-s.
@@ -605,7 +657,20 @@ This can be used in material characterization, to define exactly the type of mea
 
 ###  https://w3id.org/emmo#EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d
 :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 ;
+                                           rdfs:subClassOf :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d ;
+                                                             owl:someValuesFrom :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_7fb7fe7e_bdf9_4eeb_adad_e384dd5285c6 ;
+                                                             owl:someValuesFrom :EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_60577dea_9019_4537_ac41_80b0fb563d41
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b
+                                                           ] ;
                                            rdfs:comment """A 'Sign' can have temporal-direct-parts which are 'Sign' themselves.
 
 A 'Sign' usually havs 'sign' spatial direct parts only up to a certain elementary semiotic level, in which the part is only a 'Physical' and no more a 'Sign' (i.e. it stands for nothing). This elementary semiotic level is peculiar to each particular system of signs (e.g. text, painting).
@@ -627,6 +692,12 @@ For plain text we can propose the ASCII symbols, for math the fundamental math s
                                            skos:prefLabel "Sign"@en ;
                                            <https://w3id.org.org/emmo#EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db> "EquivalentTo: Index or Conventional or Icon" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An 'Physical' that is used as sign (\"semeion\" in greek) that stands for another 'Physical' through an semiotic process."@en .
+
+
+###  https://w3id.org/emmo#EMMO_b6ef9afb_a4be_4017_aa1d_917d5b911762
+:EMMO_b6ef9afb_a4be_4017_aa1d_917d5b911762 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_1efe8b96_e006_4a33_bc9a_421406cbb9f0 ;
+                                           skos:prefLabel "SemioticWhole"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba
@@ -654,9 +725,9 @@ Vickers hardness is a subclass of hardness that involves the procedures and inst
 
 ###  https://w3id.org/emmo#EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9
 :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_8bb6b688_812a_4cb9_b76c_d5a058928719 ,
+                                           rdfs:subClassOf :EMMO_4f226cf3_6d02_4d35_8566_a9e641bc6ff3 ,
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
+                                                             owl:onProperty [ owl:inverseOf :EMMO_8d4a9d63_cce9_4f93_83bb_b2e05bcf9962
                                                                             ] ;
                                                              owl:someValuesFrom :EMMO_008fd3b2_4013_451f_8827_52bceab11841
                                                            ] ;
@@ -670,7 +741,8 @@ The triadic elements:
 - 'object': the object C (e.g. the entity to which the sign A and B refer to)
 
 This class includes also the 'interpeter' i.e. the entity that connects the 'sign' to the 'object'"""@en ;
-                                           skos:prefLabel "SemioticEntity"@en ;
+                                           skos:altLabel "SemioticEntity"@en ;
+                                           skos:prefLabel "SemioticRole"@en ;
                                            <https://w3id.org.org/emmo#EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db> "EquivalentTo: Interpreter or SemioticObject or Sign" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals that stands for semiotic objects, i.e. objects that take part on a semiotic process."@en .
 
@@ -764,7 +836,7 @@ For example, when a Boeing 747 is used as a sign for another Boeing 747."""@en ,
 
 
 [ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The rule for the subproperty chain:
- inverse (hasReferent) o  inverse (hasInterpreter)=>hasSign"""@en
+ inverse (hasInterpreter) o  inverse (hasSign) =>hasReferent"""@en
 ] .
 
 [ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The rule for the subproperty chain:
@@ -772,7 +844,7 @@ inverse (hasSign) o  inverse (hasReferent) => hasInterpreter"""@en
  ] .
 
 [ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The rule for the subproperty chain:
- inverse (hasInterpreter) o  inverse (hasSign) =>hasReferent"""@en
+ inverse (hasReferent) o  inverse (hasInterpreter)=>hasSign"""@en
  ] .
 
 #################################################################
@@ -863,4 +935,4 @@ inverse (hasSign) o  inverse (hasReferent) => hasInterpreter"""@en
                                          ]
  ] .
 
-###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
