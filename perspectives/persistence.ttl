@@ -28,6 +28,13 @@
 #    Object Properties
 #################################################################
 
+###  https://w3id.org/emmo#EMMO_0154a22e_2fd3_460a_a245_408ddb414f09
+:EMMO_0154a22e_2fd3_460a_a245_408ddb414f09 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_2bb50428_568d_46e8_b8bf_59a4c5656461 ,
+                                                              :EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77 ;
+                                           skos:prefLabel "isObjectOutputOf"@en .
+
+
 ###  https://w3id.org/emmo#EMMO_1440d010_e4c5_4597_8858_1d58cb1fb28f
 :EMMO_1440d010_e4c5_4597_8858_1d58cb1fb28f rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 ;
@@ -41,7 +48,16 @@
                                            rdfs:subPropertyOf :EMMO_b3c8ba10_6bee_45e7_9416_e9019aa9f023 ;
                                            owl:inverseOf :EMMO_36e69413_8c59_4799_946c_10b05d266e22 ;
                                            rdfs:range :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
-                                           skos:prefLabel "isInputOf"@en .
+                                           skos:prefLabel "isInputOf"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between an entity X that proper overlaps a process P, where the non overapping part of P is caused by X."@en .
+
+
+###  https://w3id.org/emmo#EMMO_27ceaab7_8293_408d_a22b_ad4bf4a7bc2d
+:EMMO_27ceaab7_8293_408d_a22b_ad4bf4a7bc2d rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_1494c1a9_00e1_40c2_a9cc_9bbf302a1cac ,
+                                                              :EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77 ;
+                                           skos:prefLabel "isObjectInputOf"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between an object O that proper overlaps a process P, where the non overapping part of P is caused by O."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_2bb50428_568d_46e8_b8bf_59a4c5656461
@@ -54,7 +70,7 @@
 
 ###  https://w3id.org/emmo#EMMO_2fe8b850_9f2d_4c13_8be9_6ae2487de393
 :EMMO_2fe8b850_9f2d_4c13_8be9_6ae2487de393 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_b3c8ba10_6bee_45e7_9416_e9019aa9f023 ;
+                                           rdfs:subPropertyOf :EMMO_e9d65041_d87d_4b04_9fe9_1eed8f9c0370 ;
                                            rdfs:domain :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ;
                                            rdfs:range :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ;
                                            skos:prefLabel "isRemovedFrom"@en ;
@@ -80,10 +96,11 @@
 
 ###  https://w3id.org/emmo#EMMO_3c51ea74_43a4_42d5_953b_fcb43f359c73
 :EMMO_3c51ea74_43a4_42d5_953b_fcb43f359c73 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_b3c8ba10_6bee_45e7_9416_e9019aa9f023 ;
+                                           rdfs:subPropertyOf :EMMO_449beacd_4fda_4d46_a723_d2118f4e2623 ;
                                            rdfs:domain :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
                                            rdfs:range :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ;
-                                           skos:prefLabel "disappearsInto"@en .
+                                           skos:prefLabel "disappearsInto"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between a process P that proper overlaps an object O, where the non overlapping part of P is cause of O."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_449beacd_4fda_4d46_a723_d2118f4e2623
@@ -91,13 +108,30 @@
                                            rdfs:subPropertyOf :EMMO_b3c8ba10_6bee_45e7_9416_e9019aa9f023 ;
                                            rdfs:domain :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
                                            rdfs:range :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ;
-                                           skos:prefLabel "affects"@en .
+                                           skos:prefLabel "affects"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between a process P that proper overlaps an object O."@en .
+
+
+###  https://w3id.org/emmo#EMMO_451ce6e1_9742_4e04_9bf8_acfcc81876f1
+:EMMO_451ce6e1_9742_4e04_9bf8_acfcc81876f1 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_2bb50428_568d_46e8_b8bf_59a4c5656461 ,
+                                                              :EMMO_f09e1d0a_07ce_4121_8c89_5bd67b7e8116 ;
+                                           skos:prefLabel "isProcessOutputOf"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between a process P1 that proper overlaps a process P2, where the non overlapping part of P1 is caused by P2."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_571a8adb_f38f_4122_8754_044ea2490cd0
 :EMMO_571a8adb_f38f_4122_8754_044ea2490cd0 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_3733bd38_ca2b_4264_a92a_3075a1715598 ;
                                            skos:prefLabel "isProcessedTo"@en .
+
+
+###  https://w3id.org/emmo#EMMO_5d2a2443_5c1c_4239_b707_bae3cbf77fc2
+:EMMO_5d2a2443_5c1c_4239_b707_bae3cbf77fc2 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_1494c1a9_00e1_40c2_a9cc_9bbf302a1cac ,
+                                                              :EMMO_f09e1d0a_07ce_4121_8c89_5bd67b7e8116 ;
+                                           skos:prefLabel "isProcessInputOf"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between a process P1 that proper overlaps a process P2, where the non overlapping part of P1 is causing P2."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_7329967c_3972_4c99_b478_84f66436620d
@@ -129,11 +163,7 @@ Participation is not under direct parthood since a process is not strictly relat
 
 
 ###  https://w3id.org/emmo#EMMO_cd24eb82_a11c_4a31_96ea_32f870c5580a
-:EMMO_cd24eb82_a11c_4a31_96ea_32f870c5580a rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
-                                           rdfs:range :EMMO_2480b72b_db8d_460f_9a5f_c2912f979046 ;
-                                           skos:prefLabel "hasAgent"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation within a process and an agengt participant."@en .
+:EMMO_cd24eb82_a11c_4a31_96ea_32f870c5580a rdf:type owl:ObjectProperty .
 
 
 ###  https://w3id.org/emmo#EMMO_d43af210_f854_4432_a891_ce3022e3b558
@@ -172,7 +202,7 @@ Participation is not under direct parthood since a process is not strictly relat
 
 ###  https://w3id.org/emmo#EMMO_ea7724fe_ba5d_4201_865e_761cb6fe9f99
 :EMMO_ea7724fe_ba5d_4201_865e_761cb6fe9f99 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_b3c8ba10_6bee_45e7_9416_e9019aa9f023 ;
+                                           rdfs:subPropertyOf :EMMO_e9d65041_d87d_4b04_9fe9_1eed8f9c0370 ;
                                            rdfs:domain :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ;
                                            rdfs:range :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ;
                                            skos:prefLabel "isAddedTo"@en ;
@@ -189,11 +219,11 @@ Participation is not under direct parthood since a process is not strictly relat
 
 ###  https://w3id.org/emmo#EMMO_ee518694_9a11_41e5_ada2_8c68c62c2993
 :EMMO_ee518694_9a11_41e5_ada2_8c68c62c2993 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_b3c8ba10_6bee_45e7_9416_e9019aa9f023 ;
+                                           rdfs:subPropertyOf :EMMO_449beacd_4fda_4d46_a723_d2118f4e2623 ;
                                            rdfs:domain :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
                                            rdfs:range :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ;
                                            skos:prefLabel "emergesFrom"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between an object O and a process P that proper overlap, where the non overapping part of P is caused by O."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between a process P that proper overlaps an object O , where the non overapping part of P is caused by O."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_f09e1d0a_07ce_4121_8c89_5bd67b7e8116
@@ -201,7 +231,8 @@ Participation is not under direct parthood since a process is not strictly relat
                                            rdfs:subPropertyOf :EMMO_b3c8ba10_6bee_45e7_9416_e9019aa9f023 ;
                                            rdfs:domain :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
                                            rdfs:range :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
-                                           skos:prefLabel "contributesTo"@en .
+                                           skos:prefLabel "contributesTo"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between a process P1 that proper overlaps a process P2."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_f22abf74_4538_4f50_ab85_09908cdda707
@@ -252,7 +283,7 @@ Participation is not under direct parthood since a process is not strictly relat
                                                            ] ;
                                            skos:example "A catalyst. A bus driver. A substance that is initiating a reaction that would not occur without its presence."@en ;
                                            skos:prefLabel "Agent"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A participant that is the driver of the process."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A participant that is the driver of a process."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """An agent is not necessarily human.
 An agent plays an active role within the process.
 An agent is a participant of a process that would not occur without it."""@en .
