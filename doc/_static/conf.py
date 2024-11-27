@@ -11,7 +11,7 @@
 project = 'EMMO'
 copyright = '2024, EMMC'
 author = 'E. Ghedini, G. Goldbeck, J. Friis, A. Hashibon, G.J. Schmitz'
-release = '1.0.0-rc2'
+release = '1.0.0-rc3'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

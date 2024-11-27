@@ -19,9 +19,19 @@ outdir=$3
 [ $# -ne 3 ] && echo "Usage: makedoc.sh inferred version outdir" && exit 1
 
 set -x
-cd "$rootdir/doc/emmodoc"
-ontodoc --template=emmo.md --format=html -p variable=version:$version \
-        "$inferred" "$outdir/emmo.html"
 
-ontodoc --template=emmo.md -p variable=version:$version \
-        "$inferred" "$outdir/emmo.pdf"
+tmpdir=/tmp
+
+
+mkdir -p $tmpdir
+ontodoc --iri-regex=https://w3id.org/emmo --imported emmo-full.ttl "${tmpdir}/emmo.rst"
+
+mkdir -p public
+sphinx-build "${tmpdir}/" "${outdir}/"
+
+#cd "$rootdir/doc/emmodoc"
+#ontodoc --template=emmo.md --format=html -p variable=version:$version \
+#        "$inferred" "$outdir/emmo.html"
+#
+#ontodoc --template=emmo.md -p variable=version:$version \
+#        "$inferred" "$outdir/emmo.pdf"
