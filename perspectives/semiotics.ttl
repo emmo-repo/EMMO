@@ -558,7 +558,8 @@ This class refers to what is commonly known as physical property, i.e. a measura
 ###  https://w3id.org/emmo#EMMO_3fe33e1c_2b62_4669_af92_8066cf53761d
 :EMMO_3fe33e1c_2b62_4669_af92_8066cf53761d rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_008fd3b2_4013_451f_8827_52bceab11841 ;
-                                           skos:prefLabel "SemiosisByStructure"@en .
+                                           skos:prefLabel "SemiosisByStructure"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Semiosis classified as complete or partial representation of the semiotic triangle (interpretant, sign, referent)."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_421167c0_1ea5_405f_970f_a41e9cb308f9
@@ -615,6 +616,7 @@ This class refers to what is commonly known as physical property, i.e. a measura
 ###  https://w3id.org/emmo#EMMO_4d5621e8_af7f_4aef_abd5_f905a34f62af
 :EMMO_4d5621e8_af7f_4aef_abd5_f905a34f62af rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_008fd3b2_4013_451f_8827_52bceab11841 ;
+                                           rdfs:seeAlso "https://plato.stanford.edu/entries/peirce-semiotics/"^^xsd:anyURI ;
                                            skos:prefLabel "SemiosisByReferent"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Semiosis classified by how the sign stands for its reference object."@en .
 
@@ -934,7 +936,7 @@ For example, when a Boeing 747 is used as a sign for another Boeing 747."""@en ,
 :EMMO_ea5a4079_dbca_4ae7_80f4_415643f95257 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_3fe33e1c_2b62_4669_af92_8066cf53761d ;
                                            skos:prefLabel "FullSemiosis"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A semiosis where the triangle of relation is completely developed."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A semiosis where the triangle of relations is completely developed."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_ea67caa5_2609_4e91_98ae_81103f2d5c25
@@ -957,7 +959,7 @@ For example, when a Boeing 747 is used as a sign for another Boeing 747."""@en ,
 
 
 [ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The rule for the subproperty chain:
-inverse (hasSign) o  inverse (hasReferent) => hasInterpreter"""@en
+ inverse (hasInterpreter) o  inverse (hasSign) =>hasReferent"""@en
 ] .
 
 [ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The rule for the subproperty chain:
@@ -965,7 +967,7 @@ inverse (hasSign) o  inverse (hasReferent) => hasInterpreter"""@en
  ] .
 
 [ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The rule for the subproperty chain:
- inverse (hasInterpreter) o  inverse (hasSign) =>hasReferent"""@en
+inverse (hasSign) o  inverse (hasReferent) => hasInterpreter"""@en
  ] .
 
 #################################################################
