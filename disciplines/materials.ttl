@@ -56,6 +56,7 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/emmo#EMMO_0b15f4ae_092e_4487_9100_3c44176c545c
 :EMMO_0b15f4ae_092e_4487_9100_3c44176c545c rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_ec2c8ac8_98c5_4c74_b85b_ff8e8ca6655c ;
                                            owl:disjointUnionOf ( :EMMO_2031516a_2be7_48e8_9af7_7e1270e308fe
                                                                  :EMMO_4a464c8d_8895_44a8_a628_aed13509f1bd
                                                                  :EMMO_6c487fb3_03d1_4e56_91ed_c2e16dcbef60
@@ -143,6 +144,11 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
 
 ###  https://w3id.org/emmo#EMMO_220b7201_d277_4dca_bf6a_5a5e2c4062dd
 :EMMO_220b7201_d277_4dca_bf6a_5a5e2c4062dd rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba
+                                                                               :EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1
+                                                                             )
+                                                               ] ;
                                            rdfs:subClassOf :EMMO_b9695e87_8261_412e_83cd_a86459426a28 ;
                                            skos:prefLabel "CondensedMatter"@en ;
                                            <https://w3id.org.org/emmo#EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db> "Equivalent To: Liquid or Solid" ;
@@ -635,7 +641,7 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
                                            skos:prefLabel "PolymericMaterial"@en .
 
 
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
 ] .
 
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
@@ -645,6 +651,9 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
  ] .
 
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
  ] .
 
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
