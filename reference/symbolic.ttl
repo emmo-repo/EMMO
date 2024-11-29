@@ -17,11 +17,11 @@
 A symbolic entity is a discrete data that pocess a reductionistic structure, who's elements can be decoded to tokens from one or more alphabets.
 
 The symbolic module includes symbols, symbolic constructs and formal languages."""@en ;
-                                            dcterms:contributor :GerhardGoldbeck ,
+                                            dcterms:contributor <https://orcid.org/0000-0003-4065-9742> ,
                                                                 :AdhamHashibon ,
-                                                                <https://orcid.org/0000-0003-4065-9742> ;
-                                            dcterms:creator :JesperFriis ,
-                                                            :EmanueleGhedini ;
+                                                                :GerhardGoldbeck ;
+                                            dcterms:creator :EmanueleGhedini ,
+                                                            :JesperFriis ;
                                             dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                             dcterms:publisher <https://emmc.eu> ;
                                             dcterms:title "Symbolic"@en ;
@@ -201,13 +201,6 @@ The `hasPart` relation can be used to refer to the scalar data"""@en .
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A data representing an integer number >= 0."@en .
 
 
-###  https://w3id.org/emmo#EMMO_432192c4_111f_4e80_b7cd_c6ce1c1129ea
-:EMMO_432192c4_111f_4e80_b7cd_c6ce1c1129ea rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ;
-                                           skos:prefLabel "Spacing"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Symbol representing a spacing."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_443198a5_934c_44fa_b89e_28eca13b25b2
 :EMMO_443198a5_934c_44fa_b89e_28eca13b25b2 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_aa972cc9_5d9e_47a2_abc5_00243d6b3917 ;
@@ -308,13 +301,6 @@ If an 'interpreter' skilled in english language is involved in a 'semiotic' proc
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class for entities which stands for data expressed using a symbolic encoding."@en .
 
 
-###  https://w3id.org/emmo#EMMO_74b05aed_66bf_43c8_aa2c_752a9ca8be03
-:EMMO_74b05aed_66bf_43c8_aa2c_752a9ca8be03 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ;
-                                           skos:prefLabel "Numeral"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Symbol representing a letter in a digit."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_88a34881_b8d0_474b_9a08_40dbd414d834
 :EMMO_88a34881_b8d0_474b_9a08_40dbd414d834 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_8b305b63_6fa3_44dd_9679_17eb8403a07a ;
@@ -370,7 +356,8 @@ The tiles of an n-dimensional array are (n-1) dimensional arrays. The tiles of a
 :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 rdf:type owl:Class ;
                                            rdfs:subClassOf <https://w3id.org.org/emmo#EMMO_1141d225_fe90_4230_82c6_31cab6a4e3fe> ;
                                            skos:altLabel "AlphabeticEntity"@en ;
-                                           skos:example "The class of letter \"A\" is the symbol as idea and the letter A that you see on the screen is the mark that can be represented by an individual belonging to \"A\"."@en ;
+                                           skos:example "A letter, a number, a punctuation sign, a space, an UTF-8 character."@en ,
+                                                        "The class of letter \"A\" is the symbol as idea and the letter A that you see on the screen is the mark that can be represented by an individual belonging to \"A\"."@en ;
                                            skos:prefLabel "Symbol"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals that stand for an elementary mark of a specific symbolic code (alphabet)."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """Subclasses of 'Symbol' are alphabets, in formal languages terminology. A 'Symbol' is atomic for that alphabet, i.e. it has no parts that are symbols for the same alphabet.
@@ -382,13 +369,6 @@ e.g. \"Bq\" is the symbol for Becquerel units when dealing with metrology, or a 
 Symbols of a formal language must be capable of being specified without any reference to any interpretation of them.
 (Wikipedia)"""@en ,
                                                                                       "The class is the idea of the symbol, while the individual of that class stands for a specific mark (or token) of that idea."@en .
-
-
-###  https://w3id.org/emmo#EMMO_a817035a_3e3c_4709_8ede_3205df3031a3
-:EMMO_a817035a_3e3c_4709_8ede_3205df3031a3 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ;
-                                           skos:prefLabel "Punctuation"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Symbol representing a punctuation character."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_aa972cc9_5d9e_47a2_abc5_00243d6b3917
@@ -407,13 +387,6 @@ Symbols of a formal language must be capable of being specified without any refe
                                            skos:prefLabel "FloatData"@en ;
                                            <https://w3id.org.org/emmo#EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db> "EquivalentTo: hasDataValue some xsd:float" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbolic data representing a 32-bit floating point numbers incl. ±Inf, ±0, NaN."@en .
-
-
-###  https://w3id.org/emmo#EMMO_bed2fe4c_dc7e_43a8_8200_6aac44030bff
-:EMMO_bed2fe4c_dc7e_43a8_8200_6aac44030bff rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ;
-                                           skos:prefLabel "Letter"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Symbol representing a letter in an alphabet."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_cf0f8f57_8a9e_410c_8fe4_a436673fa3d3
@@ -472,13 +445,6 @@ Symbols of a formal language must be capable of being specified without any refe
                                            skos:prefLabel "ScalarData"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbolic data that is not array data."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Scalar data are primitive symbolic data that are not built up of other types of symbolic data."@en .
-
-
-###  https://w3id.org/emmo#EMMO_e13b2173_1dec_4b97_9ac1_1dc4b418612a
-:EMMO_e13b2173_1dec_4b97_9ac1_1dc4b418612a rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ;
-                                           skos:prefLabel "UTF8"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A unicode character encoded with UTF-8."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_e99aec47_9ae6_4a1d_bddd_b87bb456c52a
