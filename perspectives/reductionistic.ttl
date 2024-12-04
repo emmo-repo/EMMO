@@ -98,6 +98,7 @@ The tiles of specific granularity level provide a covering for the whole and are
                                            rdfs:subPropertyOf :EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d ;
                                            rdf:type owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
+                                           rdfs:range :EMMO_edf72228_e040_4edc_8b46_78b2a47c72d7 ;
                                            skos:altLabel "hasTemporalLast"@en ;
                                            skos:prefLabel "hasEndTile"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between the whole and a temporal tile that has only ingoing temporal connections." .
@@ -108,6 +109,7 @@ The tiles of specific granularity level provide a covering for the whole and are
                                            rdfs:subPropertyOf :EMMO_65a2c5b8_e4d8_4a51_b2f8_e55effc0547d ;
                                            rdf:type owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
+                                           rdfs:range :EMMO_fa595892_070d_455e_9459_06c97179c080 ;
                                            skos:altLabel "hasTemporalFirst"@en ;
                                            skos:prefLabel "hasBeginTile"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between the whole and a temporal tile that has only outgoing temporal connections." .
@@ -120,13 +122,15 @@ The tiles of specific granularity level provide a covering for the whole and are
 ###  https://w3id.org.org/emmo#EMMO_41c5f63b_f0e7_475e_bfac_a92027585979
 <https://w3id.org.org/emmo#EMMO_41c5f63b_f0e7_475e_bfac_a92027585979> rdf:type owl:Class ;
                                                                       rdfs:subClassOf :EMMO_2e46d966_9f14_4673_821e_7c7cf2957926 ;
-                                                                      skos:prefLabel "SpatioTemporalTileByConnection"@en .
+                                                                      skos:prefLabel "SpatioTemporalTileByConnection"@en ;
+                                                                      :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for tiles categorized accordingly to their topological role within a tessellation."@en .
 
 
 ###  https://w3id.org.org/emmo#EMMO_5e38e44b_a0d1_4afc_a876_95095c0a589f
 <https://w3id.org.org/emmo#EMMO_5e38e44b_a0d1_4afc_a876_95095c0a589f> rdf:type owl:Class ;
                                                                       rdfs:subClassOf :EMMO_2e46d966_9f14_4673_821e_7c7cf2957926 ;
-                                                                      skos:prefLabel "SpatioTemporalTileByPosition"@en .
+                                                                      skos:prefLabel "SpatioTemporalTileByPosition"@en ;
+                                                                      :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for tiles categorized accordingly to their location within a tessellation in terms of causal source, sink or intermediary."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_15db234d_ecaf_4715_9838_4b4ec424fb13
@@ -165,11 +169,12 @@ The tiles of specific granularity level provide a covering for the whole and are
 ###  https://w3id.org/emmo#EMMO_2e46d966_9f14_4673_821e_7c7cf2957926
 :EMMO_2e46d966_9f14_4673_821e_7c7cf2957926 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_9953c19f_ee33_4af8_be5e_dbf6d1e33581 ;
+                                           rdfs:seeAlso :EMMO_22c91e99_61f8_4433_8853_432d44a2a46a ;
                                            skos:altLabel "WellFormedTile"@en ;
                                            skos:prefLabel "SpatioTemporalTile" ;
                                            :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "EquivalentTo: SpatialTile or TemporalTile or JunctionTile" ,
-                                                                                                                 "EquivalentTo: ThroughTile or EndTile or BeginTile" ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 :EMMO_22c91e99_61f8_4433_8853_432d44a2a46a .
+                                                                                      "EquivalentTo: ThroughTile or EndTile or BeginTile" ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for all tiles bolonging to tessellations in which all tiles are connected through spatiotemporal relations hasNext or contacts."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_36c79456_e29c_400d_8bd3_0eedddb82652
@@ -268,7 +273,7 @@ This does not mean that there cannot be a change in the internal structure of th
 ###  https://w3id.org/emmo#EMMO_caa63d00_80b1_4408_ac1b_cd0d23b0ec50
 :EMMO_caa63d00_80b1_4408_ac1b_cd0d23b0ec50 rdf:type owl:Class ;
                                            rdfs:subClassOf <https://w3id.org.org/emmo#EMMO_5e38e44b_a0d1_4afc_a876_95095c0a589f> ;
-                                           skos:prefLabel "ThroughTile"@en ;
+                                           skos:prefLabel "IntermidiateTile"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A tile that has next and is next of other tiles within the same tessellation."@en .
 
 
@@ -294,7 +299,7 @@ This does not mean that there cannot be a change in the internal structure of th
                                            skos:altLabel "WellFormedTessellation"@en ;
                                            skos:prefLabel "SpatioTemporalTessellation" ;
                                            :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "EquivalentTo: MixedTiling or SpatialTiling or TemporalTiling" ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A tessellation in which all tiles are connected through spatiotemporal relations hasNext or contacts."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for all tessellations in which all tiles are connected through spatiotemporal relations hasNext or contacts."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_edf72228_e040_4edc_8b46_78b2a47c72d7
