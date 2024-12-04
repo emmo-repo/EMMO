@@ -10,15 +10,15 @@
 
 <https://w3id.org/emmo/disciplines/computerscience> rdf:type owl:Ontology ;
                                                      owl:versionIRI <https://w3id.org/emmo/1.0.0-rc3/disciplines/computerscience> ;
-                                                     owl:imports <https://w3id.org/emmo/1.0.0-rc3/reference/symbolic> ,
-                                                                 <https://w3id.org/emmo/1.0.0-rc3/reference/workflow> ,
-                                                                 <https://w3id.org/emmo/1.0.0-rc3/perspectives/semiotics> ;
+                                                     owl:imports <https://w3id.org/emmo/1.0.0-rc3/perspectives/semiotics> ,
+                                                                 <https://w3id.org/emmo/1.0.0-rc3/reference/symbolic> ,
+                                                                 <https://w3id.org/emmo/1.0.0-rc3/reference/workflow> ;
                                                      dcterms:abstract "Key concepts from the domain of computer science."@en ;
-                                                     dcterms:contributor :OtelloRoscioni ,
-                                                                         :FrancescaBleken ;
-                                                     dcterms:creator :JesperFriis ,
+                                                     dcterms:contributor :FrancescaBleken ,
+                                                                         :OtelloRoscioni ;
+                                                     dcterms:creator :EmanueleGhedini ,
                                                                      :GerhardGoldbeck ,
-                                                                     :EmanueleGhedini ;
+                                                                     :JesperFriis ;
                                                      dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                                      dcterms:publisher <https://emmc.eu> ;
                                                      dcterms:title "Computer science"@en ;
@@ -319,10 +319,6 @@ https://www.computer.org/education/bodies-of-knowledge/software-engineering"""@e
 
 ###  https://w3id.org/emmo#EMMO_6470bbfa_04a6_4360_9534_1aa18d68329b
 :EMMO_6470bbfa_04a6_4360_9534_1aa18d68329b rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
-                                                                 owl:someValuesFrom xsd:anyURI
-                                                               ] ;
                                            rdfs:subClassOf :EMMO_5c15f8c4_d2de_47a0_acdd_470b8dda979b ,
                                                            :EMMO_b45fbdc6_2519_4885_aa49_c56b394c3910 ;
                                            skos:prefLabel "URI"@en ;
@@ -426,11 +422,8 @@ Here we explicitly include in the definition also all the data (e.g. source code
 
 ###  https://w3id.org/emmo#EMMO_90bfd475_ba4a_4065_b0c1_1f08230be252
 :EMMO_90bfd475_ba4a_4065_b0c1_1f08230be252 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
-                                                                 owl:someValuesFrom rdf:JSON
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_b45fbdc6_2519_4885_aa49_c56b394c3910 ;
+                                           rdfs:subClassOf :EMMO_70bbb94e_2ca7_4d73_ba01_6397f134d172 ,
+                                                           :EMMO_b45fbdc6_2519_4885_aa49_c56b394c3910 ;
                                            skos:prefLabel "JSONData"@en .
 
 
@@ -611,9 +604,16 @@ C:\\\\Users\\\\John\\\\Desktop  (DOS-like path)"""@en ;
 
 [ rdf:type owl:Restriction ;
    owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
-   owl:someValuesFrom xsd:NCName ;
-   rdfs:subClassOf :EMMO_0266ec8c_bd13_4c9c_be77_607498793ed3
+   owl:someValuesFrom rdf:JSON ;
+   rdfs:subClassOf :EMMO_90bfd475_ba4a_4065_b0c1_1f08230be252
  ] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
+  owl:someValuesFrom xsd:NCName ;
+  rdfs:subClassOf :EMMO_0266ec8c_bd13_4c9c_be77_607498793ed3
+] .
 
 
 [ rdf:type owl:Restriction ;
@@ -627,6 +627,13 @@ C:\\\\Users\\\\John\\\\Desktop  (DOS-like path)"""@en ;
   owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
   owl:someValuesFrom xsd:Name ;
   rdfs:subClassOf :EMMO_6796ec88_e49f_4628_b28d_6559f9dd630a
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
+  owl:someValuesFrom xsd:anyURI ;
+  rdfs:subClassOf :EMMO_6470bbfa_04a6_4360_9534_1aa18d68329b
 ] .
 
 
@@ -651,4 +658,4 @@ C:\\\\Users\\\\John\\\\Desktop  (DOS-like path)"""@en ;
 ] .
 
 
-###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
