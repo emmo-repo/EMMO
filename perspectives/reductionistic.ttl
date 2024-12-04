@@ -14,11 +14,11 @@
                                                      dcterms:abstract """Defines the reductionistic perspective, which uses the fundamental non-transitive parthood relation, called direct parthood, to provide a powerful granularity description of multiscale real world objects.  EMMO can in principle represents the Universe with direct parthood relations as a direct rooted tree up to its elementary constituents.
 
 In addition to direct parthood, the reductionistic module defines 'State' as a tesselation of spatial direct parts with no change of granularity or cardinality and 'Existent' as a tesselation of temporal direct parts."""@en ;
-                                                     dcterms:contributor :AdhamHashibon ,
-                                                                         <https://orcid.org/0000-0003-4065-9742> ;
-                                                     dcterms:creator :JesperFriis ,
+                                                     dcterms:contributor <https://orcid.org/0000-0003-4065-9742> ,
+                                                                         :AdhamHashibon ;
+                                                     dcterms:creator :EmanueleGhedini ,
                                                                      :GerhardGoldbeck ,
-                                                                     :EmanueleGhedini ;
+                                                                     :JesperFriis ;
                                                      dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                                      dcterms:publisher <https://emmc.eu> ;
                                                      dcterms:title "Reductionistic"@en ;
@@ -175,16 +175,16 @@ The tiles of specific granularity level provide a covering for the whole and are
 ###  https://w3id.org/emmo#EMMO_36c79456_e29c_400d_8bd3_0eedddb82652
 :EMMO_36c79456_e29c_400d_8bd3_0eedddb82652 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_8944581c_64da_46a9_be29_7074f7cc8098 ;
-                                           rdfs:comment """The definition of an arrangement implies that its spatial direct parts are not gained or lost during its temporal extension (they exist from the left to the right side of the time interval), so that the cardinality of spatial direct parts in an arrangement is constant.
-This does not mean that there cannot be a change in the internal structure of the arrangement direct parts. It means only that this change must not affect the existence of the direct part itself."""@en ,
-                                                        "The use of spatial direct parthood in state definition means that an arrangement cannot overlap in space another arrangement that is direct part of the same whole."@en ;
                                            skos:altLabel "MereologicalState"@en ;
                                            skos:example """e.g. the existent in my glass is declared at t = t_start as made of two direct parts: the ice and the water. It will continue to exists as state as long as the ice is completely melt at t = t_end. The new state will be completely made of water. Between t_start and t_end there is an exchange of molecules between the ice and the water, but this does not affect the existence of the two states.
 
 If we partition the existent in my glass as ice surrounded by several molecules (we do not use the object water as direct part) then the appearance of a molecule coming from the ice will cause a state to end and another state to begin."""@en ;
                                            skos:prefLabel "Arrangement"@en ;
                                            :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc3/doc/figs/Arrangement.png"^^xsd:anyURI ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causal object which is tessellated with only spatial direct parts."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causal object which is tessellated with only spatial direct parts."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The definition of an arrangement implies that its spatial direct parts are not gained or lost during its temporal extension (they exist from the left to the right side of the time interval), so that the cardinality of spatial direct parts in an arrangement is constant.
+This does not mean that there cannot be a change in the internal structure of the arrangement direct parts. It means only that this change must not affect the existence of the direct part itself."""@en ,
+                                                                                      "The use of spatial direct parthood in state definition means that an arrangement cannot overlap in space another arrangement that is direct part of the same whole."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_4cf484af_082a_40f5_9f11_930bf4634482
@@ -223,7 +223,8 @@ If we partition the existent in my glass as ice surrounded by several molecules 
 ###  https://w3id.org/emmo#EMMO_92829beb_6ed4_4c88_bbd5_3bc7403e2895
 :EMMO_92829beb_6ed4_4c88_bbd5_3bc7403e2895 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_f7f41d20_eabb_4bcb_9a16_0436851fcd5c ;
-                                           skos:prefLabel "Sequence"@en ;
+                                           skos:altLabel "Sequence"@en ;
+                                           skos:prefLabel "TemporalSequence"@en ;
                                            :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc3/doc/figs/Sequence.png"^^xsd:anyURI ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A tessellation of temporal slices."@en .
 
@@ -246,6 +247,14 @@ If we partition the existent in my glass as ice surrounded by several molecules 
                                            skos:prefLabel "Gathering"@en ;
                                            :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc3/doc/figs/MixedTiling.png"^^xsd:anyURI ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A mixed tiling in wich a tile is the next of spatially connected tiles."@en .
+
+
+###  https://w3id.org/emmo#EMMO_bcc1e604_874d_42e3_9885_8be3dac03327
+:EMMO_bcc1e604_874d_42e3_9885_8be3dac03327 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_36c79456_e29c_400d_8bd3_0eedddb82652 ;
+                                           skos:altLabel "Sequence"@en ;
+                                           skos:prefLabel "SpatialSequence"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A monodimensional arrangement of tiles."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_c7ee175d_4c25_45cb_b74e_71435b11b77d
@@ -305,7 +314,7 @@ If we partition the existent in my glass as ice surrounded by several molecules 
                                            skos:altLabel "Tiling"@en ;
                                            skos:prefLabel "Tessellation"@en ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A tessellation (or tiling) is the covering of a surface, often a plane, using one or more geometric shapes, called tiles, with no overlaps and no gaps."@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causal object that is tessellated in direct parts."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causal structure that is tessellated in direct parts."@en .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_ee0466e4_780d_4236_8281_ace7ad3fc5d2 ;
