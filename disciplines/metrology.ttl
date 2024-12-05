@@ -18,11 +18,11 @@
                                                dcterms:abstract """Defines the formal language of metrology, including theoretical and practical aspects of measurements.
 
 This module is based on the International vocabulary of metrology (VIM) as well as the ISO/IEC 80000 standard."""@en ;
-                                               dcterms:creator :JesperFriis ,
-                                                               :GerhardGoldbeck ,
+                                               dcterms:creator <https://orcid.org/0000-0003-4065-9742> ,
                                                                :AdhamHashibon ,
                                                                :EmanueleGhedini ,
-                                                               <https://orcid.org/0000-0003-4065-9742> ;
+                                                               :GerhardGoldbeck ,
+                                                               :JesperFriis ;
                                                dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                                dcterms:publisher <https://emmc.eu> ;
                                                dcterms:title "Metrology"@en ;
@@ -94,6 +94,22 @@ This module is based on the International vocabulary of metrology (VIM) as well 
                                            skos:prefLabel "iupacReference"@en ;
                                            rdfs:subPropertyOf rdfs:seeAlso ;
                                            rdfs:range xsd:anyURI .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  https://w3id.org/emmo/disciplines/metrology#EMMO_799c067b_083f_4365_9452_1f1433b03676
+:EMMO_799c067b_083f_4365_9452_1f1433b03676 rdf:type rdfs:Datatype ;
+                                           skos:example "\"3 cm\""@en ,
+                                                        """A more complete example showing how to specify the value of a physical quantity in turtle using this datatype:
+
+    height1 a emmo:Height ;
+        hasSIQuantityValue \"3 cm\"^^emmo:SIQuantityDatatype ."""@en ;
+                                           skos:prefLabel "SIQuantityDatatype"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A datatype for a specifying a physcial quantity as a string consisting of a numerical, a separator and an SI unit."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The unit should be a valid, possible prefixed, derived SI unit."@en .
 
 
 #################################################################
@@ -245,6 +261,26 @@ The label of this class was also changed from PhysicsDimension to PhysicalDimens
 
 
 #################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/emmo/disciplines/metrology#EMMO_42806efc_581b_4ff8_81b0_b4d62153458b
+:EMMO_42806efc_581b_4ff8_81b0_b4d62153458b rdf:type owl:DatatypeProperty ;
+                                           rdfs:subPropertyOf owl:topDataProperty ;
+                                           rdfs:domain :EMMO_02c0621e_a527_4790_8a0f_2bb51973c819 ;
+                                           rdfs:range :EMMO_799c067b_083f_4365_9452_1f1433b03676 ;
+                                           skos:example """Example showing how to specify the value of a physical quantity in turtle using hasSIQuantityValue:
+
+    height1 a emmo:Height ;
+        hasSIQuantityValue \"3 cm\"^^emmo:SIQuantityDatatype ."""@en ;
+                                           skos:prefLabel "hasSIQuantityValue"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Relates a physical quantity to its value specified as a string consisting of a numerical, a separator and a unit."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """Using hasSIQuantityValue is a convenient, but less semantic, alternative to specify value and unit of a physical quantity compared to using the 'hasNumericalPart' and 'hasReferencePart'/'hasMetrologicalReference' relations.
+
+The unit should be a valid, possible prefixed, derived SI unit."""@en .
+
+
+#################################################################
 #    Classes
 #################################################################
 
@@ -291,9 +327,9 @@ ISO 80000-1"""@en ;
 Rockwell C hardness
 electric resistance"""@en ;
                                            skos:prefLabel "Quantity"@en ;
-                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "DisjointUnionOf: SubjectiveProperty, ObjectiveProperty" ,
-                                                                                                                 "EquivalentTo: PhysicalQuantity or OrdinalQuantity" ;
                                            :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "https://qudt.org/schema/qudt/Quantity"^^xsd:anyURI ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "DisjointUnionOf: SubjectiveProperty, ObjectiveProperty" ,
+                                                                                      "EquivalentTo: PhysicalQuantity or OrdinalQuantity" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A quantifiable property of a phenomenon, body, or substance."@en ;
                                            :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "measurand"@en ,
                                                                                       "quantity"@en ;
@@ -677,7 +713,7 @@ m/s
 km"""@en ;
                                            skos:prefLabel "MeasurementUnit"@en ;
                                            :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "DisjointUnionOf: DimensionlessUnit, DimensionalUnit" ,
-                                                                                                                 "DisjointUnionOf: NonPrefixedUnit, PrefixedUnit" ;
+                                                                                      "DisjointUnionOf: NonPrefixedUnit, PrefixedUnit" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A metrological reference for a physical quantity."@en ;
                                            :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "measurement unit (VIM3 1.9)"@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """\"Real scalar quantity, defined and adopted by convention, with which any other quantity of the same kind can be compared to express the ratio of the second quantity to the first one as a number\"
