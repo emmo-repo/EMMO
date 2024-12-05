@@ -33,7 +33,8 @@ Workflows may also be extended reductionistically into serial and parallel workf
 ###  https://w3id.org/emmo#EMMO_4ab7fb52_cec3_4c00_90c0_5648f01e3296
 :EMMO_4ab7fb52_cec3_4c00_90c0_5648f01e3296 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_70da982d_1810_4b01_9630_a28e216ecd9a ;
-                                           skos:prefLabel "hasBeginTask"@en .
+                                           skos:prefLabel "hasBeginTask"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation identifying the tasks of a workflow that are not causally temporally dependent by other parts of the workflow."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_70da982d_1810_4b01_9630_a28e216ecd9a
@@ -41,13 +42,15 @@ Workflows may also be extended reductionistically into serial and parallel workf
                                            rdfs:subPropertyOf :EMMO_8e52c42b_e879_4473_9fa1_4b23428b392b ;
                                            rdfs:domain :EMMO_64963ed6_39c9_4258_85e0_6466c4b5420c ;
                                            rdfs:range :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc ;
-                                           skos:prefLabel "hasTask"@en .
+                                           skos:prefLabel "hasTask"@en ;
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "The holistic relation connecting a workflow with one of its tasks."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_92227f7f_22e9_4b19_a011_920eac3c7b75
 :EMMO_92227f7f_22e9_4b19_a011_920eac3c7b75 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_70da982d_1810_4b01_9630_a28e216ecd9a ;
-                                           skos:prefLabel "hasEndTask"@en .
+                                           skos:prefLabel "hasEndTask"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation identifying the tasks of a workflow that are not a temporal cause of other parts of the workflow."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_dbe39465_6cf4_4592_b0c5_b7446789a37b
@@ -64,8 +67,7 @@ Workflows may also be extended reductionistically into serial and parallel workf
 
 ###  https://w3id.org.org/emmo#EMMO_180bd73b_0c5d_4b1f_ba12_4309c5a50d49
 <https://w3id.org.org/emmo#EMMO_180bd73b_0c5d_4b1f_ba12_4309c5a50d49> rdf:type owl:Class ;
-                                                                      rdfs:subClassOf <https://w3id.org.org/emmo#EMMO_5e38e44b_a0d1_4afc_a876_95095c0a589f> ,
-                                                                                      :EMMO_9f6ec830_c59f_46aa_8a22_945ba20b6ea3 ;
+                                                                      rdfs:subClassOf :EMMO_9f6ec830_c59f_46aa_8a22_945ba20b6ea3 ;
                                                                       skos:prefLabel "StepByPosition"@en ;
                                                                       :EMMO_157fdf31_6387_42be_8e72_10530519214a "A step in a workflow, categorised by its position in the workflow."@en .
 
@@ -82,7 +84,7 @@ Workflows may also be extended reductionistically into serial and parallel workf
                                            rdfs:subClassOf <https://w3id.org.org/emmo#EMMO_1a6ddb13_49ff_4305_97a1_d1458d51c066> ,
                                                            :EMMO_504ad89e_dd4a_4fa6_aeb6_15c8ce0cde9b ;
                                            skos:prefLabel "SerialStep"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A step that is a temporal tile of a workflow. (TO DO)"@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A step that is a temporal tile of a workflow when there are no other activities taking place concurrently (i.e., no parallelism)."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_322ce14e_9ede_4841_ad70_302b4d6c5f28
@@ -97,6 +99,7 @@ Workflows may also be extended reductionistically into serial and parallel workf
 ###  https://w3id.org/emmo#EMMO_4299e344_a321_4ef2_a744_bacfcce80afc
 :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49 ,
+                                                           :EMMO_4f226cf3_6d02_4d35_8566_a9e641bc6ff3 ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty [ owl:inverseOf :EMMO_70da982d_1810_4b01_9630_a28e216ecd9a
                                                                             ] ;
@@ -104,6 +107,8 @@ Workflows may also be extended reductionistically into serial and parallel workf
                                                            ] ;
                                            skos:altLabel "Job"@en ;
                                            skos:prefLabel "Task"@en ;
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """The concept of task is developed in strict connection with the concept of workflow: a task is always part of a workflow and a workflow always possess some tasks. This makes the relation between task and workflow an holistic relation, with task as role and workflow as whole.
+A task is also holistically connected to an intentional agent, since a task is defined as a procedure. For this reason a task is both a role, with respect to a workflow, and a whole, with respect to an intentional agent."""@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A procedure that is an hoilistic part of a workflow."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """A task is a generic part of a workflow, without taking care of the task granularities.
 It means that you can declare that e.g. tightening a bolt is a task of building an airplane, without caring of the coarser tasks to which this tightening belongs."""@en .
@@ -124,7 +129,9 @@ It means that you can declare that e.g. tightening a bolt is a task of building 
                                            rdfs:subClassOf :EMMO_64963ed6_39c9_4258_85e0_6466c4b5420c ;
                                            skos:prefLabel "ParallelWorkflow"@en ;
                                            :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://w3id.org/emmo/raw/1.0.0-rc3/doc/figs/ParallelWorkflow.png"^^xsd:anyURI ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A workflow whose tasks are spatial tiles. (TO DO)"@en .
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """A workflow can be seen as a direct acyclic graph, whose nodes are tasks and edges are asymmetric causal relations. A parallel graph occurs when the topological order of such graph if not unique, meaning that there is at least one portion of the workflow in which at least two tasks are running concurrently. 
+Concurrent tasks may or may not communicate. Communication is represented as a symmetric causality relation, superimposing the direct acyclic graph structure of the workflow."""@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A workflow with some tasks running concurrently."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_64963ed6_39c9_4258_85e0_6466c4b5420c
@@ -142,10 +149,10 @@ It means that you can declare that e.g. tightening a bolt is a task of building 
 :EMMO_83a460aa_5826_4fbb_93e8_d73d0df25757 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_36c79456_e29c_400d_8bd3_0eedddb82652 ,
                                                            :EMMO_5848e476_2768_4988_98f9_9053c532307b ;
-                                           skos:altLabel "EmbarassinglyParallelWorkflow"@en ;
-                                           skos:prefLabel "PureParallelWorkflow"@en ;
+                                           skos:prefLabel "EmbarassinglyParallelWorkflow"@en ;
                                            :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://w3id.org/emmo/raw/1.0.0-rc3/doc/figs/PureParallelWorkflow.png"^^xsd:anyURI ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A workflow that is the concurrent evolution of two or more tasks, not communicacting between themselves."@en .
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "An embarassingly parallel workflow occurs when the concurrent tasks may run completely independently by each other."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A parallel workflow in which concurrent (parallel) tasks are not communication each other."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_8a2a1cbc_dfc3_4e6c_b337_00ee56fd438a
@@ -161,11 +168,11 @@ It means that you can declare that e.g. tightening a bolt is a task of building 
 ###  https://w3id.org/emmo#EMMO_9ac10a20_63d0_4bbd_a5d3_f00a0ad4682c
 :EMMO_9ac10a20_63d0_4bbd_a5d3_f00a0ad4682c rdf:type owl:Class ;
                                            rdfs:subClassOf <https://w3id.org.org/emmo#EMMO_1a6ddb13_49ff_4305_97a1_d1458d51c066> ,
-                                                           :EMMO_64963ed6_39c9_4258_85e0_6466c4b5420c ;
-                                           skos:example "Jacobi method numerical step, involving the multiplication between a matrix A and a vector x, whose result is used to update the vector x."@en ;
+                                                           :EMMO_ddecfff6_d3a1_4972_b9e9_3d0ca11a3a0b ;
+                                           skos:example "A Jacobi method, involving the iterative multiplication between a matrix A and a vector x, which is part of larger workflow for the solution of a partial differential equation using finite differences."@en ;
                                            skos:prefLabel "IterativeStep"@en ;
                                            :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://w3id.org/emmo/raw/1.0.0-rc3/doc/figs/IterativeWorkflow.png"^^xsd:anyURI ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A workflow whose output can be used as input for another workflow of the same type, iteratively, within the framework of a larger workflow."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An iterative workflow which is a step of a larger workflow."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_9f6ec830_c59f_46aa_8a22_945ba20b6ea3
@@ -173,6 +180,7 @@ It means that you can declare that e.g. tightening a bolt is a task of building 
                                            rdfs:subClassOf :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc ,
                                                            :EMMO_9953c19f_ee33_4af8_be5e_dbf6d1e33581 ;
                                            skos:prefLabel "Step"@en ;
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "While a task is only an holistic part of a workflow, a step provide a more precise context about the placement of a task in the topological structure of a workflow by using a reductionistic categorization. A workflow is now seen as a tiling and a step is on of its tiles."@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A task that is a well formed tile of a workflow, according to a reductionistic description."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A step is part of a specific granularity level for the workflow description, as composition of tasks."@en .
 
@@ -196,7 +204,7 @@ It means that you can declare that e.g. tightening a bolt is a task of building 
                                                            ] ;
                                            skos:prefLabel "IterativeWorkflow"@en ;
                                            :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://w3id.org/emmo/raw/1.0.0-rc3/doc/figs/IterativeWorkflow.png"^^xsd:anyURI ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A workflow whose steps (iterative steps) are the repetition of the same workflow type."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A workflow whose steps are the repetition of the same task type."@en .
 
 
-###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
