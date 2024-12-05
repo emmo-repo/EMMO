@@ -14,10 +14,10 @@
                                                dcterms:abstract """Defines the holistic perspective which include process and the role of its participants.
 
 Processes are 4D object's that unfolds in time in a way that has a meaning to the ontologist with participants who's role is assigned by the ontologist."""@en ;
-                                               dcterms:contributor :JesperFriis ,
-                                                                   :GerhardGoldbeck ,
+                                               dcterms:contributor <https://orcid.org/0000-0003-4065-9742> ,
                                                                    :AdhamHashibon ,
-                                                                   <https://orcid.org/0000-0003-4065-9742> ;
+                                                                   :GerhardGoldbeck ,
+                                                                   :JesperFriis ;
                                                dcterms:creator :EmanueleGhedini ;
                                                dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                                dcterms:publisher <https://emmc.eu> ;
@@ -47,7 +47,7 @@ Processes are 4D object's that unfolds in time in a way that has a meaning to th
                                                               :EMMO_814b6b76_e0ca_4953_a832_d1816fb695f1 ;
                                            rdfs:range <http://w3id.org/emmo#EMMO_946b5162_95b0_4801_81d4_efef43842a0d> ;
                                            skos:altLabel "hasQualifiedPart"@en ;
-                                           skos:prefLabel "hasQRole"@en .
+                                           skos:prefLabel "hasQualifiedRole"@en .
 
 
 #################################################################
@@ -100,7 +100,7 @@ This class allows the picking of parts without necessarily going trough a rigid 
 
 ###  https://w3id.org/emmo#EMMO_0e1f2009_bf12_49d1_99f3_1422e5287d82
 :EMMO_0e1f2009_bf12_49d1_99f3_1422e5287d82 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4f226cf3_6d02_4d35_8566_a9e641bc6ff3 ;
+                                           rdfs:subClassOf :EMMO_edcb3871_900f_407f_912e_89f96d3e28de ;
                                            skos:altLabel "HolisticTemporalPart"@en ;
                                            skos:prefLabel "TemporalRole"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An holistic temporal part of a whole."@en .
@@ -160,9 +160,16 @@ The role type requires that also the whole type depends on the existence of part
  ] .
 
 
+###  https://w3id.org/emmo#EMMO_edcb3871_900f_407f_912e_89f96d3e28de
+:EMMO_edcb3871_900f_407f_912e_89f96d3e28de rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_4f226cf3_6d02_4d35_8566_a9e641bc6ff3 ;
+                                           skos:prefLabel "RoleBySpatiotemporal"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for all classes that categorise roles according to that fact that they are temporal or non-temporal parts of the whole."@en .
+
+
 ###  https://w3id.org/emmo#EMMO_fcae603e_aa6e_4940_9fa1_9f0909cabf3b
 :EMMO_fcae603e_aa6e_4940_9fa1_9f0909cabf3b rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4f226cf3_6d02_4d35_8566_a9e641bc6ff3 ;
+                                           rdfs:subClassOf :EMMO_edcb3871_900f_407f_912e_89f96d3e28de ;
                                            skos:altLabel "HolisticSpatialPart"@en ;
                                            skos:prefLabel "NonTemporalRole"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An holistic spatial part of a whole."@en .
@@ -172,7 +179,7 @@ The role type requires that also the whole type depends on the existence of part
 #    Individuals
 #################################################################
 
-###  https://orcid.org/0000-0003-3805-8761
+###  https://w3id.org/emmo#EmanueleGhedini
 :EmanueleGhedini rdf:type :EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac .
 
 
