@@ -11,7 +11,7 @@
 <https://w3id.org/emmo/reference/workflow> rdf:type owl:Ontology ;
                                             owl:versionIRI <https://w3id.org/emmo/1.0.0-rc3/reference/workflow> ;
                                             owl:imports <https://w3id.org/emmo/1.0.0-rc3/perspectives/reductionistic> ,
-                                                        <https://w3id.org/emmo/1.0.0-rc3/reference/persholistic> ;
+                                                        <https://w3id.org/emmo/1.0.0-rc3/reference/agency> ;
                                             dcterms:abstract """The workflow multi-perspective combines the persistence and holistic perspectives to describe workflows as a process built up of a set of temporal tasks.
 
 Workflows may also be extended reductionistically into serial and parallel workflows."""@en ,
@@ -141,6 +141,43 @@ A task is also holistically connected to an intentional agent, since a task is d
 It means that you can declare that e.g. tightening a bolt is a task of building an airplane, without caring of the coarser tasks to which this tightening belongs."""@en .
 
 
+###  https://w3id.org/emmo#EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49
+:EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_60577dea_9019_4537_ac41_80b0fb563d41 ;
+                                                             owl:someValuesFrom :EMMO_eaf4640d_651d_4cbe_a315_3d2dc5df3b35
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_f2fc1ce9_cc3b_4eb5_a112_3c85d1b1374a
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_c130614a_2985_476d_a7ed_8a137847703c
+                                                           ] ;
+                                           skos:altLabel "Elaboration"@en ,
+                                                         "Work"@en ;
+                                           skos:example """The process in which a control unit of a CPU (the agent) orchestrates some cached binary data according to a list of instructions (e.g. a program).
+The process in which a librarian order books alphabetically on a shelf.
+The execution of an algorithm."""@en ;
+                                           skos:prefLabel "Procedure"@en ;
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "The set of established forms or methods of an organized body for accomplishing a certain task or tasks (Wiktionary)."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An intentional process in which an agent works with some entities according to some existing formalised operative rules."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A procedure can be considered as an intentional process with a plan."@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49 ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "Procedure"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin pro-cedere (“to go forward, to proceed”)."@en
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49 ;
+   owl:annotatedProperty :EMMO_31252f35_c767_4b97_a877_1235076c3e13 ;
+   owl:annotatedTarget "The set of established forms or methods of an organized body for accomplishing a certain task or tasks (Wiktionary)."@en ;
+   rdfs:seeAlso "https://en.wiktionary.org/wiki/procedure"^^xsd:anyURI
+ ] .
+
+
 ###  https://w3id.org/emmo#EMMO_57ba1bf0_4314_432c_a9bb_6a6720c8dab5
 :EMMO_57ba1bf0_4314_432c_a9bb_6a6720c8dab5 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_64963ed6_39c9_4258_85e0_6466c4b5420c ,
@@ -182,6 +219,12 @@ Concurrent tasks may or may not communicate. Communication is represented as a s
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "There may be more than one end task, if they run in parallel leading to more than one output."@en .
 
 
+###  https://w3id.org/emmo#EMMO_8cf62c94_ae5f_4f80_8669_d5f91178db6d
+:EMMO_8cf62c94_ae5f_4f80_8669_d5f91178db6d rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_c130614a_2985_476d_a7ed_8a137847703c ;
+                                           skos:prefLabel "ProceduralAgent"@en .
+
+
 ###  https://w3id.org/emmo#EMMO_9ac10a20_63d0_4bbd_a5d3_f00a0ad4682c
 :EMMO_9ac10a20_63d0_4bbd_a5d3_f00a0ad4682c rdf:type owl:Class ;
                                            rdfs:subClassOf <https://w3id.org.org/emmo#EMMO_1a6ddb13_49ff_4305_97a1_d1458d51c066> ,
@@ -219,6 +262,12 @@ Concurrent tasks may or may not communicate. Communication is represented as a s
                                            skos:prefLabel "IterativeWorkflow"@en ;
                                            :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://w3id.org/emmo/raw/1.0.0-rc3/doc/figs/IterativeWorkflow.png"^^xsd:anyURI ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A workflow whose steps are the repetition of the same task type."@en .
+
+
+###  https://w3id.org/emmo#EMMO_eaf4640d_651d_4cbe_a315_3d2dc5df3b35
+:EMMO_eaf4640d_651d_4cbe_a315_3d2dc5df3b35 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 ;
+                                           skos:prefLabel "ProceduralData"@en .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
