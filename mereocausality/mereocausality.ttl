@@ -16,13 +16,13 @@
 The concept of causal connection is used to distinguish between ontology entities: items are causally self-connected objects, while collections are causally disconnected.
 Quantum mereology is based on the concept of quantum entity. 
 This module introduces also the fundamental mereotopological relations used to distinguish between space and time dimensions, making spacetime emerge from underlying network of causal relations between quantum entities."""@en ;
-                                        dcterms:contributor :SebastianoMoruzzi ,
-                                                            :JesperFriis ,
-                                                            :GerhardGoldbeck ,
-                                                            :AdhamHashibon ,
-                                                            <https://orcid.org/0000-0003-4065-9742> ,
+                                        dcterms:contributor :AdhamHashibon ,
+                                                            :AnnedeBaas ,
+                                                            :FrancescoZaccarini ,
                                                             :GeorgSchmitz ,
-                                                            :FrancescoZaccarini ;
+                                                            :GerhardGoldbeck ,
+                                                            :JesperFriis ,
+                                                            :SebastianoMoruzzi ;
                                         dcterms:creator :EmanueleGhedini ;
                                         dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                         dcterms:publisher <https://emmc.eu> ;
@@ -116,20 +116,6 @@ foaf:name rdf:type owl:AnnotationProperty .
 foaf:workplaceHomepage rdf:type owl:AnnotationProperty .
 
 
-###  https://w3id.org.org/emmo#EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db
-:EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db rdf:type owl:AnnotationProperty ;
-                                                                      skos:prefLabel "OWLRL2DLAxioms"@en ;
-                                                                      :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Axioms to add to the OWL 2 RL version of the ontology to reach DL expressivity."@en ;
-                                                                      rdfs:subPropertyOf rdfs:comment .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db ;
-   owl:annotatedProperty :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 ;
-   owl:annotatedTarget "Axioms to add to the OWL 2 RL version of the ontology to reach DL expressivity."@en ;
-   rdfs:seeAlso "https://www.w3.org/TR/2012/REC-owl2-profiles-20121211/"^^xsd:anyURI
- ] .
-
-
 ###  https://w3id.org/emmo#EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17
 :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 rdf:type owl:AnnotationProperty ;
                                            skos:prefLabel "contact"@en ;
@@ -186,6 +172,20 @@ foaf:workplaceHomepage rdf:type owl:AnnotationProperty .
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Precise and univocal description of an ontological entity in the framework of an axiomatic system."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A definition univocally determines a OWL entity using necessary and sufficient conditions referring to other OWL entities."@en ;
                                            rdfs:subPropertyOf rdfs:comment .
+
+
+###  https://w3id.org/emmo#EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db
+:EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db rdf:type owl:AnnotationProperty ;
+                                           skos:prefLabel "OWLRL2DLAxioms"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Axioms to add to the OWL 2 RL version of the ontology to reach DL expressivity."@en ;
+                                           rdfs:subPropertyOf rdfs:comment .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db ;
+   owl:annotatedProperty :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 ;
+   owl:annotatedTarget "Axioms to add to the OWL 2 RL version of the ontology to reach DL expressivity."@en ;
+   rdfs:seeAlso "https://www.w3.org/TR/2012/REC-owl2-profiles-20121211/"^^xsd:anyURI
+ ] .
 
 
 ###  https://w3id.org/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9
@@ -384,6 +384,8 @@ This means that the causing entity can be in direct and optionally indirect caus
                                                     owl:IrreflexiveProperty ;
                                            owl:propertyDisjointWith :EMMO_ebc9e62c_5dc4_44db_9060_7923740bdf78 ;
                                            skos:prefLabel "isSpatiallyRelatedWith"@en ;
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """Spatial relations between entities are represented in the EMMO as bidirectional causality, meaning that both entities are at the beginning and at the end of causal paths connecting them.
+This type of relation represent the coexistence of two entities in the a spatial arrangement. The symmetric characteristic of this relation implies that it is not possible to order them and is related to the arbitrary choice of reference frames. Subclasses of spatial relations may be defined as asymmetric and introduce a spatial order, for example est to west, or internal to external layer.."""@en ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A relation jointly covered by Contact and InteractWith relations, which are mutually exclusive."@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between entities that express a mutual causation."@en .
 
@@ -901,9 +903,9 @@ A quantum stands for an incoming or outcoming real particle in a Feynman diagram
                                            rdfs:subClassOf :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
                                            owl:disjointWith :EMMO_76bd5e44_bf5a_49f9_a517_eea5e8bcbc2d ;
                                            skos:prefLabel "CausalParticle"@en ;
-                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "EquivalentTo: CausalPath or Quantum" ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A causal particle represents the most elementary entity in physics, being it a simple state of an elementary particle, called quantum in the EMMO, or a chain of causally connected quanta."@en ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The disjoint union of CausalPath and Quantum classes."@en ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "EquivalentTo: CausalPath or Quantum" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals representing causal particles."@en .
 
 [ rdf:type owl:Axiom ;
@@ -919,9 +921,9 @@ A quantum stands for an incoming or outcoming real particle in a Feynman diagram
                                            rdfs:subClassOf :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf ;
                                            skos:example "An atom, a group of persons, a fluid."@en ;
                                            skos:prefLabel "Fusion"@en ;
-                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "EquivalentTo: CausalCluster or CausalStructure" ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "A mereological fusion is any entity that is made up of two or more quantum entities, regardless of the fact that they are or not self-connected. It captures the idea of set, but excluding singletons."@en ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The union of the CausalCluster and CausalStructure classes."@en ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "EquivalentTo: CausalCluster or CausalStructure" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals representing mereological fusions consisting of two or more quantum entities."@en .
 
 [ rdf:type owl:Axiom ;
@@ -936,9 +938,9 @@ A quantum stands for an incoming or outcoming real particle in a Feynman diagram
 :EMMO_76bd5e44_bf5a_49f9_a517_eea5e8bcbc2d rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_53ed8611_2cd7_4286_9ef0_36572117b963 ;
                                            skos:prefLabel "CausalCluster"@en ;
-                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "EquivalentTo: Collection or CausalSystem" ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "With the causal cluster term we address an heterogenous group of entities, which possess the common feature of having at least two causally non connected quanta. It comprises collections (non self-connected entities) and causal systems (entities extended in space)."@en ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The disjoint union of the CausalSystem and Collection classes."@en ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "EquivalentTo: Collection or CausalSystem" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals representing causal clusters."@en .
 
 [ rdf:type owl:Axiom ;
@@ -954,13 +956,13 @@ A quantum stands for an incoming or outcoming real particle in a Feynman diagram
                                            rdfs:subClassOf _:genid31 ,
                                                            _:genid33 ;
                                            skos:prefLabel "EMMO"@en ;
-                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "DisjointUnion: CausalPath, Collection, Quantum, CausalSystem" ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """The EMMO conceptualises the world using the primitive concepts of causality and parthood. Parthood is about the composition of world entities starting from other more fundamental entities. Causality is about the interactions between world entities.
 The quantum is the smallest indivisible part of any world entity. Quantum individuals are the fundamental causal constituents of the universe, since it is implied that causality originates from quantum-to-quantum interactions. Quantums are no-dimensional, and their aggregation makes spacetime emerge from their causal structure. We can think of a quantum as an elementary particle after and interaction and before another interaction.
 Causality between macro entities (i.e. entities made of more than one quantum) is explained as the sum of the causality relations between their quantum constituents. Fundamental interactions (quantum fields) are represented as symmetric causality realtion between macro entities, while classical interactions are mediated by chain of quantums (i.e. elementary particles).
 The fundamental distinction between world entities is causality self-connectedness: a world entity can be self-connected xor not self-connected depending on the causality network of its fundamental components.
 Void regions do not exist in the EMMO. In other words there is no spacetime without entities and spacetime emerges as relational property not as a self-standing entity). Entities are not placed in space or time: space and time are measured quantities, always relative between entities and are measured. In other words, space and time relations originates from causality interactions."""@en ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The disjoint union of the fundamental mereocausal classes of Quantum, CausalPath, CausalSystem and Collection."@en ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "DisjointUnion: CausalPath, Collection, Quantum, CausalSystem" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of all the OWL individuals representing world entities according to EMMO conceptualisation."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """EMMO entities dimensionality is related to their mereocausal structures. From the no-dimensional quantum entity, we introduce time dimension with the elementary concept, and space with the causal system concept.
 The EMMO conceptualisation does not allow the existence of space without a temporal dimension, the latter coming from a causal relation between entities.
@@ -1015,11 +1017,11 @@ Void regions do not exist in the EMMO. In other words there is no spacetime with
                                            rdfs:subClassOf :EMMO_53ed8611_2cd7_4286_9ef0_36572117b963 ,
                                                            :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
                                            skos:prefLabel "CausalStructure"@en ;
-                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "EquivalentTo: CausalPath or CausalSystem" ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """The most fundamental unity criterion for the definition of an structure is that:
 - is made of at least two quantums (a structure is not a simple entity)
 - all quantum parts form a causally connected graph""" ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The disjoint union of Causal Path and CausalSystem classes." ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "EquivalentTo: CausalPath or CausalSystem" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals representing causally self-connected world entities." ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A causal structure expresses itself in time and space thanks to the underlying causality relations between its constituent quantum entities. It must at least provide two temporal parts. The unity criterion beyond the definition of a causal structure (the most general concept of structure) is the existence of an undirected causal path between each of its parts." .
 
@@ -1055,12 +1057,12 @@ A causal system is always a spatial-like structure, and is represented as a mult
                                            skos:altLabel "CausalObject"@en ;
                                            skos:example "A person life, an interval of a person life. The lifetime of two components, from the production in separate manufacturing lines, their being connected components in a device, including their eparation and decommissioning."@en ;
                                            skos:prefLabel "Item"@en ;
-                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "EquivalentTo: CausalParticle or CausalStructure" ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """A world entity is direct causally self-connected if any two parts that make up the whole are direct causally connected to each other. In the EMMO, topological connectivity is based on causality.
 All physical objects, i.e. entities whose behaviour is explained by physics laws, are represented only by items. In other words, a physical object part is embedded in a direct causal graph that provides always a path between two of its parts.
 Members of a collection lack such direct causality connection, i.e. they do not constitute a physical object.
 Following graph theory concepts, the quantums of an item are all connected together within a network of causal relations, forming a connected causal graph. A collection is then a set of disconnected graphs."""@en ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The disjoint union of Particle and CausalStructure classes."@en ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "EquivalentTo: CausalParticle or CausalStructure" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals standing for quantum or causally self-connected world entities."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The concept of self-connectivity is applied using a 4D approach. Given that, the entity made of an electron and a proton that travel, interact, and then depart from each other is an item, since we don't focus only on the beginning or the end stage but to the overall 4D entity, being the interaction the connectivity bridge between the two particles." .
 
