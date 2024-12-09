@@ -128,7 +128,7 @@ The reference ontologies are intended to be used by domain ontologies and import
 | Materials          | [https://w3id.org/emmo/reference/materials](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc3/reference/materials.ttl)   |
 | Math               | [https://w3id.org/emmo/reference/math](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc3/reference/math.ttl)             |
 | Models             | [https://w3id.org/emmo/reference/models](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc3/reference/models.ttl)         |
-| Properties         | [https://w3id.org/emmo/reference/properties](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc3/reference/properties.ttl) |
+| Properties         | [https://w3id.org/emmo/disciplines/properties](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc3/disciplines/properties.ttl) |
 | Metrology          | [https://w3id.org/emmo/reference/metrology](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc3/reference/metrology.ttl)   |
 | Isq                | [https://w3id.org/emmo/reference/isq](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc3/reference/isq.ttl)               |
 | Siunits            | [https://w3id.org/emmo/domain/siunits](https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0-rc3/domain/siunits.ttl)                           |
