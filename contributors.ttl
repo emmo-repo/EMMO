@@ -1,6 +1,7 @@
 @prefix : <https://w3id.org/emmo#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -20,6 +21,18 @@
 
 
 #################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/emmo/contributors#EMMO_e117f976_7a5d_4508_bf85_9226dca58e1f
+:EMMO_e117f976_7a5d_4508_bf85_9226dca58e1f rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:anyURI ;
+    rdfs:comment "Relates an individual to an ORCID that identifies the individual."@en ,
+    "The domain is not provided to not impose restrictions on the individual carrying the ORCID. Typically it will be a person (maximal) or a temporal part of a person."@en ;
+    skos:prefLabel "hasORCID"@en .
+
+
+#################################################################
 #    Individuals
 #################################################################
 
@@ -27,80 +40,88 @@
 # People
 # ======
 
-###  https://orcid.org/0000-0003-3805-8761
-<https://orcid.org/0000-0003-3805-8761> rdf:type owl:NamedIndividual ;
-                                        skos:prefLabel "Emanuele Ghedini" ;
-                                        foaf:name "Emanuele Ghedini" ;
-                                        foaf:workplaceHomepage <https://www.unibo.it/en/> .
+:EmanueleGhedini rdf:type owl:NamedIndividual ;
+    :EMMO_e117f976_7a5d_4508_bf85_9226dca58e1f "https://orcid.org/0000-0003-3805-8761"^^xsd:anyURI ;
+    skos:prefLabel "Emanuele Ghedini" ;
+    foaf:name "Emanuele Ghedini" ;
+    foaf:workplaceHomepage <https://www.unibo.it/en/> .
 
 
-###  https://orcid.org/0000-0002-1560-809X
-<https://orcid.org/0000-0002-1560-809X> rdf:type owl:NamedIndividual ;
-                                        skos:prefLabel "Jesper Friis" ;
-                                        foaf:name "Jesper Friis" ;
-                                        foaf:workplaceHomepage <https://www.sintef.no/en/> .
+:JesperFriis rdf:type owl:NamedIndividual ;
+    :EMMO_e117f976_7a5d_4508_bf85_9226dca58e1f "https://orcid.org/0000-0002-1560-809X"^^xsd:anyURI ;
+    skos:prefLabel "Jesper Friis" ;
+    foaf:name "Jesper Friis" ;
+    foaf:workplaceHomepage <https://www.sintef.no/en/> .
 
 
-###  https://orcid.org/0000-0002-4181-2852
-<https://orcid.org/0000-0002-4181-2852> rdf:type owl:NamedIndividual ;
-                                        skos:prefLabel "Gerhard Goldbeck" ;
-                                        foaf:name "Gerhard Goldbeck" ;
-                                        foaf:workplaceHomepage <https://materialsmodelling.com/> .
+:GerhardGoldbeck rdf:type owl:NamedIndividual ;
+    :EMMO_e117f976_7a5d_4508_bf85_9226dca58e1f "https://orcid.org/0000-0002-4181-2852"^^xsd:anyURI ;
+    skos:prefLabel "Gerhard Goldbeck" ;
+    foaf:name "Gerhard Goldbeck" ;
+    foaf:workplaceHomepage <https://materialsmodelling.com/> .
 
 
-###  https://orcid.org/0000-0003-0514-9229
-<https://orcid.org/0000-0003-0514-9229> rdf:type owl:NamedIndividual ;
-                                        skos:prefLabel "Adham Hashibon" ;
-                                        foaf:name "Adham Hashibon" ;
-                                        foaf:workplaceHomepage <https://www.ucl.ac.uk/> .
+:AdhamHashibon rdf:type owl:NamedIndividual ;
+    :EMMO_e117f976_7a5d_4508_bf85_9226dca58e1f "https://orcid.org/0000-0003-0514-9229"^^xsd:anyURI ;
+    skos:prefLabel "Adham Hashibon" ;
+    foaf:name "Adham Hashibon" ;
+    foaf:workplaceHomepage <https://www.ucl.ac.uk/> .
 
 
-###  https://orcid.org/0000-0003-4065-9742
-<https://orcid.org/0000-0003-4065-9742> rdf:type owl:NamedIndividual ;
-                                        skos:prefLabel "Georg J. Schmitz" ;
-                                        foaf:name "Georg J. Schmitz" .
+:GeorgSchmitz rdf:type owl:NamedIndividual ;
+    :EMMO_e117f976_7a5d_4508_bf85_9226dca58e1f "https://orcid.org/0000-0003-4065-9742"^^xsd:anyURI ;
+    skos:prefLabel "Georg J. Schmitz" ;
+    foaf:name "Georg J. Schmitz" .
 
 
-###  https://orcid.org/0009-0007-5850-6628
-<https://orcid.org/0009-0007-5850-6628> rdf:type owl:NamedIndividual ;
-                                        skos:prefLabel "Anne de Baas" ;
-                                        foaf:name "Anne de Baas" ;
-                                        foaf:workplaceHomepage <https://materialsmodelling.com/> .
+:AnnedeBaas rdf:type owl:NamedIndividual ;
+    :EMMO_e117f976_7a5d_4508_bf85_9226dca58e1f "https://orcid.org/0009-0007-5850-6628"^^xsd:anyURI ;
+    skos:prefLabel "Anne de Baas" ;
+    foaf:name "Anne de Baas" ;
+    foaf:workplaceHomepage <https://materialsmodelling.com/> .
 
 
-###  https://orcid.org/0009-0008-8009-5009
-<https://orcid.org/0009-0008-8009-5009> rdf:type owl:NamedIndividual ;
-                                        skos:prefLabel "Francesco A. Zaccarini" ;
-                                        foaf:name "Francesco A. Zaccarini" ;
-                                        foaf:workplaceHomepage <https://www.unibo.it/en/> .
+:FrancescoZaccarini rdf:type owl:NamedIndividual ;
+    :EMMO_e117f976_7a5d_4508_bf85_9226dca58e1f "https://orcid.org/0009-0008-8009-5009"^^xsd:anyURI ;
+    skos:prefLabel "Francesco A. Zaccarini" ;
+    foaf:name "Francesco A. Zaccarini" ;
+    foaf:workplaceHomepage <https://www.unibo.it/en/> .
 
 
-###  https://orcid.org/0000-0001-9189-2400
-<https://orcid.org/0000-0001-9189-2400> rdf:type owl:NamedIndividual ;
-                                        skos:prefLabel "Sebastiano Moruzzi" ;
-                                        foaf:name "Sebastiano Moruzzi" ;
-                                        foaf:workplaceHomepage <https://www.unibo.it/en/> .
+:SebastianoMoruzzi rdf:type owl:NamedIndividual ;
+    :EMMO_e117f976_7a5d_4508_bf85_9226dca58e1f "https://orcid.org/0000-0001-9189-2400"^^xsd:anyURI ;
+    skos:prefLabel "Sebastiano Moruzzi" ;
+    foaf:name "Sebastiano Moruzzi" ;
+    foaf:workplaceHomepage <https://www.unibo.it/en/> .
 
 
-###  https://orcid.org/0000-0001-8869-3718
-<https://orcid.org/0000-0001-8869-3718> rdf:type owl:NamedIndividual ;
-                                        skos:prefLabel "Francesca Lønstad Bleken" ;
-                                        foaf:name "Francesca Lønstad Bleken" ;
-                                        foaf:workplaceHomepage <https://www.sintef.no/en/> .
+:FrancescaBleken rdf:type owl:NamedIndividual ;
+    :EMMO_e117f976_7a5d_4508_bf85_9226dca58e1f "https://orcid.org/0000-0001-8869-3718"^^xsd:anyURI ;
+    skos:prefLabel "Francesca Lønstad Bleken" ;
+    foaf:name "Francesca Lønstad Bleken" ;
+    foaf:workplaceHomepage <https://www.sintef.no/en/> .
 
 
-###  https://orcid.org/0000-0002-8758-6109
-<https://orcid.org/0000-0002-8758-6109> rdf:type owl:NamedIndividual ;
-                                        skos:prefLabel "Simon Clark" ;
-                                        foaf:name "Simon Clark" ;
-                                        foaf:workplaceHomepage <https://www.sintef.no/en/> .
+:SimonClark rdf:type owl:NamedIndividual ;
+    :EMMO_e117f976_7a5d_4508_bf85_9226dca58e1f "https://orcid.org/0000-0002-8758-6109"^^xsd:anyURI ;
+    skos:prefLabel "Simon Clark" ;
+    foaf:name "Simon Clark" ;
+    foaf:workplaceHomepage <https://www.sintef.no/en/> .
 
 
-###  https://orcid.org/0000-0001-7815-6636
-<https://orcid.org/0000-0001-7815-6636> rdf:type owl:NamedIndividual ;
-                                        skos:prefLabel "Otello M. Roscioni" ;
-                                        foaf:name "Otello M. Roscioni" ;
-                                        foaf:workplaceHomepage <https://materialsmodelling.com/> .
+:OtelloRoscioni rdf:type owl:NamedIndividual ;
+    :EMMO_e117f976_7a5d_4508_bf85_9226dca58e1f "https://orcid.org/0000-0001-7815-6636"^^xsd:anyURI ;
+    skos:prefLabel "Otello M. Roscioni" ;
+    foaf:name "Otello M. Roscioni" ;
+    foaf:workplaceHomepage <https://materialsmodelling.com/> .
+
+
+:MichaelNorske rdf:type owl:NamedIndividual ;
+    :EMMO_e117f976_7a5d_4508_bf85_9226dca58e1f "https://orcid.org/0000-0002-5417-6808"^^xsd:anyURI ;
+    skos:prefLabel "Paul-Ludwig Michael Noeske" ;
+    foaf:name "Paul-Ludwig Michael Noeske" ;
+    foaf:workplaceHomepage <https://www.ifam.fraunhofer.de/en/> .
+
 
 
 # Organisations

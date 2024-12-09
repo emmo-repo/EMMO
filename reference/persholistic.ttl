@@ -10,15 +10,16 @@
 
 <https://w3id.org/emmo/reference/persholistic> rdf:type owl:Ontology ;
                                                 owl:versionIRI <https://w3id.org/emmo/1.0.0-rc3/reference/persholistic> ;
-                                                owl:imports <https://w3id.org/emmo/1.0.0-rc3/perspectives/holistic> ,
+                                                owl:imports <https://w3id.org/emmo/1.0.0-rc3/perspectives/contrast> ,
+                                                            <https://w3id.org/emmo/1.0.0-rc3/perspectives/holistic> ,
                                                             <https://w3id.org/emmo/1.0.0-rc3/perspectives/persistence> ,
+                                                            <https://w3id.org/emmo/1.0.0-rc3/perspectives/semiotics> ,
                                                             <https://w3id.org/emmo/1.0.0-rc3/perspectives/structural> ;
                                                 dcterms:abstract ""@en ;
-                                                dcterms:contributor <https://orcid.org/0000-0002-1560-809X> ,
-                                                                    <https://orcid.org/0000-0002-4181-2852> ,
-                                                                    <https://orcid.org/0000-0003-0514-9229> ,
-                                                                    <https://orcid.org/0000-0003-4065-9742> ;
-                                                dcterms:creator <https://orcid.org/0000-0003-3805-8761> ;
+                                                dcterms:contributor :FrancescoZaccarini ,
+                                                                    :GerhardGoldbeck ,
+                                                                    :JesperFriis ;
+                                                dcterms:creator :EmanueleGhedini ;
                                                 dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                                 dcterms:publisher <https://emmc.eu> ;
                                                 dcterms:title "Persholistic"@en ;
@@ -60,15 +61,6 @@
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between a object whole and its spatial part of the same type."@en .
 
 
-###  https://w3id.org/emmo#EMMO_cd24eb82_a11c_4a31_96ea_32f870c5580a
-:EMMO_cd24eb82_a11c_4a31_96ea_32f870c5580a rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_a9a9d824_5ba1_4dac_a407_e42bf63350ca ,
-                                                              :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
-                                           rdfs:range :EMMO_2480b72b_db8d_460f_9a5f_c2912f979046 ;
-                                           skos:prefLabel "hasAgent"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation within a process and an agengt participant."@en .
-
-
 #################################################################
 #    Classes
 #################################################################
@@ -81,56 +73,12 @@
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A process occurring by natural (non-intentional) laws."@en .
 
 
-###  https://w3id.org/emmo#EMMO_2480b72b_db8d_460f_9a5f_c2912f979046
-:EMMO_2480b72b_db8d_460f_9a5f_c2912f979046 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_13191289_6c2b_4741_93e1_82d53bd0e703 ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_cd24eb82_a11c_4a31_96ea_32f870c5580a
-                                                                            ] ;
-                                                             owl:someValuesFrom :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce
-                                                           ] ;
-                                           skos:example "A catalyst. A bus driver. A substance that is initiating a reaction that would not occur without its presence."@en ;
-                                           skos:prefLabel "Agent"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A participant that is the driver of a process."@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """An agent is not necessarily human.
-An agent plays an active role within the process.
-An agent is a participant of a process that would not occur without it."""@en .
-
-
-###  https://w3id.org/emmo#EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49
-:EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c ;
-                                           skos:altLabel "Elaboration"@en ,
-                                                         "Work"@en ;
-                                           skos:example """The process in which a control unit of a CPU (the agent) orchestrates some cached binary data according to a list of instructions (e.g. a program).
-The process in which a librarian order books alphabetically on a shelf.
-The execution of an algorithm."""@en ;
-                                           skos:prefLabel "Procedure"@en ;
-                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "The set of established forms or methods of an organized body for accomplishing a certain task or tasks (Wiktionary)."@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The process in which an agent works with some entities according to some existing formalised operative rules."@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A procedure can be considered as an intentional process with a plan."@en .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49 ;
-   owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "Procedure"@en ;
-   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin pro-cedere (“to go forward, to proceed”)."@en
- ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49 ;
-   owl:annotatedProperty :EMMO_31252f35_c767_4b97_a877_1235076c3e13 ;
-   owl:annotatedTarget "The set of established forms or methods of an organized body for accomplishing a certain task or tasks (Wiktionary)."@en ;
-   rdfs:seeAlso "https://en.wiktionary.org/wiki/procedure"^^xsd:anyURI
- ] .
-
-
 ###  https://w3id.org/emmo#EMMO_65a007dc_2550_46b0_b394_3346c67fbb69
 :EMMO_65a007dc_2550_46b0_b394_3346c67fbb69 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_1efe8b96_e006_4a33_bc9a_421406cbb9f0 ,
                                                            :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ;
                                            skos:prefLabel "HolisticSystem"@en ;
-                                           <https://w3id.org.org/emmo#EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db> "SubClassOf: hasComponent some Component" ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "SubClassOf: hasComponent some Component" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An object that is made of a set of sub objects working together as parts of a mechanism or an interconnecting network (natural or artificial); a complex whole."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A system is conceived as an aggregate of things that 'work' (or interact) together. While a system extends in time through distinct temporal parts (like every other 4D object), this elucdation focuses on a timescale in which the obejct shows a persistence in time."@en .
 
@@ -140,22 +88,6 @@ The execution of an algorithm."""@en ;
                                            rdfs:subClassOf :EMMO_65a007dc_2550_46b0_b394_3346c67fbb69 ;
                                            skos:prefLabel "HolisticArrangement"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A system which is mainly characterised by the spatial configuration of its elements."@en .
-
-
-###  https://w3id.org/emmo#EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c
-:EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_1efe8b96_e006_4a33_bc9a_421406cbb9f0 ,
-                                                           :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce ;
-                                           skos:prefLabel "IntentionalProcess"@en ;
-                                           <https://w3id.org.org/emmo#EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db> "SubClassOf: hasAgent some IntentionalAgent" ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A process occurring with the active participation of an agent that drives the process according to a specific objective (intention)."@en .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c ;
-   owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "IntentionalProcess"@en ;
-   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin intentionem, derived from intendere (\"stretching out\")"@en
- ] .
 
 
 ###  https://w3id.org/emmo#EMMO_c0f72631_d7c2_434c_9c26_5c44123df682
@@ -175,24 +107,11 @@ organization: person or group of people that has its own functions with responsi
  ] .
 
 
-###  https://w3id.org/emmo#EMMO_c130614a_2985_476d_a7ed_8a137847703c
-:EMMO_c130614a_2985_476d_a7ed_8a137847703c rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_2480b72b_db8d_460f_9a5f_c2912f979046 ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_cd24eb82_a11c_4a31_96ea_32f870c5580a
-                                                                            ] ;
-                                                             owl:someValuesFrom :EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c
-                                                           ] ;
-                                           skos:prefLabel "IntentionalAgent"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An agent that is driven by the intention to reach a defined objective in driving a process."@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Intentionality is not limited to human agents, but in general to all agents that have the capacity to decide to act in driving a process according to a motivation."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817
 :EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_ceaaf9f7_fd11_424b_8fda_9afa186af186 ;
                                            skos:prefLabel "Component"@en ;
-                                           <https://w3id.org.org/emmo#EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db> "SubClassOf:  inverse (hasConstituent) some HolisticSystem" ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "SubClassOf:  inverse (hasConstituent) some HolisticSystem" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A constituent of a system."@en .
 
 
