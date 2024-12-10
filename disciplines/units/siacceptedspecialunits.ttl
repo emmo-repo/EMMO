@@ -3,503 +3,502 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix emmo: <https://w3id.org/emmo#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix emmo: <https://w3id.org/emmo#> .
 @base <https://w3id.org/emmo#> .
 
 <https://w3id.org/emmo/disciplines/units/siacceptedspecialunits> rdf:type owl:Ontology ;
-                                                           owl:versionIRI <https://w3id.org/emmo/1.0.0-rc3/disciplines/units/siacceptedspecialunits> ;
-                                                           owl:imports <https://w3id.org/emmo/1.0.0-rc3/disciplines/units/siunits> ;
-                                                           dcterms:abstract "The module 'siacceptedspecialunits' include the 15 non-SI special units that are accepted for use with the SI units."@en ;
-                                                           dcterms:contributor :FrancescaBleken ,
-                                                                               :GerhardGoldbeck ,
-                                                                               :SimonClark ;
-                                                           dcterms:creator :JesperFriis ,
-                                                                           :EmanueleGhedini ;
-                                                           dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
-                                                           dcterms:publisher <https://emmc.eu> ;
-                                                           dcterms:title "SI accepted special units"@en ;
-                                                           rdfs:comment """Note: this file has automatically been populated with dimensional units from QUDT.
+                                                                  owl:versionIRI <https://w3id.org/emmo/1.0.0-rc3/disciplines/units/siacceptedspecialunits> ;
+                                                                  owl:imports <https://w3id.org/emmo/1.0.0-rc3/disciplines/units/siunits> ;
+                                                                  dcterms:abstract "The module 'siacceptedspecialunits' include the 15 non-SI special units that are accepted for use with the SI units."@en ;
+                                                                  dcterms:contributor emmo:FrancescaBleken ,
+                                                                                      emmo:GerhardGoldbeck ,
+                                                                                      emmo:SimonClark ;
+                                                                  dcterms:creator emmo:EmanueleGhedini ,
+                                                                                  emmo:JesperFriis ;
+                                                                  dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+                                                                  dcterms:publisher <https://emmc.eu> ;
+                                                                  dcterms:title "SI accepted special units"@en ;
+                                                                  rdfs:comment """Note: this file has automatically been populated with dimensional units from QUDT.
 
 We kindly acknowledge NIST for reusing their content, including the selection of units, their elucidations and conversion multiplier."""@en ,
-                                                                        "The EMMO should be reasoned with HermiT to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                                           owl:versionInfo "1.0.0-rc3" ;
-                                                           :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
+                                                                               "The EMMO should be reasoned with HermiT to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
+                                                                  owl:versionInfo "1.0.0-rc3" ;
+                                                                  emmo:EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
 
 #################################################################
 #    Classes
 #################################################################
 
 ###  https://w3id.org/emmo#Arcminute
-:Arcminute rdf:type owl:Class ;
-           rdfs:subClassOf :EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
-                           :EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                           :EMMO_cdc962d8_f3ea_4764_a57a_c7caa4859179 ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                             owl:hasValue "′"
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                             owl:hasValue "2.908882E-4"^^xsd:double
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                             owl:hasValue "0.0"^^xsd:double
-                           ] ;
-           rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-           skos:altLabel "ArcMinute"@en ,
-                         "MinuteOfArc"@en ;
-           skos:prefLabel "Arcminute"@en ;
-           :EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "D61" ;
-           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/ARCMIN" ;
-           :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "'" ;
-           :EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "'" ;
-           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A minute of arc, arcminute, or minute arc (MOA), is a unit of angular measurement equal to one sixtieth (1/60) of one degree (circle/21,600), or π /10,800 radians. In turn, a second of arc or arcsecond is one sixtieth (1/60) of one minute of arc. Since one degree is defined as one three hundred and sixtieth (1/360) of a rotation, one minute of arc is 1/21,600 of a rotation.
+emmo:Arcminute rdf:type owl:Class ;
+               rdfs:subClassOf emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
+                               emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                               emmo:EMMO_cdc962d8_f3ea_4764_a57a_c7caa4859179 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                 owl:hasValue "′"
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                 owl:hasValue "2.908882E-4"^^xsd:double
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                 owl:hasValue "0.0"^^xsd:double
+                               ] ;
+               rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+               skos:altLabel "ArcMinute"@en ,
+                             "MinuteOfArc"@en ;
+               skos:prefLabel "Arcminute"@en ;
+               emmo:EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "D61" ;
+               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/ARCMIN" ;
+               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "'" ;
+               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "'" ;
+               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A minute of arc, arcminute, or minute arc (MOA), is a unit of angular measurement equal to one sixtieth (1/60) of one degree (circle/21,600), or π /10,800 radians. In turn, a second of arc or arcsecond is one sixtieth (1/60) of one minute of arc. Since one degree is defined as one three hundred and sixtieth (1/360) of a rotation, one minute of arc is 1/21,600 of a rotation.
 
 -- QUDT"""@en ;
-           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Minute_of_arc" .
+               emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Minute_of_arc" .
 
 
 ###  https://w3id.org/emmo#Arcsecond
-:Arcsecond rdf:type owl:Class ;
-           rdfs:subClassOf :EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
-                           :EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                           :EMMO_cdc962d8_f3ea_4764_a57a_c7caa4859179 ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                             owl:hasValue "″"
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                             owl:hasValue "4.848137E-6"^^xsd:double
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                             owl:hasValue "0.0"^^xsd:double
-                           ] ;
-           rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-           skos:altLabel "ArcSecond"@en ,
-                         "SecondOfArc"@en ;
-           skos:prefLabel "Arcsecond"@en ;
-           :EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "D62" ;
-           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/ARCSEC" ;
-           :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "''" ;
-           :EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "\\\"" ;
-           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Arc Second\" is a unit of angular measure, also called the `second of arc`, equal to 1/60 arcminute. One arcsecond is a very small angle: there are 1,296,000 in a circle. The SI recommends `double prime` ('') as the symbol for the arcsecond. The symbol has become common in astronomy, where very small angles are stated in milliarcseconds (mas).
+emmo:Arcsecond rdf:type owl:Class ;
+               rdfs:subClassOf emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
+                               emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                               emmo:EMMO_cdc962d8_f3ea_4764_a57a_c7caa4859179 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                 owl:hasValue "″"
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                 owl:hasValue "4.848137E-6"^^xsd:double
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                 owl:hasValue "0.0"^^xsd:double
+                               ] ;
+               rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+               skos:altLabel "ArcSecond"@en ,
+                             "SecondOfArc"@en ;
+               skos:prefLabel "Arcsecond"@en ;
+               emmo:EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "D62" ;
+               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/ARCSEC" ;
+               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "''" ;
+               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "\\\"" ;
+               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Arc Second\" is a unit of angular measure, also called the `second of arc`, equal to 1/60 arcminute. One arcsecond is a very small angle: there are 1,296,000 in a circle. The SI recommends `double prime` ('') as the symbol for the arcsecond. The symbol has become common in astronomy, where very small angles are stated in milliarcseconds (mas).
 
 -- QUDT"""@en ;
-           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Minute_of_arc#Symbols.2C_abbreviations_and_subdivisions" .
+               emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Minute_of_arc#Symbols.2C_abbreviations_and_subdivisions" .
 
 
 ###  https://w3id.org/emmo#AstronomicalUnit
-:AstronomicalUnit rdf:type owl:Class ;
-                  rdfs:subClassOf :EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
-                                  :EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                                    owl:hasValue "au"
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                    owl:hasValue "1.495979E11"^^xsd:double
-                                  ] ;
-                  skos:altLabel "astronomical-unit"@en ;
-                  skos:prefLabel "AstronomicalUnit"@en ;
-                  :EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "A12" ;
-                  :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "https://qudt.org/vocab/unit/AU" ;
-                  :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "AU" ;
-                  :EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Astronomical_unit" ;
-                  :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "One astronomical unit is defined as exactly 149597870700 m, which is roughly the distance from earth to sun."@en ;
-                  :EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "AU" ,
-                                                             "au" ;
-                  :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """An astronomical unit (abbreviated as AU, au, a.u., or ua) is a unit of length equal to 149,597,870,700 metres (92,955,807.273 mi) or approximately the mean Earth Sun distance. The symbol ua is recommended by the International Bureau of Weights and Measures, and the international standard ISO 80000, while au is recommended by the International Astronomical Union, and is more common in Anglosphere countries. In general, the International System of Units only uses capital letters for the symbols of units which are named after individual scientists, while au or a.u. can also mean atomic unit or even arbitrary unit. However, the use of AU to refer to the astronomical unit is widespread. The astronomical constant whose value is one astronomical unit is referred to as unit distance and is given the symbol A. [Wikipedia]
+emmo:AstronomicalUnit rdf:type owl:Class ;
+                      rdfs:subClassOf emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
+                                      emmo:EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                        owl:hasValue "au"
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                        owl:hasValue "1.495979E11"^^xsd:double
+                                      ] ;
+                      skos:altLabel "astronomical-unit"@en ;
+                      skos:prefLabel "AstronomicalUnit"@en ;
+                      emmo:EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "A12" ;
+                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "https://qudt.org/vocab/unit/AU" ;
+                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "AU" ;
+                      emmo:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Astronomical_unit" ;
+                      emmo:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "One astronomical unit is defined as exactly 149597870700 m, which is roughly the distance from earth to sun."@en ;
+                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "AU" ,
+                                                                     "au" ;
+                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """An astronomical unit (abbreviated as AU, au, a.u., or ua) is a unit of length equal to 149,597,870,700 metres (92,955,807.273 mi) or approximately the mean Earth Sun distance. The symbol ua is recommended by the International Bureau of Weights and Measures, and the international standard ISO 80000, while au is recommended by the International Astronomical Union, and is more common in Anglosphere countries. In general, the International System of Units only uses capital letters for the symbols of units which are named after individual scientists, while au or a.u. can also mean atomic unit or even arbitrary unit. However, the use of AU to refer to the astronomical unit is widespread. The astronomical constant whose value is one astronomical unit is referred to as unit distance and is given the symbol A. [Wikipedia]
 
 -- QUDT"""@en ;
-                  :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Astronomical_unit"^^xsd:anyURI .
-
-
-###  https://w3id.org/emmo#Dalton
-:Dalton rdf:type owl:Class ;
-        rdfs:subClassOf :EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
-                        :EMMO_77e9dc31_5b19_463e_b000_44c6e79f98aa ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                          owl:hasValue "Da"
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                          owl:hasValue "1.660539E-27"^^xsd:double
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                          owl:hasValue "0.0"^^xsd:double
-                        ] ;
-        rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-        skos:altLabel "AtomicMassUnit"@en ;
-        skos:prefLabel "Dalton"@en ;
-        :EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "D43" ;
-        :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/Da"^^xsd:anyURI ;
-        :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "u" ;
-        :EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "amu" ;
-        :EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Unified_atomic_mass_unit" ;
-        :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "One dalton is defined as one twelfth of the mass of an unbound neutral atom of carbon-12 in its nuclear and electronic ground state."@en ;
-        :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The unified atomic mass unit (symbol: μ) or dalton (symbol: Da) is a unit that is used for indicating mass on an atomic or molecular scale. It is defined as one twelfth of the rest mass of an unbound atom of carbon-12 in its nuclear and electronic ground state, and has a value of 1.660538782(83) × 10⁻²⁷ kg. One Da is approximately equal to the mass of one proton or one neutron. The CIPM have categorised it as a \"non-SI unit whose values in SI units must be obtained experimentally\".
-
--- QUDT"""@en ;
-        :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Atomic_mass_unit"^^xsd:anyURI ;
-        :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.D01514" .
-
-
-###  https://w3id.org/emmo#Day
-:Day rdf:type owl:Class ;
-     rdfs:subClassOf :EMMO_02e894c3_b793_4197_b120_3442e08f58d1 ,
-                     :EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                       owl:hasValue "d"
-                     ] ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                       owl:hasValue "86400.0"^^xsd:double
-                     ] ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                       owl:hasValue "0.0"^^xsd:double
-                     ] ;
-     skos:prefLabel "Day"@en ;
-     :EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "DAY" ;
-     :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DAY" ;
-     :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "d" ;
-     :EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Day" ;
-     :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A measure of time defined as 86 400 seconds."@en ;
-     :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Mean solar day
-
--- QUDT"""@en ;
-     :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Day?oldid=494970012"^^xsd:anyURI ;
-     :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.D01527" .
-
-
-###  https://w3id.org/emmo#Degree
-:Degree rdf:type owl:Class ;
-        rdfs:subClassOf :EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
-                        :EMMO_cdc962d8_f3ea_4764_a57a_c7caa4859179 ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                          owl:hasValue "°"
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                          owl:hasValue "0.01745329"^^xsd:double
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                          owl:hasValue "0.0"^^xsd:double
-                        ] ;
-        skos:prefLabel "Degree"@en ;
-        :EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "DD" ;
-        :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DEG" ;
-        :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "deg" ;
-        :EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Degree_(angle)" ;
-        :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "Degree is a measurement of plane angle, defined by representing a full rotation as 360 degrees."@en ;
-        :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A degree (in full, a degree of arc, arc degree, or arcdegree), usually denoted by ° (the degree symbol), is a measurement of plane angle, representing 1/360 of a full rotation; one degree is equivalent to  2π /360 rad, 0.017453 rad. It is not an SI unit, as the SI unit for angles is radian, but is an accepted SI unit.
-
--- QUDT"""@en ;
-        :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.D01560" .
-
-
-###  https://w3id.org/emmo#EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac
-:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_3ee80521_3c23_4dd1_935d_9d522614a3e2 ;
-                                           rdfs:comment "This is a list of units that are not defined as part of the International System of Units (SI), but are otherwise mentioned in the SI brouchure, because either the General Conference on Weights and Measures (CGPM) accepts their use as being multiples or submultiples of SI-units, they have important contemporary application worldwide, or are otherwise commonly encountered worldwide."@en ;
-                                           skos:prefLabel "SIAcceptedUnit"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Non-SI units mentioned in the SI."@en ;
-                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Non-SI_units_mentioned_in_the_SI" .
-
-
-###  https://w3id.org/emmo#EMMO_93170bc8_d3b2_45bd_8cad_20aad08462ef
-:EMMO_93170bc8_d3b2_45bd_8cad_20aad08462ef rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ;
-                                           skos:prefLabel "SIAcceptedPrefixedUnit"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Non-SI prefixed units that have been accepted by SI to be used together with the SI system."@en .
-
-
-###  https://w3id.org/emmo#EMMO_ac19c801_bead_4730_8b8c_50020eec45ec
-:EMMO_ac19c801_bead_4730_8b8c_50020eec45ec rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ;
-                                           skos:prefLabel "SIAcceptedDerivedUnit"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Defived units that are accepted to be used with SI."@en .
-
-
-###  https://w3id.org/emmo#EMMO_e8b5f7de_4fd9_41d7_b988_87b512fe0180
-:EMMO_e8b5f7de_4fd9_41d7_b988_87b512fe0180 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ;
-                                           owl:disjointUnionOf ( :EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac
-                                                                 :EMMO_93170bc8_d3b2_45bd_8cad_20aad08462ef
-                                                                 :EMMO_ac19c801_bead_4730_8b8c_50020eec45ec
-                                                               ) ;
-                                           skos:prefLabel "SIAccepted"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Non-SI unit that has been accepted by SI to be used together with the SI system."@en .
-
-
-###  https://w3id.org/emmo#ElectronVolt
-:ElectronVolt rdf:type owl:Class ;
-              rdfs:subClassOf :EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
-                              :EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                                owl:hasValue "eV"
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                owl:hasValue "1.602177E-19"^^xsd:double
-                              ] ;
-              skos:prefLabel "ElectronVolt"@en ;
-              :EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "A53" ;
-              :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/EV" ;
-              :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "eV" ;
-              :EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Electronvolt" ;
-              :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The amount of energy gained (or lost) by the charge of a single electron moving across an electric potential difference of one volt."@en ;
-              :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """An electron volt (eV) is the energy that an electron gains when it travels through a potential of one volt. You can imagine that the electron starts at the negative plate of a parallel plate capacitor and accelerates to the positive plate, which is at one volt higher potential. Numerically 1 eV approximates 1.6x10⁻¹⁹ joules, where 1 joule is 6.2x10¹⁸ eV. For example, it would take 6.2x10²⁰ eV/sec to light a 100 watt light bulb.
-
--- QUDT"""@en ;
-              :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Electron_volt?oldid=344021738"^^xsd:anyURI ;
-              :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.E02014" .
-
-
-###  https://w3id.org/emmo#Hectare
-:Hectare rdf:type owl:Class ;
-         rdfs:subClassOf :EMMO_33433bb1_c68f_45ee_a466_f01e2c57b214 ,
-                         :EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                           owl:hasValue "ha"
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                           owl:hasValue "10000.0"^^xsd:double
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                           owl:hasValue "0.0"^^xsd:double
-                         ] ;
-         skos:prefLabel "Hectare"@en ;
-         :EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "HAR" ;
-         :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/HA" ;
-         :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "har" ;
-         :EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Hectare" ;
-         :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A non-SI metric unit of area defined as the square with 100-metre sides."@en ;
-         :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The customary metric unit of land area, equal to 100 ares. One hectare is a square hectometer, that is, the area of a square 100 meters on each side: exactly 10 000 square meters or approximately 107 639.1 square feet, 11 959.9 square yards, or 2.471 054 acres.
-
--- QUDT"""@en ;
-         :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Hectare" .
-
-
-###  https://w3id.org/emmo#Hour
-:Hour rdf:type owl:Class ;
-      rdfs:subClassOf :EMMO_02e894c3_b793_4197_b120_3442e08f58d1 ,
-                      :EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                        owl:hasValue "h"
-                      ] ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                        owl:hasValue "3600.0"^^xsd:double
-                      ] ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                        owl:hasValue "0.0"^^xsd:double
-                      ] ;
-      skos:prefLabel "Hour"@en ;
-      :EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "HUR" ;
-      :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/HR" ;
-      :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "h" ;
-      :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "Measure of time defined as 3600 seconds."@en ;
-      :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The hour (common symbol: h or hr) is a unit of measurement of time. In modern usage, an hour comprises 60 minutes, or 3,600 seconds. It is approximately 1/24 of a mean solar day. An hour in the Universal Coordinated Time (UTC) time standard can include a negative or positive leap second, and may therefore have a duration of 3,599 or 3,601 seconds for adjustment purposes. Although it is not a standard defined by the International System of Units, the hour is a unit accepted for use with SI, represented by the symbol h.
-
--- QUDT"""@en ;
-      :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.H02866" .
-
-
-###  https://w3id.org/emmo#Litre
-:Litre rdf:type owl:Class ;
-       rdfs:subClassOf :EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
-                       :EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                         owl:hasValue "L"
-                       ] ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                         owl:hasValue "0.001"^^xsd:double
-                       ] ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                         owl:hasValue "0.0"^^xsd:double
-                       ] ;
-       rdfs:comment "Other used symbols for litre are \"l\" and \"ℓ\"."@en ;
-       skos:altLabel "liter"@en-us ;
-       skos:prefLabel "Litre"@en ;
-       :EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "B51" ;
-       :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/L" ;
-       :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "L" ,
-                                                  "l" ;
-       :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A non-SI unit of volume defined as 1 cubic decimetre (dm3),"@en ;
-       :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The litre (American spelling: `liter`; SI symbol l or L) is a non-SI metric system unit of volume equal to 1 `cubic decimetre` (dm³), 1,000 cubic centimetres (cm³) or 1/1000 `cubic metre`. If the lower case \"L\" is used as the symbol, it is sometimes rendered as a cursive \"l\" to help distinguish it from the capital \"I\", although this usage has no official approval by any international bureau.
-
--- QUDT"""@en ;
-       :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.L03594" .
-
-
-###  https://w3id.org/emmo#Minute
-:Minute rdf:type owl:Class ;
-        rdfs:subClassOf :EMMO_02e894c3_b793_4197_b120_3442e08f58d1 ,
-                        :EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                          owl:hasValue "min"
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                          owl:hasValue "60.0"^^xsd:double
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                          owl:hasValue "0.0"^^xsd:double
-                        ] ;
-        skos:prefLabel "Minute"@en ;
-        :EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "MIN" ;
-        :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MIN" ;
-        :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "min" ;
-        :EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Minute" ;
-        :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "Non-SI time unit defined as 60 seconds."@en ;
-        :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A minute is a unit of measurement of time. The minute is a unit of time equal to 1/60 (the first sexagesimal fraction of an hour or 60 seconds. In the UTC time scale, a minute on rare occasions has 59 or 61 seconds; see leap second. The minute is not an SI unit; however, it is accepted for use with SI units. The SI symbol for minute or minutes is min (for time measurement) or the prime symbol after a number, e.g. 5' (for angle measurement, even if it is informally used for time).
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#Neper
-:Neper rdf:type owl:Class ;
-       rdfs:subClassOf :EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
-                       :EMMO_972e01b0_b017_4903_8c05_b7edda958723 ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                         owl:hasValue "Np"
-                       ] ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                         owl:hasValue "1.0"^^xsd:double
-                       ] ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                         owl:hasValue "0.0"^^xsd:double
-                       ] ;
-       skos:prefLabel "Neper"@en ;
-       :EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "C50" ;
-       :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/NP" ;
-       :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Np" ;
-       :EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Neper" ;
-       :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 """Unit of measurement for quantities of type level or level difference, which are defined as the natural logarithm of the ratio of power- or field-type quantities.
-
-The value of a ratio in nepers is given by `ln(x1/x2)` where `x1` and `x2` are the values of interest (amplitudes), and ln is the natural logarithm. When the values are quadratic in the amplitude (e.g. power), they are first linearised by taking the square root before the logarithm is taken, or equivalently the result is halved.
-
-Wikipedia"""@en ;
-       :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The neper is a logarithmic unit for ratios of measurements of physical field and power quantities, such as gain and loss of electronic signals. It has the unit symbol Np. The unit's name is derived from the name of John Napier, the inventor of logarithms. As is the case for the decibel and bel, the neper is not a unit in the International System of Units (SI), but it is accepted for use alongside the SI. Like the decibel, the neper is a unit in a logarithmic scale. While the bel uses the decadic (base-10) logarithm to compute ratios, the neper uses the natural logarithm, based on Euler's number
-
--- QUDT"""@en ;
-       :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Neper" ;
-       :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.N04106" .
-
-
-###  https://w3id.org/emmo#Tonne
-:Tonne rdf:type owl:Class ;
-       rdfs:subClassOf :EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
-                       :EMMO_77e9dc31_5b19_463e_b000_44c6e79f98aa ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                         owl:hasValue "t"
-                       ] ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                         owl:hasValue "1000.0"^^xsd:double
-                       ] ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                         owl:hasValue "0.0"^^xsd:double
-                       ] ;
-       skos:prefLabel "Tonne"@en ;
-       :EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "TNE" ;
-       :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/TON_M" ;
-       :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "t" ;
-       :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A non-SI unit defined as 1000 kg."@en ;
-       :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """1,000-fold of the SI base unit kilogram
-
--- QUDT"""@en ;
-       :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Tonne" ;
-       :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.T06394" .
+                      emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Astronomical_unit"^^xsd:anyURI .
 
 
 ###  https://w3id.org/emmo#Bel
-:Bel rdf:type owl:Class ;
-         rdfs:subClassOf :EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
-                         :EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                         :EMMO_972e01b0_b017_4903_8c05_b7edda958723 ,
+emmo:Bel rdf:type owl:Class ;
+         rdfs:subClassOf emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
+                         emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                         emmo:EMMO_972e01b0_b017_4903_8c05_b7edda958723 ,
                          [ rdf:type owl:Restriction ;
-                           owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                           owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
                            owl:hasValue "B"
                          ] ,
                          [ rdf:type owl:Restriction ;
-                           owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                           owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                            owl:hasValue "1.0"^^xsd:double
                          ] ,
                          [ rdf:type owl:Restriction ;
-                           owl:onProperty :EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                           owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
                            owl:hasValue "0.0"^^xsd:double
                          ] ;
          rdfs:comment "Today decibel (one tenth of a bel) is commonly used instead of bel."@en ,
                       "bel is used to express the ratio of one value of a power or field quantity to another, on a logarithmic scale, the logarithmic quantity being called the power level or field level, respectively."@en ;
          skos:prefLabel "Bel"@en ;
-         :EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "M72" ;
-         :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/B" ;
-         :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "B" ;
-         :EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/resource/Bel"^^xsd:anyURI ;
-         :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "One bel is defined as `1⁄2 ln(10) neper`."@en ;
-         :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A logarithmic unit of sound pressure equal to 10 decibels (dB),  It is defined as: 1 B = (1/2) log₁₀(Np)
+         emmo:EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "M72" ;
+         emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/B" ;
+         emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "B" ;
+         emmo:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/resource/Bel"^^xsd:anyURI ;
+         emmo:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "One bel is defined as `1⁄2 ln(10) neper`."@en ;
+         emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A logarithmic unit of sound pressure equal to 10 decibels (dB),  It is defined as: 1 B = (1/2) log₁₀(Np)
 
 -- QUDT"""@en ;
-         :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Decibel" .
+         emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Decibel" .
+
+
+###  https://w3id.org/emmo#Dalton
+emmo:Dalton rdf:type owl:Class ;
+            rdfs:subClassOf emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
+                            emmo:EMMO_77e9dc31_5b19_463e_b000_44c6e79f98aa ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                              owl:hasValue "Da"
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                              owl:hasValue "1.660539E-27"^^xsd:double
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                              owl:hasValue "0.0"^^xsd:double
+                            ] ;
+            rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+            skos:altLabel "AtomicMassUnit"@en ;
+            skos:prefLabel "Dalton"@en ;
+            emmo:EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "D43" ;
+            emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/Da"^^xsd:anyURI ;
+            emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "u" ;
+            emmo:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Unified_atomic_mass_unit" ;
+            emmo:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "One dalton is defined as one twelfth of the mass of an unbound neutral atom of carbon-12 in its nuclear and electronic ground state."@en ;
+            emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "amu" ;
+            emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The unified atomic mass unit (symbol: μ) or dalton (symbol: Da) is a unit that is used for indicating mass on an atomic or molecular scale. It is defined as one twelfth of the rest mass of an unbound atom of carbon-12 in its nuclear and electronic ground state, and has a value of 1.660538782(83) × 10⁻²⁷ kg. One Da is approximately equal to the mass of one proton or one neutron. The CIPM have categorised it as a \"non-SI unit whose values in SI units must be obtained experimentally\".
+
+-- QUDT"""@en ;
+            emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Atomic_mass_unit"^^xsd:anyURI ;
+            emmo:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.D01514" .
+
+
+###  https://w3id.org/emmo#Day
+emmo:Day rdf:type owl:Class ;
+         rdfs:subClassOf emmo:EMMO_02e894c3_b793_4197_b120_3442e08f58d1 ,
+                         emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                           owl:hasValue "d"
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                           owl:hasValue "86400.0"^^xsd:double
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                           owl:hasValue "0.0"^^xsd:double
+                         ] ;
+         skos:prefLabel "Day"@en ;
+         emmo:EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "DAY" ;
+         emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DAY" ;
+         emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "d" ;
+         emmo:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Day" ;
+         emmo:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A measure of time defined as 86 400 seconds."@en ;
+         emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Mean solar day
+
+-- QUDT"""@en ;
+         emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Day?oldid=494970012"^^xsd:anyURI ;
+         emmo:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.D01527" .
 
 
 ###  https://w3id.org/emmo#DeciBel
-:DeciBel rdf:type owl:Class ;
-             rdfs:subClassOf :EMMO_1181c938_c8f0_4ad6_bc7a_2bfdc0903d29 ,
-                             :EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                             :EMMO_972e01b0_b017_4903_8c05_b7edda958723 ,
-                             :EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+emmo:DeciBel rdf:type owl:Class ;
+             rdfs:subClassOf emmo:EMMO_1181c938_c8f0_4ad6_bc7a_2bfdc0903d29 ,
+                             emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                             emmo:EMMO_972e01b0_b017_4903_8c05_b7edda958723 ,
+                             emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
                              [ rdf:type owl:Restriction ;
-                               owl:onProperty :EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                               owl:someValuesFrom :Bel
+                               owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                               owl:someValuesFrom emmo:Bel
                              ] ,
                              [ rdf:type owl:Restriction ;
-                               owl:onProperty :EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                               owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                owl:hasValue "0.1"^^xsd:double
                              ] ,
                              [ rdf:type owl:Restriction ;
-                               owl:onProperty :EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                               owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
                                owl:hasValue "0.0"^^xsd:double
                              ] ;
              skos:prefLabel "DeciBel" ;
-             :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DeciB" ;
-             :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "dB" ;
-             :EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "dB" ;
-             :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A customary logarithmic measure most commonly used (in various ways) for measuring sound.Sound is measured on a logarithmic scale. Informally, if one sound is 1 bel (10 decibels) \"louder\" than another, this means the louder sound is 10 times louder than the fainter one. A difference of 20 decibels corresponds to an increase of 10 x 10 or 100 times in intensity. The beginning of the scale, 0 decibels, can be set in different ways, depending on exactly the aspect of sound being measured. For sound intensity (the power of the sound waves per unit of area) 0 decibel is equal to 1 picoWatts per Metre Squared. This corresponds approximately to the faintest sound that can be detected by a person who has good hearing. For sound pressure (the pressure exerted by the sound waves) 0 decibels equals 20 micropascals RMS, and for sound power 0 decibels sometimes equals 1 picoWatt. In all cases, one decibel equals ≈ 0.115129 neper.
+             emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DeciB" ;
+             emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "dB" ;
+             emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "dB" ;
+             emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A customary logarithmic measure most commonly used (in various ways) for measuring sound.Sound is measured on a logarithmic scale. Informally, if one sound is 1 bel (10 decibels) \"louder\" than another, this means the louder sound is 10 times louder than the fainter one. A difference of 20 decibels corresponds to an increase of 10 x 10 or 100 times in intensity. The beginning of the scale, 0 decibels, can be set in different ways, depending on exactly the aspect of sound being measured. For sound intensity (the power of the sound waves per unit of area) 0 decibel is equal to 1 picoWatts per Metre Squared. This corresponds approximately to the faintest sound that can be detected by a person who has good hearing. For sound pressure (the pressure exerted by the sound waves) 0 decibels equals 20 micropascals RMS, and for sound power 0 decibels sometimes equals 1 picoWatt. In all cases, one decibel equals ≈ 0.115129 neper.
 
 -- QUDT"""@en ;
-             :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Decibel?oldid=495380648" .
+             emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Decibel?oldid=495380648" .
 
 
+###  https://w3id.org/emmo#Degree
+emmo:Degree rdf:type owl:Class ;
+            rdfs:subClassOf emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
+                            emmo:EMMO_cdc962d8_f3ea_4764_a57a_c7caa4859179 ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                              owl:hasValue "°"
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                              owl:hasValue "0.01745329"^^xsd:double
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                              owl:hasValue "0.0"^^xsd:double
+                            ] ;
+            skos:prefLabel "Degree"@en ;
+            emmo:EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "DD" ;
+            emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DEG" ;
+            emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "deg" ;
+            emmo:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Degree_(angle)" ;
+            emmo:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "Degree is a measurement of plane angle, defined by representing a full rotation as 360 degrees."@en ;
+            emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A degree (in full, a degree of arc, arc degree, or arcdegree), usually denoted by ° (the degree symbol), is a measurement of plane angle, representing 1/360 of a full rotation; one degree is equivalent to  2π /360 rad, 0.017453 rad. It is not an SI unit, as the SI unit for angles is radian, but is an accepted SI unit.
 
-###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
+-- QUDT"""@en ;
+            emmo:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.D01560" .
+
+
+###  https://w3id.org/emmo#EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac
+emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac rdf:type owl:Class ;
+                                               rdfs:subClassOf emmo:EMMO_3ee80521_3c23_4dd1_935d_9d522614a3e2 ;
+                                               rdfs:comment "This is a list of units that are not defined as part of the International System of Units (SI), but are otherwise mentioned in the SI brouchure, because either the General Conference on Weights and Measures (CGPM) accepts their use as being multiples or submultiples of SI-units, they have important contemporary application worldwide, or are otherwise commonly encountered worldwide."@en ;
+                                               skos:prefLabel "SIAcceptedUnit"@en ;
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Non-SI units mentioned in the SI."@en ;
+                                               emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Non-SI_units_mentioned_in_the_SI" .
+
+
+###  https://w3id.org/emmo#EMMO_93170bc8_d3b2_45bd_8cad_20aad08462ef
+emmo:EMMO_93170bc8_d3b2_45bd_8cad_20aad08462ef rdf:type owl:Class ;
+                                               rdfs:subClassOf emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ;
+                                               skos:prefLabel "SIAcceptedPrefixedUnit"@en ;
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Non-SI prefixed units that have been accepted by SI to be used together with the SI system."@en .
+
+
+###  https://w3id.org/emmo#EMMO_ac19c801_bead_4730_8b8c_50020eec45ec
+emmo:EMMO_ac19c801_bead_4730_8b8c_50020eec45ec rdf:type owl:Class ;
+                                               rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ;
+                                               skos:prefLabel "SIAcceptedDerivedUnit"@en ;
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Defived units that are accepted to be used with SI."@en .
+
+
+###  https://w3id.org/emmo#EMMO_e8b5f7de_4fd9_41d7_b988_87b512fe0180
+emmo:EMMO_e8b5f7de_4fd9_41d7_b988_87b512fe0180 rdf:type owl:Class ;
+                                               rdfs:subClassOf emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ;
+                                               owl:disjointUnionOf ( emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac
+                                                                     emmo:EMMO_93170bc8_d3b2_45bd_8cad_20aad08462ef
+                                                                     emmo:EMMO_ac19c801_bead_4730_8b8c_50020eec45ec
+                                                                   ) ;
+                                               skos:prefLabel "SIAccepted"@en ;
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Non-SI unit that has been accepted by SI to be used together with the SI system."@en .
+
+
+###  https://w3id.org/emmo#ElectronVolt
+emmo:ElectronVolt rdf:type owl:Class ;
+                  rdfs:subClassOf emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
+                                  emmo:EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                    owl:hasValue "eV"
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                    owl:hasValue "1.602177E-19"^^xsd:double
+                                  ] ;
+                  skos:prefLabel "ElectronVolt"@en ;
+                  emmo:EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "A53" ;
+                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/EV" ;
+                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "eV" ;
+                  emmo:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Electronvolt" ;
+                  emmo:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The amount of energy gained (or lost) by the charge of a single electron moving across an electric potential difference of one volt."@en ;
+                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """An electron volt (eV) is the energy that an electron gains when it travels through a potential of one volt. You can imagine that the electron starts at the negative plate of a parallel plate capacitor and accelerates to the positive plate, which is at one volt higher potential. Numerically 1 eV approximates 1.6x10⁻¹⁹ joules, where 1 joule is 6.2x10¹⁸ eV. For example, it would take 6.2x10²⁰ eV/sec to light a 100 watt light bulb.
+
+-- QUDT"""@en ;
+                  emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Electron_volt?oldid=344021738"^^xsd:anyURI ;
+                  emmo:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.E02014" .
+
+
+###  https://w3id.org/emmo#Hectare
+emmo:Hectare rdf:type owl:Class ;
+             rdfs:subClassOf emmo:EMMO_33433bb1_c68f_45ee_a466_f01e2c57b214 ,
+                             emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                               owl:hasValue "ha"
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                               owl:hasValue "10000.0"^^xsd:double
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                               owl:hasValue "0.0"^^xsd:double
+                             ] ;
+             skos:prefLabel "Hectare"@en ;
+             emmo:EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "HAR" ;
+             emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/HA" ;
+             emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "har" ;
+             emmo:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Hectare" ;
+             emmo:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A non-SI metric unit of area defined as the square with 100-metre sides."@en ;
+             emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The customary metric unit of land area, equal to 100 ares. One hectare is a square hectometer, that is, the area of a square 100 meters on each side: exactly 10 000 square meters or approximately 107 639.1 square feet, 11 959.9 square yards, or 2.471 054 acres.
+
+-- QUDT"""@en ;
+             emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Hectare" .
+
+
+###  https://w3id.org/emmo#Hour
+emmo:Hour rdf:type owl:Class ;
+          rdfs:subClassOf emmo:EMMO_02e894c3_b793_4197_b120_3442e08f58d1 ,
+                          emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                            owl:hasValue "h"
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                            owl:hasValue "3600.0"^^xsd:double
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                            owl:hasValue "0.0"^^xsd:double
+                          ] ;
+          skos:prefLabel "Hour"@en ;
+          emmo:EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "HUR" ;
+          emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/HR" ;
+          emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "h" ;
+          emmo:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "Measure of time defined as 3600 seconds."@en ;
+          emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The hour (common symbol: h or hr) is a unit of measurement of time. In modern usage, an hour comprises 60 minutes, or 3,600 seconds. It is approximately 1/24 of a mean solar day. An hour in the Universal Coordinated Time (UTC) time standard can include a negative or positive leap second, and may therefore have a duration of 3,599 or 3,601 seconds for adjustment purposes. Although it is not a standard defined by the International System of Units, the hour is a unit accepted for use with SI, represented by the symbol h.
+
+-- QUDT"""@en ;
+          emmo:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.H02866" .
+
+
+###  https://w3id.org/emmo#Litre
+emmo:Litre rdf:type owl:Class ;
+           rdfs:subClassOf emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
+                           emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                             owl:hasValue "L"
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                             owl:hasValue "0.001"^^xsd:double
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                             owl:hasValue "0.0"^^xsd:double
+                           ] ;
+           rdfs:comment "Other used symbols for litre are \"l\" and \"ℓ\"."@en ;
+           skos:altLabel "liter"@en-us ;
+           skos:prefLabel "Litre"@en ;
+           emmo:EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "B51" ;
+           emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/L" ;
+           emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "L" ,
+                                                          "l" ;
+           emmo:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A non-SI unit of volume defined as 1 cubic decimetre (dm3),"@en ;
+           emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The litre (American spelling: `liter`; SI symbol l or L) is a non-SI metric system unit of volume equal to 1 `cubic decimetre` (dm³), 1,000 cubic centimetres (cm³) or 1/1000 `cubic metre`. If the lower case \"L\" is used as the symbol, it is sometimes rendered as a italic \"l\" to help distinguish it from the capital \"I\", although this usage has no official approval by any international bureau.
+
+-- QUDT"""@en ;
+           emmo:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.L03594" .
+
+
+###  https://w3id.org/emmo#Minute
+emmo:Minute rdf:type owl:Class ;
+            rdfs:subClassOf emmo:EMMO_02e894c3_b793_4197_b120_3442e08f58d1 ,
+                            emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                              owl:hasValue "min"
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                              owl:hasValue "60.0"^^xsd:double
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                              owl:hasValue "0.0"^^xsd:double
+                            ] ;
+            skos:prefLabel "Minute"@en ;
+            emmo:EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "MIN" ;
+            emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MIN" ;
+            emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "min" ;
+            emmo:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Minute" ;
+            emmo:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "Non-SI time unit defined as 60 seconds."@en ;
+            emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A minute is a unit of measurement of time. The minute is a unit of time equal to 1/60 (the first sexagesimal fraction of an hour or 60 seconds. In the UTC time scale, a minute on rare occasions has 59 or 61 seconds; see leap second. The minute is not an SI unit; however, it is accepted for use with SI units. The SI symbol for minute or minutes is min (for time measurement) or the prime symbol after a number, e.g. 5' (for angle measurement, even if it is informally used for time).
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#Neper
+emmo:Neper rdf:type owl:Class ;
+           rdfs:subClassOf emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
+                           emmo:EMMO_972e01b0_b017_4903_8c05_b7edda958723 ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                             owl:hasValue "Np"
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                             owl:hasValue "1.0"^^xsd:double
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                             owl:hasValue "0.0"^^xsd:double
+                           ] ;
+           skos:prefLabel "Neper"@en ;
+           emmo:EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "C50" ;
+           emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/NP" ;
+           emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Np" ;
+           emmo:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/Neper" ;
+           emmo:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 """Unit of measurement for quantities of type level or level difference, which are defined as the natural logarithm of the ratio of power- or field-type quantities.
+
+The value of a ratio in nepers is given by `ln(x1/x2)` where `x1` and `x2` are the values of interest (amplitudes), and ln is the natural logarithm. When the values are quadratic in the amplitude (e.g. power), they are first linearised by taking the square root before the logarithm is taken, or equivalently the result is halved.
+
+Wikipedia"""@en ;
+           emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The neper is a logarithmic unit for ratios of measurements of physical field and power quantities, such as gain and loss of electronic signals. It has the unit symbol Np. The unit's name is derived from the name of John Napier, the inventor of logarithms. As is the case for the decibel and bel, the neper is not a unit in the International System of Units (SI), but it is accepted for use alongside the SI. Like the decibel, the neper is a unit in a logarithmic scale. While the bel uses the decadic (base-10) logarithm to compute ratios, the neper uses the natural logarithm, based on Euler's number
+
+-- QUDT"""@en ;
+           emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Neper" ;
+           emmo:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.N04106" .
+
+
+###  https://w3id.org/emmo#Tonne
+emmo:Tonne rdf:type owl:Class ;
+           rdfs:subClassOf emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
+                           emmo:EMMO_77e9dc31_5b19_463e_b000_44c6e79f98aa ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                             owl:hasValue "t"
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                             owl:hasValue "1000.0"^^xsd:double
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                             owl:hasValue "0.0"^^xsd:double
+                           ] ;
+           skos:prefLabel "Tonne"@en ;
+           emmo:EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "TNE" ;
+           emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/TON_M" ;
+           emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "t" ;
+           emmo:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A non-SI unit defined as 1000 kg."@en ;
+           emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """1,000-fold of the SI base unit kilogram
+
+-- QUDT"""@en ;
+           emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Tonne" ;
+           emmo:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.T06394" .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
