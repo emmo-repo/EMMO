@@ -57,12 +57,15 @@ jobs:
         ontoconvert -sawe --base-iri="https://w3id.org/emmo#" --iri=https://w3id.org/emmo emmo-full.ttl public/emmo-full.ttl
         #ontoconvert --reasoner=Pellet public/emmo.ttl public/emmo-inferred.ttl
         #ontoconvert --reasoner=Pellet public/emmo-full.ttl public/emmo-full-inferred.ttl
-        bin/robot reason --reasoner ELK --input public/emmo.ttl --output public/emmo-inferred.ttl
-        bin/robot reason --reasoner ELK --input public/emmo-full.ttl --output public/emmo-full-inferred.ttl
+        #bin/robot reason --reasoner ELK --input public/emmo.ttl --output public/emmo-inferred.ttl
+        #bin/robot reason --reasoner ELK --input public/emmo-full.ttl --output public/emmo-full-inferred.ttl
+        bin/robot reason --reasoner HermiT --input public/emmo.ttl --output public/emmo-inferred.ttl
+        bin/robot reason --reasoner JFact --input public/emmo-full.ttl --output public/emmo-full-inferred.ttl
         ontoconvert public/emmo.ttl public/emmo.owl
         ontoconvert public/emmo-full.ttl public/emmo-full.owl
         ontoconvert public/emmo-inferred.ttl public/emmo-inferred.owl
         ontoconvert public/emmo-full-inferred.ttl public/emmo-full-inferred.owl
+        ontoconvert --rename-iris public/emmo.ttl public/emmo-for-humans.ttl
 
     - name: Generate html documentation (based on emmo-full)
       run: |
