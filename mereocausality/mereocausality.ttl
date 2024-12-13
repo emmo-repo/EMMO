@@ -311,6 +311,8 @@ foaf:workplaceHomepage rdf:type owl:AnnotationProperty .
 :EMMO_2a28c0dd_89b1_47ac_b81f_fccc56f39617 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_6735d3ff_67f8_43b5_b5b0_240fbfab4517 ;
                                            owl:inverseOf :EMMO_ebc9e62c_5dc4_44db_9060_7923740bdf78 ;
+                                           rdf:type owl:AsymmetricProperty ,
+                                                    owl:IrreflexiveProperty ;
                                            skos:altLabel "isTemporallyAfter"@en ;
                                            skos:prefLabel "isAfter"@en .
 
@@ -389,6 +391,8 @@ https://en.wiktionary.org/wiki/mereology"""@en
 :EMMO_451e410e_8e0d_4a4b_9211_d6ef619296dc rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_2a28c0dd_89b1_47ac_b81f_fccc56f39617 ,
                                                               :EMMO_5dc167a2_d50e_47a5_be4f_5139f3bff2ec ;
+                                           rdf:type owl:AsymmetricProperty ,
+                                                    owl:IrreflexiveProperty ;
                                            skos:altLabel "isAncestorOf"@en ;
                                            skos:prefLabel "successorOf"@en .
 
@@ -471,6 +475,7 @@ The direct causality in a 4D ontology covers both time-like causal interaction (
 :EMMO_5dc167a2_d50e_47a5_be4f_5139f3bff2ec rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_6735d3ff_67f8_43b5_b5b0_240fbfab4517 ;
                                            owl:inverseOf :EMMO_b85e4738_500c_4e1b_bbe8_9e84190485d6 ;
+                                           rdf:type owl:IrreflexiveProperty ;
                                            skos:altLabel "hasIndirectCause"@en ;
                                            skos:prefLabel "indirectlyCausedBy"@en .
 
@@ -479,7 +484,8 @@ The direct causality in a 4D ontology covers both time-like causal interaction (
 :EMMO_60c57607_c9e7_4e75_a3d1_7a1f1f9928e4 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_11501e0a_4442_4bd0_8483_7ea6dc8ba444 ,
                                                               :EMMO_2a28c0dd_89b1_47ac_b81f_fccc56f39617 ;
-                                           rdf:type owl:IrreflexiveProperty ;
+                                           rdf:type owl:AsymmetricProperty ,
+                                                    owl:IrreflexiveProperty ;
                                            skos:altLabel "isNextOf"@en ,
                                                          "succeeds"@en ;
                                            skos:prefLabel "follows"@en .
@@ -489,6 +495,7 @@ The direct causality in a 4D ontology covers both time-like causal interaction (
 :EMMO_6735d3ff_67f8_43b5_b5b0_240fbfab4517 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_ad0e72fc_dcaa_490d_8371_b4d814dcda2c ;
                                            owl:inverseOf :EMMO_d67ee67e_4fac_4676_82c9_aec361dba698 ;
+                                           rdf:type owl:IrreflexiveProperty ;
                                            skos:prefLabel "isCausedBy"@en .
 
 
@@ -656,8 +663,8 @@ Antisymmetry: (Pxy ∧ Pyx) → x=y."""@en ;
                                            rdf:type owl:SymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
                                            owl:propertyDisjointWith :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 ;
-                                           skos:altLabel "notOverlaps"@en ;
-                                           skos:prefLabel "disjointWith"@en ;
+                                           skos:altLabel "disjointWith"@en ;
+                                           skos:prefLabel "notOverlaps"@en ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "Dxy ≡ ¬Oxy." ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between individuals representing non-overlapping entities (i.e. that have no parts in common)."@en .
 
@@ -791,6 +798,7 @@ For this reason the EMMO OWL 2 DL will only deal with macro causality relations,
 ###  https://w3id.org/emmo#EMMO_e4f66254_7312_4de5_a86a_6e0808baaaab
 :EMMO_e4f66254_7312_4de5_a86a_6e0808baaaab rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 ;
+                                           rdf:type owl:IrreflexiveProperty ;
                                            rdfs:seeAlso :EMMO_9cb984ca_48ad_4864_b09e_50d3fff19420 ;
                                            skos:prefLabel "isOvercrossedBy"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The inverse relation for overcrosses."@en .
