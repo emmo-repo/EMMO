@@ -241,6 +241,7 @@ foaf:workplaceHomepage rdf:type owl:AnnotationProperty .
 ###  https://w3id.org/emmo#EMMO_01e5766d_dac3_4574_8a78_310de92a5c9d
 :EMMO_01e5766d_dac3_4574_8a78_310de92a5c9d rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_ad0e72fc_dcaa_490d_8371_b4d814dcda2c ;
+                                           owl:inverseOf :EMMO_32eb7161_60ed_4431_8326_81a92aec088c ;
                                            owl:propertyDisjointWith :EMMO_d67ee67e_4fac_4676_82c9_aec361dba698 ;
                                            rdfs:seeAlso :EMMO_d67ee67e_4fac_4676_82c9_aec361dba698 ;
                                            skos:prefLabel "isNotCauseOf"@en ;
@@ -260,6 +261,14 @@ foaf:workplaceHomepage rdf:type owl:AnnotationProperty .
                                            owl:inverseOf <https://w3id.org/emmo#33fd15ab_7662_4cc6_8bf6_988422efc631> ;
                                            rdfs:isDefinedBy <https://w3id.org/emmo#33fd15ab_7662_4cc6_8bf6_988422efc631> ;
                                            skos:prefLabel "isMemberOf"@en .
+
+
+###  https://w3id.org/emmo#EMMO_11501e0a_4442_4bd0_8483_7ea6dc8ba444
+:EMMO_11501e0a_4442_4bd0_8483_7ea6dc8ba444 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_6735d3ff_67f8_43b5_b5b0_240fbfab4517 ;
+                                           owl:inverseOf :EMMO_555d0261_da5e_4301_b7f9_46f604a32e91 ;
+                                           skos:altLabel "hasDirectCause" ;
+                                           skos:prefLabel "directlyCausedBye"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_1328d112_e731_4e56_b9b9_6b6cdd495cd6
@@ -298,6 +307,21 @@ foaf:workplaceHomepage rdf:type owl:AnnotationProperty .
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "All other mereology relations can be defined in FOL using hasPart as primitive."@en .
 
 
+###  https://w3id.org/emmo#EMMO_2a28c0dd_89b1_47ac_b81f_fccc56f39617
+:EMMO_2a28c0dd_89b1_47ac_b81f_fccc56f39617 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_6735d3ff_67f8_43b5_b5b0_240fbfab4517 ;
+                                           owl:inverseOf :EMMO_ebc9e62c_5dc4_44db_9060_7923740bdf78 ;
+                                           skos:altLabel "isTemporallyAfter"@en ;
+                                           skos:prefLabel "isAfter"@en .
+
+
+###  https://w3id.org/emmo#EMMO_32eb7161_60ed_4431_8326_81a92aec088c
+:EMMO_32eb7161_60ed_4431_8326_81a92aec088c rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_ad0e72fc_dcaa_490d_8371_b4d814dcda2c ;
+                                           owl:propertyDisjointWith :EMMO_6735d3ff_67f8_43b5_b5b0_240fbfab4517 ;
+                                           skos:prefLabel "isNotCausedBy"@en .
+
+
 ###  https://w3id.org/emmo#EMMO_339d8e1a_f52a_42cd_8df5_57b5328b939e
 :EMMO_339d8e1a_f52a_42cd_8df5_57b5328b939e rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf <https://w3id.org/emmo#76413949_896c_4363_a955_de4722c6e149> ;
@@ -311,17 +335,19 @@ foaf:workplaceHomepage rdf:type owl:AnnotationProperty .
 :EMMO_3733bd38_ca2b_4264_a92a_3075a1715598 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_b85e4738_500c_4e1b_bbe8_9e84190485d6 ,
                                                               :EMMO_ebc9e62c_5dc4_44db_9060_7923740bdf78 ;
+                                           owl:inverseOf :EMMO_451e410e_8e0d_4a4b_9211_d6ef619296dc ;
                                            rdf:type owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
                                            owl:propertyDisjointWith :EMMO_d01b3ee2_91a5_4ce2_95cd_f0d2c333c6d3 ;
-                                           skos:altLabel "isAntecedentOf"@en ;
+                                           skos:altLabel "hasSuccessor"@en ,
+                                                         "isAntecedentOf"@en ;
                                            skos:example "My life between 18-24 years has successor my life between 32-40 years, since there is an intermediary (i.e. my life between 25-32 years)."@en ;
-                                           skos:prefLabel "hasSuccessor"@en ;
+                                           skos:prefLabel "predecessorOf"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causal relation between the y effected and the x causing entities with intermediaries, where x isCauseOf y and not(y isCauseOf x)."@en .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_3733bd38_ca2b_4264_a92a_3075a1715598 ;
-   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedProperty skos:altLabel ;
    owl:annotatedTarget "hasSuccessor"@en ;
    :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin succedĕre (\"coming after\")."@en
  ] .
@@ -359,17 +385,27 @@ https://en.wiktionary.org/wiki/mereology"""@en
                                            skos:prefLabel "isFragmentOf"@en .
 
 
+###  https://w3id.org/emmo#EMMO_451e410e_8e0d_4a4b_9211_d6ef619296dc
+:EMMO_451e410e_8e0d_4a4b_9211_d6ef619296dc rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_2a28c0dd_89b1_47ac_b81f_fccc56f39617 ,
+                                                              :EMMO_5dc167a2_d50e_47a5_be4f_5139f3bff2ec ;
+                                           skos:altLabel "isAncestorOf"@en ;
+                                           skos:prefLabel "successorOf"@en .
+
+
 ###  https://w3id.org/emmo#EMMO_499e24a5_5072_4c83_8625_fe3f96ae4a8d
 :EMMO_499e24a5_5072_4c83_8625_fe3f96ae4a8d rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_555d0261_da5e_4301_b7f9_46f604a32e91 ,
                                                               :EMMO_ebc9e62c_5dc4_44db_9060_7923740bdf78 ;
+                                           owl:inverseOf :EMMO_60c57607_c9e7_4e75_a3d1_7a1f1f9928e4 ;
                                            rdf:type owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
                                            owl:propertyDisjointWith :EMMO_8785be5a_2493_4b12_8f39_31907ab11748 ;
-                                           skos:altLabel "isBefore"@en ;
+                                           skos:altLabel "hasNext"@en ,
+                                                         "isBefore"@en ;
                                            skos:example "My life between 18-24 years has next my life between 24-32 years."@en ,
                                                         "The raw sample has next the treated sampled, which has next the examined sample. In this sense the whole sample is made of three states, connected by the has next relation, following its evolution in time."@en ;
-                                           skos:prefLabel "hasNext"@en ;
+                                           skos:prefLabel "foregoes"@en ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """A temporal relation between two entities occurs when the two entities are in a one directional causality relation. The idea is that a temporal relation always implies a one-directional causality between two entities, leading to a asymmetric relation.
 This means that the causing entity can be in direct and optionally indirect causality relation with the effect entity. On the contrary, the effect entity cannot be in any causal relation (direct or indirect) with the causing entity."""@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A time contact occurs when x isDirectCause y and not(y isCauseOf x)."@en ;
@@ -379,11 +415,13 @@ This means that the causing entity can be in direct and optionally indirect caus
 
 ###  https://w3id.org/emmo#EMMO_54d0d0f4_d9fa_4179_a9b5_4110c49dafff
 :EMMO_54d0d0f4_d9fa_4179_a9b5_4110c49dafff rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_d67ee67e_4fac_4676_82c9_aec361dba698 ;
+                                           rdfs:subPropertyOf :EMMO_6735d3ff_67f8_43b5_b5b0_240fbfab4517 ,
+                                                              :EMMO_d67ee67e_4fac_4676_82c9_aec361dba698 ;
                                            rdf:type owl:SymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
                                            owl:propertyDisjointWith :EMMO_ebc9e62c_5dc4_44db_9060_7923740bdf78 ;
-                                           skos:prefLabel "isSpatiallyRelatedWith"@en ;
+                                           skos:altLabel "isSpatiallyRelatedWith"@en ;
+                                           skos:prefLabel "coexistsWith"@en ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """Spatial relations between entities are represented in the EMMO as bidirectional causality, meaning that both entities are at the beginning and at the end of causal paths connecting them.
 This type of relation represent the coexistence of two entities in the a spatial arrangement. The symmetric characteristic of this relation implies that it is not possible to order them and is related to the arbitrary choice of reference frames. Subclasses of spatial relations may be defined as asymmetric and introduce a spatial order, for example est to west, or internal to external layer.."""@en ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A relation jointly covered by Contact and InteractWith relations, which are mutually exclusive."@en ;
@@ -406,7 +444,8 @@ This type of relation represent the coexistence of two entities in the a spatial
                                            rdfs:subPropertyOf :EMMO_d67ee67e_4fac_4676_82c9_aec361dba698 ;
                                            rdf:type owl:IrreflexiveProperty ;
                                            owl:propertyDisjointWith :EMMO_b85e4738_500c_4e1b_bbe8_9e84190485d6 ;
-                                           skos:prefLabel "isDirectCauseOf"@en ;
+                                           skos:altLabel "isDirectCauseOf"@en ;
+                                           skos:prefLabel "directlyCauses"@en ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """Direct causality is a concept that captures the idea of direct interaction between two entities, given the fact that there are no causal intermediaries between them. It requires that at least a quantum of the causing entity is direct cause of a quantum of the caused entity.
 It does not exclude the possibility of other indirect causal routes between some proper parts of the two entities.
 The direct causality in a 4D ontology covers both time-like causal interaction (when causality is one-way from one entity to another) and space-like causal interaction (when causality is two-way between two entities)."""@en ;
@@ -426,6 +465,31 @@ The direct causality in a 4D ontology covers both time-like causal interaction (
                                            skos:prefLabel "isProperPartOf"@en ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "PP(x, y) ≡ P(x, y) ∧ ¬x=y" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The inverse relation for hasProperPart." .
+
+
+###  https://w3id.org/emmo#EMMO_5dc167a2_d50e_47a5_be4f_5139f3bff2ec
+:EMMO_5dc167a2_d50e_47a5_be4f_5139f3bff2ec rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_6735d3ff_67f8_43b5_b5b0_240fbfab4517 ;
+                                           owl:inverseOf :EMMO_b85e4738_500c_4e1b_bbe8_9e84190485d6 ;
+                                           skos:altLabel "hasIndirectCause"@en ;
+                                           skos:prefLabel "indirectlyCausedBy"@en .
+
+
+###  https://w3id.org/emmo#EMMO_60c57607_c9e7_4e75_a3d1_7a1f1f9928e4
+:EMMO_60c57607_c9e7_4e75_a3d1_7a1f1f9928e4 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_11501e0a_4442_4bd0_8483_7ea6dc8ba444 ,
+                                                              :EMMO_2a28c0dd_89b1_47ac_b81f_fccc56f39617 ;
+                                           rdf:type owl:IrreflexiveProperty ;
+                                           skos:altLabel "isNextOf"@en ,
+                                                         "succeeds"@en ;
+                                           skos:prefLabel "follows"@en .
+
+
+###  https://w3id.org/emmo#EMMO_6735d3ff_67f8_43b5_b5b0_240fbfab4517
+:EMMO_6735d3ff_67f8_43b5_b5b0_240fbfab4517 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_ad0e72fc_dcaa_490d_8371_b4d814dcda2c ;
+                                           owl:inverseOf :EMMO_d67ee67e_4fac_4676_82c9_aec361dba698 ;
+                                           skos:prefLabel "isCausedBy"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_6786b336_e982_4759_8dee_1905a4106591
@@ -501,13 +565,16 @@ A temporal part is not constraint to be causally self-connected, i.e. it can be 
 
 ###  https://w3id.org/emmo#EMMO_8785be5a_2493_4b12_8f39_31907ab11748
 :EMMO_8785be5a_2493_4b12_8f39_31907ab11748 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_54d0d0f4_d9fa_4179_a9b5_4110c49dafff ,
+                                           rdfs:subPropertyOf :EMMO_11501e0a_4442_4bd0_8483_7ea6dc8ba444 ,
+                                                              :EMMO_54d0d0f4_d9fa_4179_a9b5_4110c49dafff ,
                                                               :EMMO_555d0261_da5e_4301_b7f9_46f604a32e91 ;
                                            rdf:type owl:SymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
                                            rdfs:domain :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d ;
                                            rdfs:range :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d ;
-                                           skos:altLabel "hasSpatialnteractionWith"@en ;
+                                           skos:altLabel "adjacentWith"@en ,
+                                                         "hasSpatialnteractionWith"@en ,
+                                                         "touches"@en ;
                                            skos:example "An elementary electron is in contact with another elementary electron in a scattering process."@en ,
                                                         "The laptop is in contact with the desk, since there is a double-directional causality."@en ;
                                            skos:prefLabel "contacts"@en ;
@@ -636,7 +703,8 @@ Embracing a strong reductionistic view, causality originates at quantum entities
 :EMMO_b85e4738_500c_4e1b_bbe8_9e84190485d6 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_d67ee67e_4fac_4676_82c9_aec361dba698 ;
                                            rdf:type owl:IrreflexiveProperty ;
-                                           skos:prefLabel "isIndirectCauseOf"@en ;
+                                           skos:altLabel "isIndirectCauseOf"@en ;
+                                           skos:prefLabel "indirectlyCauses"@en ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "An indirect cause is a relation between two entities that is mediated by a intermediate entity. In other words, there are no quantum parts of the causing entity that are direct cause of quantum parts of the caused entity."@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causal relation between the effected and the causing entities with intermediaries."@en .
 
@@ -644,14 +712,17 @@ Embracing a strong reductionistic view, causality originates at quantum entities
 ###  https://w3id.org/emmo#EMMO_d01b3ee2_91a5_4ce2_95cd_f0d2c333c6d3
 :EMMO_d01b3ee2_91a5_4ce2_95cd_f0d2c333c6d3 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_54d0d0f4_d9fa_4179_a9b5_4110c49dafff ,
+                                                              :EMMO_5dc167a2_d50e_47a5_be4f_5139f3bff2ec ,
                                                               :EMMO_b85e4738_500c_4e1b_bbe8_9e84190485d6 ;
                                            rdf:type owl:SymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
                                            rdfs:domain :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d ;
                                            rdfs:range :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d ;
-                                           skos:altLabel "alongsideOf" ;
+                                           skos:altLabel "coexistsWith"@en ,
+                                                         "concurrentWith"@en ,
+                                                         "interactsWith"@en ;
                                            skos:example "I'm interacting with another tennis player through a ball. Or, two people in a webconference are interacting using a mediator which is the network signal."@en ;
-                                           skos:prefLabel "interactsWith"@en ;
+                                           skos:prefLabel "alongsideWith"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between two causally reachable entities through a path of contacts relations (i.e. representing physical interactions)."@en .
 
 
@@ -730,7 +801,8 @@ For this reason the EMMO OWL 2 DL will only deal with macro causality relations,
                                            rdfs:subPropertyOf :EMMO_d67ee67e_4fac_4676_82c9_aec361dba698 ;
                                            rdf:type owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
-                                           skos:prefLabel "isTemporallyBefore"@en ;
+                                           skos:altLabel "isTemporallyBefore"@en ;
+                                           skos:prefLabel "isBefore"@en ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A relation jointly covered by hasNext and hasSuccessor relations, which are mutually exclusive."@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation between entities that are only one-directionally causally connected."@en .
 
@@ -1131,6 +1203,33 @@ This axiom may be seen as Ockam's razor applied to causality."""@en
 
 <urn:swrl:var#z> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
+[ rdfs:comment "Implementing Transitivity."@en ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_d01b3ee2_91a5_4ce2_95cd_f0d2c333c6d3 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_d01b3ee2_91a5_4ce2_95cd_f0d2c333c6d3 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_d01b3ee2_91a5_4ce2_95cd_f0d2c333c6d3 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
 [ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Enforcing exclusivity between overlapping and causality."@en ;
    rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
@@ -1261,7 +1360,7 @@ This axiom may be seen as Ockam's razor applied to causality."""@en
                                          ]
  ] .
 
-[ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Enforcing a strict one-way causality direction."@en ;
+[ rdfs:comment "Implementig transitivity."@en ;
    rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
@@ -1269,33 +1368,20 @@ This axiom may be seen as Ockam's razor applied to causality."""@en
                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
                                                      ] ;
-                                           rdf:rest rdf:nil
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_3733bd38_ca2b_4264_a92a_3075a1715598 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
                                          ] ;
    <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_01e5766d_dac3_4574_8a78_310de92a5c9d ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#x>
-                                                     ] ;
-                                           rdf:rest rdf:nil
-                                         ]
- ] .
-
-[ rdfs:comment "Ensure that the hasNext relation expresses a strictly one-way causality arrow between two entities."^^rdfs:Literal ;
-   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
-   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_499e24a5_5072_4c83_8625_fe3f96ae4a8d ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_3733bd38_ca2b_4264_a92a_3075a1715598 ;
                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
-                                                     ] ;
-                                           rdf:rest rdf:nil
-                                         ] ;
-   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_01e5766d_dac3_4574_8a78_310de92a5c9d ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#x>
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
                                                      ] ;
                                            rdf:rest rdf:nil
                                          ]
@@ -1340,6 +1426,33 @@ This axiom may be seen as Ockam's razor applied to causality."""@en
    <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdfs:comment "Implementing transitivity."@en ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_b85e4738_500c_4e1b_bbe8_9e84190485d6 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_b85e4738_500c_4e1b_bbe8_9e84190485d6 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_b85e4738_500c_4e1b_bbe8_9e84190485d6 ;
                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
                                                      ] ;
