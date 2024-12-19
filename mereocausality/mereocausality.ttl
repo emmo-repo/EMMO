@@ -267,6 +267,7 @@ foaf:workplaceHomepage rdf:type owl:AnnotationProperty .
 :EMMO_11501e0a_4442_4bd0_8483_7ea6dc8ba444 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_6735d3ff_67f8_43b5_b5b0_240fbfab4517 ;
                                            owl:inverseOf :EMMO_555d0261_da5e_4301_b7f9_46f604a32e91 ;
+                                           rdfs:seeAlso :EMMO_555d0261_da5e_4301_b7f9_46f604a32e91 ;
                                            skos:altLabel "hasDirectCause" ;
                                            skos:prefLabel "directlyCausedBye"@en .
 
@@ -341,11 +342,14 @@ foaf:workplaceHomepage rdf:type owl:AnnotationProperty .
                                            rdf:type owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
                                            owl:propertyDisjointWith :EMMO_d01b3ee2_91a5_4ce2_95cd_f0d2c333c6d3 ;
+                                           rdfs:seeAlso :EMMO_451e410e_8e0d_4a4b_9211_d6ef619296dc ;
                                            skos:altLabel "hasSuccessor"@en ,
-                                                         "isAntecedentOf"@en ;
+                                                         "isAntecedentOf"@en ,
+                                                         "predecessorOf"@en ;
                                            skos:example "My life between 18-24 years has successor my life between 32-40 years, since there is an intermediary (i.e. my life between 25-32 years)."@en ;
-                                           skos:prefLabel "predecessorOf"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causal relation between the y effected and the x causing entities with intermediaries, where x isCauseOf y and not(y isCauseOf x)."@en .
+                                           skos:prefLabel "foreruns"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causal relation between the y effected and the x causing entities with intermediaries, where x isCauseOf y and not(y isCauseOf x)."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Transitivity is implemented at A-Box level with a SWRL rule."@en .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_3733bd38_ca2b_4264_a92a_3075a1715598 ;
@@ -405,11 +409,12 @@ https://en.wiktionary.org/wiki/mereology"""@en
                                            rdf:type owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
                                            owl:propertyDisjointWith :EMMO_8785be5a_2493_4b12_8f39_31907ab11748 ;
-                                           skos:altLabel "hasNext"@en ,
+                                           skos:altLabel "foregoes"@en ,
+                                                         "hasNext"@en ,
                                                          "isBefore"@en ;
                                            skos:example "My life between 18-24 years has next my life between 24-32 years."@en ,
                                                         "The raw sample has next the treated sampled, which has next the examined sample. In this sense the whole sample is made of three states, connected by the has next relation, following its evolution in time."@en ;
-                                           skos:prefLabel "foregoes"@en ;
+                                           skos:prefLabel "precedes"@en ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """A temporal relation between two entities occurs when the two entities are in a one directional causality relation. The idea is that a temporal relation always implies a one-directional causality between two entities, leading to a asymmetric relation.
 This means that the causing entity can be in direct and optionally indirect causality relation with the effect entity. On the contrary, the effect entity cannot be in any causal relation (direct or indirect) with the causing entity."""@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A time contact occurs when x isDirectCause y and not(y isCauseOf x)."@en ;
@@ -485,6 +490,7 @@ The direct causality in a 4D ontology covers both time-like causal interaction (
                                                               :EMMO_2a28c0dd_89b1_47ac_b81f_fccc56f39617 ;
                                            rdf:type owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
+                                           rdfs:seeAlso :EMMO_499e24a5_5072_4c83_8625_fe3f96ae4a8d ;
                                            skos:altLabel "isNextOf"@en ,
                                                          "succeeds"@en ;
                                            skos:prefLabel "follows"@en .
@@ -495,6 +501,7 @@ The direct causality in a 4D ontology covers both time-like causal interaction (
                                            rdfs:subPropertyOf :EMMO_ad0e72fc_dcaa_490d_8371_b4d814dcda2c ;
                                            owl:inverseOf :EMMO_d67ee67e_4fac_4676_82c9_aec361dba698 ;
                                            rdf:type owl:IrreflexiveProperty ;
+                                           rdfs:seeAlso :EMMO_d67ee67e_4fac_4676_82c9_aec361dba698 ;
                                            skos:prefLabel "isCausedBy"@en .
 
 
@@ -709,7 +716,8 @@ Embracing a strong reductionistic view, causality originates at quantum entities
 :EMMO_b85e4738_500c_4e1b_bbe8_9e84190485d6 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_d67ee67e_4fac_4676_82c9_aec361dba698 ;
                                            rdf:type owl:IrreflexiveProperty ;
-                                           skos:altLabel "isIndirectCauseOf"@en ;
+                                           skos:altLabel "influences"@en ,
+                                                         "isIndirectCauseOf"@en ;
                                            skos:prefLabel "indirectlyCauses"@en ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "An indirect cause is a relation between two entities that is mediated by a intermediate entity. In other words, there are no quantum parts of the causing entity that are direct cause of quantum parts of the caused entity."@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causal relation between the effected and the causing entities with intermediaries."@en .
@@ -736,6 +744,7 @@ Embracing a strong reductionistic view, causality originates at quantum entities
 :EMMO_d67ee67e_4fac_4676_82c9_aec361dba698 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_ad0e72fc_dcaa_490d_8371_b4d814dcda2c ;
                                            rdf:type owl:IrreflexiveProperty ;
+                                           skos:altLabel "causes"@en ;
                                            skos:example "John yesterday is the cause of John today, is an example of temporal-like causality. The desk supporting my laptop is a space-like causality." ;
                                            skos:prefLabel "isCauseOf"@en ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """We say that an entity causes another if there is a quantum part of the first that is in causal relation with a quantum parts of the second.
