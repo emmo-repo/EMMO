@@ -152,6 +152,7 @@ Please create an issue if you have a public domain ontology that you think shoul
 | Domain Ontology for Additive Manufacturing (DOAM)         | [https://github.com/emmo-repo/doam](https://github.com/emmo-repo/doam)                                                                    |
 | Mechanical Testing                                        | [https://github.com/emmo-repo/domain-mechanical-testing](https://github.com/emmo-repo/domain-mechanical-testing)                          |
 | Microstructure domain ontology                            | [https://github.com/emmo-repo/domain-ontology](https://github.com/emmo-repo/domain-ontology)                                              |
+| Magnetic Materials Ontology (MaMMoS)                      | [https://github.com/MaMMoS-project/MagneticMaterialsOntology/](https://github.com/MaMMoS-project/MagneticMaterialsOntology/)              |
 | Datamodel ontology                                        | [https://github.com/emmo-repo/datamodel-ontology](https://github.com/emmo-repo/datamodel-ontology)                                        |
 | Mappings ontology                                         | [https://github.com/emmo-repo/domain-mappings](https://github.com/emmo-repo/domain-mappings)                                              |
 | Open Translation Environment Interface Ontologies (OTEIO) | [https://github.com/emmo-repo/oteio](https://github.com/emmo-repo/oteio)                                                                  |
