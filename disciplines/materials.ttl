@@ -9,19 +9,19 @@
 @base <https://w3id.org/emmo#> .
 
 <https://w3id.org/emmo/disciplines/materials> rdf:type owl:Ontology ;
-                                               owl:versionIRI <https://w3id.org/emmo/1.0.0-rc1/disciplines/materials> ;
-                                               owl:imports <https://w3id.org/emmo/1.0.0-rc1/perspectives/physicalistic> ;
+                                               owl:versionIRI <https://w3id.org/emmo/1.0.0-rc3/disciplines/materials> ;
+                                               owl:imports <https://w3id.org/emmo/1.0.0-rc3/reference/physicalistic> ;
                                                dcterms:abstract "The materials module populates the physicalistic perspective with materials subclasses categorised according to modern applied physical sciences."@en ;
-                                               dcterms:creator <https://orcid.org/0000-0002-1560-809X> ,
-                                                               <https://orcid.org/0000-0002-4181-2852> ,
-                                                               <https://orcid.org/0000-0003-0514-9229> ,
-                                                               <https://orcid.org/0000-0003-3805-8761> ,
-                                                               <https://orcid.org/0000-0003-4065-9742> ;
+                                               dcterms:creator <https://orcid.org/0000-0003-4065-9742> ,
+                                                               :AdhamHashibon ,
+                                                               :EmanueleGhedini ,
+                                                               :GerhardGoldbeck ,
+                                                               :JesperFriis ;
                                                dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                                dcterms:publisher <https://emmc.eu> ;
                                                dcterms:title "Materials"@en ;
                                                rdfs:comment "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                               owl:versionInfo "1.0.0-rc1" ;
+                                               owl:versionInfo "1.0.0-rc3" ;
                                                :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
 
 #################################################################
@@ -49,12 +49,14 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/emmo#EMMO_0afc19b0_2d43_4b3d_8da0_9ffb63bc1492
 :EMMO_0afc19b0_2d43_4b3d_8da0_9ffb63bc1492 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_f00fb163_48c9_4c59_b6c2_4205c082aa54 ;
                                            skos:altLabel "NonCrystallineMaterial"@en ;
                                            skos:prefLabel "AmorphousMaterial"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_0b15f4ae_092e_4487_9100_3c44176c545c
 :EMMO_0b15f4ae_092e_4487_9100_3c44176c545c rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_ec2c8ac8_98c5_4c74_b85b_ff8e8ca6655c ;
                                            owl:disjointUnionOf ( :EMMO_2031516a_2be7_48e8_9af7_7e1270e308fe
                                                                  :EMMO_4a464c8d_8895_44a8_a628_aed13509f1bd
                                                                  :EMMO_6c487fb3_03d1_4e56_91ed_c2e16dcbef60
@@ -103,7 +105,7 @@ H=∑ni=1hia∗i  (n≥3)""" ;
                                                            ] ;
                                            skos:prefLabel "PhaseHeterogeneousMixture"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A mixture in which more than one phases of matter cohexists."@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """Phase heterogenous mixture may share the same state of matter.
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """Phase heterogeneous mixture may share the same state of matter.
 
 For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture whose phases are clearly separated but share the same state of matter."""@en .
 
@@ -147,8 +149,10 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
                                                                                :EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1
                                                                              )
                                                                ] ;
+                                           rdfs:subClassOf :EMMO_b9695e87_8261_412e_83cd_a86459426a28 ;
                                            skos:prefLabel "CondensedMatter"@en ;
-                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "The subject of condensed matter physics that deals with the macroscopic and microscopic physical properties of matter, especially the solid and liquid phases which arise from electromagnetic forces between atoms. More generally, the subject deals with \"condensed\" phases of matter: systems of many constituents with strong interactions between them."@en .
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 "The subject of condensed matter physics that deals with the macroscopic and microscopic physical properties of matter, especially the solid and liquid phases which arise from electromagnetic forces between atoms. More generally, the subject deals with \"condensed\" phases of matter: systems of many constituents with strong interactions between them."@en ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "Equivalent To: Liquid or Solid" .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_220b7201_d277_4dca_bf6a_5a5e2c4062dd ;
@@ -193,20 +197,10 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
 
 ###  https://w3id.org/emmo#EMMO_39348191_08fd_4bb6_9b1e_012d5b2f1ff6
 :EMMO_39348191_08fd_4bb6_9b1e_012d5b2f1ff6 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_0afc19b0_2d43_4b3d_8da0_9ffb63bc1492
-                                                                               :EMMO_f1025834_0cd2_42a1_bfeb_13bec41c8655
-                                                                             )
-                                                               ] ,
-                                                               [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_4c1f58cd_6e2c_48fb_8098_1cbb762abb05
-                                                                               :EMMO_c5e9e390_8836_4440_b4fd_c906fdd4f438
-                                                                               :EMMO_f678173d_f036_4df1_a86b_2894560be617
-                                                                               :EMMO_fb27e6d6_159e_48a6_9c29_76dc31d8a860
-                                                                             )
-                                                               ] ;
                                            rdfs:subClassOf :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ;
-                                           skos:prefLabel "ClassicallyDefinedMaterial"@en .
+                                           skos:prefLabel "ClassicallyDefinedMaterial"@en ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "Equivalent To: AmorphousMaterial or CrystallineMaterial" ,
+                                                                                      "Equivalent To: MetallicMaterial or CeramicMaterial or CompositeMaterial or PolymericMaterial" .
 
 
 ###  https://w3id.org/emmo#EMMO_3995e22d_5720_4dcf_ba3b_d0ce03f514c6
@@ -299,6 +293,7 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
 
 ###  https://w3id.org/emmo#EMMO_4c1f58cd_6e2c_48fb_8098_1cbb762abb05
 :EMMO_4c1f58cd_6e2c_48fb_8098_1cbb762abb05 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_4db521a3_f80f_436b_b9c7_e4b52b1383ea ;
                                            skos:prefLabel "MetallicMaterial"@en .
 
 
@@ -314,6 +309,12 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
                                            rdfs:subClassOf :EMMO_94010cbc_c2a6_4cb9_b29a_83aa99d2ff70 ;
                                            skos:prefLabel "Vapor"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A liquid aerosol composed of water droplets in air or another gas."@en .
+
+
+###  https://w3id.org/emmo#EMMO_4db521a3_f80f_436b_b9c7_e4b52b1383ea
+:EMMO_4db521a3_f80f_436b_b9c7_e4b52b1383ea rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_39348191_08fd_4bb6_9b1e_012d5b2f1ff6 ;
+                                           skos:prefLabel "MaterialByType"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_560d833a_6184_410c_859a_05d982712fd7
@@ -375,6 +376,8 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
 
 ###  https://w3id.org/emmo#EMMO_660a4964_0333_4663_bc66_e93ef59b0679
 :EMMO_660a4964_0333_4663_bc66_e93ef59b0679 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352 ;
+                                           owl:disjointWith :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ;
                                            skos:prefLabel "MesoscopicSubstance"@en .
 
 
@@ -415,7 +418,8 @@ The term phase is sometimes used as a synonym for state of matter, but there can
 
 ###  https://w3id.org/emmo#EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba
 :EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8 ;
+                                           rdfs:subClassOf :EMMO_220b7201_d277_4dca_bf6a_5a5e2c4062dd ,
+                                                           :EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8 ;
                                            skos:prefLabel "Liquid"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A liquid is a nearly incompressible fluid that conforms to the shape of its container but retains a (nearly) constant volume independent of pressure."@en .
 
@@ -443,15 +447,16 @@ The term phase is sometimes used as a synonym for state of matter, but there can
                                            rdfs:comment """A real bond between atoms is always something hybrid between covalent, metallic and ionic.
 
 In general, metallic and ionic bonds have atoms sharing electrons."""@en ,
-                                                        "The bond types that are covered by this definition are the strong electonic bonds: covalent, metallic and ionic."@en ,
+                                                        "The bond types that are covered by this definition are the strong electronic bonds: covalent, metallic and ionic."@en ,
                                                         "This class can be used to represent molecules as simplified quantum systems, in which outer molecule shared electrons are un-entangled with the inner shells of the atoms composing the molecule."@en ;
                                            skos:prefLabel "BondedAtom"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An bonded atom that shares at least one electron to the atom-based entity of which is part of."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A bonded atom that shares at least one electron to the atom-based entity of which is part of."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8
 :EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ;
+                                           rdfs:subClassOf :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ,
+                                                           :EMMO_b9695e87_8261_412e_83cd_a86459426a28 ;
                                            owl:disjointUnionOf ( :EMMO_04f2a2d5_e799_4692_a654_420e76f5acc1
                                                                  :EMMO_4c21fb86_fdcf_444e_b498_86fe656295af
                                                                  :EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba
@@ -469,6 +474,7 @@ In general, metallic and ionic bonds have atoms sharing electrons."""@en ,
 
 ###  https://w3id.org/emmo#EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2
 :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352 ;
                                            skos:prefLabel "ContinuumSubstance"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A state that is a collection of sufficiently large number of other parts such that:
 - it is the bearer of qualities that can exists only by the fact that it is a sum of parts
@@ -505,7 +511,8 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
 
 ###  https://w3id.org/emmo#EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1
 :EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ;
+                                           rdfs:subClassOf :EMMO_220b7201_d277_4dca_bf6a_5a5e2c4062dd ,
+                                                           :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ;
                                            skos:prefLabel "Solid"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A continuum characterized by structural rigidity and resistance to changes of shape or volume, that retains its shape and density when not confined."@en .
 
@@ -518,21 +525,16 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
 
 ###  https://w3id.org/emmo#EMMO_b9695e87_8261_412e_83cd_a86459426a28
 :EMMO_b9695e87_8261_412e_83cd_a86459426a28 rdf:type owl:Class ;
-                                           owl:disjointUnionOf ( :EMMO_04f2a2d5_e799_4692_a654_420e76f5acc1
-                                                                 :EMMO_4c21fb86_fdcf_444e_b498_86fe656295af
-                                                                 :EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba
-                                                                 :EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1
-                                                               ) ;
+                                           rdfs:subClassOf :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ;
                                            skos:prefLabel "StateOfMatter"@en ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "Disjoint Union Of: Gas, Plasma, Liquid, Solid" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A superclass made as the disjoint union of all the form under which matter can exist."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "In physics, a state of matter is one of the distinct forms in which matter can exist. Four states of matter are observable in everyday life: solid, liquid, gas, and plasma."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/State_of_matter"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352
-:EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352 owl:disjointUnionOf ( :EMMO_660a4964_0333_4663_bc66_e93ef59b0679
-                                                                 :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2
-                                                               ) .
+:EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352 :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "Disjoint Union Of: MesoscopicSubstance, ContinuumSubstance" .
 
 
 ###  https://w3id.org/emmo#EMMO_c457b6b9_5e73_4853_ae08_d776c12b8058
@@ -544,6 +546,7 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
 
 ###  https://w3id.org/emmo#EMMO_c5e9e390_8836_4440_b4fd_c906fdd4f438
 :EMMO_c5e9e390_8836_4440_b4fd_c906fdd4f438 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_4db521a3_f80f_436b_b9c7_e4b52b1383ea ;
                                            skos:prefLabel "CeramicMaterial"@en .
 
 
@@ -606,15 +609,23 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A Miixture is a material made up of two or more different substances which are physically (not chemically) combined."@en .
 
 
+###  https://w3id.org/emmo#EMMO_f00fb163_48c9_4c59_b6c2_4205c082aa54
+:EMMO_f00fb163_48c9_4c59_b6c2_4205c082aa54 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_39348191_08fd_4bb6_9b1e_012d5b2f1ff6 ;
+                                           skos:prefLabel "MaterialByStructure"@en .
+
+
 ###  https://w3id.org/emmo#EMMO_f1025834_0cd2_42a1_bfeb_13bec41c8655
 :EMMO_f1025834_0cd2_42a1_bfeb_13bec41c8655 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_f00fb163_48c9_4c59_b6c2_4205c082aa54 ;
                                            rdfs:comment "Suggestion of Rickard Armiento" ;
                                            skos:prefLabel "CrystallineMaterial"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_f678173d_f036_4df1_a86b_2894560be617
 :EMMO_f678173d_f036_4df1_a86b_2894560be617 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_4db521a3_f80f_436b_b9c7_e4b52b1383ea ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
                                                              owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
                                                              owl:onClass :EMMO_4207e895_8b83_4318_996a_72cfb32acd94
@@ -626,11 +637,15 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
 
 ###  https://w3id.org/emmo#EMMO_fb27e6d6_159e_48a6_9c29_76dc31d8a860
 :EMMO_fb27e6d6_159e_48a6_9c29_76dc31d8a860 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_4db521a3_f80f_436b_b9c7_e4b52b1383ea ;
                                            skos:prefLabel "PolymericMaterial"@en .
 
 
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
 ] .
+
+[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
+ ] .
 
 [ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
@@ -644,10 +659,23 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
 [ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
-###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+   owl:members ( :EMMO_04f2a2d5_e799_4692_a654_420e76f5acc1
+                 :EMMO_4c21fb86_fdcf_444e_b498_86fe656295af
+                 :EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba
+                 :EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1
+               )
+ ] .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

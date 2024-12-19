@@ -9,10 +9,10 @@
 @base <https://w3id.org/emmo#> .
 
 <https://w3id.org/emmo/disciplines/isq> rdf:type owl:Ontology ;
-                                         owl:versionIRI <https://w3id.org/emmo/1.0.0-rc1/disciplines/isq> ;
-                                         owl:imports <https://w3id.org/emmo/1.0.0-rc1/disciplines/materials> ,
-                                                     <https://w3id.org/emmo/1.0.0-rc1/disciplines/units/sidimensionalunits> ,
-                                                     <https://w3id.org/emmo/1.0.0-rc1/multiperspective/symbolic> ;
+                                         owl:versionIRI <https://w3id.org/emmo/1.0.0-rc3/disciplines/isq> ;
+                                         owl:imports <https://w3id.org/emmo/1.0.0-rc3/disciplines/materials> ,
+                                                     <https://w3id.org/emmo/1.0.0-rc3/disciplines/units/sidimensionalunits> ,
+                                                     <https://w3id.org/emmo/1.0.0-rc3/reference/symbolic> ;
                                          dcterms:abstract """Defines physical quantities in the International System of Quantities (ISQ). ISQ was made an official ISO standard in 2009 and is defined in the ISO/IEC 80000 standard.
 
 ISQ underlines the SI system and defines physical quanties that are measured with SI units.
@@ -20,16 +20,16 @@ ISQ underlines the SI system and defines physical quanties that are measured wit
 ISQ has 7 base quantities and many derived quantities defined in terms of the 7 base quantities.
 
 The number of derived quantities not closed and may increase based on the need by domain ontologies."""@en ;
-                                         dcterms:contributor <https://orcid.org/0000-0001-8869-3718> ;
-                                         dcterms:creator <https://orcid.org/0000-0002-1560-809X> ,
-                                                         <https://orcid.org/0000-0002-4181-2852> ,
-                                                         <https://orcid.org/0000-0002-8758-6109> ,
-                                                         <https://orcid.org/0000-0003-3805-8761> ;
+                                         dcterms:contributor :FrancescaBleken ;
+                                         dcterms:creator :EmanueleGhedini ,
+                                                         :GerhardGoldbeck ,
+                                                         :JesperFriis ,
+                                                         :SimonClark ;
                                          dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                          dcterms:publisher <https://emmc.eu> ;
                                          dcterms:title "International System of Quantities (ISQ)"@en ;
                                          rdfs:comment "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                         owl:versionInfo "1.0.0-rc1" ;
+                                         owl:versionInfo "1.0.0-rc3" ;
                                          :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
 
 #################################################################
@@ -1498,8 +1498,8 @@ Entropy"""@en ;
 :EMMO_340ec9c3_7b0a_4169_a739_6f9242517ff4 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_2ae37adf_07f2_4920_8ec6_084c69761e34 ,
                                                            :EMMO_a06e3d38_1aa8_4f45_89a8_722dbacfda24 ;
-                                           skos:altLabel "StandardAbsoluteActivityInAMixture"@en ;
-                                           skos:prefLabel "StandardAbsoluteActivity"@en ;
+                                           skos:altLabel "StandardAbsoluteActivity"@en ;
+                                           skos:prefLabel "StandardAbsoluteActivityOfMixture"@en ;
                                            :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "https://qudt.org/vocab/quantitykind/StandardAbsoluteActivity" ;
                                            :EMMO_26bf1bef_d192_4da6_b0eb_d2209698fb54 "https://www.wikidata.org/wiki/Q89406159" ;
                                            :EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "9-23" ;
@@ -2013,13 +2013,27 @@ pH = −10 log(a_OH-)"""@en .
 
 ###  https://w3id.org/emmo#EMMO_4312cae4_03ba_457e_b35d_0671a7db350c
 :EMMO_4312cae4_03ba_457e_b35d_0671a7db350c rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_a242d3e9_c6d3_411e_a667_71ffbc248a1a ;
+                                           rdfs:subClassOf :EMMO_06658d8d_dcde_4fc9_aae1_17f71c0bcdec ,
+                                                           :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ,
+                                                           :EMMO_a242d3e9_c6d3_411e_a667_71ffbc248a1a ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                             owl:someValuesFrom :EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc
+                                                           ] ;
+                                           skos:altLabel "Position"@en ;
                                            skos:prefLabel "PositionVector"@en ;
+                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/PositionVector"^^xsd:anyURI ;
                                            :EMMO_26bf1bef_d192_4da6_b0eb_d2209698fb54 "https://www.wikidata.org/wiki/Q192388" ;
                                            :EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f "https://www.electropedia.org/iev/iev.nsf/display?openform&ievref=102-03-15" ;
                                            :EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "https://dbpedia.org/page/Position_(geometry)" ;
                                            :EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "3-1.10" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Vector quantity from the origin of a coordinate system to a point in space."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """In the usual geometrical three-dimensional space, position vectors are quantities of the dimension length.
+
+-- IEC"""@en ,
+                                                                                      """Position vectors are so-called bounded vectors, i.e. their magnitude and direction depend on the particular coordinate system used.
+
+-- ISO 80000-3"""@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Position_(geometry)" .
 
 
@@ -2091,26 +2105,6 @@ pH = −10 log(a_OH-)"""@en .
                                            :EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f "https://www.electropedia.org/iev/iev.nsf/display?openform&ievref=395-07-02" ;
                                            :EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "10-70" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Average value of the increment of the lethargy per collision."@en .
-
-
-###  https://w3id.org/emmo#EMMO_44da6d75_54a4_4aa8_bd3a_156f6e9abb8e
-:EMMO_44da6d75_54a4_4aa8_bd3a_156f6e9abb8e rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_06658d8d_dcde_4fc9_aae1_17f71c0bcdec ,
-                                                           :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc
-                                                           ] ;
-                                           rdfs:comment """In the usual geometrical three-dimensional space, position vectors are quantities of the dimension length.
-
--- IEC"""@en ,
-                                                        """Position vectors are so-called bounded vectors, i.e. their magnitude and direction depend on the particular coordinate system used.
-
--- ISO 80000-3"""@en ;
-                                           skos:altLabel "Position"@en ;
-                                           skos:prefLabel "PositionVector"@en ;
-                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/PositionVector" ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Vector r characterizing a point P in a point space with a given origin point O."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_44ddbe46_0112_4185_b595_132866e902da
@@ -2353,7 +2347,11 @@ pH = −10 log(a_OH-)"""@en .
 
 ###  https://w3id.org/emmo#EMMO_506f7823_52bc_40cb_be07_b3b1e10cce13
 :EMMO_506f7823_52bc_40cb_be07_b3b1e10cce13 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_f2ca6dd0_0e5f_4392_a92d_cafdae6cfc95 ;
+                                           rdfs:subClassOf :EMMO_f2ca6dd0_0e5f_4392_a92d_cafdae6cfc95 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                             owl:someValuesFrom :EMMO_044f83a6_ade4_4441_9c73_5490dd93344f
+                                                           ] ;
                                            rdfs:comment "Defines the Candela base unit in the SI system."@en ;
                                            skos:prefLabel "LuminousEfficacyOf540THzRadiation"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The luminous efficacy of monochromatic radiation of frequency 540 × 10 12 Hz, K cd , is a technical constant that gives an exact numerical relationship between the purely physical characteristics of the radiant power stimulating the human eye (W) and its photobiological response defined by the luminous flux due to the spectral responsivity of a standard observer (lm) at a frequency of 540 × 10 12 hertz."@en .
@@ -2433,7 +2431,7 @@ where m_0 is the rest mass of that particle and c_0 is the speed of light in a v
 
 ###  https://w3id.org/emmo#EMMO_5186b2e6_f34f_46ee_b08e_ec517a1f43d2
 :EMMO_5186b2e6_f34f_46ee_b08e_ec517a1f43d2 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_44da6d75_54a4_4aa8_bd3a_156f6e9abb8e ,
+                                           rdfs:subClassOf :EMMO_4312cae4_03ba_457e_b35d_0671a7db350c ,
                                                            :EMMO_c29603f5_95e8_42f5_ab0c_f3bcf3166d53 ;
                                            skos:prefLabel "ParticlePositionVector"@en ;
                                            :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "https://qudt.org/vocab/quantitykind/ParticlePositionVector" ;
@@ -4578,7 +4576,7 @@ where g is the appropriate g factor, μ is mostly the Bohr magneton or nuclear m
 
 ###  https://w3id.org/emmo#EMMO_9d8f708a_f291_4d72_80ec_362c6e6bbca6
 :EMMO_9d8f708a_f291_4d72_80ec_362c6e6bbca6 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_44da6d75_54a4_4aa8_bd3a_156f6e9abb8e ;
+                                           rdfs:subClassOf :EMMO_4312cae4_03ba_457e_b35d_0671a7db350c ;
                                            rdfs:comment "In non-relativistic physics, the centre of mass doesn’t depend on the chosen reference frame."@en ;
                                            skos:prefLabel "CentreOfMass"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The unique point where the weighted relative position of the distributed mass of an Item sums to zero. Equivalently, it is the point where if a force is applied to the Item, causes the Item to move in direction of force without rotation."@en ;
@@ -4822,7 +4820,7 @@ where g is the appropriate g factor, μ is mostly the Bohr magneton or nuclear m
 ###  https://w3id.org/emmo#EMMO_a3c78d6f_ae49_47c8_a634_9b6d86b79382
 :EMMO_a3c78d6f_ae49_47c8_a634_9b6d86b79382 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_3f15d200_c97b_42c8_8ac0_d81d150361e2 ,
-                                                           :EMMO_d859588d_44dc_4614_bc75_5fcd0058acc8 ;
+                                                           :EMMO_e0aaed83_9224_4bd8_a960_a813c4569412 ;
                                            skos:prefLabel "RybergConstant"@en ;
                                            :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/constant/RydbergConstant" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The Rydberg constant represents the limiting value of the highest wavenumber (the inverse wavelength) of any photon that can be emitted from the hydrogen atom, or, alternatively, the wavenumber of the lowest-energy photon capable of ionizing the hydrogen atom from its ground state."@en ;
@@ -5022,7 +5020,11 @@ where r is mass ratio of water vapour to dry gas and rsat is the mass ratio of w
 
 ###  https://w3id.org/emmo#EMMO_ad6c76cf_b400_423e_820f_cf0c4e77f455
 :EMMO_ad6c76cf_b400_423e_820f_cf0c4e77f455 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_f2ca6dd0_0e5f_4392_a92d_cafdae6cfc95 ;
+                                           rdfs:subClassOf :EMMO_f2ca6dd0_0e5f_4392_a92d_cafdae6cfc95 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                             owl:someValuesFrom :EMMO_3cb55500_dc5b_4586_bbf3_1d4158afac35
+                                                           ] ;
                                            owl:disjointWith :EMMO_f1be7d92_c57d_4698_a0ba_968130a3f9e1 ;
                                            skos:prefLabel "MolarGasConstant"@en ;
                                            :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/constant/MolarGasConstant" ;
@@ -5424,7 +5426,11 @@ where r is mass ratio of water vapour to dry gas and rsat is the mass ratio of w
 
 ###  https://w3id.org/emmo#EMMO_ba380bc6_2bfd_4f11_94c7_b3cbaafd1631
 :EMMO_ba380bc6_2bfd_4f11_94c7_b3cbaafd1631 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_f2ca6dd0_0e5f_4392_a92d_cafdae6cfc95 ;
+                                           rdfs:subClassOf :EMMO_f2ca6dd0_0e5f_4392_a92d_cafdae6cfc95 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                             owl:someValuesFrom :EMMO_53b10105_52c7_4746_ab73_a5a30bd198e2
+                                                           ] ;
                                            rdfs:comment "The DBpedia definition (http://dbpedia.org/page/Magnetic_flux_quantum) is outdated as May 20, 2019. It is now an exact quantity."@en ;
                                            skos:prefLabel "JosephsonConstant"@en ;
                                            :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/constant/JosephsonConstant" ;
@@ -6026,7 +6032,7 @@ the number of protons in the nucleus of an atom""" ;
 :EMMO_cff5ef70_96eb_4ea3_9bea_fe1fbe6177be rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_3b1b64d1_60c9_4689_a300_eb9cd56e368b ,
                                                            :EMMO_a66427d1_9932_4363_9ec5_7d91f2bfda1e ;
-                                           skos:prefLabel "QualityFactor"@en ;
+                                           skos:prefLabel "DoseEquivalentQualityFactor"@en ;
                                            :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "https://qudt.org/vocab/quantitykind/DoseEquivalentQualityFactor" ;
                                            :EMMO_26bf1bef_d192_4da6_b0eb_d2209698fb54 "https://www.wikidata.org/wiki/Q2122099" ;
                                            :EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f "https://www.electropedia.org/iev/iev.nsf/display?openform&ievref=881-14-03" ;
@@ -6102,8 +6108,8 @@ the number of protons in the nucleus of an atom""" ;
 :EMMO_d368744e_bb2e_4d40_a7ef_762505b6027e rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_2ae37adf_07f2_4920_8ec6_084c69761e34 ,
                                                            :EMMO_a06e3d38_1aa8_4f45_89a8_722dbacfda24 ;
-                                           skos:altLabel "StandardAbsoluteActivityInASolution"@en ;
-                                           skos:prefLabel "StandardAbsoluteActivity"@en ;
+                                           skos:altLabel "StandardAbsoluteActivity"@en ;
+                                           skos:prefLabel "StandardAbsoluteActivityOfSolution"@en ;
                                            :EMMO_26bf1bef_d192_4da6_b0eb_d2209698fb54 "https://www.wikidata.org/wiki/Q89485936" ;
                                            :EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "9-26" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Property of a solute in a solution."@en .
@@ -6252,7 +6258,7 @@ the number of protons in the nucleus of an atom""" ;
 :EMMO_d7d2ca25_03e1_4099_9220_c1a58df13ad0 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_3f15d200_c97b_42c8_8ac0_d81d150361e2 ,
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296 ;
+                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
                                                              owl:someValuesFrom :EMMO_5ebd5e01_0ed3_49a2_a30d_cd05cbe72978
                                                            ] ;
                                            rdfs:comment "A fundamental physical constant characterizing the strength of the electromagnetic interaction between elementary charged particles."@en ;
@@ -6287,16 +6293,6 @@ the number of protons in the nucleus of an atom""" ;
                                            :EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f "https://www.electropedia.org/iev/iev.nsf/display?openform&ievref=131-11-44" ;
                                            :EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "6-60" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Imaginary part of the complex power."@en .
-
-
-###  https://w3id.org/emmo#EMMO_d859588d_44dc_4614_bc75_5fcd0058acc8
-:EMMO_d859588d_44dc_4614_bc75_5fcd0058acc8 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_ecec2983_7c26_4f8d_a981_51ca29668baf ;
-                                           skos:prefLabel "Wavenumber"@en ;
-                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Wavenumber" ;
-                                           :EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "3-18" ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The number of waves per unit length along the direction of propagation."@en ;
-                                           :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.W06664" .
 
 
 ###  https://w3id.org/emmo#EMMO_d8612fa0_c0fb_485d_b45a_1845e7a46796
@@ -6343,7 +6339,11 @@ the number of protons in the nucleus of an atom""" ;
 
 ###  https://w3id.org/emmo#EMMO_da831168_975a_41f8_baae_279c298569da
 :EMMO_da831168_975a_41f8_baae_279c298569da rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_3f15d200_c97b_42c8_8ac0_d81d150361e2 ;
+                                           rdfs:subClassOf :EMMO_3f15d200_c97b_42c8_8ac0_d81d150361e2 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                             owl:someValuesFrom :EMMO_3181bb28_623b_4411_ad79_80277c661322
+                                                           ] ;
                                            skos:prefLabel "NewtonianConstantOfGravity"@en ;
                                            :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/constant/NewtonianConstantOfGravitation" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Physical constant in Newton's law of gravitation and in Einstein's general theory of relativity."@en ;
@@ -6526,8 +6526,9 @@ Rain rate"""@en ;
                                            :EMMO_26bf1bef_d192_4da6_b0eb_d2209698fb54 "https://www.wikidata.org/wiki/Q192510" ;
                                            :EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f "https://www.electropedia.org/iev/iev.nsf/display?openform&ievref=103-10-11" ;
                                            :EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "https://dbpedia.org/page/Wavenumber" ;
-                                           :EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "3-20" ;
+                                           :EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "3-18" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Reciprocal of the wavelength."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The number of waves per unit length along the direction of propagation."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Wavenumber" ;
                                            :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.W06664" .
 
@@ -6685,7 +6686,7 @@ Rain rate"""@en ;
 ###  https://w3id.org/emmo#EMMO_e4791212_5a13_4aa6_aac2_08704550dcc3
 :EMMO_e4791212_5a13_4aa6_aac2_08704550dcc3 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_c29603f5_95e8_42f5_ab0c_f3bcf3166d53 ,
-                                                           :EMMO_d859588d_44dc_4614_bc75_5fcd0058acc8 ;
+                                                           :EMMO_e0aaed83_9224_4bd8_a960_a813c4569412 ;
                                            skos:altLabel "AngularRepetency"@en ;
                                            skos:prefLabel "AngularWaveNumber"@en ;
                                            :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "https://qudt.org/vocab/quantitykind/AngularWavenumber" ;
@@ -7639,4 +7640,4 @@ It defines the Kelvin unit in the SI system."""@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Intensity_(physics)"@en .
 
 
-###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

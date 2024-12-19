@@ -9,114 +9,79 @@
 @base <https://w3id.org/emmo#> .
 
 <https://w3id.org/emmo/perspectives/holistic> rdf:type owl:Ontology ;
-                                               owl:versionIRI <https://w3id.org/emmo/1.0.0-rc1/perspectives/holistic> ;
-                                               owl:imports <https://w3id.org/emmo/1.0.0-rc1/perspectives/perspective> ;
-                                               dcterms:abstract """Defines the holistic perspective which include process and the role of its participants.
+                                               owl:versionIRI <https://w3id.org/emmo/1.0.0-rc3/perspectives/holistic> ;
+                                               owl:imports <https://w3id.org/emmo/1.0.0-rc3/perspectives/perspective> ;
+                                               dcterms:abstract """Defines the holistic perspective which includes process and the role of its participants.
 
-Processes are 4D object's that unfolds in time in a way that has a meaning to the ontologist with participants who's role is assigned by the ontologist."""@en ;
-                                               dcterms:contributor <https://orcid.org/0000-0002-1560-809X> ,
-                                                                   <https://orcid.org/0000-0002-4181-2852> ,
-                                                                   <https://orcid.org/0000-0003-0514-9229> ,
-                                                                   <https://orcid.org/0000-0003-4065-9742> ;
-                                               dcterms:creator <https://orcid.org/0000-0003-3805-8761> ;
+Processes are 4D objects that unfolds in time in a way that has a meaning to the ontologist with participants whose role is assigned by the ontologist."""@en ;
+                                               dcterms:contributor :AdhamHashibon ,
+                                                                   :FrancescoZaccarini ,
+                                                                   :GerhardGoldbeck ,
+                                                                   :JesperFriis ;
+                                               dcterms:creator :EmanueleGhedini ;
                                                dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                                dcterms:publisher <https://emmc.eu> ;
                                                dcterms:title "Holistic"@en ;
                                                rdfs:comment "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                               owl:versionInfo "1.0.0-rc1" ;
+                                               owl:versionInfo "1.0.0-rc3" ;
                                                :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
 
 #################################################################
 #    Object Properties
 #################################################################
 
-###  https://w3id.org/emmo#EMMO_3b95deb3_9f2f_4ab0_8574_fb74f01b4bea
-:EMMO_3b95deb3_9f2f_4ab0_8574_fb74f01b4bea rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_1328d112_e731_4e56_b9b9_6b6cdd495cd6 ;
-                                           rdfs:domain :EMMO_a374f1d4_55b1_4796_a8c6_88668f205cd2 ;
-                                           skos:prefLabel "hasQualifiedPart"@en .
-
-
-###  https://w3id.org/emmo#EMMO_53e5b1e1_6026_4ddc_8a4a_3aaaa5fdbdb7
-:EMMO_53e5b1e1_6026_4ddc_8a4a_3aaaa5fdbdb7 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_bcaddc91_a881_4c40_a102_562cbaf61c6c ;
-                                           rdfs:domain :EMMO_1efe8b96_e006_4a33_bc9a_421406cbb9f0 ;
-                                           rdfs:range :EMMO_1efe8b96_e006_4a33_bc9a_421406cbb9f0 ;
-                                           skos:example """A man and the process of building a house.
-The man is a whole that possesses an holistic temporal part which is an interval of six monts and represents a working period in his lifetime.
-The process of building a house is a whole that possesses an holistic spatial part which is a builder.
-The working period of the man and the builder participating the building process are the same individual, belonging both to a man lifetime and to a building holistic views.
-In this sense, the man and the building process overcrosses. and the overlapping individual is represented differently in both holistic views."""@en ;
-                                           skos:prefLabel "holisticOverlaps"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation between two holistic wholes that properly overlap, sharing one of their holistic parts."@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This relation is about two wholes that overlap, and whose intersection is an holistic part of both."@en .
-
-
-###  https://w3id.org/emmo#EMMO_5ceab41b_2aea_4041_9e9c_a243f7562cee
-:EMMO_5ceab41b_2aea_4041_9e9c_a243f7562cee rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_8e52c42b_e879_4473_9fa1_4b23428b392b ,
-                                                              :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
-                                           rdfs:range :EMMO_fcae603e_aa6e_4940_9fa1_9f0909cabf3b ;
-                                           skos:prefLabel "hasHolisticSpatialPart"@en .
-
-
-###  https://w3id.org/emmo#EMMO_88470630_2a27_4f9e_866a_47ff7789e34b
-:EMMO_88470630_2a27_4f9e_866a_47ff7789e34b rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_b3c8ba10_6bee_45e7_9416_e9019aa9f023 ;
-                                           rdf:type owl:SymmetricProperty ,
-                                                    owl:IrreflexiveProperty ;
-                                           skos:prefLabel "distinctOverlaps"@en .
-
-
 ###  https://w3id.org/emmo#EMMO_8e52c42b_e879_4473_9fa1_4b23428b392b
 :EMMO_8e52c42b_e879_4473_9fa1_4b23428b392b rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_3b95deb3_9f2f_4ab0_8574_fb74f01b4bea ;
+                                           rdfs:subPropertyOf :EMMO_a9a9d824_5ba1_4dac_a407_e42bf63350ca ;
                                            rdfs:domain :EMMO_1efe8b96_e006_4a33_bc9a_421406cbb9f0 ;
                                            rdfs:range :EMMO_4f226cf3_6d02_4d35_8566_a9e641bc6ff3 ;
+                                           skos:altLabel "hasHolisticPart"@en ;
                                            skos:example "An holistic part of water fluid is a water molecule."@en ;
-                                           skos:prefLabel "hasHolisticPart"@en ;
+                                           skos:prefLabel "hasRole"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between the whole and a proper part of the whole that scale down to the point which it lose the characteristics of the whole and become something else."@en .
 
 
-###  https://w3id.org/emmo#EMMO_9ee42d6b_7242_4a8d_967e_79f8f1c7fe29
-:EMMO_9ee42d6b_7242_4a8d_967e_79f8f1c7fe29 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 ,
-                                                              :EMMO_8e52c42b_e879_4473_9fa1_4b23428b392b ;
-                                           rdfs:range :EMMO_0e1f2009_bf12_49d1_99f3_1422e5287d82 ;
-                                           skos:prefLabel "hasHolisticTemporalPart"@en .
-
-
-###  https://w3id.org/emmo#EMMO_bcaddc91_a881_4c40_a102_562cbaf61c6c
-:EMMO_bcaddc91_a881_4c40_a102_562cbaf61c6c rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_88470630_2a27_4f9e_866a_47ff7789e34b ;
-                                           skos:prefLabel "qualifiedOverlaps"@en .
+###  https://w3id.org/emmo#EMMO_a9a9d824_5ba1_4dac_a407_e42bf63350ca
+:EMMO_a9a9d824_5ba1_4dac_a407_e42bf63350ca rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_1328d112_e731_4e56_b9b9_6b6cdd495cd6 ,
+                                                              :EMMO_814b6b76_e0ca_4953_a832_d1816fb695f1 ;
+                                           rdfs:range <http://w3id.org/emmo#EMMO_946b5162_95b0_4801_81d4_efef43842a0d> ;
+                                           skos:altLabel "hasQualifiedPart"@en ;
+                                           skos:prefLabel "hasQualifiedRole"@en .
 
 
 #################################################################
 #    Classes
 #################################################################
 
+###  http://w3id.org/emmo#EMMO_946b5162_95b0_4801_81d4_efef43842a0d
+<http://w3id.org/emmo#EMMO_946b5162_95b0_4801_81d4_efef43842a0d> rdf:type owl:Class ;
+                                                                 rdfs:subClassOf :EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62 ;
+                                                                 skos:altLabel "QualifiedRole"@en ;
+                                                                 skos:prefLabel "QRole"@en .
+
+
+###  http://w3id.org/emmo#EMMO_eb50c9cb_9576_4a61_95ec_f81fb8218187
+<http://w3id.org/emmo#EMMO_eb50c9cb_9576_4a61_95ec_f81fb8218187> rdf:type owl:Class ;
+                                                                 rdfs:subClassOf :EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62 ;
+                                                                 skos:altLabel "QualifiedWhole"@en ;
+                                                                 skos:prefLabel "QWhole"@en .
+
+
 ###  https://w3id.org/emmo#EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62
 :EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_56cf1cea_bb26_4093_b587_dd64e230bf9b
-                                                                               :EMMO_a374f1d4_55b1_4796_a8c6_88668f205cd2
-                                                                             )
-                                                               ] ;
                                            rdfs:subClassOf :EMMO_49267eba_5548_4163_8f36_518d65b583f9 ;
                                            skos:altLabel "Wholistic"@en ;
                                            skos:example "A molecule of a body can have role in the body evolution, without caring if its part of a specific organ and without specifying the time interval in which this role occurred."@en ,
                                                         "A product is a role that can be fulfilled by many objects, but always requires a process to which the product participates and from which it is generated."@en ;
                                            skos:prefLabel "Holistic"@en ;
-                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """An holistic perspective considers each part of the whole as equally important, without the need to position the parts within a hierarchy (in time or space). The interest is on the whole object and on its parts (how they contribute to the whole, i.e. their roles), without going further into specifying the spatial hierarchy or the temporal position of each part.
-
-This class allows the picking of parts without necessarily going trough a rigid hierarchy of spatial compositions (e.g. body -> organ -> cell -> molecule) or temporal composition. This is inline with the transitive nature of parthood, as it is usually defined in literature.
-
-The holistic perspective is not excluding the reductionistic perspective, on the contrary it can be considered its complement."""@en ;
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """An holistic perspective considers each part of the whole as equally important, without the need to position the parts within a hierarchy (in time or space). The interest is on the whole, on its parts (how they contribute to the whole, i.e. their roles), and their types, without going further into specifying the spatial hierarchy or the temporal position of each part.
+This class allows the picking of parts without necessarily going trough a rigid hierarchy of spatial compositions (e.g. body -> organ -> cell -> molecule) or temporal composition. This is inline with the transitive nature of parthood, as it is usually defined in literature."""@en ;
                                            :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "The union of classes whole and part."@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A perspective characterized by the belief that:
 - a whole is more than merely the sum of its parts (wholism)
-- the parts of a whole are interconnected in a way that can be explained only by reference to the whole (rolism)."""@en .
+- the parts of a whole are interconnected in a way that can be explained only by reference to the whole (rolism)."""@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The holistic perspective is not excluding the reductionistic perspective, on the contrary it can be considered its complement."@en .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62 ;
@@ -135,6 +100,7 @@ The holistic perspective is not excluding the reductionistic perspective, on the
 
 ###  https://w3id.org/emmo#EMMO_0e1f2009_bf12_49d1_99f3_1422e5287d82
 :EMMO_0e1f2009_bf12_49d1_99f3_1422e5287d82 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_edcb3871_900f_407f_912e_89f96d3e28de ;
                                            skos:altLabel "HolisticTemporalPart"@en ;
                                            skos:prefLabel "TemporalRole"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An holistic temporal part of a whole."@en .
@@ -142,7 +108,7 @@ The holistic perspective is not excluding the reductionistic perspective, on the
 
 ###  https://w3id.org/emmo#EMMO_1efe8b96_e006_4a33_bc9a_421406cbb9f0
 :EMMO_1efe8b96_e006_4a33_bc9a_421406cbb9f0 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_a374f1d4_55b1_4796_a8c6_88668f205cd2 ,
+                                           rdfs:subClassOf <http://w3id.org/emmo#EMMO_eb50c9cb_9576_4a61_95ec_f81fb8218187> ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_8e52c42b_e879_4473_9fa1_4b23428b392b ;
                                                              owl:someValuesFrom :EMMO_4f226cf3_6d02_4d35_8566_a9e641bc6ff3
@@ -150,7 +116,8 @@ The holistic perspective is not excluding the reductionistic perspective, on the
                                            skos:prefLabel "Whole"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass of entities which are defined by requiring the existence of some parts (at least one) of specifically given types, where the specified types are different with respect to the type of the whole."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """A whole is always defined using a criterion expressed through the classical transitive parthood relation.
-This class is expected to host the definition of world objects as they appear in its wholeness, dependently on some of their parts and independently on the surroundings."""@en .
+This class is expected to host the definition of world objects as they appear in its wholeness, dependently on some of their parts and independently on the surroundings."""@en ,
+                                                                                      "A whole is categorized as fundamental (or maximal) or redundant (non-maximal)."@en .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_1efe8b96_e006_4a33_bc9a_421406cbb9f0 ;
@@ -162,12 +129,7 @@ This class is expected to host the definition of world objects as they appear in
 
 ###  https://w3id.org/emmo#EMMO_4f226cf3_6d02_4d35_8566_a9e641bc6ff3
 :EMMO_4f226cf3_6d02_4d35_8566_a9e641bc6ff3 rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_0e1f2009_bf12_49d1_99f3_1422e5287d82
-                                                                               :EMMO_fcae603e_aa6e_4940_9fa1_9f0909cabf3b
-                                                                             )
-                                                               ] ;
-                                           rdfs:subClassOf :EMMO_56cf1cea_bb26_4093_b587_dd64e230bf9b ,
+                                           rdfs:subClassOf <http://w3id.org/emmo#EMMO_946b5162_95b0_4801_81d4_efef43842a0d> ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty [ owl:inverseOf :EMMO_8e52c42b_e879_4473_9fa1_4b23428b392b
                                                                             ] ;
@@ -176,16 +138,18 @@ This class is expected to host the definition of world objects as they appear in
                                            skos:altLabel "HolisticPart"@en ,
                                                          "Part"@en ;
                                            skos:prefLabel "Role"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An entity that is categorized according to its relation with a whole through a parthood relation and that contributes to it according to an holistic criterion, where the type of the whole is not the type of the part."@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """In this class the concept of role and part are superimposed (the term part is also used to define the role played by an actor).
-Here entities are categorized according to their relation with the whole, i.e. how they contribute to make a specific whole, and not what they are as separate entities.
-This class is expected to host the definition of world objects as they appear in its relation with the surrounding whole (being a part implies being surrounded by something bigger to which it contributes)."""@en .
+                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """A role entity is categorized according to its relation with the whole, i.e. how it contribute to make a specific whole, and not as standalone entity.
+This class is expected to host the definition of world objects as they appear in its relation with the surrounding whole (being a part implies being surrounded by something bigger to which it contributes).
+For example. a human being is a stand alone type, but an instance of a human being can also be an instance of the type student (intended as a role) if it plays a part into a school environment (i.e., a student entity can exist only if it is part of a surrounding whole: the school).
+The role type requires that also the whole type depends on the existence of parts of a specific type (e.g., there is no school without students)."""@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An entity that is categorized according to its relation with a whole through a parthood relation and that contributes to it according to an holistic criterion, where the type of the whole is not the type of the part."@en .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_4f226cf3_6d02_4d35_8566_a9e641bc6ff3 ;
    owl:annotatedProperty skos:altLabel ;
    owl:annotatedTarget "Part"@en ;
-   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin partire, partiri ‘divide, share’."@en
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin partire, partiri ‘divide, share’."@en ;
+   :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The term 'part' is here intended not only in mereological sense but also as role. For example. the term part is used to define the role played by an actor, specifying not only a mereological participation of the actor to an act, but also a specific role for that actor."@en
  ] .
 
 [ rdf:type owl:Axiom ;
@@ -196,26 +160,16 @@ This class is expected to host the definition of world objects as they appear in
  ] .
 
 
-###  https://w3id.org/emmo#EMMO_56cf1cea_bb26_4093_b587_dd64e230bf9b
-:EMMO_56cf1cea_bb26_4093_b587_dd64e230bf9b rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62 ;
-                                           skos:prefLabel "QualifiedRole"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for all classes whose entities are part of an entity of different type." ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """A qualified role is an entity of a type that requires to be part of a another specific and different type. For example, a participant is always required to be part of a process, or a student always requires to be part of a school.
-This definition provides a clear and precise way to define what a role is.""" .
-
-
-###  https://w3id.org/emmo#EMMO_a374f1d4_55b1_4796_a8c6_88668f205cd2
-:EMMO_a374f1d4_55b1_4796_a8c6_88668f205cd2 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62 ;
-                                           skos:prefLabel "QualifiedWhole"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for all classes whose entities requires to have at least a part of different type." ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """A qualified whole is an entity of a type that requires to have parts of a another specific and different type. For example, a process always requires to have a participant, or a car always requires to have a powertrain.
-This definition provides a clear and precise way to define what a whole is.""" .
+###  https://w3id.org/emmo#EMMO_edcb3871_900f_407f_912e_89f96d3e28de
+:EMMO_edcb3871_900f_407f_912e_89f96d3e28de rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_4f226cf3_6d02_4d35_8566_a9e641bc6ff3 ;
+                                           skos:prefLabel "RoleBySpatiotemporal"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for all classes that categorise roles according to that fact that they are temporal or non-temporal parts of the whole."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_fcae603e_aa6e_4940_9fa1_9f0909cabf3b
 :EMMO_fcae603e_aa6e_4940_9fa1_9f0909cabf3b rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_edcb3871_900f_407f_912e_89f96d3e28de ;
                                            skos:altLabel "HolisticSpatialPart"@en ;
                                            skos:prefLabel "NonTemporalRole"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An holistic spatial part of a whole."@en .
@@ -225,8 +179,8 @@ This definition provides a clear and precise way to define what a whole is.""" .
 #    Individuals
 #################################################################
 
-###  https://orcid.org/0000-0003-3805-8761
-<https://orcid.org/0000-0003-3805-8761> rdf:type :EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac .
+###  https://w3id.org/emmo#EmanueleGhedini
+:EmanueleGhedini rdf:type :EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac .
 
 
-###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

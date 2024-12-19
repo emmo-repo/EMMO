@@ -3,15 +3,15 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix emmo: <https://w3id.org/emmo#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix emmo: <https://w3id.org/emmo#> .
 @base <https://w3id.org/emmo#> .
 
 <https://w3id.org/emmo/disciplines/units/siacceptedunits> rdf:type owl:Ontology ;
-                                                           owl:versionIRI <https://w3id.org/emmo/1.0.0-rc1/disciplines/units/siacceptedunits> ;
-                                                           owl:imports <https://w3id.org/emmo/1.0.0-rc1/disciplines/units/siacceptedspecialunits> ;
+                                                           owl:versionIRI <https://w3id.org/emmo/1.0.0-rc3/disciplines/units/siacceptedunits> ;
+                                                           owl:imports <https://w3id.org/emmo/1.0.0-rc3/disciplines/units/siacceptedspecialunits> ;
                                                            dcterms:abstract """The module 'siacceptedunits' include non-SI and non-special units that are accepted for use with SI.
 
 These units consists of an optional metric prefix followed by a product of integer powers of the base, derived and accepted special SI units.  The product must include at least one SI-accepted special unit.
@@ -19,11 +19,11 @@ These units consists of an optional metric prefix followed by a product of integ
 Examples: km/h, kWh, MeV, etc...
 
 Note that this module is not complete and may be extended with more units over time."""@en ;
-                                                           dcterms:contributor <https://orcid.org/0000-0001-8869-3718> ,
-                                                                               <https://orcid.org/0000-0002-4181-2852> ,
-                                                                               <https://orcid.org/0000-0002-8758-6109> ;
-                                                           dcterms:creator <https://orcid.org/0000-0002-1560-809X> ,
-                                                                           <https://orcid.org/0000-0003-3805-8761> ;
+                                                           dcterms:contributor :FrancescaBleken ,
+                                                                               :GerhardGoldbeck ,
+                                                                               :SimonClark ;
+                                                           dcterms:creator :JesperFriis ,
+                                                                           :EmanueleGhedini ;
                                                            dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                                            dcterms:publisher <https://emmc.eu> ;
                                                            dcterms:title "SI accepted units"@en ;
@@ -31,13 +31,12 @@ Note that this module is not complete and may be extended with more units over t
 
 We kindly acknowledge NIST for reusing their content, including the selection of units, their elucidations and conversion multiplier."""@en ,
                                                                         "The EMMO should be reasoned with HermiT to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                                           owl:versionInfo "1.0.0-rc1" ;
-                                                           :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
+                                                           owl:versionInfo "1.0.0-rc3" ;
+                                                           emmo:EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
 
 #################################################################
 #    Classes
 #################################################################
-
 
 ###  https://w3id.org/emmo#AmpereHour
 emmo:AmpereHour rdf:type owl:Class ;
@@ -62,183 +61,6 @@ emmo:AmpereHour rdf:type owl:Class ;
 
 -- QUDT"""@en ;
                 emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Ampere-hour" .
-
-
-###  https://w3id.org/emmo#BecquerelPerLitre
-emmo:BecquerelPerLitre rdf:type owl:Class ;
-                       rdfs:subClassOf emmo:EMMO_43e499a1_ca67_4380_ac08_cfc52a93ad04 ,
-                                       emmo:EMMO_ac19c801_bead_4730_8b8c_50020eec45ec ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                         owl:hasValue "1000.0"^^xsd:double
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                         owl:hasValue "0.0"^^xsd:double
-                                       ] ;
-                       rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                       skos:altLabel "Becquerels per litre"@en ;
-                       skos:prefLabel "BecquerelPerLitre" ;
-                       emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/BQ-PER-L" ;
-                       emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Bq.L-1" ;
-                       emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Bq/L" ;
-                       emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """One radioactive disintegration per second from a one part in 10**3 of the SI unit of volume (cubic metre).
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#CentiMetrePerHour
-emmo:CentiMetrePerHour rdf:type owl:Class ;
-                       rdfs:subClassOf emmo:EMMO_4f5c7c54_1c63_4d17_b12b_ea0792c2b187 ,
-                                       emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                       emmo:EMMO_b55cd09a_e54d_4eb1_81dd_03c29d1b878e ,
-                                       emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                         owl:someValuesFrom emmo:MetrePerHour
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                         owl:hasValue "2.777778E-6"^^xsd:double
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                         owl:hasValue "0.0"^^xsd:double
-                                       ] ;
-                       skos:altLabel "Centimetre Per Hour"@en ;
-                       skos:prefLabel "CentiMetrePerHour" ;
-                       emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/CentiM-PER-HR" ;
-                       emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "cm.h-1" ,
-                                                                      "cm/h" ;
-                       emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "cm/hr" ;
-                       emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0,01-fold of the SI base unit metre divided by the unit hour
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#HectoPascalLitrePerSecond
-emmo:HectoPascalLitrePerSecond rdf:type owl:Class ;
-                               rdfs:subClassOf emmo:EMMO_21aaefc1_3f86_4208_b7db_a755f31f0f8c ,
-                                               emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                               emmo:EMMO_bf106e62_ce1c_4ccc_9f45_c10326078a5a ,
-                                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                               [ rdf:type owl:Restriction ;
-                                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                                 owl:someValuesFrom emmo:PascalLitrePerSecond
-                                               ] ,
-                                               [ rdf:type owl:Restriction ;
-                                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                                 owl:hasValue "0.1"^^xsd:double
-                                               ] ,
-                                               [ rdf:type owl:Restriction ;
-                                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                                 owl:hasValue "0.0"^^xsd:double
-                                               ] ;
-                               skos:altLabel "Hectopascal Litre Per Second"@en ;
-                               skos:prefLabel "HectoPascalLitrePerSecond" ;
-                               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/HectoPA-L-PER-SEC" ;
-                               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "hPa.L.s-1" ;
-                               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "hPa⋅L/s" ;
-                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """product out of the 100-fold of the SI derived unit pascal and the unit litre divided by the SI base unit second
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#HectoPascalPerHour
-emmo:HectoPascalPerHour rdf:type owl:Class ;
-                        rdfs:subClassOf emmo:EMMO_21aaefc1_3f86_4208_b7db_a755f31f0f8c ,
-                                        emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                        emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                        emmo:EMMO_fced2382_9c23_47a1_8246_a5dcd45ad99c ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                          owl:someValuesFrom emmo:PascalPerHour
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                          owl:hasValue "0.02777778"^^xsd:double
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                          owl:hasValue "0.0"^^xsd:double
-                                        ] ;
-                        skos:altLabel "Hectopascals per hour"@en ;
-                        skos:prefLabel "HectoPascalPerHour" ;
-                        emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/HectoPA-PER-HR" ;
-                        emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "hPa.h-1" ;
-                        emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "hPa/hr" ;
-                        emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A change in pressure of one hundred Newtons per square metre (100 Pascals) per hour. Equivalent to a change of one millibar per hour.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#GramPerDay
-emmo:GramPerDay rdf:type owl:Class ;
-                rdfs:subClassOf emmo:EMMO_8826aefb_0bf6_4378_8732_fc80aa95654c ,
-                                emmo:EMMO_ac19c801_bead_4730_8b8c_50020eec45ec ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                  owl:hasValue "1.157407E-8"^^xsd:double
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                  owl:hasValue "0.0"^^xsd:double
-                                ] ;
-                rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                skos:altLabel "Gram Per Day"@en ;
-                skos:prefLabel "GramPerDay"@en ;
-                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/GM-PER-DAY" ;
-                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "g.d-1" ;
-                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "g/day" ;
-                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0,001-fold of the SI base unit kilogram divided by the unit day
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#GramPerHour
-emmo:GramPerHour rdf:type owl:Class ;
-                 rdfs:subClassOf emmo:EMMO_8826aefb_0bf6_4378_8732_fc80aa95654c ,
-                                 emmo:EMMO_ac19c801_bead_4730_8b8c_50020eec45ec ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                   owl:hasValue "2.777778E-7"^^xsd:double
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                   owl:hasValue "0.0"^^xsd:double
-                                 ] ;
-                 rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                 skos:altLabel "Gram Per Hour"@en ;
-                 skos:prefLabel "GramPerHour"@en ;
-                 emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/GM-PER-HR" ;
-                 emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "g.h-1" ;
-                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "g/hr" ;
-                 emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0,001-fold of the SI base unit kilogram divided by the unit hour
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#GramPerLitre
-emmo:GramPerLitre rdf:type owl:Class ;
-                  rdfs:subClassOf emmo:EMMO_1c957677_a460_4702_85a6_baef659d14b1 ,
-                                  emmo:EMMO_ac19c801_bead_4730_8b8c_50020eec45ec ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                    owl:hasValue "1.0"^^xsd:double
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                    owl:hasValue "0.0"^^xsd:double
-                                  ] ;
-                  rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                  skos:altLabel "Gram Per Litre"@en ;
-                  skos:prefLabel "GramPerLitre"@en ;
-                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/GM-PER-L" ;
-                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "g.L-1" ;
-                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "g/L" ;
-                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0,001-fold of the SI base unit kilogram divided by the unit litre
-
--- QUDT"""@en .
 
 
 ###  https://w3id.org/emmo#AmpereHourPerKilogram
@@ -271,6 +93,89 @@ emmo:AmpereHourPerLitre rdf:type owl:Class ;
                                         ] ;
                         skos:prefLabel "AmpereHourPerLitre"@en ;
                         emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "a unit of electric charge per volume"@en .
+
+
+###  https://w3id.org/emmo#BarLitrePerSecond
+emmo:BarLitrePerSecond rdf:type owl:Class .
+
+
+###  https://w3id.org/emmo#BecquerelPerLitre
+emmo:BecquerelPerLitre rdf:type owl:Class ;
+                       rdfs:subClassOf emmo:EMMO_43e499a1_ca67_4380_ac08_cfc52a93ad04 ,
+                                       emmo:EMMO_ac19c801_bead_4730_8b8c_50020eec45ec ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                         owl:hasValue "1000.0"^^xsd:double
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                         owl:hasValue "0.0"^^xsd:double
+                                       ] ;
+                       rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                       skos:altLabel "Becquerels per litre"@en ;
+                       skos:prefLabel "BecquerelPerLitre" ;
+                       emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/BQ-PER-L" ;
+                       emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Bq.L-1" ;
+                       emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Bq/L" ;
+                       emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """One radioactive disintegration per second from a one part in 10**3 of the SI unit of volume (cubic metre).
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#CentiLitre
+emmo:CentiLitre rdf:type owl:Class ;
+                rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
+                                emmo:EMMO_b55cd09a_e54d_4eb1_81dd_03c29d1b878e ,
+                                emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                  owl:someValuesFrom emmo:Litre
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                  owl:hasValue "1.0E-5"^^xsd:double
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                  owl:hasValue "0.0"^^xsd:double
+                                ] ;
+                skos:prefLabel "CentiLitre" ;
+                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/CentiL" ;
+                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "cL" ;
+                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "cL" ;
+                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0,01-fold of the unit litre
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#CentiMetrePerHour
+emmo:CentiMetrePerHour rdf:type owl:Class ;
+                       rdfs:subClassOf emmo:EMMO_4f5c7c54_1c63_4d17_b12b_ea0792c2b187 ,
+                                       emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                       emmo:EMMO_b55cd09a_e54d_4eb1_81dd_03c29d1b878e ,
+                                       emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                         owl:someValuesFrom emmo:MetrePerHour
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                         owl:hasValue "2.777778E-6"^^xsd:double
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                         owl:hasValue "0.0"^^xsd:double
+                                       ] ;
+                       skos:altLabel "Centimetre Per Hour"@en ;
+                       skos:prefLabel "CentiMetrePerHour" ;
+                       emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/CentiM-PER-HR" ;
+                       emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "cm.h-1" ,
+                                                                      "cm/h" ;
+                       emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "cm/hr" ;
+                       emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0,01-fold of the SI base unit metre divided by the unit hour
+
+-- QUDT"""@en .
 
 
 ###  https://w3id.org/emmo#CubicCentiMetrePerDay
@@ -460,6 +365,30 @@ emmo:CubicMetrePerHectare rdf:type owl:Class ;
                           emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Cubic metre per hectare."@en .
 
 
+###  https://w3id.org/emmo#CubicMetrePerHour
+emmo:CubicMetrePerHour rdf:type owl:Class ;
+                       rdfs:subClassOf emmo:EMMO_a88475b9_c745_4a47_9403_ab0d158b9b1b ,
+                                       emmo:EMMO_ac19c801_bead_4730_8b8c_50020eec45ec ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                         owl:hasValue "2.777778E-4"^^xsd:double
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                         owl:hasValue "0.0"^^xsd:double
+                                       ] ;
+                       rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                       skos:altLabel "Cubic Metre per Hour"@en ;
+                       skos:prefLabel "CubicMetrePerHour"@en ;
+                       emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M3-PER-HR" ;
+                       emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m3.h-1" ,
+                                                                      "m3/h" ;
+                       emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m³/hr" ;
+                       emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Cubic Meter Per Hour (m3/h) is a unit in the category of Volume flow rate. It is also known as cubic meters per hour, cubic metre per hour, cubic metres per hour, cubic meter/hour, cubic metre/hour, cubic meter/hr, cubic metre/hr, flowrate. Cubic Meter Per Hour (m3/h) has a dimension of L3T-1 where L is length, and T is time. It can be converted to the corresponding standard SI unit m3/s by multiplying its value by a factor of 0.00027777777.
+
+-- QUDT"""@en .
+
+
 ###  https://w3id.org/emmo#CubicMetrePerMinute
 emmo:CubicMetrePerMinute rdf:type owl:Class ;
                          rdfs:subClassOf emmo:EMMO_a88475b9_c745_4a47_9403_ab0d158b9b1b ,
@@ -504,6 +433,60 @@ emmo:CubicMicroMetrePerMilliLitre rdf:type owl:Class ;
                                   emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Cubic micrometre per millilitre."@en .
 
 
+###  https://w3id.org/emmo#DecaLitre
+emmo:DecaLitre rdf:type owl:Class ;
+               rdfs:subClassOf emmo:EMMO_1d8b370b_c672_4d0c_964e_eaafcbf2f51f ,
+                               emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                               emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
+                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                 owl:someValuesFrom emmo:Litre
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                 owl:hasValue "0.01"^^xsd:double
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                 owl:hasValue "0.0"^^xsd:double
+                               ] ;
+               skos:prefLabel "DecaLitre" ;
+               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DecaL" ;
+               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "daL" ;
+               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "daL" ;
+               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """10-fold of the unit litre
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#DeciLitre
+emmo:DeciLitre rdf:type owl:Class ;
+               rdfs:subClassOf emmo:EMMO_1181c938_c8f0_4ad6_bc7a_2bfdc0903d29 ,
+                               emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                               emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
+                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                 owl:someValuesFrom emmo:Litre
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                 owl:hasValue "1.0E-4"^^xsd:double
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                 owl:hasValue "0.0"^^xsd:double
+                               ] ;
+               skos:prefLabel "DeciLitre" ;
+               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DeciL" ;
+               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "dL" ;
+               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "dL" ;
+               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.1-fold of the unit litre
+
+-- QUDT"""@en .
+
+
 ###  https://w3id.org/emmo#DeciLitrePerGram
 emmo:DeciLitrePerGram rdf:type owl:Class ;
                       rdfs:subClassOf emmo:EMMO_1181c938_c8f0_4ad6_bc7a_2bfdc0903d29 ,
@@ -529,6 +512,62 @@ emmo:DeciLitrePerGram rdf:type owl:Class ;
 -- QUDT"""@en .
 
 
+###  https://w3id.org/emmo#DeciTonne
+emmo:DeciTonne rdf:type owl:Class ;
+               rdfs:subClassOf emmo:EMMO_1181c938_c8f0_4ad6_bc7a_2bfdc0903d29 ,
+                               emmo:EMMO_77e9dc31_5b19_463e_b000_44c6e79f98aa ,
+                               emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                 owl:someValuesFrom emmo:Tonne
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                 owl:hasValue "100.0"^^xsd:double
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                 owl:hasValue "0.0"^^xsd:double
+                               ] ;
+               skos:altLabel "DeciTonne"@en ;
+               skos:prefLabel "DeciTonne" ;
+               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DeciTONNE" ;
+               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "dt" .
+
+
+###  https://w3id.org/emmo#DegreeCelsiusPerHour
+emmo:DegreeCelsiusPerHour rdf:type owl:Class ;
+                          rdfs:subClassOf emmo:EMMO_4f245147_f072_4431_b535_6241e8e87eb8 ,
+                                          emmo:EMMO_ac19c801_bead_4730_8b8c_50020eec45ec ;
+                          rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                          skos:altLabel "Degree Celsius per Hour"@en ;
+                          skos:prefLabel "DegreeCelsiusPerHour"@en ;
+                          emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DEG_C-PER-HR" ;
+                          emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Cel.h-1" ,
+                                                                         "Cel/h" ;
+                          emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "°C/hr" ;
+                          emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """`Degree Celsius per Hour` is a unit for 'Temperature Per Time' expressed as degC / hr.
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#DegreeCelsiusPerMinute
+emmo:DegreeCelsiusPerMinute rdf:type owl:Class ;
+                            rdfs:subClassOf emmo:EMMO_4f245147_f072_4431_b535_6241e8e87eb8 ,
+                                            emmo:EMMO_ac19c801_bead_4730_8b8c_50020eec45ec ;
+                            rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                            skos:altLabel "Degree Celsius per Minute"@en ;
+                            skos:prefLabel "DegreeCelsiusPerMinute"@en ;
+                            emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DEG_C-PER-MIN" ;
+                            emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Cel.min-1" ,
+                                                                           "Cel/min" ;
+                            emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "°C/min" ;
+                            emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """`Degree Celsius per Minute` is a unit for 'Temperature Per Time' expressed as degC / m.
+
+-- QUDT"""@en .
+
+
 ###  https://w3id.org/emmo#DegreePerHour
 emmo:DegreePerHour rdf:type owl:Class ;
                    rdfs:subClassOf emmo:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 ,
@@ -549,6 +588,29 @@ emmo:DegreePerHour rdf:type owl:Class ;
                                                                   "deg/h" ;
                    emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "°/h" ;
                    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Degree per Hour\" is an Imperial unit for  'Angular Velocity' expressed as deg/h.
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#DegreePerMetre
+emmo:DegreePerMetre rdf:type owl:Class ;
+                    rdfs:subClassOf emmo:EMMO_608a1b30_df6f_4bbb_9dc3_5c0de92fd9cf ,
+                                    emmo:EMMO_ac19c801_bead_4730_8b8c_50020eec45ec ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                      owl:hasValue "0.01745329"^^xsd:double
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                      owl:hasValue "0.0"^^xsd:double
+                                    ] ;
+                    rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                    skos:altLabel "Degrees per metre"@en ;
+                    skos:prefLabel "DegreePerMetre" ;
+                    emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DEG-PER-M" ;
+                    emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "deg.m-1" ;
+                    emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "°/m" ;
+                    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A change of angle in one SI unit of length.
 
 -- QUDT"""@en .
 
@@ -752,6 +814,33 @@ emmo:FemtoGramPerLitre rdf:type owl:Class ;
 -- QUDT"""@en .
 
 
+###  https://w3id.org/emmo#FemtoLitre
+emmo:FemtoLitre rdf:type owl:Class ;
+                rdfs:subClassOf emmo:EMMO_23bfe79a_cade_48f1_9a8c_fd96e6bac8ba ,
+                                emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
+                                emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                  owl:someValuesFrom emmo:Litre
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                  owl:hasValue "1.0E-18"^^xsd:double
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                  owl:hasValue "0.0"^^xsd:double
+                                ] ;
+                skos:prefLabel "FemtoLitre" ;
+                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/FemtoL" ;
+                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "fL" ;
+                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "fL" ;
+                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.000000000000001-fold of the unit litre
+
+-- QUDT"""@en .
+
+
 ###  https://w3id.org/emmo#FemtoMolePerLitre
 emmo:FemtoMolePerLitre rdf:type owl:Class ;
                        rdfs:subClassOf emmo:EMMO_23bfe79a_cade_48f1_9a8c_fd96e6bac8ba ,
@@ -776,6 +865,101 @@ emmo:FemtoMolePerLitre rdf:type owl:Class ;
                        emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "fmol.L-1" ;
                        emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "fmol/L" ;
                        emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A 10**18 part quantity of substance of the measurand per litre volume of matrix.
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#GigaElectronVolt
+emmo:GigaElectronVolt rdf:type owl:Class ;
+                      rdfs:subClassOf emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                      emmo:EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                        owl:someValuesFrom emmo:ElectronVolt
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                        owl:hasValue "1.602177E-10"^^xsd:double
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                        owl:hasValue "0.0"^^xsd:double
+                                      ] ;
+                      skos:altLabel "Giga Electron Volt"@en ;
+                      skos:prefLabel "GigaElectronVolt"@en ;
+                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/GigaEV" ;
+                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "GeV" ;
+                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "GeV" ;
+                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Giga Electron Volt\" is a unit for  'Energy And Work' expressed as GeV.
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#GramPerDay
+emmo:GramPerDay rdf:type owl:Class ;
+                rdfs:subClassOf emmo:EMMO_8826aefb_0bf6_4378_8732_fc80aa95654c ,
+                                emmo:EMMO_ac19c801_bead_4730_8b8c_50020eec45ec ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                  owl:hasValue "1.157407E-8"^^xsd:double
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                  owl:hasValue "0.0"^^xsd:double
+                                ] ;
+                rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                skos:altLabel "Gram Per Day"@en ;
+                skos:prefLabel "GramPerDay"@en ;
+                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/GM-PER-DAY" ;
+                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "g.d-1" ;
+                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "g/day" ;
+                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0,001-fold of the SI base unit kilogram divided by the unit day
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#GramPerHour
+emmo:GramPerHour rdf:type owl:Class ;
+                 rdfs:subClassOf emmo:EMMO_8826aefb_0bf6_4378_8732_fc80aa95654c ,
+                                 emmo:EMMO_ac19c801_bead_4730_8b8c_50020eec45ec ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                   owl:hasValue "2.777778E-7"^^xsd:double
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                   owl:hasValue "0.0"^^xsd:double
+                                 ] ;
+                 rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                 skos:altLabel "Gram Per Hour"@en ;
+                 skos:prefLabel "GramPerHour"@en ;
+                 emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/GM-PER-HR" ;
+                 emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "g.h-1" ;
+                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "g/hr" ;
+                 emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0,001-fold of the SI base unit kilogram divided by the unit hour
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#GramPerLitre
+emmo:GramPerLitre rdf:type owl:Class ;
+                  rdfs:subClassOf emmo:EMMO_1c957677_a460_4702_85a6_baef659d14b1 ,
+                                  emmo:EMMO_ac19c801_bead_4730_8b8c_50020eec45ec ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                    owl:hasValue "1.0"^^xsd:double
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                    owl:hasValue "0.0"^^xsd:double
+                                  ] ;
+                  rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                  skos:altLabel "Gram Per Litre"@en ;
+                  skos:prefLabel "GramPerLitre"@en ;
+                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/GM-PER-L" ;
+                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "g.L-1" ;
+                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "g/L" ;
+                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0,001-fold of the SI base unit kilogram divided by the unit litre
 
 -- QUDT"""@en .
 
@@ -847,6 +1031,89 @@ emmo:GramPerSquareMetrePerDay rdf:type owl:Class ;
                               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "g.m-2.d-1" ;
                               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "g/(m²⋅day)" ;
                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A metric unit of volume over time indicating the amount generated across one square meter over a day.
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#HectoLitre
+emmo:HectoLitre rdf:type owl:Class ;
+                rdfs:subClassOf emmo:EMMO_21aaefc1_3f86_4208_b7db_a755f31f0f8c ,
+                                emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
+                                emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                  owl:someValuesFrom emmo:Litre
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                  owl:hasValue "0.1"^^xsd:double
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                  owl:hasValue "0.0"^^xsd:double
+                                ] ;
+                skos:prefLabel "HectoLitre" ;
+                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/HectoL" ;
+                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "hL" ;
+                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "hL" ;
+                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """100-fold of the unit litre
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#HectoPascalLitrePerSecond
+emmo:HectoPascalLitrePerSecond rdf:type owl:Class ;
+                               rdfs:subClassOf emmo:EMMO_21aaefc1_3f86_4208_b7db_a755f31f0f8c ,
+                                               emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                               emmo:EMMO_bf106e62_ce1c_4ccc_9f45_c10326078a5a ,
+                                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                                 owl:someValuesFrom emmo:PascalLitrePerSecond
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                 owl:hasValue "0.1"^^xsd:double
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                                 owl:hasValue "0.0"^^xsd:double
+                                               ] ;
+                               skos:altLabel "Hectopascal Litre Per Second"@en ;
+                               skos:prefLabel "HectoPascalLitrePerSecond" ;
+                               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/HectoPA-L-PER-SEC" ;
+                               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "hPa.L.s-1" ;
+                               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "hPa⋅L/s" ;
+                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """product out of the 100-fold of the SI derived unit pascal and the unit litre divided by the SI base unit second
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#HectoPascalPerHour
+emmo:HectoPascalPerHour rdf:type owl:Class ;
+                        rdfs:subClassOf emmo:EMMO_21aaefc1_3f86_4208_b7db_a755f31f0f8c ,
+                                        emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                        emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                        emmo:EMMO_fced2382_9c23_47a1_8246_a5dcd45ad99c ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                          owl:someValuesFrom emmo:PascalPerHour
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                          owl:hasValue "0.02777778"^^xsd:double
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                          owl:hasValue "0.0"^^xsd:double
+                                        ] ;
+                        skos:altLabel "Hectopascals per hour"@en ;
+                        skos:prefLabel "HectoPascalPerHour" ;
+                        emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/HectoPA-PER-HR" ;
+                        emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "hPa.h-1" ;
+                        emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "hPa/hr" ;
+                        emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A change in pressure of one hundred Newtons per square metre (100 Pascals) per hour. Equivalent to a change of one millibar per hour.
 
 -- QUDT"""@en .
 
@@ -993,6 +1260,32 @@ emmo:KiloAmpereHour rdf:type owl:Class ;
 -- QUDT"""@en .
 
 
+###  https://w3id.org/emmo#KiloElectronVolt
+emmo:KiloElectronVolt rdf:type owl:Class ;
+                      rdfs:subClassOf emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                      emmo:EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                        owl:someValuesFrom emmo:ElectronVolt
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                        owl:hasValue "1.602177E-16"^^xsd:double
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                        owl:hasValue "0.0"^^xsd:double
+                                      ] ;
+                      skos:altLabel "Kilo Electron Volt"@en ;
+                      skos:prefLabel "KiloElectronVolt"@en ;
+                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloEV" ;
+                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "keV" ;
+                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "keV" ;
+                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Kilo Electron Volt\" is a unit for  'Energy And Work' expressed as keV.
+
+-- QUDT"""@en .
+
+
 ###  https://w3id.org/emmo#KiloElectronVoltPerMicroMetre
 emmo:KiloElectronVoltPerMicroMetre rdf:type owl:Class ;
                                    rdfs:subClassOf emmo:EMMO_15344998_4490_4b40_b242_c3d92e5cdc27 ,
@@ -1013,6 +1306,33 @@ emmo:KiloElectronVoltPerMicroMetre rdf:type owl:Class ;
                                    emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "keV.um-1" ;
                                    emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "keV/µM" ;
                                    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Kilo Electron Volt per Micrometer\" is a unit for  'Linear Energy Transfer' expressed as keV/microM.
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#KiloLitre
+emmo:KiloLitre rdf:type owl:Class ;
+               rdfs:subClassOf emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
+                               emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                               emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
+                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                 owl:someValuesFrom emmo:Litre
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                 owl:hasValue "1.0"^^xsd:double
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                 owl:hasValue "0.0"^^xsd:double
+                               ] ;
+               skos:prefLabel "KiloLitre" ;
+               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloL" ;
+               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kL" ;
+               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kL" ;
+               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """1 000-fold of the unit litre
 
 -- QUDT"""@en .
 
@@ -1099,6 +1419,34 @@ emmo:KiloMetrePerHour rdf:type owl:Class ;
                       emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Kilometres_per_hour?oldid=487674812" .
 
 
+###  https://w3id.org/emmo#KiloMolePerHour
+emmo:KiloMolePerHour rdf:type owl:Class ;
+                     rdfs:subClassOf emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
+                                     emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                     emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                     emmo:EMMO_ce7d4720_aa20_4a8c_93e8_df41a35b6723 ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                       owl:someValuesFrom emmo:MolePerHour
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                       owl:hasValue "0.2777778"^^xsd:double
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                       owl:hasValue "0.0"^^xsd:double
+                                     ] ;
+                     skos:altLabel "Kilomole Per Hour"@en ;
+                     skos:prefLabel "KiloMolePerHour" ;
+                     emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloMOL-PER-HR" ;
+                     emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kmol.h-1" ;
+                     emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kmol/hr" ;
+                     emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """1 000-fold of the SI base unit mole divided by the unit for time hour
+
+-- QUDT"""@en .
+
+
 ###  https://w3id.org/emmo#KiloMolePerMinute
 emmo:KiloMolePerMinute rdf:type owl:Class ;
                        rdfs:subClassOf emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
@@ -1127,6 +1475,30 @@ emmo:KiloMolePerMinute rdf:type owl:Class ;
 -- QUDT"""@en .
 
 
+###  https://w3id.org/emmo#KiloTonne
+emmo:KiloTonne rdf:type owl:Class ;
+               rdfs:subClassOf emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
+                               emmo:EMMO_77e9dc31_5b19_463e_b000_44c6e79f98aa ,
+                               emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                 owl:someValuesFrom emmo:Tonne
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                 owl:hasValue "1000000.0"^^xsd:double
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                 owl:hasValue "0.0"^^xsd:double
+                               ] ;
+               skos:altLabel "KiloTonne"@en ;
+               skos:prefLabel "KiloTonne" ;
+               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloTONNE" ;
+               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kt" .
+
+
 ###  https://w3id.org/emmo#KiloVoltAmpereHour
 emmo:KiloVoltAmpereHour rdf:type owl:Class ;
                         rdfs:subClassOf emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
@@ -1151,6 +1523,29 @@ emmo:KiloVoltAmpereHour rdf:type owl:Class ;
                         emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kV.A.h" ;
                         emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kV⋅A/hr" ;
                         emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """product of the 1 000-fold of the unit for apparent by ampere and the unit hour
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#KiloWattHourPerSquareMetre
+emmo:KiloWattHourPerSquareMetre rdf:type owl:Class ;
+                                rdfs:subClassOf emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
+                                                emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                                emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                                emmo:EMMO_d46e131b_f51a_4ae7_9301_824d718c56fa ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                  owl:hasValue "3600000.0"^^xsd:double
+                                                ] ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                                  owl:hasValue "0.0"^^xsd:double
+                                                ] ;
+                                skos:altLabel "Kilowatt hour per square metre"@en ;
+                                skos:prefLabel "KiloWattHourPerSquareMetre" ;
+                                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloW-HR-PER-M2" ;
+                                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kW⋅h/m²" ;
+                                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A unit of energy per unit area, equivalent to 3 600 000 joules per square metre.
 
 -- QUDT"""@en .
 
@@ -1587,6 +1982,32 @@ emmo:LuxHour rdf:type owl:Class ;
              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Lux?oldid=494700274" .
 
 
+###  https://w3id.org/emmo#MegaElectronVolt
+emmo:MegaElectronVolt rdf:type owl:Class ;
+                      rdfs:subClassOf emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                      emmo:EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                        owl:someValuesFrom emmo:ElectronVolt
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                        owl:hasValue "1.602177E-13"^^xsd:double
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                        owl:hasValue "0.0"^^xsd:double
+                                      ] ;
+                      skos:altLabel "Mega Electron Volt"@en ;
+                      skos:prefLabel "MegaElectronVolt"@en ;
+                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MegaEV" ;
+                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "MeV" ;
+                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "MeV" ;
+                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """`Mega Electron Volt` is a unit for  'Energy And Work' expressed as MeV.
+
+-- QUDT"""@en .
+
+
 ###  https://w3id.org/emmo#MegaElectronVoltFemtoMetre
 emmo:MegaElectronVoltFemtoMetre rdf:type owl:Class ;
                                 rdfs:subClassOf emmo:EMMO_15344998_4490_4b40_b242_c3d92e5cdc27 ,
@@ -1655,6 +2076,33 @@ emmo:MegaGramPerHectare rdf:type owl:Class ;
                         emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Mg.har-1" ;
                         emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Mg/ha" ;
                         emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """1 000-fold of the SI base unit kilogram divided by the 10,0000-fold of the power of the SI base unit metre with the exponent 2
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#MegaLitre
+emmo:MegaLitre rdf:type owl:Class ;
+               rdfs:subClassOf emmo:EMMO_5eaecadc_4f0d_4a3a_afc7_1fc0b83cc928 ,
+                               emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                               emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
+                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                 owl:someValuesFrom emmo:Litre
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                 owl:hasValue "1000.0"^^xsd:double
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                 owl:hasValue "0.0"^^xsd:double
+                               ] ;
+               skos:prefLabel "MegaLitre" ;
+               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MegaL" ;
+               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "ML" ;
+               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "ML" ;
+               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """1 000 000-fold of the unit litre
 
 -- QUDT"""@en .
 
@@ -1785,6 +2233,10 @@ emmo:MetrePerMinute rdf:type owl:Class ;
                     emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Meter Per Minute (m/min) is a unit in the category of Velocity. It is also known as meter/minute, meters per minute, metre per minute, metres per minute. Meter Per Minute (m/min) has a dimension of LT-1 where L is length, and T is time. It can be converted to the corresponding standard SI unit m/s by multiplying its value by a factor of 0.016666666666
 
 -- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#MetrePerYear
+emmo:MetrePerYear rdf:type owl:Class .
 
 
 ###  https://w3id.org/emmo#MicroBecquerelPerLitre
@@ -1931,6 +2383,28 @@ emmo:MicroGramPerSquareMetrePerDay rdf:type owl:Class ;
                                    emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "µg/(m²⋅day)" .
 
 
+###  https://w3id.org/emmo#MicroLitre
+emmo:MicroLitre rdf:type owl:Class ;
+                rdfs:subClassOf emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
+                                emmo:EMMO_9ff3bf8e_2168_406e_8251_1d158fc948ae ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                  owl:hasValue "1.0E-9"^^xsd:double
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                  owl:hasValue "0.0"^^xsd:double
+                                ] ;
+                rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                skos:prefLabel "MicroLitre" ;
+                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MicroL" ;
+                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "uL" ;
+                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "μL" ;
+                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.000001-fold of the unit litre
+
+-- QUDT"""@en .
+
+
 ###  https://w3id.org/emmo#MicroLitrePerLitre
 emmo:MicroLitrePerLitre rdf:type owl:Class ;
                         rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
@@ -2052,6 +2526,32 @@ emmo:MicroMolePerLitrePerHour rdf:type owl:Class ;
                               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "µmol/(L⋅hr)" .
 
 
+###  https://w3id.org/emmo#MicroMolePerSquareMetrePerDay
+emmo:MicroMolePerSquareMetrePerDay rdf:type owl:Class ;
+                                   rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                                   emmo:EMMO_9ff3bf8e_2168_406e_8251_1d158fc948ae ,
+                                                   emmo:EMMO_a94aec97_71ff_4574_b111_a52d77d2c230 ,
+                                                   emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                                     owl:someValuesFrom emmo:MolePerSquareMetrePerDay
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                     owl:hasValue "1.157407E-11"^^xsd:double
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                                     owl:hasValue "0.0"^^xsd:double
+                                                   ] ;
+                                   skos:altLabel "Micromoles per square metre per day"@en ;
+                                   skos:prefLabel "MicroMolePerSquareMetrePerDay" ;
+                                   emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MicroMOL-PER-M2-DAY" ;
+                                   emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "umol.m-2.d-1" ,
+                                                                                  "umol/m2/d" ;
+                                   emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "µmol/(m²⋅day)" .
+
+
 ###  https://w3id.org/emmo#MicroMolePerSquareMetrePerHour
 emmo:MicroMolePerSquareMetrePerHour rdf:type owl:Class ;
                                     rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
@@ -2144,7 +2644,8 @@ emmo:MilliAmpereHourPerGram rdf:type owl:Class ;
 
 ###  https://w3id.org/emmo#MilliAmpereHourPerSquareCentiMetre
 emmo:MilliAmpereHourPerSquareCentiMetre rdf:type owl:Class ;
-                                        rdfs:subClassOf emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                        rdfs:subClassOf emmo:EMMO_6d753e0c_a967_4de4_ad22_c2fecb3913be ,
+                                                        emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
                                                         [ rdf:type owl:Restriction ;
                                                           owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                           owl:hasValue "3.6E10"^^xsd:double
@@ -2156,6 +2657,35 @@ emmo:MilliAmpereHourPerSquareCentiMetre rdf:type owl:Class ;
                                         skos:prefLabel "MilliAmpereHourPerSquareCentiMetre"@en ;
                                         emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mA.h.cm-2" ;
                                         emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "unit of areic capacity"@en .
+
+
+###  https://w3id.org/emmo#MilliArcsecond
+emmo:MilliArcsecond rdf:type owl:Class ;
+                    rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                    emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
+                                    emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                    emmo:EMMO_cdc962d8_f3ea_4764_a57a_c7caa4859179 ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                      owl:someValuesFrom emmo:Arcsecond
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                      owl:hasValue "4.848137E-9"^^xsd:double
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                      owl:hasValue "0.0"^^xsd:double
+                                    ] ;
+                    skos:altLabel "Milli ArcSecond"@en ;
+                    skos:prefLabel "MilliArcsecond"@en ;
+                    emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliARCSEC" ;
+                    emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m''" ;
+                    emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mas" ;
+                    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A minute of arc, arcminute, or minute arc (MOA), is a unit of angular measurement equal to one sixtieth (1/60) of one degree (circle/21,600), or π /10,800 radians. In turn, a second of arc or arcsecond is one sixtieth (1/60) of one minute of arc. Since one degree is defined as one three hundred and sixtieth (1/360) of a rotation, one minute of arc is 1/21,600 of a rotation.  the milliarcsecond, abbreviated mas, is used in astronomy.
+
+-- QUDT"""@en ;
+                    emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Minute_of_arc" .
 
 
 ###  https://w3id.org/emmo#MilliBarLitrePerSecond
@@ -2236,6 +2766,27 @@ emmo:MilliBecquerelPerSquareMetrePerDay rdf:type owl:Class ;
                                         emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """One radioactive disintegration per thousand seconds in material passing through an area of one square metre during a period of one day (86400 seconds).
 
 -- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#MilliGramPerCubicMetrePerDay
+emmo:MilliGramPerCubicMetrePerDay rdf:type owl:Class ;
+                                  rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                                  emmo:EMMO_8f3a9f9f_6f56_49dc_b39e_1aee57ffdc58 ,
+                                                  emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
+                                                  emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                    owl:hasValue "1.157407E-11"^^xsd:double
+                                                  ] ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                                    owl:hasValue "0.0"^^xsd:double
+                                                  ] ;
+                                  skos:altLabel "Milligrams per cubic metre per day"@en ;
+                                  skos:prefLabel "MilliGramPerCubicMetrePerDay" ;
+                                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliGM-PER-M3-DAY" ;
+                                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mg.m-3.d-1" ;
+                                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mg/(m³⋅day)" .
 
 
 ###  https://w3id.org/emmo#MilliGramPerCubicMetrePerHour
@@ -2493,6 +3044,33 @@ emmo:MilliGramPerSquareMetrePerHour rdf:type owl:Class ;
                                     emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliGM-PER-M2-HR" ;
                                     emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mg.m-2.h-1" ;
                                     emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mg/(m²⋅hr)" .
+
+
+###  https://w3id.org/emmo#MilliLitre
+emmo:MilliLitre rdf:type owl:Class ;
+                rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
+                                emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
+                                emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                  owl:someValuesFrom emmo:Litre
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                  owl:hasValue "1.0E-6"^^xsd:double
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                  owl:hasValue "0.0"^^xsd:double
+                                ] ;
+                skos:prefLabel "MilliLitre" ;
+                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliL" ;
+                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mL" ;
+                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mL" ;
+                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.001-fold of the unit litre
+
+-- QUDT"""@en .
 
 
 ###  https://w3id.org/emmo#MilliLitrePerCubicMetre
@@ -2978,6 +3556,30 @@ emmo:MilliMolePerSquareMetrePerDay rdf:type owl:Class ;
                                    emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mmol/(m²⋅day)" .
 
 
+###  https://w3id.org/emmo#MilliRadPerHour
+emmo:MilliRadPerHour rdf:type owl:Class ;
+                     rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                     emmo:EMMO_835f4e4e_680d_404c_8c73_92a6a570f6eb ,
+                                     emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
+                                     emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                       owl:hasValue "2.777778E-7"^^xsd:double
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                       owl:hasValue "0.0"^^xsd:double
+                                     ] ;
+                     skos:altLabel "Millirads per hour"@en ;
+                     skos:prefLabel "MilliRadPerHour" ;
+                     emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliRAD_R-PER-HR" ;
+                     emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mRAD.h-1" ;
+                     emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mrad/hr" ;
+                     emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """One thousandth part of an absorbed ionizing radiation dose equal to 100 ergs per gram of irradiated material received per hour.
+
+-- QUDT"""@en .
+
+
 ###  https://w3id.org/emmo#MilliVoltPerMinute
 emmo:MilliVoltPerMinute rdf:type owl:Class ;
                         rdfs:subClassOf emmo:EMMO_6837b106_7220_4ec6_b7c9_d549d6163672 ,
@@ -2998,6 +3600,29 @@ emmo:MilliVoltPerMinute rdf:type owl:Class ;
                         emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mV.min-1" ;
                         emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mV/min" ;
                         emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.001-fold of the SI derived unit volt divided by the unit minute
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#MolePerGramPerHour
+emmo:MolePerGramPerHour rdf:type owl:Class ;
+                        rdfs:subClassOf emmo:EMMO_5d2d48c4_4fb6_4f33_bfc0_273129429c30 ,
+                                        emmo:EMMO_ac19c801_bead_4730_8b8c_50020eec45ec ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                          owl:hasValue "0.2777778"^^xsd:double
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                          owl:hasValue "0.0"^^xsd:double
+                                        ] ;
+                        rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                        skos:altLabel "Moles per gram per hour"@en ;
+                        skos:prefLabel "MolePerGramPerHour" ;
+                        emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MOL-PER-GM-HR" ;
+                        emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mol.g-1.h-1" ;
+                        emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mol/(g⋅hr)" ;
+                        emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """SI unit of the quantity of matter per SI unit of mass per unit of time expressed in hour.
 
 -- QUDT"""@en .
 
@@ -3218,6 +3843,174 @@ emmo:NanoGramPerMilliLitre rdf:type owl:Class ;
                            emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """One 10**12 part of the SI standard unit of mass of the measurand per millilitre volume of matrix.
 
 -- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#NanoLitre
+emmo:NanoLitre rdf:type owl:Class ;
+               rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                               emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
+                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                               emmo:EMMO_e1981c25_7c55_4020_aa7a_d2e14ced86d4 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                 owl:someValuesFrom emmo:Litre
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                 owl:hasValue "1.0E-12"^^xsd:double
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                 owl:hasValue "0.0"^^xsd:double
+                               ] ;
+               skos:prefLabel "NanoLitre" ;
+               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/NanoL" ;
+               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "nL" ;
+               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "nL" ;
+               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.000000001-fold of the unit litre
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#NanoMolePerLitre
+emmo:NanoMolePerLitre rdf:type owl:Class ;
+                      rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                      emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                      emmo:EMMO_e1981c25_7c55_4020_aa7a_d2e14ced86d4 ,
+                                      emmo:EMMO_e9348e5b_af4f_4898_bbfe_c4583cf44b80 ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                        owl:someValuesFrom emmo:MolePerLitre
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                        owl:hasValue "1.0E-6"^^xsd:double
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                        owl:hasValue "0.0"^^xsd:double
+                                      ] ;
+                      skos:altLabel "Nanomoles per litre"@en ;
+                      skos:prefLabel "NanoMolePerLitre" ;
+                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/NanoMOL-PER-L" ;
+                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "nmol.L-1" ,
+                                                                     "nmol/L" ;
+                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "nmol/L" ;
+                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A scaled unit of amount-of-substance concentration.
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#NanoMolePerLitrePerDay
+emmo:NanoMolePerLitrePerDay rdf:type owl:Class ;
+                            rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                            emmo:EMMO_c5ac5c53_14de_47ce_b424_2576d042d241 ,
+                                            emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                            emmo:EMMO_e1981c25_7c55_4020_aa7a_d2e14ced86d4 ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                              owl:hasValue "1.157407E-11"^^xsd:double
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                              owl:hasValue "0.0"^^xsd:double
+                                            ] ;
+                            skos:altLabel "Nanomoles per litre per day"@en ;
+                            skos:prefLabel "NanoMolePerLitrePerDay" ;
+                            emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/NanoMOL-PER-L-DAY" ;
+                            emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "nmol.L-1.d-1" ;
+                            emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "nmol/(L⋅day)" .
+
+
+###  https://w3id.org/emmo#NanoMolePerLitrePerHour
+emmo:NanoMolePerLitrePerHour rdf:type owl:Class ;
+                             rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                             emmo:EMMO_c5ac5c53_14de_47ce_b424_2576d042d241 ,
+                                             emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                             emmo:EMMO_e1981c25_7c55_4020_aa7a_d2e14ced86d4 ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                               owl:hasValue "2.777778E-10"^^xsd:double
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                               owl:hasValue "0.0"^^xsd:double
+                                             ] ;
+                             skos:altLabel "Nanomoles per litre per hour"@en ;
+                             skos:prefLabel "NanoMolePerLitrePerHour" ;
+                             emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/NanoMOL-PER-L-HR" ;
+                             emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "nmol.L-1.h-1" ;
+                             emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "nmol/(L⋅hr)" .
+
+
+###  https://w3id.org/emmo#NanoMolePerMicroGramPerHour
+emmo:NanoMolePerMicroGramPerHour rdf:type owl:Class ;
+                                 rdfs:subClassOf emmo:EMMO_5d2d48c4_4fb6_4f33_bfc0_273129429c30 ,
+                                                 emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                                 emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                                 emmo:EMMO_e1981c25_7c55_4020_aa7a_d2e14ced86d4 ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                   owl:hasValue "2.777778E-4"^^xsd:double
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                                   owl:hasValue "0.0"^^xsd:double
+                                                 ] ;
+                                 skos:altLabel "Nanomoles per microgram per hour"@en ;
+                                 skos:prefLabel "NanoMolePerMicroGramPerHour" ;
+                                 emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/NanoMOL-PER-MicroGM-HR" ;
+                                 emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "nmol.ug-1.h-1" ;
+                                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "nmol/(µg⋅hr)" .
+
+
+###  https://w3id.org/emmo#NanoMolePerMicroMolePerDay
+emmo:NanoMolePerMicroMolePerDay rdf:type owl:Class ;
+                                rdfs:subClassOf emmo:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 ,
+                                                emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                                emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                                emmo:EMMO_e1981c25_7c55_4020_aa7a_d2e14ced86d4 ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                  owl:hasValue "1.157407E-8"^^xsd:double
+                                                ] ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                                  owl:hasValue "0.0"^^xsd:double
+                                                ] ;
+                                skos:altLabel "Nanomoles per micromole per day"@en ;
+                                skos:prefLabel "NanoMolePerMicroMolePerDay" ;
+                                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/NanoMOL-PER-MicroMOL-DAY" ;
+                                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "nmol.umol-1.d-1" ;
+                                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "nmol/(µmol⋅day)" ;
+                                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Unavailable.
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#NanoMolePerSquareMetrePerDay
+emmo:NanoMolePerSquareMetrePerDay rdf:type owl:Class ;
+                                  rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                                  emmo:EMMO_a94aec97_71ff_4574_b111_a52d77d2c230 ,
+                                                  emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                                  emmo:EMMO_e1981c25_7c55_4020_aa7a_d2e14ced86d4 ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                                    owl:someValuesFrom emmo:MolePerSquareMetrePerDay
+                                                  ] ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                    owl:hasValue "1.157407E-14"^^xsd:double
+                                                  ] ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                                    owl:hasValue "0.0"^^xsd:double
+                                                  ] ;
+                                  skos:altLabel "Nanomoles per square metre per day"@en ;
+                                  skos:prefLabel "NanoMolePerSquareMetrePerDay" ;
+                                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/NanoMOL-PER-M2-DAY" ;
+                                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "nmol.m-2.d-1" ;
+                                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "nmol/(m²⋅day)" .
 
 
 ###  https://w3id.org/emmo#PascalLitrePerSecond
@@ -3812,6 +4605,29 @@ emmo:TeraWattHour rdf:type owl:Class ;
 -- QUDT"""@en .
 
 
+###  https://w3id.org/emmo#TonnePerCubicMetre
+emmo:TonnePerCubicMetre rdf:type owl:Class ;
+                        rdfs:subClassOf emmo:EMMO_1c957677_a460_4702_85a6_baef659d14b1 ,
+                                        emmo:EMMO_feb03a8a_bbb6_4918_a891_46713ef557f4 ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                          owl:hasValue "1000.0"^^xsd:double
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                          owl:hasValue "0.0"^^xsd:double
+                                        ] ;
+                        rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                        skos:altLabel "Tonne Per Cubic Metre"@en ;
+                        skos:prefLabel "TonnePerCubicMetre"@en ;
+                        emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/TONNE-PER-M3" ;
+                        emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "t.m-3" ;
+                        emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "t/m³" ;
+                        emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """unit tonne divided by the power of the SI base unit metre with the exponent 3
+
+-- QUDT"""@en .
+
+
 ###  https://w3id.org/emmo#TonnePerDay
 emmo:TonnePerDay rdf:type owl:Class ;
                  rdfs:subClassOf emmo:EMMO_8826aefb_0bf6_4378_8732_fc80aa95654c ,
@@ -4004,7 +4820,7 @@ emmo:WattPerLitre rdf:type owl:Class ;
                   emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A unit for power per volume quantities."@en .
 
 
-###  https://w3id.org/emmo#WattHour
+###  https://w3id.org/emmo#Watthour
 emmo:Watthour rdf:type owl:Class ;
               rdfs:subClassOf emmo:EMMO_ac19c801_bead_4730_8b8c_50020eec45ec ,
                               emmo:EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f ,
@@ -4026,7 +4842,7 @@ emmo:Watthour rdf:type owl:Class ;
 -- QUDT"""@en .
 
 
-###  https://w3id.org/emmo#WattHourPerCubicMetre
+###  https://w3id.org/emmo#WatthourPerCubicMetre
 emmo:WatthourPerCubicMetre rdf:type owl:Class ;
                            rdfs:subClassOf emmo:EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b ,
                                            emmo:EMMO_ac19c801_bead_4730_8b8c_50020eec45ec ,
@@ -4047,815 +4863,6 @@ emmo:WatthourPerCubicMetre rdf:type owl:Class ;
                            emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The watt hour per cubic meter is a unit of energy density, equal to 3,600 joule per cubic meter.
 
 -- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#CentiLitre
-emmo:CentiLitre rdf:type owl:Class ;
-                rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
-                                emmo:EMMO_b55cd09a_e54d_4eb1_81dd_03c29d1b878e ,
-                                emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                  owl:someValuesFrom emmo:Litre
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                  owl:hasValue "1.0E-5"^^xsd:double
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                  owl:hasValue "0.0"^^xsd:double
-                                ] ;
-                skos:prefLabel "CentiLitre" ;
-                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/CentiL" ;
-                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "cL" ;
-                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "cL" ;
-                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0,01-fold of the unit litre
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#DecaLitre
-emmo:DecaLitre rdf:type owl:Class ;
-               rdfs:subClassOf emmo:EMMO_1d8b370b_c672_4d0c_964e_eaafcbf2f51f ,
-                               emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                               emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
-                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                 owl:someValuesFrom emmo:Litre
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                 owl:hasValue "0.01"^^xsd:double
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                 owl:hasValue "0.0"^^xsd:double
-                               ] ;
-               skos:prefLabel "DecaLitre" ;
-               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DecaL" ;
-               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "daL" ;
-               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "daL" ;
-               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """10-fold of the unit litre
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#DeciLitre
-emmo:DeciLitre rdf:type owl:Class ;
-               rdfs:subClassOf emmo:EMMO_1181c938_c8f0_4ad6_bc7a_2bfdc0903d29 ,
-                               emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                               emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
-                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                 owl:someValuesFrom emmo:Litre
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                 owl:hasValue "1.0E-4"^^xsd:double
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                 owl:hasValue "0.0"^^xsd:double
-                               ] ;
-               skos:prefLabel "DeciLitre" ;
-               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DeciL" ;
-               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "dL" ;
-               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "dL" ;
-               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.1-fold of the unit litre
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#DeciTonne
-emmo:DeciTonne rdf:type owl:Class ;
-               rdfs:subClassOf emmo:EMMO_1181c938_c8f0_4ad6_bc7a_2bfdc0903d29 ,
-                               emmo:EMMO_77e9dc31_5b19_463e_b000_44c6e79f98aa ,
-                               emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                 owl:someValuesFrom emmo:Tonne
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                 owl:hasValue "100.0"^^xsd:double
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                 owl:hasValue "0.0"^^xsd:double
-                               ] ;
-               skos:altLabel "DeciTonne"@en ;
-               skos:prefLabel "DeciTonne" ;
-               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DeciTONNE" ;
-               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "dt" .
-
-
-###  https://w3id.org/emmo#FemtoLitre
-emmo:FemtoLitre rdf:type owl:Class ;
-                rdfs:subClassOf emmo:EMMO_23bfe79a_cade_48f1_9a8c_fd96e6bac8ba ,
-                                emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
-                                emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                  owl:someValuesFrom emmo:Litre
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                  owl:hasValue "1.0E-18"^^xsd:double
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                  owl:hasValue "0.0"^^xsd:double
-                                ] ;
-                skos:prefLabel "FemtoLitre" ;
-                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/FemtoL" ;
-                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "fL" ;
-                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "fL" ;
-                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.000000000000001-fold of the unit litre
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#GigaElectronVolt
-emmo:GigaElectronVolt rdf:type owl:Class ;
-                      rdfs:subClassOf emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                      emmo:EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                        owl:someValuesFrom emmo:ElectronVolt
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                        owl:hasValue "1.602177E-10"^^xsd:double
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                        owl:hasValue "0.0"^^xsd:double
-                                      ] ;
-                      skos:altLabel "Giga Electron Volt"@en ;
-                      skos:prefLabel "GigaElectronVolt"@en ;
-                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/GigaEV" ;
-                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "GeV" ;
-                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "GeV" ;
-                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Giga Electron Volt\" is a unit for  'Energy And Work' expressed as GeV.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#HectoLitre
-emmo:HectoLitre rdf:type owl:Class ;
-                rdfs:subClassOf emmo:EMMO_21aaefc1_3f86_4208_b7db_a755f31f0f8c ,
-                                emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
-                                emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                  owl:someValuesFrom emmo:Litre
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                  owl:hasValue "0.1"^^xsd:double
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                  owl:hasValue "0.0"^^xsd:double
-                                ] ;
-                skos:prefLabel "HectoLitre" ;
-                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/HectoL" ;
-                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "hL" ;
-                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "hL" ;
-                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """100-fold of the unit litre
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#KiloElectronVolt
-emmo:KiloElectronVolt rdf:type owl:Class ;
-                      rdfs:subClassOf emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                      emmo:EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                        owl:someValuesFrom emmo:ElectronVolt
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                        owl:hasValue "1.602177E-16"^^xsd:double
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                        owl:hasValue "0.0"^^xsd:double
-                                      ] ;
-                      skos:altLabel "Kilo Electron Volt"@en ;
-                      skos:prefLabel "KiloElectronVolt"@en ;
-                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloEV" ;
-                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "keV" ;
-                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "keV" ;
-                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Kilo Electron Volt\" is a unit for  'Energy And Work' expressed as keV.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#KiloLitre
-emmo:KiloLitre rdf:type owl:Class ;
-               rdfs:subClassOf emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
-                               emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                               emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
-                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                 owl:someValuesFrom emmo:Litre
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                 owl:hasValue "1.0"^^xsd:double
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                 owl:hasValue "0.0"^^xsd:double
-                               ] ;
-               skos:prefLabel "KiloLitre" ;
-               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloL" ;
-               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kL" ;
-               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kL" ;
-               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """1 000-fold of the unit litre
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#KiloTonne
-emmo:KiloTonne rdf:type owl:Class ;
-               rdfs:subClassOf emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
-                               emmo:EMMO_77e9dc31_5b19_463e_b000_44c6e79f98aa ,
-                               emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                 owl:someValuesFrom emmo:Tonne
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                 owl:hasValue "1000000.0"^^xsd:double
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                 owl:hasValue "0.0"^^xsd:double
-                               ] ;
-               skos:altLabel "KiloTonne"@en ;
-               skos:prefLabel "KiloTonne" ;
-               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloTONNE" ;
-               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kt" .
-
-
-###  https://w3id.org/emmo#MegaElectronVolt
-emmo:MegaElectronVolt rdf:type owl:Class ;
-                      rdfs:subClassOf emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                      emmo:EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                        owl:someValuesFrom emmo:ElectronVolt
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                        owl:hasValue "1.602177E-13"^^xsd:double
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                        owl:hasValue "0.0"^^xsd:double
-                                      ] ;
-                      skos:altLabel "Mega Electron Volt"@en ;
-                      skos:prefLabel "MegaElectronVolt"@en ;
-                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MegaEV" ;
-                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "MeV" ;
-                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "MeV" ;
-                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """`Mega Electron Volt` is a unit for  'Energy And Work' expressed as MeV.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#MegaLitre
-emmo:MegaLitre rdf:type owl:Class ;
-               rdfs:subClassOf emmo:EMMO_5eaecadc_4f0d_4a3a_afc7_1fc0b83cc928 ,
-                               emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                               emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
-                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                 owl:someValuesFrom emmo:Litre
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                 owl:hasValue "1000.0"^^xsd:double
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                 owl:hasValue "0.0"^^xsd:double
-                               ] ;
-               skos:prefLabel "MegaLitre" ;
-               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MegaL" ;
-               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "ML" ;
-               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "ML" ;
-               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """1 000 000-fold of the unit litre
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#MicroLitre
-emmo:MicroLitre rdf:type owl:Class ;
-                rdfs:subClassOf emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
-                                emmo:EMMO_9ff3bf8e_2168_406e_8251_1d158fc948ae ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                  owl:hasValue "1.0E-9"^^xsd:double
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                  owl:hasValue "0.0"^^xsd:double
-                                ] ;
-                rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                skos:prefLabel "MicroLitre" ;
-                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MicroL" ;
-                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "uL" ;
-                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "μL" ;
-                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.000001-fold of the unit litre
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#MilliArcsecond
-emmo:MilliArcsecond rdf:type owl:Class ;
-                    rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                    emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
-                                    emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                    emmo:EMMO_cdc962d8_f3ea_4764_a57a_c7caa4859179 ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                      owl:someValuesFrom emmo:Arcsecond
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                      owl:hasValue "4.848137E-9"^^xsd:double
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                      owl:hasValue "0.0"^^xsd:double
-                                    ] ;
-                    skos:altLabel "Milli ArcSecond"@en ;
-                    skos:prefLabel "MilliArcsecond"@en ;
-                    emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliARCSEC" ;
-                    emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m''" ;
-                    emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mas" ;
-                    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A minute of arc, arcminute, or minute arc (MOA), is a unit of angular measurement equal to one sixtieth (1/60) of one degree (circle/21,600), or π /10,800 radians. In turn, a second of arc or arcsecond is one sixtieth (1/60) of one minute of arc. Since one degree is defined as one three hundred and sixtieth (1/360) of a rotation, one minute of arc is 1/21,600 of a rotation.  the milliarcsecond, abbreviated mas, is used in astronomy.
-
--- QUDT"""@en ;
-                    emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Minute_of_arc" .
-
-
-###  https://w3id.org/emmo#MilliLitre
-emmo:MilliLitre rdf:type owl:Class ;
-                rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
-                                emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
-                                emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                  owl:someValuesFrom emmo:Litre
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                  owl:hasValue "1.0E-6"^^xsd:double
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                  owl:hasValue "0.0"^^xsd:double
-                                ] ;
-                skos:prefLabel "MilliLitre" ;
-                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliL" ;
-                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mL" ;
-                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mL" ;
-                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.001-fold of the unit litre
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#NanoLitre
-emmo:NanoLitre rdf:type owl:Class ;
-               rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                               emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
-                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                               emmo:EMMO_e1981c25_7c55_4020_aa7a_d2e14ced86d4 ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                 owl:someValuesFrom emmo:Litre
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                 owl:hasValue "1.0E-12"^^xsd:double
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                 owl:hasValue "0.0"^^xsd:double
-                               ] ;
-               skos:prefLabel "NanoLitre" ;
-               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/NanoL" ;
-               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "nL" ;
-               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "nL" ;
-               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.000000001-fold of the unit litre
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#MolePerGramPerHour
-emmo:MolePerGramPerHour rdf:type owl:Class ;
-                        rdfs:subClassOf emmo:EMMO_5d2d48c4_4fb6_4f33_bfc0_273129429c30 ,
-                                        emmo:EMMO_ac19c801_bead_4730_8b8c_50020eec45ec ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                          owl:hasValue "0.2777778"^^xsd:double
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                          owl:hasValue "0.0"^^xsd:double
-                                        ] ;
-                        rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                        skos:altLabel "Moles per gram per hour"@en ;
-                        skos:prefLabel "MolePerGramPerHour" ;
-                        emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MOL-PER-GM-HR" ;
-                        emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mol.g-1.h-1" ;
-                        emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mol/(g⋅hr)" ;
-                        emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """SI unit of the quantity of matter per SI unit of mass per unit of time expressed in hour.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#CubicMetrePerHour
-emmo:CubicMetrePerHour rdf:type owl:Class ;
-                       rdfs:subClassOf emmo:EMMO_a88475b9_c745_4a47_9403_ab0d158b9b1b ,
-                                       emmo:EMMO_ac19c801_bead_4730_8b8c_50020eec45ec ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                         owl:hasValue "2.777778E-4"^^xsd:double
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                         owl:hasValue "0.0"^^xsd:double
-                                       ] ;
-                       rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                       skos:altLabel "Cubic Metre per Hour"@en ;
-                       skos:prefLabel "CubicMetrePerHour"@en ;
-                       emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M3-PER-HR" ;
-                       emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m3.h-1" ,
-                                                                      "m3/h" ;
-                       emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m³/hr" ;
-                       emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Cubic Meter Per Hour (m3/h) is a unit in the category of Volume flow rate. It is also known as cubic meters per hour, cubic metre per hour, cubic metres per hour, cubic meter/hour, cubic metre/hour, cubic meter/hr, cubic metre/hr, flowrate. Cubic Meter Per Hour (m3/h) has a dimension of L3T-1 where L is length, and T is time. It can be converted to the corresponding standard SI unit m3/s by multiplying its value by a factor of 0.00027777777.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#DegreeCelsiusPerHour
-emmo:DegreeCelsiusPerHour rdf:type owl:Class ;
-                          rdfs:subClassOf emmo:EMMO_4f245147_f072_4431_b535_6241e8e87eb8 ,
-                                          emmo:EMMO_ac19c801_bead_4730_8b8c_50020eec45ec ;
-                          rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                          skos:altLabel "Degree Celsius per Hour"@en ;
-                          skos:prefLabel "DegreeCelsiusPerHour"@en ;
-                          emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DEG_C-PER-HR" ;
-                          emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Cel.h-1" ,
-                                                                         "Cel/h" ;
-                          emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "°C/hr" ;
-                          emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """`Degree Celsius per Hour` is a unit for 'Temperature Per Time' expressed as degC / hr.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#KiloMolePerHour
-emmo:KiloMolePerHour rdf:type owl:Class ;
-                     rdfs:subClassOf emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
-                                     emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                     emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                     emmo:EMMO_ce7d4720_aa20_4a8c_93e8_df41a35b6723 ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                       owl:someValuesFrom emmo:MolePerHour
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                       owl:hasValue "0.2777778"^^xsd:double
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                       owl:hasValue "0.0"^^xsd:double
-                                     ] ;
-                     skos:altLabel "Kilomole Per Hour"@en ;
-                     skos:prefLabel "KiloMolePerHour" ;
-                     emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloMOL-PER-HR" ;
-                     emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kmol.h-1" ;
-                     emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kmol/hr" ;
-                     emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """1 000-fold of the SI base unit mole divided by the unit for time hour
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#KiloWattHourPerSquareMetre
-emmo:KiloWattHourPerSquareMetre rdf:type owl:Class ;
-                                rdfs:subClassOf emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
-                                                emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                                emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                                emmo:EMMO_d46e131b_f51a_4ae7_9301_824d718c56fa ,
-                                                [ rdf:type owl:Restriction ;
-                                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                                  owl:hasValue "3600000.0"^^xsd:double
-                                                ] ,
-                                                [ rdf:type owl:Restriction ;
-                                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                                  owl:hasValue "0.0"^^xsd:double
-                                                ] ;
-                                skos:altLabel "Kilowatt hour per square metre"@en ;
-                                skos:prefLabel "KiloWattHourPerSquareMetre" ;
-                                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloW-HR-PER-M2" ;
-                                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kW⋅h/m²" ;
-                                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A unit of energy per unit area, equivalent to 3 600 000 joules per square metre.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#MicroMolePerSquareMetrePerDay
-emmo:MicroMolePerSquareMetrePerDay rdf:type owl:Class ;
-                                   rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                                   emmo:EMMO_9ff3bf8e_2168_406e_8251_1d158fc948ae ,
-                                                   emmo:EMMO_a94aec97_71ff_4574_b111_a52d77d2c230 ,
-                                                   emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                                   [ rdf:type owl:Restriction ;
-                                                     owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                                     owl:someValuesFrom emmo:MolePerSquareMetrePerDay
-                                                   ] ,
-                                                   [ rdf:type owl:Restriction ;
-                                                     owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                                     owl:hasValue "1.157407E-11"^^xsd:double
-                                                   ] ,
-                                                   [ rdf:type owl:Restriction ;
-                                                     owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                                     owl:hasValue "0.0"^^xsd:double
-                                                   ] ;
-                                   skos:altLabel "Micromoles per square metre per day"@en ;
-                                   skos:prefLabel "MicroMolePerSquareMetrePerDay" ;
-                                   emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MicroMOL-PER-M2-DAY" ;
-                                   emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "umol.m-2.d-1" ,
-                                                                                  "umol/m2/d" ;
-                                   emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "µmol/(m²⋅day)" .
-
-
-###  https://w3id.org/emmo#MilliGramPerCubicMetrePerDay
-emmo:MilliGramPerCubicMetrePerDay rdf:type owl:Class ;
-                                  rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                                  emmo:EMMO_8f3a9f9f_6f56_49dc_b39e_1aee57ffdc58 ,
-                                                  emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
-                                                  emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                                  [ rdf:type owl:Restriction ;
-                                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                                    owl:hasValue "1.157407E-11"^^xsd:double
-                                                  ] ,
-                                                  [ rdf:type owl:Restriction ;
-                                                    owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                                    owl:hasValue "0.0"^^xsd:double
-                                                  ] ;
-                                  skos:altLabel "Milligrams per cubic metre per day"@en ;
-                                  skos:prefLabel "MilliGramPerCubicMetrePerDay" ;
-                                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliGM-PER-M3-DAY" ;
-                                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mg.m-3.d-1" ;
-                                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mg/(m³⋅day)" .
-
-
-###  https://w3id.org/emmo#DegreeCelsiusPerMinute
-emmo:DegreeCelsiusPerMinute rdf:type owl:Class ;
-                            rdfs:subClassOf emmo:EMMO_4f245147_f072_4431_b535_6241e8e87eb8 ,
-                                            emmo:EMMO_ac19c801_bead_4730_8b8c_50020eec45ec ;
-                            rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                            skos:altLabel "Degree Celsius per Minute"@en ;
-                            skos:prefLabel "DegreeCelsiusPerMinute"@en ;
-                            emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DEG_C-PER-MIN" ;
-                            emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Cel.min-1" ,
-                                                                           "Cel/min" ;
-                            emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "°C/min" ;
-                            emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """`Degree Celsius per Minute` is a unit for 'Temperature Per Time' expressed as degC / m.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#DegreePerMetre
-emmo:DegreePerMetre rdf:type owl:Class ;
-                    rdfs:subClassOf emmo:EMMO_608a1b30_df6f_4bbb_9dc3_5c0de92fd9cf ,
-                                    emmo:EMMO_ac19c801_bead_4730_8b8c_50020eec45ec ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                      owl:hasValue "0.01745329"^^xsd:double
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                      owl:hasValue "0.0"^^xsd:double
-                                    ] ;
-                    rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                    skos:altLabel "Degrees per metre"@en ;
-                    skos:prefLabel "DegreePerMetre" ;
-                    emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DEG-PER-M" ;
-                    emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "deg.m-1" ;
-                    emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "°/m" ;
-                    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A change of angle in one SI unit of length.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#TonnePerCubicMetre
-emmo:TonnePerCubicMetre rdf:type owl:Class ;
-                        rdfs:subClassOf emmo:EMMO_1c957677_a460_4702_85a6_baef659d14b1 ,
-                                        emmo:EMMO_feb03a8a_bbb6_4918_a891_46713ef557f4 ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                          owl:hasValue "1000.0"^^xsd:double
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                          owl:hasValue "0.0"^^xsd:double
-                                        ] ;
-                        rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                        skos:altLabel "Tonne Per Cubic Metre"@en ;
-                        skos:prefLabel "TonnePerCubicMetre"@en ;
-                        emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/TONNE-PER-M3" ;
-                        emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "t.m-3" ;
-                        emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "t/m³" ;
-                        emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """unit tonne divided by the power of the SI base unit metre with the exponent 3
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#MilliRadPerHour
-emmo:MilliRadPerHour rdf:type owl:Class ;
-                     rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                     emmo:EMMO_835f4e4e_680d_404c_8c73_92a6a570f6eb ,
-                                     emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
-                                     emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                       owl:hasValue "2.777778E-7"^^xsd:double
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                       owl:hasValue "0.0"^^xsd:double
-                                     ] ;
-                     skos:altLabel "Millirads per hour"@en ;
-                     skos:prefLabel "MilliRadPerHour" ;
-                     emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliRAD_R-PER-HR" ;
-                     emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mRAD.h-1" ;
-                     emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mrad/hr" ;
-                     emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """One thousandth part of an absorbed ionizing radiation dose equal to 100 ergs per gram of irradiated material received per hour.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#NanoMolePerLitre
-emmo:NanoMolePerLitre rdf:type owl:Class ;
-                      rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                      emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                      emmo:EMMO_e1981c25_7c55_4020_aa7a_d2e14ced86d4 ,
-                                      emmo:EMMO_e9348e5b_af4f_4898_bbfe_c4583cf44b80 ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                        owl:someValuesFrom emmo:MolePerLitre
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                        owl:hasValue "1.0E-6"^^xsd:double
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                        owl:hasValue "0.0"^^xsd:double
-                                      ] ;
-                      skos:altLabel "Nanomoles per litre"@en ;
-                      skos:prefLabel "NanoMolePerLitre" ;
-                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/NanoMOL-PER-L" ;
-                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "nmol.L-1" ,
-                                                                     "nmol/L" ;
-                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "nmol/L" ;
-                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A scaled unit of amount-of-substance concentration.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#NanoMolePerLitrePerDay
-emmo:NanoMolePerLitrePerDay rdf:type owl:Class ;
-                            rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                            emmo:EMMO_c5ac5c53_14de_47ce_b424_2576d042d241 ,
-                                            emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                            emmo:EMMO_e1981c25_7c55_4020_aa7a_d2e14ced86d4 ,
-                                            [ rdf:type owl:Restriction ;
-                                              owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                              owl:hasValue "1.157407E-11"^^xsd:double
-                                            ] ,
-                                            [ rdf:type owl:Restriction ;
-                                              owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                              owl:hasValue "0.0"^^xsd:double
-                                            ] ;
-                            skos:altLabel "Nanomoles per litre per day"@en ;
-                            skos:prefLabel "NanoMolePerLitrePerDay" ;
-                            emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/NanoMOL-PER-L-DAY" ;
-                            emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "nmol.L-1.d-1" ;
-                            emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "nmol/(L⋅day)" .
-
-
-###  https://w3id.org/emmo#NanoMolePerLitrePerHour
-emmo:NanoMolePerLitrePerHour rdf:type owl:Class ;
-                             rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                             emmo:EMMO_c5ac5c53_14de_47ce_b424_2576d042d241 ,
-                                             emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                             emmo:EMMO_e1981c25_7c55_4020_aa7a_d2e14ced86d4 ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                               owl:hasValue "2.777778E-10"^^xsd:double
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                               owl:hasValue "0.0"^^xsd:double
-                                             ] ;
-                             skos:altLabel "Nanomoles per litre per hour"@en ;
-                             skos:prefLabel "NanoMolePerLitrePerHour" ;
-                             emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/NanoMOL-PER-L-HR" ;
-                             emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "nmol.L-1.h-1" ;
-                             emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "nmol/(L⋅hr)" .
-
-
-###  https://w3id.org/emmo#NanoMolePerMicroGramPerHour
-emmo:NanoMolePerMicroGramPerHour rdf:type owl:Class ;
-                                 rdfs:subClassOf emmo:EMMO_5d2d48c4_4fb6_4f33_bfc0_273129429c30 ,
-                                                 emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                                 emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                                 emmo:EMMO_e1981c25_7c55_4020_aa7a_d2e14ced86d4 ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                                   owl:hasValue "2.777778E-4"^^xsd:double
-                                                 ] ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                                   owl:hasValue "0.0"^^xsd:double
-                                                 ] ;
-                                 skos:altLabel "Nanomoles per microgram per hour"@en ;
-                                 skos:prefLabel "NanoMolePerMicroGramPerHour" ;
-                                 emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/NanoMOL-PER-MicroGM-HR" ;
-                                 emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "nmol.ug-1.h-1" ;
-                                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "nmol/(µg⋅hr)" .
-
-
-###  https://w3id.org/emmo#NanoMolePerMicroMolePerDay
-emmo:NanoMolePerMicroMolePerDay rdf:type owl:Class ;
-                                rdfs:subClassOf emmo:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 ,
-                                                emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                                emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                                emmo:EMMO_e1981c25_7c55_4020_aa7a_d2e14ced86d4 ,
-                                                [ rdf:type owl:Restriction ;
-                                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                                  owl:hasValue "1.157407E-8"^^xsd:double
-                                                ] ,
-                                                [ rdf:type owl:Restriction ;
-                                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                                  owl:hasValue "0.0"^^xsd:double
-                                                ] ;
-                                skos:altLabel "Nanomoles per micromole per day"@en ;
-                                skos:prefLabel "NanoMolePerMicroMolePerDay" ;
-                                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/NanoMOL-PER-MicroMOL-DAY" ;
-                                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "nmol.umol-1.d-1" ;
-                                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "nmol/(µmol⋅day)" ;
-                                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Unavailable.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#NanoMolePerSquareMetrePerDay
-emmo:NanoMolePerSquareMetrePerDay rdf:type owl:Class ;
-                                  rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                                  emmo:EMMO_a94aec97_71ff_4574_b111_a52d77d2c230 ,
-                                                  emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                                  emmo:EMMO_e1981c25_7c55_4020_aa7a_d2e14ced86d4 ,
-                                                  [ rdf:type owl:Restriction ;
-                                                    owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                                    owl:someValuesFrom emmo:MolePerSquareMetrePerDay
-                                                  ] ,
-                                                  [ rdf:type owl:Restriction ;
-                                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                                    owl:hasValue "1.157407E-14"^^xsd:double
-                                                  ] ,
-                                                  [ rdf:type owl:Restriction ;
-                                                    owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                                    owl:hasValue "0.0"^^xsd:double
-                                                  ] ;
-                                  skos:altLabel "Nanomoles per square metre per day"@en ;
-                                  skos:prefLabel "NanoMolePerSquareMetrePerDay" ;
-                                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/NanoMOL-PER-M2-DAY" ;
-                                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "nmol.m-2.d-1" ;
-                                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "nmol/(m²⋅day)" .
-
 
 
 ###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

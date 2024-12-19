@@ -1,0 +1,105 @@
+@prefix : <https://w3id.org/emmo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/emmo#> .
+
+<https://w3id.org/emmo/perspectives/contrast> rdf:type owl:Ontology ;
+                                               owl:versionIRI <https://w3id.org/emmo/1.0.0-rc3/perspectives/contrast> ;
+                                               owl:imports <https://w3id.org/emmo/1.0.0-rc3/perspectives/perspective> ;
+                                               dcterms:abstract ""@en ;
+                                               dcterms:contributor :FrancescaBleken ,
+                                                                   :FrancescoZaccarini ,
+                                                                   :GerhardGoldbeck ,
+                                                                   "Michael Noeske, FRAUNHOFER IFAM, DE"@en ;
+                                               dcterms:creator :EmanueleGhedini ,
+                                                               :JesperFriis ;
+                                               dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+                                               dcterms:publisher <https://emmc.eu> ;
+                                               dcterms:title "Data"@en ;
+                                               rdfs:comment "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
+                                               owl:versionInfo "1.0.0-rc3" ;
+                                               :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/emmo#EMMO_1e877c70_3b01_45a8_a8f6_8ce4f6a24660
+:EMMO_1e877c70_3b01_45a8_a8f6_8ce4f6a24660 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_49267eba_5548_4163_8f36_518d65b583f9 ;
+                                           rdfs:seeAlso "Luciano Floridi, \"Information - A very Short Introduction\", Oxford University Press., (2010) ISBN 978-0199551378"@en ;
+                                           skos:altLabel "Dedomena"@en ,
+                                                         "Pattern"@en ;
+                                           skos:prefLabel "Contrast"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A perspective in which entities are represented according to the variation of their properties."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """A data is a causal object whose variations (non-uniformity) can be recognised and eventually interpreted.
+A data can be of different physical types (e.g., matter, wave, atomic excited states).
+How the variations are recognised and eventually decoded depends on the interpreting rules that characterise that type of data.
+Variations are pure physical variations and do not necessarily possess semantic meaning."""@en ,
+                                                                                      "The covering axiom that defines the data class discriminates within all the possible causal objects between encoded or non encoded."@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_1e877c70_3b01_45a8_a8f6_8ce4f6a24660 ;
+   owl:annotatedProperty skos:altLabel ;
+   owl:annotatedTarget "Dedomena"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Greek, nominative plural form of δεδομένο (dedoméno) (data, information)"@en
+ ] .
+
+
+###  https://w3id.org/emmo#EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490
+:EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_1e877c70_3b01_45a8_a8f6_8ce4f6a24660 ;
+                                           owl:disjointWith :EMMO_5a10e288_c6a5_409a_a16a_98a2fb8be4f3 ;
+                                           skos:altLabel "EncodedContrast"@en ,
+                                                         "EncodedData"@en ;
+                                           skos:example """A Radio Morse Code transmission can be addressed by combination of perspectives.
+Physicalistic: the electromagnetic pulses can be defined as individual A (of type Field) and the strip of paper coming out a printer receiver can be defined as individual B (of type Matter).
+Data: both A and B are also DiscreteData class individuals. In particular they may belong to a MorseData class, subclass of DiscreteData.
+Perceptual: B is an individual belonging to the graphical entities expressing symbols. In particular is a formula under the MorseLanguage class, made of a combination of . and - symbols.
+Semiotics: A and B can be signs if they refers to something else (e.g. a report about a fact, names)."""@en ,
+                                                        "A signal through a cable. A sound wave. Words on a page. The pattern of excited states within a computer RAM."@en ;
+                                           skos:prefLabel "Data"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A causal object whose properties variation are encoded by an agent and that can be decoded by another agent according to a specific rule."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """EncodedData is the class where inventions that don't actually exist would be placed.
+For example, the blueprint of a bridge is an encoded data. When the bridge will be built, than the blueprint will also be a semiotical entity.
+Another example is Superman, that exists only as a set of magazines, drawings, novels, movies, but not in the real world."""@en ,
+                                                                                      """Variations in data are generated by an agent (not necessarily human) and are intended to be decoded by the same or another agent using the same encoding rules.
+Data are always generated by an agent but not necessarily possess a semantic meaning, either because it's lost or unknown or because simply they possess none (e.g. a random generation of symbols). A data object may be used as the physical basis for a sign, under Semiotics perspective."""@en ,
+                                                                                      """We call \"decoding\" the act of recognise the variation according to a particular rule and generate another equivalent schema (e.g. in the agent's cognitive apparatus, as another form of data).
+We call \"interpreting\" the act of providing semantic meaning to data, which is covered by the semiotic perspective."""@en ;
+                                           :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://no.wikipedia.org/wiki/Data"^^xsd:anyURI .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "Data"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin data, nominative plural of datum (“that is given”), neuter past participle of dō (“I give”)."@en
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 ;
+   owl:annotatedProperty :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f ;
+   owl:annotatedTarget """We call \"decoding\" the act of recognise the variation according to a particular rule and generate another equivalent schema (e.g. in the agent's cognitive apparatus, as another form of data).
+We call \"interpreting\" the act of providing semantic meaning to data, which is covered by the semiotic perspective."""@en ;
+   skos:example "The electronical state of the RAM of my laptop is decoded by it as ASCII characters and printed on the screen."@en
+ ] .
+
+
+###  https://w3id.org/emmo#EMMO_5a10e288_c6a5_409a_a16a_98a2fb8be4f3
+:EMMO_5a10e288_c6a5_409a_a16a_98a2fb8be4f3 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_1e877c70_3b01_45a8_a8f6_8ce4f6a24660 ;
+                                           skos:altLabel "EnvironmentalData"@en ;
+                                           skos:example "A cloud in the sky. The radiative spectrum of a star."@en ;
+                                           skos:prefLabel "NonEncodedContrast"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Contrast that occurs naturally without an encoding agent producing it."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A non encoded contrast (e.g. a temperature variation) can be represented by data that describes (e.g. the string \"today it's warmer than yesterday\") or quantifies (e.g. Monday 28 °C, Tuesday 30 °C) it through a semiotic process."@en ,
+                                                                                      """This is a really broad class that gathers all physical phenomena in which a contrast occurs naturally, such as cloud patterns, tree rings, stains.
+It doesn't mean that such contrasts cannot be used to deduce something: in fact they can be seen as indexes (in semiotic sense) of a causally connected phenomena. Simply, there is no agent behind that contrast with the intention to transmit data."""@en .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

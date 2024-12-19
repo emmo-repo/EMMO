@@ -9,21 +9,21 @@
 @base <https://w3id.org/emmo#> .
 
 <https://w3id.org/emmo/disciplines/manufacturing> rdf:type owl:Ontology ;
-                                                   owl:versionIRI <https://w3id.org/emmo/1.0.0-rc1/disciplines/manufacturing> ;
-                                                   owl:imports <https://w3id.org/emmo/1.0.0-rc1/disciplines/materials> ,
-                                                               <https://w3id.org/emmo/1.0.0-rc1/multiperspective/persholistic> ;
+                                                   owl:versionIRI <https://w3id.org/emmo/1.0.0-rc3/disciplines/manufacturing> ;
+                                                   owl:imports <https://w3id.org/emmo/1.0.0-rc3/disciplines/materials> ,
+                                                               <https://w3id.org/emmo/1.0.0-rc3/reference/persholistic> ;
                                                    dcterms:abstract "Describes manufacturing processes with engineered participants. The module also provides a root for engineered materials."@en ;
-                                                   dcterms:creator <https://orcid.org/0000-0003-0514-9229> ,
-                                                                   <https://orcid.org/0000-0003-3805-8761> ,
-                                                                   <https://orcid.org/0000-0003-4065-9742> ,
-                                                                   <https://orcid.org/0000-0002-4181-2852> ,
-                                                                   <https://orcid.org/0000-0002-1560-809X> ;
+                                                   dcterms:creator :JesperFriis ,
+                                                                   :GerhardGoldbeck ,
+                                                                   :AdhamHashibon ,
+                                                                   :EmanueleGhedini ,
+                                                                   <https://orcid.org/0000-0003-4065-9742> ;
                                                    dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                                    dcterms:publisher <https://emmc.eu> ;
                                                    dcterms:title "Manufacturing"@en ;
-                                                   :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" ;
                                                    rdfs:comment "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                                   owl:versionInfo "1.0.0-rc1" .
+                                                   owl:versionInfo "1.0.0-rc3" ;
+                                                   :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
 
 #################################################################
 #    Annotation properties
@@ -1039,7 +1039,11 @@ e.g. the fact that steel comes in sheets is not relevant for the definition of s
                                                                                :EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad
                                                                              )
                                                                ] ;
-                                           rdfs:subClassOf :EMMO_aaad78a9_abaf_4f97_9c1a_d763a94c4ba3 ;
+                                           rdfs:subClassOf :EMMO_b4494d69_6393_4eb4_8346_7fedd4df0bc5 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_2bb50428_568d_46e8_b8bf_59a4c5656461 ;
+                                                             owl:someValuesFrom :EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c
+                                                           ] ;
                                            skos:altLabel "Output"@en ;
                                            skos:prefLabel "Product"@en ;
                                            :EMMO_3aa37f92_8dc5_4ee4_8438_e41e6ae20c62 "https://www.iso.org/obp/ui/#iso:std:iso:9000:ed-3:v1:en:term:3.4.2"@en ;
@@ -1421,14 +1425,13 @@ manufacturing process: set of processes in manufacturing involving a flow and/or
 
 ###  https://w3id.org/emmo#EMMO_c0afb341_7d31_4883_a307_ae4606df2a1b
 :EMMO_c0afb341_7d31_4883_a307_ae4606df2a1b rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4b32fc1e_5293_4247_9e8d_1175df9f1c0b ,
-                                                           [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
                                                              owl:onProperty [ owl:inverseOf :EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77
                                                                             ] ;
                                                              owl:someValuesFrom :EMMO_a4d66059_5dd3_4b90_b4cb_10960559441b
                                                            ] ;
                                            skos:prefLabel "Manufacturer"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A strict fundamental object overcrossing a manufacturing process, the intersection being the agent that participates and drives the manufacturing process."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A fundamental object overcrossing a manufacturing process, the intersection being the agent that participates and drives the manufacturing process."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_c0ec56d1_0deb_4452_a6a1_70570308b6bb
@@ -1820,4 +1823,4 @@ manufacturing process: set of processes in manufacturing involving a flow and/or
                                            skos:prefLabel "FromWorkPIecetoWorkPiece"@en .
 
 
-###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

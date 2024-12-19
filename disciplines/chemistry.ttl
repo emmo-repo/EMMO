@@ -9,19 +9,19 @@
 @base <https://w3id.org/emmo#> .
 
 <https://w3id.org/emmo/disciplines/chemistry> rdf:type owl:Ontology ;
-                                               owl:versionIRI <https://w3id.org/emmo/1.0.0-rc1/disciplines/chemistry> ;
-                                               owl:imports <https://w3id.org/emmo/1.0.0-rc1/disciplines/perceptual> ,
-                                                           <https://w3id.org/emmo/1.0.0-rc1/disciplines/isq> ;
+                                               owl:versionIRI <https://w3id.org/emmo/1.0.0-rc3/disciplines/chemistry> ;
+                                               owl:imports <https://w3id.org/emmo/1.0.0-rc3/disciplines/isq> ,
+                                                           <https://w3id.org/emmo/1.0.0-rc3/disciplines/perceptual> ;
                                                dcterms:abstract "The chemistry module populates the physicalistic perspective with materials subclasses categorised according to modern applied chemistry."@en ;
-                                               dcterms:creator <https://orcid.org/0000-0003-3805-8761> ,
-                                                               <https://orcid.org/0000-0002-4181-2852> ,
-                                                               <https://orcid.org/0000-0002-1560-809X> ;
+                                               dcterms:creator :EmanueleGhedini ,
+                                                               :GerhardGoldbeck ,
+                                                               :JesperFriis ;
                                                dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                                dcterms:publisher <https://emmc.eu> ;
                                                dcterms:title "Chemistry"@en ;
-                                               :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" ;
                                                rdfs:comment "The EMMO requires FacT++ reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                               owl:versionInfo "1.0.0-rc1" .
+                                               owl:versionInfo "1.0.0-rc3" ;
+                                               :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
 
 #################################################################
 #    Annotation properties
@@ -43,6 +43,17 @@
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "OpenSMILE representation of a molecular structure."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "OpenSMILES is an open specification of the SMILE language for specifying molecular structures, which has become a defacto standard for exchange of molecular structures."@en ;
                                            rdfs:subPropertyOf rdfs:seeAlso .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/emmo#EMMO_40c65eb4_5b58_4b13_8752_9976582380af
+:EMMO_40c65eb4_5b58_4b13_8752_9976582380af rdf:type owl:DatatypeProperty ;
+                                           rdfs:subPropertyOf :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
+                                           rdfs:domain :EMMO_d357e0dd_3497_4590_af6f_7954db7fecf7 ;
+                                           skos:prefLabel "chemicalSymbolValue"@en .
 
 
 #################################################################
@@ -145,11 +156,7 @@ The class Material hosts the subclasses for which a substance can be identified 
 ###  https://w3id.org/emmo#EMMO_4f40def1_3cd7_4067_9596_541e9a5134cf
 :EMMO_4f40def1_3cd7_4067_9596_541e9a5134cf rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ,
-                                                           :EMMO_abf7efbe_6b04_41b8_8326_4dd0f6be753e ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                                                             owl:someValuesFrom xsd:string
-                                                           ] ;
+                                                           :EMMO_abf7efbe_6b04_41b8_8326_4dd0f6be753e ;
                                            rdfs:comment """The IUPAC Gold Book defines the a chemical element both as:
 - a species of atoms; all atoms with the same number of protons in the atomic nucleus
 -  a pure chemical substance composed of atoms with the same number of protons in the atomic nucleus
@@ -292,7 +299,6 @@ This qualifies a chemical element as a name and not a matter obejct that can sta
                                            skos:prefLabel "CondensedFormula"@en .
 
 
-
 ###  https://w3id.org/emmo#EMMO_cbcf8fe6_6da6_49e0_ab4d_00f737ea9689
 :EMMO_cbcf8fe6_6da6_49e0_ab4d_00f737ea9689 rdf:type owl:Class ;
                                            owl:equivalentClass [ rdf:type owl:Class ;
@@ -366,7 +372,6 @@ Chemical species is the macroscopic equivalent of molecular entity and refers to
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Chemical_compound" .
 
 
-
 ###  https://w3id.org/emmo#EMMO_ecc4efe9_77a2_47e3_8190_f9a883d54ac6
 :EMMO_ecc4efe9_77a2_47e3_8190_f9a883d54ac6 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_eb7de1a1_c30e_4f0d_94c6_fe70414d7e61 ;
@@ -374,4 +379,4 @@ Chemical species is the macroscopic equivalent of molecular entity and refers to
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A representation of objects belonging to the chemistry field." .
 
 
-###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

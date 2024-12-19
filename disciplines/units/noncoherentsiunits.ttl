@@ -10,14 +10,14 @@
 @base <https://w3id.org/emmo#> .
 
 <https://w3id.org/emmo/disciplines/units/noncoherentsiunits> rdf:type owl:Ontology ;
-                                                              owl:versionIRI <https://w3id.org/emmo/1.0.0-rc1/disciplines/units/noncoherentsiunits> ;
-                                                              owl:imports <https://w3id.org/emmo/1.0.0-rc1/disciplines/units/coherentsiunits> ;
+                                                              owl:versionIRI <https://w3id.org/emmo/1.0.0-rc3/disciplines/units/noncoherentsiunits> ;
+                                                              owl:imports <https://w3id.org/emmo/1.0.0-rc3/disciplines/units/coherentsiunits> ;
                                                               dcterms:abstract "The 'noncoherentsiunits' module contains non-coherent derived SI units (and SI-accepted units) that are not prefixed units (units made of a metric prefix followed by a unit symbol).  Examples: km/h, A/g."@en ;
-                                                              dcterms:contributor <https://orcid.org/0000-0001-8869-3718> ,
-                                                                                  <https://orcid.org/0000-0002-4181-2852> ,
-                                                                                  <https://orcid.org/0000-0002-8758-6109> ;
-                                                              dcterms:creator <https://orcid.org/0000-0002-1560-809X> ,
-                                                                              <https://orcid.org/0000-0003-3805-8761> ;
+                                                              dcterms:contributor emmo:FrancescaBleken ,
+                                                                                  emmo:GerhardGoldbeck ,
+                                                                                  emmo:SimonClark ;
+                                                              dcterms:creator emmo:EmanueleGhedini ,
+                                                                              emmo:JesperFriis ;
                                                               dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                                               dcterms:publisher <https://emmc.eu> ;
                                                               dcterms:title "Non-coherent SI units"@en ;
@@ -25,7 +25,7 @@
 
 We kindly acknowledge NIST for reusing their content, including the selection of units, their elucidations and conversion multiplier."""@en ,
                                                                            "The EMMO should be reasoned with HermiT to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                                              owl:versionInfo "1.0.0-rc1" ;
+                                                              owl:versionInfo "1.0.0-rc3" ;
                                                               emmo:EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
 
 #################################################################
@@ -1014,16 +1014,16 @@ emmo:Gram rdf:type owl:Class ;
                           emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
                           emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                           [ rdf:type owl:Restriction ;
-                            owl:onProperty emmo:EMMO_23b579e1_8088_45b5_9975_064014026c42 ;
-                            owl:hasValue "g"
-                          ] ,
-                          [ rdf:type owl:Restriction ;
                             owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                             owl:hasValue "0.001"^^xsd:double
                           ] ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
                             owl:hasValue "0.0"^^xsd:double
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
+                            owl:hasValue "g"
                           ] ;
           skos:prefLabel "Gram"@en ;
           emmo:EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "GRM" ;
@@ -3037,7 +3037,9 @@ emmo:MicroHenryPerKiloOhm rdf:type owl:Class ;
 
 ###  https://w3id.org/emmo#MicroHenryPerMetre
 emmo:MicroHenryPerMetre rdf:type owl:Class ;
-                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                        rdfs:subClassOf emmo:EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1 ,
+                                        emmo:EMMO_fa9c8c56_314f_4a5a_a71d_bae66446b185 ,
+                                        [ rdf:type owl:Restriction ;
                                           owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                           owl:hasValue "1.0E-6"^^xsd:double
                                         ] ,
@@ -3156,7 +3158,9 @@ emmo:MicroMolePerGram rdf:type owl:Class ;
 
 ###  https://w3id.org/emmo#MicroMolePerGramPerSecond
 emmo:MicroMolePerGramPerSecond rdf:type owl:Class ;
-                               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               rdfs:subClassOf emmo:EMMO_5d2d48c4_4fb6_4f33_bfc0_273129429c30 ,
+                                               emmo:EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1 ,
+                                               [ rdf:type owl:Restriction ;
                                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                  owl:hasValue "1.0E-4"^^xsd:double
                                                ] ,
@@ -4487,7 +4491,9 @@ emmo:NanoGramPerKilogram rdf:type owl:Class ;
 
 ###  https://w3id.org/emmo#NanoGramPerSquareMetrePerPascalPerSecond
 emmo:NanoGramPerSquareMetrePerPascalPerSecond rdf:type owl:Class ;
-                                              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                              rdfs:subClassOf emmo:EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1 ,
+                                                              emmo:EMMO_9f0338b9_326f_44c2_893c_2d815b763130 ,
+                                                              [ rdf:type owl:Restriction ;
                                                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                                 owl:hasValue "1.0E-12"^^xsd:double
                                                               ] ,
@@ -5567,7 +5573,8 @@ emmo:VoltPerMilliMetre rdf:type owl:Class ;
 
 ###  https://w3id.org/emmo#WattPerSquareCentiMetre
 emmo:WattPerSquareCentiMetre rdf:type owl:Class ;
-                             rdfs:subClassOf emmo:EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1 ,
+                             rdfs:subClassOf emmo:EMMO_539d8d92_d3a5_4f46_858f_081fed5b4190 ,
+                                             emmo:EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1 ,
                                              [ rdf:type owl:Restriction ;
                                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                                owl:hasValue "10000.0"^^xsd:double
@@ -5650,4 +5657,4 @@ emmo:WeberPerMilliMetre rdf:type owl:Class ;
 -- QUDT"""@en .
 
 
-###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
