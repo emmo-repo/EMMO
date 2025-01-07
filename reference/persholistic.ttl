@@ -44,7 +44,8 @@
 
 ###  https://w3id.org/emmo#EMMO_3c7f239f_e833_4a2b_98a1_c88831770c1b
 :EMMO_3c7f239f_e833_4a2b_98a1_c88831770c1b rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_dba27ca1_33c9_4443_a912_1519ce4c39ec ;
+                                           rdfs:subPropertyOf :EMMO_8e52c42b_e879_4473_9fa1_4b23428b392b ,
+                                                              :EMMO_dba27ca1_33c9_4443_a912_1519ce4c39ec ;
                                            rdfs:domain :EMMO_65a007dc_2550_46b0_b394_3346c67fbb69 ;
                                            rdfs:range :EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817 ;
                                            skos:prefLabel "hasComponent"@en .
@@ -76,7 +77,11 @@
 ###  https://w3id.org/emmo#EMMO_65a007dc_2550_46b0_b394_3346c67fbb69
 :EMMO_65a007dc_2550_46b0_b394_3346c67fbb69 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_1efe8b96_e006_4a33_bc9a_421406cbb9f0 ,
-                                                           :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ;
+                                                           :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_3c7f239f_e833_4a2b_98a1_c88831770c1b ;
+                                                             owl:someValuesFrom :EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817
+                                                           ] ;
                                            skos:prefLabel "HolisticSystem"@en ;
                                            :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "SubClassOf: hasComponent some Component" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An object that is made of a set of sub objects working together as parts of a mechanism or an interconnecting network (natural or artificial); a complex whole."@en ;
@@ -109,7 +114,13 @@ organization: person or group of people that has its own functions with responsi
 
 ###  https://w3id.org/emmo#EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817
 :EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_ceaaf9f7_fd11_424b_8fda_9afa186af186 ;
+                                           rdfs:subClassOf :EMMO_4f226cf3_6d02_4d35_8566_a9e641bc6ff3 ,
+                                                           :EMMO_ceaaf9f7_fd11_424b_8fda_9afa186af186 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_3c7f239f_e833_4a2b_98a1_c88831770c1b
+                                                                            ] ;
+                                                             owl:someValuesFrom :EMMO_65a007dc_2550_46b0_b394_3346c67fbb69
+                                                           ] ;
                                            skos:prefLabel "Component"@en ;
                                            :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "SubClassOf:  inverse (hasConstituent) some HolisticSystem" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A constituent of a system."@en .
