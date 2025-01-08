@@ -182,11 +182,9 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
 ###  https://w3id.org/emmo#EMMO_2fd3f574_5e93_47fe_afca_ed80b0a21ab4
 :EMMO_2fd3f574_5e93_47fe_afca_ed80b0a21ab4 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_eb77076b_a104_42ac_a065_798b2d2809ad ;
-                                           owl:disjointUnionOf ( :EMMO_4588526f_8553_4f4d_aa73_a483e88d599b
-                                                                 :EMMO_db03061b_db31_4132_a47a_6a634846578b
-                                                               ) ;
                                            rdfs:comment "A standalone atom can be bonded with other atoms by intermolecular forces (i.e. dipole–dipole, London dispersion force, hydrogen bonding), since this bonds does not involve electron sharing."@en ;
                                            skos:prefLabel "StandaloneAtom"@en ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "DisjointUnionOf: NeutralAtom, IonAtom" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An atom that does not share electrons with other atoms."@en .
 
 
@@ -257,6 +255,8 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
 
 ###  https://w3id.org/emmo#EMMO_4588526f_8553_4f4d_aa73_a483e88d599b
 :EMMO_4588526f_8553_4f4d_aa73_a483e88d599b rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_2fd3f574_5e93_47fe_afca_ed80b0a21ab4 ;
+                                           owl:disjointWith :EMMO_db03061b_db31_4132_a47a_6a634846578b ;
                                            skos:prefLabel "NeutralAtom"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A standalone atom that has no net charge."@en .
 
@@ -584,6 +584,7 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
 
 ###  https://w3id.org/emmo#EMMO_db03061b_db31_4132_a47a_6a634846578b
 :EMMO_db03061b_db31_4132_a47a_6a634846578b rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_2fd3f574_5e93_47fe_afca_ed80b0a21ab4 ;
                                            rdfs:comment "The ion_atom is the basic part of a pure ionic bonded compound i.e. without eclectron sharing,"@en ;
                                            skos:prefLabel "IonAtom"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A standalone atom with an unbalanced number of electrons with respect to its atomic number."@en .
@@ -657,10 +658,13 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
                                            skos:prefLabel "PolymericMaterial"@en .
 
 
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
 ] .
 
-[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
 [ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
@@ -672,13 +676,10 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
-[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
 #################################################################
