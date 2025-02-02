@@ -47,8 +47,8 @@ The represeantion is part of the EMMO framework and makes use of mereocausality 
 :EMMO_1823c7ec_e097_4cfb_ad1a_ddbe42cb904b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_8af3b008_0e32_4684_85ab_a52a8e7b6877 ;
                                            rdfs:isDefinedBy <https://plato.stanford.edu/entries/agency/#OthKinAgeMenShaColRelArt> ;
-                                           skos:prefLabel "SharedAction"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Shared action occurs when two or more individuals do something together."@en .
+                                           skos:prefLabel "SharedAgency"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Shared agency occurs when two or more individuals do something together."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_2480b72b_db8d_460f_9a5f_c2912f979046
@@ -60,25 +60,19 @@ The represeantion is part of the EMMO framework and makes use of mereocausality 
                                                                             ] ;
                                                              owl:someValuesFrom :EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce
                                                            ] ;
-                                           skos:example "A catalyst. A bus driver. A substance that is initiating a reaction that would not occur without its presence."@en ;
-                                           skos:prefLabel "Agent"@en ;
-                                           :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """The agent concept identifies the parts of a process that are also its drivers. An agent part has an active role with respect to any other generic part, meaning that is involved in the causal chain that characterize the process. An agent is a participant, meaning that is qualifiable as an object.
+                                           owl:priorVersion """The agent concept identifies the parts of a process that are also its drivers. An agent part has an active role with respect to any other generic part, meaning that is involved in the causal chain that characterize the process. An agent is a participant, meaning that is qualifiable as an object.
 As for all holistic relations, there is a level of subjectivity in drawing whole-role relations, so that the identification of an agent within a process is not fully axiomatizable.
 What is axiomatically expressible is that an agent requires to be part of a process (i.e., an agent exists only within a process) but a process may not require an agent to exist (qualified role). Agentless processes may have a distributed causality chain so that the agency is exerted collectively and there is no motivation to draw an holistic connection between the whole and some parts. For example, the breaking of a nail can be caused by an agent such as an hammer, or by the rusting process which is not a participant as required by the agent definition. 
 This concept covers both intentional and non intentional agency."""@en ;
+                                           skos:example "A catalyst. A bus driver. A substance that is initiating a reaction that would not occur without its presence."@en ;
+                                           skos:prefLabel "Agent"@en ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "EquivalentTo: IntentionalAgent or UnintentionalAgent" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A participant that is the driver of a process."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "An agent is not necessarily human. In fact, the concept of agent has been generalised to encompass both intentional and unintentional acts primarily to take into account usage of the term in chemistry (e.g., chemical agent that intiitate a reaction), inline also with the most recent development in the philosophical debate."@en .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_2480b72b_db8d_460f_9a5f_c2912f979046 ;
-   owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "Agent"@en ;
-   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin agēns (present participle of agere (“to act”))"@en
- ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_2480b72b_db8d_460f_9a5f_c2912f979046 ;
-   owl:annotatedProperty :EMMO_31252f35_c767_4b97_a877_1235076c3e13 ;
+   owl:annotatedProperty owl:priorVersion ;
    owl:annotatedTarget """The agent concept identifies the parts of a process that are also its drivers. An agent part has an active role with respect to any other generic part, meaning that is involved in the causal chain that characterize the process. An agent is a participant, meaning that is qualifiable as an object.
 As for all holistic relations, there is a level of subjectivity in drawing whole-role relations, so that the identification of an agent within a process is not fully axiomatizable.
 What is axiomatically expressible is that an agent requires to be part of a process (i.e., an agent exists only within a process) but a process may not require an agent to exist (qualified role). Agentless processes may have a distributed causality chain so that the agency is exerted collectively and there is no motivation to draw an holistic connection between the whole and some parts. For example, the breaking of a nail can be caused by an agent such as an hammer, or by the rusting process which is not a participant as required by the agent definition. 
@@ -91,13 +85,16 @@ This concept covers both intentional and non intentional agency."""@en ;
 :EMMO_3674bfb6_6636_4e9d_aae1_07023ad96d61 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_7a317af2_d2f7_4e8a_8fbd_aaebfb7d21cc ;
                                            rdfs:isDefinedBy <https://plato.stanford.edu/entries/agency/#OthKinAgeMenShaColRelArt> ;
-                                           skos:prefLabel "MentalAgent"@en .
+                                           skos:prefLabel "MentalAgent"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An agent possessing an intentional mental state."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A mental agent is typically attributed to a human."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_7a317af2_d2f7_4e8a_8fbd_aaebfb7d21cc
 :EMMO_7a317af2_d2f7_4e8a_8fbd_aaebfb7d21cc rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_c130614a_2985_476d_a7ed_8a137847703c ;
-                                           skos:prefLabel "IntentionalAgentByKind"@en .
+                                           skos:prefLabel "IntentionalAgentByKind"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Categorisation of intentional agents by their kind."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_7c2c9869_f6b4_4e5d_8195_4578b17add3e
@@ -113,15 +110,16 @@ This concept covers both intentional and non intentional agency."""@en ;
                                            rdfs:subClassOf :EMMO_7a317af2_d2f7_4e8a_8fbd_aaebfb7d21cc ;
                                            rdfs:isDefinedBy <https://plato.stanford.edu/entries/agency/#OthKinAgeMenShaColRelArt> ;
                                            skos:altLabel "ArtificialAgent"@en ;
-                                           skos:prefLabel "ArtificialIntelligence"@en .
+                                           skos:prefLabel "ArtificialIntelligence"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An agent that is an AI system."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_7e963f56_624a_4091_86ec_3b2c609e76bb
 :EMMO_7e963f56_624a_4091_86ec_3b2c609e76bb rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_8af3b008_0e32_4684_85ab_a52a8e7b6877 ;
                                            rdfs:isDefinedBy <https://plato.stanford.edu/entries/agency/#OthKinAgeMenShaColRelArt> ;
-                                           skos:prefLabel "MentalAction"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An intentional action caused by the agent’s mental states and events."@en ;
+                                           skos:prefLabel "MentalAgency"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An intentional agency caused by the agent’s mental states and events."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Mental states are strictly connected to the definition of mind, which is traditionally connected to high cognitive skills, such as the one provided by human beings brains."@en .
 
 
@@ -129,29 +127,33 @@ This concept covers both intentional and non intentional agency."""@en ;
 :EMMO_8aba9715_d542_4a79_a778_6115d2b4febd rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_8af3b008_0e32_4684_85ab_a52a8e7b6877 ;
                                            rdfs:isDefinedBy <https://plato.stanford.edu/entries/agency/#OthKinAgeMenShaColRelArt> ;
-                                           skos:prefLabel "CollectiveAction"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Collective action occurs when two or more individuals act as a group, in accordance with certain principles or procedures that constitute and organize the group."@en ;
+                                           skos:prefLabel "CollectiveAgency"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Collective agency occurs when two or more individuals act as a group, in accordance with certain principles or procedures that constitute and organize the group."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The group acting collectively is intended to be represented as an item, meaning that all members of the group should have had at least one causal interaction with another member. The collective action in fact is taken in accordance with certain principles or procedures that constitute and organize the group itself that requires implicitly a causal interaction between members."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_8af3b008_0e32_4684_85ab_a52a8e7b6877
 :EMMO_8af3b008_0e32_4684_85ab_a52a8e7b6877 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c ;
-                                           skos:prefLabel "IntentionalActionByKind"@en .
+                                           skos:prefLabel "IntentionalAgencyByKind"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_94c663c8_1d99_45aa_a172_93d19ea95856
 :EMMO_94c663c8_1d99_45aa_a172_93d19ea95856 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_7a317af2_d2f7_4e8a_8fbd_aaebfb7d21cc ;
                                            rdfs:isDefinedBy <https://plato.stanford.edu/entries/agency/#OthKinAgeMenShaColRelArt> ;
-                                           skos:prefLabel "CollectiveAgent"@en .
+                                           skos:example "A catalytic process that needs presence of two different catalysts to occur."@en ;
+                                           skos:prefLabel "CollectiveAgent"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A fundamental whole acting as an intentional agent for a process."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_9b52133b_8f6c_47fb_93f1_419071db3f4b
 :EMMO_9b52133b_8f6c_47fb_93f1_419071db3f4b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_7a317af2_d2f7_4e8a_8fbd_aaebfb7d21cc ;
                                            rdfs:isDefinedBy <https://plato.stanford.edu/entries/agency/#OthKinAgeMenShaColRelArt> ;
-                                           skos:prefLabel "SharedAgent"@en .
+                                           skos:example "A choir singing a song together. The song will still be sung if one of the singers leaves the choir."@en ;
+                                           skos:prefLabel "SharedAgent"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A redundant whole acting as an intentional agent for a process."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_a49c2441_1e54_43f0_a1cf_2f553a23ac34
@@ -163,21 +165,21 @@ This concept covers both intentional and non intentional agency."""@en ;
                                                              owl:someValuesFrom :EMMO_2480b72b_db8d_460f_9a5f_c2912f979046
                                                            ] ;
                                            skos:altLabel "AgentDrivenProcess"@en ;
-                                           skos:prefLabel "Action"@en ;
+                                           skos:prefLabel "Agency"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A process that occurs because of the exercise of the capacity to act of an agent."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_b91749cd_0dec_43d1_8f77_e266c762bccd
 :EMMO_b91749cd_0dec_43d1_8f77_e266c762bccd rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a49c2441_1e54_43f0_a1cf_2f553a23ac34 ;
-                                           skos:altLabel "UnintentionalAction"@en ;
-                                           skos:prefLabel "ActionWithoutIntent"@en .
+                                           skos:prefLabel "UnintentionalAgency"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c
 :EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a49c2441_1e54_43f0_a1cf_2f553a23ac34 ;
-                                           skos:prefLabel "IntentionalAction"@en ;
+                                           skos:altLabel "IntentionalProcess"@en ;
+                                           skos:prefLabel "IntentionalAgency"@en ;
                                            :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "SubClassOf: hasAgent some IntentionalAgent" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A process occurring with the active participation of an intentional agent that drives the process according to a specific objective (intention)."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The concept is not restricted to agencies where the agent accomplish its intention. For example, breaking a vase while reaching for a book is an intentional agency, because the action causing the vase to fall and break follows a volition (i.e., an act of willing).
@@ -185,9 +187,16 @@ Intentional agency may be further categorised acccording to the fact that the so
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c ;
-   owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "IntentionalAction"@en ;
+   owl:annotatedProperty skos:altLabel ;
+   owl:annotatedTarget "IntentionalProcess"@en ;
    :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin intentionem, derived from intendere (\"stretching out\")"@en
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "IntentionalAgency"@en ;
+   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "From Latin agēns (present participle of agere (“to act”))"@en
  ] .
 
 
@@ -208,13 +217,18 @@ Intentional agency may be further categorised acccording to the fact that the so
 ###  https://w3id.org/emmo#EMMO_cede9297_c60d_4487_9207_62ac963202b5
 :EMMO_cede9297_c60d_4487_9207_62ac963202b5 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_13191289_6c2b_4741_93e1_82d53bd0e703 ;
-                                           skos:prefLabel "ParticipantByAgency"@en .
+                                           skos:prefLabel "ParticipantByAgency"@en ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "EquivalentTo: Agent or NonAgent" ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 ""@en ,
+                                                                                      "Categorisation of participant in terms of being an agent or not an agent."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_f1027c92_b145_48c7_aa42_3d831a6f2039
 :EMMO_f1027c92_b145_48c7_aa42_3d831a6f2039 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_cede9297_c60d_4487_9207_62ac963202b5 ;
-                                           skos:prefLabel "NonAgent"@en .
+                                           skos:prefLabel "NonAgent"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 ""@en ,
+                                                                                      "A participant that does not have an active role in driving the process."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_f53f45f2_c354_417c_a904_a2606ad584d7
@@ -226,16 +240,17 @@ Intentional agency may be further categorised acccording to the fact that the so
 ###  https://w3id.org/emmo#EMMO_fe1b173e_b3ce_403d_9d90_230a334eebf9
 :EMMO_fe1b173e_b3ce_403d_9d90_230a334eebf9 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_2480b72b_db8d_460f_9a5f_c2912f979046 ;
-                                           skos:altLabel "UnintentionalAgent"@en ;
-                                           skos:prefLabel "AgentWithoutIntent"@en .
+                                           skos:example "A catalyst."@en ;
+                                           skos:prefLabel "UnintentionalAgent"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An agent that is not driven by the law of physics rather than the intention to reach a defined objective."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_fe527062_5869_46af_a351_f81d0ca18fad
 :EMMO_fe527062_5869_46af_a351_f81d0ca18fad rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_8af3b008_0e32_4684_85ab_a52a8e7b6877 ;
                                            rdfs:isDefinedBy <https://plato.stanford.edu/entries/agency/#OthKinAgeMenShaColRelArt> ;
-                                           skos:prefLabel "ArtificialIntelligenceAction"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An intentional action exercised by artificial systems that have internal states that enables adaptive regulation of the agent’s coupling with the environment and metabolic self-maintenance." .
+                                           skos:prefLabel "ArtificialAgency"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An intentional agency exercised by artificial systems that have internal states that enables adaptive regulation of the agent’s coupling with the environment and metabolic self-maintenance." .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
