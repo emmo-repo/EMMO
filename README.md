@@ -71,22 +71,24 @@ Even though that the delineation between "domain" and "application" ontologies a
 
 The different levels and versions of EMMO can be imported according to the following table:
 
-| Name            | Link                                   | Comment                                                                                          |
-|-----------------|----------------------------------------|--------------------------------------------------------------------------------------------------|
-| emmo            | https://w3id.org/emmo/                 | EMMO middle level                                                                                |
-| emmo-tol        | https://w3id.org/emmo/emmo-tlo/        | EMMO top level                                                                                   |
-| emmo-mlo        | https://w3id.org/emmo/emmo-mlo/        | EMMO middle level                                                                                |
-| emmo-full       | https://w3id.org/emmo/emmo-full/       | EMMO middle level including the full standard model                                              |
-| emmo-for-humans | https://w3id.org/emmo/emmo-for-humans/ | Version of EMMO middle with IRIs replaced with human readable names. Only intended for examples. |
-| emmo-lite       | https://w3id.org/emmo/emmo-lite/       | Selected leaf classes and properties for rapid development and deployment in graph databases.    |
-| emmo-inferred   | https://w3id.org/emmo/emmo-inferred/   | Pre-inferred version of EMMO middle level                                                        |
+| Name            | Link                                  | Comment                                                                                          |
+|-----------------|---------------------------------------|--------------------------------------------------------------------------------------------------|
+| emmo            | https://w3id.org/emmo                 | EMMO middle level                                                                                |
+| emmo-tol        | https://w3id.org/emmo/tlo             | EMMO top level                                                                                   |
+| emmo-mlo        | https://w3id.org/emmo/mlo             | EMMO middle level                                                                                |
+| emmo-full       | https://w3id.org/emmo/emmo-full       | EMMO middle level including the full standard model                                              |
+| emmo-for-humans | https://w3id.org/emmo/emmo-for-humans | Version of EMMO middle with IRIs replaced with human readable names. Only intended for examples. |
+| emmo-lite       | https://w3id.org/emmo/emmo-lite       | Selected leaf classes and properties for rapid development and deployment in graph databases.    |
+| emmo-inferred   | https://w3id.org/emmo/inferred        | Pre-inferred version of EMMO middle level                                                        |
 
 In addition can individual sub-levels and modules be imported from the GitHub repository using their IRI.
 Use for example https://w3id.org/emmo/perspectives to import the perspectives sub-level and https://w3id.org/emmo/perspectives/semiotics to import the semiotics module.
 A specific version can be imported by adding the version number after the initial https://w3id.org/emmo/.
 For example will https://w3id.org/emmo/1.0.0/perspectives import perspectives from version 1.0.0.
-**Note** that importing directly from the GitHub repository requires a client that understands `owl:imports`.
-It is also much slower than importing from the links in the above table.
+
+> [!NOTE]
+> Importing directly from the GitHub repository requires a client that understands `owl:imports`.
+> It is also much slower than importing from the links in the above table.
 
 A description of the EMMO Governance, organisation of related repositories, conventions and how to contribute can be found [here](doc/EMMO_governance.md).
 
