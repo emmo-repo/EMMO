@@ -44,28 +44,30 @@ Normally they either import one of the versions of EMMO listed on [https://emmo-
 The following table lists the public EMMO-based domain ontologies that we are aware of.
 Please create an issue if you have a public domain ontology that you think should be listed here.
 
-| Domain ontology                                       | Link                                                                                                                 |
-|-------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| Characterisation Methodology Domain Ontology (CHAMEO) | https://w3id.org/emmo/domain/characterisation-methodology/chameo                                                     |
-| Electrochemistry                                      | https://w3id.org/emmo/domain/electrochemistry                                                                        |
-| Battery Ontology                                      | https://w3id.org/emmo/domain/battery                                                                                 |
-| Battery Interface Ontology (BattINFO)                 | https://w3id.org/battinfo                                                                                            |
-| Nuclear Energy Ontology                               | https://w3id.org/emmo/domain/neo                                                                                     |
-| Nano Indentation Ontology                             | https://w3id.org/emmo/domain/nanoindentation                                                                         |
-| Chemical Substance Domain Ontology                    | https://w3id.org/emmo/domain/chemical-substance                                                                      |
-| Microstructure Domain Ontology                        | https://w3id.org/emmo/domain/microstructure                                                                          |
-| OTE Interface Ontology (OTEIO)                        | https://w3id.org/emmo/domain/oteio                                                                                   |
-| Coating Domain Ontology                               | https://w3id.org/emmo/domain/coating                                                                                 |
-| Domain Ontology for Concrete                          | https://w3id.org/emmo/domain/concrete                                                                                |
-| Domain ontology for solid oxide fuel cells            | https://w3id.org/emmo/domain/sofc                                                                                    |
-| Domain ontology for equivalent circuit models         | https://w3id.org/emmo/domain/equivalent-circuit-model                                                                |
-| Domain Ontology for Additive Manufacturing (DOAM)     | https://w3id.org/emmo/domain/doam                                                                                    |
-| Crystallography                                       | [https://github.com/emmo-repo/domain-crystallography](https://github.com/emmo-repo/domain-crystallography)           |
-| CIF ontology                                          | [https://github.com/emmo-repo/CIF-ontology](https://github.com/emmo-repo/CIF-ontology)                               |
-| General Process Ontology (GPO)                        | [https://github.com/General-Process-Ontology/ontology](https://github.com/General-Process-Ontology/ontology)         |
-| Ontology for the Battery Value Chain (BVC)            | [https://github.com/Battery-Value-Chain-Ontology/ontology](https://github.com/Battery-Value-Chain-Ontology/ontology) |
-| Mechanical Testing                                    | [https://github.com/emmo-repo/domain-mechanical-testing](https://github.com/emmo-repo/domain-mechanical-testing)     |
-| Atomistic and Electronic Modelling                    | [https://github.com/emmo-repo/domain-atomistic](https://github.com/emmo-repo/domain-atomistic)                       |
+| Domain ontology                                                                                                           | Base IRI                                                          |
+|---------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
+| [Characterisation Methodology Domain Ontology (CHAMEO)](https://github.com/emmo-repo/domain-characterisation-methodology) | https://w3id.org/emmo/domain/characterisation-methodology/chameo# |
+| [Electrochemistry](https://github.com/emmo-repo/domain-electrochemistry)                                                  | https://w3id.org/emmo/domain/electrochemistry#                    |
+| [Battery Ontology](https://github.com/emmo-repo/domain-battery)                                                           | https://w3id.org/emmo/domain/battery#                             |
+| [Battery Interface Ontology (BattINFO)](https://big-map.github.io/BattINFO/)                                              | https://w3id.org/battinfo#                                        |
+| [Nuclear Energy Ontology](https://github.com/emmo-repo/domain-neo)                                                        | https://w3id.org/emmo/domain/neo#                                 |
+| [Nanoindentation Ontology](https://github.com/emmo-repo/domain-nanoindentation)                                           | https://w3id.org/emmo/domain/nanoindentation#                     |
+| [Chemical Substance Domain Ontology](https://github.com/emmo-repo/domain-chemical-substance)                              | https://w3id.org/emmo/domain/chemical-substance#                  |
+| [Microstructure Domain Ontology](https://github.com/emmo-repo/domain-microstructure)                                      | https://w3id.org/emmo/domain/microstructure#                      |
+| [OTE Interface Ontology (OTEIO)](https://github.com/emmo-repo/domain-oteio)                                               | https://w3id.org/emmo/domain/oteio#                               |
+| [Coating Domain Ontology](https://github.com/emmo-repo/domain-coating)                                                    | https://w3id.org/emmo/domain/coating#                             |
+| [Domain Ontology for Concrete](https://github.com/emmo-repo/domain-concrete)                                              | https://w3id.org/emmo/domain/concrete#                            |
+| [Domain ontology for solid oxide fuel cells](https://github.com/emmo-repo/domain-sofc)                                    | https://w3id.org/emmo/domain/sofc#                                |
+| [Domain ontology for equivalent circuit models](https://github.com/emmo-repo/domain-equivalent-circuit-model)             | https://w3id.org/emmo/domain/equivalent-circuit-model#            |
+| [Domain Ontology for Additive Manufacturing (DOAM)](https://github.com/emmo-repo/domain-doam)                             | https://w3id.org/emmo/domain/doam#                                |
+| [Atomistic and Electronic Modelling](https://github.com/emmo-repo/domain-atomistic)                                       | https://w3id.org/emmo/domain/atomistic#                           |
+| [Crystallography](https://github.com/emmo-repo/domain-crystallography)                                                    | http://emmo.info/domain-crystallography/crystallography#          |
+| [CIF ontology](https://github.com/emmo-repo/CIF-ontology)                                                                 | http://emmo.info/CIF-ontology/ontology/cif_core#                  |
+| [Magnetic Materials Ontology (MaMMoS)](https://github.com/MaMMoS-project/MagneticMaterialsOntology/)                      | https://w3id.org/emmo/domain/magnetic_material#                   |
+| [General Process Ontology (GPO)](https://github.com/General-Process-Ontology/ontology)                                    | https://gpo.ontology.link/                                        |
+| [Ontology for the Battery Value Chain (BVC)](https://github.com/Battery-Value-Chain-Ontology/ontology)                    | https://bvco.ontology.link/                                       |
+| [Mechanical Testing](https://github.com/emmo-repo/domain-mechanical-testing)                                              | http://emmo.info/emmo/domain/mechanical-testing#                  |
+
 
 
 ### Application Ontologies
