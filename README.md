@@ -38,7 +38,32 @@ Each sub-level are implemented in a set of interdependent modules as illustrated
 ![EMMO Structure](doc/figs/EMMO-structure.png)
 
 
-### Domain Ontologies
+## Repository Description
+The different levels and versions of EMMO can be imported according to the following table:
+
+| Name            | Link                                  | Comment                                                                                          |
+|-----------------|---------------------------------------|--------------------------------------------------------------------------------------------------|
+| emmo            | https://w3id.org/emmo                 | EMMO middle level                                                                                |
+| emmo-tol        | https://w3id.org/emmo/tlo             | EMMO top level                                                                                   |
+| emmo-mlo        | https://w3id.org/emmo/mlo             | EMMO middle level                                                                                |
+| emmo-full       | https://w3id.org/emmo/emmo-full       | EMMO middle level including the full standard model                                              |
+| emmo-for-humans | https://w3id.org/emmo/emmo-for-humans | Version of EMMO middle with IRIs replaced with human readable names. Only intended for examples. |
+| emmo-lite       | https://w3id.org/emmo/emmo-lite       | Selected leaf classes and properties for rapid development and deployment in graph databases.    |
+| emmo-inferred   | https://w3id.org/emmo/inferred        | Pre-inferred version of EMMO middle level                                                        |
+
+In addition can individual sub-levels and modules be imported from the GitHub repository using their IRI.
+Use for example https://w3id.org/emmo/perspectives to import the perspectives sub-level and https://w3id.org/emmo/perspectives/semiotics to import the semiotics module.
+A specific version can be imported by adding the version number after the initial https://w3id.org/emmo/.
+For example will https://w3id.org/emmo/1.0.0/perspectives import perspectives from version 1.0.0.
+
+> [!NOTE]
+> Importing directly from the GitHub repository requires a client that understands `owl:imports`.
+> It is also much slower than importing from the links in the above table.
+
+A description of the EMMO Governance, organisation of related repositories, conventions and how to contribute can be found [here](doc/EMMO_governance.md).
+
+
+## Domain Ontologies
 Based on the EMMO core, a set of domain-level ontologies have been implemented.
 Normally they either import one of the versions of EMMO listed on [https://emmo-repo.github.io/](https://emmo-repo.github.io/) or selected module from EMMO core.
 The following table lists the public EMMO-based domain ontologies that we are aware of.
@@ -66,39 +91,16 @@ Please create an issue if you have a public domain ontology that you think shoul
 | [Magnetic Materials Ontology (MaMMoS)](https://github.com/MaMMoS-project/MagneticMaterialsOntology/)                      | https://w3id.org/emmo/domain/magnetic_material#                   |
 | [General Process Ontology (GPO)](https://github.com/General-Process-Ontology/ontology)                                    | https://gpo.ontology.link/                                        |
 | [Ontology for the Battery Value Chain (BVC)](https://github.com/Battery-Value-Chain-Ontology/ontology)                    | https://bvco.ontology.link/                                       |
+
+<!--
 | [Mechanical Testing](https://github.com/emmo-repo/domain-mechanical-testing)                                              | http://emmo.info/emmo/domain/mechanical-testing#                  |
+-->
 
 
-
-### Application Ontologies
+## Application Ontologies
 EMMO application ontologies are engineered for a specific use or application by reusing and extending concepts from one or more domain ontologies.
 Even though that the delineation between "domain" and "application" ontologies are somewhat arbitrary, a main difference is that the application ontologies are generally not developed for reuse by other domain or application ontologies, while such reuse is the main focus of domain ontologies.
 
-
-## Repository Description
-
-The different levels and versions of EMMO can be imported according to the following table:
-
-| Name            | Link                                  | Comment                                                                                          |
-|-----------------|---------------------------------------|--------------------------------------------------------------------------------------------------|
-| emmo            | https://w3id.org/emmo                 | EMMO middle level                                                                                |
-| emmo-tol        | https://w3id.org/emmo/tlo             | EMMO top level                                                                                   |
-| emmo-mlo        | https://w3id.org/emmo/mlo             | EMMO middle level                                                                                |
-| emmo-full       | https://w3id.org/emmo/emmo-full       | EMMO middle level including the full standard model                                              |
-| emmo-for-humans | https://w3id.org/emmo/emmo-for-humans | Version of EMMO middle with IRIs replaced with human readable names. Only intended for examples. |
-| emmo-lite       | https://w3id.org/emmo/emmo-lite       | Selected leaf classes and properties for rapid development and deployment in graph databases.    |
-| emmo-inferred   | https://w3id.org/emmo/inferred        | Pre-inferred version of EMMO middle level                                                        |
-
-In addition can individual sub-levels and modules be imported from the GitHub repository using their IRI.
-Use for example https://w3id.org/emmo/perspectives to import the perspectives sub-level and https://w3id.org/emmo/perspectives/semiotics to import the semiotics module.
-A specific version can be imported by adding the version number after the initial https://w3id.org/emmo/.
-For example will https://w3id.org/emmo/1.0.0/perspectives import perspectives from version 1.0.0.
-
-> [!NOTE]
-> Importing directly from the GitHub repository requires a client that understands `owl:imports`.
-> It is also much slower than importing from the links in the above table.
-
-A description of the EMMO Governance, organisation of related repositories, conventions and how to contribute can be found [here](doc/EMMO_governance.md).
 
 ---
 
@@ -106,8 +108,7 @@ A description of the EMMO Governance, organisation of related repositories, conv
 You can contact EMMO Authors via emmo@emmc.eu
 
 
-
-### Acknowledgement
+## Acknowledgement
 This work has been supported by several European projects, including:
 
   - [EMMC-CSA](https://emmc.info) (2016-2019), that has received funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 723867.
