@@ -64,10 +64,16 @@ with onto:
             'process of the atomic mass reported by IUPAC2016.'
         ]
 
-    class hasChemicalSymbol(onto.hasProperty):
-        """The chemical symbol of an atomic element."""
+    class hasChemicalSymbol(onto.hasConvention):
+        """Relates an atomic element to its chemical symbol."""
         domain = [onto.Atom]
-        range = [onto.ChemicalElement]
+        range = [onto.ChemicalSymbol]
+
+    class isChemicalSymbolFor(onto.isConventionFor):
+        """Relates a  chemical symbol to the atomic element it stands for."""
+        domain = [onto.ChemicalSymbol]
+        range = [onto.Atom]
+        inverse_property = hasChemicalSymbol
 
     #onto.Atom.hasChemicalSymbol.exactly(1, onto.ChemicalElement)
 
@@ -90,7 +96,8 @@ with onto:
         AtomClass.elucidation.append(en('Atom subclass for %s.' % name.lower()))
         AtomClass.is_a.append(hasAtomicNumber.value(Z))
         AtomClass.is_a.append(hasIUPAC2016AtomicMass.value(float(mass)))
-        AtomClass.is_a.append(hasChemicalSymbol.some(Element))
+        #AtomClass.is_a.append(hasChemicalSymbol.some(Element))
+        Element.is_a.append(isChemicalSymbolFor.some(AtomClass))
 
 
 # Set ontology metadata
@@ -107,10 +114,10 @@ onto.metadata.abstract.append(en(
     'International license (CC BY 4.0).'))
 
 onto.metadata.title.append(en('Periodic table'))
-onto.metadata.creator.append(chemistry['Jesper Friis'])
-onto.metadata.creator.append(chemistry["Francesca Lønstad Bleken"])
-onto.metadata.creator.append(chemistry["Emanuele Ghedini"])
-onto.metadata.publisher.append(chemistry["EMMC ASBL"])
+onto.metadata.creator.append(chemistry['JesperFriis'])
+onto.metadata.creator.append(chemistry["FrancescaLonstadBleken"])
+onto.metadata.creator.append(chemistry["EmanueleGhedini"])
+onto.metadata.publisher.append(chemistry["EMMC_ASBL"])
 onto.metadata.license.append(en(
     'https://creativecommons.org/licenses/by/4.0/legalcode'))
 onto.metadata.versionInfo.append(en(version))
