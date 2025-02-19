@@ -1,6 +1,6 @@
 [![DOI](https://zenodo.org/badge/189387204.svg)](https://zenodo.org/badge/latestdoi/189387204)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-![CI tests](https://github.com/emmo-repo/EMMO/workflows/Check%20conventions/badge.svg)
+![CI tests](https://github.com/emmo-repo/EMMO/workflows/CI%20tests/badge.svg)
 [![GitHub release](https://img.shields.io/github/v/release/emmo-repo/emmo)](https://emmo-repo.github.io/)
 
 
@@ -21,12 +21,11 @@ It is released under a Creative Commons [CC BY 4.0](LICENSE.md) license.
 
 ## EMMO resources
 
-* The [EMMO Wiki](https://github.com/emmo-repo/EMMO/wiki) is the main resource of documentation.
-* A list of EMMO-related publications are available on https://emmc.eu/emmo/.
-* Released [EMMO versions].
-* Reference index with all EMMO classes and properties: https://w3id.org/emmo/
-* [Using Protégé]
-* Some notes about the [EMMO name and logo].
+* [EMMO Wiki] - EMMO documentation
+* [Publication list] - EMMO-related publications
+* [EMMO reference index] - all EMMO classes and properties
+* [Usage tips] - how to work with EMMO using Protégé
+* [EMMO name and logo] - some notes about teh name
 
 
 ## EMMO structure
@@ -34,8 +33,9 @@ This repository contain the EMMO top- and middle level ontologies, constituting 
 The EMMO top-level ontology is sub-divided into the fundamental [mereocausality] level and the perspective level, in which the world is described from a set of different perspectives.
 The EMMO middle-level ontology is sub-divided into a reference level, which combines perspectives, and a discipline level, providing a common foundation for different disciplines.
 Each sub-level are implemented in a set of interdependent modules as illustrated in the figure below.
+A more detailed figure including all the modules can be found [here](doc/figs/EMMO-structure.png).
 
-![EMMO Structure](doc/figs/EMMO-structure.png)
+![EMMO Structure](doc/figs/EMMO-structure-overview.png)
 
 
 ## Repository Description
@@ -127,7 +127,11 @@ This work has been supported by several European projects, including:
 This work was conducted using the Protégé resource, which is supported by grant GM10331601 from the National Institute of General Medical Sciences of the United States National Institutes of Health.
 
 
-[mereocausality]: https://github.com/emmo-repo/EMMO/wiki/Mereocausality
-[EMMO versions]: https://emmo-repo.github.io/
-[Using Protégé]: doc/using-protege.md
+[EMMO Wiki]: https://github.com/emmo-repo/EMMO/wiki
+[Publication list]: https://emmc.eu/emmo/
+[EMMO reference index]: https://w3id.org/emmo/
+[Usage tips]: doc/using-protege.md
 [EMMO name and logo]: doc/about-name-logo.md
+
+[EMMO versions]: https://emmo-repo.github.io/
+[mereocausality]: https://github.com/emmo-repo/EMMO/wiki/Mereocausality
