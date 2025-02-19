@@ -21,9 +21,9 @@ It is released under a Creative Commons [CC BY 4.0](LICENSE.md) license.
 
 ## EMMO resources
 
-* [EMMO Wiki] - EMMO documentation
+* [EMMO Wiki] - documentation
 * [Publication list] - EMMO-related publications
-* [EMMO reference index] - all EMMO classes and properties
+* [EMMO reference index] - all classes and properties
 * [Usage tips] - how to work with EMMO using Protégé
 * [EMMO name and logo] - some notes about teh name
 
