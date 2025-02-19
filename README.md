@@ -35,7 +35,15 @@ The EMMO middle-level ontology is sub-divided into a reference level, which comb
 Each sub-level are implemented in a set of interdependent modules as illustrated in the figure below.
 A more detailed figure including all the modules can be found [here](doc/figs/EMMO-structure.png).
 
-![EMMO Structure](doc/figs/EMMO-structure-overview.png)
+<table>
+  <tr>
+    <td><img src="doc/figs/EMMO-structure-description.png" alt="EMMO structure description" height="480"></td>
+    <td><img src="doc/figs/EMMO-structure-overview.png" alt="EMMO structure overview" height="480"></td>
+  </tr>
+</table>
+
+
+
 
 
 ## Repository Description

@@ -5,11 +5,17 @@ on:
     branches:
       - '[0-9]+.[0-9]+.[0-9]+'
       - '[0-9]+.[0-9]+.[0-9]+-*'
+      - master
       - cd_update_pages
 
 env:
   GIT_USER_NAME: EMMO Developers
   GIT_USER_EMAIL: "emmo@emmc.eu"
+  BASE_IRI: "https://w3id.org/emmo#"
+  IRI: "https://w3id.org/emmo"
+  BASE_FILENAMES: "emmo emmo-full"
+  EXTRA_COMMANDS: "ontoconvert -saw --rename-iris --base-iri='https://w3id.org/emmo#' --iri=https://w3id.org/emmo emmo.ttl public/emmo-for-humans.ttl"
+  ONTODOC: "ontodoc --iri-regex=https://w3id.org/emmo --imported emmo-full.ttl build/emmo.rst"
 
 jobs:
 
@@ -22,29 +28,18 @@ jobs:
 
     - name: Debug info
       run: |
-        echo "GITHUB_REF_NAME=${GITHUB_REF_NAME}"
+        echo GITHUB_REF_NAME=${GITHUB_REF_NAME}
 
     - name: Setup Python 3.11
       uses: actions/setup-python@v5
       with:
         python-version: 3.11
 
-    - name: Install ROBOT
-      run: |
-        mkdir bin
-        wget -nv https://github.com/ontodev/robot/releases/download/v1.9.6/robot.jar
-        mv robot.jar bin/.
-        curl https://raw.githubusercontent.com/ontodev/robot/master/bin/robot > bin/robot
-        chmod +x bin/robot
-        ls -l bin/
-
     - name: Install dependencies
       run: |
         pip install --upgrade pip
         pip install sphinx sphinxcontrib-globalsubs sphinx_design nbsphinx pydata-sphinx-theme
-        #pip install git+https://github.com/emmo-repo/EMMOntoPy.git@master
-        pip install git+https://github.com/emmo-repo/EMMOntoPy.git@fix-rename-iris
-
+        pip install git+https://github.com/emmo-repo/EMMOntoPy.git@master
 
     - name: Create and prepare build and public directories
       run: |
@@ -53,64 +48,83 @@ jobs:
 
     - name: Create ontologies for publishing
       run: |
-        ontoconvert -sawe --base-iri="https://w3id.org/emmo#" --iri=https://w3id.org/emmo emmo.ttl public/emmo.ttl
-        ontoconvert -sawe --base-iri="https://w3id.org/emmo#" --iri=https://w3id.org/emmo emmo-full.ttl public/emmo-full.ttl
-        #ontoconvert --reasoner=Pellet public/emmo.ttl public/emmo-inferred.ttl
-        #ontoconvert --reasoner=Pellet public/emmo-full.ttl public/emmo-full-inferred.ttl
+        for base in ${BASE_FILENAMES}; do \
+          ontoconvert -sawe --base-iri="${BASE_IRI}" --iri="${IRI} $base.ttl public/$base.ttl; \
+          ontoconvert --reasoner=HermiT public/$base.ttl public/$base-inferred.ttl; \
+          ontoconvert public/$base.ttl public/$base.owl; \
+        done
+        ${EXTRA_COMMANDS}
+        #ontoconvert -sawe --base-iri="https://w3id.org/emmo#" --iri=https://w3id.org/emmo emmo.ttl public/emmo.ttl
+        #ontoconvert -sawe --base-iri="https://w3id.org/emmo#" --iri=https://w3id.org/emmo emmo-full.ttl public/emmo-full.ttl
+        #ontoconvert --reasoner=HermiT public/emmo.ttl public/emmo-inferred.ttl
+        #ontoconvert --reasoner=HermiT public/emmo-full.ttl public/emmo-full-inferred.ttl
         #bin/robot reason --reasoner ELK --input public/emmo.ttl --output public/emmo-inferred.ttl
         #bin/robot reason --reasoner ELK --input public/emmo-full.ttl --output public/emmo-full-inferred.ttl
-        bin/robot reason --reasoner HermiT --input public/emmo.ttl --output public/emmo-inferred.ttl
-        bin/robot reason --reasoner JFact --input public/emmo-full.ttl --output public/emmo-full-inferred.ttl
-        ontoconvert public/emmo.ttl public/emmo.owl
-        ontoconvert public/emmo-full.ttl public/emmo-full.owl
-        ontoconvert public/emmo-inferred.ttl public/emmo-inferred.owl
-        ontoconvert public/emmo-full-inferred.ttl public/emmo-full-inferred.owl
-        ontoconvert -saw --rename-iris --base-iri="https://w3id.org/emmo#" --iri=https://w3id.org/emmo emmo.ttl public/emmo-for-humans.ttl
+        #bin/robot reason --reasoner HermiT --input public/emmo.ttl --output public/emmo-inferred.ttl
+        #bin/robot reason --reasoner JFact --input public/emmo-full.ttl --output public/emmo-full-inferred.ttl
+        #ontoconvert public/emmo.ttl public/emmo.owl
+        #ontoconvert public/emmo-full.ttl public/emmo-full.owl
+        #ontoconvert public/emmo-inferred.ttl public/emmo-inferred.owl
+        #ontoconvert public/emmo-full-inferred.ttl public/emmo-full-inferred.owl
+        #ontoconvert -saw --rename-iris --base-iri="https://w3id.org/emmo#" --iri=https://w3id.org/emmo emmo.ttl public/emmo-for-humans.ttl
 
-
-    - name: Generate html documentation (based on emmo-full)
+    - name: Generate html documentation
       run: |
+        base_filenames=(${BASE_FILENAMES})
+        ${ONTODOC}
         #ontodoc --iri-regex=https://w3id.org/emmo --imported public/emmo-full-inferred.ttl build/emmo.rst
-        ontodoc --iri-regex=https://w3id.org/emmo --imported emmo-full.ttl build/emmo.rst
+        #ontodoc --iri-regex=https://w3id.org/emmo --imported emmo-full.ttl build/emmo.rst
         sphinx-build "build/" "public/"
 
-    - name: Checkout GitHub Pages for EMMO-repo
-      uses: actions/checkout@v4
-      with:
-        repository: emmo-repo/emmo-repo.github.io
-        path: pages
-        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
-        ssh-strict: no
+      - name: Publish on GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          #keep_files: true
+          #external_repository: emmo-repo.github.io/domain-characterisation-methodology/
+          #publish_branch: main
+          #force_orphan: true
 
-    - name: Copy to GitHub Pages
-      run: |
-        # Do not overwrite index.html
-        rm public/index.html
-        # Tell GitHub that this site is not generated with jekyll
-        touch public/.nojekyll
-        # Copy to latest (root)
-        cp -rf public/* pages/.
-        # Copy to version
-        VERSION=$(git rev-parse --abbrev-ref HEAD)
-        if [ ! -d pages/versions/${VERSION} ]; then \
-          mkdir pages/versions/${VERSION}
-        fi
-        cp -rf public/* pages/versions/${VERSION}/.
 
-      # Domain repositories can use peaceiris/actions-gh-pages@v3.
-      # However, since EMMO for historical reasons uses a separate repo
-      # for its GitHub Pages, it is easier to use git directly.
-    - name: Push to GitHub Pages
-      run: |
-        cd pages
-        git config --global user.email "emmo@emmc.eu"
-        git config --global user.name "EMMO Developer"
-        git add --all
-        if [ -n "$(git status --porcelain -uno)" ]; then \
-          git commit -m 'Updated releasetable'; \
-          git pull origin master; \
-          git push origin master; \
-        fi
+#    - name: Checkout GitHub Pages for EMMO-repo
+#      uses: actions/checkout@v4
+#      with:
+#        repository: emmo-repo/emmo-repo.github.io
+#        path: pages
+#        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+#        ssh-strict: no
+#
+#    - name: Copy to GitHub Pages
+#      run: |
+#        # Do not overwrite index.html
+#        rm public/index.html
+#        # Tell GitHub that this site is not generated with jekyll
+#        touch public/.nojekyll
+#        # Copy to latest (root)
+#        cp -rf public/* pages/.
+#        # Copy to version
+#        VERSION=$(git rev-parse --abbrev-ref HEAD)
+#        if [ ! -d pages/versions/${VERSION} ]; then \
+#          mkdir pages/versions/${VERSION}
+#        fi
+#        cp -rf public/* pages/versions/${VERSION}/.
+#
+#      # Domain repositories can use peaceiris/actions-gh-pages@v3.
+#      # However, since EMMO for historical reasons uses a separate repo
+#      # for its GitHub Pages, it is easier to use git directly.
+#    - name: Push to GitHub Pages
+#      run: |
+#        cd pages
+#        git config --global user.email "emmo@emmc.eu"
+#        git config --global user.name "EMMO Developer"
+#        git add --all
+#        if [ -n "$(git status --porcelain -uno)" ]; then \
+#          git commit -m 'Updated releasetable'; \
+#          git pull origin master; \
+#          git push origin master; \
+#        fi
 
 
     #- name: Publish
