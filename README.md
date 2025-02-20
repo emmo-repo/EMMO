@@ -48,12 +48,13 @@ A more detailed figure including all the modules can be found [here](doc/figs/EM
 ## Repository Description
 The different levels and versions of EMMO can be imported according to the following table:
 
-| Name      | Link                            | Comment                                                                         |
-|-----------|---------------------------------|---------------------------------------------------------------------------------|
-| emmo      | https://w3id.org/emmo           | Loads all EMMO modules, excluding the full standard model and specialised units |
-| emmo-tol  | https://w3id.org/emmo/tlo       | EMMO top level                                                                  |
-| emmo-mlo  | https://w3id.org/emmo/mlo       | EMMO middle level                                                               |
-| emmo-full | https://w3id.org/emmo/emmo-full | Loads all EMMO modules, including the full standard model and specialised units  |
+| Name           | Link                            | Comment                                                                         |
+|----------------|---------------------------------|---------------------------------------------------------------------------------|
+| emmo           | https://w3id.org/emmo           | Loads all EMMO modules, excluding the full standard model and specialised units |
+| emmo-tol       | https://w3id.org/emmo/tlo       | EMMO top level                                                                  |
+| emmo-reference | https://w3id.org/emmo/reference | EMMO reference level                                                            |
+| emmo-mlo       | https://w3id.org/emmo/mlo       | EMMO middle level                                                               |
+| emmo-full      | https://w3id.org/emmo/emmo-full | Loads all EMMO modules, including the full standard model and specialised units |
 
 
 Also, the following versions of EMMO are provided for ease of use:
