@@ -3,87 +3,37 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix emmo: <https://w3id.org/emmo#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix emmo: <https://w3id.org/emmo#> .
+@prefix schema: <https://schema.org/> .
 @base <https://w3id.org/emmo#> .
 
 <https://w3id.org/emmo/disciplines/units/specialunits> rdf:type owl:Ontology ;
-                                                           owl:versionIRI <https://w3id.org/emmo/1.0.0-rc3/disciplines/units/specialunits> ;
-                                                           owl:imports <https://w3id.org/emmo/1.0.0-rc3/disciplines/units/siunits> ;
-                                                           dcterms:abstract """The module 'specialunits' contain non-SI special units. Examples: Day, Week, Bar, Inch, ...
+                                                        owl:versionIRI <https://w3id.org/emmo/1.0.0/disciplines/units/specialunits> ;
+                                                        owl:imports <https://w3id.org/emmo/1.0.0/disciplines/units/siunits> ;
+                                                        dcterms:abstract """The module 'specialunits' contain non-SI special units. Examples: Day, Week, Bar, Inch, ...
 
 Note that this module is not complete and may be extended with more units over time."""@en ;
-                                                           dcterms:contributor :FrancescaBleken ,
-                                                                               :GerhardGoldbeck ,
-                                                                               :SimonClark ;
-                                                           dcterms:creator :JesperFriis ,
-                                                                           :EmanueleGhedini ;
-                                                           dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
-                                                           dcterms:publisher <https://emmc.eu> ;
-                                                           dcterms:title "Non-SI special units"@en ;
-                                                           rdfs:comment """Note: this file has automatically been populated with dimensional units from QUDT.
+                                                        dcterms:contributor emmo:FrancescaBleken ,
+                                                                            emmo:GerhardGoldbeck ,
+                                                                            emmo:SimonClark ;
+                                                        dcterms:creator emmo:EmanueleGhedini ,
+                                                                        emmo:JesperFriis ;
+                                                        dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+                                                        dcterms:publisher <https://emmc.eu> ;
+                                                        dcterms:title "Non-SI special units"@en ;
+                                                        rdfs:comment """Note: this file has automatically been populated with dimensional units from QUDT.
 
 We kindly acknowledge NIST for reusing their content, including the selection of units, their elucidations and conversion multiplier."""@en ,
-                                                                        "The EMMO should be reasoned with HermiT to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                                           owl:versionInfo "1.0.0-rc3" ;
-                                                           :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
+                                                                     "The EMMO should be reasoned with HermiT to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
+                                                        owl:versionInfo "1.0.0" ;
+                                                        emmo:EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
 
 #################################################################
 #    Classes
 #################################################################
-
-
-###  https://w3id.org/emmo#Year
-emmo:Year rdf:type owl:Class ;
-          rdfs:subClassOf emmo:EMMO_02e894c3_b793_4197_b120_3442e08f58d1 ,
-                          emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                          emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                          emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                            owl:hasValue "3.15576E7"^^xsd:double
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                            owl:hasValue "0.0"^^xsd:double
-                          ] ;
-          rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-          rdfs:seeAlso "http://www.oxfordreference.com/view/10.1093/acref/9780198605225.001.0001/acref-9780198605225-e-1533?rskey=b94Fd6" ;
-          skos:prefLabel "Year"@en ;
-          emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/YR" ;
-          emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "a" ;
-          emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "yr" ;
-          emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A year is any of the various periods equated with one passage of Earth about the Sun, and hence of roughly 365 days. The familiar calendar has a mixture of 365- and 366-day years, reflecting the fact that the time for one complete passage takes about 365¼ days; the precise value for this figure depends on the manner of defining the year.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#Week
-emmo:Week rdf:type owl:Class ;
-          rdfs:subClassOf emmo:EMMO_02e894c3_b793_4197_b120_3442e08f58d1 ,
-                          emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                          emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                          emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                            owl:hasValue "604800.0"^^xsd:double
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                            owl:hasValue "0.0"^^xsd:double
-                          ] ;
-          rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-          skos:prefLabel "Week"@en ;
-          emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/WK" ;
-          emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "wk" ;
-          emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "wk" ;
-          emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Mean solar week
-
--- QUDT"""@en ;
-          emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Week?oldid=493867029" .
-
 
 ###  https://w3id.org/emmo#Angstrom
 emmo:Angstrom rdf:type owl:Class ;
@@ -91,23 +41,23 @@ emmo:Angstrom rdf:type owl:Class ;
                               emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                               emmo:EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc ,
                               [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
-                                owl:hasValue "Å"
-                              ] ,
-                              [ rdf:type owl:Restriction ;
                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                 owl:hasValue "1.0E-10"^^xsd:double
                               ] ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
                                 owl:hasValue "0.0"^^xsd:double
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
+                                owl:hasValue "Å"
                               ] ;
               rdfs:comment """Ångström is not mentioned in the SI system and deprecated by the International Bureau of Weights and Measures (BIPM).
 
 Dispite of that, it is often used in the natural sciences and technology."""@en ;
               skos:altLabel "Angstrom"@en ;
               skos:prefLabel "Ångström"@en ;
-              emmo:EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "A11" ;
+              schema:unitCode "A11" ;
               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/ANGSTROM" ;
               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Ao" ;
               emmo:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/page/%C3%85ngstr%C3%B6m" ;
@@ -151,16 +101,16 @@ emmo:Ban rdf:type owl:Class ;
                          emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                          emmo:EMMO_972e01b0_b017_4903_8c05_b7edda958723 ,
                          [ rdf:type owl:Restriction ;
-                           owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
-                           owl:hasValue "Ban"
-                         ] ,
-                         [ rdf:type owl:Restriction ;
                            owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                            owl:hasValue "2.302585"^^xsd:double
                          ] ,
                          [ rdf:type owl:Restriction ;
                            owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
                            owl:hasValue "0.0"^^xsd:double
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
+                           owl:hasValue "Ban"
                          ] ;
          rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
          skos:prefLabel "Ban"@en ;
@@ -376,19 +326,19 @@ emmo:Byte rdf:type owl:Class ;
                           emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
                           emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                           [ rdf:type owl:Restriction ;
-                            owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
-                            owl:hasValue "B"
-                          ] ,
-                          [ rdf:type owl:Restriction ;
                             owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                             owl:hasValue "1.0"^^xsd:double
                           ] ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
                             owl:hasValue "0.0"^^xsd:double
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
+                            owl:hasValue "B"
                           ] ;
           skos:prefLabel "Byte"@en ;
-          emmo:EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 "AD" ;
+          schema:unitCode "AD" ;
           emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/BYTE"^^xsd:anyURI ;
           emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "By" ;
           emmo:EMMO_6dd685dd_1895_46e4_b227_be9f7d643c25 "http://dbpedia.org/resource/Byte"^^xsd:anyURI ;
@@ -420,7 +370,7 @@ emmo:Candlepower rdf:type owl:Class ;
                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Candlepower\" (abbreviated as cp) is a now-obsolete unit which was used to express levels of light intensity in terms of the light emitted by a candle of specific size and constituents. In modern usage Candlepower equates directly to the unit known as the candela.
 
 -- QUDT"""@en ;
-                 emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Candlepower?oldid=491140098" .
+                 emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Candlepower" .
 
 
 ###  https://w3id.org/emmo#Carat
@@ -918,7 +868,7 @@ emmo:Gauss rdf:type owl:Class ;
            emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The gauss, abbreviated as G, is the cgs unit of measurement of a magnetic field B, which is also known as the \"magnetic flux density\" or the \"magnetic induction\".  One gauss is defined as one maxwell per square centimeter; it equals 10⁻⁴ tesla (or 100 micro T). The Gauss is identical to maxwells per square centimetre; technically defined in a three-dimensional system, it corresponds in the SI, with its extra base unit the ampere. The gauss is quite small by earthly standards, 1 Gs being only about four times Earth's flux density, but it is subdivided, with 1 gauss = 105 gamma. This unit of magnetic induction is also known as the `abtesla`.
 
 -- QUDT"""@en ;
-        emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Gauss_(unit)" .
+           emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Gauss_(unit)" .
 
 
 ###  https://w3id.org/emmo#Gilbert
@@ -1780,6 +1730,31 @@ emmo:Torr rdf:type owl:Class ;
           emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Torr?oldid=495199381" .
 
 
+###  https://w3id.org/emmo#Week
+emmo:Week rdf:type owl:Class ;
+          rdfs:subClassOf emmo:EMMO_02e894c3_b793_4197_b120_3442e08f58d1 ,
+                          emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                          emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                          emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                            owl:hasValue "604800.0"^^xsd:double
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                            owl:hasValue "0.0"^^xsd:double
+                          ] ;
+          rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+          skos:prefLabel "Week"@en ;
+          emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/WK" ;
+          emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "wk" ;
+          emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "wk" ;
+          emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Mean solar week
+
+-- QUDT"""@en ;
+          emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Week?oldid=493867029" .
+
+
 ###  https://w3id.org/emmo#Yard
 emmo:Yard rdf:type owl:Class ;
           rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
@@ -1805,6 +1780,29 @@ emmo:Yard rdf:type owl:Class ;
           emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Yard?oldid=492334628" .
 
 
+###  https://w3id.org/emmo#Year
+emmo:Year rdf:type owl:Class ;
+          rdfs:subClassOf emmo:EMMO_02e894c3_b793_4197_b120_3442e08f58d1 ,
+                          emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                          emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                          emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                            owl:hasValue "3.15576E7"^^xsd:double
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                            owl:hasValue "0.0"^^xsd:double
+                          ] ;
+          rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+          rdfs:seeAlso "http://www.oxfordreference.com/view/10.1093/acref/9780198605225.001.0001/acref-9780198605225-e-1533?rskey=b94Fd6" ;
+          skos:prefLabel "Year"@en ;
+          emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/YR" ;
+          emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "a" ;
+          emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "yr" ;
+          emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A year is any of the various periods equated with one passage of Earth about the Sun, and hence of roughly 365 days. The familiar calendar has a mixture of 365- and 366-day years, reflecting the fact that the time for one complete passage takes about 365¼ days; the precise value for this figure depends on the manner of defining the year.
+
+-- QUDT"""@en .
 
 
-###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

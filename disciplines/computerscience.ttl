@@ -9,10 +9,10 @@
 @base <https://w3id.org/emmo#> .
 
 <https://w3id.org/emmo/disciplines/computerscience> rdf:type owl:Ontology ;
-                                                     owl:versionIRI <https://w3id.org/emmo/1.0.0-rc3/disciplines/computerscience> ;
-                                                     owl:imports <https://w3id.org/emmo/1.0.0-rc3/perspectives/semiotics> ,
-                                                                 <https://w3id.org/emmo/1.0.0-rc3/reference/symbolic> ,
-                                                                 <https://w3id.org/emmo/1.0.0-rc3/reference/workflow> ;
+                                                     owl:versionIRI <https://w3id.org/emmo/1.0.0/disciplines/computerscience> ;
+                                                     owl:imports <https://w3id.org/emmo/1.0.0/perspectives/semiotics> ,
+                                                                 <https://w3id.org/emmo/1.0.0/reference/symbolic> ,
+                                                                 <https://w3id.org/emmo/1.0.0/reference/workflow> ;
                                                      dcterms:abstract "Key concepts from the domain of computer science."@en ;
                                                      dcterms:contributor :FrancescaBleken ,
                                                                          :OtelloRoscioni ;
@@ -23,7 +23,7 @@
                                                      dcterms:publisher <https://emmc.eu> ;
                                                      dcterms:title "Computer science"@en ;
                                                      rdfs:comment "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                                     owl:versionInfo "1.0.0-rc3" ;
+                                                     owl:versionInfo "1.0.0" ;
                                                      :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu"^^xsd:anyURI .
 
 #################################################################
@@ -65,7 +65,10 @@ rdf:JSON rdf:type rdfs:Datatype .
 ###  https://w3id.org/emmo#EMMO_ac852bf0_3251_4d6b_9e57_acbfcb5e7e08
 :EMMO_ac852bf0_3251_4d6b_9e57_acbfcb5e7e08 rdf:type owl:DatatypeProperty ;
                                            rdfs:subPropertyOf :EMMO_b35e92d7_7fa0_4661_aa5a_5cea7c8e6925 ;
-                                           skos:prefLabel "hasURLValue"@en .
+                                           rdfs:domain :EMMO_8a8f664b_dc59_4e00_ae00_81fdf1e1d12e ;
+                                           rdfs:range xsd:anyURI ;
+                                           skos:prefLabel "hasURLValue"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The owl:dataProperty that provides a serialisation of an EMMO URL data entity."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_b35e92d7_7fa0_4661_aa5a_5cea7c8e6925
@@ -73,13 +76,26 @@ rdf:JSON rdf:type rdfs:Datatype .
                                            rdfs:subPropertyOf :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
                                            rdfs:domain :EMMO_6470bbfa_04a6_4360_9534_1aa18d68329b ;
                                            rdfs:range xsd:anyURI ;
-                                           skos:prefLabel "hasURIValue"@en .
+                                           skos:prefLabel "hasURIValue"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The owl:dataProperty that provides a serialisation of an EMMO URI data entity."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_b7493aee_366c_442d_8f59_49ac7aa664d7
 :EMMO_b7493aee_366c_442d_8f59_49ac7aa664d7 rdf:type owl:DatatypeProperty ;
                                            rdfs:subPropertyOf :EMMO_b35e92d7_7fa0_4661_aa5a_5cea7c8e6925 ;
-                                           skos:prefLabel "hasURNValue"@en .
+                                           rdfs:domain :EMMO_db99b1e5_2f34_467b_a784_d104946d9f00 ;
+                                           rdfs:range xsd:anyURI ;
+                                           skos:prefLabel "hasURNValue"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The owl:dataProperty that provides a serialisation of an EMMO URN data entity."@en .
+
+
+###  https://w3id.org/emmo/disciplines/computerscience#EMMO_712f46a1_0aaa_4a41_b681_b10e1cc05233
+:EMMO_712f46a1_0aaa_4a41_b681_b10e1cc05233 rdf:type owl:DatatypeProperty ;
+                                           rdfs:subPropertyOf :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                           rdfs:domain :EMMO_90bfd475_ba4a_4065_b0c1_1f08230be252 ;
+                                           rdfs:range rdf:JSON ;
+                                           skos:prefLabel "hasJSONValue"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The owl:dataProperty that provides a serialisation of an EMMO JSON data entity."@en .
 
 
 #################################################################

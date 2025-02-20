@@ -9,8 +9,8 @@
 @base <https://w3id.org/emmo#> .
 
 <https://w3id.org/emmo/reference/physicalistic> rdf:type owl:Ontology ;
-                                                 owl:versionIRI <https://w3id.org/emmo/1.0.0-rc3/reference/physicalistic> ;
-                                                 owl:imports <https://w3id.org/emmo/1.0.0-rc3/reference/standardmodel> ;
+                                                 owl:versionIRI <https://w3id.org/emmo/1.0.0/reference/physicalistic> ;
+                                                 owl:imports <https://w3id.org/emmo/1.0.0/reference/standardmodel> ;
                                                  dcterms:abstract "Defines the root of the physicalistic perspective that introduces the concept of real world objects that have a meaning for the ontologist under an applied physics perspective."@en ;
                                                  dcterms:contributor :AdhamHashibon ,
                                                                      :FrancescoZaccarini ,
@@ -22,7 +22,7 @@
                                                  dcterms:publisher <https://emmc.eu> ;
                                                  dcterms:title "Physicalistic"@en ;
                                                  rdfs:comment "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                                 owl:versionInfo "1.0.0-rc3" ;
+                                                 owl:versionInfo "1.0.0" ;
                                                  :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
 
 #################################################################
@@ -40,31 +40,39 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
 ###  https://w3id.org.org/emmo#EMMO_0f3e0646_4f06_4588_9779_6a4f05c5a8d6
 <https://w3id.org.org/emmo#EMMO_0f3e0646_4f06_4588_9779_6a4f05c5a8d6> rdf:type owl:Class ;
                                                                       rdfs:subClassOf :EMMO_38b579de_4331_40e0_803d_09efa298e726 ;
-                                                                      skos:prefLabel "PhysicalObjectByBond"@en .
+                                                                      skos:prefLabel "PhysicalObjectByBond"@en ;
+                                                                      :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Categorisation of physical objects by how they are bonded."@en .
 
 
 ###  https://w3id.org.org/emmo#EMMO_2c07a731_84f9_4883_9e58_2bc073abda29
 <https://w3id.org.org/emmo#EMMO_2c07a731_84f9_4883_9e58_2bc073abda29> rdf:type owl:Class ;
                                                                       rdfs:subClassOf :EMMO_a15cea10_9946_4d2b_95c5_cfc333fd2abb ;
-                                                                      skos:prefLabel "PhysicalParticleBySpin"@en .
+                                                                      skos:prefLabel "PhysicalParticleBySpin"@en ;
+                                                                      :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "DisjointUnionOf: Boson, Fermion" ;
+                                                                      :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Categorisation of physical particles by whether they have integer or half-odd-integer spin."@en .
 
 
 ###  https://w3id.org.org/emmo#EMMO_41cecfc2_bb6b_45f3_b6cc_e7740d931afe
 <https://w3id.org.org/emmo#EMMO_41cecfc2_bb6b_45f3_b6cc_e7740d931afe> rdf:type owl:Class ;
                                                                       rdfs:subClassOf :EMMO_5b2222df_4da6_442f_8244_96e9e45887d1 ;
-                                                                      skos:prefLabel "MatterByStructure"@en .
+                                                                      skos:prefLabel "MatterByStructure"@en ;
+                                                                      :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Categorisation of matter by its structure."@en .
 
 
 ###  https://w3id.org.org/emmo#EMMO_43d0bb2c_bb0e_4312_a0de_084c29ff7f9e
 <https://w3id.org.org/emmo#EMMO_43d0bb2c_bb0e_4312_a0de_084c29ff7f9e> rdf:type owl:Class ;
                                                                       rdfs:subClassOf :EMMO_5b2222df_4da6_442f_8244_96e9e45887d1 ;
-                                                                      skos:prefLabel "MatterByType"@en .
+                                                                      skos:prefLabel "MatterByType"@en ;
+                                                                      :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "DisjointUnionOf: AntiMatter, HybridMatter, OrdinaryMatter" ;
+                                                                      :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Categorisation of matter by its type."@en .
 
 
 ###  https://w3id.org.org/emmo#EMMO_b32fe85d_2f7b_4972_9dd7_7cf20d4bba59
 <https://w3id.org.org/emmo#EMMO_b32fe85d_2f7b_4972_9dd7_7cf20d4bba59> rdf:type owl:Class ;
                                                                       rdfs:subClassOf :EMMO_a15cea10_9946_4d2b_95c5_cfc333fd2abb ;
-                                                                      skos:prefLabel "PhysicalParticleByBond"@en .
+                                                                      skos:prefLabel "PhysicalParticleByBond"@en ;
+                                                                      :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "DisjointUnionOf: BondedParticle, ElementaryParticle" ;
+                                                                      :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Categorisation of physical particles by whether they are bonded."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_09f0ac34_c349_46b5_acf0_0edeae52cca1
@@ -189,7 +197,7 @@ spin 3/2: He5 in ground state, Delta baryons (excitations of the proton and neut
                                            skos:example "H₂0, C₆H₁₂O₆, CH₄"@en ;
                                            skos:prefLabel "Molecule"@en ;
                                            :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "DisjointUnionOf: Heteronuclear, Homonuclear" ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An atom_based state defined by an exact number of e-bonded atomic species and an electron cloud made of the shared electrons."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An atom-based state defined by an exact number of e-bonded atomic species and an electron cloud made of the shared electrons."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """An entity is called essential if removing one direct part will lead to a change in entity class.
 An entity is called redundant if removing one direct part will not lead to a change in entity class."""@en ,
                                                                                       """This definition states that this object is a non-periodic set of atoms or a set with a finite periodicity.
