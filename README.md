@@ -77,6 +77,13 @@ For example, https://w3id.org/emmo/1.0.0/perspectives will import Perspectives f
 A description of the EMMO Governance, organisation of related repositories, conventions and how to contribute can be found [here](doc/EMMO_governance.md).
 
 
+## EMMO expressivity and reasoning
+EMMO 1.0.0 Reference Level is compliant with OWL2 DL and supports HermiT and FaCT++ reasoners.
+The axioms have been optimised to reduce reasoning time, facilitating usage and development.
+Developers of EMMO based ontologies are encouraged to use a reasoner to ensure consistency with the overall framework.
+However, all relevant inferred axioms have been already included in the ontology, so that the EMMO 1.0.0 can also be used as-is with reasoning based on less expressive rules than OWL2 DL, or without reasoning at all, according to users' needs.
+
+
 ## Domain Ontologies
 Based on the EMMO core, a set of domain-level ontologies have developed by the community.
 They either import one of the versions of EMMO listed on [https://emmo-repo.github.io/](https://emmo-repo.github.io/) or selected module from EMMO core.
@@ -114,13 +121,6 @@ Please create an issue if you have a public domain ontology that you think shoul
 ## Application Ontologies
 EMMO application ontologies are engineered for a specific use or application by reusing and extending concepts from one or more domain ontologies.
 Even though that the delineation between "domain" and "application" ontologies are somewhat arbitrary, a main difference is that the application ontologies are generally not developed for reuse by other domain or application ontologies, while such reuse is the main focus of domain ontologies.
-
-
-## EMMO expressivity and reasoning
-EMMO 1.0.0 Reference Level is compliant with OWL2 DL and supports HermiT and FaCT++ reasoners.
-The axioms have been optimised to reduce reasoning time, facilitating usage and development.
-Developers of EMMO based ontologies are encouraged to use a reasoner to ensure consistency with the overall framework.
-However, all relevant inferred axioms have been already included in the ontology, so that the EMMO 1.0.0 can also be used as-is with reasoning based on less expressive rules than OWL2 DL, or without reasoning at all, according to users' needs.
 
 
 ---
