@@ -13,27 +13,29 @@
   </a>
 </p>
 
-EMMO is a multidisciplinary effort to develop a standard representational framework (the ontology) for applied sciences.
+EMMO results from a multidisciplinary effort to develop a standard representational framework  that is consistent with scientific principles and methodologies.
 It is based on physics, analytical philosophy and information and communication technologies.
-It has been instigated by materials science to provide a framework for knowledge capture that is consistent with scientific principles and methodologies.
-It is released under a Creative Commons [CC BY 4.0](LICENSE.md) license.
+EMMO provides a framework for knowledge capture and interoperability in applied science and engineering, especially materials science and manufacturing.
+It is released under a Creative Commons CC BY 4.0 license.
 
 
 ## EMMO resources
 
 * [EMMO Wiki] - documentation
-* [Publication list] - EMMO-related publications
+* [Publication list] - EMMO-related publication list maintained by EMMC
 * [EMMO reference index] - all classes and properties
 * [Usage tips] - how to work with EMMO using Protégé
-* [EMMO name and logo] - some notes about teh name
+* [EMMO name and logo] - some notes about the name
 
 
 ## EMMO structure
-This repository contain the EMMO top- and middle level ontologies, constituting the core of EMMO.
-The EMMO top-level ontology is sub-divided into the fundamental [mereocausality] level and the perspective level, in which the world is described from a set of different perspectives.
-The EMMO middle-level ontology is sub-divided into a reference level, which combines perspectives, and a discipline level, providing a common foundation for different disciplines.
-Each sub-level are implemented in a set of interdependent modules as illustrated in the figure below.
+This repository contains the EMMO top- and middle level ontologies, constituting the core of EMMO.
+The EMMO top-level ontology is consists of the fundamental mereocausality level and the perspective level, which supports a pluralistic representation of the world.
+
+The EMMO middle-level ontology consists of the reference level, which includes the full standard model of physics and the representation of data and information, and the discipline level, providing a common foundation for different disciplines including metrology, materials and manufacturing.
+Each level is implemented in a set of interdependent modules as illustrated in the figure below.
 A more detailed figure including all the modules can be found [here](doc/figs/EMMO-structure.png).
+
 
 <table>
   <tr>
@@ -43,26 +45,29 @@ A more detailed figure including all the modules can be found [here](doc/figs/EM
 </table>
 
 
-
-
-
 ## Repository Description
 The different levels and versions of EMMO can be imported according to the following table:
 
+| Name      | Link                            | Comment                                                                         |
+|-----------|---------------------------------|---------------------------------------------------------------------------------|
+| emmo      | https://w3id.org/emmo           | Loads all EMMO modules, excluding the full standard model and specialised units |
+| emmo-tol  | https://w3id.org/emmo/tlo       | EMMO top level                                                                  |
+| emmo-mlo  | https://w3id.org/emmo/mlo       | EMMO middle level                                                               |
+| emmo-full | https://w3id.org/emmo/emmo-full | EMMO all EMMO modules, including the full standard model and specialised units  |
+
+
+Also, the following versions of EMMO are provided for ease of use:
+
 | Name            | Link                                  | Comment                                                                                          |
 |-----------------|---------------------------------------|--------------------------------------------------------------------------------------------------|
-| emmo            | https://w3id.org/emmo                 | EMMO middle level                                                                                |
-| emmo-tol        | https://w3id.org/emmo/tlo             | EMMO top level                                                                                   |
-| emmo-mlo        | https://w3id.org/emmo/mlo             | EMMO middle level                                                                                |
-| emmo-full       | https://w3id.org/emmo/emmo-full       | EMMO middle level including the full standard model                                              |
 | emmo-for-humans | https://w3id.org/emmo/emmo-for-humans | Version of EMMO middle with IRIs replaced with human readable names. Only intended for examples. |
 | emmo-lite       | https://w3id.org/emmo/emmo-lite       | Selected leaf classes and properties for rapid development and deployment in graph databases.    |
 | emmo-inferred   | https://w3id.org/emmo/inferred        | Pre-inferred version of EMMO middle level                                                        |
 
-In addition can individual sub-levels and modules be imported from the GitHub repository using their IRI.
-Use for example https://w3id.org/emmo/perspectives to import the perspectives sub-level and https://w3id.org/emmo/perspectives/semiotics to import the semiotics module.
+Also, individual levels and modules be imported from the GitHub repository using their IRI.
+Use for example https://w3id.org/emmo/perspectives to import the Perspectives level and https://w3id.org/emmo/perspectives/semiotics to import the Semiotics module.
 A specific version can be imported by adding the version number after the initial https://w3id.org/emmo/.
-For example will https://w3id.org/emmo/1.0.0/perspectives import perspectives from version 1.0.0.
+For example, https://w3id.org/emmo/1.0.0/perspectives will import Perspectives from version 1.0.0.
 
 > [!NOTE]
 > Importing directly from the GitHub repository requires a client that understands `owl:imports`.
@@ -72,8 +77,8 @@ A description of the EMMO Governance, organisation of related repositories, conv
 
 
 ## Domain Ontologies
-Based on the EMMO core, a set of domain-level ontologies have been implemented.
-Normally they either import one of the versions of EMMO listed on [https://emmo-repo.github.io/](https://emmo-repo.github.io/) or selected module from EMMO core.
+Based on the EMMO core, a set of domain-level ontologies have developed by the community.
+They either import one of the versions of EMMO listed on [https://emmo-repo.github.io/](https://emmo-repo.github.io/) or selected module from EMMO core.
 The following table lists the public EMMO-based domain ontologies that we are aware of.
 Please create an issue if you have a public domain ontology that you think should be listed here.
 
