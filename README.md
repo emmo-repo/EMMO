@@ -116,6 +116,13 @@ EMMO application ontologies are engineered for a specific use or application by 
 Even though that the delineation between "domain" and "application" ontologies are somewhat arbitrary, a main difference is that the application ontologies are generally not developed for reuse by other domain or application ontologies, while such reuse is the main focus of domain ontologies.
 
 
+## EMMO expressivity and reasoning
+EMMO 1.0.0 Reference Level is compliant with OWL2 DL and supports HermiT and FaCT++ reasoners.
+The axioms have been optimised to reduce reasoning time, facilitating usage and development.
+Developers of EMMO based ontologies are encouraged to use a reasoner to ensure consistency with the overall framework.
+However, all relevant inferred axioms have been already included in the ontology, so that the EMMO 1.0.0 can also be used as-is with reasoning based on less expressive rules than OWL2 DL, or without reasoning at all, according to users' needs.
+
+
 ---
 
 ## Contacts:
