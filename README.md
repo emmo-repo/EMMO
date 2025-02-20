@@ -119,6 +119,7 @@ Please create an issue if you have a public domain ontology that you think shoul
 
 
 ## Application Ontologies
+
 EMMO application ontologies are engineered for a specific use or application by reusing and extending concepts from one or more domain ontologies.
 Even though that the delineation between "domain" and "application" ontologies are somewhat arbitrary, a main difference is that the application ontologies are generally not developed for reuse by other domain or application ontologies, while such reuse is the main focus of domain ontologies.
 
