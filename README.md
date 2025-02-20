@@ -53,7 +53,7 @@ The different levels and versions of EMMO can be imported according to the follo
 | emmo      | https://w3id.org/emmo           | Loads all EMMO modules, excluding the full standard model and specialised units |
 | emmo-tol  | https://w3id.org/emmo/tlo       | EMMO top level                                                                  |
 | emmo-mlo  | https://w3id.org/emmo/mlo       | EMMO middle level                                                               |
-| emmo-full | https://w3id.org/emmo/emmo-full | EMMO all EMMO modules, including the full standard model and specialised units  |
+| emmo-full | https://w3id.org/emmo/emmo-full | Loads all EMMO modules, including the full standard model and specialised units  |
 
 
 Also, the following versions of EMMO are provided for ease of use:
