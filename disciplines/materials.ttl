@@ -9,9 +9,10 @@
 @base <https://w3id.org/emmo#> .
 
 <https://w3id.org/emmo/disciplines/materials> rdf:type owl:Ontology ;
-                                               owl:versionIRI <https://w3id.org/emmo/1.0.0-rc3/disciplines/materials> ;
-                                               owl:imports <https://w3id.org/emmo/1.0.0-rc3/reference/physicalistic> ;
+                                               owl:versionIRI <https://w3id.org/emmo/1.0.0/disciplines/materials> ;
+                                               owl:imports <https://w3id.org/emmo/1.0.0/reference/physicalistic> ;
                                                dcterms:abstract "The materials module populates the physicalistic perspective with materials subclasses categorised according to modern applied physical sciences."@en ;
+                                               dcterms:contributor :OtelloRoscioni ;
                                                dcterms:creator <https://orcid.org/0000-0003-4065-9742> ,
                                                                :AdhamHashibon ,
                                                                :EmanueleGhedini ,
@@ -21,7 +22,7 @@
                                                dcterms:publisher <https://emmc.eu> ;
                                                dcterms:title "Materials"@en ;
                                                rdfs:comment "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                               owl:versionInfo "1.0.0-rc3" ;
+                                               owl:versionInfo "1.0.0" ;
                                                :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
 
 #################################################################
@@ -162,6 +163,14 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
  ] .
 
 
+###  https://w3id.org/emmo#EMMO_29a15bcd_e219_4afc_9f82_9d3fceb666cd
+:EMMO_29a15bcd_e219_4afc_9f82_9d3fceb666cd rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_48fc6f16_0f04_4e86_a9fc_fcfc14c5ef4b ;
+                                           rdfs:isDefinedBy "Duran, J., Reisinger A., Sands, Powders, and Grains: An Introduction to the Physics of Granular Materials. November 1999, Springer-Verlag New York, Inc., New York, ISBN 0-387-98656-1."@en ;
+                                           skos:prefLabel "Powder"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A powder is a granular material composed of many very fine dry solid particles that may flow freely when shaken or tilted."@en .
+
+
 ###  https://w3id.org/emmo#EMMO_2dd512a1_5187_47cc_b0b8_141214e22b59
 :EMMO_2dd512a1_5187_47cc_b0b8_141214e22b59 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1 ;
@@ -173,11 +182,9 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
 ###  https://w3id.org/emmo#EMMO_2fd3f574_5e93_47fe_afca_ed80b0a21ab4
 :EMMO_2fd3f574_5e93_47fe_afca_ed80b0a21ab4 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_eb77076b_a104_42ac_a065_798b2d2809ad ;
-                                           owl:disjointUnionOf ( :EMMO_4588526f_8553_4f4d_aa73_a483e88d599b
-                                                                 :EMMO_db03061b_db31_4132_a47a_6a634846578b
-                                                               ) ;
                                            rdfs:comment "A standalone atom can be bonded with other atoms by intermolecular forces (i.e. dipole–dipole, London dispersion force, hydrogen bonding), since this bonds does not involve electron sharing."@en ;
                                            skos:prefLabel "StandaloneAtom"@en ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "DisjointUnionOf: NeutralAtom, IonAtom" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An atom that does not share electrons with other atoms."@en .
 
 
@@ -248,6 +255,8 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
 
 ###  https://w3id.org/emmo#EMMO_4588526f_8553_4f4d_aa73_a483e88d599b
 :EMMO_4588526f_8553_4f4d_aa73_a483e88d599b rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_2fd3f574_5e93_47fe_afca_ed80b0a21ab4 ;
+                                           owl:disjointWith :EMMO_db03061b_db31_4132_a47a_6a634846578b ;
                                            skos:prefLabel "NeutralAtom"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A standalone atom that has no net charge."@en .
 
@@ -257,6 +266,13 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
                                            rdfs:subClassOf :EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba ;
                                            skos:prefLabel "LiquidLiquidSuspension"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A coarse dispersion of liquid in a liquid continuum phase."@en .
+
+
+###  https://w3id.org/emmo#EMMO_48fc6f16_0f04_4e86_a9fc_fcfc14c5ef4b
+:EMMO_48fc6f16_0f04_4e86_a9fc_fcfc14c5ef4b rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ;
+                                           skos:prefLabel "GranularMaterial"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A granular material is a conglomeration of discrete solid, macroscopic particles that are  large enough to avoid thermal motion fluctuations, and characterized by a loss of energy whenever the particles interact."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_498aad49_f8d4_40a4_a9eb_efd563a0115f
@@ -405,7 +421,7 @@ The term phase is sometimes used as a synonym for state of matter, but there can
 :EMMO_68390bfb_e307_479d_8f78_d66d8773cb1d rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a96e2152_40e7_409c_a53a_fdb9f141eb6a ;
                                            skos:prefLabel "ReactiveMaterial"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A material that takes active part in a chemical reaction."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A material that can take active part in a chemical reaction."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_6c487fb3_03d1_4e56_91ed_c2e16dcbef60
@@ -568,6 +584,7 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
 
 ###  https://w3id.org/emmo#EMMO_db03061b_db31_4132_a47a_6a634846578b
 :EMMO_db03061b_db31_4132_a47a_6a634846578b rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_2fd3f574_5e93_47fe_afca_ed80b0a21ab4 ;
                                            rdfs:comment "The ion_atom is the basic part of a pure ionic bonded compound i.e. without eclectron sharing,"@en ;
                                            skos:prefLabel "IonAtom"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A standalone atom with an unbalanced number of electrons with respect to its atomic number."@en .
@@ -641,12 +658,9 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
                                            skos:prefLabel "PolymericMaterial"@en .
 
 
-[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
 ] .
 
-[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
- ] .
-
 [ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
@@ -656,13 +670,16 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
 [ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
  ] .
 
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
 [ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
 #################################################################

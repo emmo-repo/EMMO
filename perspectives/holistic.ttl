@@ -9,8 +9,8 @@
 @base <https://w3id.org/emmo#> .
 
 <https://w3id.org/emmo/perspectives/holistic> rdf:type owl:Ontology ;
-                                               owl:versionIRI <https://w3id.org/emmo/1.0.0-rc3/perspectives/holistic> ;
-                                               owl:imports <https://w3id.org/emmo/1.0.0-rc3/perspectives/perspective> ;
+                                               owl:versionIRI <https://w3id.org/emmo/1.0.0/perspectives/holistic> ;
+                                               owl:imports <https://w3id.org/emmo/1.0.0/perspectives/perspective> ;
                                                dcterms:abstract """Defines the holistic perspective which includes process and the role of its participants.
 
 Processes are 4D objects that unfolds in time in a way that has a meaning to the ontologist with participants whose role is assigned by the ontologist."""@en ;
@@ -23,7 +23,7 @@ Processes are 4D objects that unfolds in time in a way that has a meaning to the
                                                dcterms:publisher <https://emmc.eu> ;
                                                dcterms:title "Holistic"@en ;
                                                rdfs:comment "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                               owl:versionInfo "1.0.0-rc3" ;
+                                               owl:versionInfo "1.0.0" ;
                                                :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
 
 #################################################################
@@ -57,15 +57,33 @@ Processes are 4D objects that unfolds in time in a way that has a meaning to the
 ###  https://w3id.org/emmo#EMMO_946b5162_95b0_4801_81d4_efef43842a0d
 :EMMO_946b5162_95b0_4801_81d4_efef43842a0d rdf:type owl:Class ;
                                                                  rdfs:subClassOf :EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62 ;
-                                                                 skos:altLabel "QualifiedRole"@en ;
-                                                                 skos:prefLabel "QRole"@en .
+                                                                 skos:altLabel "QRole"@en ;
+                                                                 skos:prefLabel "QualifiedRole"@en ;
+                                                                 :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """The qualified role concept express the requirement for an entity of a type, say A, to be part of a larger entity of another type, say B, with A and B belonging to different taxonomical branches.
+The concept of role is then defined as something that needs a wider and specific environment to exist.
+For example, the car radio type requires all instances to be a part of a car, while the opposite (the car having a radio) is not mandatory for qualified roles.  The same applies for airplane winglets that are by definition an optional part of an airplane. Food preservatives are anothe optional part of foods."""@en ;
+                                                                 :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for all classes of individuals that requires their individuals to be part of another specific class of entity of different type with a specific role with respect to it."@en ;
+                                                                 :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """Al QRole subclasses shuld have an axiom to express the role requirements, in the form of:
+MyQRoleClass
+    SubClassOf: isProperPartOf some AnotherClass
+This is a necessary but not sufficient condition."""@en ,
+                                                                                                            """We usually have the same word to identify both the role and the name of a device. for example, under the term hammer we can identify both a product and generic entity used for hammering a nail.
+The concept of role helps to distinguish between these two concepts. Ideally ther shuld be an HammerRole and an HammerProduct types. The product may or may not be used as HammerRole, but only expresses the fact that it has been designed as an optimal hammering device. The hammering role can be played by any hard-enough object, even if it is not an hammer product."""@en .
 
 
 ###  https://w3id.org/emmo#EMMO_eb50c9cb_9576_4a61_95ec_f81fb8218187
 :EMMO_eb50c9cb_9576_4a61_95ec_f81fb8218187 rdf:type owl:Class ;
                                                                  rdfs:subClassOf :EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62 ;
-                                                                 skos:altLabel "QualifiedWhole"@en ;
-                                                                 skos:prefLabel "QWhole"@en .
+                                                                 skos:altLabel "QWhole"@en ;
+                                                                 skos:prefLabel "QualifiedWhole"@en ;
+                                                                 :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """The qualified whole concept express the requirement for an entity of a type, say A, to have a part of another type, say B, with A and B belonging to different taxonomical branches.
+The concept of whole is then defined as something that needs a part of a specific type to exist.
+For example, an atom always requires a nucleus part to exist (but not viceversa)"""@en ;
+                                                                 :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for all classes of individuals that requires to have a part of another specific class of entity of different type with a specific relation with it."@en ;
+                                                                 :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """Al QWhole subclasses shuld have an axiom to express the part requirements, in the form of:
+MyQWholeClass
+    SubClassOf: hasProperPart some AnotherClass
+This is a necessary but not sufficient condition."""@en .
 
 
 ###  https://w3id.org/emmo#EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62
@@ -81,7 +99,9 @@ This class allows the picking of parts without necessarily going trough a rigid 
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A perspective characterized by the belief that:
 - a whole is more than merely the sum of its parts (wholism)
 - the parts of a whole are interconnected in a way that can be explained only by reference to the whole (rolism)."""@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The holistic perspective is not excluding the reductionistic perspective, on the contrary it can be considered its complement."@en .
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The holistic perspective is not excluding the reductionistic perspective, on the contrary it can be considered its complement."@en ,
+                                                                                      """Whole and roles are defined using parthood relations. However, there also must be a primitive component in the definition, besides parthood, capturing more subtle relations between entities that makes their relation holistic. 
+For example, a scattering event between an electron and a nucleus requires electron and nucleus types as parts to exist, but this is not enough to make this event an atom, since it requires a persistent bond. So defining something as an atom iff have parts some electons and a nucleus is not enough."""@en .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_0277f24a_ea7f_4917_81b7_fb0406c8fc62 ;

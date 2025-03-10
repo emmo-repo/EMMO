@@ -5,16 +5,17 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema: <https://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @base <https://w3id.org/emmo#> .
 
 <https://w3id.org/emmo/disciplines/metrology> rdf:type owl:Ontology ;
-                                               owl:versionIRI <https://w3id.org/emmo/1.0.0-rc3/disciplines/metrology> ;
-                                               owl:imports <https://w3id.org/emmo/1.0.0-rc3/disciplines/math> ,
-                                                           <https://w3id.org/emmo/1.0.0-rc3/disciplines/properties> ,
-                                                           <https://w3id.org/emmo/1.0.0-rc3/reference/persholistic> ,
-                                                           <https://w3id.org/emmo/1.0.0-rc3/reference/symbolic> ,
-                                                           <https://w3id.org/emmo/1.0.0-rc3/reference/workflow> ;
+                                               owl:versionIRI <https://w3id.org/emmo/1.0.0/disciplines/metrology> ;
+                                               owl:imports <https://w3id.org/emmo/1.0.0/disciplines/math> ,
+                                                           <https://w3id.org/emmo/1.0.0/disciplines/properties> ,
+                                                           <https://w3id.org/emmo/1.0.0/reference/persholistic> ,
+                                                           <https://w3id.org/emmo/1.0.0/reference/symbolic> ,
+                                                           <https://w3id.org/emmo/1.0.0/reference/workflow> ;
                                                dcterms:abstract """Defines the formal language of metrology, including theoretical and practical aspects of measurements.
 
 This module is based on the International vocabulary of metrology (VIM) as well as the ISO/IEC 80000 standard."""@en ;
@@ -26,17 +27,32 @@ This module is based on the International vocabulary of metrology (VIM) as well 
                                                dcterms:publisher <https://emmc.eu> ;
                                                dcterms:title "Metrology"@en ;
                                                rdfs:comment "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                               owl:versionInfo "1.0.0-rc3" ;
+                                               owl:versionInfo "1.0.0" ;
                                                :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
 
 #################################################################
 #    Annotation properties
 #################################################################
 
+###  https://schema.org/unitCode
+schema:unitCode rdf:type owl:AnnotationProperty ;
+                rdfs:seeAlso "The normative list of all codes is available at http://www.unece.org/fileadmin/DAM/cefact/recommendations/rec20/rec20_Rev9e_2014.xls"@en ,
+                             "https://schema.org/unitCode" ;
+                :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL."@en ;
+                :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon."@en ,
+                                                           "The UN/CEFACT Recommendation 20 provides three character alphabetic and alphanumeric codes for representing units of measurement for length, area, volume/capacity, mass (weight), time, and other quantities used in international trade. The codes are intended for use in manual and/or automated systems for the exchange of information between participants in international trade."@en ;
+                rdfs:subPropertyOf :EMMO_58e7c821_4af0_4394_89f7_a9649735f4d2 ;
+                rdfs:range xsd:string ;
+                rdfs:domain :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 .
+
+
 ###  https://w3id.org/emmo#EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2
 :EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 rdf:type owl:AnnotationProperty ;
+                                           owl:deprecated "true"^^xsd:boolean ;
+                                           owl:versionInfo "Replaced by schema:unitCode"@en ;
                                            skos:prefLabel "uneceCommonCode"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The UN/CEFACT Recommendation 20 provides three character alphabetic and alphanumeric codes for representing units of measurement for length, area, volume/capacity, mass (weight), time, and other quantities used in international trade. The codes are intended for use in manual and/or automated systems for the exchange of information between participants in international trade."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The UN/CEFACT Recommendation 20 provides three character alphabetic and alphanumeric codes for representing units of measurement for length, area, volume/capacity, mass (weight), time, and other quantities used in international trade. The codes are intended for use in manual and/or automated systems for the exchange of information between participants in international trade."@en ;
                                            rdfs:subPropertyOf :EMMO_58e7c821_4af0_4394_89f7_a9649735f4d2 ;
                                            rdfs:range xsd:string ;
                                            rdfs:domain :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 .
@@ -171,7 +187,7 @@ The quantity is selected without an observation aimed to measure its actual valu
                                            rdfs:domain :EMMO_0650c031_42b6_4f0a_b62d_d88f071da6bf ;
                                            rdfs:range :EMMO_18ce5200_00f5_45bb_8c6f_6fb128cd41ae ;
                                            rdfs:comment "Relates a quantity to its metrological reference through a semiotic process."@en ;
-                                           owl:versionInfo """In EMMO version 1.0.0-rc3, physical quantities used the hasMetrologicalReference object property to relate them to their units via physical dimensionality. This was simplified in 1.0.0-alpha3 in order to make reasoning faster.
+                                           owl:versionInfo """In EMMO version 1.0.0, physical quantities used the hasMetrologicalReference object property to relate them to their units via physical dimensionality. This was simplified in 1.0.0-alpha3 in order to make reasoning faster.
 
 The restriction (e.g. for the physical quantity Length)
 
@@ -501,7 +517,9 @@ J stands for N m"""@en ;
 ###  https://w3id.org/emmo#EMMO_4b965242_29f0_4e42_a4b6_f8a5988052df
 :EMMO_4b965242_29f0_4e42_a4b6_f8a5988052df rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ;
-                                           skos:prefLabel "MeasurementUnitByPrefix"@en .
+                                           skos:prefLabel "MeasurementUnitByPrefix"@en ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "EquivalentTo: PrefixedUnit or NonPrefixedUnit" ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Categorisation of measurement units by whether they are prefixed or not."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_50a3552e_859a_4ff7_946d_76d537cabce6
@@ -538,7 +556,9 @@ J stands for N m"""@en ;
 ###  https://w3id.org/emmo#EMMO_611e4040_9a3e_4a1a_9fa2_7b1012269401
 :EMMO_611e4040_9a3e_4a1a_9fa2_7b1012269401 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ;
-                                           skos:prefLabel "MeasurementUnitByDimensionality"@en .
+                                           skos:prefLabel "MeasurementUnitByDimensionality"@en ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "EquivalentTo: DimensionalUnit or DimensionlessUnit" ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Categorisation of measurement units by their physical dimensionality."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_71f6ab56_342c_484b_bbe0_de86b7367cb3
@@ -643,7 +663,8 @@ Sex of a human being."""@en ;
 ###  https://w3id.org/emmo#EMMO_9159bb16_8a70_49f9_bac4_f5cf2a82c39a
 :EMMO_9159bb16_8a70_49f9_bac4_f5cf2a82c39a rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_02c0621e_a527_4790_8a0f_2bb51973c819 ;
-                                           skos:prefLabel "PhysicalQuantiyByDefinition"@en .
+                                           skos:prefLabel "PhysicalQuantiyByDefinition"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Categorisation of physical quantities by how they are defined."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_972e01b0_b017_4903_8c05_b7edda958723
@@ -838,7 +859,9 @@ Then I have two different physical quantities that are properties thanks to two 
 ###  https://w3id.org/emmo#EMMO_d9350951_5300_44e8_ae61_79fb7c53b7e7
 :EMMO_d9350951_5300_44e8_ae61_79fb7c53b7e7 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_0650c031_42b6_4f0a_b62d_d88f071da6bf ;
-                                           skos:prefLabel "QuantityBySubjectivity"@en .
+                                           skos:prefLabel "QuantityBySubjectivity"@en ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "EquivalentTo: ObjectiveProperty or SubjectiveProperty" ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Categorisation of quantities by whether they can be obtained fully objectively or not."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_dabe353b_8bfc_4da7_8ac7_8f52786d16f8
@@ -863,7 +886,9 @@ Then I have two different physical quantities that are properties thanks to two 
 ###  https://w3id.org/emmo#EMMO_dbbbf0ed_a446_4f9e_877c_8c46e7842f43
 :EMMO_dbbbf0ed_a446_4f9e_877c_8c46e7842f43 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_0650c031_42b6_4f0a_b62d_d88f071da6bf ;
-                                           skos:prefLabel "QuantityByPhysical"@en .
+                                           skos:hiddenLabel "QuantityByPhysical"@en ;
+                                           skos:prefLabel "QuantityByPhysicalNature"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Categorisation of quantities by their physical nature."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_dd4a7f3e_ef56_466c_ac1a_d2716b5f87ec

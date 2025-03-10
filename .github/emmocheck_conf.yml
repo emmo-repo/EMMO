@@ -1,10 +1,23 @@
 # Configurations used when running emmocheck from the ci_emmocheck workflow
-skip:
-  - test_description
+#skip:
+#  - test_description
+
+test_description:
+  skipmodules:
+    - manufacturing
+    - metrology
+    - isq
+    - materials
+    - math
+    - models
+    - chemistry
+    - computerscience
+    - perceptual
 
 test_namespace:
   exceptions:
     - manufacturing.EngineeredMaterial
+
 test_quantity_dimension:
   exceptions:
     - emmo.ModelledQuantitativeProperty
@@ -48,6 +61,9 @@ test_unit_dimension:
     - emmo.SIBaseUnit
     - emmo.SIUnitSymbol
     - emmo.SIUnit
+    - emmo.SIAcceptedPrefixedUnit
+    - emmo.SIAcceptedDerivedUnit
+    - emmo.SIDerivedUnit
 
 test_number_of_labels:
   exceptions:

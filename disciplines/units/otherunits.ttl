@@ -3,491 +3,37 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix emmo: <https://w3id.org/emmo#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix emmo: <https://w3id.org/emmo#> .
 @base <https://w3id.org/emmo#> .
 
 <https://w3id.org/emmo/disciplines/units/otherunits> rdf:type owl:Ontology ;
-                                                           owl:versionIRI <https://w3id.org/emmo/1.0.0-rc3/disciplines/units/otherunits> ;
-                                                           owl:imports <https://w3id.org/emmo/1.0.0-rc3/disciplines/units/siunits> ;
-                                                           owl:imports <https://w3id.org/emmo/1.0.0-rc3/disciplines/units/specialunits> ;
-                                                           dcterms:abstract """The module 'otherunits' contain non-SI units not included in the 'siacceptedspecialunits', 'siacceptedunits' and 'specialunits' modules. Examples: kBar, ...
+                                                      owl:versionIRI <https://w3id.org/emmo/1.0.0/disciplines/units/otherunits> ;
+                                                      owl:imports <https://w3id.org/emmo/1.0.0/disciplines/units/siunits> ,
+                                                                  <https://w3id.org/emmo/1.0.0/disciplines/units/specialunits> ;
+                                                      dcterms:abstract """The module 'otherunits' contain non-SI units not included in the 'siacceptedspecialunits', 'siacceptedunits' and 'specialunits' modules. Examples: kBar, ...
 
 Note that this module is not complete and may be extended with more units over time."""@en ;
-                                                           dcterms:contributor :FrancescaBleken ,
-                                                                               :GerhardGoldbeck ,
-                                                                               :SimonClark ;
-                                                           dcterms:creator :JesperFriis ,
-                                                                           :EmanueleGhedini ;
-                                                           dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
-                                                           dcterms:publisher <https://emmc.eu> ;
-                                                           dcterms:title "Other non-SI units"@en ;
-                                                           rdfs:comment """Note: this file has automatically been populated with dimensional units from QUDT.
+                                                      dcterms:contributor emmo:FrancescaBleken ,
+                                                                          emmo:GerhardGoldbeck ,
+                                                                          emmo:SimonClark ;
+                                                      dcterms:creator emmo:EmanueleGhedini ,
+                                                                      emmo:JesperFriis ;
+                                                      dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+                                                      dcterms:publisher <https://emmc.eu> ;
+                                                      dcterms:title "Other non-SI units"@en ;
+                                                      rdfs:comment """Note: this file has automatically been populated with dimensional units from QUDT.
 
 We kindly acknowledge NIST for reusing their content, including the selection of units, their elucidations and conversion multiplier."""@en ,
-                                                                        "The EMMO should be reasoned with HermiT to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                                           owl:versionInfo "1.0.0-rc3" ;
-                                                           :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
+                                                                   "The EMMO should be reasoned with HermiT to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
+                                                      owl:versionInfo "1.0.0" ;
+                                                      emmo:EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
 
 #################################################################
 #    Classes
 #################################################################
-
-
-###  https://w3id.org/emmo#CentiMetrePerThousandYear
-emmo:CentiMetrePerThousandYear rdf:type owl:Class ;
-                               rdfs:subClassOf emmo:EMMO_15344998_4490_4b40_b242_c3d92e5cdc27 ,
-                                               emmo:EMMO_4f5c7c54_1c63_4d17_b12b_ea0792c2b187 ,
-                                               emmo:EMMO_b55cd09a_e54d_4eb1_81dd_03c29d1b878e ,
-                                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                               [ rdf:type owl:Restriction ;
-                                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                                 owl:hasValue "3.168809E-13"^^xsd:double
-                                               ] ,
-                                               [ rdf:type owl:Restriction ;
-                                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                                 owl:hasValue "0.0"^^xsd:double
-                                               ] ;
-                               skos:altLabel "Centimetres per thousand years"@en ;
-                               skos:prefLabel "CentiMetrePerThousandYear" ;
-                               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/CentiM-PER-KiloYR" ;
-                               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "cm.ka-1" ;
-                               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "cm/(1000 yr)" .
-
-
-###  https://w3id.org/emmo#CentiMetrePerYear
-emmo:CentiMetrePerYear rdf:type owl:Class ;
-                       rdfs:subClassOf emmo:EMMO_4f5c7c54_1c63_4d17_b12b_ea0792c2b187 ,
-                                       emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                       emmo:EMMO_b55cd09a_e54d_4eb1_81dd_03c29d1b878e ,
-                                       emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                         owl:someValuesFrom emmo:MetrePerYear
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                         owl:hasValue "3.168809E-10"^^xsd:double
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                         owl:hasValue "0.0"^^xsd:double
-                                       ] ;
-                       skos:altLabel "Centimetres per year"@en ;
-                       skos:prefLabel "CentiMetrePerYear" ;
-                       emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/CentiM-PER-YR" ;
-                       emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "cm.a-1" ;
-                       emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "cm/yr" .
-
-
-###  https://w3id.org/emmo#HectoPascalPerBar
-emmo:HectoPascalPerBar rdf:type owl:Class ;
-                       rdfs:subClassOf emmo:EMMO_21aaefc1_3f86_4208_b7db_a755f31f0f8c ,
-                                       emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                       emmo:EMMO_9d09022c_e7ae_4379_a765_4803a8a502a1 ,
-                                       emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                         owl:someValuesFrom emmo:PascalPerBar
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                         owl:hasValue "0.001"^^xsd:double
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                         owl:hasValue "0.0"^^xsd:double
-                                       ] ;
-                       skos:altLabel "Hectopascal Per Bar"@en ;
-                       skos:prefLabel "HectoPascalPerBar" ;
-                       emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/HectoPA-PER-BAR" ;
-                       emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "hPa.bar-1" ;
-                       emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "hPa/bar" ;
-                       emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """100-fold of the SI derived unit pascal divided by the unit bar
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#PascalPerBar
-emmo:PascalPerBar rdf:type owl:Class ;
-                  rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                  emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                  emmo:EMMO_9d09022c_e7ae_4379_a765_4803a8a502a1 ,
-                                  emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                    owl:hasValue "1.0E-5"^^xsd:double
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                    owl:hasValue "0.0"^^xsd:double
-                                  ] ;
-                  rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                  skos:altLabel "Pascal Per Bar"@en ;
-                  skos:prefLabel "PascalPerBar"@en ;
-                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PA-PER-BAR" ;
-                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Pa.bar-1" ;
-                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Pa/bar" ;
-                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """SI derived unit pascal divided by the unit bar
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#KiloPascalPerBar
-emmo:KiloPascalPerBar rdf:type owl:Class ;
-                      rdfs:subClassOf emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
-                                      emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                      emmo:EMMO_9d09022c_e7ae_4379_a765_4803a8a502a1 ,
-                                      emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                        owl:someValuesFrom emmo:PascalPerBar
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                        owl:hasValue "1.0E8"^^xsd:double
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                        owl:hasValue "0.0"^^xsd:double
-                                      ] ;
-                      skos:altLabel "Kilopascal Per Bar"@en ;
-                      skos:prefLabel "KiloPascalPerBar" ;
-                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloPA-PER-BAR" ;
-                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kPa.bar-1" ;
-                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kPa/bar" ;
-                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """1 000-fold of the SI derived unit pascal divided by the unit bar
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#MegaPascalPerBar
-emmo:MegaPascalPerBar rdf:type owl:Class ;
-                      rdfs:subClassOf emmo:EMMO_5eaecadc_4f0d_4a3a_afc7_1fc0b83cc928 ,
-                                      emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                      emmo:EMMO_9d09022c_e7ae_4379_a765_4803a8a502a1 ,
-                                      emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                        owl:someValuesFrom emmo:PascalPerBar
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                        owl:hasValue "10.0"^^xsd:double
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                        owl:hasValue "0.0"^^xsd:double
-                                      ] ;
-                      skos:altLabel "Megapascal Per Bar"@en ;
-                      skos:prefLabel "MegaPascalPerBar" ;
-                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MegaPA-PER-BAR" ;
-                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "MPa.bar-1" ;
-                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "MPa/bar" ;
-                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """1,000,000-fold of the SI derived unit pascal divided by the unit bar
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#GigaBitPerSecond
-emmo:GigaBitPerSecond rdf:type owl:Class ;
-                      rdfs:subClassOf emmo:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 ,
-                                      emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                      emmo:EMMO_a8eb4bbb_1bd3_4ad4_b114_2789bcbd2134 ,
-                                      emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                        owl:someValuesFrom emmo:BitPerSecond
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                        owl:hasValue "6.931472E8"^^xsd:double
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                        owl:hasValue "0.0"^^xsd:double
-                                      ] ;
-                      skos:altLabel "Gigabit per Second"@en ;
-                      skos:prefLabel "GigaBitPerSecond" ;
-                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/GigaBIT-PER-SEC" ;
-                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Gbit.s-1" ;
-                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Gbps" ;
-                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A gigabit per second (Gbit/s or Gb/s) is a unit of data transfer rate equal to 1,000,000,000 bits per second.
-
--- QUDT"""@en ;
-                      emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Data-rate_units#Gigabit_per_second" .
-
-
-###  https://w3id.org/emmo#GigaWattHour
-emmo:GigaWattHour rdf:type owl:Class ;
-                  rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                  emmo:EMMO_a8eb4bbb_1bd3_4ad4_b114_2789bcbd2134 ,
-                                  emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                  emmo:EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                    owl:hasValue "3.6E12"^^xsd:double
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                    owl:hasValue "0.0"^^xsd:double
-                                  ] ;
-                  skos:altLabel "Gigawatt Hour"@en ;
-                  skos:prefLabel "GigaWattHour" ;
-                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/GigaW-HR" ;
-                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "GW.h" ;
-                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "GW⋅hr" ;
-                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """1 000 000 000-fold of the product of the SI derived unit watt and the unit hour
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#KiloBitPerSecond
-emmo:KiloBitPerSecond rdf:type owl:Class ;
-                      rdfs:subClassOf emmo:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 ,
-                                      emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
-                                      emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                      emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                        owl:someValuesFrom emmo:BitPerSecond
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                        owl:hasValue "693.1472"^^xsd:double
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                        owl:hasValue "0.0"^^xsd:double
-                                      ] ;
-                      skos:altLabel "Kilobit per Second"@en ;
-                      skos:prefLabel "KiloBitPerSecond" ;
-                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloBIT-PER-SEC" ;
-                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kbit.s-1" ;
-                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kbps" ;
-                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A kilobit per second (kB/s) is a unit of data transfer rate equal to 1,000 bits per second.
-
--- QUDT"""@en ;
-                      emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Data_rate_units#Kilobit_per_second" .
-
-
-###  https://w3id.org/emmo#MegaBar
-emmo:MegaBar rdf:type owl:Class ;
-             rdfs:subClassOf emmo:EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b ,
-                             emmo:EMMO_5eaecadc_4f0d_4a3a_afc7_1fc0b83cc928 ,
-                             emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                             emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                               owl:someValuesFrom emmo:Bar
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                               owl:hasValue "1.0E11"^^xsd:double
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                               owl:hasValue "0.0"^^xsd:double
-                             ] ;
-             skos:prefLabel "MegaBar" ;
-             emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MegaBAR" ;
-             emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Mbar" ;
-             emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Mbar" ;
-             emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The bar is a non-SI unit of pressure, defined by the IUPAC as exactly equal to 100,000 Pa. It is about equal to the atmospheric pressure on Earth at sea level, and since 1982 the IUPAC has recommended that the standard for atmospheric pressure should be harmonized to 100,000 Pa = 1 bar ≈ 750.0616827 Torr. Units derived from the bar are the megabar (symbol: Mbar), kilobar (symbol: kbar), decibar (symbol: dbar), centibar (symbol: cbar), and millibar (symbol: mbar or mb). They are not SI or cgs units, but they are accepted for use with the SI.
-
--- QUDT"""@en ;
-             emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Bar_(unit)" .
-
-
-###  https://w3id.org/emmo#MilliGalsPerMonth
-emmo:MilliGalsPerMonth rdf:type owl:Class ;
-                       rdfs:subClassOf emmo:EMMO_15344998_4490_4b40_b242_c3d92e5cdc27 ,
-                                       emmo:EMMO_55ffe612_cf43_4b9b_a4e1_6aeb0c59c10c ,
-                                       emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
-                                       emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                         owl:hasValue "3.802571E-10"^^xsd:double
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                         owl:hasValue "0.0"^^xsd:double
-                                       ] ;
-                       skos:altLabel "MilliGals per month"@en ;
-                       skos:prefLabel "MilliGalsPerMonth" ;
-                       emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliGAL-PER-MO" ;
-                       emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mGal.mo-1" ;
-                       emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mgal/mo" ;
-                       emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A rate of change of one millionth part of a unit of gravitational acceleration equal to one centimetre per second per second over a time duration of 30.4375 days or 2629800 seconds.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#MilliPascalSecondPerBar
-emmo:MilliPascalSecondPerBar rdf:type owl:Class ;
-                             rdfs:subClassOf emmo:EMMO_02e894c3_b793_4197_b120_3442e08f58d1 ,
-                                             emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                             emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
-                                             emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                               owl:someValuesFrom emmo:PascalSecondPerBar
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                               owl:hasValue "1.0E-8"^^xsd:double
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                               owl:hasValue "0.0"^^xsd:double
-                                             ] ;
-                             skos:altLabel "Millipascal Second Per Bar"@en ;
-                             skos:prefLabel "MilliPascalSecondPerBar"@en ;
-                             emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliPA-SEC-PER-BAR" ;
-                             emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mPa.s.bar-1" ;
-                             emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mPa⋅s/bar" ;
-                             emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.001-fold of the product of the SI derived unit pascal and the SI base unit second divided by the unit of the pressure bar
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#PascalSecondPerBar
-emmo:PascalSecondPerBar rdf:type owl:Class ;
-                        rdfs:subClassOf emmo:EMMO_02e894c3_b793_4197_b120_3442e08f58d1 ,
-                                        emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                        emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                                        emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                          owl:hasValue "1.0E-5"^^xsd:double
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                          owl:hasValue "0.0"^^xsd:double
-                                        ] ;
-                        rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-                        skos:altLabel "Pascal Second Per Bar"@en ;
-                        skos:prefLabel "PascalSecondPerBar"@en ;
-                        emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PA-SEC-PER-BAR" ;
-                        emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Pa.s.bar-1" ;
-                        emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Pa⋅s/bar" ;
-                        emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """product out of the SI derived unit pascal and the SI base unit second divided by the unit bar
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#ExbiByte
-emmo:ExbiByte rdf:type owl:Class ;
-              rdfs:subClassOf emmo:EMMO_15d62b55_38ea_4aec_b7c4_25db1a2e5a01 ,
-                              emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                owl:someValuesFrom emmo:Byte
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                owl:hasValue "1.152922E18"^^xsd:double
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                owl:hasValue "0.0"^^xsd:double
-                              ] ;
-              rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-              skos:altLabel "ExbiByte"@en ;
-              skos:prefLabel "ExbiByte" ;
-              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/ExbiBYTE" ;
-              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "EiB" ;
-              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The exbibyte is a multiple of the unit byte for digital information. The prefix exbi means 1024⁶
-
--- QUDT"""@en ;
-              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Byte#Multiple-byte_units" .
-
-
-###  https://w3id.org/emmo#MilliBarCubicMetrePerSecond
-emmo:MilliBarCubicMetrePerSecond rdf:type owl:Class ;
-                                 rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                                 emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
-                                                 emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                                 emmo:EMMO_c8d084ad_f88e_4596_8e4d_982c6655ce6f ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                                   owl:someValuesFrom emmo:BarCubicMetrePerSecond
-                                                 ] ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                                   owl:hasValue "100.0"^^xsd:double
-                                                 ] ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                                   owl:hasValue "0.0"^^xsd:double
-                                                 ] ;
-                                 skos:altLabel "Millibar Cubic Metre Per Second"@en ;
-                                 skos:prefLabel "MilliBarCubicMetrePerSecond" ;
-                                 emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliBAR-M3-PER-SEC" ;
-                                 emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mbar.m3.s-1" ;
-                                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mbar⋅m³/s" ;
-                                 emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """product of the unit bar and the power of the SI base unit metre with the exponent 3 divided by the SI base unit second
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#MilliBarPerBar
-emmo:MilliBarPerBar rdf:type owl:Class ;
-                    rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                    emmo:EMMO_9d09022c_e7ae_4379_a765_4803a8a502a1 ,
-                                    emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
-                                    emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                      owl:someValuesFrom emmo:BarPerBar
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                      owl:hasValue "0.001"^^xsd:double
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                      owl:hasValue "0.0"^^xsd:double
-                                    ] ;
-                    skos:altLabel "Millibar Per Bar"@en ;
-                    skos:prefLabel "MilliBarPerBar" ;
-                    emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliBAR-PER-BAR" ;
-                    emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mbar.bar-1" ;
-                    emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mbar/bar" ;
-                    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.01-fold of the unit bar divided by the unit bar
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#MilliBarPerKelvin
-emmo:MilliBarPerKelvin rdf:type owl:Class ;
-                       rdfs:subClassOf emmo:EMMO_1275ac79_7280_4d99_ab61_3d98e00c053e ,
-                                       emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                       emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
-                                       emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                         owl:someValuesFrom emmo:BarPerKelvin
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                         owl:hasValue "100.0"^^xsd:double
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                         owl:hasValue "0.0"^^xsd:double
-                                       ] ;
-                       skos:altLabel "Millibar Per Kelvin"@en ;
-                       skos:prefLabel "MilliBarPerKelvin" ;
-                       emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliBAR-PER-K" ;
-                       emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mbar.K-1" ;
-                       emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mbar/K" ;
-                       emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.001-fold of the unit bar divided by the unit temperature kelvin
-
--- QUDT"""@en .
-
 
 ###  https://w3id.org/emmo#Abampere
 emmo:Abampere rdf:type owl:Class ;
@@ -849,7 +395,7 @@ emmo:AbvoltSecond rdf:type owl:Class ;
 -- QUDT"""@en .
 
 
-###  https://w3id.org/emmo#pH
+###  https://w3id.org/emmo#Acidity
 emmo:Acidity rdf:type owl:Class ;
              rdfs:subClassOf emmo:EMMO_15344998_4490_4b40_b242_c3d92e5cdc27 ,
                              emmo:EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0 ,
@@ -1194,6 +740,80 @@ emmo:CandelaPerSquareInch rdf:type owl:Class ;
                           emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Candela per Square Inch\" is a unit for  'Luminance' expressed as cd/in².
 
 -- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#CentiBar
+emmo:CentiBar rdf:type owl:Class ;
+              rdfs:subClassOf emmo:EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b ,
+                              emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                              emmo:EMMO_b55cd09a_e54d_4eb1_81dd_03c29d1b878e ,
+                              emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                owl:someValuesFrom emmo:Bar
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                owl:hasValue "1000.0"^^xsd:double
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                owl:hasValue "0.0"^^xsd:double
+                              ] ;
+              skos:prefLabel "CentiBar" ;
+              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/CentiBAR" ;
+              emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "cbar" ;
+              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "cbar" ;
+              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The bar is a non-SI unit of pressure, defined by the IUPAC as exactly equal to 100,000 Pa. It is about equal to the atmospheric pressure on Earth at sea level, and since 1982 the IUPAC has recommended that the standard for atmospheric pressure should be harmonized to 100,000 Pa = 1 bar ≈ 750.0616827 Torr. Units derived from the bar are the megabar (symbol: Mbar), kilobar (symbol: kbar), decibar (symbol: dbar), centibar (symbol: cbar), and millibar (symbol: mbar or mb). They are not SI or cgs units, but they are accepted for use with the SI.
+
+-- QUDT"""@en ;
+              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Bar_(unit)" .
+
+
+###  https://w3id.org/emmo#CentiMetrePerThousandYear
+emmo:CentiMetrePerThousandYear rdf:type owl:Class ;
+                               rdfs:subClassOf emmo:EMMO_15344998_4490_4b40_b242_c3d92e5cdc27 ,
+                                               emmo:EMMO_4f5c7c54_1c63_4d17_b12b_ea0792c2b187 ,
+                                               emmo:EMMO_b55cd09a_e54d_4eb1_81dd_03c29d1b878e ,
+                                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                 owl:hasValue "3.168809E-13"^^xsd:double
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                                 owl:hasValue "0.0"^^xsd:double
+                                               ] ;
+                               skos:altLabel "Centimetres per thousand years"@en ;
+                               skos:prefLabel "CentiMetrePerThousandYear" ;
+                               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/CentiM-PER-KiloYR" ;
+                               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "cm.ka-1" ;
+                               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "cm/(1000 yr)" .
+
+
+###  https://w3id.org/emmo#CentiMetrePerYear
+emmo:CentiMetrePerYear rdf:type owl:Class ;
+                       rdfs:subClassOf emmo:EMMO_4f5c7c54_1c63_4d17_b12b_ea0792c2b187 ,
+                                       emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                       emmo:EMMO_b55cd09a_e54d_4eb1_81dd_03c29d1b878e ,
+                                       emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                         owl:someValuesFrom emmo:MetrePerYear
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                         owl:hasValue "3.168809E-10"^^xsd:double
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                         owl:hasValue "0.0"^^xsd:double
+                                       ] ;
+                       skos:altLabel "Centimetres per year"@en ;
+                       skos:prefLabel "CentiMetrePerYear" ;
+                       emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/CentiM-PER-YR" ;
+                       emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "cm.a-1" ;
+                       emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "cm/yr" .
 
 
 ###  https://w3id.org/emmo#CountsPerSecond
@@ -1693,6 +1313,57 @@ emmo:CubicYardPerSecond rdf:type owl:Class ;
 -- QUDT"""@en .
 
 
+###  https://w3id.org/emmo#DecaRe
+emmo:DecaRe rdf:type owl:Class ;
+            rdfs:subClassOf emmo:EMMO_15344998_4490_4b40_b242_c3d92e5cdc27 ,
+                            emmo:EMMO_1d8b370b_c672_4d0c_964e_eaafcbf2f51f ,
+                            emmo:EMMO_33433bb1_c68f_45ee_a466_f01e2c57b214 ,
+                            emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                              owl:hasValue "1000.0"^^xsd:double
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                              owl:hasValue "0.0"^^xsd:double
+                            ] ;
+            skos:prefLabel "DecaRe" ;
+            emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DecaARE" ;
+            emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "daar" ;
+            emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "daa" ;
+            emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """unit of the area which is mainly common in the agriculture and forestry: 1 da = 10 a
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#DeciBar
+emmo:DeciBar rdf:type owl:Class ;
+             rdfs:subClassOf emmo:EMMO_1181c938_c8f0_4ad6_bc7a_2bfdc0903d29 ,
+                             emmo:EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b ,
+                             emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                             emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                               owl:someValuesFrom emmo:Bar
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                               owl:hasValue "10000.0"^^xsd:double
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                               owl:hasValue "0.0"^^xsd:double
+                             ] ;
+             skos:prefLabel "DeciBar" ;
+             emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DeciBAR" ;
+             emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "dbar" ;
+             emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "dbar" ;
+             emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The bar is a non-SI unit of pressure, defined by the IUPAC as exactly equal to 100,000 Pa. It is about equal to the atmospheric pressure on Earth at sea level, and since 1982 the IUPAC has recommended that the standard for atmospheric pressure should be harmonized to 100,000 Pa = 1 bar ≈ 750.0616827 Torr. Units derived from the bar are the megabar (symbol: Mbar), kilobar (symbol: kbar), decibar (symbol: dbar), centibar (symbol: cbar), and millibar (symbol: mbar or mb). They are not SI or cgs units, but they are accepted for use with the SI.
+
+-- QUDT"""@en ;
+             emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Bar_(unit)" .
+
+
 ###  https://w3id.org/emmo#DeciBarPerYear
 emmo:DeciBarPerYear rdf:type owl:Class ;
                     rdfs:subClassOf emmo:EMMO_1181c938_c8f0_4ad6_bc7a_2bfdc0903d29 ,
@@ -2040,6 +1711,23 @@ emmo:DyneSecondPerCubicCentiMetre rdf:type owl:Class ;
 -- QUDT"""@en .
 
 
+###  https://w3id.org/emmo#EMMO_640ea55c_e9a7_4f23_8aae_5bb4ba867f30
+emmo:EMMO_640ea55c_e9a7_4f23_8aae_5bb4ba867f30 rdf:type owl:Class ;
+                                               rdfs:subClassOf emmo:EMMO_442bd91e_a724_4e9f_89c1_18423016fb75 ;
+                                               owl:disjointUnionOf ( emmo:EMMO_33fe9747_d66f_4f88_b2c1_951279dbca59
+                                                                     emmo:Exbi
+                                                                     emmo:Gibi
+                                                                     emmo:Kibi
+                                                                     emmo:Mebi
+                                                                     emmo:Pebi
+                                                                     emmo:Tebi
+                                                                     emmo:Yobi
+                                                                     emmo:Zebi
+                                                                   ) ;
+                                               skos:prefLabel "BinaryPrefix"@en ;
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Binary prefix standardised by the International Electrotechnical Commission (IEC)."@en .
+
+
 ###  https://w3id.org/emmo#ElectronvoltPerAngstrom
 emmo:ElectronvoltPerAngstrom rdf:type owl:Class ;
                              rdfs:subClassOf emmo:EMMO_15344998_4490_4b40_b242_c3d92e5cdc27 ,
@@ -2240,6 +1928,76 @@ emmo:ErgSecond rdf:type owl:Class ;
                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "erg⋅s" .
 
 
+###  https://w3id.org/emmo#ExaByte
+emmo:ExaByte rdf:type owl:Class ;
+             rdfs:subClassOf emmo:EMMO_15d62b55_38ea_4aec_b7c4_25db1a2e5a01 ,
+                             emmo:EMMO_5cf9f86c_86f5_40c4_846d_60371f670e0a ,
+                             emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                             emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                               owl:someValuesFrom emmo:Byte
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                               owl:hasValue "1.0E18"^^xsd:double
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                               owl:hasValue "0.0"^^xsd:double
+                             ] ;
+             skos:altLabel "ExaByte"@en ;
+             skos:prefLabel "ExaByte" ;
+             emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/ExaBYTE" ;
+             emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "EBy" ;
+             emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "EB" ;
+             emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The exabyte is a multiple of the unit byte for digital information. The prefix exa means 10¹⁸ in the International System of Units (SI), so ExaByte is 10¹⁸ Bytes.
+
+-- QUDT"""@en ;
+             emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Byte#Multiple-byte_units" .
+
+
+###  https://w3id.org/emmo#Exbi
+emmo:Exbi rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
+                            owl:hasValue "Ei"
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
+                            owl:hasValue "1.152922E18"^^xsd:double
+                          ] ;
+          skos:prefLabel "Exbi"@en ;
+          emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Binary SI prefix who's value is 2**60."@en .
+
+
+###  https://w3id.org/emmo#ExbiByte
+emmo:ExbiByte rdf:type owl:Class ;
+              rdfs:subClassOf emmo:EMMO_15d62b55_38ea_4aec_b7c4_25db1a2e5a01 ,
+                              emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                owl:someValuesFrom emmo:Byte
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                owl:hasValue "1.152922E18"^^xsd:double
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                owl:hasValue "0.0"^^xsd:double
+                              ] ;
+              rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+              skos:altLabel "ExbiByte"@en ;
+              skos:prefLabel "ExbiByte" ;
+              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/ExbiBYTE" ;
+              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "EiB" ;
+              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The exbibyte is a multiple of the unit byte for digital information. The prefix exbi means 1024⁶
+
+-- QUDT"""@en ;
+              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Byte#Multiple-byte_units" .
+
+
 ###  https://w3id.org/emmo#FootPerDay
 emmo:FootPerDay rdf:type owl:Class ;
                 rdfs:subClassOf emmo:EMMO_4f5c7c54_1c63_4d17_b12b_ea0792c2b187 ,
@@ -2421,6 +2179,130 @@ emmo:FootPoundForce rdf:type owl:Class ;
                     emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Foot-pound_force?oldid=453269257" .
 
 
+###  https://w3id.org/emmo#Gibi
+emmo:Gibi rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
+                            owl:hasValue "Gi"
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
+                            owl:hasValue "1.073742E9"^^xsd:double
+                          ] ;
+          skos:prefLabel "Gibi"@en ;
+          emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Binary SI prefix who's value is 2**30."@en .
+
+
+###  https://w3id.org/emmo#GibiByte
+emmo:GibiByte rdf:type owl:Class ;
+              rdfs:subClassOf emmo:EMMO_15d62b55_38ea_4aec_b7c4_25db1a2e5a01 ,
+                              emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                              emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                owl:someValuesFrom emmo:Byte
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                owl:hasValue "1.073742E9"^^xsd:double
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                owl:hasValue "0.0"^^xsd:double
+                              ] ;
+              rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+              skos:altLabel "GibiByte"@en ;
+              skos:prefLabel "GibiByte" ;
+              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/GibiBYTE" ;
+              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "GiB" ;
+              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The gibibyte is a multiple of the unit byte for digital information storage. The prefix gibi means 1024³
+
+-- QUDT"""@en ;
+              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Byte#Multiple-byte_units" .
+
+
+###  https://w3id.org/emmo#GigaBitPerSecond
+emmo:GigaBitPerSecond rdf:type owl:Class ;
+                      rdfs:subClassOf emmo:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 ,
+                                      emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                      emmo:EMMO_a8eb4bbb_1bd3_4ad4_b114_2789bcbd2134 ,
+                                      emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                        owl:someValuesFrom emmo:BitPerSecond
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                        owl:hasValue "6.931472E8"^^xsd:double
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                        owl:hasValue "0.0"^^xsd:double
+                                      ] ;
+                      skos:altLabel "Gigabit per Second"@en ;
+                      skos:prefLabel "GigaBitPerSecond" ;
+                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/GigaBIT-PER-SEC" ;
+                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Gbit.s-1" ;
+                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Gbps" ;
+                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A gigabit per second (Gbit/s or Gb/s) is a unit of data transfer rate equal to 1,000,000,000 bits per second.
+
+-- QUDT"""@en ;
+                      emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Data-rate_units#Gigabit_per_second" .
+
+
+###  https://w3id.org/emmo#GigaByte
+emmo:GigaByte rdf:type owl:Class ;
+              rdfs:subClassOf emmo:EMMO_15d62b55_38ea_4aec_b7c4_25db1a2e5a01 ,
+                              emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                              emmo:EMMO_a8eb4bbb_1bd3_4ad4_b114_2789bcbd2134 ,
+                              emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                owl:someValuesFrom emmo:Byte
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                owl:hasValue "1.0E9"^^xsd:double
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                owl:hasValue "0.0"^^xsd:double
+                              ] ;
+              skos:altLabel "GigaByte"@en ;
+              skos:prefLabel "GigaByte" ;
+              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/GigaBYTE" ;
+              emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "GBy" ;
+              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "GB" ;
+              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The gigabyte is a multiple of the unit byte for digital information storage. The prefix giga means 10 in the International System of Units (SI), therefore 1 gigabyte is 1,000,000,000 bytes. The unit symbol for the gigabyte is GB or Gbyte, but not Gb (lower case b) which is typically used for the gigabit. Historically, the term has also been used in some fields of computer science and information technology to denote the gibibyte, or 1073741824 bytes.
+
+-- QUDT"""@en ;
+              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Gigabyte?oldid=493019145" .
+
+
+###  https://w3id.org/emmo#GigaWattHour
+emmo:GigaWattHour rdf:type owl:Class ;
+                  rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                  emmo:EMMO_a8eb4bbb_1bd3_4ad4_b114_2789bcbd2134 ,
+                                  emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                  emmo:EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                    owl:hasValue "3.6E12"^^xsd:double
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                    owl:hasValue "0.0"^^xsd:double
+                                  ] ;
+                  skos:altLabel "Gigawatt Hour"@en ;
+                  skos:prefLabel "GigaWattHour" ;
+                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/GigaW-HR" ;
+                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "GW.h" ;
+                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "GW⋅h" ;
+                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """1 000 000 000-fold of the product of the SI derived unit watt and the unit hour
+
+-- QUDT"""@en .
+
+
 ###  https://w3id.org/emmo#GramPerSquareCentiMetrePerYear
 emmo:GramPerSquareCentiMetrePerYear rdf:type owl:Class ;
                                     rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
@@ -2469,6 +2351,61 @@ emmo:HartleyPerSecond rdf:type owl:Class ;
 
 -- QUDT"""@en ;
                       emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Ban_(information)" .
+
+
+###  https://w3id.org/emmo#HectoBar
+emmo:HectoBar rdf:type owl:Class ;
+              rdfs:subClassOf emmo:EMMO_21aaefc1_3f86_4208_b7db_a755f31f0f8c ,
+                              emmo:EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b ,
+                              emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                              emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                owl:someValuesFrom emmo:Bar
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                owl:hasValue "1.0E7"^^xsd:double
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                owl:hasValue "0.0"^^xsd:double
+                              ] ;
+              skos:prefLabel "HectoBar" ;
+              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/HectoBAR" ;
+              emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "hbar" ;
+              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "hbar" ;
+              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """100-fold of the unit bar
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#HectoPascalPerBar
+emmo:HectoPascalPerBar rdf:type owl:Class ;
+                       rdfs:subClassOf emmo:EMMO_21aaefc1_3f86_4208_b7db_a755f31f0f8c ,
+                                       emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                       emmo:EMMO_9d09022c_e7ae_4379_a765_4803a8a502a1 ,
+                                       emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                         owl:someValuesFrom emmo:PascalPerBar
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                         owl:hasValue "0.001"^^xsd:double
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                         owl:hasValue "0.0"^^xsd:double
+                                       ] ;
+                       skos:altLabel "Hectopascal Per Bar"@en ;
+                       skos:prefLabel "HectoPascalPerBar" ;
+                       emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/HectoPA-PER-BAR" ;
+                       emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "hPa.bar-1" ;
+                       emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "hPa/bar" ;
+                       emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """100-fold of the SI derived unit pascal divided by the unit bar
+
+-- QUDT"""@en .
 
 
 ###  https://w3id.org/emmo#HourSquareFoot
@@ -2641,6 +2578,134 @@ emmo:InverseSquarePlanckMass rdf:type owl:Class ;
                              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Planck_units" .
 
 
+###  https://w3id.org/emmo#Kibi
+emmo:Kibi rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
+                            owl:hasValue "Ki"
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
+                            owl:hasValue "1024.0"^^xsd:double
+                          ] ;
+          skos:prefLabel "Kibi"@en ;
+          emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Binary SI prefix who's value is 2**10."@en .
+
+
+###  https://w3id.org/emmo#KibiByte
+emmo:KibiByte rdf:type owl:Class ;
+              rdfs:subClassOf emmo:EMMO_15d62b55_38ea_4aec_b7c4_25db1a2e5a01 ,
+                              emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                              emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                owl:someValuesFrom emmo:Byte
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                owl:hasValue "1024.0"^^xsd:double
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                owl:hasValue "0.0"^^xsd:double
+                              ] ;
+              rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+              skos:altLabel "KibiByte"@en ;
+              skos:prefLabel "KibiByte" ;
+              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KibiBYTE" ;
+              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "KiB" ;
+              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The kibibyte is a multiple of the unit byte for digital information equivalent to 1024 bytes.
+
+-- QUDT"""@en ;
+              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Byte#Multiple-byte_units" .
+
+
+###  https://w3id.org/emmo#KiloBar
+emmo:KiloBar rdf:type owl:Class ;
+             rdfs:subClassOf emmo:EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b ,
+                             emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
+                             emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                             emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                               owl:someValuesFrom emmo:Bar
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                               owl:hasValue "1.0E8"^^xsd:double
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                               owl:hasValue "0.0"^^xsd:double
+                             ] ;
+             skos:prefLabel "KiloBar" ;
+             emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloBAR" ;
+             emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kbar" ;
+             emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kbar" ;
+             emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The bar is a non-SI unit of pressure, defined by the IUPAC as exactly equal to 100,000 Pa. It is about equal to the atmospheric pressure on Earth at sea level, and since 1982 the IUPAC has recommended that the standard for atmospheric pressure should be harmonized to 100,000 Pa = 1 bar ≈ 750.0616827 Torr. Units derived from the bar are the megabar (symbol: Mbar), kilobar (symbol: kbar), decibar (symbol: dbar), centibar (symbol: cbar), and millibar (symbol: mbar or mb). They are not SI or cgs units, but they are accepted for use with the SI.
+
+-- QUDT"""@en ;
+             emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Bar_(unit)" .
+
+
+###  https://w3id.org/emmo#KiloBitPerSecond
+emmo:KiloBitPerSecond rdf:type owl:Class ;
+                      rdfs:subClassOf emmo:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 ,
+                                      emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
+                                      emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                      emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                        owl:someValuesFrom emmo:BitPerSecond
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                        owl:hasValue "693.1472"^^xsd:double
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                        owl:hasValue "0.0"^^xsd:double
+                                      ] ;
+                      skos:altLabel "Kilobit per Second"@en ;
+                      skos:prefLabel "KiloBitPerSecond" ;
+                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloBIT-PER-SEC" ;
+                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kbit.s-1" ;
+                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kbps" ;
+                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A kilobit per second (kB/s) is a unit of data transfer rate equal to 1,000 bits per second.
+
+-- QUDT"""@en ;
+                      emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Data_rate_units#Kilobit_per_second" .
+
+
+###  https://w3id.org/emmo#KiloByte
+emmo:KiloByte rdf:type owl:Class ;
+              rdfs:subClassOf emmo:EMMO_15d62b55_38ea_4aec_b7c4_25db1a2e5a01 ,
+                              emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
+                              emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                              emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                owl:someValuesFrom emmo:Byte
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                owl:hasValue "1000.0"^^xsd:double
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                owl:hasValue "0.0"^^xsd:double
+                              ] ;
+              skos:altLabel "Kilo Byte"@en ;
+              skos:prefLabel "KiloByte"@en ;
+              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloBYTE" ;
+              emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kBy" ;
+              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kB" ;
+              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The kilobyte is a multiple of the unit byte for digital information equivalent to 1000 bytes. Although the prefix kilo- means 1000, the term kilobyte and symbol kB have historically been used to refer to either 1024 (210) bytes or 1000 (103) bytes, dependent upon context, in the fields of computer science and information technology. This ambiguity is removed in QUDT, with KibiBYTE used to refer to 1024 bytes.
+
+-- QUDT"""@en ;
+              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Byte?oldid=493588918" .
+
+
 ###  https://w3id.org/emmo#KiloBytePerSecond
 emmo:KiloBytePerSecond rdf:type owl:Class ;
                        rdfs:subClassOf emmo:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 ,
@@ -2664,6 +2729,139 @@ emmo:KiloBytePerSecond rdf:type owl:Class ;
 
 -- QUDT"""@en ;
                        emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Data_rate_units#Kilobyte_per_second" .
+
+
+###  https://w3id.org/emmo#KiloCalorie
+emmo:KiloCalorie rdf:type owl:Class ;
+                 rdfs:subClassOf emmo:EMMO_15344998_4490_4b40_b242_c3d92e5cdc27 ,
+                                 emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
+                                 emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                 emmo:EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                   owl:hasValue "4184.0"^^xsd:double
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                   owl:hasValue "0.0"^^xsd:double
+                                 ] ;
+                 skos:prefLabel "KiloCalorie" ;
+                 emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloCAL" ;
+                 emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kcal" ;
+                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kcal" ;
+                 emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """`Kilocalorie` is a unit for `Energy And Work` expressed as kcal.
+
+-- QUDT"""@en ;
+                 emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Calorie?oldid=494307622" .
+
+
+###  https://w3id.org/emmo#KiloCurie
+emmo:KiloCurie rdf:type owl:Class ;
+               rdfs:subClassOf emmo:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 ,
+                               emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
+                               emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                 owl:someValuesFrom emmo:Curie
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                 owl:hasValue "3.7E13"^^xsd:double
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                 owl:hasValue "0.0"^^xsd:double
+                               ] ;
+               skos:prefLabel "KiloCurie" ;
+               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloCi" ;
+               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kCi" ;
+               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kCi" ;
+               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """1 000-fold of the unit curie
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#KiloGauss
+emmo:KiloGauss rdf:type owl:Class ;
+               rdfs:subClassOf emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
+                               emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                               emmo:EMMO_ec903946_ddc9_464a_903c_7373e0d1eeb5 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                 owl:someValuesFrom emmo:Gauss
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                 owl:hasValue "0.1"^^xsd:double
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                 owl:hasValue "0.0"^^xsd:double
+                               ] ;
+               skos:prefLabel "KiloGauss" ;
+               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloGAUSS" ;
+               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kG" ;
+               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kGs" ;
+               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """1 000-fold of the CGS unit of the magnetic flux density B
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#KiloPascalPerBar
+emmo:KiloPascalPerBar rdf:type owl:Class ;
+                      rdfs:subClassOf emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
+                                      emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                      emmo:EMMO_9d09022c_e7ae_4379_a765_4803a8a502a1 ,
+                                      emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                        owl:someValuesFrom emmo:PascalPerBar
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                        owl:hasValue "1.0E8"^^xsd:double
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                        owl:hasValue "0.0"^^xsd:double
+                                      ] ;
+                      skos:altLabel "Kilopascal Per Bar"@en ;
+                      skos:prefLabel "KiloPascalPerBar" ;
+                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloPA-PER-BAR" ;
+                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kPa.bar-1" ;
+                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kPa/bar" ;
+                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """1 000-fold of the SI derived unit pascal divided by the unit bar
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#KiloRoentgen
+emmo:KiloRoentgen rdf:type owl:Class ;
+                  rdfs:subClassOf emmo:EMMO_4dbe2b16_3e84_4049_898d_eb89bcc925a2 ,
+                                  emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
+                                  emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                  emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                    owl:someValuesFrom emmo:Roentgen
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                    owl:hasValue "0.258"^^xsd:double
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                    owl:hasValue "0.0"^^xsd:double
+                                  ] ;
+                  skos:prefLabel "KiloRoentgen" ;
+                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloR" ;
+                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kR" ;
+                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kR" ;
+                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """1 000-fold of the unit roentgen
+
+-- QUDT"""@en .
 
 
 ###  https://w3id.org/emmo#KiloYear
@@ -2712,6 +2910,75 @@ emmo:KnotPerSecond rdf:type owl:Class ;
 -- QUDT"""@en .
 
 
+###  https://w3id.org/emmo#Mebi
+emmo:Mebi rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
+                            owl:hasValue "Mi"
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
+                            owl:hasValue "1048576.0"^^xsd:double
+                          ] ;
+          skos:prefLabel "Mebi"@en ;
+          emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Binary SI prefix who's value is 2**20."@en .
+
+
+###  https://w3id.org/emmo#MebiByte
+emmo:MebiByte rdf:type owl:Class ;
+              rdfs:subClassOf emmo:EMMO_15d62b55_38ea_4aec_b7c4_25db1a2e5a01 ,
+                              emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                              emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                owl:someValuesFrom emmo:Byte
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                owl:hasValue "1048576.0"^^xsd:double
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                owl:hasValue "0.0"^^xsd:double
+                              ] ;
+              rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+              skos:prefLabel "MebiByte" ;
+              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MebiBYTE" ;
+              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "MiB" ;
+              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The mebibyte is a multiple of the unit byte for digital information equivalent to 1024² bytes or 2²⁰ bytes.
+
+-- QUDT"""@en ;
+              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Byte#Multiple-byte_units" .
+
+
+###  https://w3id.org/emmo#MegaBar
+emmo:MegaBar rdf:type owl:Class ;
+             rdfs:subClassOf emmo:EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b ,
+                             emmo:EMMO_5eaecadc_4f0d_4a3a_afc7_1fc0b83cc928 ,
+                             emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                             emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                               owl:someValuesFrom emmo:Bar
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                               owl:hasValue "1.0E11"^^xsd:double
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                               owl:hasValue "0.0"^^xsd:double
+                             ] ;
+             skos:prefLabel "MegaBar" ;
+             emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MegaBAR" ;
+             emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Mbar" ;
+             emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Mbar" ;
+             emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The bar is a non-SI unit of pressure, defined by the IUPAC as exactly equal to 100,000 Pa. It is about equal to the atmospheric pressure on Earth at sea level, and since 1982 the IUPAC has recommended that the standard for atmospheric pressure should be harmonized to 100,000 Pa = 1 bar ≈ 750.0616827 Torr. Units derived from the bar are the megabar (symbol: Mbar), kilobar (symbol: kbar), decibar (symbol: dbar), centibar (symbol: cbar), and millibar (symbol: mbar or mb). They are not SI or cgs units, but they are accepted for use with the SI.
+
+-- QUDT"""@en ;
+             emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Bar_(unit)" .
+
+
 ###  https://w3id.org/emmo#MegaBitPerSecond
 emmo:MegaBitPerSecond rdf:type owl:Class ;
                       rdfs:subClassOf emmo:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 ,
@@ -2742,6 +3009,35 @@ emmo:MegaBitPerSecond rdf:type owl:Class ;
                       emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Data_rate_units" .
 
 
+###  https://w3id.org/emmo#MegaByte
+emmo:MegaByte rdf:type owl:Class ;
+              rdfs:subClassOf emmo:EMMO_15d62b55_38ea_4aec_b7c4_25db1a2e5a01 ,
+                              emmo:EMMO_5eaecadc_4f0d_4a3a_afc7_1fc0b83cc928 ,
+                              emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                              emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                owl:someValuesFrom emmo:Byte
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                owl:hasValue "1000000.0"^^xsd:double
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                owl:hasValue "0.0"^^xsd:double
+                              ] ;
+              skos:altLabel "Mega byte"@en ;
+              skos:prefLabel "MegaByte"@en ;
+              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MegaBYTE" ;
+              emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "MBy" ;
+              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "MB" ;
+              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The megabyte is defined here as one million Bytes. Also, see unit:MebiBYTE.
+
+-- QUDT"""@en ;
+              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Megabyte?oldid=487094486" .
+
+
 ###  https://w3id.org/emmo#MegaElectronVoltPerSpeedOfLight
 emmo:MegaElectronVoltPerSpeedOfLight rdf:type owl:Class ;
                                      rdfs:subClassOf emmo:EMMO_15344998_4490_4b40_b242_c3d92e5cdc27 ,
@@ -2754,6 +3050,34 @@ emmo:MegaElectronVoltPerSpeedOfLight rdf:type owl:Class ;
                                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "MeV.[c]-1" ;
                                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "MeV/c" ;
                                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Mega Electron Volt per Speed of Light\" is a unit for  'Linear Momentum' expressed as MeV/c.
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#MegaPascalPerBar
+emmo:MegaPascalPerBar rdf:type owl:Class ;
+                      rdfs:subClassOf emmo:EMMO_5eaecadc_4f0d_4a3a_afc7_1fc0b83cc928 ,
+                                      emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                      emmo:EMMO_9d09022c_e7ae_4379_a765_4803a8a502a1 ,
+                                      emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                        owl:someValuesFrom emmo:PascalPerBar
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                        owl:hasValue "10.0"^^xsd:double
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                        owl:hasValue "0.0"^^xsd:double
+                                      ] ;
+                      skos:altLabel "Megapascal Per Bar"@en ;
+                      skos:prefLabel "MegaPascalPerBar" ;
+                      emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MegaPA-PER-BAR" ;
+                      emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "MPa.bar-1" ;
+                      emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "MPa/bar" ;
+                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """1,000,000-fold of the SI derived unit pascal divided by the unit bar
 
 -- QUDT"""@en .
 
@@ -2779,6 +3103,108 @@ emmo:MetrePerYear rdf:type owl:Class ;
                   emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m.a-1" ;
                   emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "m/yr" ;
                   emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A rate of change of SI standard unit length over a period of an average calendar year (365.25 days).
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#MicroCurie
+emmo:MicroCurie rdf:type owl:Class ;
+                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                  owl:hasValue "37000.0"^^xsd:double
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                  owl:hasValue "0.0"^^xsd:double
+                                ] ;
+                skos:altLabel "MicroCurie"@en ;
+                skos:prefLabel "MicroCurie" ;
+                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MicroCi" ;
+                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "uCi" ;
+                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "μCi" ;
+                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Another commonly used measure of radioactivity, the microcurie: 1 μCi = 3.7 × 10 disintegrations per second = 2.22 × 10 disintegrations per minute. A radiotherapy machine may have roughly 1000 Ci of a radioisotope such as caesium-137 or cobalt-60. This quantity of radioactivity can produce serious health effects with only a few minutes of close-range, un-shielded exposure. The typical human body contains roughly 0.1 μCi of naturally occurring potassium-40.
+
+-- QUDT"""@en ;
+                emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Curie?oldid=495080313" .
+
+
+###  https://w3id.org/emmo#MicroGravity
+emmo:MicroGravity rdf:type owl:Class ;
+                  rdfs:subClassOf emmo:EMMO_2da7408f_d389_4245_887d_a1743b81a9b6 ,
+                                  emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                  emmo:EMMO_9ff3bf8e_2168_406e_8251_1d158fc948ae ,
+                                  emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                    owl:someValuesFrom emmo:Gravity
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                    owl:hasValue "9.80665E-6"^^xsd:double
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                    owl:hasValue "0.0"^^xsd:double
+                                  ] ;
+                  skos:prefLabel "MicroGravity" ;
+                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MicroG" ;
+                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "u[g]" ;
+                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "µG" ;
+                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Microgravity\" is a unit for  'Linear Acceleration' expressed as microG.
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#MicroInch
+emmo:MicroInch rdf:type owl:Class ;
+               rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                               emmo:EMMO_9ff3bf8e_2168_406e_8251_1d158fc948ae ,
+                               emmo:EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc ,
+                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                 owl:someValuesFrom emmo:Inch
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                 owl:hasValue "2.54E-8"^^xsd:double
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                 owl:hasValue "0.0"^^xsd:double
+                               ] ;
+               skos:prefLabel "MicroInch" ;
+               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MicroIN" ;
+               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "u[in_i]" ;
+               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "µin" ;
+               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Microinch\" is an Imperial unit for  'Length' expressed as in⁻⁶.
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#MicroTorr
+emmo:MicroTorr rdf:type owl:Class ;
+               rdfs:subClassOf emmo:EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b ,
+                               emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                               emmo:EMMO_9ff3bf8e_2168_406e_8251_1d158fc948ae ,
+                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                 owl:someValuesFrom emmo:Torr
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                 owl:hasValue "1.33322E-4"^^xsd:double
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                 owl:hasValue "0.0"^^xsd:double
+                               ] ;
+               skos:altLabel "MicroTorr"@en ;
+               skos:prefLabel "MicroTorr" ;
+               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MicroTORR" ;
+               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "µTorr" ;
+               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"MicroTorr\" is a unit for  'Force Per Area' expressed as microtorr.
 
 -- QUDT"""@en .
 
@@ -2883,6 +3309,247 @@ emmo:MilliAmperePerInch rdf:type owl:Class ;
                         emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mA.[in_i]-1" ;
                         emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "µA/in" ;
                         emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.001-fold of the SI base unit ampere divided by the unit inch according to the Anglo-American and the Imperial system of units
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#MilliBar
+emmo:MilliBar rdf:type owl:Class ;
+              rdfs:subClassOf emmo:EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b ,
+                              emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                              emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
+                              emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                owl:someValuesFrom emmo:Bar
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                owl:hasValue "100.0"^^xsd:double
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                owl:hasValue "0.0"^^xsd:double
+                              ] ;
+              skos:prefLabel "MilliBar" ;
+              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliBAR" ;
+              emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mbar" ;
+              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mbar" ;
+              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The bar is a non-SI unit of pressure, defined by the IUPAC as exactly equal to 100,000 Pa. It is about equal to the atmospheric pressure on Earth at sea level, and since 1982 the IUPAC has recommended that the standard for atmospheric pressure should be harmonized to 100,000 Pa = 1 bar ≈ 750.0616827 Torr. Units derived from the bar are the megabar (symbol: Mbar), kilobar (symbol: kbar), decibar (symbol: dbar), centibar (symbol: cbar), and millibar (symbol: mbar or mb). They are not SI or cgs units, but they are accepted for use with the SI.
+
+-- QUDT"""@en ;
+              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Bar_(unit)" .
+
+
+###  https://w3id.org/emmo#MilliBarCubicMetrePerSecond
+emmo:MilliBarCubicMetrePerSecond rdf:type owl:Class ;
+                                 rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                                 emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
+                                                 emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                                 emmo:EMMO_c8d084ad_f88e_4596_8e4d_982c6655ce6f ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                                   owl:someValuesFrom emmo:BarCubicMetrePerSecond
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                                   owl:hasValue "100.0"^^xsd:double
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                                   owl:hasValue "0.0"^^xsd:double
+                                                 ] ;
+                                 skos:altLabel "Millibar Cubic Metre Per Second"@en ;
+                                 skos:prefLabel "MilliBarCubicMetrePerSecond" ;
+                                 emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliBAR-M3-PER-SEC" ;
+                                 emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mbar.m3.s-1" ;
+                                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mbar⋅m³/s" ;
+                                 emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """product of the unit bar and the power of the SI base unit metre with the exponent 3 divided by the SI base unit second
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#MilliBarPerBar
+emmo:MilliBarPerBar rdf:type owl:Class ;
+                    rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                    emmo:EMMO_9d09022c_e7ae_4379_a765_4803a8a502a1 ,
+                                    emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
+                                    emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                      owl:someValuesFrom emmo:BarPerBar
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                      owl:hasValue "0.001"^^xsd:double
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                      owl:hasValue "0.0"^^xsd:double
+                                    ] ;
+                    skos:altLabel "Millibar Per Bar"@en ;
+                    skos:prefLabel "MilliBarPerBar" ;
+                    emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliBAR-PER-BAR" ;
+                    emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mbar.bar-1" ;
+                    emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mbar/bar" ;
+                    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.01-fold of the unit bar divided by the unit bar
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#MilliBarPerKelvin
+emmo:MilliBarPerKelvin rdf:type owl:Class ;
+                       rdfs:subClassOf emmo:EMMO_1275ac79_7280_4d99_ab61_3d98e00c053e ,
+                                       emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                       emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
+                                       emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                         owl:someValuesFrom emmo:BarPerKelvin
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                         owl:hasValue "100.0"^^xsd:double
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                         owl:hasValue "0.0"^^xsd:double
+                                       ] ;
+                       skos:altLabel "Millibar Per Kelvin"@en ;
+                       skos:prefLabel "MilliBarPerKelvin" ;
+                       emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliBAR-PER-K" ;
+                       emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mbar.K-1" ;
+                       emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mbar/K" ;
+                       emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.001-fold of the unit bar divided by the unit temperature kelvin
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#MilliCurie
+emmo:MilliCurie rdf:type owl:Class ;
+                rdfs:subClassOf emmo:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 ,
+                                emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
+                                emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                  owl:someValuesFrom emmo:Curie
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                  owl:hasValue "3.7E7"^^xsd:double
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                  owl:hasValue "0.0"^^xsd:double
+                                ] ;
+                skos:prefLabel "MilliCurie" ;
+                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliCi" ;
+                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mCi" ;
+                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mCi" ;
+                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.001-fold of the SI derived unit curie
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#MilliGalsPerMonth
+emmo:MilliGalsPerMonth rdf:type owl:Class ;
+                       rdfs:subClassOf emmo:EMMO_15344998_4490_4b40_b242_c3d92e5cdc27 ,
+                                       emmo:EMMO_55ffe612_cf43_4b9b_a4e1_6aeb0c59c10c ,
+                                       emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
+                                       emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                         owl:hasValue "3.802571E-10"^^xsd:double
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                         owl:hasValue "0.0"^^xsd:double
+                                       ] ;
+                       skos:altLabel "MilliGals per month"@en ;
+                       skos:prefLabel "MilliGalsPerMonth" ;
+                       emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliGAL-PER-MO" ;
+                       emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mGal.mo-1" ;
+                       emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mgal/mo" ;
+                       emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A rate of change of one millionth part of a unit of gravitational acceleration equal to one centimetre per second per second over a time duration of 30.4375 days or 2629800 seconds.
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#MilliGravity
+emmo:MilliGravity rdf:type owl:Class ;
+                  rdfs:subClassOf emmo:EMMO_2da7408f_d389_4245_887d_a1743b81a9b6 ,
+                                  emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                  emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
+                                  emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                    owl:someValuesFrom emmo:Gravity
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                    owl:hasValue "0.00980665"^^xsd:double
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                    owl:hasValue "0.0"^^xsd:double
+                                  ] ;
+                  skos:prefLabel "MilliGravity" ;
+                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliG" ;
+                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m[g]" ;
+                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mG" ;
+                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Milligravity\" is a unit for  'Linear Acceleration' expressed as mG.
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#MilliInch
+emmo:MilliInch rdf:type owl:Class ;
+               rdfs:subClassOf emmo:EMMO_15344998_4490_4b40_b242_c3d92e5cdc27 ,
+                               emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
+                               emmo:EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                 owl:hasValue "2.54E-5"^^xsd:double
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                 owl:hasValue "0.0"^^xsd:double
+                               ] ;
+               skos:altLabel "Milli-inch"@en ;
+               skos:prefLabel "MilliInch"@en ;
+               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliIN" ;
+               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m[in_i]" ;
+               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mil" ;
+               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.001-fold of the unit inch according to the Anglo-American and Imperial system of units
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#MilliPascalSecondPerBar
+emmo:MilliPascalSecondPerBar rdf:type owl:Class ;
+                             rdfs:subClassOf emmo:EMMO_02e894c3_b793_4197_b120_3442e08f58d1 ,
+                                             emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                             emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
+                                             emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
+                                               owl:someValuesFrom emmo:PascalSecondPerBar
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                               owl:hasValue "1.0E-8"^^xsd:double
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                               owl:hasValue "0.0"^^xsd:double
+                                             ] ;
+                             skos:altLabel "Millipascal Second Per Bar"@en ;
+                             skos:prefLabel "MilliPascalSecondPerBar"@en ;
+                             emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliPA-SEC-PER-BAR" ;
+                             emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mPa.s.bar-1" ;
+                             emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mPa⋅s/bar" ;
+                             emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.001-fold of the product of the SI derived unit pascal and the SI base unit second divided by the unit of the pressure bar
 
 -- QUDT"""@en .
 
@@ -3002,6 +3669,70 @@ emmo:OerstedCentiMetre rdf:type owl:Class ;
 -- QUDT"""@en .
 
 
+###  https://w3id.org/emmo#PascalPerBar
+emmo:PascalPerBar rdf:type owl:Class ;
+                  rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                  emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                                  emmo:EMMO_9d09022c_e7ae_4379_a765_4803a8a502a1 ,
+                                  emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                    owl:hasValue "1.0E-5"^^xsd:double
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                    owl:hasValue "0.0"^^xsd:double
+                                  ] ;
+                  rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                  skos:altLabel "Pascal Per Bar"@en ;
+                  skos:prefLabel "PascalPerBar"@en ;
+                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PA-PER-BAR" ;
+                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Pa.bar-1" ;
+                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Pa/bar" ;
+                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """SI derived unit pascal divided by the unit bar
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#PascalSecondPerBar
+emmo:PascalSecondPerBar rdf:type owl:Class ;
+                        rdfs:subClassOf emmo:EMMO_02e894c3_b793_4197_b120_3442e08f58d1 ,
+                                        emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                        emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
+                                        emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                          owl:hasValue "1.0E-5"^^xsd:double
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                          owl:hasValue "0.0"^^xsd:double
+                                        ] ;
+                        rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
+                        skos:altLabel "Pascal Second Per Bar"@en ;
+                        skos:prefLabel "PascalSecondPerBar"@en ;
+                        emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PA-SEC-PER-BAR" ;
+                        emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Pa.s.bar-1" ;
+                        emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "Pa⋅s/bar" ;
+                        emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """product out of the SI derived unit pascal and the SI base unit second divided by the unit bar
+
+-- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#Pebi
+emmo:Pebi rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
+                            owl:hasValue "Pi"
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
+                            owl:hasValue "1.125899906842624E15"^^xsd:double
+                          ] ;
+          skos:prefLabel "Pebi"@en ;
+          emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Binary SI prefix who's value is 2**50."@en .
+
+
 ###  https://w3id.org/emmo#SecondSquareFoot
 emmo:SecondSquareFoot rdf:type owl:Class ;
                       rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
@@ -3050,6 +3781,20 @@ emmo:ShannonPerSecond rdf:type owl:Class ;
 
 -- QUDT"""@en ;
                       emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Ban_(information)" .
+
+
+###  https://w3id.org/emmo#Tebi
+emmo:Tebi rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
+                            owl:hasValue "Ti"
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
+                            owl:hasValue "1.099511627776E12"^^xsd:double
+                          ] ;
+          skos:prefLabel "Tebi"@en ;
+          emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Binary SI prefix who's value is 2**40."@en .
 
 
 ###  https://w3id.org/emmo#VoltPerInch
@@ -3152,718 +3897,32 @@ emmo:YardPerDegreeFahrenheit rdf:type owl:Class ;
 -- QUDT"""@en .
 
 
-###  https://w3id.org/emmo#CentiBar
-emmo:CentiBar rdf:type owl:Class ;
-              rdfs:subClassOf emmo:EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b ,
-                              emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                              emmo:EMMO_b55cd09a_e54d_4eb1_81dd_03c29d1b878e ,
-                              emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                owl:someValuesFrom emmo:Bar
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                owl:hasValue "1000.0"^^xsd:double
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                owl:hasValue "0.0"^^xsd:double
-                              ] ;
-              skos:prefLabel "CentiBar" ;
-              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/CentiBAR" ;
-              emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "cbar" ;
-              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "cbar" ;
-              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The bar is a non-SI unit of pressure, defined by the IUPAC as exactly equal to 100,000 Pa. It is about equal to the atmospheric pressure on Earth at sea level, and since 1982 the IUPAC has recommended that the standard for atmospheric pressure should be harmonized to 100,000 Pa = 1 bar ≈ 750.0616827 Torr. Units derived from the bar are the megabar (symbol: Mbar), kilobar (symbol: kbar), decibar (symbol: dbar), centibar (symbol: cbar), and millibar (symbol: mbar or mb). They are not SI or cgs units, but they are accepted for use with the SI.
-
--- QUDT"""@en ;
-              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Bar_(unit)" .
-
-
-###  https://w3id.org/emmo#DecaRe
-emmo:DecaRe rdf:type owl:Class ;
-            rdfs:subClassOf emmo:EMMO_15344998_4490_4b40_b242_c3d92e5cdc27 ,
-                            emmo:EMMO_1d8b370b_c672_4d0c_964e_eaafcbf2f51f ,
-                            emmo:EMMO_33433bb1_c68f_45ee_a466_f01e2c57b214 ,
-                            emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                              owl:hasValue "1000.0"^^xsd:double
-                            ] ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                              owl:hasValue "0.0"^^xsd:double
-                            ] ;
-            skos:prefLabel "DecaRe" ;
-            emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DecaARE" ;
-            emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "daar" ;
-            emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "daa" ;
-            emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """unit of the area which is mainly common in the agriculture and forestry: 1 da = 10 a
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#DeciBar
-emmo:DeciBar rdf:type owl:Class ;
-             rdfs:subClassOf emmo:EMMO_1181c938_c8f0_4ad6_bc7a_2bfdc0903d29 ,
-                             emmo:EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b ,
-                             emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                             emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                               owl:someValuesFrom emmo:Bar
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                               owl:hasValue "10000.0"^^xsd:double
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                               owl:hasValue "0.0"^^xsd:double
-                             ] ;
-             skos:prefLabel "DeciBar" ;
-             emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DeciBAR" ;
-             emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "dbar" ;
-             emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "dbar" ;
-             emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The bar is a non-SI unit of pressure, defined by the IUPAC as exactly equal to 100,000 Pa. It is about equal to the atmospheric pressure on Earth at sea level, and since 1982 the IUPAC has recommended that the standard for atmospheric pressure should be harmonized to 100,000 Pa = 1 bar ≈ 750.0616827 Torr. Units derived from the bar are the megabar (symbol: Mbar), kilobar (symbol: kbar), decibar (symbol: dbar), centibar (symbol: cbar), and millibar (symbol: mbar or mb). They are not SI or cgs units, but they are accepted for use with the SI.
-
--- QUDT"""@en ;
-             emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Bar_(unit)" .
-
-
-###  https://w3id.org/emmo#EMMO_640ea55c_e9a7_4f23_8aae_5bb4ba867f30
-emmo:EMMO_640ea55c_e9a7_4f23_8aae_5bb4ba867f30 rdf:type owl:Class ;
-                                               rdfs:subClassOf emmo:EMMO_442bd91e_a724_4e9f_89c1_18423016fb75 ;
-                                               owl:disjointUnionOf ( emmo:EMMO_33fe9747_d66f_4f88_b2c1_951279dbca59
-                                                                     emmo:Exbi
-                                                                     emmo:Gibi
-                                                                     emmo:Kibi
-                                                                     emmo:Mebi
-                                                                     emmo:Pebi
-                                                                     emmo:Yobi
-                                                                     emmo:Zebi
-                                                                   ) ;
-                                               skos:prefLabel "BinaryPrefix"@en ;
-                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Binary prefix standardised by the International Electrotechnical Commission (IEC)."@en .
-
-
-###  https://w3id.org/emmo#ExaByte
-emmo:ExaByte rdf:type owl:Class ;
-             rdfs:subClassOf emmo:EMMO_15d62b55_38ea_4aec_b7c4_25db1a2e5a01 ,
-                             emmo:EMMO_5cf9f86c_86f5_40c4_846d_60371f670e0a ,
-                             emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                             emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                               owl:someValuesFrom emmo:Byte
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                               owl:hasValue "1.0E18"^^xsd:double
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                               owl:hasValue "0.0"^^xsd:double
-                             ] ;
-             skos:altLabel "ExaByte"@en ;
-             skos:prefLabel "ExaByte" ;
-             emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/ExaBYTE" ;
-             emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "EBy" ;
-             emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "EB" ;
-             emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The exabyte is a multiple of the unit byte for digital information. The prefix exa means 10¹⁸ in the International System of Units (SI), so ExaByte is 10¹⁸ Bytes.
-
--- QUDT"""@en ;
-             emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Byte#Multiple-byte_units" .
-
-
-###  https://w3id.org/emmo#Exbi
-emmo:Exbi rdf:type owl:Class ;
+###  https://w3id.org/emmo#Yobi
+emmo:Yobi rdf:type owl:Class ;
           rdfs:subClassOf [ rdf:type owl:Restriction ;
                             owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
-                            owl:hasValue "Ei"
+                            owl:hasValue "Yi"
                           ] ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
-                            owl:hasValue "1.152922E18"^^xsd:double
+                            owl:hasValue "1.2089258196146292E24"^^xsd:double
                           ] ;
-          skos:prefLabel "Exbi"@en .
+          skos:prefLabel "Yobi"@en ;
+          emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Binary SI prefix who's value is 2**80."@en .
 
 
-###  https://w3id.org/emmo#Gibi
-emmo:Gibi rdf:type owl:Class ;
+###  https://w3id.org/emmo#Zebi
+emmo:Zebi rdf:type owl:Class ;
           rdfs:subClassOf [ rdf:type owl:Restriction ;
                             owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
-                            owl:hasValue "Gi"
+                            owl:hasValue "Zi"
                           ] ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
-                            owl:hasValue "1.073742E9"^^xsd:double
+                            owl:hasValue "1.1805916207174113E21"^^xsd:double
                           ] ;
-          skos:prefLabel "Gibi"@en .
+          skos:prefLabel "Zebi"@en ;
+          emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Binary SI prefix who's value is 2**70."@en .
 
 
-###  https://w3id.org/emmo#GibiByte
-emmo:GibiByte rdf:type owl:Class ;
-              rdfs:subClassOf emmo:EMMO_15d62b55_38ea_4aec_b7c4_25db1a2e5a01 ,
-                              emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                              emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                owl:someValuesFrom emmo:Byte
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                owl:hasValue "1.073742E9"^^xsd:double
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                owl:hasValue "0.0"^^xsd:double
-                              ] ;
-              rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-              skos:altLabel "GibiByte"@en ;
-              skos:prefLabel "GibiByte" ;
-              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/GibiBYTE" ;
-              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "GiB" ;
-              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The gibibyte is a multiple of the unit byte for digital information storage. The prefix gibi means 1024³
-
--- QUDT"""@en ;
-              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Byte#Multiple-byte_units" .
-
-
-###  https://w3id.org/emmo#GigaByte
-emmo:GigaByte rdf:type owl:Class ;
-              rdfs:subClassOf emmo:EMMO_15d62b55_38ea_4aec_b7c4_25db1a2e5a01 ,
-                              emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                              emmo:EMMO_a8eb4bbb_1bd3_4ad4_b114_2789bcbd2134 ,
-                              emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                owl:someValuesFrom emmo:Byte
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                owl:hasValue "1.0E9"^^xsd:double
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                owl:hasValue "0.0"^^xsd:double
-                              ] ;
-              skos:altLabel "GigaByte"@en ;
-              skos:prefLabel "GigaByte" ;
-              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/GigaBYTE" ;
-              emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "GBy" ;
-              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "GB" ;
-              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The gigabyte is a multiple of the unit byte for digital information storage. The prefix giga means 10 in the International System of Units (SI), therefore 1 gigabyte is 1,000,000,000 bytes. The unit symbol for the gigabyte is GB or Gbyte, but not Gb (lower case b) which is typically used for the gigabit. Historically, the term has also been used in some fields of computer science and information technology to denote the gibibyte, or 1073741824 bytes.
-
--- QUDT"""@en ;
-              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Gigabyte?oldid=493019145" .
-
-
-###  https://w3id.org/emmo#HectoBar
-emmo:HectoBar rdf:type owl:Class ;
-              rdfs:subClassOf emmo:EMMO_21aaefc1_3f86_4208_b7db_a755f31f0f8c ,
-                              emmo:EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b ,
-                              emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                              emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                owl:someValuesFrom emmo:Bar
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                owl:hasValue "1.0E7"^^xsd:double
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                owl:hasValue "0.0"^^xsd:double
-                              ] ;
-              skos:prefLabel "HectoBar" ;
-              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/HectoBAR" ;
-              emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "hbar" ;
-              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "hbar" ;
-              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """100-fold of the unit bar
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#Kibi
-emmo:Kibi rdf:type owl:Class ;
-          rdfs:subClassOf [ rdf:type owl:Restriction ;
-                            owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
-                            owl:hasValue "Ki"
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
-                            owl:hasValue "1024.0"^^xsd:double
-                          ] ;
-          skos:prefLabel "Kibi"@en .
-
-
-###  https://w3id.org/emmo#KibiByte
-emmo:KibiByte rdf:type owl:Class ;
-              rdfs:subClassOf emmo:EMMO_15d62b55_38ea_4aec_b7c4_25db1a2e5a01 ,
-                              emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                              emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                owl:someValuesFrom emmo:Byte
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                owl:hasValue "1024.0"^^xsd:double
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                owl:hasValue "0.0"^^xsd:double
-                              ] ;
-              rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-              skos:altLabel "KibiByte"@en ;
-              skos:prefLabel "KibiByte" ;
-              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KibiBYTE" ;
-              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "KiB" ;
-              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The kibibyte is a multiple of the unit byte for digital information equivalent to 1024 bytes.
-
--- QUDT"""@en ;
-              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Byte#Multiple-byte_units" .
-
-
-###  https://w3id.org/emmo#KiloBar
-emmo:KiloBar rdf:type owl:Class ;
-             rdfs:subClassOf emmo:EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b ,
-                             emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
-                             emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                             emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                               owl:someValuesFrom emmo:Bar
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                               owl:hasValue "1.0E8"^^xsd:double
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                               owl:hasValue "0.0"^^xsd:double
-                             ] ;
-             skos:prefLabel "KiloBar" ;
-             emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloBAR" ;
-             emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kbar" ;
-             emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kbar" ;
-             emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The bar is a non-SI unit of pressure, defined by the IUPAC as exactly equal to 100,000 Pa. It is about equal to the atmospheric pressure on Earth at sea level, and since 1982 the IUPAC has recommended that the standard for atmospheric pressure should be harmonized to 100,000 Pa = 1 bar ≈ 750.0616827 Torr. Units derived from the bar are the megabar (symbol: Mbar), kilobar (symbol: kbar), decibar (symbol: dbar), centibar (symbol: cbar), and millibar (symbol: mbar or mb). They are not SI or cgs units, but they are accepted for use with the SI.
-
--- QUDT"""@en ;
-             emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Bar_(unit)" .
-
-
-###  https://w3id.org/emmo#KiloByte
-emmo:KiloByte rdf:type owl:Class ;
-              rdfs:subClassOf emmo:EMMO_15d62b55_38ea_4aec_b7c4_25db1a2e5a01 ,
-                              emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
-                              emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                              emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                owl:someValuesFrom emmo:Byte
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                owl:hasValue "1000.0"^^xsd:double
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                owl:hasValue "0.0"^^xsd:double
-                              ] ;
-              skos:altLabel "Kilo Byte"@en ;
-              skos:prefLabel "KiloByte"@en ;
-              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloBYTE" ;
-              emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kBy" ;
-              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kB" ;
-              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The kilobyte is a multiple of the unit byte for digital information equivalent to 1000 bytes. Although the prefix kilo- means 1000, the term kilobyte and symbol kB have historically been used to refer to either 1024 (210) bytes or 1000 (103) bytes, dependent upon context, in the fields of computer science and information technology. This ambiguity is removed in QUDT, with KibiBYTE used to refer to 1024 bytes.
-
--- QUDT"""@en ;
-              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Byte?oldid=493588918" .
-
-
-###  https://w3id.org/emmo#KiloCalorie
-emmo:KiloCalorie rdf:type owl:Class ;
-                 rdfs:subClassOf emmo:EMMO_15344998_4490_4b40_b242_c3d92e5cdc27 ,
-                                 emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
-                                 emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                 emmo:EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                   owl:hasValue "4184.0"^^xsd:double
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                   owl:hasValue "0.0"^^xsd:double
-                                 ] ;
-                 skos:prefLabel "KiloCalorie" ;
-                 emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloCAL" ;
-                 emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kcal" ;
-                 emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kcal" ;
-                 emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """`Kilocalorie` is a unit for `Energy And Work` expressed as kcal.
-
--- QUDT"""@en ;
-                 emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Calorie?oldid=494307622" .
-
-
-###  https://w3id.org/emmo#KiloCurie
-emmo:KiloCurie rdf:type owl:Class ;
-               rdfs:subClassOf emmo:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 ,
-                               emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
-                               emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                 owl:someValuesFrom emmo:Curie
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                 owl:hasValue "3.7E13"^^xsd:double
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                 owl:hasValue "0.0"^^xsd:double
-                               ] ;
-               skos:prefLabel "KiloCurie" ;
-               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloCi" ;
-               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kCi" ;
-               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kCi" ;
-               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """1 000-fold of the unit curie
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#KiloGauss
-emmo:KiloGauss rdf:type owl:Class ;
-               rdfs:subClassOf emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
-                               emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                               emmo:EMMO_ec903946_ddc9_464a_903c_7373e0d1eeb5 ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                 owl:someValuesFrom emmo:Gauss
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                 owl:hasValue "0.1"^^xsd:double
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                 owl:hasValue "0.0"^^xsd:double
-                               ] ;
-               skos:prefLabel "KiloGauss" ;
-               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloGAUSS" ;
-               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kG" ;
-               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kGs" ;
-               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """1 000-fold of the CGS unit of the magnetic flux density B
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#KiloRoentgen
-emmo:KiloRoentgen rdf:type owl:Class ;
-                  rdfs:subClassOf emmo:EMMO_4dbe2b16_3e84_4049_898d_eb89bcc925a2 ,
-                                  emmo:EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 ,
-                                  emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                  emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                    owl:someValuesFrom emmo:Roentgen
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                    owl:hasValue "0.258"^^xsd:double
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                    owl:hasValue "0.0"^^xsd:double
-                                  ] ;
-                  skos:prefLabel "KiloRoentgen" ;
-                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloR" ;
-                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kR" ;
-                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "kR" ;
-                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """1 000-fold of the unit roentgen
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#Mebi
-emmo:Mebi rdf:type owl:Class ;
-          rdfs:subClassOf [ rdf:type owl:Restriction ;
-                            owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
-                            owl:hasValue "Mi"
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
-                            owl:hasValue "1048576.0"^^xsd:double
-                          ] ;
-          skos:prefLabel "Mebi"@en .
-
-
-###  https://w3id.org/emmo#MebiByte
-emmo:MebiByte rdf:type owl:Class ;
-              rdfs:subClassOf emmo:EMMO_15d62b55_38ea_4aec_b7c4_25db1a2e5a01 ,
-                              emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                              emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                owl:someValuesFrom emmo:Byte
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                owl:hasValue "1048576.0"^^xsd:double
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                owl:hasValue "0.0"^^xsd:double
-                              ] ;
-              rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
-              skos:prefLabel "MebiByte" ;
-              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MebiBYTE" ;
-              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "MiB" ;
-              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The mebibyte is a multiple of the unit byte for digital information equivalent to 1024² bytes or 2²⁰ bytes.
-
--- QUDT"""@en ;
-              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Byte#Multiple-byte_units" .
-
-
-###  https://w3id.org/emmo#MegaByte
-emmo:MegaByte rdf:type owl:Class ;
-              rdfs:subClassOf emmo:EMMO_15d62b55_38ea_4aec_b7c4_25db1a2e5a01 ,
-                              emmo:EMMO_5eaecadc_4f0d_4a3a_afc7_1fc0b83cc928 ,
-                              emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                              emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                owl:someValuesFrom emmo:Byte
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                owl:hasValue "1000000.0"^^xsd:double
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                owl:hasValue "0.0"^^xsd:double
-                              ] ;
-              skos:altLabel "Mega byte"@en ;
-              skos:prefLabel "MegaByte"@en ;
-              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MegaBYTE" ;
-              emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "MBy" ;
-              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "MB" ;
-              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The megabyte is defined here as one million Bytes. Also, see unit:MebiBYTE.
-
--- QUDT"""@en ;
-              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Megabyte?oldid=487094486" .
-
-
-###  https://w3id.org/emmo#MicroCurie
-emmo:MicroCurie rdf:type owl:Class ;
-                rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                  owl:hasValue "37000.0"^^xsd:double
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                  owl:hasValue "0.0"^^xsd:double
-                                ] ;
-                skos:altLabel "MicroCurie"@en ;
-                skos:prefLabel "MicroCurie" ;
-                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MicroCi" ;
-                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "uCi" ;
-                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "μCi" ;
-                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Another commonly used measure of radioactivity, the microcurie: 1 μCi = 3.7 × 10 disintegrations per second = 2.22 × 10 disintegrations per minute. A radiotherapy machine may have roughly 1000 Ci of a radioisotope such as caesium-137 or cobalt-60. This quantity of radioactivity can produce serious health effects with only a few minutes of close-range, un-shielded exposure. The typical human body contains roughly 0.1 μCi of naturally occurring potassium-40.
-
--- QUDT"""@en ;
-                emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Curie?oldid=495080313" .
-
-
-###  https://w3id.org/emmo#MicroGravity
-emmo:MicroGravity rdf:type owl:Class ;
-                  rdfs:subClassOf emmo:EMMO_2da7408f_d389_4245_887d_a1743b81a9b6 ,
-                                  emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                  emmo:EMMO_9ff3bf8e_2168_406e_8251_1d158fc948ae ,
-                                  emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                    owl:someValuesFrom emmo:Gravity
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                    owl:hasValue "9.80665E-6"^^xsd:double
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                    owl:hasValue "0.0"^^xsd:double
-                                  ] ;
-                  skos:prefLabel "MicroGravity" ;
-                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MicroG" ;
-                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "u[g]" ;
-                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "µG" ;
-                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Microgravity\" is a unit for  'Linear Acceleration' expressed as microG.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#MicroInch
-emmo:MicroInch rdf:type owl:Class ;
-               rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                               emmo:EMMO_9ff3bf8e_2168_406e_8251_1d158fc948ae ,
-                               emmo:EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc ,
-                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                 owl:someValuesFrom emmo:Inch
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                 owl:hasValue "2.54E-8"^^xsd:double
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                 owl:hasValue "0.0"^^xsd:double
-                               ] ;
-               skos:prefLabel "MicroInch" ;
-               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MicroIN" ;
-               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "u[in_i]" ;
-               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "µin" ;
-               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Microinch\" is an Imperial unit for  'Length' expressed as in⁻⁶.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#MicroTorr
-emmo:MicroTorr rdf:type owl:Class ;
-               rdfs:subClassOf emmo:EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b ,
-                               emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                               emmo:EMMO_9ff3bf8e_2168_406e_8251_1d158fc948ae ,
-                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                 owl:someValuesFrom emmo:Torr
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                 owl:hasValue "1.33322E-4"^^xsd:double
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                 owl:hasValue "0.0"^^xsd:double
-                               ] ;
-               skos:altLabel "MicroTorr"@en ;
-               skos:prefLabel "MicroTorr" ;
-               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MicroTORR" ;
-               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "µTorr" ;
-               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"MicroTorr\" is a unit for  'Force Per Area' expressed as microtorr.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#MilliBar
-emmo:MilliBar rdf:type owl:Class ;
-              rdfs:subClassOf emmo:EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b ,
-                              emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                              emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
-                              emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                owl:someValuesFrom emmo:Bar
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                owl:hasValue "100.0"^^xsd:double
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                owl:hasValue "0.0"^^xsd:double
-                              ] ;
-              skos:prefLabel "MilliBar" ;
-              emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliBAR" ;
-              emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mbar" ;
-              emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mbar" ;
-              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The bar is a non-SI unit of pressure, defined by the IUPAC as exactly equal to 100,000 Pa. It is about equal to the atmospheric pressure on Earth at sea level, and since 1982 the IUPAC has recommended that the standard for atmospheric pressure should be harmonized to 100,000 Pa = 1 bar ≈ 750.0616827 Torr. Units derived from the bar are the megabar (symbol: Mbar), kilobar (symbol: kbar), decibar (symbol: dbar), centibar (symbol: cbar), and millibar (symbol: mbar or mb). They are not SI or cgs units, but they are accepted for use with the SI.
-
--- QUDT"""@en ;
-              emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "http://en.wikipedia.org/wiki/Bar_(unit)" .
-
-
-###  https://w3id.org/emmo#MilliCurie
-emmo:MilliCurie rdf:type owl:Class ;
-                rdfs:subClassOf emmo:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 ,
-                                emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
-                                emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                  owl:someValuesFrom emmo:Curie
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                  owl:hasValue "3.7E7"^^xsd:double
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                  owl:hasValue "0.0"^^xsd:double
-                                ] ;
-                skos:prefLabel "MilliCurie" ;
-                emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliCi" ;
-                emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mCi" ;
-                emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mCi" ;
-                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.001-fold of the SI derived unit curie
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#MilliGravity
-emmo:MilliGravity rdf:type owl:Class ;
-                  rdfs:subClassOf emmo:EMMO_2da7408f_d389_4245_887d_a1743b81a9b6 ,
-                                  emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                  emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
-                                  emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
-                                    owl:someValuesFrom emmo:Gravity
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                    owl:hasValue "0.00980665"^^xsd:double
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                    owl:hasValue "0.0"^^xsd:double
-                                  ] ;
-                  skos:prefLabel "MilliGravity" ;
-                  emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliG" ;
-                  emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m[g]" ;
-                  emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mG" ;
-                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Milligravity\" is a unit for  'Linear Acceleration' expressed as mG.
-
--- QUDT"""@en .
-
-
-###  https://w3id.org/emmo#MilliInch
-emmo:MilliInch rdf:type owl:Class ;
-               rdfs:subClassOf emmo:EMMO_15344998_4490_4b40_b242_c3d92e5cdc27 ,
-                               emmo:EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 ,
-                               emmo:EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
-                                 owl:hasValue "2.54E-5"^^xsd:double
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
-                                 owl:hasValue "0.0"^^xsd:double
-                               ] ;
-               skos:altLabel "Milli-inch"@en ;
-               skos:prefLabel "MilliInch"@en ;
-               emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MilliIN" ;
-               emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m[in_i]" ;
-               emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "mil" ;
-               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """0.001-fold of the unit inch according to the Anglo-American and Imperial system of units
-
--- QUDT"""@en .
-
-
-
-###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

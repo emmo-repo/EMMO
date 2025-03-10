@@ -9,8 +9,8 @@
 @base <https://w3id.org/emmo#> .
 
 <https://w3id.org/emmo/perspectives/semiotics> rdf:type owl:Ontology ;
-                                                owl:versionIRI <https://w3id.org/emmo/1.0.0-rc3/perspectives/semiotics> ;
-                                                owl:imports <https://w3id.org/emmo/1.0.0-rc3/perspectives/perspective> ;
+                                                owl:versionIRI <https://w3id.org/emmo/1.0.0/perspectives/semiotics> ;
+                                                owl:imports <https://w3id.org/emmo/1.0.0/perspectives/perspective> ;
                                                 dcterms:abstract """The semiotics module is inspired by the semiotic theory by Charles S. Peirce. It introduces the triadic semiotic process, called semiosis, with its participants an 'object' that is represented by a 'sign' producing another sign, the 'interpretant' and finally the 'interpreter' who connects the 'object', 'sign' and 'interpretant'.
 The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. real world objects (e.g. symbol or sign) that stand for other real world objects that are to be interpreted by an agent. These symbols appear in actions (semiotic processes) meant to communicate meaning by establishing relationships between symbols (signs)."""@en ;
                                                 dcterms:contributor :AdhamHashibon ,
@@ -24,7 +24,7 @@ The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. rea
                                                 dcterms:publisher <https://emmc.eu> ;
                                                 dcterms:title "Semiotics"@en ;
                                                 rdfs:comment "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                                owl:versionInfo "1.0.0-rc3" ;
+                                                owl:versionInfo "1.0.0" ;
                                                 :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
 
 #################################################################
@@ -111,6 +111,7 @@ The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. rea
 :EMMO_4e8771a0_78fc_4db9_aec7_915fb4c7c55d rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_e1f718c7_27b6_49fa_af01_9ece7c79b654 ;
                                            owl:inverseOf :EMMO_9e3ad976_b179_4315_b51e_7e874df583dc ;
+                                           rdfs:isDefinedBy :EMMO_9e3ad976_b179_4315_b51e_7e874df583dc ;
                                            skos:prefLabel "isSignFor"@en .
 
 
@@ -154,6 +155,7 @@ The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. rea
 :EMMO_79fa18f3_6da9_42b9_8cc3_08d9e5c9da87 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_e1f718c7_27b6_49fa_af01_9ece7c79b654 ;
                                            owl:inverseOf :EMMO_cb804456_9459_4be5_ac63_a291a872fbd0 ;
+                                           rdfs:isDefinedBy :EMMO_cb804456_9459_4be5_ac63_a291a872fbd0 ;
                                            skos:prefLabel "isInterpreterFor"@en .
 
 
@@ -182,6 +184,7 @@ The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. rea
 ###  https://w3id.org/emmo#EMMO_8910edc0_6f56_49d2_9f8f_6b0ff908f2e6
 :EMMO_8910edc0_6f56_49d2_9f8f_6b0ff908f2e6 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_e1f718c7_27b6_49fa_af01_9ece7c79b654 ;
+                                           rdfs:isDefinedBy :EMMO_7fb7fe7e_bdf9_4eeb_adad_e384dd5285c6 ;
                                            skos:prefLabel "isInterpretantFor"@en .
 
 
@@ -191,7 +194,8 @@ The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. rea
                                            owl:inverseOf :EMMO_ee73c4f1_1405_44af_abf5_d06f2e71ed03 ;
                                            rdfs:domain :EMMO_008fd3b2_4013_451f_8827_52bceab11841 ;
                                            rdfs:range :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b ;
-                                           skos:prefLabel "hasReferent"@en .
+                                           skos:prefLabel "hasReferent"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between a semiotic process and the referent i.e., the object of the semiotic process."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_9950720f_a0b4_40f5_92db_071a3e4bbf4b
@@ -205,7 +209,8 @@ The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. rea
                                            rdfs:subPropertyOf :EMMO_f275e4e9_062b_4ca4_a679_4f26ec0a48ae ;
                                            rdfs:domain :EMMO_008fd3b2_4013_451f_8827_52bceab11841 ;
                                            rdfs:range :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d ;
-                                           skos:prefLabel "hasSign"@en .
+                                           skos:prefLabel "hasSign"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between a semiotic process and the sign standing for the referent."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_a0a2ded8_54e8_408d_a6b0_7fd1b4d7d16d
@@ -228,6 +233,7 @@ The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. rea
 :EMMO_abf30c80_6a0e_496e_b6dd_0439f0050fde rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_e1f718c7_27b6_49fa_af01_9ece7c79b654 ;
                                            owl:inverseOf :EMMO_da27d905_beb6_44ea_a330_a2dd9c17b263 ;
+                                           rdfs:isDefinedBy :EMMO_da27d905_beb6_44ea_a330_a2dd9c17b263 ;
                                            skos:prefLabel "isInternalRepresentationBy"@en .
 
 
@@ -285,7 +291,8 @@ The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. rea
                                            rdfs:subPropertyOf :EMMO_f275e4e9_062b_4ca4_a679_4f26ec0a48ae ;
                                            rdfs:domain :EMMO_008fd3b2_4013_451f_8827_52bceab11841 ;
                                            rdfs:range :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee ;
-                                           skos:prefLabel "hasInterpreter"@en .
+                                           skos:prefLabel "hasInterpreter"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between a semiotic process and the interpreter that is responsible for the sign-referent correspondance."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_cc823237_398d_4c9a_b8fa_aa157ee3e3a5
@@ -331,6 +338,7 @@ The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. rea
 :EMMO_e1f718c7_27b6_49fa_af01_9ece7c79b654 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_e4f66254_7312_4de5_a86a_6e0808baaaab ;
                                            owl:inverseOf :EMMO_f275e4e9_062b_4ca4_a679_4f26ec0a48ae ;
+                                           rdfs:isDefinedBy :EMMO_f275e4e9_062b_4ca4_a679_4f26ec0a48ae ;
                                            skos:prefLabel "semioticOvercrossedBy"@en .
 
 
@@ -345,6 +353,7 @@ The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. rea
 ###  https://w3id.org/emmo#EMMO_ee73c4f1_1405_44af_abf5_d06f2e71ed03
 :EMMO_ee73c4f1_1405_44af_abf5_d06f2e71ed03 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_e1f718c7_27b6_49fa_af01_9ece7c79b654 ;
+                                           rdfs:isDefinedBy :EMMO_8fb6d667_f2af_482d_97a9_ec97cd81274d ;
                                            skos:prefLabel "isReferentFor"@en .
 
 
@@ -357,6 +366,8 @@ The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. rea
 ###  https://w3id.org/emmo#EMMO_f275e4e9_062b_4ca4_a679_4f26ec0a48ae
 :EMMO_f275e4e9_062b_4ca4_a679_4f26ec0a48ae rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_9cb984ca_48ad_4864_b09e_50d3fff19420 ;
+                                           rdfs:domain :EMMO_8bb6b688_812a_4cb9_b76c_d5a058928719 ;
+                                           rdfs:range :EMMO_8bb6b688_812a_4cb9_b76c_d5a058928719 ;
                                            skos:prefLabel "semioticOvercrosses"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superproperties for overcrossing relations between semiotic entities."@en .
 
@@ -423,7 +434,12 @@ the cat perceived by my mind -> interpretant
                                            skos:prefLabel "Semiosis"@en ;
                                            :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "EquivalentTo: Deduction or Declaration or Cognition" ,
                                                                                       "EquivalentTo: FullSemiosis or PartialSemiosis" ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Process', that has participant an 'Interpreter', that is aimed to produce a 'Sign' representing another participant, the 'Object'."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class for entities where an interpreter, interpretant, reference and sign relate with each others semiotically."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """Semiosis is intended here as a 4D entity, meaning that is not necessarily intended as a process. This enables users to represent more general state of things without necessarily committing to a process/object classification (which in a 4D framework is subjective, and not ontological) through the persistence perspective (in fact semiotics module is independent from persistence module).
+For example, in a deduction (semiosis) the yellow tinted skin (index) of a patient is a symptom for liver desease (referent) according to a doctor (interpreter). If the user wants to include a commit towards persistency then the deduction can be either:
+- an obejct: the deduction is a system (object) and the doctor, skin and patient are object components
+-  a process: where the deduction is a process and the doctor, skin and patient are participants
+Since in the EMMO the object/process categorisation is relation-driven and object/process are not disjointed, the abovementioned deduction can be seen both as a process or object depending on the relation used by the user to navigate the graph."""@en .
 
 
 ###  https://w3id.org/emmo#EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee
@@ -884,8 +900,11 @@ This can be used in material characterization, to define exactly the type of mea
 ###  https://w3id.org/emmo#EMMO_8bb6b688_812a_4cb9_b76c_d5a058928719
 :EMMO_8bb6b688_812a_4cb9_b76c_d5a058928719 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_49267eba_5548_4163_8f36_518d65b583f9 ;
+                                           rdfs:seeAlso "https://github.com/emmo-repo/EMMO/wiki/Appendix---EMMO-Introduction-by-CoBRAIN#25-Semiotic-Framework"^^xsd:anyURI ,
+                                                        "https://plato.stanford.edu/entries/peirce-semiotics/"^^xsd:anyURI ;
                                            skos:prefLabel "Semiotics"@en ;
-                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "EquivalentTo: Semiosis or SemioticEntity" .
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "EquivalentTo: Semiosis or SemioticEntity" ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A perspective based on Pierce semiotics, where an interpreter relates a referent to a sign in through semiotic relations."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_8c537c06_8e1d_4a3b_a251_1c89bb2c4790
@@ -1119,11 +1138,11 @@ For example, when a Boeing 747 is used as a sign for another Boeing 747."""@en ,
 ] .
 
 [ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The rule for the subproperty chain:
- inverse (hasInterpreter) o inverse (hasSign) ⇒ hasReferent"""@en
+inverse (hasSign) o inverse (hasReferent) ⇒ hasInterpreter"""@en
  ] .
 
 [ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The rule for the subproperty chain:
-inverse (hasSign) o inverse (hasReferent) ⇒ hasInterpreter"""@en
+ inverse (hasInterpreter) o inverse (hasSign) ⇒ hasReferent"""@en
  ] .
 
 #################################################################

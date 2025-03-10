@@ -9,8 +9,8 @@
 @base <https://w3id.org/emmo#> .
 
 <https://w3id.org/emmo/perspectives/structural> rdf:type owl:Ontology ;
-                                                 owl:versionIRI <https://w3id.org/emmo/1.0.0-rc3/perspectives/structural> ;
-                                                 owl:imports <https://w3id.org/emmo/1.0.0-rc3/perspectives/perspective> ;
+                                                 owl:versionIRI <https://w3id.org/emmo/1.0.0/perspectives/structural> ;
+                                                 owl:imports <https://w3id.org/emmo/1.0.0/perspectives/perspective> ;
                                                  dcterms:abstract "Defines the structural perspective which defines an entity according to its type and the types of other entities mereological relations with it."@en ;
                                                  dcterms:contributor :FrancescoZaccarini ,
                                                                      :GerhardGoldbeck ,
@@ -20,7 +20,7 @@
                                                  dcterms:publisher <https://emmc.eu> ;
                                                  dcterms:title "Structural"@en ;
                                                  rdfs:comment "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                                 owl:versionInfo "1.0.0-rc3" ;
+                                                 owl:versionInfo "1.0.0" ;
                                                  :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
 
 #################################################################
@@ -39,6 +39,7 @@
 :EMMO_0914449c_ef24_4372_b669_9cdd13b59fed rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_57c75ca1_bf8a_42bc_85d9_58cfe38c7df2 ;
                                            skos:prefLabel "Minimal"@en ;
+                                           :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0/doc/figs/Minimal.png"^^xsd:anyURI ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for all classes of entities that have no proper parts of the same type of the whole is proper part of an entity of that type."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A minimal class M (subclass of Minimal) is defined by choosing a reference type φ so that M is subclass of φ, all parts of x are needed to keep φ(x) and x is proper part of a larger φ entity."@en .
 
@@ -47,6 +48,7 @@
 :EMMO_2dddfc30_d4e1_4e3e_a0ca_755c4d9d2cf4 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_bbca6dfa_7463_4e8d_8280_35862ff50ce0 ;
                                            skos:prefLabel "Heap"@en ;
+                                           :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0/doc/figs/Heap.png"^^xsd:anyURI ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for all classes of entities that have at least two non overlapping proper parts of the same type of the whole."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A heap class H (subclass of Heap) is defined by choosing a reference type φ, with H subclass of φ, so that each H entity has non overlapping φ parts."@en .
 
@@ -62,6 +64,7 @@
 :EMMO_40ff176a_e74d_46cc_88c5_6d02fd6813a7 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_e95b9f89_3ffd_4ea5_b682_97c4cc191a8d ;
                                            skos:prefLabel "NonNuclear"@en ;
+                                           :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0/doc/figs/NonNuclear.png"^^xsd:anyURI ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for all classes of entities that have a proper parts of the same type φ of the whole, but have no φ proper part that is part of other φ proper parts."@en .
 
 
@@ -69,8 +72,7 @@
 :EMMO_57c75ca1_bf8a_42bc_85d9_58cfe38c7df2 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_32e701c0_a925_49df_9829_0931b8554807 ;
                                            rdfs:seeAlso :EMMO_bbca6dfa_7463_4e8d_8280_35862ff50ce0 ;
-                                           skos:altLabel "Lifetime"@en ,
-                                                         "Maximal"@en ;
+                                           skos:altLabel "Lifetime"@en ;
                                            skos:example """A marathon is an example of class whose individuals are always maximal since the criteria satisfied by a marathon 4D entity poses some constraints on its temporal and spatial extent.
 On the contrary, the class for a generic running process does not necessarily impose maximality to its individuals. A running individual is maximal only when it extends in time for the minimum amount required to identify a running act, so every possible temporal part is always a non-running.
 Following the two examples, a marathon individual is a maximal that can be decomposed into running intervals. The marathon class is a subclass of running."""@en ;
@@ -104,6 +106,7 @@ Following the two examples, a marathon individual is a maximal that can be decom
 :EMMO_7f92ac53_3a89_41a4_af5c_a8ad320a7936 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_8f449738_cedb_436c_bdec_1c8e78bdb644 ;
                                            skos:prefLabel "NonConvergent"@en ;
+                                           :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0/doc/figs/NonConvergent.png"^^xsd:anyURI ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for all classes of entities that have a proper parts of the same type φ of the whole, and so that for every two distinct φ proper parts one is not part of the other."@en .
 
 
@@ -118,6 +121,7 @@ Following the two examples, a marathon individual is a maximal that can be decom
 :EMMO_b4494d69_6393_4eb4_8346_7fedd4df0bc5 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_57c75ca1_bf8a_42bc_85d9_58cfe38c7df2 ;
                                            skos:prefLabel "Maximal"@en ;
+                                           :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0/doc/figs/Maximal.png"^^xsd:anyURI ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for all classes of entities that have no proper parts of the same type of the whole are not proper part of an entity of that type."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A maximal class M (subclass of Maximal) is defined by choosing a reference type φ so that M is subclass of φ, all parts of x are needed to keep φ(x) and if you add something to x, then x is no more a φ."@en .
 
@@ -126,6 +130,7 @@ Following the two examples, a marathon individual is a maximal that can be decom
 :EMMO_b501a8ed_ae15_4288_9d92_1026463e95cb rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_8f449738_cedb_436c_bdec_1c8e78bdb644 ;
                                            skos:prefLabel "Convergent"@en ;
+                                           :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://raw.githubusercontent.com/emmo-repo/EMMO/1.0.0/doc/figs/Convergent.png"^^xsd:anyURI ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for all classes of entities that have a proper parts of the same type φ of the whole, and so that for every two distinct φ proper parts one is part of the other."@en .
 
 
