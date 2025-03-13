@@ -214,7 +214,8 @@ All other SI units goes into one of the following modules:
 
 ###  https://w3id.org/emmo#EMMO_068c4e58_2470_4b1c_8454_010dd4906100
 :EMMO_068c4e58_2470_4b1c_8454_010dd4906100 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_9d28f9ad_d9d3_4edb_bc00_5d9bd242244d ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_4be0acad_af05_426f_aa6d_fe7531072564 ;
                                                              owl:someValuesFrom :EMMO_2b243e59_3a2a_412e_9a58_81d1e5c92fbe
                                                            ] ,
@@ -243,7 +244,8 @@ All other SI units goes into one of the following modules:
 
 ###  https://w3id.org/emmo#EMMO_1181c938_c8f0_4ad6_bc7a_2bfdc0903d29
 :EMMO_1181c938_c8f0_4ad6_bc7a_2bfdc0903d29 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_9d28f9ad_d9d3_4edb_bc00_5d9bd242244d ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_4be0acad_af05_426f_aa6d_fe7531072564 ;
                                                              owl:someValuesFrom :EMMO_890856a3_3eb4_471e_a54a_65031bee30f4
                                                            ] ,
@@ -258,6 +260,7 @@ All other SI units goes into one of the following modules:
 ###  https://w3id.org/emmo#EMMO_1273eb34_de48_43a9_925f_104110469dd2
 :EMMO_1273eb34_de48_43a9_925f_104110469dd2 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
+                                                           :EMMO_59e710f4_d9ea_4167_9a3f_f90628a307df ,
                                                            :EMMO_707c6032_e272_4a20_98b5_d35c4f67be68 ;
                                            rdfs:comment "This class collects all units that are products or powers of SI base or SI special units only."@en ;
                                            skos:example """m/s
@@ -276,7 +279,8 @@ kg/m^3""" ;
 
 ###  https://w3id.org/emmo#EMMO_1d8b370b_c672_4d0c_964e_eaafcbf2f51f
 :EMMO_1d8b370b_c672_4d0c_964e_eaafcbf2f51f rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_2024fca1_b015_45ee_9490_e9e7d36bf704 ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_4be0acad_af05_426f_aa6d_fe7531072564 ;
                                                              owl:someValuesFrom :EMMO_e07a252a_6913_49d6_9038_37a258b2d95e
                                                            ] ,
@@ -292,32 +296,24 @@ kg/m^3""" ;
 ###  https://w3id.org/emmo#EMMO_1e85f9fa_ded6_4856_81be_ccca3c474314
 :EMMO_1e85f9fa_ded6_4856_81be_ccca3c474314 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                                           :EMMO_d41ce84b_4317_41fb_a5d1_6cd281fca106 ,
-                                                           :EMMO_feb03a8a_bbb6_4918_a891_46713ef557f4 ;
+                                                           :EMMO_d41ce84b_4317_41fb_a5d1_6cd281fca106 ;
                                            skos:prefLabel "SIMetricPrefixedUnit"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A SI base unit or SI derived unit with a metric prefix."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_2024fca1_b015_45ee_9490_e9e7d36bf704
 :EMMO_2024fca1_b015_45ee_9490_e9e7d36bf704 rdf:type owl:Class ;
-                                           owl:disjointUnionOf ( :EMMO_1d8b370b_c672_4d0c_964e_eaafcbf2f51f
-                                                                 :EMMO_21aaefc1_3f86_4208_b7db_a755f31f0f8c
-                                                                 :EMMO_3a204900_2b33_47d1_b444_815cc4c8cffa
-                                                                 :EMMO_43a6b269_da31_4bb6_a537_c97df4fff32a
-                                                                 :EMMO_5cf9f86c_86f5_40c4_846d_60371f670e0a
-                                                                 :EMMO_5eaecadc_4f0d_4a3a_afc7_1fc0b83cc928
-                                                                 :EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201
-                                                                 :EMMO_a8eb4bbb_1bd3_4ad4_b114_2789bcbd2134
-                                                                 :EMMO_daa9ee97_4c5f_42e5_918c_44d7523e8958
-                                                                 :EMMO_e79c62ff_10ad_4ec0_baba_c19ddd4eaa11
-                                                               ) ;
+                                           rdfs:subClassOf :EMMO_d41ce84b_4317_41fb_a5d1_6cd281fca106 ;
+                                           owl:disjointWith :EMMO_9d28f9ad_d9d3_4edb_bc00_5d9bd242244d ;
                                            skos:prefLabel "MetricMultipleUnit"@en ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "DisjointUnionOf: DecaPrefixedUnit, HectoPrefixedUnit, TeraPrefixedUnit, PetaPrefixedUnit, ExaPrefixedUnit, MegaPrefixedUnit, KiloPrefixedUnit, GigaPrefixedUnit, ZettaPrefixedUnit, YottaPrefixedUnit" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Measurement unit obtained by multiplying a given measurement unit by an integer SI prefix greater than one."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_21aaefc1_3f86_4208_b7db_a755f31f0f8c
 :EMMO_21aaefc1_3f86_4208_b7db_a755f31f0f8c rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_2024fca1_b015_45ee_9490_e9e7d36bf704 ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_4be0acad_af05_426f_aa6d_fe7531072564 ;
                                                              owl:someValuesFrom :EMMO_4bc07644_8301_4aed_b21c_823f99b08d1a
                                                            ] ,
@@ -340,7 +336,8 @@ kg/m^3""" ;
 
 ###  https://w3id.org/emmo#EMMO_23bfe79a_cade_48f1_9a8c_fd96e6bac8ba
 :EMMO_23bfe79a_cade_48f1_9a8c_fd96e6bac8ba rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_9d28f9ad_d9d3_4edb_bc00_5d9bd242244d ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_4be0acad_af05_426f_aa6d_fe7531072564 ;
                                                              owl:someValuesFrom :EMMO_7fd8ec39_1c4b_4ff3_9bc8_0bf3c27e2db0
                                                            ] ,
@@ -362,7 +359,8 @@ kg/m^3""" ;
 
 ###  https://w3id.org/emmo#EMMO_254472c6_3dbd_4f02_bc43_571389cd281f
 :EMMO_254472c6_3dbd_4f02_bc43_571389cd281f rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_9d28f9ad_d9d3_4edb_bc00_5d9bd242244d ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_4be0acad_af05_426f_aa6d_fe7531072564 ;
                                                              owl:someValuesFrom :EMMO_4db5c662_b065_49e4_96eb_826699fa8048
                                                            ] ,
@@ -391,7 +389,8 @@ kg/m^3""" ;
 
 ###  https://w3id.org/emmo#EMMO_32129fb5_df25_48fd_a29c_18a2f22a2dd5
 :EMMO_32129fb5_df25_48fd_a29c_18a2f22a2dd5 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_216f448e_cdbc_4aeb_a529_7a5fe7fc38bb ;
+                                           rdfs:subClassOf :EMMO_216f448e_cdbc_4aeb_a529_7a5fe7fc38bb ,
+                                                           :EMMO_707c6032_e272_4a20_98b5_d35c4f67be68 ;
                                            skos:prefLabel "SIUnitSymbol"@en ;
                                            :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "DisjointUnionOf: SIBaseUnit, SISpecialUnit" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A unit symbol that belongs to the SI system. Is either a SI base unit or a SI special unit."@en .
@@ -415,7 +414,6 @@ kg/m^3""" ;
 ###  https://w3id.org/emmo#EMMO_3a185e6c_9e19_4776_b583_19c978156aa0
 :EMMO_3a185e6c_9e19_4776_b583_19c978156aa0 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_32129fb5_df25_48fd_a29c_18a2f22a2dd5 ,
-                                                           :EMMO_707c6032_e272_4a20_98b5_d35c4f67be68 ,
                                                            :EMMO_db716151_6b73_45ff_910c_d182fdcbb4f5 ;
                                            rdfs:seeAlso "https://www.bipm.org/utils/common/pdf/si-brochure/SI-Brochure-9-EN.pdf" ;
                                            skos:prefLabel "SIBaseUnit"@en ;
@@ -425,7 +423,8 @@ kg/m^3""" ;
 
 ###  https://w3id.org/emmo#EMMO_3a204900_2b33_47d1_b444_815cc4c8cffa
 :EMMO_3a204900_2b33_47d1_b444_815cc4c8cffa rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_2024fca1_b015_45ee_9490_e9e7d36bf704 ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_4be0acad_af05_426f_aa6d_fe7531072564 ;
                                                              owl:someValuesFrom :EMMO_33fe9747_d66f_4f88_b2c1_951279dbca59
                                                            ] ,
@@ -454,7 +453,8 @@ kg/m^3""" ;
 
 ###  https://w3id.org/emmo#EMMO_42955b2d_b465_4666_86cc_ea3c2d685753
 :EMMO_42955b2d_b465_4666_86cc_ea3c2d685753 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_9d28f9ad_d9d3_4edb_bc00_5d9bd242244d ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_4be0acad_af05_426f_aa6d_fe7531072564 ;
                                                              owl:someValuesFrom :EMMO_e9722f13_947c_444e_82ef_1ce045f6637c
                                                            ] ,
@@ -468,7 +468,8 @@ kg/m^3""" ;
 
 ###  https://w3id.org/emmo#EMMO_43a6b269_da31_4bb6_a537_c97df4fff32a
 :EMMO_43a6b269_da31_4bb6_a537_c97df4fff32a rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_2024fca1_b015_45ee_9490_e9e7d36bf704 ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_4be0acad_af05_426f_aa6d_fe7531072564 ;
                                                              owl:someValuesFrom :EMMO_d7c74480_a568_4470_acff_f18b499cc850
                                                            ] ,
@@ -550,17 +551,17 @@ kg/m^3""" ;
 
 ###  https://w3id.org/emmo#EMMO_59e710f4_d9ea_4167_9a3f_f90628a307df
 :EMMO_59e710f4_d9ea_4167_9a3f_f90628a307df rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ;
-                                           owl:disjointUnionOf ( :EMMO_1273eb34_de48_43a9_925f_104110469dd2
-                                                                 :EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1
-                                                               ) ;
+                                           rdfs:subClassOf :EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
+                                                           :EMMO_feb03a8a_bbb6_4918_a891_46713ef557f4 ;
                                            skos:prefLabel "SIDerivedUnit"@en ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "DisjointUnionOf: SICoherentDerivedUnit, SINonCoherentDerivedUnit" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A derived unit that belongs to the SI system."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_5cf9f86c_86f5_40c4_846d_60371f670e0a
 :EMMO_5cf9f86c_86f5_40c4_846d_60371f670e0a rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_2024fca1_b015_45ee_9490_e9e7d36bf704 ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_4be0acad_af05_426f_aa6d_fe7531072564 ;
                                                              owl:someValuesFrom :EMMO_3f2d29d9_6d27_43bd_a1bc_85475eae98be
                                                            ] ,
@@ -574,7 +575,8 @@ kg/m^3""" ;
 
 ###  https://w3id.org/emmo#EMMO_5eaecadc_4f0d_4a3a_afc7_1fc0b83cc928
 :EMMO_5eaecadc_4f0d_4a3a_afc7_1fc0b83cc928 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_2024fca1_b015_45ee_9490_e9e7d36bf704 ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_4be0acad_af05_426f_aa6d_fe7531072564 ;
                                                              owl:someValuesFrom :EMMO_85ee9154_5a3e_482e_aa37_c617ff1947ff
                                                            ] ,
@@ -588,9 +590,8 @@ kg/m^3""" ;
 
 ###  https://w3id.org/emmo#EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1
 :EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                                           :EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
-                                                           :EMMO_feb03a8a_bbb6_4918_a891_46713ef557f4 ;
+                                           rdfs:subClassOf :EMMO_59e710f4_d9ea_4167_9a3f_f90628a307df ,
+                                                           :EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ;
                                            skos:example "cm/s" ;
                                            skos:prefLabel "SINonCoherentDerivedUnit"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A derived unit whos numerical factor in front of the product of base units is NOT equal to one."@en .
@@ -637,7 +638,8 @@ kg/m^3""" ;
 
 ###  https://w3id.org/emmo#EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201
 :EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_2024fca1_b015_45ee_9490_e9e7d36bf704 ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_4be0acad_af05_426f_aa6d_fe7531072564 ;
                                                              owl:someValuesFrom :EMMO_68a031ba_abf5_4859_b84c_32977f029908
                                                            ] ,
@@ -681,6 +683,7 @@ kg/m^3""" ;
 
 ###  https://w3id.org/emmo#EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375
 :EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_feb03a8a_bbb6_4918_a891_46713ef557f4 ;
                                            skos:prefLabel "SINonCoherentUnit"@en ;
                                            :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "DisjointUnionOf: SIMetricPrefixedUnit, SINonCoherentDerivedUnit" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An SI unit whos numerical factor in front of the product of base SI units is NOT equal to one."@en ;
@@ -723,24 +726,16 @@ where `multiplier` and `offset` are specified via the 'hasConversionMultiplier' 
 
 ###  https://w3id.org/emmo#EMMO_9d28f9ad_d9d3_4edb_bc00_5d9bd242244d
 :EMMO_9d28f9ad_d9d3_4edb_bc00_5d9bd242244d rdf:type owl:Class ;
-                                           owl:disjointUnionOf ( :EMMO_068c4e58_2470_4b1c_8454_010dd4906100
-                                                                 :EMMO_1181c938_c8f0_4ad6_bc7a_2bfdc0903d29
-                                                                 :EMMO_23bfe79a_cade_48f1_9a8c_fd96e6bac8ba
-                                                                 :EMMO_254472c6_3dbd_4f02_bc43_571389cd281f
-                                                                 :EMMO_42955b2d_b465_4666_86cc_ea3c2d685753
-                                                                 :EMMO_9ff3bf8e_2168_406e_8251_1d158fc948ae
-                                                                 :EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7
-                                                                 :EMMO_b55cd09a_e54d_4eb1_81dd_03c29d1b878e
-                                                                 :EMMO_e1981c25_7c55_4020_aa7a_d2e14ced86d4
-                                                                 :EMMO_f5769206_9257_4b08_bf7b_dad7868c6afc
-                                                               ) ;
+                                           rdfs:subClassOf :EMMO_d41ce84b_4317_41fb_a5d1_6cd281fca106 ;
                                            skos:prefLabel "MetricSubMultipleUnit"@en ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "DisjointUnionOf: PicoPrefixedUnit, DeciPrefixedUnit, FemtoPrefixedUnit, ZeptoPrefixedUnit, AttoPrefixedUnit, MicroPrefixedUnit, MilliPrefixedUnit, CentiPrefixedUnit, NanoPrefixedUnit, YoctoPrefixedUnit" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Measurement unit obtained by dividing a given measurement unit by an integer SI prefix greater than one."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_9ff3bf8e_2168_406e_8251_1d158fc948ae
 :EMMO_9ff3bf8e_2168_406e_8251_1d158fc948ae rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_9d28f9ad_d9d3_4edb_bc00_5d9bd242244d ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_4be0acad_af05_426f_aa6d_fe7531072564 ;
                                                              owl:someValuesFrom :EMMO_6da1b965_768c_4cf0_8873_44f2035133ba
                                                            ] ,
@@ -754,7 +749,8 @@ where `multiplier` and `offset` are specified via the 'hasConversionMultiplier' 
 
 ###  https://w3id.org/emmo#EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7
 :EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_9d28f9ad_d9d3_4edb_bc00_5d9bd242244d ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_4be0acad_af05_426f_aa6d_fe7531072564 ;
                                                              owl:someValuesFrom :EMMO_49adf406_5c8f_498a_8c90_e4974e9e6d11
                                                            ] ,
@@ -768,7 +764,8 @@ where `multiplier` and `offset` are specified via the 'hasConversionMultiplier' 
 
 ###  https://w3id.org/emmo#EMMO_a8eb4bbb_1bd3_4ad4_b114_2789bcbd2134
 :EMMO_a8eb4bbb_1bd3_4ad4_b114_2789bcbd2134 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_2024fca1_b015_45ee_9490_e9e7d36bf704 ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_4be0acad_af05_426f_aa6d_fe7531072564 ;
                                                              owl:someValuesFrom :EMMO_117d3e39_de3e_46f5_9744_b4a28d9fc83e
                                                            ] ,
@@ -812,7 +809,8 @@ where `multiplier` and `offset` are specified via the 'hasConversionMultiplier' 
 
 ###  https://w3id.org/emmo#EMMO_b55cd09a_e54d_4eb1_81dd_03c29d1b878e
 :EMMO_b55cd09a_e54d_4eb1_81dd_03c29d1b878e rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_9d28f9ad_d9d3_4edb_bc00_5d9bd242244d ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_4be0acad_af05_426f_aa6d_fe7531072564 ;
                                                              owl:someValuesFrom :EMMO_03d2c71b_0276_45d7_a847_7cd164cb7d45
                                                            ] ,
@@ -842,11 +840,9 @@ where `multiplier` and `offset` are specified via the 'hasConversionMultiplier' 
 ###  https://w3id.org/emmo#EMMO_d41ce84b_4317_41fb_a5d1_6cd281fca106
 :EMMO_d41ce84b_4317_41fb_a5d1_6cd281fca106 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ;
-                                           owl:disjointUnionOf ( :EMMO_2024fca1_b015_45ee_9490_e9e7d36bf704
-                                                                 :EMMO_9d28f9ad_d9d3_4edb_bc00_5d9bd242244d
-                                                               ) ;
                                            rdfs:comment "The presence of the prefix makes this units non-coherent with SI system."@en ;
                                            skos:prefLabel "MetricPrefixedUnit"@en ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "DisjointUnionOf: MetricMultipleUnit, MetricSubMultipleUnit" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A special unit with a metric prefix."@en .
 
 
@@ -867,7 +863,8 @@ where `multiplier` and `offset` are specified via the 'hasConversionMultiplier' 
 
 ###  https://w3id.org/emmo#EMMO_daa9ee97_4c5f_42e5_918c_44d7523e8958
 :EMMO_daa9ee97_4c5f_42e5_918c_44d7523e8958 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_2024fca1_b015_45ee_9490_e9e7d36bf704 ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_4be0acad_af05_426f_aa6d_fe7531072564 ;
                                                              owl:someValuesFrom :EMMO_fbf7da6f_04bb_4c8e_abbf_e4048d6a5e73
                                                            ] ,
@@ -912,7 +909,8 @@ where `multiplier` and `offset` are specified via the 'hasConversionMultiplier' 
 
 ###  https://w3id.org/emmo#EMMO_e1981c25_7c55_4020_aa7a_d2e14ced86d4
 :EMMO_e1981c25_7c55_4020_aa7a_d2e14ced86d4 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_9d28f9ad_d9d3_4edb_bc00_5d9bd242244d ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_4be0acad_af05_426f_aa6d_fe7531072564 ;
                                                              owl:someValuesFrom :EMMO_afb29c1a_eba4_4ba7_b6a1_62e9023c94ec
                                                            ] ,
@@ -926,7 +924,8 @@ where `multiplier` and `offset` are specified via the 'hasConversionMultiplier' 
 
 ###  https://w3id.org/emmo#EMMO_e79c62ff_10ad_4ec0_baba_c19ddd4eaa11
 :EMMO_e79c62ff_10ad_4ec0_baba_c19ddd4eaa11 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_2024fca1_b015_45ee_9490_e9e7d36bf704 ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_4be0acad_af05_426f_aa6d_fe7531072564 ;
                                                              owl:someValuesFrom :EMMO_cb3f4298_5895_4272_be63_42dd246cc10c
                                                            ] ,
@@ -956,8 +955,7 @@ where `multiplier` and `offset` are specified via the 'hasConversionMultiplier' 
 ###  https://w3id.org/emmo#EMMO_e9ffc696_5228_4ff9_8a60_0f5e05e9931b
 :EMMO_e9ffc696_5228_4ff9_8a60_0f5e05e9931b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_32129fb5_df25_48fd_a29c_18a2f22a2dd5 ,
-                                                           :EMMO_3ee80521_3c23_4dd1_935d_9d522614a3e2 ,
-                                                           :EMMO_707c6032_e272_4a20_98b5_d35c4f67be68 ;
+                                                           :EMMO_3ee80521_3c23_4dd1_935d_9d522614a3e2 ;
                                            skos:prefLabel "SISpecialUnit"@en ;
                                            :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "DisjointUnionOf: Becquerel, Coulomb, DegreeCelsius, Farad, Gray, Henry, Hertz, Joule, Katal, Lumen, Lux, Newton, Ohm, Pascal, Radian, Siemens, Sievert, Steradian, Tesla, Volt, Watt, Weber" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The 22 derived units that are given a special name in the SI system that stands for units derived by SI base units."@en ;
@@ -967,7 +965,8 @@ where `multiplier` and `offset` are specified via the 'hasConversionMultiplier' 
 
 ###  https://w3id.org/emmo#EMMO_f5769206_9257_4b08_bf7b_dad7868c6afc
 :EMMO_f5769206_9257_4b08_bf7b_dad7868c6afc rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_9d28f9ad_d9d3_4edb_bc00_5d9bd242244d ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_4be0acad_af05_426f_aa6d_fe7531072564 ;
                                                              owl:someValuesFrom :EMMO_7abfbbc4_ce7b_4611_b731_1b5b8bd2bbc0
                                                            ] ,
@@ -1567,6 +1566,21 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
 
 
 [ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :EMMO_068c4e58_2470_4b1c_8454_010dd4906100
+                :EMMO_1181c938_c8f0_4ad6_bc7a_2bfdc0903d29
+                :EMMO_23bfe79a_cade_48f1_9a8c_fd96e6bac8ba
+                :EMMO_254472c6_3dbd_4f02_bc43_571389cd281f
+                :EMMO_42955b2d_b465_4666_86cc_ea3c2d685753
+                :EMMO_9ff3bf8e_2168_406e_8251_1d158fc948ae
+                :EMMO_a3a701ed_6f7d_4a10_9aee_dfa1961fc7b7
+                :EMMO_b55cd09a_e54d_4eb1_81dd_03c29d1b878e
+                :EMMO_e1981c25_7c55_4020_aa7a_d2e14ced86d4
+                :EMMO_f5769206_9257_4b08_bf7b_dad7868c6afc
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
   owl:members ( :EMMO_117d3e39_de3e_46f5_9744_b4a28d9fc83e
                 :EMMO_33fe9747_d66f_4f88_b2c1_951279dbca59
                 :EMMO_3f2d29d9_6d27_43bd_a1bc_85475eae98be
@@ -1589,6 +1603,21 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
                 :EMMO_3a185e6c_9e19_4776_b583_19c978156aa0
                 :EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1
                 :EMMO_e9ffc696_5228_4ff9_8a60_0f5e05e9931b
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :EMMO_1d8b370b_c672_4d0c_964e_eaafcbf2f51f
+                :EMMO_21aaefc1_3f86_4208_b7db_a755f31f0f8c
+                :EMMO_3a204900_2b33_47d1_b444_815cc4c8cffa
+                :EMMO_43a6b269_da31_4bb6_a537_c97df4fff32a
+                :EMMO_5cf9f86c_86f5_40c4_846d_60371f670e0a
+                :EMMO_5eaecadc_4f0d_4a3a_afc7_1fc0b83cc928
+                :EMMO_74931b1b_c133_4e59_9a75_1bf0e1626201
+                :EMMO_a8eb4bbb_1bd3_4ad4_b114_2789bcbd2134
+                :EMMO_daa9ee97_4c5f_42e5_918c_44d7523e8958
+                :EMMO_e79c62ff_10ad_4ec0_baba_c19ddd4eaa11
               )
 ] .
 
