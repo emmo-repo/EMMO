@@ -13,7 +13,7 @@ set -e
 # Configurations
 pages_url="https://emmo-repo.github.io"
 pages_versions_url="$pages_url/versions"
-emmo_url="http://emmo.info/emmo"
+emmo_url="https://w3id.org/emmo"
 
 rootdir="$(git rev-parse --show-toplevel)"
 ghdir="$rootdir/.github"
