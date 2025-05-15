@@ -93,12 +93,12 @@ Please create an issue if you have a public domain ontology that you think shoul
 | Domain ontology                                                                                                           | Base IRI                                                          |
 |---------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
 | [Characterisation Methodology Domain Ontology (CHAMEO)](https://github.com/emmo-repo/domain-characterisation-methodology) | https://w3id.org/emmo/domain/characterisation-methodology/chameo# |
-| [Electrochemistry](https://github.com/emmo-repo/domain-electrochemistry)                                                  | https://w3id.org/emmo/domain/electrochemistry#                    |
+| [Electrochemistry (ECHO)](https://github.com/emmo-repo/domain-electrochemistry)                                           | https://w3id.org/emmo/domain/electrochemistry#                    |
 | [Battery Ontology](https://github.com/emmo-repo/domain-battery)                                                           | https://w3id.org/emmo/domain/battery#                             |
 | [Battery Interface Ontology (BattINFO)](https://big-map.github.io/BattINFO/)                                              | https://w3id.org/battinfo#                                        |
-| [Nuclear Energy Ontology](https://github.com/emmo-repo/domain-neo)                                                        | https://w3id.org/emmo/domain/neo#                                 |
+| [Nuclear Energy Ontology (NEO)](https://github.com/emmo-repo/domain-neo)                                                  | https://w3id.org/emmo/domain/neo#                                 |
 | [Nanoindentation Ontology](https://github.com/emmo-repo/domain-nanoindentation)                                           | https://w3id.org/emmo/domain/nanoindentation#                     |
-| [Chemical Substance Domain Ontology](https://github.com/emmo-repo/domain-chemical-substance)                              | https://w3id.org/emmo/domain/chemical-substance#                  |
+| [Chemical Substance Domain Ontology (CHEMS)](https://github.com/emmo-repo/domain-chemical-substance)                      | https://w3id.org/emmo/domain/chemical-substance#                  |
 | [Microstructure Domain Ontology (MDO)](https://github.com/emmo-repo/domain-microstructure)                                | https://w3id.org/emmo/domain/microstructure#                      |
 | [OTE Interface Ontology (OTEIO)](https://github.com/emmo-repo/domain-oteio)                                               | https://w3id.org/emmo/domain/oteio#                               |
 | [Coating Domain Ontology](https://github.com/emmo-repo/domain-coating)                                                    | https://w3id.org/emmo/domain/coating#                             |
