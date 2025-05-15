@@ -229,6 +229,10 @@ All other SI units goes into one of the following modules:
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Superclass for all units prefixed with \"pico\" (1e-12)."@en .
 
 
+###  https://w3id.org/emmo#EMMO_08b308d4_31cd_4779_a784_aa92fc730f39
+:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 rdfs:subClassOf :EMMO_59e710f4_d9ea_4167_9a3f_f90628a307df .
+
+
 ###  https://w3id.org/emmo#EMMO_117d3e39_de3e_46f5_9744_b4a28d9fc83e
 :EMMO_117d3e39_de3e_46f5_9744_b4a28d9fc83e rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_2374896c_4ef8_4b3d_8c0c_0d29ba66bcfb ,
@@ -261,8 +265,9 @@ All other SI units goes into one of the following modules:
 
 ###  https://w3id.org/emmo#EMMO_1273eb34_de48_43a9_925f_104110469dd2
 :EMMO_1273eb34_de48_43a9_925f_104110469dd2 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
+                                           rdfs:subClassOf :EMMO_59e710f4_d9ea_4167_9a3f_f90628a307df ,
                                                            :EMMO_707c6032_e272_4a20_98b5_d35c4f67be68 ;
+                                           owl:disjointWith :EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1 ;
                                            rdfs:comment "This class collects all units that are products or powers of SI base or SI special units only."@en ;
                                            skos:example """m/s
 kg/m^3""" ;
@@ -272,6 +277,8 @@ kg/m^3""" ;
 
 ###  https://w3id.org/emmo#EMMO_15344998_4490_4b40_b242_c3d92e5cdc27
 :EMMO_15344998_4490_4b40_b242_c3d92e5cdc27 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ;
+                                           owl:disjointWith :EMMO_feb03a8a_bbb6_4918_a891_46713ef557f4 ;
                                            skos:prefLabel "NonSIUnit"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Measurement units that are not SI units."@en .
 
@@ -294,13 +301,17 @@ kg/m^3""" ;
 
 ###  https://w3id.org/emmo#EMMO_1e85f9fa_ded6_4856_81be_ccca3c474314
 :EMMO_1e85f9fa_ded6_4856_81be_ccca3c474314 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_d41ce84b_4317_41fb_a5d1_6cd281fca106 ;
+                                           rdfs:subClassOf :EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                                           :EMMO_d41ce84b_4317_41fb_a5d1_6cd281fca106 ;
+                                           owl:disjointWith :EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1 ;
                                            skos:prefLabel "SIMetricPrefixedUnit"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A SI base unit or SI derived unit with a metric prefix."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_2024fca1_b015_45ee_9490_e9e7d36bf704
 :EMMO_2024fca1_b015_45ee_9490_e9e7d36bf704 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_d41ce84b_4317_41fb_a5d1_6cd281fca106 ;
+                                           owl:disjointWith :EMMO_9d28f9ad_d9d3_4edb_bc00_5d9bd242244d ;
                                            skos:prefLabel "MetricMultipleUnit"@en ;
                                            :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "disjointUnionOf: DecaPrefixedUnit, HectoPrefixedUnit, TeraPrefixedUnit, PetaPrefixedUnit, ExaPrefixedUnit, MegaPrefixedUnit, KiloPrefixedUnit, GigaPrefixedUnit, ZettaPrefixedUnit, YottaPrefixedUnit" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Measurement unit obtained by multiplying a given measurement unit by an integer SI prefix greater than one."@en .
@@ -480,19 +491,6 @@ kg/m^3""" ;
 ###  https://w3id.org/emmo#EMMO_48fc9480_78c3_4c81_a126_019df20d58d9
 :EMMO_48fc9480_78c3_4c81_a126_019df20d58d9 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_23eabdb5_6de6_4615_b6b1_a07b3ad32fd9 ;
-                                           owl:disjointUnionOf ( :EMMO_03d2c71b_0276_45d7_a847_7cd164cb7d45
-                                                                 :EMMO_2b243e59_3a2a_412e_9a58_81d1e5c92fbe
-                                                                 :EMMO_49adf406_5c8f_498a_8c90_e4974e9e6d11
-                                                                 :EMMO_4db5c662_b065_49e4_96eb_826699fa8048
-                                                                 :EMMO_556e27cd_fef1_41c9_824a_dd78980062b5
-                                                                 :EMMO_6da1b965_768c_4cf0_8873_44f2035133ba
-                                                                 :EMMO_7abfbbc4_ce7b_4611_b731_1b5b8bd2bbc0
-                                                                 :EMMO_7fd8ec39_1c4b_4ff3_9bc8_0bf3c27e2db0
-                                                                 :EMMO_890856a3_3eb4_471e_a54a_65031bee30f4
-                                                                 :EMMO_afb29c1a_eba4_4ba7_b6a1_62e9023c94ec
-                                                                 :EMMO_e9722f13_947c_444e_82ef_1ce045f6637c
-                                                                 :EMMO_fbc2549b_9108_467a_a573_de48eb45cc4a
-                                                               ) ;
                                            skos:prefLabel "SISubMultiplePrefix"@en ;
                                            :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "disjointUnionOf: Centi, Pico, Milli, Zepto, Quecto, Micro, Yocto, Femto, Deci, Nano, Atto, Ronto" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "SI prefix who's value is 1/N where N is a positive integer larger than 1."@en .
@@ -562,10 +560,8 @@ kg/m^3""" ;
 :EMMO_59e710f4_d9ea_4167_9a3f_f90628a307df rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
                                                            :EMMO_feb03a8a_bbb6_4918_a891_46713ef557f4 ;
-                                           owl:disjointUnionOf ( :EMMO_1273eb34_de48_43a9_925f_104110469dd2
-                                                                 :EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1
-                                                               ) ;
                                            skos:prefLabel "SIDerivedUnit"@en ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "disjointUnionOf: SICoherentDerivedUnit, SINonCoherentDerivedUnit" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A derived unit that belongs to the SI system."@en .
 
 
@@ -601,8 +597,8 @@ kg/m^3""" ;
 
 ###  https://w3id.org/emmo#EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1
 :EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
-                                                           :EMMO_feb03a8a_bbb6_4918_a891_46713ef557f4 ;
+                                           rdfs:subClassOf :EMMO_59e710f4_d9ea_4167_9a3f_f90628a307df ,
+                                                           :EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ;
                                            skos:example "cm/s" ;
                                            skos:prefLabel "SINonCoherentDerivedUnit"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A derived unit whos numerical factor in front of the product of base units is NOT equal to one."@en .
@@ -695,10 +691,8 @@ kg/m^3""" ;
 ###  https://w3id.org/emmo#EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375
 :EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_feb03a8a_bbb6_4918_a891_46713ef557f4 ;
-                                           owl:disjointUnionOf ( :EMMO_1e85f9fa_ded6_4856_81be_ccca3c474314
-                                                                 :EMMO_60b78cc3_6011_4134_95ab_956f56d4bdc1
-                                                               ) ;
                                            skos:prefLabel "SINonCoherentUnit"@en ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "disjointUnionOf: SIMetricPrefixedUnit, SINonCoherentDerivedUnit" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An SI unit whos numerical factor in front of the product of base SI units is NOT equal to one."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """A non-SI coherent can be expressed in terms of its corresponding SI coherent unit, as
 
@@ -739,6 +733,7 @@ where `multiplier` and `offset` are specified via the 'hasConversionMultiplier' 
 
 ###  https://w3id.org/emmo#EMMO_9d28f9ad_d9d3_4edb_bc00_5d9bd242244d
 :EMMO_9d28f9ad_d9d3_4edb_bc00_5d9bd242244d rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_d41ce84b_4317_41fb_a5d1_6cd281fca106 ;
                                            skos:prefLabel "MetricSubMultipleUnit"@en ;
                                            :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "disjointUnionOf: PicoPrefixedUnit, DeciPrefixedUnit, FemtoPrefixedUnit, ZeptoPrefixedUnit, AttoPrefixedUnit, MicroPrefixedUnit, MilliPrefixedUnit, CentiPrefixedUnit, NanoPrefixedUnit, YoctoPrefixedUnit" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Measurement unit obtained by dividing a given measurement unit by an integer SI prefix greater than one."@en .
@@ -819,12 +814,6 @@ where `multiplier` and `offset` are specified via the 'hasConversionMultiplier' 
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "SI prefix who's value is 1e-9."@en .
 
 
-###  https://w3id.org/emmo#EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4
-:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 owl:disjointUnionOf ( :EMMO_15344998_4490_4b40_b242_c3d92e5cdc27
-                                                                 :EMMO_feb03a8a_bbb6_4918_a891_46713ef557f4
-                                                               ) .
-
-
 ###  https://w3id.org/emmo#EMMO_b55cd09a_e54d_4eb1_81dd_03c29d1b878e
 :EMMO_b55cd09a_e54d_4eb1_81dd_03c29d1b878e rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_9d28f9ad_d9d3_4edb_bc00_5d9bd242244d ,
@@ -858,11 +847,9 @@ where `multiplier` and `offset` are specified via the 'hasConversionMultiplier' 
 ###  https://w3id.org/emmo#EMMO_d41ce84b_4317_41fb_a5d1_6cd281fca106
 :EMMO_d41ce84b_4317_41fb_a5d1_6cd281fca106 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ;
-                                           owl:disjointUnionOf ( :EMMO_2024fca1_b015_45ee_9490_e9e7d36bf704
-                                                                 :EMMO_9d28f9ad_d9d3_4edb_bc00_5d9bd242244d
-                                                               ) ;
                                            rdfs:comment "The presence of the prefix makes this units non-coherent with SI system."@en ;
                                            skos:prefLabel "MetricPrefixedUnit"@en ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "disjointUnionOf: MetricMultipleUnit, MetricSubMultipleUnit" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A special unit with a metric prefix."@en .
 
 
