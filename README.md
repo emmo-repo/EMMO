@@ -99,7 +99,7 @@ Please create an issue if you have a public domain ontology that you think shoul
 | [Nuclear Energy Ontology](https://github.com/emmo-repo/domain-neo)                                                        | https://w3id.org/emmo/domain/neo#                                 |
 | [Nanoindentation Ontology](https://github.com/emmo-repo/domain-nanoindentation)                                           | https://w3id.org/emmo/domain/nanoindentation#                     |
 | [Chemical Substance Domain Ontology](https://github.com/emmo-repo/domain-chemical-substance)                              | https://w3id.org/emmo/domain/chemical-substance#                  |
-| [Microstructure Domain Ontology](https://github.com/emmo-repo/domain-microstructure)                                      | https://w3id.org/emmo/domain/microstructure#                      |
+| [Microstructure Domain Ontology (MDO)](https://github.com/emmo-repo/domain-microstructure)                                | https://w3id.org/emmo/domain/microstructure#                      |
 | [OTE Interface Ontology (OTEIO)](https://github.com/emmo-repo/domain-oteio)                                               | https://w3id.org/emmo/domain/oteio#                               |
 | [Coating Domain Ontology](https://github.com/emmo-repo/domain-coating)                                                    | https://w3id.org/emmo/domain/coating#                             |
 | [Domain Ontology for Concrete](https://github.com/emmo-repo/domain-concrete)                                              | https://w3id.org/emmo/domain/concrete#                            |
@@ -110,6 +110,7 @@ Please create an issue if you have a public domain ontology that you think shoul
 | [Crystallography](https://github.com/emmo-repo/domain-crystallography)                                                    | http://emmo.info/domain-crystallography/crystallography#          |
 | [CIF ontology](https://github.com/emmo-repo/CIF-ontology)                                                                 | http://emmo.info/CIF-ontology/ontology/cif_core#                  |
 | [Magnetic Materials Ontology (MaMMoS)](https://github.com/MaMMoS-project/MagneticMaterialsOntology/)                      | https://w3id.org/emmo/domain/magnetic_material#                   |
+| [Domain Ontology for Microscopy (DOM)](https://github.com/emmo-repo/domain-microscopy)                                    | https://w3id.org/emmo/domain/microscopy#                          |
 | [General Process Ontology (GPO)](https://github.com/General-Process-Ontology/ontology)                                    | https://gpo.ontology.link/                                        |
 | [Ontology for the Battery Value Chain (BVC)](https://github.com/Battery-Value-Chain-Ontology/ontology)                    | https://bvco.ontology.link/                                       |
 
