@@ -58,7 +58,6 @@
                                                     owl:IrreflexiveProperty ;
                                            rdfs:domain :EMMO_172e2c96_180b_40f8_a3e7_b624471f40c2 ;
                                            rdfs:range :EMMO_cbcf8fe6_6da6_49e0_ab4d_00f737ea9689 ;
-                                           skos:example "AluminiumSymbol"@en ;
                                            skos:prefLabel "hasChemicalSpecies"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Relates a single-component composition to its corresponding species."@en .
 
@@ -68,6 +67,14 @@
                                            rdfs:subPropertyOf :EMMO_c58c799e_cc6c_4310_a3f1_78da70705b2a ;
                                            rdfs:domain :EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352 ;
                                            rdfs:range :EMMO_172e2c96_180b_40f8_a3e7_b624471f40c2 ;
+                                           skos:example """This relation can be used to relate a material to a chemical composition quantity of one of its chemical species. For example, the amount of aluminium in mat:alloy1 can be expressed as:
+
+```turtle
+mat:alloy1 emmo:hasSingleComponentComposition [
+        emmo:hasChemicalSpecies [ a emmo:AluminiumSymbol ] ;
+        emmo:hasSIQuantityValue \"98.1 wt%\"^^emmo:SIQuantityDatatype
+] .
+```"""@en ;
                                            skos:prefLabel "hasSingleComponentComposition"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Relates a substance to one of its single-component compositions."@en .
 
