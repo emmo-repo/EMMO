@@ -200,7 +200,11 @@
 ###  https://w3id.org/emmo#EMMO_571a8adb_f38f_4122_8754_044ea2490cd0
 :EMMO_571a8adb_f38f_4122_8754_044ea2490cd0 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_3733bd38_ca2b_4264_a92a_3075a1715598 ;
-                                           skos:prefLabel "isProcessedTo"@en .
+                                           owl:inverseOf :EMMO_d6a7e07c_57bb_43a6_897e_af697caeeaf5 ;
+                                           rdf:type owl:AsymmetricProperty ,
+                                                    owl:IrreflexiveProperty ;
+                                           skos:prefLabel "isProcessedTo"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Relates the input of a process to its output."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_5aa0f895_1567_4239_8343_29e91a33d4c9
@@ -374,6 +378,14 @@ Participation is not under direct parthood since a process is not strictly relat
                                            rdfs:range :EMMO_49804605_c0fe_4538_abda_f70ba1dc8a5d ;
                                            skos:prefLabel "hasSubProcess"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between a process and one of its process parts."@en .
+
+
+###  https://w3id.org/emmo#EMMO_d6a7e07c_57bb_43a6_897e_af697caeeaf5
+:EMMO_d6a7e07c_57bb_43a6_897e_af697caeeaf5 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_451e410e_8e0d_4a4b_9211_d6ef619296dc ;
+                                           rdf:type owl:AsymmetricProperty ,
+                                                    owl:IrreflexiveProperty ;
+                                           skos:prefLabel "isProcessedFrom"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_d78b940d_4e2a_4a46_816b_da89029adc19
@@ -684,24 +696,24 @@ This categorisation has been introduced due to the large use of object/process c
 #    Rules
 #################################################################
 
+<urn:swrl:var#p> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
 <urn:swrl:var#x> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
 <urn:swrl:var#y> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
-<urn:swrl:var#z> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
-
 [ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_1494c1a9_00e1_40c2_a9cc_9bbf302a1cac ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_36e69413_8c59_4799_946c_10b05d266e22 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#p> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#x>
                                                      ] ;
                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#p> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
                                                                 ] ;
                                                       rdf:rest rdf:nil
                                                     ]
@@ -710,7 +722,7 @@ This categorisation has been introduced due to the large use of object/process c
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_571a8adb_f38f_4122_8754_044ea2490cd0 ;
                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
                                                      ] ;
                                            rdf:rest rdf:nil
                                          ]
