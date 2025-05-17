@@ -62,6 +62,15 @@ rdf:JSON rdf:type rdfs:Datatype .
 #    Data properties
 #################################################################
 
+###  https://w3id.org/emmo#EMMO_712f46a1_0aaa_4a41_b681_b10e1cc05233
+:EMMO_712f46a1_0aaa_4a41_b681_b10e1cc05233 rdf:type owl:DatatypeProperty ;
+                                           rdfs:subPropertyOf :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
+                                           rdfs:domain :EMMO_90bfd475_ba4a_4065_b0c1_1f08230be252 ;
+                                           rdfs:range rdf:JSON ;
+                                           skos:prefLabel "hasJSONValue"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The owl:dataProperty that provides a serialisation of an EMMO JSON data entity."@en .
+
+
 ###  https://w3id.org/emmo#EMMO_ac852bf0_3251_4d6b_9e57_acbfcb5e7e08
 :EMMO_ac852bf0_3251_4d6b_9e57_acbfcb5e7e08 rdf:type owl:DatatypeProperty ;
                                            rdfs:subPropertyOf :EMMO_b35e92d7_7fa0_4661_aa5a_5cea7c8e6925 ;
@@ -87,15 +96,6 @@ rdf:JSON rdf:type rdfs:Datatype .
                                            rdfs:range xsd:anyURI ;
                                            skos:prefLabel "hasURNValue"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The owl:dataProperty that provides a serialisation of an EMMO URN data entity."@en .
-
-
-###  https://w3id.org/emmo/disciplines/computerscience#EMMO_712f46a1_0aaa_4a41_b681_b10e1cc05233
-:EMMO_712f46a1_0aaa_4a41_b681_b10e1cc05233 rdf:type owl:DatatypeProperty ;
-                                           rdfs:subPropertyOf :EMMO_b6292331_94af_4f00_976b_ea55960c2f1c ;
-                                           rdfs:domain :EMMO_90bfd475_ba4a_4065_b0c1_1f08230be252 ;
-                                           rdfs:range rdf:JSON ;
-                                           skos:prefLabel "hasJSONValue"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The owl:dataProperty that provides a serialisation of an EMMO JSON data entity."@en .
 
 
 #################################################################
@@ -287,14 +287,9 @@ https://www.computer.org/education/bodies-of-knowledge/software-engineering"""@e
 ###  https://w3id.org/emmo#EMMO_51f1ba0d_e92b_4be2_9a9d_4640b16ac7ed
 :EMMO_51f1ba0d_e92b_4be2_9a9d_4640b16ac7ed rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ,
-                                                           [ owl:intersectionOf ( :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de
-                                                                                  [ rdf:type owl:Restriction ;
-                                                                                    owl:onProperty [ owl:inverseOf :EMMO_55354438_7000_4284_b1b9_59d60c2261b9
-                                                                                                   ] ;
-                                                                                    owl:someValuesFrom :EMMO_e7848014_ad79_422d_be02_74df892f7c11
-                                                                                  ]
-                                                                                ) ;
-                                                             rdf:type owl:Class
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_07808d05_18d1_4253_96e5_58b8277347de ;
+                                                             owl:someValuesFrom :EMMO_e7848014_ad79_422d_be02_74df892f7c11
                                                            ] ;
                                            skos:altLabel "Resource"@en ;
                                            skos:prefLabel "SystemResource"@en ;
