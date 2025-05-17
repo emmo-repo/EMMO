@@ -31,7 +31,8 @@
 
 ###  https://w3id.org/emmo#EMMO_0e86a108_9d4d_4582_8126_f0c527d81901
 :EMMO_0e86a108_9d4d_4582_8126_f0c527d81901 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_0ee9e6a2_9240_4b1d_ac9a_f72416c7dc70 ;
+                                           rdfs:subPropertyOf :EMMO_0ee9e6a2_9240_4b1d_ac9a_f72416c7dc70 ,
+                                                              :EMMO_e701ec30_c993_48bf_8f29_fb10664065e5 ;
                                            rdfs:domain :EMMO_a4d66059_5dd3_4b90_b4cb_10960559441b ;
                                            rdfs:range :EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad ;
                                            skos:prefLabel "hasManufacturedOutput"@en .
@@ -46,7 +47,8 @@
 
 ###  https://w3id.org/emmo#EMMO_44d5f29a_6a9b_4f5d_9405_20ca553cd4d3
 :EMMO_44d5f29a_6a9b_4f5d_9405_20ca553cd4d3 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_0ee9e6a2_9240_4b1d_ac9a_f72416c7dc70 ;
+                                           rdfs:subPropertyOf :EMMO_0ee9e6a2_9240_4b1d_ac9a_f72416c7dc70 ,
+                                                              :EMMO_d162b33e_e1f5_47dc_b06f_58f35e591f45 ;
                                            rdfs:range :EMMO_127594de_4802_4ad6_b09d_d05b340394dd ;
                                            skos:prefLabel "hasServiceOutput"@en .
 
@@ -1085,7 +1087,8 @@ It must have and initial stage of its life that is also an outcome of a intentio
                                            rdfs:subClassOf :EMMO_82fc8506_1f84_4add_9683_abea077bd1e3 ,
                                                            :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ,
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_2bb50428_568d_46e8_b8bf_59a4c5656461 ;
+                                                             owl:onProperty [ owl:inverseOf :EMMO_0e86a108_9d4d_4582_8126_f0c527d81901
+                                                                            ] ;
                                                              owl:someValuesFrom :EMMO_a4d66059_5dd3_4b90_b4cb_10960559441b
                                                            ] ;
                                            skos:altLabel "Artifact"@en ,
@@ -1289,7 +1292,7 @@ manufacturing: production of components"""@en ;
 :EMMO_a4d66059_5dd3_4b90_b4cb_10960559441b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_2b9cbfb5_dbd0_4a68_9c6f_acc41b40dd72 ,
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 ;
+                                                             owl:onProperty :EMMO_0e86a108_9d4d_4582_8126_f0c527d81901 ;
                                                              owl:someValuesFrom :EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad
                                                            ] ,
                                                            [ rdf:type owl:Restriction ;
@@ -1825,7 +1828,7 @@ manufacturing process: set of processes in manufacturing involving a flow and/or
 [ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_0e86a108_9d4d_4582_8126_f0c527d81901 ;
                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#p> ;
                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#x>
                                                      ] ;
