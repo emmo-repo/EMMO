@@ -107,11 +107,11 @@ while read version name; do
     #if $remake || [ ! -f "$d/emmo-renamed.owl" ]; then
     #    echo "Generate renamed ontology"
     #    ontoconvert "$d/emmo-inferred.ttl" "$d/emmo-renamed.owl" \
-    #                -w -R -b http://emmo.info/emmo-renamed || true
+    #                -w -R -b https://w3id.org/emmo-renamed || true
     #fi
     #if $remake || [ ! -f "$d/emmo-renamed.ttl" ]; then
     #    ontoconvert "$d/emmo-inferred.ttl" "$d/emmo-renamed.ttl" \
-    #                -w -R -b http://emmo.info/emmo-renamed || true
+    #                -w -R -b https://w3id.org/emmo-renamed || true
     #fi
 
     # Generate documentation

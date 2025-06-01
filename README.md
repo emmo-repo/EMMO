@@ -146,6 +146,8 @@ This work has been supported by several European projects, including:
   - [OpenModel](https://www.open-model.eu/) (2021-2025) that receives funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 953167.
   - [SFI PhysMet](https://www.ntnu.edu/physmet/) (2020-2028) that receives funding from the Research Council of Norway, project no. 309584.
   - [BIG-MAP](https://www.big-map.eu/) (2020-2024) that receives funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 957189.
+  - [MatCHMaker](https://he-matchmaker.eu/) (2023-2027) that receives funding from the European Unio's Horizon Europe Research and Innovation Programme, under Grant Agreement n. 101091687.
+  - [PINK](https://pink-project.eu/) (2024-2027) that receives funding from the European Unio's Horizon Europe Research and Innovation Programme, under Grant Agreement n. 101137809.
 
 This work was conducted using the Protégé resource, which is supported by grant GM10331601 from the National Institute of General Medical Sciences of the United States National Institutes of Health.
 
