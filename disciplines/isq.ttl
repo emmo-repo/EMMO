@@ -139,8 +139,7 @@ The number of derived quantities not closed and may increase based on the need b
                                            skos:prefLabel "Velocity"@en ;
                                            :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/Velocity" ;
                                            :EMMO_26bf1bef_d192_4da6_b0eb_d2209698fb54 "https://www.wikidata.org/wiki/Q11465" ;
-                                           :EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "3-8.1" ,
-                                                                                      "3‑10.1" ;
+                                           :EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "3-8.1" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Vector quantity giving the rate of change of a position vector.
 
 -- ISO 80000-3"""@en .
@@ -203,6 +202,7 @@ The number of derived quantities not closed and may increase based on the need b
 ###  https://w3id.org/emmo#EMMO_04b3300c_98bd_42dc_a3b5_e6c29d69f1ac
 :EMMO_04b3300c_98bd_42dc_a3b5_e6c29d69f1ac rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_602397bd_e302_42a6_be33_fe67ea81933a ,
+                                                           :EMMO_a293f923_954c_4af5_9f97_9600ebd362cb ,
                                                            :EMMO_faab3f84_e475_4a46_af9c_7d249f0b9aef ;
                                            skos:altLabel "MoleFraction"@en ;
                                            skos:prefLabel "AmountFraction"@en ;
@@ -769,17 +769,20 @@ The number of derived quantities not closed and may increase based on the need b
 :EMMO_16d72037_3243_4018_ac6c_0015f661d3c3 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a242d3e9_c6d3_411e_a667_71ffbc248a1a ,
                                                            :EMMO_a66427d1_9932_4363_9ec5_7d91f2bfda1e ;
-                                           skos:prefLabel "Rotation"@en ;
+                                           skos:altLabel "Angular displacement may be signed, indicating the sense of rotation (e.g., clockwise); it may also be greater (in absolute value) than a full turn."@en ,
+                                                         "Rotation"@en ;
+                                           skos:prefLabel "AngularDisplacement"@en ;
                                            :EMMO_26bf1bef_d192_4da6_b0eb_d2209698fb54 "https://www.wikidata.org/wiki/Q76435127" ;
                                            :EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f "https://www.electropedia.org/iev/iev.nsf/display?openform&ievref=102-05-22" ;
                                            :EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "3-14" ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Number of turns."@en ,
-                                                                                      "Rotation is not necessarily integer."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The angle through which a body rotates around an axis of rotation."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Angular displacement may also be defined as number of turns (not necessarily an integer number)."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_16f2fe60_2db7_43ca_8fee_5b3e416bfe87
 :EMMO_16f2fe60_2db7_43ca_8fee_5b3e416bfe87 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_06448f64_8db6_4304_8b2c_e785dba82044 ,
+                                                           :EMMO_a293f923_954c_4af5_9f97_9600ebd362cb ,
                                                            :EMMO_a356870d_409a_4de6_a910_0d8498e593ff ;
                                            skos:prefLabel "MassConcentration"@en ;
                                            :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/MassConcentration" ;
@@ -888,15 +891,8 @@ Entropy"""@en ;
 :EMMO_1a4c1a97_88a7_4d8e_b2f9_2ca58e92dde4 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_acaaa124_3dde_48b6_86e6_6ec6f364f408 ,
                                                            :EMMO_f35cff4d_dc09_44cf_a729_22fb79e3bfb2 ;
-                                           owl:disjointUnionOf ( :EMMO_50bf79a6_a48b_424d_9d2c_813bd631231a
-                                                                 :EMMO_8159c26a_494b_4fa0_9959_10888f152298
-                                                                 :EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f
-                                                                 :EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88
-                                                                 :EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac
-                                                                 :EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7
-                                                                 :EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405
-                                                               ) ;
                                            skos:prefLabel "ISQBaseQuantity"@en ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "DisjointUnionOf: LuminousIntensity, AmountOfSubstance, ThermodynamicTemperature, ElectricCurrent, Length, Time, Mass" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Base quantities defined in the International System of Quantities (ISQ)."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/International_System_of_Quantities" .
 
@@ -1375,7 +1371,8 @@ Entropy"""@en ;
 ###  https://w3id.org/emmo#EMMO_2ce04004_62cf_4394_b6a2_b45fce1aebfe
 :EMMO_2ce04004_62cf_4394_b6a2_b45fce1aebfe rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_79751276_b2d0_4e2f_bbd4_99d412f43d55 ;
-                                           skos:prefLabel "ISO80000Categorised"@en .
+                                           skos:prefLabel "ISO80000Categorised"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Physical quantity categorised according to ISO 80000."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_2d66cf6d_9396_40c8_bb82_324ab19067ce
@@ -2115,9 +2112,9 @@ pH = −10 log(a_OH-)"""@en .
 :EMMO_44fc8c60_7a9c_49af_a046_e1878c88862c rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_3f15d200_c97b_42c8_8ac0_d81d150361e2 ,
                                                            :EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405 ;
-                                           rdfs:comment "The rest mass of an electron."@en ;
                                            skos:prefLabel "ElectronMass"@en ;
                                            :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/constant/ElectronMass" ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The rest mass of an electron."@en ;
                                            :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.E02008" .
 
 
@@ -2381,7 +2378,8 @@ pH = −10 log(a_OH-)"""@en .
 
 ###  https://w3id.org/emmo#EMMO_50bf79a6_a48b_424d_9d2c_813bd631231a
 :EMMO_50bf79a6_a48b_424d_9d2c_813bd631231a rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_ec1aa2cd_74eb_4506_81d1_901a3124aaba ,
+                                           rdfs:subClassOf :EMMO_1a4c1a97_88a7_4d8e_b2f9_2ca58e92dde4 ,
+                                                           :EMMO_ec1aa2cd_74eb_4506_81d1_901a3124aaba ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
                                                              owl:someValuesFrom :EMMO_14ff4393_0f28_4fb4_abc7_c2cc00bc761d
@@ -3156,7 +3154,8 @@ Temperature is a relative quantity that can be used to express temperature diffe
                                            rdfs:subClassOf :EMMO_ba236f43_7f94_4386_9673_9122952e928b ,
                                                            :EMMO_c29603f5_95e8_42f5_ab0c_f3bcf3166d53 ;
                                            skos:altLabel "FermiAnglularRepetency"@en ;
-                                           skos:prefLabel "FermiAnglularWaveNumber"@en ;
+                                           skos:hiddenLabel "FermiAnglularWaveNumber"@en ;
+                                           skos:prefLabel "FermiAnglularWavenumber"@en ;
                                            :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "https://qudt.org/vocab/quantitykind/FermiAngularWavenumber" ;
                                            :EMMO_26bf1bef_d192_4da6_b0eb_d2209698fb54 "https://www.wikidata.org/wiki/Q105554303" ;
                                            :EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "12-9.2" ;
@@ -3438,7 +3437,8 @@ Temperature is a relative quantity that can be used to express temperature diffe
                                            skos:prefLabel "DebyeTemperature"@en ;
                                            :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "https://qudt.org/vocab/quantitykind/DebyeTemperature" ;
                                            :EMMO_26bf1bef_d192_4da6_b0eb_d2209698fb54 "https://www.wikidata.org/wiki/Q3517821" ;
-                                           :EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "12-11" .
+                                           :EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "12-11" ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The temperature at which the highest-frequency mode (and hence all modes) are excited."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_754c3a5d_8ae8_41ff_b5f2_acbadb53c735
@@ -3451,10 +3451,11 @@ Temperature is a relative quantity that can be used to express temperature diffe
 
 ###  https://w3id.org/emmo#EMMO_76acb5d8_5ab8_484b_8354_7f7612f39c17
 :EMMO_76acb5d8_5ab8_484b_8354_7f7612f39c17 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_c29603f5_95e8_42f5_ab0c_f3bcf3166d53 ,
-                                                           :EMMO_e4791212_5a13_4aa6_aac2_08704550dcc3 ;
+                                           rdfs:subClassOf :EMMO_ba236f43_7f94_4386_9673_9122952e928b ,
+                                                           :EMMO_c29603f5_95e8_42f5_ab0c_f3bcf3166d53 ;
                                            skos:altLabel "DebyeAngluarRepetency"@en ;
-                                           skos:prefLabel "DebyeAngularWaveNumber"@en ;
+                                           skos:hiddenLabel "DebyeAngularWaveNumber"@en ;
+                                           skos:prefLabel "DebyeAngularWavenumber"@en ;
                                            :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "https://qudt.org/vocab/quantitykind/DebyeAngularWavenumber" ;
                                            :EMMO_26bf1bef_d192_4da6_b0eb_d2209698fb54 "https://www.wikidata.org/wiki/Q105554370" ;
                                            :EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "12-9.3" ;
@@ -3530,6 +3531,7 @@ Temperature is a relative quantity that can be used to express temperature diffe
 ###  https://w3id.org/emmo#EMMO_7c055d65_2929_40e1_af4f_4bf10995ad50
 :EMMO_7c055d65_2929_40e1_af4f_4bf10995ad50 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_602397bd_e302_42a6_be33_fe67ea81933a ,
+                                                           :EMMO_a293f923_954c_4af5_9f97_9600ebd362cb ,
                                                            :EMMO_faab3f84_e475_4a46_af9c_7d249f0b9aef ;
                                            skos:prefLabel "MassFraction"@en ;
                                            :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/MassFraction" ;
@@ -3713,6 +3715,7 @@ pH = −10 log(a_H+)."""@en ;
 ###  https://w3id.org/emmo#EMMO_8159c26a_494b_4fa0_9959_10888f152298
 :EMMO_8159c26a_494b_4fa0_9959_10888f152298 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_194100e1_e11a_4b7c_bb5a_171655679fc8 ,
+                                                           :EMMO_1a4c1a97_88a7_4d8e_b2f9_2ca58e92dde4 ,
                                                            :EMMO_a06e3d38_1aa8_4f45_89a8_722dbacfda24 ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
@@ -3902,6 +3905,10 @@ where g is the appropriate g factor, μ is mostly the Bohr magneton or nuclear m
                                            :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "https://qudt.org/vocab/quantitykind/SurfaceTension" ;
                                            :EMMO_26bf1bef_d192_4da6_b0eb_d2209698fb54 "https://www.wikidata.org/wiki/Q170749" ;
                                            :EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f "https://www.electropedia.org/iev/iev.nsf/display?openform&ievref=113-03-42" ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The tendency of liquid surfaces at rest to shrink into the minimum surface area possible."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """Surface tension is a contractive tendency of the surface of a liquid that allows it to resist an external force.
+
+-- QUDT"""@en ;
                                            :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.S06192" .
 
 
@@ -3965,7 +3972,11 @@ where g is the appropriate g factor, μ is mostly the Bohr magneton or nuclear m
                                            skos:prefLabel "KineticFrictionFactor"@en ;
                                            :EMMO_26bf1bef_d192_4da6_b0eb_d2209698fb54 "https://www.wikidata.org/wiki/Q73695445" ;
                                            :EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f "https://www.electropedia.org/iev/iev.nsf/display?openform&ievref=113-03-32" ;
-                                           :EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "4-23.2" .
+                                           :EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "4-23.2" ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Proportionality factor between the magnitudes of the kinetic friction force, and the normal component of the contact force."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """When it is not necessary to distinguish between dynamic friction factor and static friction factor, the name friction factor may be used for both.
+
+The dynamic friction factor µ is independent in first approximation of the contact surface."""@en .
 
 
 ###  https://w3id.org/emmo#EMMO_8a582db1_c561_42f6_80ff_0fd8f252b129
@@ -4032,9 +4043,9 @@ where g is the appropriate g factor, μ is mostly the Bohr magneton or nuclear m
 :EMMO_8d689295_7d84_421b_bc01_d5cceb2c2086 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_3f15d200_c97b_42c8_8ac0_d81d150361e2 ,
                                                            :EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405 ;
-                                           rdfs:comment "The rest mass of a proton."@en ;
                                            skos:prefLabel "ProtonMass"@en ;
                                            :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/constant/ProtonMass" ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The rest mass of a proton."@en ;
                                            :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.P04914" .
 
 
@@ -4111,7 +4122,9 @@ where g is the appropriate g factor, μ is mostly the Bohr magneton or nuclear m
                                            skos:prefLabel "ElectricCurrentPhasor"@en ;
                                            :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "https://qudt.org/vocab/quantitykind/ElectricCurrentPhasor" ;
                                            :EMMO_26bf1bef_d192_4da6_b0eb_d2209698fb54 "https://www.wikidata.org/wiki/Q78514596" ;
-                                           :EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "6-49" .
+                                           :EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "6-49" ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A representation of current as a sinusoidal integral quantity using a complex quantity whose argument is equal to the initial phase and whose modulus is equal to the root-mean-square value."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A phasor is a constant complex number, usually expressed in exponential form, representing the complex amplitude (magnitude and phase) of a sinusoidal function of time. Phasors are used by electrical engineers to simplify computations involving sinusoids, where they can often reduce a differential equation problem to an algebraic one."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_8f171308_f902_42c5_ac1d_d5259022e9c1
@@ -4556,7 +4569,7 @@ where g is the appropriate g factor, μ is mostly the Bohr magneton or nuclear m
                                            :EMMO_26bf1bef_d192_4da6_b0eb_d2209698fb54 "https://www.wikidata.org/wiki/Q2990696" ;
                                            :EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f "https://www.electropedia.org/iev/iev.nsf/display?openform&ievref=113-04-31" ;
                                            :EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "5-5.1" ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Quantity characterising the relative variation of volume with pressure at constant thermodynamic temperature."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Quantity characterising the relative variation of volume with pressure at constant thermodynamic temperature."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_9cffc70d_4b60_4187_a7cd_706f5740ae87
@@ -4792,6 +4805,13 @@ where g is the appropriate g factor, μ is mostly the Bohr magneton or nuclear m
                                            :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.S05637" .
 
 
+###  https://w3id.org/emmo#EMMO_a293f923_954c_4af5_9f97_9600ebd362cb
+:EMMO_a293f923_954c_4af5_9f97_9600ebd362cb rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_79751276_b2d0_4e2f_bbd4_99d412f43d55 ;
+                                           skos:prefLabel "ChemicalCompositionQuantity"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Quantities that are expressing chemical compositions."@en .
+
+
 ###  https://w3id.org/emmo#EMMO_a356870d_409a_4de6_a910_0d8498e593ff
 :EMMO_a356870d_409a_4de6_a910_0d8498e593ff rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ;
@@ -4847,7 +4867,7 @@ where g is the appropriate g factor, μ is mostly the Bohr magneton or nuclear m
                                                            :EMMO_faab3f84_e475_4a46_af9c_7d249f0b9aef ;
                                            skos:prefLabel "RelativeMassFractionOfVapour"@en ;
                                            :EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "5-35" ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Quotient of mass concentration of water vapour and mass concentration at its saturation 
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Quotient of mass concentration of water vapour and mass concentration at its saturation
 
 ψ = r/rsat
 
@@ -4929,6 +4949,7 @@ where r is mass ratio of water vapour to dry gas and rsat is the mass ratio of w
 ###  https://w3id.org/emmo#EMMO_a8eb87b5_4d10_4137_a75c_e04ee59ca095
 :EMMO_a8eb87b5_4d10_4137_a75c_e04ee59ca095 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_602397bd_e302_42a6_be33_fe67ea81933a ,
+                                                           :EMMO_a293f923_954c_4af5_9f97_9600ebd362cb ,
                                                            :EMMO_faab3f84_e475_4a46_af9c_7d249f0b9aef ;
                                            skos:prefLabel "VolumeFraction"@en ;
                                            :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/quantitykind/VolumeFraction" ;
@@ -5106,7 +5127,8 @@ where r is mass ratio of water vapour to dry gas and rsat is the mass ratio of w
 
 ###  https://w3id.org/emmo#EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f
 :EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_602397bd_e302_42a6_be33_fe67ea81933a ,
+                                           rdfs:subClassOf :EMMO_1a4c1a97_88a7_4d8e_b2f9_2ca58e92dde4 ,
+                                                           :EMMO_602397bd_e302_42a6_be33_fe67ea81933a ,
                                                            :EMMO_dae32a4a_d8da_4047_81b0_36a9713fdce1 ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
@@ -5370,7 +5392,9 @@ where r is mass ratio of water vapour to dry gas and rsat is the mass ratio of w
                                            skos:prefLabel "StaticFrictionCoefficient"@en ;
                                            :EMMO_26bf1bef_d192_4da6_b0eb_d2209698fb54 "https://www.wikidata.org/wiki/Q73695673" ;
                                            :EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f "https://www.electropedia.org/iev/iev.nsf/display?openform&ievref=113-03-33" ;
-                                           :EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "4-23.1" .
+                                           :EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "4-23.1" ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Proportionality factor between the maximum magnitude of the tangential component of the static friction force and the magnitude of the normal component of the contact force between two bodies at relative rest with respect to each other."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "When it is not necessary to distinguish between dynamic friction factor and static friction factor, the name friction factor may be used for both."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_b725aad8_55e2_430a_b2d2_f84b8333484e
@@ -5414,14 +5438,16 @@ where r is mass ratio of water vapour to dry gas and rsat is the mass ratio of w
 ###  https://w3id.org/emmo#EMMO_ba236f43_7f94_4386_9673_9122952e928b
 :EMMO_ba236f43_7f94_4386_9673_9122952e928b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a242d3e9_c6d3_411e_a667_71ffbc248a1a ,
+                                                           :EMMO_c29603f5_95e8_42f5_ab0c_f3bcf3166d53 ,
                                                            :EMMO_ecec2983_7c26_4f8d_a981_51ca29668baf ;
                                            skos:altLabel "AngularRepetency"@en ;
+                                           skos:hiddenLabel "AngularWaveNumber"@en ;
                                            skos:prefLabel "AngularWavenumber"@en ;
                                            :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "https://qudt.org/vocab/quantitykind/AngularWavenumber" ;
                                            :EMMO_26bf1bef_d192_4da6_b0eb_d2209698fb54 "https://www.wikidata.org/wiki/Q30338487" ;
                                            :EMMO_50c298c2_55a2_4068_b3ac_4e948c33181f "https://www.electropedia.org/iev/iev.nsf/display?openform&ievref=103-10-12" ;
-                                           :EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "3-22" ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Magnitude of the wave vector."@en .
+                                           :EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "12.9.1" ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The wave phase divided by time."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_ba380bc6_2bfd_4f11_94c7_b3cbaafd1631
@@ -5834,6 +5860,7 @@ the number of protons in the nucleus of an atom""" ;
 ###  https://w3id.org/emmo#EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88
 :EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_194100e1_e11a_4b7c_bb5a_171655679fc8 ,
+                                                           :EMMO_1a4c1a97_88a7_4d8e_b2f9_2ca58e92dde4 ,
                                                            :EMMO_af794e9d_dc7d_4756_83e1_2cd0e2ec864e ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
@@ -5960,6 +5987,7 @@ the number of protons in the nucleus of an atom""" ;
 ###  https://w3id.org/emmo#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac
 :EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_194100e1_e11a_4b7c_bb5a_171655679fc8 ,
+                                                           :EMMO_1a4c1a97_88a7_4d8e_b2f9_2ca58e92dde4 ,
                                                            :EMMO_a242d3e9_c6d3_411e_a667_71ffbc248a1a ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
@@ -6161,7 +6189,8 @@ the number of protons in the nucleus of an atom""" ;
 
 ###  https://w3id.org/emmo#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7
 :EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_a242d3e9_c6d3_411e_a667_71ffbc248a1a ,
+                                           rdfs:subClassOf :EMMO_1a4c1a97_88a7_4d8e_b2f9_2ca58e92dde4 ,
+                                                           :EMMO_a242d3e9_c6d3_411e_a667_71ffbc248a1a ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
                                                              owl:someValuesFrom :EMMO_02e894c3_b793_4197_b120_3442e08f58d1
@@ -6195,6 +6224,7 @@ the number of protons in the nucleus of an atom""" ;
 :EMMO_d5be1faf_0c56_4f5a_9b78_581e6dee949f rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064 ,
                                                            :EMMO_602397bd_e302_42a6_be33_fe67ea81933a ,
+                                                           :EMMO_a293f923_954c_4af5_9f97_9600ebd362cb ,
                                                            :EMMO_a356870d_409a_4de6_a910_0d8498e593ff ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
@@ -6257,14 +6287,10 @@ the number of protons in the nucleus of an atom""" ;
 ###  https://w3id.org/emmo#EMMO_d7d2ca25_03e1_4099_9220_c1a58df13ad0
 :EMMO_d7d2ca25_03e1_4099_9220_c1a58df13ad0 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_3f15d200_c97b_42c8_8ac0_d81d150361e2 ,
-                                                           :EMMO_a66427d1_9932_4363_9ec5_7d91f2bfda1e ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
-                                                             owl:someValuesFrom :EMMO_5ebd5e01_0ed3_49a2_a30d_cd05cbe72978
-                                                           ] ;
-                                           rdfs:comment "A fundamental physical constant characterizing the strength of the electromagnetic interaction between elementary charged particles."@en ;
+                                                           :EMMO_a66427d1_9932_4363_9ec5_7d91f2bfda1e ;
                                            skos:prefLabel "FineStructureConstant"@en ;
                                            :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/constant/FineStructureConstant" ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A fundamental physical constant characterizing the strength of the electromagnetic interaction between elementary charged particles."@en ;
                                            :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.F02389" .
 
 
@@ -6684,18 +6710,6 @@ Rain rate"""@en ;
                                            :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.R05046" .
 
 
-###  https://w3id.org/emmo#EMMO_e4791212_5a13_4aa6_aac2_08704550dcc3
-:EMMO_e4791212_5a13_4aa6_aac2_08704550dcc3 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_c29603f5_95e8_42f5_ab0c_f3bcf3166d53 ,
-                                                           :EMMO_e0aaed83_9224_4bd8_a960_a813c4569412 ;
-                                           skos:altLabel "AngularRepetency"@en ;
-                                           skos:prefLabel "AngularWaveNumber"@en ;
-                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "https://qudt.org/vocab/quantitykind/AngularWavenumber" ;
-                                           :EMMO_26bf1bef_d192_4da6_b0eb_d2209698fb54 "https://www.wikidata.org/wiki/Q105542089" ;
-                                           :EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578 "12-9.1" ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "In condensed matter physics, quotient of momentum and the reduced Planck constant."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_e4de48b1_dabb_4490_ac2b_040f926c64f0
 :EMMO_e4de48b1_dabb_4490_ac2b_040f926c64f0 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac ;
@@ -7039,6 +7053,7 @@ Rain rate"""@en ;
 ###  https://w3id.org/emmo#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405
 :EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_194100e1_e11a_4b7c_bb5a_171655679fc8 ,
+                                                           :EMMO_1a4c1a97_88a7_4d8e_b2f9_2ca58e92dde4 ,
                                                            :EMMO_be76ad52_2e29_4202_be6f_0a15eb9c1817 ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
@@ -7639,6 +7654,22 @@ It defines the Kelvin unit in the SI system."""@en ;
                                            skos:prefLabel "Intensity"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Power transferred per unit area."@en ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Intensity_(physics)"@en .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :EMMO_50bf79a6_a48b_424d_9d2c_813bd631231a
+                :EMMO_8159c26a_494b_4fa0_9959_10888f152298
+                :EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f
+                :EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88
+                :EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac
+                :EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7
+                :EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405
+              )
+] .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
