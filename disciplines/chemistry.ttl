@@ -56,27 +56,52 @@
                                            rdf:type owl:InverseFunctionalProperty ,
                                                     owl:AsymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
-                                           rdfs:domain :EMMO_172e2c96_180b_40f8_a3e7_b624471f40c2 ;
+                                           rdfs:domain :EMMO_7efd64d1_05a1_49cd_a7f0_783ca050d4f3 ;
                                            rdfs:range :EMMO_cbcf8fe6_6da6_49e0_ab4d_00f737ea9689 ;
-                                           skos:prefLabel "hasChemicalSpecies"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Relates a single-component composition to its corresponding species."@en .
+                                           skos:prefLabel "hasSpeciesPart"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Relates a chemical composition to one its species."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This property is typically used to relate a SingleComponentComposition to its chemical species."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_51f426a6_af4a_4e91_a392_2b0bb635e2d5
 :EMMO_51f426a6_af4a_4e91_a392_2b0bb635e2d5 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_c58c799e_cc6c_4310_a3f1_78da70705b2a ;
+                                           rdfs:subPropertyOf :EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b ;
                                            rdfs:domain :EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352 ;
-                                           rdfs:range :EMMO_172e2c96_180b_40f8_a3e7_b624471f40c2 ;
-                                           skos:example """This relation can be used to relate a material to a chemical composition quantity of one of its chemical species. For example, the amount of aluminium in mat:alloy1 can be expressed as:
+                                           rdfs:range :EMMO_7efd64d1_05a1_49cd_a7f0_783ca050d4f3 ;
+                                           skos:example """This relation can be used to relate a material to a chemical composition quantity of one of its chemical species. For example, the amount of aluminium in substance subst:alloy1 can be expressed as:
 
 ```turtle
-mat:alloy1 emmo:hasSingleComponentComposition [
-        emmo:hasChemicalSpecies [ a emmo:AluminiumSymbol ] ;
-        emmo:hasSIQuantityValue \"98.1 wt%\"^^emmo:SIQuantityDatatype
-] .
+subst:alloy1 a emmo:Substance ;
+    emmo:hasChemicalComposition [
+        a emmo:SingleComponentComposition ;
+        emmo:hasSpeciesPart [ a emmo:AluminiumSymbol ] ;
+        emmo:hasQuantityPart [
+            a emmo:MassFraction ;
+            hasSIQuantityValue \"98.1 wt%\"^^emmo:SIQuantityDatatype
+        ]
+    ] .
 ```"""@en ;
-                                           skos:prefLabel "hasSingleComponentComposition"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Relates a substance to one of its single-component compositions."@en .
+                                           skos:prefLabel "hasChemicalComposition"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Relates a substance to chemical composition."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This property is often used to relate a substance directly to SingleComponentComposition indifiduals for each of its components."@en .
+
+
+###  https://w3id.org/emmo/disciplines/chemistry#EMMO_7aec67a4_fb96_47c6_80a3_8fea557b2cbb
+:EMMO_7aec67a4_fb96_47c6_80a3_8fea557b2cbb rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b ;
+                                           rdfs:domain :EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352 ;
+                                           rdfs:range :EMMO_cbcf8fe6_6da6_49e0_ab4d_00f737ea9689 ;
+                                           skos:prefLabel "hasChemicalSpecies"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Relates a substance to one of its chemical species."@en .
+
+
+###  https://w3id.org/emmo/disciplines/chemistry#EMMO_95d706e4_8b16_48a1_8dfd_40ccd4df1c12
+:EMMO_95d706e4_8b16_48a1_8dfd_40ccd4df1c12 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                           rdfs:domain :EMMO_89a0c87c_0804_4013_937a_6fe234d9499c ;
+                                           rdfs:range :EMMO_0650c031_42b6_4f0a_b62d_d88f071da6bf ;
+                                           skos:prefLabel "hasQuantityPart"@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Relates a symbolic construct to one of its quantity parts."@en .
 
 
 #################################################################
@@ -94,9 +119,14 @@ mat:alloy1 emmo:hasSingleComponentComposition [
 #    Classes
 #################################################################
 
+###  https://w3id.org/emmo#EMMO_04b3300c_98bd_42dc_a3b5_e6c29d69f1ac
+:EMMO_04b3300c_98bd_42dc_a3b5_e6c29d69f1ac rdfs:subClassOf :EMMO_a293f923_954c_4af5_9f97_9600ebd362cb .
+
+
 ###  https://w3id.org/emmo#EMMO_0eabfde6_c6c5_4b1f_bf10_e4e0e06e9b2e
 :EMMO_0eabfde6_c6c5_4b1f_bf10_e4e0e06e9b2e rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_7efd64d1_05a1_49cd_a7f0_783ca050d4f3 ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
                                                              owl:someValuesFrom :EMMO_172e2c96_180b_40f8_a3e7_b624471f40c2
                                                            ] ;
@@ -112,15 +142,20 @@ mat:alloy1 emmo:hasSingleComponentComposition [
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Name of a chemical according to the IUPAC standard."@en .
 
 
+###  https://w3id.org/emmo#EMMO_16f2fe60_2db7_43ca_8fee_5b3e416bfe87
+:EMMO_16f2fe60_2db7_43ca_8fee_5b3e416bfe87 rdfs:subClassOf :EMMO_a293f923_954c_4af5_9f97_9600ebd362cb .
+
+
 ###  https://w3id.org/emmo#EMMO_172e2c96_180b_40f8_a3e7_b624471f40c2
 :EMMO_172e2c96_180b_40f8_a3e7_b624471f40c2 rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                                             owl:someValuesFrom :EMMO_a293f923_954c_4af5_9f97_9600ebd362cb
+                                           rdfs:subClassOf :EMMO_7efd64d1_05a1_49cd_a7f0_783ca050d4f3 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_18fdd2cd_4b0a_43a5_a938_66d8290a066c ;
+                                                             owl:someValuesFrom :EMMO_cbcf8fe6_6da6_49e0_ab4d_00f737ea9689
                                                            ] ,
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                                             owl:someValuesFrom :EMMO_cbcf8fe6_6da6_49e0_ab4d_00f737ea9689
+                                                             owl:onProperty :EMMO_95d706e4_8b16_48a1_8dfd_40ccd4df1c12 ;
+                                                             owl:someValuesFrom :EMMO_a293f923_954c_4af5_9f97_9600ebd362cb
                                                            ] ;
                                            skos:prefLabel "SingleComponentComposition"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A language construct that represents the fraction or amount of a single constituent of a substance."@en .
@@ -180,6 +215,7 @@ The class Material hosts the subclasses for which a substance can be identified 
 
 ###  https://w3id.org/emmo#EMMO_4e659c69_ca2d_4569_8a96_f99857a1fa32
 :EMMO_4e659c69_ca2d_4569_8a96_f99857a1fa32 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_e2b11f6a_4191_427e_9844_2e0ac88dfc8b ;
                                            skos:prefLabel "InorganicCompound"@en .
 
 
@@ -216,7 +252,12 @@ This qualifies a chemical element as a name and not a matter obejct that can sta
 
 ###  https://w3id.org/emmo#EMMO_704630b8_fee3_49b9_baca_40e2dd276370
 :EMMO_704630b8_fee3_49b9_baca_40e2dd276370 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_e2b11f6a_4191_427e_9844_2e0ac88dfc8b ;
                                            skos:prefLabel "OrganicCompound"@en .
+
+
+###  https://w3id.org/emmo#EMMO_7c055d65_2929_40e1_af4f_4bf10995ad50
+:EMMO_7c055d65_2929_40e1_af4f_4bf10995ad50 rdfs:subClassOf :EMMO_a293f923_954c_4af5_9f97_9600ebd362cb .
 
 
 ###  https://w3id.org/emmo#EMMO_7efd64d1_05a1_49cd_a7f0_783ca050d4f3
@@ -227,15 +268,15 @@ This qualifies a chemical element as a name and not a matter obejct that can sta
                                                                                :EMMO_90963312_d9a9_4474_8d10_835aef5b168e
                                                                              )
                                                                ] ;
-                                           rdfs:subClassOf :EMMO_89a0c87c_0804_4013_937a_6fe234d9499c ,
-                                                           :EMMO_abf7efbe_6b04_41b8_8326_4dd0f6be753e ;
+                                           rdfs:subClassOf :EMMO_bd8db028_aec2_4a44_ad93_1a9f8270f72c ;
                                            skos:prefLabel "ChemicalComposition"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A language construct that provides information about the consitutents of a substance and their fractions or amounts." .
 
 
 ###  https://w3id.org/emmo#EMMO_90963312_d9a9_4474_8d10_835aef5b168e
 :EMMO_90963312_d9a9_4474_8d10_835aef5b168e rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_7efd64d1_05a1_49cd_a7f0_783ca050d4f3 ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
                                                              owl:someValuesFrom :EMMO_172e2c96_180b_40f8_a3e7_b624471f40c2
                                                            ] ;
@@ -282,6 +323,10 @@ This qualifies a chemical element as a name and not a matter obejct that can sta
                                            rdfs:subClassOf :EMMO_ecc4efe9_77a2_47e3_8190_f9a883d54ac6 ;
                                            skos:prefLabel "StructuralFormula"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A graphical representation of a molecular structure showing the relative position in space of the atomic constituents and their bonds." .
+
+
+###  https://w3id.org/emmo#EMMO_a8eb87b5_4d10_4137_a75c_e04ee59ca095
+:EMMO_a8eb87b5_4d10_4137_a75c_e04ee59ca095 rdfs:subClassOf :EMMO_a293f923_954c_4af5_9f97_9600ebd362cb .
 
 
 ###  https://w3id.org/emmo#EMMO_abf7efbe_6b04_41b8_8326_4dd0f6be753e
@@ -357,6 +402,10 @@ Chemical species is the macroscopic equivalent of molecular entity and refers to
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A symbol that stands for a chemical element."@en .
 
 
+###  https://w3id.org/emmo#EMMO_d5be1faf_0c56_4f5a_9b78_581e6dee949f
+:EMMO_d5be1faf_0c56_4f5a_9b78_581e6dee949f rdfs:subClassOf :EMMO_a293f923_954c_4af5_9f97_9600ebd362cb .
+
+
 ###  https://w3id.org/emmo#EMMO_d74ed682_894f_46c5_87cb_167f60926965
 :EMMO_d74ed682_894f_46c5_87cb_167f60926965 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_91a0635a_a89a_46de_8928_04a777d145c7 ;
@@ -376,10 +425,8 @@ Chemical species is the macroscopic equivalent of molecular entity and refers to
 ###  https://w3id.org/emmo#EMMO_e2b11f6a_4191_427e_9844_2e0ac88dfc8b
 :EMMO_e2b11f6a_4191_427e_9844_2e0ac88dfc8b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_df96cbb6_b5ee_4222_8eab_b3675df24bea ;
-                                           owl:disjointUnionOf ( :EMMO_4e659c69_ca2d_4569_8a96_f99857a1fa32
-                                                                 :EMMO_704630b8_fee3_49b9_baca_40e2dd276370
-                                                               ) ;
                                            skos:prefLabel "ChemicalCompound"@en ;
+                                           :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "DisjointUnionOf InorganicCompound, OrganicCompound" ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A chemical substance composed of many identical molecules (or molecular entities) composed of atoms from more than one element held together by chemical bonds." ;
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Chemical_compound" .
 
@@ -389,29 +436,6 @@ Chemical species is the macroscopic equivalent of molecular entity and refers to
                                            rdfs:subClassOf :EMMO_eb7de1a1_c30e_4f0d_94c6_fe70414d7e61 ;
                                            skos:prefLabel "ChemicalRepresentation"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A representation of objects belonging to the chemistry field." .
-
-
-###  https://w3id.org/emmo#EMMO_04b3300c_98bd_42dc_a3b5_e6c29d69f1ac
-:EMMO_04b3300c_98bd_42dc_a3b5_e6c29d69f1ac rdfs:subClassOf :EMMO_a293f923_954c_4af5_9f97_9600ebd362cb .
-
-
-###  https://w3id.org/emmo#EMMO_16f2fe60_2db7_43ca_8fee_5b3e416bfe87
-:EMMO_16f2fe60_2db7_43ca_8fee_5b3e416bfe87 rdfs:subClassOf :EMMO_a293f923_954c_4af5_9f97_9600ebd362cb .
-
-
-###  https://w3id.org/emmo#EMMO_7c055d65_2929_40e1_af4f_4bf10995ad50
-:EMMO_7c055d65_2929_40e1_af4f_4bf10995ad50 rdfs:subClassOf :EMMO_a293f923_954c_4af5_9f97_9600ebd362cb .
-
-
-###  https://w3id.org/emmo#EMMO_a8eb87b5_4d10_4137_a75c_e04ee59ca095
-:EMMO_a8eb87b5_4d10_4137_a75c_e04ee59ca095 rdfs:subClassOf :EMMO_a293f923_954c_4af5_9f97_9600ebd362cb .
-
-
-###  https://w3id.org/emmo#EMMO_d5be1faf_0c56_4f5a_9b78_581e6dee949f
-:EMMO_d5be1faf_0c56_4f5a_9b78_581e6dee949f rdfs:subClassOf :EMMO_a293f923_954c_4af5_9f97_9600ebd362cb .
-
-
-
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
