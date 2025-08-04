@@ -46,6 +46,7 @@ Description of files:
   ONTOLOGY_IRI=https://w3id.org/emmo/domain/x
   ```
 
+  Replace `x` with the name of your domain ontology.
 - **`.github/emmocheck_conf.yml`**: Optional configurations for the [emmocheck] tool.
 - **`.github/workflows/ci_tests.yml`**: GitHub workflow for testing the ontology with [emmocheck].
   Just copy [ci_tests.yml] file as-is from the microscopy domain ontology.
@@ -70,6 +71,7 @@ Description of files:
     </group>
   </catalog>
   ```
+  Replace `x` with the name of your domain ontology.
 - **`contributors.ttl`**: Turtle file listing contributors that haven't already been defined in any of the depending ontologies.
 - **`x-local.ttl`**: Defines the domain ontology, but does not import dependencies.
   If the domain ontology has modules, this file should import the modules using `owl:imports`.
