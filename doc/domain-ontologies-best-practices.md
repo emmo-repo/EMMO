@@ -97,36 +97,35 @@ It is recommended to follow the EMMO naming conventions described [here](https:/
 The [ontokit] tool can be used to setup CI/CD for the domain ontology.
 
 
-1.  Setup GitHub Pages:
+1. Setup GitHub Pages:
 
-    a. Create a orphan branch for GitHub Pages
+   1. Create a orphan branch for GitHub Pages
 
-       Run the following commands on your local machine:
+      Run the following commands on your local machine:
 
-           git checkout --orphan gh-pages
-           git push origin gh-pages
+          git checkout --orphan gh-pages
+          git push origin gh-pages
 
-    b. Enable GitHub Pages:
-       - On GitHub, go to `Settings`.
-       - In the memu to the left, select `Pages`.
-       - Under `Build and deployment` select "Deploy from a branch"
-       - Under `Branch`, select "gh-pages" and `/ (root)` directory
+   2. Enable GitHub Pages:
+      - On GitHub, go to `Settings`.
+      - In the memu to the left, select `Pages`.
+      - Under `Build and deployment` select "Deploy from a branch"
+      - Under `Branch`, select "gh-pages" and `/ (root)` directory
 
-2.  Go to the root of the repository and run the following commands:
+2. Go to the root of the repository and run the following commands:
 
-        python -m venv venv  # create a new virtual environment
-        source venv/bin/activate
-        pip install EMMOntoPy
-        ontokit cicd setup
+       python -m venv venv  # create a new virtual environment
+       source venv/bin/activate
+       pip install EMMOntoPy
+       ontokit cicd setup
 
-    This will generate the `.github` directory and setup a CI/CD system that:
-    - run [emmocheck] on the ontology for each commit
-    - generate squashed and inferred ontologies (on github pages)
-    - generate the squashed ontology with dependencies mentioned above
-    - generate reference documentation
-    - for new releases, automatically register the new version in ontology registries
-    - whatever else is needed...
-
+   This will generate the `.github` directory and setup a CI/CD system that:
+   - run [emmocheck] on the ontology for each commit
+   - generate squashed and inferred ontologies (on github pages)
+   - generate the squashed ontology with dependencies mentioned above
+   - generate reference documentation
+   - for new releases, automatically register the new version in ontology registries
+   - whatever else is needed...
 
 
 ## Acknowledging contributors
