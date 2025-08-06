@@ -119,13 +119,17 @@ The [ontokit] tool can be used to setup CI/CD for the domain ontology.
        pip install EMMOntoPy
        ontokit cicd setup
 
-   This will generate the `.github` directory and setup a CI/CD system that:
+   This will generate the `.github/` directory and setup a CI/CD system that:
    - run [emmocheck] on the ontology for each commit
    - generate squashed and inferred ontologies (on github pages)
    - generate the squashed ontology with dependencies mentioned above
    - generate reference documentation
    - for new releases, automatically register the new version in ontology registries
    - whatever else is needed...
+
+The CI/CD framework can be updated with (should seldom be needed)
+
+    ontokit cicd update
 
 
 ## Acknowledging contributors
