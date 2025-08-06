@@ -14,7 +14,6 @@ domain-x/
 ├── docs/
 │   └── x.md
 ├── .github
-│   ├── env
 │   ├── emmocheck_conf.yml
 │   └── workflows
 │       ├── ci_tests.yml
@@ -36,23 +35,13 @@ Description of files:
   If you copy the [license text] literally from [EMMO], GitHub will be able to automatically detect the license.
 - **`README.md`**: Markdown-formatted file describing the domain ontology.
   See [domain-electrochemistry] for an example.
-- **`docs/`**: Optional sub-directory with additional documentation of the domain ontology.
-- **`.github/`**: Optional sub-directory for continuous testing.
-- **`.github/env`**: Defines environment variables for the GitHub CI/CD workflows.
-
-  Example:
-  ```bash
-  ONTOLOGY_NAME=x
-  ONTOLOGY_IRI=https://w3id.org/emmo/domain/x
-  ```
-
-  Replace `x` with the name of your domain ontology.
-- **`.github/emmocheck_conf.yml`**: Optional configurations for the [emmocheck] tool.
+- **`docs/`**: Optional directory with additional documentation of the domain ontology.
+- **`.github/`**: Optional directory for continuous testing.
+  This directory (including all its content) should be generated with the [ontokit] tool.
+- **`.github/emmocheck_conf.yml`**: Configurations for the [emmocheck] tool.
 - **`.github/workflows/ci_tests.yml`**: GitHub workflow for testing the ontology with [emmocheck].
-  Just copy [ci_tests.yml] file as-is from the microscopy domain ontology.
 - **`.github/workflows/cd_ghpages.yml`**: GitHub workflow for saving the squashed and inferred versions of the domain ontology to GitHub Pages.
-  Just copy [cd_ghpages.yml] file as-is from the microscopy domain ontology.
-- **`modules/`**: Optional sub-directory with domain ontology modules.
+- **`modules/`**: Optional directory with domain ontology modules.
   This might be useful for large domain ontologies with an internal structure.
 - **`catalog-v001.xml`**: Catalog file that maps the versionIRI of domain ontology modules to their file location.
   This allows tools like [Protégé] or [EMMOntoPy] to find and load the domain ontology modules from the local file system increases of the checked out repository, instead of loading them from the web.
@@ -104,7 +93,45 @@ It is recommended to follow the EMMO naming conventions described [here](https:/
 ## Versioning
 
 
-## Testing
+## Setting up continuous testing and continuous deployment (CI/CD)
+The [ontokit] tool can be used to setup CI/CD for the domain ontology.
+
+
+1.  Setup GitHub Pages:
+
+    a. Create a orphan branch for GitHub Pages
+
+       Run the following commands on your local machine:
+
+           git checkout --orphan gh-pages
+           git push origin gh-pages
+
+    b. Enable GitHub Pages:
+       - On GitHub, go to `Settings`.
+       - In the memu to the left, select `Pages`.
+       - Under `Build and deployment` select "Deploy from a branch"
+       - Under `Branch`, select "gh-pages" and `/ (root)` directory
+
+2.  Go to the root of the repository and run the following commands:
+
+        python -m venv venv  # create a new virtual environment
+        source venv/bin/activate
+        pip install EMMOntoPy
+        ontokit cicd setup
+
+    This will generate the `.github` directory and setup a CI/CD system that:
+    - run [emmocheck] on the ontology for each commit
+    - generate squashed and inferred ontologies (on github pages)
+    - generate the squashed ontology with dependencies mentioned above
+    - generate reference documentation
+    - for new releases, automatically register the new version in ontology registries
+    - whatever else is needed...
+
+
+
+## Acknowledging contributors
+For each module, use dcterms:creator and dcterms:contributor to acknowledge contributors.
+Contributors that are not declared in imported ontologies should be defined in the contributors.ttl file.
 
 
 
@@ -117,3 +144,5 @@ It is recommended to follow the EMMO naming conventions described [here](https:/
 [emmocheck]: https://emmo-repo.github.io/EMMOntoPy/stable/tools-instructions/#emmocheck
 [ci_tests.yml]: https://github.com/emmo-repo/domain-microscopy/blob/master/.github/workflows/ci_tests.yml
 [cd_ghpages.yml]: https://github.com/emmo-repo/domain-microscopy/blob/master/.github/workflows/ci_tests.yml
+[ontokit]: https://emmo-repo.github.io/EMMOntoPy/stable/tools-instructions/#ontokit
+[emmocheck]: https://emmo-repo.github.io/EMMOntoPy/stable/tools-instructions/#emmocheck
