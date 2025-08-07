@@ -14,19 +14,13 @@ domain-x/
 ├── docs/
 │   └── x.md
 ├── .github
-│   ├── emmocheck_conf.yml
-│   └── workflows
-│       ├── ci_tests.yml
-│       └── cd_ghpages.yml
 ├── modules/
 │   ├── catalog-v001.xml
 │   ├── module1.ttl
 │   └── module2.ttl
 ├── catalog-v001.xml
 ├── contributors.ttl
-├── x-local.ttl
 ├── x-dependencies.ttl
-├── x-dynamic.ttl
 └── x.ttl
 ```
 
@@ -38,9 +32,6 @@ Description of files:
 - **`docs/`**: Optional directory with additional documentation of the domain ontology.
 - **`.github/`**: Optional directory for continuous testing.
   This directory (including all its content) should be generated with the [ontokit] tool.
-- **`.github/emmocheck_conf.yml`**: Configurations for the [emmocheck] tool.
-- **`.github/workflows/ci_tests.yml`**: GitHub workflow for testing the ontology with [emmocheck].
-- **`.github/workflows/cd_ghpages.yml`**: GitHub workflow for saving the squashed and inferred versions of the domain ontology to GitHub Pages.
 - **`modules/`**: Optional directory with domain ontology modules.
   This might be useful for large domain ontologies with an internal structure.
 - **`catalog-v001.xml`**: Catalog file that maps the versionIRI of domain ontology modules to their file location.
@@ -62,11 +53,10 @@ Description of files:
   ```
   Replace `x` with the name of your domain ontology.
 - **`contributors.ttl`**: Turtle file listing contributors that haven't already been defined in any of the depending ontologies.
-- **`x-local.ttl`**: Defines the domain ontology, but does not import dependencies.
   If the domain ontology has modules, this file should import the modules using `owl:imports`.
   Otherwise, it defines the classes and properties.
 - **`x-dependencies.ttl`**: Turtle file defining external dependencies.
-  Imports dependent ontologies as well as `x-local.ttl`.
+  Imports dependent ontologies.
 
   Example:
   ```turtle
@@ -78,12 +68,8 @@ Description of files:
     owl:imports <https://w3id.org/emmo/domain/electrochemistry/0.30.0-beta/electrochemistry>,
                 <https://w3id.org/emmo/domain/microstructure/0.3.1> .
   ```
-- **`x-dynamic.ttl`**: Imports `x-local.ttl` and `x-dependencies.ttl`.
-  This file can be opened in [Protégé], but will load very slow since all dependencies will be loaded recursively.
-  Loading it may also fail due to too many requests to GitHub.
-- **`x.ttl`**: Imports `x-local.ttl` and squashed version of `x-dependencies.ttl` from GitHub Pages.
+- **`x.ttl`**: Imports the domain ontology from `modules/`, which in turn imports the squashed version of `x-dependencies.ttl` from GitHub Pages.
   This file can be opened in [Protégé], and will load fast, since it only download one file from the web.
-  This is typically preferred main file to load for both developers and users.
 
 
 ## Naming conventions
