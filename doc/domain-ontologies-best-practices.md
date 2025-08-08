@@ -111,6 +111,7 @@ The [ontokit] tool can be used to setup CI/CD for the domain ontology.
    - generate the squashed ontology with dependencies mentioned above
    - generate reference documentation
    - for new releases, automatically register the new version in ontology registries
+   - check dependencies and generate dependency diagram/table
    - whatever else is needed...
 
 The CI/CD framework can be updated with (should seldom be needed)
