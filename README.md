@@ -153,6 +153,7 @@ This work has been supported by several European projects, including:
 This work was conducted using the Protégé resource, which is supported by grant GM10331601 from the National Institute of General Medical Sciences of the United States National Institutes of Health.
 
 
+
 [EMMO Wiki]: https://github.com/emmo-repo/EMMO/wiki
 [Publication list]: https://emmc.eu/emmo/
 [EMMO reference index]: https://w3id.org/emmo/
