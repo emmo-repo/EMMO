@@ -70,13 +70,13 @@ jobs:
         ontoconvert public/emmo-inferred.ttl public/emmo-inferred.owl
         ontoconvert public/emmo-full-inferred.ttl public/emmo-full-inferred.owl
 
-    - name: Create directory structure with EMMO
+    - name: Create directory structure for EMMO
       run: |
-        ontoconvert -rwe --iri=https://w3id.org/emmo --output-format=turtle emmo.ttl build/emmo/emmo
+        ontoconvert -rwe --iri=https://w3id.org/emmo --output-format=turtle emmo.ttl public/emmo/emmo
 
-    - name: Create directory structure with EMMO
+    - name: Create directory structure for HUME
       run: |
-        ontoconvert -rwe --rename-iris --iri=https://w3id.org/emmo --output-format=turtle emmo.ttl build/hume/hume
+        ontoconvert -rwe --rename-iris --iri=https://w3id.org/emmo --output-format=turtle emmo.ttl public/hume/hume
 
     - name: Generate html documentation (based on emmo-full)
       run: |
