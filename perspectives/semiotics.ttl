@@ -13,13 +13,13 @@
                                                 owl:imports <https://w3id.org/emmo/1.0.2/perspectives/perspective> ;
                                                 dcterms:abstract """The semiotics module is inspired by the semiotic theory by Charles S. Peirce. It introduces the triadic semiotic process, called semiosis, with its participants an 'object' that is represented by a 'sign' producing another sign, the 'interpretant' and finally the 'interpreter' who connects the 'object', 'sign' and 'interpretant'.
 The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. real world objects (e.g. symbol or sign) that stand for other real world objects that are to be interpreted by an agent. These symbols appear in actions (semiotic processes) meant to communicate meaning by establishing relationships between symbols (signs)."""@en ;
-                                                dcterms:contributor <https://orcid.org/0000-0003-0514-9229> ,
+                                                dcterms:contributor <https://orcid.org/0000-0001-7815-6636> ,
+                                                                    <https://orcid.org/0000-0003-0514-9229> ,
                                                                     <https://orcid.org/0009-0007-5850-6628> ,
-                                                                    <https://orcid.org/0009-0008-8009-5009> ,
-                                                                    <https://orcid.org/0000-0001-7815-6636> ;
-                                                dcterms:creator <https://orcid.org/0000-0003-3805-8761> ,
+                                                                    <https://orcid.org/0009-0008-8009-5009> ;
+                                                dcterms:creator <https://orcid.org/0000-0002-1560-809X> ,
                                                                 <https://orcid.org/0000-0002-4181-2852> ,
-                                                                <https://orcid.org/0000-0002-1560-809X> ;
+                                                                <https://orcid.org/0000-0003-3805-8761> ;
                                                 dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                                 dcterms:publisher <https://emmc.eu> ;
                                                 dcterms:title "Semiotics"@en ;
@@ -401,6 +401,10 @@ The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. rea
                                                              owl:someValuesFrom :EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b
                                                            ] ,
                                                            [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_9e3ad976_b179_4315_b51e_7e874df583dc ;
+                                                             owl:someValuesFrom :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_cb804456_9459_4be5_ac63_a291a872fbd0 ;
                                                              owl:someValuesFrom :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee
                                                            ] ;
@@ -425,9 +429,16 @@ Since in the EMMO the object/process categorisation is relation-driven and objec
 :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 ,
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d
-                                                                            ] ;
+                                                             owl:onProperty :EMMO_cd9a3a58_dabc_4c46_9ea4_03ca000b2022 ;
                                                              owl:someValuesFrom :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_da27d905_beb6_44ea_a330_a2dd9c17b263 ;
+                                                             owl:someValuesFrom :EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_f2fc1ce9_cc3b_4eb5_a112_3c85d1b1374a ;
+                                                             owl:someValuesFrom :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b
                                                            ] ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty [ owl:inverseOf :EMMO_cb804456_9459_4be5_ac63_a291a872fbd0
@@ -448,6 +459,14 @@ On the contrary, the interpreter is an agent recognized by the ontologist. The s
 ###  https://w3id.org/emmo#EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b
 :EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_27e8e2dd_78a5_433a_b522_a1f61a08aab4 ;
+                                                             owl:someValuesFrom :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_c792cf6b_097b_4a9a_9fc8_cb693cd5fdf3 ;
+                                                             owl:someValuesFrom :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d
+                                                           ] ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty [ owl:inverseOf :EMMO_7fb7fe7e_bdf9_4eeb_adad_e384dd5285c6
                                                                             ] ;
@@ -829,19 +848,21 @@ This class refers to what is commonly known as physical property, i.e. a measura
 :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_b803f122_4acb_4064_9d71_c1e5fd091fc9 ,
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_27e8e2dd_78a5_433a_b522_a1f61a08aab4
-                                                                            ] ;
+                                                             owl:onProperty :EMMO_0ed18c6b_8289_44fd_a7d7_c15a8786cdc0 ;
+                                                             owl:someValuesFrom :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_60577dea_9019_4537_ac41_80b0fb563d41 ;
+                                                             owl:someValuesFrom :EMMO_b21a56ed_f969_4612_a6ec_cb7766f7f31d
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_c01bea11_1937_4cc0_b40d_4b192fdba311 ;
                                                              owl:someValuesFrom :EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b
                                                            ] ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty [ owl:inverseOf :EMMO_8fb6d667_f2af_482d_97a9_ec97cd81274d
                                                                             ] ;
                                                              owl:someValuesFrom :EMMO_008fd3b2_4013_451f_8827_52bceab11841
-                                                           ] ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_f2fc1ce9_cc3b_4eb5_a112_3c85d1b1374a
-                                                                            ] ;
-                                                             owl:someValuesFrom :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee
                                                            ] ;
                                            skos:altLabel "Object"@en ,
                                                          "SemioticObject"@en ;
@@ -953,6 +974,10 @@ This can be used in material characterization, to define exactly the type of mea
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d ;
                                                              owl:someValuesFrom :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_82a96de2_41aa_4bf7_b7ac_de1373d50160 ;
+                                                             owl:someValuesFrom :EMMO_6f5af708_f825_4feb_a0d1_a8d813d3022b
                                                            ] ,
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_b8d05d29_9eea_47db_a20b_0b83ceb6de93 ;
@@ -1134,7 +1159,7 @@ For example, when a Boeing 747 is used as a sign for another Boeing 747."""@en ,
 
 
 [ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The rule for the subproperty chain:
-inverse (hasSign) o inverse (hasReferent) ⇒ hasInterpreter"""@en
+ inverse (hasInterpreter) o inverse (hasSign) ⇒ hasReferent"""@en
 ] .
 
 [ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The rule for the subproperty chain:
@@ -1142,7 +1167,7 @@ inverse (hasSign) o inverse (hasReferent) ⇒ hasInterpreter"""@en
  ] .
 
 [ :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """The rule for the subproperty chain:
- inverse (hasInterpreter) o inverse (hasSign) ⇒ hasReferent"""@en
+inverse (hasSign) o inverse (hasReferent) ⇒ hasInterpreter"""@en
  ] .
 
 #################################################################
