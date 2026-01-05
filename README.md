@@ -9,7 +9,7 @@
 <!-- LOGO -->
 <p align="center">
   <a href="https://github.com/emmo-repo/EMMO">
-    <img src="doc/emmo-logo.png" alt="EMMO logo" width="180">
+    <img src="https://raw.githubusercontent.com/emmo-repo/EMMO/refs/heads/master/doc/emmo-logo.png" alt="EMMO logo" width="180">
   </a>
 </p>
 
