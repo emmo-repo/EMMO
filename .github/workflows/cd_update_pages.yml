@@ -118,11 +118,11 @@ jobs:
 
     - name: Create directory structure for EMMO
       run: |
-        ontoconvert -rwe --iri=https://w3id.org/emmo/emmo --output-format=turtle emmo.ttl public/emmo/emmo
+        ontoconvert -rwe --catalog-file --iri=https://w3id.org/emmo/emmo --output-format=turtle emmo.ttl public/emmo/emmo
 
     - name: Create directory structure for HUME
       run: |
-        ontoconvert -rwe --rename-iris --iri=https://w3id.org/emmo/hume/hume --output-format=turtle emmo.ttl public/hume/hume
+        ontoconvert -rwe --catalog-file --rename-iris --iri=https://w3id.org/emmo/hume/hume --output-format=turtle emmo.ttl public/hume/hume
 
     - name: Generate html documentation (based on emmo-full)
       run: |
