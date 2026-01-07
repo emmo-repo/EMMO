@@ -106,6 +106,10 @@ jobs:
         ontodoc --iri-regex=https://w3id.org/emmo --imported emmo-full.ttl build/emmo.rst
         sphinx-build "build/" "public/"
 
+    - name: Create html documentation for HUME
+      run: |
+        cp public/emmo.html public/hume.html
+
     - name: Checkout GitHub Pages for EMMO-repo
       uses: actions/checkout@v4
       with:
