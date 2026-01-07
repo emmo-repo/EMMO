@@ -66,6 +66,7 @@ jobs:
       run: |
         ontoconvert -saw --rename-iris --base-iri="https://w3id.org/emmo/hume#" --iri=https://w3id.org/emmo/hume emmo.ttl public/hume.ttl
 
+      # TODO: rename inferred ontology to https://w3id.org/emmo/emmo-inferred
     - name: Create emmo-inferred
       run: |
         #ontoconvert --reasoner=Pellet public/emmo.ttl public/emmo-inferred.ttl
@@ -80,7 +81,7 @@ jobs:
           --input public/emmo.ttl \
           --output public/emmo-inferred.ttl
 
-
+      # TODO: rename inferred ontology to https://w3id.org/emmo/emmo-full-inferred
     - name: Create emmo-full-inferred
       run: |
         bin/robot reason \
@@ -92,6 +93,7 @@ jobs:
           --input public/emmo-full.ttl \
           --output public/emmo-full-inferred.ttl
 
+      # TODO: rename inferred ontology to https://w3id.org/emmo/hume/hume-inferred
     - name: Create hume-inferred
       run: |
         bin/robot reason \
@@ -103,6 +105,7 @@ jobs:
           --input public/hume.ttl \
           --output public/hume-inferred.ttl
 
+
     - name: Create ontologies in rdfxml format
       run: |
         ontoconvert public/emmo.ttl public/emmo.owl
@@ -111,6 +114,7 @@ jobs:
         ontoconvert public/emmo-full-inferred.ttl public/emmo-full-inferred.owl
         ontoconvert public/hume.ttl public/hume.owl
         ontoconvert public/hume-inferred.ttl public/hume-inferred.owl
+
 
     - name: Create directory structure for EMMO
       run: |
