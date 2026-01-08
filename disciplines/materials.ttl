@@ -41,6 +41,10 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
 #    Classes
 #################################################################
 
+###  http://org.semanticweb.owlapi/error#Error1
+<http://org.semanticweb.owlapi/error#Error1> rdf:type owl:Class .
+
+
 ###  https://w3id.org/emmo#EMMO_04f2a2d5_e799_4692_a654_420e76f5acc1
 :EMMO_04f2a2d5_e799_4692_a654_420e76f5acc1 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8 ;
@@ -232,8 +236,9 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
                                            rdfs:subClassOf :EMMO_6e9cb807_fc68_4bcf_b3ba_5fccc887c644 ,
                                                            :EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352 ;
                                            skos:prefLabel "Material"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals standing for an amount of matter (ordinary, anti or hybrid) substance (or mixture of substances) in different states of matter or phases."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals standing for an amount of ordinary matter substance."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A instance of a material (e.g. nitrogen) can represent any state of matter. The fact that the individual also belongs to other classes (e.g. Gas) would reveal the actual form in which the material is found."@en ,
+                                                                                      "A material may be either a mesoscopic or a continuum substance."@en ,
                                                                                       "Material usually means some definite kind, quality, or quantity of matter, especially as intended for use."@en .
 
 
@@ -380,9 +385,8 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
 ###  https://w3id.org/emmo#EMMO_5d659e25_a508_43ed_903c_3707c7c7cd4b
 :EMMO_5d659e25_a508_43ed_903c_3707c7c7cd4b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_e4e80813_f379_4091_b017_ee059811f806 ;
-                                           rdfs:isDefinedBy "ISO/TS 80004" ;
                                            skos:prefLabel "NanoMaterial"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Material with any external dimension in the nanoscale or having internal structure or surface structure in the nanoscale."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Nanomaterials are Materials possessing, at minimum, one external dimension measuring 1-100nm"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_5e77f00d_5c0a_44e7_baf1_2c2a4cb5b3ae
@@ -558,10 +562,6 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/State_of_matter"@en .
 
 
-###  https://w3id.org/emmo#EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352
-:EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352 :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "Disjoint Union Of: MesoscopicSubstance, ContinuumSubstance" .
-
-
 ###  https://w3id.org/emmo#EMMO_c457b6b9_5e73_4853_ae08_d776c12b8058
 :EMMO_c457b6b9_5e73_4853_ae08_d776c12b8058 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1 ;
@@ -665,12 +665,8 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
 
 ###  https://w3id.org/emmo#EMMO_f678173d_f036_4df1_a86b_2894560be617
 :EMMO_f678173d_f036_4df1_a86b_2894560be617 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4db521a3_f80f_436b_b9c7_e4b52b1383ea ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
-                                                             owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
-                                                             owl:onClass :EMMO_4207e895_8b83_4318_996a_72cfb32acd94
-                                                           ] ;
+                                           rdfs:subClassOf <http://org.semanticweb.owlapi/error#Error1> ,
+                                                           :EMMO_4db521a3_f80f_436b_b9c7_e4b52b1383ea ;
                                            skos:altLabel "Composite"@en ;
                                            skos:prefLabel "CompositeMaterial"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A material that contains two or more constituent materials."@en .
@@ -683,22 +679,22 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A substance made of macromolecules formed by linking many smaller, repeating chemical units called monomers into long chains or networks, resulting in unique properties like toughness, elasticity, or flexibility, found in both natural forms (like DNA, protein) and synthetic plastics, rubbers, and fibers."@en .
 
 
-###  https://w3id.org/emmo/disciplines/materials#EMMO_58b24844_d500_456b_b301_4472816aef97
-:EMMO_58b24844_d500_456b_b301_4472816aef97 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_5d659e25_a508_43ed_903c_3707c7c7cd4b ;
-                                           rdfs:label "NanoStructuredMaterial"@en .
-
-
-###  https://w3id.org/emmo/disciplines/materials#EMMO_978f6f26_e5ea_4262_9df8_d477e6b9327c
-:EMMO_978f6f26_e5ea_4262_9df8_d477e6b9327c rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_5d659e25_a508_43ed_903c_3707c7c7cd4b ;
-                                           rdfs:label "NanoObject"@en .
-
-
-[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
 ] .
 
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
+ ] .
+
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
  ] .
 
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
@@ -707,16 +703,7 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
 [ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
-[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
- ] .
-
 [ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
 #################################################################
