@@ -45,16 +45,16 @@ Each level is implemented in a set of interdependent modules as illustrated in t
 ### EMMO levels
 The different levels and versions of EMMO can be imported according to the following table:
 
-| Level          | Ontology IRI                          | Description                                                                                            |
-|----------------|---------------------------------------|--------------------------------------------------------------------------------------------------------|
-| TLO            | /https://w3id.org/emmo/tlo            | EMMO top level ontology. Equivalent to perspectives.                                                   |
-| MLO            | /https://w3id.org/emmo/mlo            | EMMO mid level ontology (excluding the full standard model and specialised units).                     |
-| mereocausality | /https://w3id.org/emmo/mereocausality | The fundamental mereocausal theory and basic annotations.                                              |
-| perspectives   | /https://w3id.org/emmo/perspectives   | The EMMO perspectives level.                                                                           |
-| reference      | /https://w3id.org/emmo/reference      | The EMMO reference level.                                                                              |
-| disciplines    | /https://w3id.org/emmo/disciplines    | The EMMO disciplines level.                                                                            |
-| domain         |                                       | Domain level ontologies maintained in separate repositories. See [below](#domain-ontologies)           |
-| application    |                                       | Application level ontologies maintained in separate repositories. See [below](#application-ontologies) |
+| Level          | Ontology IRI                         | Description                                                                                            |
+|----------------|--------------------------------------|--------------------------------------------------------------------------------------------------------|
+| TLO            | https://w3id.org/emmo/tlo            | EMMO top level ontology. Equivalent to perspectives.                                                   |
+| MLO            | https://w3id.org/emmo/mlo            | EMMO mid level ontology (excluding the full standard model and specialised units).                     |
+| mereocausality | https://w3id.org/emmo/mereocausality | The fundamental mereocausal theory and basic annotations.                                              |
+| perspectives   | https://w3id.org/emmo/perspectives   | The EMMO perspectives level.                                                                           |
+| reference      | https://w3id.org/emmo/reference      | The EMMO reference level.                                                                              |
+| disciplines    | https://w3id.org/emmo/disciplines    | The EMMO disciplines level.                                                                            |
+| domain         |                                      | Domain level ontologies maintained in separate repositories. See [below](#domain-ontologies)           |
+| application    |                                      | Application level ontologies maintained in separate repositories. See [below](#application-ontologies) |
 
 
 ### EMMO modules
@@ -66,15 +66,15 @@ A table with all modules can be found [here](https://emmo-repo.github.io/module-
 ### EMMO versions
 EMMO provides in several versions.
 
-| Ontology      | Ontology IRI                         | Description                                                                         |
-|---------------|--------------------------------------|-------------------------------------------------------------------------------------|
-| EMMO          | /https://w3id.org/emmo/emmo          | EMMO mid level ontology. Equivalent to `MLO` in the above table.                    |
-| EMMO full     | /https://w3id.org/emmo/full          | EMMO mid level ontology (including the full standard model and specialised units).  |
-| HUME          | /https://w3id.org/emmo/hume/hume     | [EMMO for humans]: Like `EMMO` but with human-readable IRIs. Intended for examples. |
-| ELITE         | /https://w3id.org/emmo/elite/elite   | [EMMO LITE]: Subset of `HUME` intended for rapid testing of graph databases.        |
-| EMMO inferred | /https://w3id.org/emmo/inferred      | Inferred version of `EMMO`.                                                         |
-| FULL inferred | /https://w3id.org/emmo/full/inferred | Inferred version of `EMMO full`.                                                    |
-| HUME inferred | /https://w3id.org/emmo/hume/inferred | Inferred version of `HUME`.                                                         |
+| Ontology      | Ontology IRI                        | Description                                                                         |
+|---------------|-------------------------------------|-------------------------------------------------------------------------------------|
+| EMMO          | https://w3id.org/emmo/emmo          | EMMO mid level ontology. Equivalent to `MLO` in the above table.                    |
+| EMMO full     | https://w3id.org/emmo/full          | EMMO mid level ontology (including the full standard model and specialised units).  |
+| HUME          | https://w3id.org/emmo/hume/hume     | [EMMO for humans]: Like `EMMO` but with human-readable IRIs. Intended for examples. |
+| ELITE         | https://w3id.org/emmo/elite/elite   | [EMMO LITE]: Subset of `HUME` intended for rapid testing of graph databases.        |
+| EMMO inferred | https://w3id.org/emmo/inferred      | Inferred version of `EMMO`.                                                         |
+| FULL inferred | https://w3id.org/emmo/full/inferred | Inferred version of `EMMO full`.                                                    |
+| HUME inferred | https://w3id.org/emmo/hume/inferred | Inferred version of `HUME`.                                                         |
 
 
 > [!NOTE]
