@@ -42,7 +42,8 @@ jobs:
       run: |
         pip install --upgrade pip
         pip install sphinx sphinxcontrib-globalsubs sphinx_design nbsphinx pydata-sphinx-theme
-        pip install git+https://github.com/emmo-repo/EMMOntoPy.git@master
+        #pip install git+https://github.com/emmo-repo/EMMOntoPy.git@master
+        pip install git+https://github.com/emmo-repo/EMMOntoPy.git@set-version
 
     - name: Create and prepare build and public directories
       run: |
@@ -66,12 +67,8 @@ jobs:
       run: |
         ontoconvert -saw --rename-iris --base-iri="https://w3id.org/emmo/hume#" --iri=https://w3id.org/emmo/hume emmo.ttl public/hume.ttl
 
-      # TODO: rename inferred ontology to https://w3id.org/emmo/inferred
     - name: Create EMMO inferred
       run: |
-        #ontoconvert --reasoner=Pellet public/emmo.ttl public/emmo-inferred.ttl
-        #ontoconvert --reasoner=Pellet public/full.ttl public/full-inferred.ttl
-        #bin/robot reason --reasoner ELK --input public/emmo.ttl --output public/emmo-inferred.ttl
         bin/robot reason \
           --reasoner HermiT \
           --remove-redundant-subclass-axioms true \
@@ -79,9 +76,9 @@ jobs:
           --exclude-owl-thing true \
           --exclude-duplicate-axioms true \
           --input public/emmo.ttl \
-          --output public/emmo-inferred.ttl
+          --output build/emmo-inferred.ttl
+        ontoconvert --iri=https://w3id.org/emmo/inferred build/emmo-inferred.ttl public/emmo-inferred.ttl
 
-      # TODO: rename inferred ontology to https://w3id.org/emmo/full-inferred
     - name: Create EMMO full inferred
       run: |
         bin/robot reason \
@@ -91,9 +88,9 @@ jobs:
           --exclude-owl-thing true \
           --exclude-duplicate-axioms true \
           --input public/full.ttl \
-          --output public/full-inferred.ttl
+          --output build/full-inferred.ttl
+        ontoconvert --iri=https://w3id.org/emmo/full-inferred build/full-inferred.ttl public/full-inferred.ttl
 
-      # TODO: rename inferred ontology to https://w3id.org/emmo/hume/hume-inferred
     - name: Create hume-inferred
       run: |
         bin/robot reason \
@@ -103,7 +100,8 @@ jobs:
           --exclude-owl-thing true \
           --exclude-duplicate-axioms true \
           --input public/hume.ttl \
-          --output public/hume-inferred.ttl
+          --output build/hume-inferred.ttl
+        ontoconvert --iri=https://w3id.org/emmo/hume-inferred build/hume-inferred.ttl public/hume-inferred.ttl
 
 
     - name: Create ontologies in rdfxml format
