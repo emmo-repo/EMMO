@@ -53,20 +53,31 @@ jobs:
 
     - name: Create squashed emmo
       run: |
-        ontoconvert -sawe --base-iri="https://w3id.org/emmo#" --iri=https://w3id.org/emmo emmo.ttl public/emmo.ttl
+        ontoconvert -sawe \
+          --iri="https://w3id.org/emmo/squashed" \
+          --base-iri="https://w3id.org/emmo#" \
+          --namespace="emmo:https://w3id.org/emmo#" \
+          emmo.ttl \
+          public/emmo.ttl
 
     - name: Create squashed EMMO full
       run: |
         ontoconvert -sawe \
+          --iri=https://w3id.org/emmo/full-squashed \
           --base-iri="https://w3id.org/emmo#" \
-          --iri=https://w3id.org/emmo/full \
+          --namespace="emmo:https://w3id.org/emmo#" \
           --rename-ontology="|w3id.org/emmo/([0-9][^/]*)|w3id.org/emmo/\\1/full|" \
           full.ttl \
           public/full.ttl
 
     - name: Create squashed hume (emmo-for-humans)
       run: |
-        ontoconvert -saw --rename-iris --base-iri="https://w3id.org/emmo/hume#" --iri=https://w3id.org/emmo/hume emmo.ttl public/hume.ttl
+        ontoconvert -saw --rename-iris \
+          --base-iri="https://w3id.org/emmo/hume#" \
+          --namespace=hume:https://w3id.org/hume#" \
+          --iri=https://w3id.org/emmo/hume \
+          emmo.ttl \
+          public/hume.ttl
 
     - name: Create EMMO inferred
       run: |
