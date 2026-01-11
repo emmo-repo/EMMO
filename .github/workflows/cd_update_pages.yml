@@ -54,21 +54,21 @@ jobs:
       run: |
         ontoconvert -sawe --base-iri="https://w3id.org/emmo#" --iri=https://w3id.org/emmo emmo.ttl public/emmo.ttl
 
-    - name: Create squashed emmo-full
+    - name: Create squashed EMMO full
       run: |
         ontoconvert -sawe \
           --base-iri="https://w3id.org/emmo#" \
-          --iri=https://w3id.org/emmo/emmo-full \
-          --rename-ontology="|w3id.org/emmo/([0-9][^/]*)|w3id.org/emmo/\\1/emmo-full|" \
-          emmo-full.ttl \
-          public/emmo-full.ttl
+          --iri=https://w3id.org/emmo/full \
+          --rename-ontology="|w3id.org/emmo/([0-9][^/]*)|w3id.org/emmo/\\1/full|" \
+          full.ttl \
+          public/full.ttl
 
     - name: Create squashed hume (emmo-for-humans)
       run: |
         ontoconvert -saw --rename-iris --base-iri="https://w3id.org/emmo/hume#" --iri=https://w3id.org/emmo/hume emmo.ttl public/hume.ttl
 
-      # TODO: rename inferred ontology to https://w3id.org/emmo/emmo-inferred
-    - name: Create emmo-inferred
+      # TODO: rename inferred ontology to https://w3id.org/emmo/inferred
+    - name: Create EMMO inferred
       run: |
         #ontoconvert --reasoner=Pellet public/emmo.ttl public/emmo-inferred.ttl
         #ontoconvert --reasoner=Pellet public/emmo-full.ttl public/emmo-full-inferred.ttl
@@ -83,7 +83,7 @@ jobs:
           --output public/emmo-inferred.ttl
 
       # TODO: rename inferred ontology to https://w3id.org/emmo/emmo-full-inferred
-    - name: Create emmo-full-inferred
+    - name: Create EMMO full inferred
       run: |
         bin/robot reason \
           --reasoner HermiT \
@@ -91,8 +91,8 @@ jobs:
           --preserve-annotated-axioms true \
           --exclude-owl-thing true \
           --exclude-duplicate-axioms true \
-          --input public/emmo-full.ttl \
-          --output public/emmo-full-inferred.ttl
+          --input public/full.ttl \
+          --output public/full-inferred.ttl
 
       # TODO: rename inferred ontology to https://w3id.org/emmo/hume/hume-inferred
     - name: Create hume-inferred
@@ -110,9 +110,9 @@ jobs:
     - name: Create ontologies in rdfxml format
       run: |
         ontoconvert public/emmo.ttl public/emmo.owl
-        ontoconvert public/emmo-full.ttl public/emmo-full.owl
+        ontoconvert public/full.ttl public/full.owl
         ontoconvert public/emmo-inferred.ttl public/emmo-inferred.owl
-        ontoconvert public/emmo-full-inferred.ttl public/emmo-full-inferred.owl
+        ontoconvert public/full-inferred.ttl public/full-inferred.owl
         ontoconvert public/hume.ttl public/hume.owl
         ontoconvert public/hume-inferred.ttl public/hume-inferred.owl
 
