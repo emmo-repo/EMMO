@@ -71,7 +71,7 @@ jobs:
     - name: Create EMMO inferred
       run: |
         #ontoconvert --reasoner=Pellet public/emmo.ttl public/emmo-inferred.ttl
-        #ontoconvert --reasoner=Pellet public/emmo-full.ttl public/emmo-full-inferred.ttl
+        #ontoconvert --reasoner=Pellet public/full.ttl public/full-inferred.ttl
         #bin/robot reason --reasoner ELK --input public/emmo.ttl --output public/emmo-inferred.ttl
         bin/robot reason \
           --reasoner HermiT \
@@ -82,7 +82,7 @@ jobs:
           --input public/emmo.ttl \
           --output public/emmo-inferred.ttl
 
-      # TODO: rename inferred ontology to https://w3id.org/emmo/emmo-full-inferred
+      # TODO: rename inferred ontology to https://w3id.org/emmo/full-inferred
     - name: Create EMMO full inferred
       run: |
         bin/robot reason \
@@ -125,10 +125,10 @@ jobs:
       run: |
         ontoconvert -rwe --catalog-file --rename-iris --iri=https://w3id.org/emmo/hume/hume --output-format=turtle emmo.ttl public/hume/hume
 
-    - name: Generate html documentation (based on emmo-full)
+    - name: Generate html documentation (based on EMMO full)
       run: |
-        #ontodoc --iri-regex=https://w3id.org/emmo --imported public/emmo-full-inferred.ttl build/emmo.rst
-        ontodoc --iri-regex=https://w3id.org/emmo --imported emmo-full.ttl build/emmo.rst
+        #ontodoc --iri-regex=https://w3id.org/emmo --imported public/full-inferred.ttl build/emmo.rst
+        ontodoc --iri-regex=https://w3id.org/emmo --imported full.ttl build/emmo.rst
         sphinx-build "build/" "public/"
 
     - name: Create html documentation for HUME
