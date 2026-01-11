@@ -1,11 +1,12 @@
 name: Update GitHub Pages
 
-on:
-  push:
-    branches:
-      - '[0-9]+.[0-9]+.[0-9]+'
-      - '[0-9]+.[0-9]+.[0-9]+-*'
-      - 'master'
+on: push
+# on:
+#   push:
+#     branches:
+#       - '[0-9]+.[0-9]+.[0-9]+'
+#       - '[0-9]+.[0-9]+.[0-9]+-*'
+#       - 'master'
 
 env:
   GIT_USER_NAME: EMMO Developers
@@ -133,6 +134,10 @@ jobs:
     - name: Create html documentation for HUME
       run: |
         cp public/emmo.html public/hume.html
+
+    - name: Create module table
+      run: |
+        python .github/scripts/module-table.py > public/module-table.md
 
     - name: Checkout GitHub Pages for EMMO-repo
       uses: actions/checkout@v4

@@ -34,8 +34,6 @@ The EMMO top-level ontology is consists of the fundamental mereocausality level 
 
 The EMMO middle-level ontology consists of the reference level, which includes the full standard model of physics and the representation of data and information, and the discipline level, providing a common foundation for different disciplines including metrology, materials and manufacturing.
 Each level is implemented in a set of interdependent modules as illustrated in the figure below.
-A more detailed figure including all the modules can be found [here](doc/figs/EMMO-structure.png).
-
 
 <table>
   <tr>
@@ -44,37 +42,57 @@ A more detailed figure including all the modules can be found [here](doc/figs/EM
   </tr>
 </table>
 
-
-## Repository Description
+### EMMO levels
 The different levels and versions of EMMO can be imported according to the following table:
 
-| Name           | Link                            | Comment                                                                         |
-|----------------|---------------------------------|---------------------------------------------------------------------------------|
-| emmo           | https://w3id.org/emmo           | Loads all EMMO modules, excluding the full standard model and specialised units |
-| emmo-tol       | https://w3id.org/emmo/tlo       | EMMO top level                                                                  |
-| emmo-reference | https://w3id.org/emmo/reference | EMMO reference level                                                            |
-| emmo-mlo       | https://w3id.org/emmo/mlo       | EMMO middle level                                                               |
-| emmo-full      | https://w3id.org/emmo/emmo-full | Loads all EMMO modules, including the full standard model and specialised units |
+| Level          | Ontology IRI                          | Description                                                                                            |
+|----------------|---------------------------------------|--------------------------------------------------------------------------------------------------------|
+| TLO            | /https://w3id.org/emmo/tlo            | EMMO top level ontology. Equivalent to perspectives.                                                   |
+| MLO            | /https://w3id.org/emmo/mlo            | EMMO mid level ontology (excluding the full standard model and specialised units).                     |
+| mereocausality | /https://w3id.org/emmo/mereocausality | The fundamental mereocausal theory and basic annotations.                                              |
+| perspectives   | /https://w3id.org/emmo/perspectives   | The EMMO perspectives level.                                                                           |
+| reference      | /https://w3id.org/emmo/reference      | The EMMO reference level.                                                                              |
+| disciplines    | /https://w3id.org/emmo/disciplines    | The EMMO disciplines level.                                                                            |
+| domain         |                                       | Domain level ontologies maintained in separate repositories. See [below](#domain-ontologies)           |
+| application    |                                       | Application level ontologies maintained in separate repositories. See [below](#application-ontologies) |
 
 
-Also, the following versions of EMMO are provided for ease of use:
+### EMMO modules
+EMMO has a modular structure, where each of the mereocausality, perspectives, reference and disciplines levels contain several modules, as shown in the more [detailed figure of the EMMO structure](doc/figs/EMMO-structure.png).
 
-| Name            | Link                                  | Comment                                                                                          |
-|-----------------|---------------------------------------|--------------------------------------------------------------------------------------------------|
-| emmo-for-humans | https://w3id.org/emmo/emmo-for-humans | Version of EMMO middle with IRIs replaced with human readable names. Only intended for examples. |
-| emmo-lite       | https://w3id.org/emmo/emmo-lite       | Selected leaf classes and properties for rapid development and deployment in graph databases.    |
-| emmo-inferred   | https://w3id.org/emmo/inferred        | Pre-inferred version of EMMO middle level                                                        |
+A table with all modules can be found [here](https://emmo-repo.github.io/module-table.md).
 
-Also, individual levels and modules be imported from the GitHub repository using their IRI.
-Use for example https://w3id.org/emmo/perspectives to import the Perspectives level and https://w3id.org/emmo/perspectives/semiotics to import the Semiotics module.
-A specific version can be imported by adding the version number after the initial https://w3id.org/emmo/.
-For example, https://w3id.org/emmo/1.0.0/perspectives will import Perspectives from version 1.0.0.
+
+### EMMO versions
+EMMO provides in several versions.
+
+| Ontology      | Ontology IRI                         | Description                                                                         |
+|---------------|--------------------------------------|-------------------------------------------------------------------------------------|
+| EMMO          | /https://w3id.org/emmo/emmo          | EMMO mid level ontology. Equivalent to `MLO` in the above table.                    |
+| EMMO full     | /https://w3id.org/emmo/full          | EMMO mid level ontology (including the full standard model and specialised units).  |
+| HUME          | /https://w3id.org/emmo/hume/hume     | [EMMO for humans]: Like `EMMO` but with human-readable IRIs. Intended for examples. |
+| ELITE         | /https://w3id.org/emmo/elite/elite   | [EMMO LITE]: Subset of `HUME` intended for rapid testing of graph databases.        |
+| EMMO inferred | /https://w3id.org/emmo/inferred      | Inferred version of `EMMO`.                                                         |
+| FULL inferred | /https://w3id.org/emmo/full/inferred | Inferred version of `EMMO full`.                                                    |
+| HUME inferred | /https://w3id.org/emmo/hume/inferred | Inferred version of `HUME`.                                                         |
+
 
 > [!NOTE]
-> Importing directly from the GitHub repository requires a client that understands `owl:imports`.
-> It is also much slower than importing from the links in the above table.
+> Importing any of the above ontologies requires a client that understands `owl:imports`.
+> It will also be slow due to recursive import of modules.
+> If you only need entities, it will much faster to import any of the namespaces listed below.
 
-A description of the EMMO Governance, organisation of related repositories, conventions and how to contribute can be found [here](doc/EMMO_governance.md).
+
+## EMMO namespaces
+In EMMO, all entities (i.e. classes, properties and individuals) lives in the same namespace.
+The namespace depends on the EMMO version according to this table:
+
+| EMMO Version | Prefix | Namespace                    |
+|--------------|--------|------------------------------|
+| EMMO         | emmo   | https://w3id.org/emmo#       |
+| HUME         | hume   | https://w3id.org/emmo/hume#  |
+| ELITE        | elite  | https://w3id.org/emmo/elite# |
+
 
 
 ## EMMO expressivity and reasoning
@@ -121,14 +139,15 @@ Please create an issue if you have a public domain ontology that you think shoul
 
 
 ## Application Ontologies
-
 EMMO application ontologies are engineered for a specific use or application by reusing and extending concepts from one or more domain ontologies.
 Even though that the delineation between "domain" and "application" ontologies are somewhat arbitrary, a main difference is that the application ontologies are generally not developed for reuse by other domain or application ontologies, while such reuse is the main focus of domain ontologies.
 
 
 ---
 
-## Contacts:
+## EMMO Governance and contect
+A description of the EMMO Governance, organisation of related repositories, conventions and how to contribute can be found [here](doc/EMMO_governance.md).
+
 You can contact EMMO Authors via emmo@emmc.eu
 
 
@@ -159,6 +178,10 @@ This work was conducted using the Protégé resource, which is supported by gran
 [EMMO reference index]: https://w3id.org/emmo/
 [Usage tips]: doc/using-protege.md
 [EMMO name and logo]: doc/about-name-logo.md
+
+<!-- TODO: add better link to EMMO for humans -->
+[EMMO for humans]: https://github.com/emmo-repo#the-emmo
+[EMMO LITE]: https://github.com/emmo-repo/ELITE
 
 [EMMO versions]: https://emmo-repo.github.io/
 [mereocausality]: https://github.com/emmo-repo/EMMO/wiki/Mereocausality
