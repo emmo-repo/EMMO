@@ -47,7 +47,7 @@ The different levels and versions of EMMO can be imported according to the follo
 
 | Level          | Ontology IRI                         | Description                                                                                            |
 |----------------|--------------------------------------|--------------------------------------------------------------------------------------------------------|
-| TLO            | https://w3id.org/emmo/tlo            | EMMO top level ontology. Equivalent to perspectives.                                                   |
+| TLO            | https://w3id.org/emmo/tlo            | EMMO top level ontology. Include mereocausality and perspectives.                                                   |
 | MLO            | https://w3id.org/emmo/mlo            | EMMO mid level ontology (excluding the full standard model and specialised units).                     |
 | mereocausality | https://w3id.org/emmo/mereocausality | The fundamental mereocausal theory and basic annotations.                                              |
 | perspectives   | https://w3id.org/emmo/perspectives   | The EMMO perspectives level.                                                                           |
