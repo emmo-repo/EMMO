@@ -33,7 +33,6 @@ module_files = sorted(set(files).difference(level_files), key=sorter)
 widths = [0, 0, 0]  # initial column widths
 table = []
 for filename in module_files:
-    print("***", filename)
     basename = filename[:-4]
     module = basename.split("/")[-1]
     level = basename.split("/")[0]
