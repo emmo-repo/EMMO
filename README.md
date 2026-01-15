@@ -13,7 +13,7 @@
   </a>
 </p>
 
-EMMO results from a multidisciplinary effort to develop a standard representational framework  that is consistent with scientific principles and methodologies.
+EMMO results from a multidisciplinary effort to develop a standard representational framework that is consistent with scientific principles and methodologies.
 It is based on physics, analytical philosophy and information and communication technologies.
 EMMO provides a framework for knowledge capture and interoperability in applied science and engineering, especially materials science and manufacturing.
 It is released under a Creative Commons CC BY 4.0 license.
@@ -30,7 +30,7 @@ It is released under a Creative Commons CC BY 4.0 license.
 
 ## EMMO structure
 This repository contains the EMMO top- and middle level ontologies, constituting the core of EMMO.
-The EMMO top-level ontology is consists of the fundamental mereocausality level and the perspective level, which supports a pluralistic representation of the world.
+The EMMO top-level ontology consists of the fundamental mereocausality level, and the perspective level which supports a pluralistic representation of the world.
 
 The EMMO middle-level ontology consists of the reference level, which includes the full standard model of physics and the representation of data and information, and the discipline level, providing a common foundation for different disciplines including metrology, materials and manufacturing.
 Each level is implemented in a set of interdependent modules as illustrated in the figure below.
