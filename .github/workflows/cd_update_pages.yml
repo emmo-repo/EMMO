@@ -50,32 +50,23 @@ jobs:
         mkdir build public
         if [ -d doc/_static ]; then cp -rf doc/_static/* build/. ; fi
 
-    - name: Create squashed emmo
+    - name: Create EMMO namespace from emax
       run: |
         ontoconvert -sawe \
-          --iri="https://w3id.org/emmo/squashed" \
+          --iri="https://w3id.org/emmo" \
           --base-iri="https://w3id.org/emmo#" \
           --namespace="emmo:https://w3id.org/emmo#" \
-          emmo.ttl \
+          --rename-ontology="|w3id.org/emmo/([0-9][^/]*)/?emax|w3id.org/emmo/\\1|" \
+          emax.ttl \
           public/emmo.ttl
 
-    - name: Create squashed EMMO full
-      run: |
-        ontoconvert -sawe \
-          --iri=https://w3id.org/emmo/full-squashed \
-          --base-iri="https://w3id.org/emmo#" \
-          --namespace="emmo:https://w3id.org/emmo#" \
-          --rename-ontology="|w3id.org/emmo/([0-9][^/]*)|w3id.org/emmo/\\1/full|" \
-          full.ttl \
-          public/full.ttl
-
-    - name: Create squashed hume (emmo-for-humans)
+    - name: Create HUME namespace from emax
       run: |
         ontoconvert -saw --rename-iris \
           --base-iri="https://w3id.org/emmo/hume#" \
           --namespace="hume:https://w3id.org/hume#" \
           --iri=https://w3id.org/emmo/hume \
-          emmo.ttl \
+          emax.ttl \
           public/hume.ttl
 
     - name: Create EMMO inferred
@@ -90,19 +81,7 @@ jobs:
           --output build/emmo-inferred.ttl
         ontoconvert --iri=https://w3id.org/emmo/inferred build/emmo-inferred.ttl public/emmo-inferred.ttl
 
-    - name: Create EMMO full inferred
-      run: |
-        bin/robot reason \
-          --reasoner HermiT \
-          --remove-redundant-subclass-axioms true \
-          --preserve-annotated-axioms true \
-          --exclude-owl-thing true \
-          --exclude-duplicate-axioms true \
-          --input public/full.ttl \
-          --output build/full-inferred.ttl
-        ontoconvert --iri=https://w3id.org/emmo/full-inferred build/full-inferred.ttl public/full-inferred.ttl
-
-    - name: Create hume-inferred
+    - name: Create HUME inferred
       run: |
         bin/robot reason \
           --reasoner HermiT \
@@ -114,14 +93,11 @@ jobs:
           --output build/hume-inferred.ttl
         ontoconvert --iri=https://w3id.org/emmo/hume-inferred build/hume-inferred.ttl public/hume-inferred.ttl
 
-
     - name: Create ontologies in rdfxml format
       run: |
         ontoconvert public/emmo.ttl public/emmo.owl
-        ontoconvert public/full.ttl public/full.owl
-        ontoconvert public/emmo-inferred.ttl public/emmo-inferred.owl
-        ontoconvert public/full-inferred.ttl public/full-inferred.owl
         ontoconvert public/hume.ttl public/hume.owl
+        ontoconvert public/emmo-inferred.ttl public/emmo-inferred.owl
         ontoconvert public/hume-inferred.ttl public/hume-inferred.owl
 
 
@@ -133,10 +109,9 @@ jobs:
       run: |
         ontoconvert -rwe --catalog-file --rename-iris --iri=https://w3id.org/emmo/hume/hume --output-format=turtle emmo.ttl public/hume/hume
 
-    - name: Generate html documentation (based on EMMO full)
+    - name: Generate html documentation (based on EMAX)
       run: |
-        #ontodoc --iri-regex=https://w3id.org/emmo --imported public/full-inferred.ttl build/emmo.rst
-        ontodoc --iri-regex=https://w3id.org/emmo --imported full.ttl build/emmo.rst
+        ontodoc --iri-regex=https://w3id.org/emmo --imported emax.ttl build/emmo.rst
         sphinx-build "build/" "public/"
 
     - name: Create html documentation for HUME

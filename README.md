@@ -66,15 +66,14 @@ A table with all modules can be found [here](https://emmo-repo.github.io/module-
 ### EMMO versions
 EMMO provides in several versions.
 
-| Ontology      | Ontology IRI                        | Description                                                                         |
-|---------------|-------------------------------------|-------------------------------------------------------------------------------------|
-| EMMO          | https://w3id.org/emmo/emmo          | EMMO mid level ontology. Equivalent to `MLO` in the above table.                    |
-| EMAX          | https://w3id.org/emmo/emax          | EMMO mid level ontology including the full standard model and specialised units.    |
-| HUME          | https://w3id.org/emmo/hume/hume     | [EMMO for humans]: Like `EMMO` but with human-readable IRIs. Intended for examples. |
-| ELITE         | https://w3id.org/emmo/elite/elite   | [EMMO LITE]: Subset of `HUME` intended for rapid testing of graph databases.        |
-| EMMO inferred | https://w3id.org/emmo/inferred      | Inferred version of `EMMO`.                                                         |
-| FULL inferred | https://w3id.org/emmo/full/inferred | Inferred version of `EMMO full`.                                                    |
-| HUME inferred | https://w3id.org/emmo/hume/inferred | Inferred version of `HUME`.                                                         |
+| Ontology      | Ontology IRI                        | Description                                                                               |
+|---------------|-------------------------------------|-------------------------------------------------------------------------------------------|
+| EMMO          | https://w3id.org/emmo/emmo          | EMMO mid level ontology. Equivalent to `MLO` in the above table.                          |
+| EMAX          | https://w3id.org/emmo/emax          | EMMO maximal, mid level ontology including the full standard model and specialised units. |
+| HUME          | https://w3id.org/emmo/hume/hume     | [EMMO for humans]: Like `EMMO` but with human-readable IRIs. Intended for examples.       |
+| ELITE         | https://w3id.org/emmo/elite/elite   | [EMMO LITE]: Subset of `HUME` intended for rapid testing of graph databases.              |
+| EMMO inferred | https://w3id.org/emmo/inferred      | Inferred version of EMMO (based on EMAX).                                                 |
+| HUME inferred | https://w3id.org/emmo/hume/inferred | Inferred version of HUME (based on EMAX).                                                 |
 
 
 > [!NOTE]
@@ -89,7 +88,7 @@ The namespace depends on the EMMO version according to this table:
 
 | EMMO Version | Prefix | Namespace                    | Description                                                                 |
 |--------------|--------|------------------------------|-----------------------------------------------------------------------------|
-| EMMO         | emmo   | https://w3id.org/emmo#       | Namespace with all EMMO entities (classes, properties and individuals)      |
+| EMAX         | emmo   | https://w3id.org/emmo#       | Namespace with all EMMO entities (classes, properties and individuals)      |
 | HUME         | hume   | https://w3id.org/emmo/hume#  | Like `emmo`, but with the numerical IRIs converted to human readable IRIs.  |
 | ELITE        | elite  | https://w3id.org/emmo/elite# | A subset of `hume`, extended with convenient shortcuts.                     |
 
