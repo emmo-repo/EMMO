@@ -103,11 +103,26 @@ jobs:
 
     - name: Create directory structure for EMMO
       run: |
-        ontoconvert -rwe --catalog-file --iri=https://w3id.org/emmo/emmo --output-format=turtle emmo.ttl public/emmo/emmo
+        ontoconvert -rwe \
+          --catalog-file \
+          --iri=https://w3id.org/emmo/emmo \
+          --namespace="emmo:https://w3id.org/emmo#" \
+          --output-format=turtle \
+          emmo.ttl \
+          public/emmo/emmo
 
     - name: Create directory structure for HUME
       run: |
-        ontoconvert -rwe --catalog-file --rename-iris --iri=https://w3id.org/emmo/hume/hume --output-format=turtle emmo.ttl public/hume/hume
+        ontoconvert -rwe \
+          --catalog-file \
+          --rename-iris \
+          --iri="https://w3id.org/emmo/hume" \
+          --base-iri="https://w3id.org/emmo/hume#" \
+          --namespace="hume:https://w3id.org/emmo/hume#" \
+          --rename-ontology="|w3id.org/emmo/([0-9][^/]*/)?([^0-9].*)|w3id.org/emmo/\\1hume/\\2|" \
+          --output-format=turtle \
+          emmo.ttl \
+          public/hume/hume
 
     - name: Generate html documentation (based on EMAX)
       run: |
@@ -118,9 +133,14 @@ jobs:
       run: |
         cp public/emmo.html public/hume.html
 
-    - name: Create module table
+    - name: Create module table in markdown
       run: |
-        python .github/scripts/module-table.py > public/module-table.md
+        python .github/scripts/module-table.py > build/module-table.md
+
+    - name: Convert module-table from markdown to html
+      uses: docker://pandoc/core:3.8
+        with:
+          args: --output public/module-table.html build/module-table.md
 
     - name: Checkout GitHub Pages for EMMO-repo
       uses: actions/checkout@v4
@@ -134,8 +154,8 @@ jobs:
       run: |
         # Do not overwrite index.html
         rm public/index.html
-        # Tell GitHub that this site is not generated with jekyll
-        #touch public/.nojekyll
+        # Tell GitHub that this site is not generated with jekyll (otherwise will the reference documentation not show up correctly)
+        touch public/.nojekyll
         # Copy to latest (root)
         cp -rf public/* pages/.
         # Copy to version

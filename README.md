@@ -60,7 +60,7 @@ The different levels and versions of EMMO can be imported according to the follo
 ### EMMO modules
 EMMO has a modular structure, where each of the foundation, perspectives, reference and disciplines levels contain several modules, as shown in the more [detailed figure of the EMMO structure](doc/figs/EMMO-structure.png).
 
-A table with all modules can be found [here](https://emmo-repo.github.io/module-table.md).
+A table with all modules can be found [here](https://emmo-repo.github.io/module-table.html).
 
 
 ### EMMO versions
