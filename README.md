@@ -30,7 +30,7 @@ It is released under a Creative Commons CC BY 4.0 license.
 
 ## EMMO structure
 This repository contains the EMMO top- and middle level ontologies, constituting the core of EMMO.
-The EMMO top-level ontology consists of the fundamental [mereocausality] level, and the perspective level which supports a pluralistic representation of the world.
+The EMMO top-level ontology consists of the foundation level, which introduces the fundamental theory of [mereocausality] and the perspective level, which supports a pluralistic representation of the world.
 
 The EMMO middle-level ontology consists of the reference level, which includes the full standard model of physics and the representation of data and information, and the discipline level, providing a common foundation for different disciplines including metrology, materials and manufacturing.
 Each level is implemented in a set of interdependent modules as illustrated in the figure below.
@@ -48,7 +48,7 @@ The different levels and versions of EMMO can be imported according to the follo
 | Level        | Ontology IRI                       | Description                                                                                            |
 |--------------|------------------------------------|--------------------------------------------------------------------------------------------------------|
 | TLO          | https://w3id.org/emmo/tlo          | EMMO top level ontology. Include mereocausality and perspectives.                                      |
-| MLO          | https://w3id.org/emmo/mlo          | EMMO mid level ontology (excluding the full standard model and specialised units).                     |
+| MLO          | https://w3id.org/emmo/mlo          | EMMO middle level ontology (excluding the full standard model and specialised units).                  |
 | foundation   | https://w3id.org/emmo/foundation   | The fundamental mereocausal theory and basic annotations.                                              |
 | perspectives | https://w3id.org/emmo/perspectives | The EMMO perspectives level.                                                                           |
 | reference    | https://w3id.org/emmo/reference    | The EMMO reference level.                                                                              |
@@ -66,14 +66,14 @@ A table with all modules can be found [here](https://emmo-repo.github.io/module-
 ### EMMO versions
 EMMO provides in several versions.
 
-| Ontology      | Ontology IRI                        | Description                                                                               |
-|---------------|-------------------------------------|-------------------------------------------------------------------------------------------|
-| EMMO          | https://w3id.org/emmo/emmo          | EMMO mid level ontology. Equivalent to `MLO` in the above table.                          |
-| EMAX          | https://w3id.org/emmo/emax          | EMMO maximal, mid level ontology including the full standard model and specialised units. |
-| HUME          | https://w3id.org/emmo/hume/hume     | [EMMO for humans]: Like `EMMO` but with human-readable IRIs. Intended for examples.       |
-| ELITE         | https://w3id.org/emmo/elite/elite   | [EMMO LITE]: Subset of `HUME` intended for rapid testing of graph databases.              |
-| EMMO inferred | https://w3id.org/emmo/inferred      | Inferred version of EMMO (based on EMAX).                                                 |
-| HUME inferred | https://w3id.org/emmo/hume/inferred | Inferred version of HUME (based on EMAX).                                                 |
+| Ontology      | Ontology IRI                        | Description                                                                                  |
+|---------------|-------------------------------------|----------------------------------------------------------------------------------------------|
+| EMMO          | https://w3id.org/emmo/emmo          | EMMO middle level ontology. Equivalent to `MLO` in the above table.                          |
+| EMAX          | https://w3id.org/emmo/emax          | EMMO maximal, middle level ontology including the full standard model and specialised units. |
+| HUME          | https://w3id.org/emmo/hume/hume     | [EMMO for humans]: Like `EMMO` but with human-readable IRIs. Intended for examples.          |
+| ELITE         | https://w3id.org/emmo/elite/elite   | [EMMO LITE]: Subset of `HUME` intended for rapid testing of graph databases.                 |
+| EMMO inferred | https://w3id.org/emmo/inferred      | Inferred version of EMMO (based on EMAX).                                                    |
+| HUME inferred | https://w3id.org/emmo/hume/inferred | Inferred version of HUME (based on EMAX).                                                    |
 
 
 > [!NOTE]
@@ -86,11 +86,11 @@ EMMO provides in several versions.
 In EMMO, all entities (i.e. classes, properties and individuals) lives in the same namespace.
 The namespace depends on the EMMO version according to this table:
 
-| EMMO Version | Prefix | Namespace                    | Description                                                                 |
-|--------------|--------|------------------------------|-----------------------------------------------------------------------------|
-| EMAX         | emmo   | https://w3id.org/emmo#       | Namespace with all EMMO entities (classes, properties and individuals)      |
-| HUME         | hume   | https://w3id.org/emmo/hume#  | Like `emmo`, but with the numerical IRIs converted to human readable IRIs.  |
-| ELITE        | elite  | https://w3id.org/emmo/elite# | A subset of `hume`, extended with convenient shortcuts.                     |
+| EMMO Version | Prefix | Namespace                    | Description                                                                      |
+|--------------|--------|------------------------------|----------------------------------------------------------------------------------|
+| EMMO maximal | emmo   | https://w3id.org/emmo#       | Namespace with all entities (classes, properties and individuals) from EMAX.     |
+| HUME         | hume   | https://w3id.org/emmo/hume#  | Like EMMO maximal, but with the numerical IRIs converted to human readable IRIs. |
+| ELITE        | elite  | https://w3id.org/emmo/elite# | A subset of HUME, extended with convenient shortcuts.                            |
 
 
 
