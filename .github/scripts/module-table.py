@@ -1,14 +1,14 @@
 import subprocess
 
 level_files = [
-    #"mereocausality/mereocausality.ttl",
+    "foundation/foundation.ttl",
     "perspectives/perspectives.ttl",
     "reference/reference.ttl",
     "disciplines/disciplines.ttl",
 ]
 
 sorting_order = [
-    "mereocausality",
+    "foundation",
     "perspectives",
     "reference",
     "disciplines",
@@ -38,14 +38,9 @@ for filename in module_files:
     level = basename.split("/")[0]
     if level not in sorting_order:
         level = ""
+    iri = f"https://w3id.org/emmo/{basename}"
 
-    # Note that the IRI of the mereocausality module is a special
-    # case. The IRI doesn't include the directory path since
-    # mereocausality plays the role of both being a module and an EMMO
-    # level ontology.
-    iripath = basename.split("/")[1] if module == "mereocausality" else basename
-
-    table.append([module, level, f"https://w3id.org/emmo/{iripath}"])
+    table.append([module, level, f"[{iri}]({iri})"])
 
 for row in table:
     for i, cell in enumerate(row):
