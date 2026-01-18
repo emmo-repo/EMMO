@@ -23,8 +23,8 @@ files = subprocess.check_output(
 
 module_files = sorted(set(files).difference(level_files), key=sorter)
 
-# TODO: Consider to add a forth column containing the abstract (or
-# dcterms:description) or all the ontology modules.
+# TODO: Consider to add a fifth column containing a short description
+# or all the ontology modules.
 
 widths = [0, 0, 0, 0]  # initial column widths
 table = []
