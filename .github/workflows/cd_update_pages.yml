@@ -42,9 +42,14 @@ jobs:
     - name: Install dependencies
       run: |
         pip install --upgrade pip
-        #pip install sphinx sphinxcontrib-globalsubs sphinx_design nbsphinx pydata-sphinx-theme
         pip install EMMOntoPy[ontodoc]
+        # Remove later, not yet included in requirements_ontodoc.txt
+        pip install sphinx==9.1.0 sphinxcontrib-globalsubs sphinx_design nbsphinx pydata-sphinx-theme
         pip install --upgrade git+https://github.com/emmo-repo/EMMOntoPy.git@master
+
+    - name: List install python packages
+      run: |
+        pip list
 
     - name: Create and prepare build and public directories
       run: |
