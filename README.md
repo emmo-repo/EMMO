@@ -9,11 +9,11 @@
 <!-- LOGO -->
 <p align="center">
   <a href="https://github.com/emmo-repo/EMMO">
-    <img src="https://raw.githubusercontent.com/emmo-repo/EMMO/refs/heads/master/doc/emmo-logo.png" alt="EMMO logo" width="180">
+    <img src="doc/emmo-logo.png" alt="EMMO logo" width="180">
   </a>
 </p>
 
-EMMO results from a multidisciplinary effort to develop a standard representational framework that is consistent with scientific principles and methodologies.
+EMMO results from a multidisciplinary effort to develop a standard representational framework  that is consistent with scientific principles and methodologies.
 It is based on physics, analytical philosophy and information and communication technologies.
 EMMO provides a framework for knowledge capture and interoperability in applied science and engineering, especially materials science and manufacturing.
 It is released under a Creative Commons CC BY 4.0 license.
@@ -30,10 +30,12 @@ It is released under a Creative Commons CC BY 4.0 license.
 
 ## EMMO structure
 This repository contains the EMMO top- and middle level ontologies, constituting the core of EMMO.
-The EMMO top-level ontology consists of the foundation level, which introduces the fundamental theory of [mereocausality] and the perspective level, which supports a pluralistic representation of the world.
+The EMMO top-level ontology is consists of the fundamental mereocausality level and the perspective level, which supports a pluralistic representation of the world.
 
 The EMMO middle-level ontology consists of the reference level, which includes the full standard model of physics and the representation of data and information, and the discipline level, providing a common foundation for different disciplines including metrology, materials and manufacturing.
 Each level is implemented in a set of interdependent modules as illustrated in the figure below.
+A more detailed figure including all the modules can be found [here](doc/figs/EMMO-structure.png).
+
 
 <table>
   <tr>
@@ -42,56 +44,37 @@ Each level is implemented in a set of interdependent modules as illustrated in t
   </tr>
 </table>
 
-### EMMO levels
+
+## Repository Description
 The different levels and versions of EMMO can be imported according to the following table:
 
-| Level        | Ontology IRI                       | Description                                                                                            |
-|--------------|------------------------------------|--------------------------------------------------------------------------------------------------------|
-| TLO          | https://w3id.org/emmo/tlo          | EMMO top level ontology. Include mereocausality and perspectives.                                      |
-| MLO          | https://w3id.org/emmo/mlo          | EMMO middle level ontology (excluding the full standard model and specialised units).                  |
-| foundation   | https://w3id.org/emmo/foundation   | The fundamental mereocausal theory and basic annotations.                                              |
-| perspectives | https://w3id.org/emmo/perspectives | The EMMO perspectives level.                                                                           |
-| reference    | https://w3id.org/emmo/reference    | The EMMO reference level.                                                                              |
-| disciplines  | https://w3id.org/emmo/disciplines  | The EMMO disciplines level.                                                                            |
-| domain       |                                    | Domain level ontologies maintained in separate repositories. See [below](#domain-ontologies)           |
-| application  |                                    | Application level ontologies maintained in separate repositories. See [below](#application-ontologies) |
+| Name           | Link                            | Comment                                                                         |
+|----------------|---------------------------------|---------------------------------------------------------------------------------|
+| emmo           | https://w3id.org/emmo           | Loads all EMMO modules, excluding the full standard model and specialised units |
+| emmo-tol       | https://w3id.org/emmo/tlo       | EMMO top level                                                                  |
+| emmo-reference | https://w3id.org/emmo/reference | EMMO reference level                                                            |
+| emmo-mlo       | https://w3id.org/emmo/mlo       | EMMO middle level                                                               |
+| emmo-full      | https://w3id.org/emmo/emmo-full | Loads all EMMO modules, including the full standard model and specialised units |
 
 
-### EMMO modules
-EMMO has a modular structure, where each of the foundation, perspectives, reference and disciplines levels contain several modules, as shown in the more [detailed figure of the EMMO structure](doc/figs/EMMO-structure.png).
+Also, the following versions of EMMO are provided for ease of use:
 
-A table with all modules can be found [here](https://emmo-repo.github.io/module-table.html).
+| Name            | Link                                  | Comment                                                                                          |
+|-----------------|---------------------------------------|--------------------------------------------------------------------------------------------------|
+| emmo-for-humans | https://w3id.org/emmo/emmo-for-humans | Version of EMMO middle with IRIs replaced with human readable names. Only intended for examples. |
+| emmo-lite       | https://w3id.org/emmo/emmo-lite       | Selected leaf classes and properties for rapid development and deployment in graph databases.    |
+| emmo-inferred   | https://w3id.org/emmo/inferred        | Pre-inferred version of EMMO middle level                                                        |
 
-
-### EMMO versions
-EMMO provides in several versions.
-
-| Ontology      | Ontology IRI                        | Description                                                                                  |
-|---------------|-------------------------------------|----------------------------------------------------------------------------------------------|
-| EMMO          | https://w3id.org/emmo/emmo          | EMMO middle level ontology. Equivalent to `MLO` in the above table.                          |
-| EMAX          | https://w3id.org/emmo/emax          | EMMO maximal, middle level ontology including the full standard model and specialised units. |
-| HUME          | https://w3id.org/emmo/hume/hume     | [EMMO for humans]: Like `EMMO` but with human-readable IRIs. Intended for examples.          |
-| ELITE         | https://w3id.org/emmo/elite/elite   | [EMMO LITE]: Subset of `HUME` intended for rapid testing of graph databases.                 |
-| EMMO inferred | https://w3id.org/emmo/inferred      | Inferred version of EMMO (based on EMAX).                                                    |
-| HUME inferred | https://w3id.org/emmo/hume/inferred | Inferred version of HUME (based on EMAX).                                                    |
-
+Also, individual levels and modules be imported from the GitHub repository using their IRI.
+Use for example https://w3id.org/emmo/perspectives to import the Perspectives level and https://w3id.org/emmo/perspectives/semiotics to import the Semiotics module.
+A specific version can be imported by adding the version number after the initial https://w3id.org/emmo/.
+For example, https://w3id.org/emmo/1.0.0/perspectives will import Perspectives from version 1.0.0.
 
 > [!NOTE]
-> Importing any of the above ontologies requires a client that understands `owl:imports`.
-> It will also be slow due to recursive import of modules.
-> If you only need entities, it will much faster to import any of the namespaces listed below.
+> Importing directly from the GitHub repository requires a client that understands `owl:imports`.
+> It is also much slower than importing from the links in the above table.
 
-
-## EMMO namespaces
-In EMMO, all entities (i.e. classes, properties and individuals) lives in the same namespace.
-The namespace depends on the EMMO version according to this table:
-
-| EMMO Version | Prefix | Namespace                    | Description                                                                      |
-|--------------|--------|------------------------------|----------------------------------------------------------------------------------|
-| EMMO maximal | emmo   | https://w3id.org/emmo#       | Namespace with all entities (classes, properties and individuals) from EMAX.     |
-| HUME         | hume   | https://w3id.org/emmo/hume#  | Like EMMO maximal, but with the numerical IRIs converted to human readable IRIs. |
-| ELITE        | elite  | https://w3id.org/emmo/elite# | A subset of HUME, extended with convenient shortcuts.                            |
-
+A description of the EMMO Governance, organisation of related repositories, conventions and how to contribute can be found [here](doc/EMMO_governance.md).
 
 
 ## EMMO expressivity and reasoning
@@ -102,8 +85,8 @@ However, all relevant inferred axioms have been already included in the ontology
 
 
 ## Domain Ontologies
-Based on the EMMO core, a set of domain-level ontologies have been developed by the community.
-They either import one of the versions of EMMO listed on [https://emmo-repo.github.io/](https://emmo-repo.github.io/) or selected modules from EMMO core.
+Based on the EMMO core, a set of domain-level ontologies have developed by the community.
+They either import one of the versions of EMMO listed on [https://emmo-repo.github.io/](https://emmo-repo.github.io/) or selected module from EMMO core.
 The following table lists the public EMMO-based domain ontologies that we are aware of.
 Please create an issue if you have a public domain ontology that you think should be listed here.
 
@@ -138,39 +121,36 @@ Please create an issue if you have a public domain ontology that you think shoul
 
 
 ## Application Ontologies
+
 EMMO application ontologies are engineered for a specific use or application by reusing and extending concepts from one or more domain ontologies.
-Even though the delineation between "domain" and "application" ontologies is somewhat arbitrary, a main difference is that the application ontologies are generally not developed for reuse by other domain or application ontologies, while such reuse is the main focus of domain ontologies.
+Even though that the delineation between "domain" and "application" ontologies are somewhat arbitrary, a main difference is that the application ontologies are generally not developed for reuse by other domain or application ontologies, while such reuse is the main focus of domain ontologies.
 
 
 ---
 
-## EMMO Governance and contect
-A description of the EMMO Governance, organisation of related repositories, conventions and how to contribute can be found [here](doc/EMMO_governance.md).
-
+## Contacts:
 You can contact EMMO Authors via emmo@emmc.eu
 
 
 ## Acknowledgement
 This work has been supported by several European projects, including:
 
-  - [EMMC-CSA](https://cordis.europa.eu/project/id/723867) (2016-2019); funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 723867.
-  - [SimDOME](https://cordis.europa.eu/project/id/814492) (2019-2023); funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 814492.
-  - [MarketPlace](https://www.the-marketplace-project.eu) (2018-2022); funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 760173.
-  - [VIMMP](https://www.vimmp.eu) (2018-2021); funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 760907.
-  - [OntoTrans](https://cordis.europa.eu/project/id/862136) (2020-2024); funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 862136.
-  - [ReaxPro](https://cordis.europa.eu/project/id/814416) (2019-2023); funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 814416.
-  - [OntoCommons](https://cordis.europa.eu/project/id/958371) (2020-2023); funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 958371.
-  - [OYSTER](https://cordis.europa.eu/project/id/760827) (2017-2021); funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 760827.
-  - [NanoMECommons](https://cordis.europa.eu/project/id/952869) (2021-2025); funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 952869.
-  - [OpenModel](https://www.open-model.eu/) (2021-2025); funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 953167.
-  - [SFI PhysMet](https://www.ntnu.edu/physmet/) (2020-2028); funding from the Research Council of Norway, project no. 309584.
-  - [BIG-MAP](https://www.big-map.eu/) (2020-2024); funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 957189.
-  - [MatCHMaker](https://he-matchmaker.eu/) (2023-2027); funding from the European Union's Horizon Europe Research and Innovation Programme, under Grant Agreement n. 101091687.
-  - [PINK](https://pink-project.eu/) (2024-2027); funding from the European Union's Horizon Europe Research and Innovation Programme, under Grant Agreement n. 101137809.
-  - [BatCAT](https://batcat.info) (2024-2027); funding from the European Union's Horizon Europe Research and Innovation Programme, under Grant Agreement n. 101137725 and the UK Research and Innovation (UKRI) under the UK government’s Horizon Europe funding guarantee under Grant Agreement n. 10091190.
+  - [EMMC-CSA](https://emmc.info) (2016-2019), that has received funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 723867.
+  - [SimDOME](https://simdome.eu) (2019-2023), that receives funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 814492.
+  - [MarketPlace](https://www.the-marketplace-project.eu) (2018-2022) that receives funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 760173.
+  - [VIMMP](https://www.vimmp.eu) (2018-2021) that receives funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 760907.
+  - [OntoTrans](https://cordis.europa.eu/project/id/862136) (2020-2024) that receives funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 862136.
+  - [ReaxPro](https://cordis.europa.eu/project/id/814416) (2019-2023) that receives funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 814416.
+  - [OntoCommons](https://cordis.europa.eu/project/id/958371) (2020-2023) that receives funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 958371.
+  - [OYSTER](https://www.oyster-project.eu/) (2017-2021) that receives funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 760827.
+  - [NanoMECommons](https://www.nanomecommons.net/) (2021-2025) that receives funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 952869.
+  - [OpenModel](https://www.open-model.eu/) (2021-2025) that receives funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 953167.
+  - [SFI PhysMet](https://www.ntnu.edu/physmet/) (2020-2028) that receives funding from the Research Council of Norway, project no. 309584.
+  - [BIG-MAP](https://www.big-map.eu/) (2020-2024) that receives funding from the European Union’s Horizon 2020 Research and Innovation Programme, under Grant Agreement n. 957189.
+  - [MatCHMaker](https://he-matchmaker.eu/) (2023-2027) that receives funding from the European Unio's Horizon Europe Research and Innovation Programme, under Grant Agreement n. 101091687.
+  - [PINK](https://pink-project.eu/) (2024-2027) that receives funding from the European Unio's Horizon Europe Research and Innovation Programme, under Grant Agreement n. 101137809.
 
 This work was conducted using the Protégé resource, which is supported by grant GM10331601 from the National Institute of General Medical Sciences of the United States National Institutes of Health.
-
 
 
 [EMMO Wiki]: https://github.com/emmo-repo/EMMO/wiki
@@ -178,10 +158,6 @@ This work was conducted using the Protégé resource, which is supported by gran
 [EMMO reference index]: https://w3id.org/emmo/
 [Usage tips]: doc/using-protege.md
 [EMMO name and logo]: doc/about-name-logo.md
-
-<!-- TODO: add better link to EMMO for humans -->
-[EMMO for humans]: https://github.com/emmo-repo#the-emmo
-[EMMO LITE]: https://github.com/emmo-repo/ELITE
 
 [EMMO versions]: https://emmo-repo.github.io/
 [mereocausality]: https://github.com/emmo-repo/EMMO/wiki/Mereocausality

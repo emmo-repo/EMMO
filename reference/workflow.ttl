@@ -9,22 +9,22 @@
 @base <https://w3id.org/emmo#> .
 
 <https://w3id.org/emmo/reference/workflow> rdf:type owl:Ontology ;
-                                            owl:versionIRI <https://w3id.org/emmo/1.0.2/reference/workflow> ;
-                                            owl:imports <https://w3id.org/emmo/1.0.2/perspectives/reductionistic> ,
-                                                        <https://w3id.org/emmo/1.0.2/reference/agency> ;
+                                            owl:versionIRI <https://w3id.org/emmo/1.0.1/reference/workflow> ;
+                                            owl:imports <https://w3id.org/emmo/1.0.1/perspectives/reductionistic> ,
+                                                        <https://w3id.org/emmo/1.0.1/reference/agency> ;
                                             dcterms:abstract """The workflow multi-perspective combines the persistence and holistic perspectives to describe workflows as a process built up of a set of temporal tasks.
 
 Workflows may also be extended reductionistically into serial and parallel workflows."""@en ,
                                                              "Workflow"@en ;
-                                            dcterms:contributor <https://orcid.org/0009-0008-8009-5009> ;
-                                            dcterms:creator <https://orcid.org/0000-0003-3805-8761> ,
-                                                            <https://orcid.org/0000-0002-4181-2852> ,
-                                                            <https://orcid.org/0000-0002-1560-809X> ;
+                                            dcterms:contributor :FrancescoZaccarini ;
+                                            dcterms:creator :EmanueleGhedini ,
+                                                            :GerhardGoldbeck ,
+                                                            :JesperFriis ;
                                             dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                             dcterms:publisher <https://emmc.eu> ;
                                             dcterms:title "Workflow"@en ;
                                             rdfs:comment "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                            owl:versionInfo "1.0.2" ;
+                                            owl:versionInfo "1.0.1" ;
                                             :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
 
 #################################################################
@@ -112,7 +112,7 @@ Workflows may also be extended reductionistically into serial and parallel workf
                                            rdfs:subClassOf :EMMO_180bd73b_0c5d_4b1f_ba12_4309c5a50d49 ,
                                                            :EMMO_caa63d00_80b1_4408_ac1b_cd0d23b0ec50 ;
                                            skos:prefLabel "InternalTask"@en ;
-                                           :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://w3id.org/emmo/raw/1.0.2/doc/figs/ThroughTile.png"^^xsd:anyURI ;
+                                           :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://w3id.org/emmo/raw/1.0.1/doc/figs/ThroughTile.png"^^xsd:anyURI ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A generic task in a workflow, that is not the begin or the end."@en .
 
 
@@ -177,7 +177,7 @@ The execution of an algorithm."""@en ;
                                                            :EMMO_92829beb_6ed4_4c88_bbd5_3bc7403e2895 ;
                                            owl:disjointWith :EMMO_5848e476_2768_4988_98f9_9053c532307b ;
                                            skos:prefLabel "SerialWorkflow"@en ;
-                                           :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://w3id.org/emmo/raw/1.0.2/doc/figs/SerialWorkflow.png"^^xsd:anyURI ;
+                                           :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://w3id.org/emmo/raw/1.0.1/doc/figs/SerialWorkflow.png"^^xsd:anyURI ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A workflow whose tasks are tiles of a sequence."@en .
 
 
@@ -185,7 +185,7 @@ The execution of an algorithm."""@en ;
 :EMMO_5848e476_2768_4988_98f9_9053c532307b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_64963ed6_39c9_4258_85e0_6466c4b5420c ;
                                            skos:prefLabel "ParallelWorkflow"@en ;
-                                           :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://w3id.org/emmo/raw/1.0.2/doc/figs/ParallelWorkflow.png"^^xsd:anyURI ;
+                                           :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://w3id.org/emmo/raw/1.0.1/doc/figs/ParallelWorkflow.png"^^xsd:anyURI ;
                                            :EMMO_31252f35_c767_4b97_a877_1235076c3e13 """A workflow can be seen as a direct acyclic graph, whose nodes are tasks and edges are asymmetric causal relations. A parallel graph occurs when the topological order of such graph if not unique, meaning that there is at least one portion of the workflow in which at least two tasks are running concurrently. 
 Concurrent tasks may or may not communicate. Communication is represented as a symmetric causality relation, superimposing the direct acyclic graph structure of the workflow."""@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A workflow with some tasks running concurrently."@en .
@@ -207,7 +207,7 @@ Concurrent tasks may or may not communicate. Communication is represented as a s
                                            rdfs:subClassOf :EMMO_180bd73b_0c5d_4b1f_ba12_4309c5a50d49 ,
                                                            :EMMO_edf72228_e040_4edc_8b46_78b2a47c72d7 ;
                                            skos:prefLabel "EndTask"@en ;
-                                           :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://w3id.org/emmo/raw/1.0.2/doc/figs/EndTile.png"^^xsd:anyURI ;
+                                           :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://w3id.org/emmo/raw/1.0.1/doc/figs/EndTile.png"^^xsd:anyURI ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The final task of a workflow."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "There may be more than one end task, if they run in parallel leading to more than one output."@en .
 
@@ -225,7 +225,7 @@ Concurrent tasks may or may not communicate. Communication is represented as a s
                                                            :EMMO_ddecfff6_d3a1_4972_b9e9_3d0ca11a3a0b ;
                                            skos:example "A Jacobi method, involving the iterative multiplication between a matrix A and a vector x, which is part of larger workflow for the solution of a partial differential equation using finite differences."@en ;
                                            skos:prefLabel "IterativeTask"@en ;
-                                           :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://w3id.org/emmo/raw/1.0.2/doc/figs/IterativeWorkflow.png"^^xsd:anyURI ;
+                                           :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://w3id.org/emmo/raw/1.0.1/doc/figs/IterativeWorkflow.png"^^xsd:anyURI ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An iterative workflow which is a task of a larger workflow."@en .
 
 
@@ -245,7 +245,7 @@ Concurrent tasks may or may not communicate. Communication is represented as a s
                                            rdfs:subClassOf :EMMO_180bd73b_0c5d_4b1f_ba12_4309c5a50d49 ,
                                                            :EMMO_fa595892_070d_455e_9459_06c97179c080 ;
                                            skos:prefLabel "BeginTask"@en ;
-                                           :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://w3id.org/emmo/raw/1.0.2/doc/figs/BeginTile.png"^^xsd:anyURI ;
+                                           :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://w3id.org/emmo/raw/1.0.1/doc/figs/BeginTile.png"^^xsd:anyURI ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An initial task of a workflow."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "There may be more than one begin task, if they run in parallel."@en .
 
@@ -254,7 +254,7 @@ Concurrent tasks may or may not communicate. Communication is represented as a s
 :EMMO_ddecfff6_d3a1_4972_b9e9_3d0ca11a3a0b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_57ba1bf0_4314_432c_a9bb_6a6720c8dab5 ;
                                            skos:prefLabel "IterativeWorkflow"@en ;
-                                           :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://w3id.org/emmo/raw/1.0.2/doc/figs/IterativeWorkflow.png"^^xsd:anyURI ;
+                                           :EMMO_157fdf31_6387_42be_8e72_10530519214a "https://w3id.org/emmo/raw/1.0.1/doc/figs/IterativeWorkflow.png"^^xsd:anyURI ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A workflow whose steps are the repetition of the same task type."@en .
 
 

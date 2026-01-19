@@ -9,21 +9,21 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @base <https://w3id.org/emmo#> .
 
-<https://w3id.org/emmo/foundation/mereocausality> rdf:type owl:Ontology ;
-                                        owl:versionIRI <https://w3id.org/emmo/1.0.2/foundation/mereocausality> ;
+<https://w3id.org/emmo/mereocausality> rdf:type owl:Ontology ;
+                                        owl:versionIRI <https://w3id.org/emmo/1.0.2/mereocausality> ;
                                         owl:imports <https://w3id.org/emmo/1.0.2/contributors> ;
                                         dcterms:abstract """Introduces the fundamental mereocausal (and mereotopological) concepts of EMMO and their relations with the real world entities that they represent. EMMO uses mereocausality as the ground for all the subsequent ontology modules.
 The concept of causal connection is used to distinguish between ontology entities: items are causally self-connected objects, while collections are causally disconnected.
 Quantum mereology is based on the concept of quantum entity.
 This module introduces also the fundamental mereotopological relations used to distinguish between space and time dimensions, making spacetime emerge from underlying network of causal relations between quantum entities."""@en ;
-                                        dcterms:contributor <https://orcid.org/0000-0001-9189-2400> ,
-                                                            <https://orcid.org/0000-0002-1560-809X> ,
-                                                            <https://orcid.org/0000-0002-4181-2852> ,
-                                                            <https://orcid.org/0000-0003-0514-9229> ,
-                                                            <https://orcid.org/0000-0003-4065-9742> ,
-                                                            <https://orcid.org/0009-0007-5850-6628> ,
-                                                            <https://orcid.org/0009-0008-8009-5009> ;
-                                        dcterms:creator <https://orcid.org/0000-0003-3805-8761> ;
+                                        dcterms:contributor :AdhamHashibon ,
+                                                            :AnnedeBaas ,
+                                                            :FrancescoZaccarini ,
+                                                            :GeorgSchmitz ,
+                                                            :GerhardGoldbeck ,
+                                                            :JesperFriis ,
+                                                            :SebastianoMoruzzi ;
+                                        dcterms:creator :EmanueleGhedini ;
                                         dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                         dcterms:publisher <https://emmc.eu> ;
                                         dcterms:title "Elementary Multiperspective Material Ontology"@en ,
@@ -55,10 +55,6 @@ dcterms:license rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/dc/terms/publisher
 dcterms:publisher rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/source
-dcterms:source rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/title
@@ -141,7 +137,7 @@ foaf:workplaceHomepage rdf:type owl:AnnotationProperty .
                                            skos:prefLabel "conceptualisation"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The conceptualisation annotation is a comment that helps the reader to understand how the world has been conceptualised by the ontology authors."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A conceptualisation is the preliminary step behind each theory, preceding each logical formalisation. The readers approaching an ontology entity should first read the conceptualisation annotation to clearly understand \"what we are talking about\" and the accompanying terminology, and then read the elucidation."@en ,
-                                                                                      "An conceptualisation can provide references to external knowledge sources (i.e. ISO, Goldbook, RoMM)."@en ;
+                                                                                      "An elucidation can provide references to external knowledge sources (i.e. ISO, Goldbook, RoMM)."@en ;
                                            rdfs:subPropertyOf rdfs:comment .
 
 
@@ -249,7 +245,6 @@ foaf:workplaceHomepage rdf:type owl:AnnotationProperty .
 :EMMO_07808d05_18d1_4253_96e5_58b8277347de rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_fdfa43cd_1f48_4d82_ac49_685fe894558f ;
                                            owl:inverseOf :EMMO_55354438_7000_4284_b1b9_59d60c2261b9 ;
-                                           rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
                                            skos:prefLabel "isPortionPartOf"@en .
 
 
@@ -257,7 +252,6 @@ foaf:workplaceHomepage rdf:type owl:AnnotationProperty .
 :EMMO_0949a7de_78dc_421d_8603_3b685cb927a3 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_559ab98c_1c7d_4794_996c_8c1d8d56381c ;
                                            owl:inverseOf <https://w3id.org/emmo#33fd15ab_7662_4cc6_8bf6_988422efc631> ;
-                                           rdfs:range :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ;
                                            rdfs:isDefinedBy <https://w3id.org/emmo#33fd15ab_7662_4cc6_8bf6_988422efc631> ;
                                            skos:prefLabel "isMemberOf"@en .
 
@@ -268,7 +262,7 @@ foaf:workplaceHomepage rdf:type owl:AnnotationProperty .
                                            owl:inverseOf :EMMO_555d0261_da5e_4301_b7f9_46f604a32e91 ;
                                            rdfs:seeAlso :EMMO_555d0261_da5e_4301_b7f9_46f604a32e91 ;
                                            skos:altLabel "hasDirectCause" ;
-                                           skos:prefLabel "directlyCausedBy"@en .
+                                           skos:prefLabel "directlyCausedBye"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_1328d112_e731_4e56_b9b9_6b6cdd495cd6
@@ -305,15 +299,6 @@ foaf:workplaceHomepage rdf:type owl:AnnotationProperty .
                                            skos:prefLabel "hasPart"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The primitive relation that express the concept of an entity being part of another one."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "All other mereology relations can be defined in FOL using hasPart as primitive."@en .
-
-
-###  https://w3id.org/emmo#EMMO_2332d7a4_2fbe_4a36_a10f_5c8efcce29d6
-:EMMO_2332d7a4_2fbe_4a36_a10f_5c8efcce29d6 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_07808d05_18d1_4253_96e5_58b8277347de ;
-                                           owl:inverseOf :EMMO_9a50a0ae_841a_46fe_8b23_3df319b60611 ;
-                                           rdfs:range :EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac ;
-                                           owl:propertyDisjointWith :EMMO_f722a7a9_864d_4896_a331_f90141f90a0a ;
-                                           skos:prefLabel "isNonTemporalPartOf"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_2a28c0dd_89b1_47ac_b81f_fccc56f39617
@@ -386,7 +371,6 @@ https://en.wiktionary.org/wiki/mereology"""@en
 ###  https://w3id.org/emmo#EMMO_408a46b2_3930_46da_b936_e9ce72ffdde9
 :EMMO_408a46b2_3930_46da_b936_e9ce72ffdde9 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_9a50a0ae_841a_46fe_8b23_3df319b60611 ;
-                                           owl:inverseOf :EMMO_f37fc69b_d6fd_44de_9c66_3c70b2efb7f4 ;
                                            rdfs:domain :EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac ;
                                            owl:propertyDisjointWith :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
                                            skos:altLabel "hasSpatioTemporalPart"@en ;
@@ -512,7 +496,6 @@ The direct causality in a 4D ontology covers both time-like causal interaction (
                                            owl:inverseOf :EMMO_d67ee67e_4fac_4676_82c9_aec361dba698 ;
                                            rdf:type owl:IrreflexiveProperty ;
                                            rdfs:seeAlso :EMMO_d67ee67e_4fac_4676_82c9_aec361dba698 ;
-                                           skos:altLabel "causes"@en ;
                                            skos:prefLabel "isCausedBy"@en .
 
 
@@ -568,7 +551,6 @@ The direct causality in a 4D ontology covers both time-like causal interaction (
 ###  https://w3id.org/emmo#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6
 :EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_55354438_7000_4284_b1b9_59d60c2261b9 ;
-                                           owl:inverseOf :EMMO_f722a7a9_864d_4896_a331_f90141f90a0a ;
                                            rdfs:domain :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d ;
                                            owl:propertyDisjointWith :EMMO_9a50a0ae_841a_46fe_8b23_3df319b60611 ;
                                            skos:prefLabel "hasTemporalPart"@en ;
@@ -635,7 +617,6 @@ Contacts between two entities exclude the possibility of other causal relations 
 ###  https://w3id.org/emmo#EMMO_9a50a0ae_841a_46fe_8b23_3df319b60611
 :EMMO_9a50a0ae_841a_46fe_8b23_3df319b60611 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_55354438_7000_4284_b1b9_59d60c2261b9 ;
-                                           rdfs:domain :EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac ;
                                            skos:prefLabel "hasNonTemporalPart"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The part is connected with the rest item or members with a combination of hasNext (or its inverse) or hasContact relations."@en .
 
@@ -722,7 +703,7 @@ Embracing a strong reductionistic view, causality originates at quantum entities
                                            rdf:type owl:SymmetricProperty ,
                                                     owl:IrreflexiveProperty ;
                                            skos:prefLabel "properOverlaps"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between two entities that overlaps and neither of them is a part of the other."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The relation between two entities that overlaps and neither of both is part of the other." .
 
 
 ###  https://w3id.org/emmo#EMMO_b85e4738_500c_4e1b_bbe8_9e84190485d6
@@ -809,7 +790,6 @@ For this reason the EMMO OWL 2 DL will only deal with macro causality relations,
 ###  https://w3id.org/emmo#EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846
 :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_9a50a0ae_841a_46fe_8b23_3df319b60611 ;
-                                           owl:inverseOf :EMMO_f1503598_03af_4fec_a860_ebc77aa92832 ;
                                            rdfs:domain :EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac ;
                                            skos:prefLabel "hasSpatialPart"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A proper part of a whole, whose parts always cover the full temporal extension of the whole within a spatial interval."@en ;
@@ -844,28 +824,6 @@ For this reason the EMMO OWL 2 DL will only deal with macro causality relations,
                                            rdfs:range :EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf ;
                                            skos:prefLabel "EMMORelation"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The superclass for all relations used by the EMMO."@en .
-
-
-###  https://w3id.org/emmo#EMMO_f1503598_03af_4fec_a860_ebc77aa92832
-:EMMO_f1503598_03af_4fec_a860_ebc77aa92832 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_2332d7a4_2fbe_4a36_a10f_5c8efcce29d6 ;
-                                           rdfs:range :EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac ;
-                                           owl:propertyDisjointWith :EMMO_f37fc69b_d6fd_44de_9c66_3c70b2efb7f4 ;
-                                           skos:prefLabel "isSpatialPartOf"@en .
-
-
-###  https://w3id.org/emmo#EMMO_f37fc69b_d6fd_44de_9c66_3c70b2efb7f4
-:EMMO_f37fc69b_d6fd_44de_9c66_3c70b2efb7f4 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_2332d7a4_2fbe_4a36_a10f_5c8efcce29d6 ;
-                                           rdfs:range :EMMO_e7aac247_31d6_4b2e_9fd2_e842b1b7ccac ;
-                                           skos:prefLabel "isJunctionPartOf"@en .
-
-
-###  https://w3id.org/emmo#EMMO_f722a7a9_864d_4896_a331_f90141f90a0a
-:EMMO_f722a7a9_864d_4896_a331_f90141f90a0a rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_07808d05_18d1_4253_96e5_58b8277347de ;
-                                           rdfs:range :EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d ;
-                                           skos:prefLabel "isTemporalPartOf"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_fdfa43cd_1f48_4d82_ac49_685fe894558f
