@@ -10,17 +10,17 @@
 @base <https://w3id.org/emmo#> .
 
 <https://w3id.org/emmo/disciplines/units/otherunits> rdf:type owl:Ontology ;
-                                                      owl:versionIRI <https://w3id.org/emmo/1.0.1/disciplines/units/otherunits> ;
-                                                      owl:imports <https://w3id.org/emmo/1.0.1/disciplines/units/siunits> ,
-                                                                  <https://w3id.org/emmo/1.0.1/disciplines/units/specialunits> ;
+                                                      owl:versionIRI <https://w3id.org/emmo/1.0.2/disciplines/units/otherunits> ;
+                                                      owl:imports <https://w3id.org/emmo/1.0.2/disciplines/units/siunits> ,
+                                                                  <https://w3id.org/emmo/1.0.2/disciplines/units/specialunits> ;
                                                       dcterms:abstract """The module 'otherunits' contain non-SI units not included in the 'siacceptedspecialunits', 'siacceptedunits' and 'specialunits' modules. Examples: kBar, ...
 
 Note that this module is not complete and may be extended with more units over time."""@en ;
-                                                      dcterms:contributor emmo:FrancescaBleken ,
-                                                                          emmo:GerhardGoldbeck ,
-                                                                          emmo:SimonClark ;
-                                                      dcterms:creator emmo:EmanueleGhedini ,
-                                                                      emmo:JesperFriis ;
+                                                      dcterms:contributor <https://orcid.org/0000-0001-8869-3718> ,
+                                                                          <https://orcid.org/0000-0002-4181-2852> ,
+                                                                          <https://orcid.org/0000-0002-8758-6109> ;
+                                                      dcterms:creator <https://orcid.org/0000-0003-3805-8761> ,
+                                                                      <https://orcid.org/0000-0002-1560-809X> ;
                                                       dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                                       dcterms:publisher <https://emmc.eu> ;
                                                       dcterms:title "Other non-SI units"@en ;
@@ -28,7 +28,7 @@ Note that this module is not complete and may be extended with more units over t
 
 We kindly acknowledge NIST for reusing their content, including the selection of units, their elucidations and conversion multiplier."""@en ,
                                                                    "The EMMO should be reasoned with HermiT to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                                      owl:versionInfo "1.0.1" ;
+                                                      owl:versionInfo "1.0.2" ;
                                                       emmo:EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
 
 #################################################################
@@ -1714,16 +1714,7 @@ emmo:DyneSecondPerCubicCentiMetre rdf:type owl:Class ;
 ###  https://w3id.org/emmo#EMMO_640ea55c_e9a7_4f23_8aae_5bb4ba867f30
 emmo:EMMO_640ea55c_e9a7_4f23_8aae_5bb4ba867f30 rdf:type owl:Class ;
                                                rdfs:subClassOf emmo:EMMO_442bd91e_a724_4e9f_89c1_18423016fb75 ;
-                                               owl:disjointUnionOf ( emmo:EMMO_33fe9747_d66f_4f88_b2c1_951279dbca59
-                                                                     emmo:Exbi
-                                                                     emmo:Gibi
-                                                                     emmo:Kibi
-                                                                     emmo:Mebi
-                                                                     emmo:Pebi
-                                                                     emmo:Tebi
-                                                                     emmo:Yobi
-                                                                     emmo:Zebi
-                                                                   ) ;
+                                               rdfs:comment "disjointUnionOf: Exbi, Gibi, Kibi, Mebi, Pebi, Tebi, Yobi, Zebi" ;
                                                skos:prefLabel "BinaryPrefix"@en ;
                                                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Binary prefix standardised by the International Electrotechnical Commission (IEC)."@en .
 
@@ -1959,7 +1950,8 @@ emmo:ExaByte rdf:type owl:Class ;
 
 ###  https://w3id.org/emmo#Exbi
 emmo:Exbi rdf:type owl:Class ;
-          rdfs:subClassOf [ rdf:type owl:Restriction ;
+          rdfs:subClassOf emmo:EMMO_640ea55c_e9a7_4f23_8aae_5bb4ba867f30 ,
+                          [ rdf:type owl:Restriction ;
                             owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
                             owl:hasValue "Ei"
                           ] ,
@@ -2181,7 +2173,8 @@ emmo:FootPoundForce rdf:type owl:Class ;
 
 ###  https://w3id.org/emmo#Gibi
 emmo:Gibi rdf:type owl:Class ;
-          rdfs:subClassOf [ rdf:type owl:Restriction ;
+          rdfs:subClassOf emmo:EMMO_640ea55c_e9a7_4f23_8aae_5bb4ba867f30 ,
+                          [ rdf:type owl:Restriction ;
                             owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
                             owl:hasValue "Gi"
                           ] ,
@@ -2580,7 +2573,8 @@ emmo:InverseSquarePlanckMass rdf:type owl:Class ;
 
 ###  https://w3id.org/emmo#Kibi
 emmo:Kibi rdf:type owl:Class ;
-          rdfs:subClassOf [ rdf:type owl:Restriction ;
+          rdfs:subClassOf emmo:EMMO_640ea55c_e9a7_4f23_8aae_5bb4ba867f30 ,
+                          [ rdf:type owl:Restriction ;
                             owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
                             owl:hasValue "Ki"
                           ] ,
@@ -2912,7 +2906,8 @@ emmo:KnotPerSecond rdf:type owl:Class ;
 
 ###  https://w3id.org/emmo#Mebi
 emmo:Mebi rdf:type owl:Class ;
-          rdfs:subClassOf [ rdf:type owl:Restriction ;
+          rdfs:subClassOf emmo:EMMO_640ea55c_e9a7_4f23_8aae_5bb4ba867f30 ,
+                          [ rdf:type owl:Restriction ;
                             owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
                             owl:hasValue "Mi"
                           ] ,
@@ -3109,7 +3104,9 @@ emmo:MetrePerYear rdf:type owl:Class ;
 
 ###  https://w3id.org/emmo#MicroCurie
 emmo:MicroCurie rdf:type owl:Class ;
-                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                rdfs:subClassOf emmo:EMMO_515b5579_d526_4842_9e6f_ecc34db6f368 ,
+                                emmo:EMMO_9ff3bf8e_2168_406e_8251_1d158fc948ae ,
+                                [ rdf:type owl:Restriction ;
                                   owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                   owl:hasValue "37000.0"^^xsd:double
                                 ] ,
@@ -3133,7 +3130,6 @@ emmo:MicroGravity rdf:type owl:Class ;
                   rdfs:subClassOf emmo:EMMO_2da7408f_d389_4245_887d_a1743b81a9b6 ,
                                   emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
                                   emmo:EMMO_9ff3bf8e_2168_406e_8251_1d158fc948ae ,
-                                  emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
                                     owl:someValuesFrom emmo:Gravity
@@ -3160,7 +3156,6 @@ emmo:MicroInch rdf:type owl:Class ;
                rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
                                emmo:EMMO_9ff3bf8e_2168_406e_8251_1d158fc948ae ,
                                emmo:EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc ,
-                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
                                  owl:someValuesFrom emmo:Inch
@@ -3187,7 +3182,6 @@ emmo:MicroTorr rdf:type owl:Class ;
                rdfs:subClassOf emmo:EMMO_53bd0c90_41c3_46e2_8779_cd2a80f7e18b ,
                                emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
                                emmo:EMMO_9ff3bf8e_2168_406e_8251_1d158fc948ae ,
-                               emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty emmo:EMMO_d4e0a0ab_2f67_4f87_a0db_b544e6dceed4 ;
                                  owl:someValuesFrom emmo:Torr
@@ -3721,7 +3715,8 @@ emmo:PascalSecondPerBar rdf:type owl:Class ;
 
 ###  https://w3id.org/emmo#Pebi
 emmo:Pebi rdf:type owl:Class ;
-          rdfs:subClassOf [ rdf:type owl:Restriction ;
+          rdfs:subClassOf emmo:EMMO_640ea55c_e9a7_4f23_8aae_5bb4ba867f30 ,
+                          [ rdf:type owl:Restriction ;
                             owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
                             owl:hasValue "Pi"
                           ] ,
@@ -3785,7 +3780,8 @@ emmo:ShannonPerSecond rdf:type owl:Class ;
 
 ###  https://w3id.org/emmo#Tebi
 emmo:Tebi rdf:type owl:Class ;
-          rdfs:subClassOf [ rdf:type owl:Restriction ;
+          rdfs:subClassOf emmo:EMMO_640ea55c_e9a7_4f23_8aae_5bb4ba867f30 ,
+                          [ rdf:type owl:Restriction ;
                             owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
                             owl:hasValue "Ti"
                           ] ,
@@ -3820,6 +3816,26 @@ emmo:VoltPerInch rdf:type owl:Class ;
                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """SI derived unit volt divided by the unit inch according to the Anglo-American and the Imperial system of units
 
 -- QUDT"""@en .
+
+
+###  https://w3id.org/emmo#VolumePercent
+emmo:VolumePercent rdf:type owl:Class ;
+                   rdfs:subClassOf emmo:EMMO_9fd1e79d_41d1_44f8_8142_66dbdf0fc7ad ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                     owl:hasValue "0.01"^^xsd:double
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                     owl:hasValue "0.0"^^xsd:double
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
+                                     owl:hasValue "vol%"
+                                   ] ;
+                   skos:prefLabel "VolumePercent"@en ;
+                   emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "vol%" ;
+                   emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Volume fraction expressed in percent."@en .
 
 
 ###  https://w3id.org/emmo#WattPerSquareFoot
@@ -3872,6 +3888,27 @@ emmo:WattPerSquareInch rdf:type owl:Class ;
 -- QUDT"""@en .
 
 
+###  https://w3id.org/emmo#WeightPercent
+emmo:WeightPercent rdf:type owl:Class ;
+                   rdfs:subClassOf emmo:EMMO_18448443_dcf1_49b8_a321_cf46e2c393e1 ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
+                                     owl:hasValue "0.01"^^xsd:double
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
+                                     owl:hasValue "0.0"^^xsd:double
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
+                                     owl:hasValue "wt%"
+                                   ] ;
+                   skos:altLabel "MassPercent" ;
+                   skos:prefLabel "WeightPercent"@en ;
+                   emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "wt%" ;
+                   emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Mass fraction expressed in percent."@en .
+
+
 ###  https://w3id.org/emmo#YardPerDegreeFahrenheit
 emmo:YardPerDegreeFahrenheit rdf:type owl:Class ;
                              rdfs:subClassOf emmo:EMMO_15344998_4490_4b40_b242_c3d92e5cdc27 ,
@@ -3899,7 +3936,8 @@ emmo:YardPerDegreeFahrenheit rdf:type owl:Class ;
 
 ###  https://w3id.org/emmo#Yobi
 emmo:Yobi rdf:type owl:Class ;
-          rdfs:subClassOf [ rdf:type owl:Restriction ;
+          rdfs:subClassOf emmo:EMMO_640ea55c_e9a7_4f23_8aae_5bb4ba867f30 ,
+                          [ rdf:type owl:Restriction ;
                             owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
                             owl:hasValue "Yi"
                           ] ,
@@ -3913,7 +3951,8 @@ emmo:Yobi rdf:type owl:Class ;
 
 ###  https://w3id.org/emmo#Zebi
 emmo:Zebi rdf:type owl:Class ;
-          rdfs:subClassOf [ rdf:type owl:Restriction ;
+          rdfs:subClassOf emmo:EMMO_640ea55c_e9a7_4f23_8aae_5bb4ba867f30 ,
+                          [ rdf:type owl:Restriction ;
                             owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
                             owl:hasValue "Zi"
                           ] ,
@@ -3923,6 +3962,23 @@ emmo:Zebi rdf:type owl:Class ;
                           ] ;
           skos:prefLabel "Zebi"@en ;
           emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Binary SI prefix who's value is 2**70."@en .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( emmo:Exbi
+                emmo:Gibi
+                emmo:Kibi
+                emmo:Mebi
+                emmo:Pebi
+                emmo:Tebi
+                emmo:Yobi
+                emmo:Zebi
+              )
+] .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

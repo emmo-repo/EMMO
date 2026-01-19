@@ -1,11 +1,12 @@
 name: Update GitHub Pages
 
-on:
-  push:
-    branches:
-      - '[0-9]+.[0-9]+.[0-9]+'
-      - '[0-9]+.[0-9]+.[0-9]+-*'
-      - cd_update_pages
+on: push
+#on:
+#  push:
+#    branches:
+#      - '[0-9]+.[0-9]+.[0-9]+'
+#      - '[0-9]+.[0-9]+.[0-9]+-*'
+#      - 'master'
 
 env:
   GIT_USER_NAME: EMMO Developers
@@ -24,10 +25,10 @@ jobs:
       run: |
         echo "GITHUB_REF_NAME=${GITHUB_REF_NAME}"
 
-    - name: Setup Python 3.11
+    - name: Setup Python 3.14
       uses: actions/setup-python@v5
       with:
-        python-version: 3.11
+        python-version: 3.14
 
     - name: Install ROBOT
       run: |
@@ -41,38 +42,109 @@ jobs:
     - name: Install dependencies
       run: |
         pip install --upgrade pip
-        pip install sphinx sphinxcontrib-globalsubs sphinx_design nbsphinx pydata-sphinx-theme
-        pip install git+https://github.com/emmo-repo/EMMOntoPy.git@master
+        pip install "EMMOntoPy[ontodoc] @ git+https://github.com/emmo-repo/EMMOntoPy.git@master"
+        pip install sphinxcontrib-globalsubs sphinx_design nbsphinx pydata_sphinx_theme
+
+    - name: List install python packages
+      run: |
+        pip list
 
     - name: Create and prepare build and public directories
       run: |
         mkdir build public
         if [ -d doc/_static ]; then cp -rf doc/_static/* build/. ; fi
 
-    - name: Create ontologies for publishing
+    - name: Create EMMO namespace from emax
       run: |
-        ontoconvert -sawe --base-iri="https://w3id.org/emmo#" --iri=https://w3id.org/emmo emmo.ttl public/emmo.ttl
-        ontoconvert -sawe --base-iri="https://w3id.org/emmo#" --iri=https://w3id.org/emmo emmo-full.ttl public/emmo-full.ttl
-        #ontoconvert --reasoner=Pellet public/emmo.ttl public/emmo-inferred.ttl
-        #ontoconvert --reasoner=Pellet public/emmo-full.ttl public/emmo-full-inferred.ttl
-        #bin/robot reason --reasoner ELK --input public/emmo.ttl --output public/emmo-inferred.ttl
-        #bin/robot reason --reasoner ELK --input public/emmo-full.ttl --output public/emmo-full-inferred.ttl
-        bin/robot reason --reasoner HermiT --input public/emmo.ttl --output public/emmo-inferred.ttl
-        #bin/robot reason --reasoner JFact --input public/emmo-full.ttl --output public/emmo-full-inferred.ttl
-        bin/robot reason --reasoner HermiT --input public/emmo-full.ttl --output public/emmo-full-inferred.ttl
+        ontoconvert -sawe \
+          --iri="https://w3id.org/emmo" \
+          --base-iri="https://w3id.org/emmo#" \
+          --namespace="emmo:https://w3id.org/emmo#" \
+          --rename-ontology="|w3id.org/emmo/([0-9][^/]*)/?emax|w3id.org/emmo/\\1|" \
+          emax.ttl \
+          public/emmo.ttl
+
+    - name: Create HUME namespace from emax
+      run: |
+        ontoconvert -saw --rename-iris \
+          --base-iri="https://w3id.org/emmo/hume#" \
+          --namespace="hume:https://w3id.org/hume#" \
+          --iri=https://w3id.org/emmo/hume \
+          emax.ttl \
+          public/hume.ttl
+
+    - name: Create EMMO inferred
+      run: |
+        bin/robot reason \
+          --reasoner HermiT \
+          --remove-redundant-subclass-axioms true \
+          --preserve-annotated-axioms true \
+          --exclude-owl-thing true \
+          --exclude-duplicate-axioms true \
+          --input public/emmo.ttl \
+          --output build/emmo-inferred.ttl
+        ontoconvert --iri=https://w3id.org/emmo/inferred build/emmo-inferred.ttl public/emmo-inferred.ttl
+
+    - name: Create HUME inferred
+      run: |
+        bin/robot reason \
+          --reasoner HermiT \
+          --remove-redundant-subclass-axioms true \
+          --preserve-annotated-axioms true \
+          --exclude-owl-thing true \
+          --exclude-duplicate-axioms true \
+          --input public/hume.ttl \
+          --output build/hume-inferred.ttl
+        ontoconvert --iri=https://w3id.org/emmo/hume-inferred build/hume-inferred.ttl public/hume-inferred.ttl
+
+    - name: Create ontologies in rdfxml format
+      run: |
         ontoconvert public/emmo.ttl public/emmo.owl
-        ontoconvert public/emmo-full.ttl public/emmo-full.owl
+        ontoconvert public/hume.ttl public/hume.owl
         ontoconvert public/emmo-inferred.ttl public/emmo-inferred.owl
-        ontoconvert public/emmo-full-inferred.ttl public/emmo-full-inferred.owl
-        ontoconvert -saw --rename-iris --base-iri="https://w3id.org/emmo#" --iri=https://w3id.org/emmo emmo.ttl public/emmo-for-humans.ttl
-        bin/robot reason --reasoner HermiT --input public/emmo-for-humans.ttl --output public/emmo-for-humans-inferred.ttl
+        ontoconvert public/hume-inferred.ttl public/hume-inferred.owl
 
 
-    - name: Generate html documentation (based on emmo-full)
+    - name: Create directory structure for EMMO
       run: |
-        #ontodoc --iri-regex=https://w3id.org/emmo --imported public/emmo-full-inferred.ttl build/emmo.rst
-        ontodoc --iri-regex=https://w3id.org/emmo --imported emmo-full.ttl build/emmo.rst
+        ontoconvert -rwe \
+          --catalog-file \
+          --iri=https://w3id.org/emmo/emmo \
+          --namespace="emmo:https://w3id.org/emmo#" \
+          --output-format=turtle \
+          emmo.ttl \
+          public/emmo/emmo
+
+    - name: Create directory structure for HUME
+      run: |
+        ontoconvert -rwe \
+          --catalog-file \
+          --rename-iris \
+          --iri="https://w3id.org/emmo/hume" \
+          --base-iri="https://w3id.org/emmo/hume#" \
+          --namespace="hume:https://w3id.org/emmo/hume#" \
+          --rename-ontology="|w3id.org/emmo/([0-9][^/]*/)?([^0-9].*)|w3id.org/emmo/\\1hume/\\2|" \
+          --output-format=turtle \
+          emmo.ttl \
+          public/hume/hume
+
+    - name: Generate html documentation (based on EMAX)
+      run: |
+        ontodoc --iri-regex=https://w3id.org/emmo --imported emax.ttl build/emmo.rst
         sphinx-build "build/" "public/"
+
+    - name: Create html documentation for HUME
+      run: |
+        cp public/emmo.html public/hume.html
+
+    - name: Create module table in markdown
+      run: |
+        python .github/scripts/module-table.py > build/module-table.md
+
+    - name: Convert module-table from markdown to html
+      uses: docker://pandoc/core:3.8
+      with:
+        args: --output public/module-table.html build/module-table.md
 
     - name: Checkout GitHub Pages for EMMO-repo
       uses: actions/checkout@v4
@@ -86,7 +158,7 @@ jobs:
       run: |
         # Do not overwrite index.html
         rm public/index.html
-        # Tell GitHub that this site is not generated with jekyll
+        # Tell GitHub that this site is not generated with jekyll (otherwise will the reference documentation not show up correctly)
         touch public/.nojekyll
         # Copy to latest (root)
         cp -rf public/* pages/.
@@ -111,43 +183,3 @@ jobs:
           git pull origin master; \
           git push origin master; \
         fi
-
-
-    #- name: Publish
-    #  uses: peaceiris/actions-gh-pages@v3
-    #  if: github.ref == 'refs/heads/master'
-    #  with:
-    #    github_token: ${{ secrets.GITHUB_TOKEN }}
-    #    publish_dir: ./public
-    #    #keep_files: true
-    #    #external_repository: emmo-repo emmo-repo.github.io
-    #
-    #    #publish_branch: master
-    #    #force_orphan: true
-
-
-
-#    - name: Install pandoc 2.1.2
-#      run: |
-#        #sudo apt-get install pandoc  # we need v2.1.2
-#        wget https://github.com/jgm/pandoc/releases/download/2.1.2/pandoc-2.1.2-1-amd64.deb
-#        sudo apt-get install ./pandoc-2.1.2-1-amd64.deb
-#
-#    - name: Install other dependencies
-#      run: |
-#        sudo apt-get install graphviz
-#        sudo apt-get install texlive-xetex
-#        sudo apt-get install texlive-latex-extra
-#        pip install semver
-#
-#    - name: Checkout GitHub Pages for EMMO-repo
-#      uses: actions/checkout@v4
-#      with:
-#        repository: emmo-repo/emmo-repo.github.io
-#        path: ".github/pages"
-#        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
-#        ssh-strict: no
-#
-#    - name: Update GitHub Pages
-#      run: |
-#        .github/scripts/update_pages.sh -v -V ${GITHUB_REF_NAME}

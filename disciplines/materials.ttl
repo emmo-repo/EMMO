@@ -9,20 +9,20 @@
 @base <https://w3id.org/emmo#> .
 
 <https://w3id.org/emmo/disciplines/materials> rdf:type owl:Ontology ;
-                                               owl:versionIRI <https://w3id.org/emmo/1.0.1/disciplines/materials> ;
-                                               owl:imports <https://w3id.org/emmo/1.0.1/reference/physicalistic> ;
+                                               owl:versionIRI <https://w3id.org/emmo/1.0.2/disciplines/materials> ;
+                                               owl:imports <https://w3id.org/emmo/1.0.2/reference/physicalistic> ;
                                                dcterms:abstract "The materials module populates the physicalistic perspective with materials subclasses categorised according to modern applied physical sciences."@en ;
-                                               dcterms:contributor :OtelloRoscioni ;
-                                               dcterms:creator <https://orcid.org/0000-0003-4065-9742> ,
-                                                               :AdhamHashibon ,
-                                                               :EmanueleGhedini ,
-                                                               :GerhardGoldbeck ,
-                                                               :JesperFriis ;
+                                               dcterms:contributor <https://orcid.org/0000-0001-7815-6636> ;
+                                               dcterms:creator <https://orcid.org/0000-0002-1560-809X> ,
+                                                               <https://orcid.org/0000-0002-4181-2852> ,
+                                                               <https://orcid.org/0000-0003-0514-9229> ,
+                                                               <https://orcid.org/0000-0003-3805-8761> ,
+                                                               <https://orcid.org/0000-0003-4065-9742> ;
                                                dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                                dcterms:publisher <https://emmc.eu> ;
                                                dcterms:title "Materials"@en ;
                                                rdfs:comment "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                               owl:versionInfo "1.0.1" ;
+                                               owl:versionInfo "1.0.2" ;
                                                :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
 
 #################################################################
@@ -205,7 +205,7 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
 ###  https://w3id.org/emmo#EMMO_39348191_08fd_4bb6_9b1e_012d5b2f1ff6
 :EMMO_39348191_08fd_4bb6_9b1e_012d5b2f1ff6 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ;
-                                           skos:prefLabel "ClassicallyDefinedMaterial"@en ;
+                                           skos:prefLabel "MaterialByClassicalMaterialsScience"@en ;
                                            :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "Equivalent To: AmorphousMaterial or CrystallineMaterial" ,
                                                                                       "Equivalent To: MetallicMaterial or CeramicMaterial or CompositeMaterial or PolymericMaterial" .
 
@@ -232,8 +232,9 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
                                            rdfs:subClassOf :EMMO_6e9cb807_fc68_4bcf_b3ba_5fccc887c644 ,
                                                            :EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352 ;
                                            skos:prefLabel "Material"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals standing for an amount of ordinary matter substance (or mixture of substances) in different states of matter or phases."@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of individuals standing for an amount of ordinary matter substance."@en ;
                                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A instance of a material (e.g. nitrogen) can represent any state of matter. The fact that the individual also belongs to other classes (e.g. Gas) would reveal the actual form in which the material is found."@en ,
+                                                                                      "A material may be either a mesoscopic or a continuum substance."@en ,
                                                                                       "Material usually means some definite kind, quality, or quantity of matter, especially as intended for use."@en .
 
 
@@ -270,7 +271,7 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
 
 ###  https://w3id.org/emmo#EMMO_48fc6f16_0f04_4e86_a9fc_fcfc14c5ef4b
 :EMMO_48fc6f16_0f04_4e86_a9fc_fcfc14c5ef4b rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ;
+                                           rdfs:subClassOf :EMMO_9ec16158_9118_4886_be97_4310f02f7571 ;
                                            skos:prefLabel "GranularMaterial"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A granular material is a conglomeration of discrete solid, macroscopic particles that are  large enough to avoid thermal motion fluctuations, and characterized by a loss of energy whenever the particles interact."@en .
 
@@ -310,7 +311,9 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
 ###  https://w3id.org/emmo#EMMO_4c1f58cd_6e2c_48fb_8098_1cbb762abb05
 :EMMO_4c1f58cd_6e2c_48fb_8098_1cbb762abb05 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_4db521a3_f80f_436b_b9c7_e4b52b1383ea ;
-                                           skos:prefLabel "MetallicMaterial"@en .
+                                           skos:prefLabel "MetallicMaterial"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Inorganic substance, consisting of one or more metallic elements."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Metallic materials are known for their shiny luster, excellent electrical/thermal conductivity, malleability (shapable by hammering), and ductility (can be drawn into wires), due to metallic bonding (shared electrons); they often form alloys (like steel from iron/carbon) to enhance these properties for diverse applications."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_4c21fb86_fdcf_444e_b498_86fe656295af
@@ -394,7 +397,12 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
 :EMMO_660a4964_0333_4663_bc66_e93ef59b0679 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352 ;
                                            owl:disjointWith :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ;
-                                           skos:prefLabel "MesoscopicSubstance"@en .
+                                           skos:example """nanoparticle,
+quantum dot, 
+carbon nanotupe"""@en ;
+                                           skos:prefLabel "MesoscopicSubstance"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A matter that is not a particulate matter and that does not fullfill the criteria of being a continuum substance."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Mesoscopic substances typically exist on a length scale between atoms and molecules and macroscopic (bulk) substances. They are typically in the range of some nanometers to about a micrometer and often exhibit unique physical properties due to their size and shape."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_668fbd5b_6f1b_405c_9c6b_d6067bd0595a
@@ -417,13 +425,6 @@ The term phase is sometimes used as a synonym for state of matter, but there can
  ] .
 
 
-###  https://w3id.org/emmo#EMMO_68390bfb_e307_479d_8f78_d66d8773cb1d
-:EMMO_68390bfb_e307_479d_8f78_d66d8773cb1d rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_a96e2152_40e7_409c_a53a_fdb9f141eb6a ;
-                                           skos:prefLabel "ReactiveMaterial"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A material that can take active part in a chemical reaction."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_6c487fb3_03d1_4e56_91ed_c2e16dcbef60
 :EMMO_6c487fb3_03d1_4e56_91ed_c2e16dcbef60 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_0e030040_98a7_49b2_a871_dced1f3a6131 ;
@@ -442,7 +443,7 @@ The term phase is sometimes used as a synonym for state of matter, but there can
 
 ###  https://w3id.org/emmo#EMMO_75fe4fd1_0f7e_429b_b91d_59d248561bae
 :EMMO_75fe4fd1_0f7e_429b_b91d_59d248561bae rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ;
+                                           rdfs:subClassOf :EMMO_ddb62e5b_9a1f_4d10_8cd8_32655301bfc9 ;
                                            skos:prefLabel "NaturalMaterial"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A Material occurring in nature, without the need of human intervention."@en .
 
@@ -485,7 +486,8 @@ In general, metallic and ionic bonds have atoms sharing electrons."""@en ,
 ###  https://w3id.org/emmo#EMMO_8820f251_ad36_43f4_a693_c0e86a89cc1f
 :EMMO_8820f251_ad36_43f4_a693_c0e86a89cc1f rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ;
-                                           skos:prefLabel "FunctionallyDefinedMaterial"@en .
+                                           skos:altLabel "FunctionalMaterial"@en ;
+                                           skos:prefLabel "MaterialByFunction"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2
@@ -525,6 +527,18 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A foam of trapped gas in a solid."@en .
 
 
+###  https://w3id.org/emmo#EMMO_9ebb6e14_c656_4568_abfa_f7f193ea14ac
+:EMMO_9ebb6e14_c656_4568_abfa_f7f193ea14ac rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_9ec16158_9118_4886_be97_4310f02f7571 ;
+                                           skos:prefLabel "CompactMaterial"@en .
+
+
+###  https://w3id.org/emmo#EMMO_9ec16158_9118_4886_be97_4310f02f7571
+:EMMO_9ec16158_9118_4886_be97_4310f02f7571 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ;
+                                           skos:prefLabel "MaterialByCompactness"@en .
+
+
 ###  https://w3id.org/emmo#EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1
 :EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_220b7201_d277_4dca_bf6a_5a5e2c4062dd ,
@@ -533,10 +547,10 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A continuum characterized by structural rigidity and resistance to changes of shape or volume, that retains its shape and density when not confined."@en .
 
 
-###  https://w3id.org/emmo#EMMO_a96e2152_40e7_409c_a53a_fdb9f141eb6a
-:EMMO_a96e2152_40e7_409c_a53a_fdb9f141eb6a rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ;
-                                           skos:prefLabel "ChemicallyDefinedMaterial"@en .
+###  https://w3id.org/emmo#EMMO_b418c9ac_be7c_42d1_862c_64f655ced6c5
+:EMMO_b418c9ac_be7c_42d1_862c_64f655ced6c5 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_ddb62e5b_9a1f_4d10_8cd8_32655301bfc9 ;
+                                           skos:prefLabel "ArtificialMaterial"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_b9695e87_8261_412e_83cd_a86459426a28
@@ -549,10 +563,6 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
                                            :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/State_of_matter"@en .
 
 
-###  https://w3id.org/emmo#EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352
-:EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352 :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "Disjoint Union Of: MesoscopicSubstance, ContinuumSubstance" .
-
-
 ###  https://w3id.org/emmo#EMMO_c457b6b9_5e73_4853_ae08_d776c12b8058
 :EMMO_c457b6b9_5e73_4853_ae08_d776c12b8058 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1 ;
@@ -563,7 +573,10 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
 ###  https://w3id.org/emmo#EMMO_c5e9e390_8836_4440_b4fd_c906fdd4f438
 :EMMO_c5e9e390_8836_4440_b4fd_c906fdd4f438 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_4db521a3_f80f_436b_b9c7_e4b52b1383ea ;
-                                           skos:prefLabel "CeramicMaterial"@en .
+                                           skos:altLabel "Ceramic"@en ;
+                                           skos:prefLabel "CeramicMaterial"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An inorganic non-metallic solid made from elements (metals, non-metals, semi-metals like silicon) combined into compounds (oxides, carbides, nitrides) that are typically hard, strong, brittle, corrosion-resistant, and good insulators."@en ;
+                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Ceramic materials are hardened by intense heat and typically used from pottery and tiles to advanced electronics and aerospace parts."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_d4f37e32_16ae_4cc6_b4cd_fd896b2449c4
@@ -582,12 +595,24 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A foam of trapped gas in a liquid."@en .
 
 
+###  https://w3id.org/emmo#EMMO_d8a7aac9_984a_4254_ab3b_7d8b1c061149
+:EMMO_d8a7aac9_984a_4254_ab3b_7d8b1c061149 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ;
+                                           skos:prefLabel "MaterialByForceResponse"@en .
+
+
 ###  https://w3id.org/emmo#EMMO_db03061b_db31_4132_a47a_6a634846578b
 :EMMO_db03061b_db31_4132_a47a_6a634846578b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_2fd3f574_5e93_47fe_afca_ed80b0a21ab4 ;
                                            rdfs:comment "The ion_atom is the basic part of a pure ionic bonded compound i.e. without eclectron sharing,"@en ;
                                            skos:prefLabel "IonAtom"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A standalone atom with an unbalanced number of electrons with respect to its atomic number."@en .
+
+
+###  https://w3id.org/emmo#EMMO_ddb62e5b_9a1f_4d10_8cd8_32655301bfc9
+:EMMO_ddb62e5b_9a1f_4d10_8cd8_32655301bfc9 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ;
+                                           skos:prefLabel "MaterialByOrigin"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_e0edfb9e_9a96_4fae_b942_831ffe27b84a
@@ -608,7 +633,7 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
 ###  https://w3id.org/emmo#EMMO_e4e80813_f379_4091_b017_ee059811f806
 :EMMO_e4e80813_f379_4091_b017_ee059811f806 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ;
-                                           skos:prefLabel "SizeDefinedMaterial"@en .
+                                           skos:prefLabel "MaterialBySize"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_e9e02156_651f_41c8_9efb_d5da0d4ce5e2
@@ -623,7 +648,7 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
 :EMMO_ec2c8ac8_98c5_4c74_b85b_ff8e8ca6655c rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ;
                                            skos:prefLabel "Mixture"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A Miixture is a material made up of two or more different substances which are physically (not chemically) combined."@en .
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A continuum substance made up of two or more different substances which are physically (not chemically) combined."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_f00fb163_48c9_4c59_b6c2_4205c082aa54
@@ -641,12 +666,7 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
 
 ###  https://w3id.org/emmo#EMMO_f678173d_f036_4df1_a86b_2894560be617
 :EMMO_f678173d_f036_4df1_a86b_2894560be617 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4db521a3_f80f_436b_b9c7_e4b52b1383ea ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_dc57d998_23db_4d8e_b2cd_f346b195b846 ;
-                                                             owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
-                                                             owl:onClass :EMMO_4207e895_8b83_4318_996a_72cfb32acd94
-                                                           ] ;
+                                           rdfs:subClassOf :EMMO_4db521a3_f80f_436b_b9c7_e4b52b1383ea ;
                                            skos:altLabel "Composite"@en ;
                                            skos:prefLabel "CompositeMaterial"@en ;
                                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A material that contains two or more constituent materials."@en .
@@ -655,15 +675,13 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
 ###  https://w3id.org/emmo#EMMO_fb27e6d6_159e_48a6_9c29_76dc31d8a860
 :EMMO_fb27e6d6_159e_48a6_9c29_76dc31d8a860 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_4db521a3_f80f_436b_b9c7_e4b52b1383ea ;
-                                           skos:prefLabel "PolymericMaterial"@en .
+                                           skos:prefLabel "PolymericMaterial"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A substance made of macromolecules formed by linking many smaller, repeating chemical units called monomers into long chains or networks, resulting in unique properties like toughness, elasticity, or flexibility, found in both natural forms (like DNA, protein) and synthetic plastics, rubbers, and fibers."@en .
 
 
 [ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
 ] .
 
-[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
@@ -676,10 +694,16 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
 [ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
 #################################################################

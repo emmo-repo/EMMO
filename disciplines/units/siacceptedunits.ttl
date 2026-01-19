@@ -10,8 +10,8 @@
 @base <https://w3id.org/emmo#> .
 
 <https://w3id.org/emmo/disciplines/units/siacceptedunits> rdf:type owl:Ontology ;
-                                                           owl:versionIRI <https://w3id.org/emmo/1.0.1/disciplines/units/siacceptedunits> ;
-                                                           owl:imports <https://w3id.org/emmo/1.0.1/disciplines/units/siacceptedspecialunits> ;
+                                                           owl:versionIRI <https://w3id.org/emmo/1.0.2/disciplines/units/siacceptedunits> ;
+                                                           owl:imports <https://w3id.org/emmo/1.0.2/disciplines/units/siacceptedspecialunits> ;
                                                            dcterms:abstract """The module 'siacceptedunits' include non-SI and non-special units that are accepted for use with SI.
 
 These units consists of an optional metric prefix followed by a product of integer powers of the base, derived and accepted special SI units.  The product must include at least one SI-accepted special unit.
@@ -19,11 +19,11 @@ These units consists of an optional metric prefix followed by a product of integ
 Examples: km/h, kWh, MeV, etc...
 
 Note that this module is not complete and may be extended with more units over time."""@en ;
-                                                           dcterms:contributor emmo:FrancescaBleken ,
-                                                                               emmo:GerhardGoldbeck ,
-                                                                               emmo:SimonClark ;
-                                                           dcterms:creator emmo:EmanueleGhedini ,
-                                                                           emmo:JesperFriis ;
+                                                           dcterms:contributor <https://orcid.org/0000-0001-8869-3718> ,
+                                                                               <https://orcid.org/0000-0002-4181-2852> ,
+                                                                               <https://orcid.org/0000-0002-8758-6109> ;
+                                                           dcterms:creator <https://orcid.org/0000-0003-3805-8761> ,
+                                                                           <https://orcid.org/0000-0002-1560-809X> ;
                                                            dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                                            dcterms:publisher <https://emmc.eu> ;
                                                            dcterms:title "SI accepted units"@en ;
@@ -31,7 +31,7 @@ Note that this module is not complete and may be extended with more units over t
 
 We kindly acknowledge NIST for reusing their content, including the selection of units, their elucidations and conversion multiplier."""@en ,
                                                                         "The EMMO should be reasoned with HermiT to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                                           owl:versionInfo "1.0.1" ;
+                                                           owl:versionInfo "1.0.2" ;
                                                            emmo:EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
 
 #################################################################
@@ -2289,7 +2289,9 @@ emmo:MicroGramPerCubicMetrePerHour rdf:type owl:Class ;
 
 ###  https://w3id.org/emmo#MicroGramPerLitre
 emmo:MicroGramPerLitre rdf:type owl:Class ;
-                       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                       rdfs:subClassOf emmo:EMMO_1c957677_a460_4702_85a6_baef659d14b1 ,
+                                       emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                       [ rdf:type owl:Restriction ;
                                          owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                          owl:hasValue "1.0E-6"^^xsd:double
                                        ] ,
@@ -2603,7 +2605,9 @@ emmo:MicroSievertPerHour rdf:type owl:Class ;
 
 ###  https://w3id.org/emmo#MilliAmpereHour
 emmo:MilliAmpereHour rdf:type owl:Class ;
-                     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                     rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+                                     emmo:EMMO_ab79e92b_5377_454d_be06_d61b50db295a ,
+                                     [ rdf:type owl:Restriction ;
                                        owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                        owl:hasValue "3.6"^^xsd:double
                                      ] ,
