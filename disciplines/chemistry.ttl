@@ -27,8 +27,29 @@
 #    Annotation properties
 #################################################################
 
+###  https://w3id.org/emmo#SMILESReference
+:SMILESReference rdf:type owl:AnnotationProperty ;
+                 rdfs:isDefinedBy <http://opensmiles.org/opensmiles.html> ;
+                 skos:prefLabel "SMILESReference"@en ;
+                 :elucidation "OpenSMILES representation of a molecular structure."@en ;
+                 :note "OpenSMILES is an open specification of the SMILE language for specifying molecular structures, which has become a defacto standard for exchange of molecular structures."@en ;
+                 :wikipediaReference <https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system> ;
+                 rdfs:subPropertyOf rdfs:seeAlso .
+
+
+###  https://w3id.org/emmo#inchiKey
+:inchiKey rdf:type owl:AnnotationProperty ;
+          rdfs:seeAlso "https://inchi.info/inchikey_overview_en.html"^^xsd:anyURI ;
+          skos:prefLabel "inchiKey"@en ;
+          :elucidation "A hash of the full International Chemical Identifier (InChi) for a chemical substance."@en ;
+          :note "The InChiKey is a hash of the full InChi identifier using the SHA-256 algorithm, designed to allow for easy web searches of chemical compounds."@en ;
+          rdfs:subPropertyOf rdfs:seeAlso .
+
+
 ###  https://w3id.org/emmo#EMMO_2856bbc2_96e1_485b_b5f8_2fdfcb0c9b92
 :EMMO_2856bbc2_96e1_485b_b5f8_2fdfcb0c9b92 rdf:type owl:AnnotationProperty ;
+                                           owl:deprecated "true"^^xsd:boolean ;
+                                           skos:changeNote "Replaced by emmo:inchiKey"@en ;
                                            rdfs:seeAlso "https://inchi.info/inchikey_overview_en.html"^^xsd:anyURI ;
                                            skos:prefLabel "inchiKey"@en ;
                                            :elucidation "A hash of the full International Chemical Identifier (InChi) for a chemical substance."@en ;
@@ -38,6 +59,8 @@
 
 ###  https://w3id.org/emmo#EMMO_2e0b0f1b_ba90_4827_af5a_92b826cb90de
 :EMMO_2e0b0f1b_ba90_4827_af5a_92b826cb90de rdf:type owl:AnnotationProperty ;
+                                           owl:deprecated "true"^^xsd:boolean ;
+                                           skos:changeNote "Replaced by emmo:SMILESReference"@en ;
                                            rdfs:isDefinedBy <http://opensmiles.org/opensmiles.html> ;
                                            skos:prefLabel "SMILESReference"@en ;
                                            :elucidation "OpenSMILES representation of a molecular structure."@en ;
@@ -194,8 +217,8 @@ Note that the name of a compound may refer to the respective molecular entity or
                                            rdfs:subClassOf :EMMO_df96cbb6_b5ee_4222_8eab_b3675df24bea ;
                                            skos:altLabel "PureSubstance"@en ;
                                            skos:prefLabel "ElementalSubstance"@en ;
-                                           :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.C01022" ;
-                                           :elucidation "A chemical substance composed of atoms with the same number of protons in the atomic nucleus." .
+                                           :elucidation "A chemical substance composed of atoms with the same number of protons in the atomic nucleus." ;
+                                           :iupacReference "https://doi.org/10.1351/goldbook.C01022" .
 
 
 ###  https://w3id.org/emmo#EMMO_47338839_6cca_4a8e_b565_3c4d5517e2c0
@@ -233,8 +256,8 @@ The class Material hosts the subclasses for which a substance can be identified 
 This qualifies a chemical element as a name and not a matter obejct that can stand for an atom or a substance.""" ;
                                            rdfs:seeAlso "http://publications.iupac.org/ci/2005/2701/ud.html" ;
                                            skos:prefLabel "ChemicalElement"@en ;
-                                           :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.C01022" ;
-                                           :elucidation "The symbol for a specific chemical element, that can stand both for an atom or a substance." .
+                                           :elucidation "The symbol for a specific chemical element, that can stand both for an atom or a substance." ;
+                                           :iupacReference "https://doi.org/10.1351/goldbook.C01022" .
 
 
 ###  https://w3id.org/emmo#EMMO_643d99dd_fae6_4121_a76f_47f486a4480b
@@ -381,10 +404,10 @@ CH4
 Fe
 Sodium Chloride""" ;
                                            skos:prefLabel "ChemicalSpecies"@en ;
-                                           :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.CT06859" ;
                                            :elucidation """Specific form of an element defined as to isotopic composition, electronic or oxidation state, and/or complex or molecular structure.
 
-Chemical species is the macroscopic equivalent of molecular entity and refers to sets or ensembles of molecular entities.""" .
+Chemical species is the macroscopic equivalent of molecular entity and refers to sets or ensembles of molecular entities.""" ;
+                                           :iupacReference "https://doi.org/10.1351/goldbook.CT06859" .
 
 
 ###  https://w3id.org/emmo#EMMO_d2a47cd8_662f_438f_855a_b4378eb992ff
@@ -426,8 +449,8 @@ Chemical species is the macroscopic equivalent of molecular entity and refers to
                                            rdfs:subClassOf :EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352 ;
                                            rdfs:comment "A substance is always composed of more than one molecular entity. It lays in the continuum or mesoscopic domain." ;
                                            skos:prefLabel "ChemicalSubstance"@en ;
-                                           :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.C01039" ;
-                                           :elucidation "Matter of constant composition best characterized by the entities (molecules, formula units, atoms) it is composed of." .
+                                           :elucidation "Matter of constant composition best characterized by the entities (molecules, formula units, atoms) it is composed of." ;
+                                           :iupacReference "https://doi.org/10.1351/goldbook.C01039" .
 
 
 ###  https://w3id.org/emmo#EMMO_e2b11f6a_4191_427e_9844_2e0ac88dfc8b

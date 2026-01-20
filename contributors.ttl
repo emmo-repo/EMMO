@@ -1,177 +1,117 @@
 @prefix : <https://w3id.org/emmo#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix locn: <http://www.w3.org/ns/locn#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@base <https://w3id.org/emmo#> .
 
 <https://w3id.org/emmo/contributors> rdf:type owl:Ontology ;
-                                      owl:versionIRI <https://w3id.org/emmo/1.0.4/contributors> ;
-                                      dcterms:abstract "People and organisations who has contributed to the development of EMMO."@en ;
-                                      dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
-                                      dcterms:publisher :EMMC_ASBL ;
-                                      dcterms:title "Contributors"@en ;
-                                      owl:versionInfo "1.0.4" ;
-                                      foaf:mbox <mailto:emmo@emmc.eu> ;
-                                      :contact "emmo@emmc.eu" .
-
-#################################################################
-#    Annotation properties
-#################################################################
-
-###  http://purl.org/dc/terms/abstract
-dcterms:abstract rdf:type owl:AnnotationProperty .
+    owl:versionIRI <https://w3id.org/emmo/1.0.4/contributors> ;
+    owl:imports <https://w3id.org/emmo/1.0.4/foundation/annotations-deprecated> ;
+    dcterms:abstract "People and organisations who has contributed to the development of EMMO."@en ;
+    dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+    dcterms:publisher :EMMC_ASBL ;
+    dcterms:title "Contributors"@en ;
+    owl:versionInfo "1.0.4" ;
+    foaf:mbox <mailto:emmo@emmc.eu> ;
+    :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
 
 
-###  http://purl.org/dc/terms/license
-dcterms:license rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/publisher
-dcterms:publisher rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/title
-dcterms:title rdf:type owl:AnnotationProperty .
-
-
-###  http://www.w3.org/2004/02/skos/core#prefLabel
-skos:prefLabel rdf:type owl:AnnotationProperty .
-
-
-###  http://www.w3.org/ns/locn#fullAddress
-locn:fullAddress rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/homepage
-foaf:homepage rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/logo
-foaf:logo rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/mbox
-foaf:mbox rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/name
-foaf:name rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/workplaceHomepage
-foaf:workplaceHomepage rdf:type owl:AnnotationProperty .
-
-
-###  https://w3id.org/emmo#contact
-:contact rdf:type owl:AnnotationProperty .
 
 
 #################################################################
 #    Individuals
 #################################################################
 
-###  https://orcid.org/0000-0001-7815-6636
-<https://orcid.org/0000-0001-7815-6636> rdf:type owl:NamedIndividual ;
-                                        skos:prefLabel "OtelloRoscioni" ;
-                                        foaf:name "Otello M. Roscioni" ;
-                                        foaf:workplaceHomepage <https://materialsmodelling.com/> .
 
+# People
+# ======
 
-###  https://orcid.org/0000-0001-8869-3718
-<https://orcid.org/0000-0001-8869-3718> rdf:type owl:NamedIndividual ;
-                                        skos:prefLabel "FrancescaBleken" ;
-                                        foaf:name "Francesca Lønstad Bleken" ;
-                                        foaf:workplaceHomepage <https://www.sintef.no/en/> .
-
-
-###  https://orcid.org/0000-0001-9189-2400
-<https://orcid.org/0000-0001-9189-2400> rdf:type owl:NamedIndividual ;
-                                        skos:prefLabel "SebastianoMoruzzi" ;
-                                        foaf:name "Sebastiano Moruzzi" ;
-                                        foaf:workplaceHomepage <https://www.unibo.it/en/> .
-
-
-###  https://orcid.org/0000-0002-1560-809X
-<https://orcid.org/0000-0002-1560-809X> rdf:type owl:NamedIndividual ;
-                                        skos:prefLabel "JesperFriis" ;
-                                        foaf:name "Jesper Friis" ;
-                                        foaf:workplaceHomepage <https://www.sintef.no/en/> .
-
-
-###  https://orcid.org/0000-0002-4181-2852
-<https://orcid.org/0000-0002-4181-2852> rdf:type owl:NamedIndividual ;
-                                        skos:prefLabel "GerhardGoldbeck" ;
-                                        foaf:name "Gerhard Goldbeck" ;
-                                        foaf:workplaceHomepage <https://materialsmodelling.com/> .
-
-
-###  https://orcid.org/0000-0002-5417-6808
-<https://orcid.org/0000-0002-5417-6808> rdf:type owl:NamedIndividual ;
-                                        skos:prefLabel "MichaelNoeske" ;
-                                        foaf:name "Paul-Ludwig Michael Noeske" ;
-                                        foaf:workplaceHomepage <https://www.ifam.fraunhofer.de/en/> .
-
-
-###  https://orcid.org/0000-0002-8758-6109
-<https://orcid.org/0000-0002-8758-6109> rdf:type owl:NamedIndividual ;
-                                        skos:prefLabel "SimonClark" ;
-                                        foaf:name "Simon Clark" ;
-                                        foaf:workplaceHomepage <https://www.sintef.no/en/> .
-
-
-###  https://orcid.org/0000-0003-0514-9229
-<https://orcid.org/0000-0003-0514-9229> rdf:type owl:NamedIndividual ;
-                                        skos:prefLabel "AdhamHashibon" ;
-                                        foaf:name "Adham Hashibon" ;
-                                        foaf:workplaceHomepage <https://www.ucl.ac.uk/> .
-
-
-###  https://orcid.org/0000-0003-3805-8761
 <https://orcid.org/0000-0003-3805-8761> rdf:type owl:NamedIndividual ;
-                                        skos:prefLabel "EmanueleGhedini" ;
-                                        foaf:name "Emanuele Ghedini" ;
-                                        foaf:workplaceHomepage <https://www.unibo.it/en/> .
+    skos:prefLabel "EmanueleGhedini" ;
+    foaf:name "Emanuele Ghedini" ;
+    foaf:workplaceHomepage <https://www.unibo.it/en/> .
+
+<https://orcid.org/0000-0002-1560-809X> rdf:type owl:NamedIndividual ;
+    skos:prefLabel "JesperFriis" ;
+    foaf:name "Jesper Friis" ;
+    foaf:workplaceHomepage <https://www.sintef.no/en/> .
+
+<https://orcid.org/0000-0002-4181-2852> rdf:type owl:NamedIndividual ;
+    skos:prefLabel "GerhardGoldbeck" ;
+    foaf:name "Gerhard Goldbeck" ;
+    foaf:workplaceHomepage <https://materialsmodelling.com/> .
+
+<https://orcid.org/0000-0003-0514-9229> rdf:type owl:NamedIndividual ;
+    skos:prefLabel "AdhamHashibon" ;
+    foaf:name "Adham Hashibon" ;
+    foaf:workplaceHomepage <https://www.ucl.ac.uk/> .
 
 
-###  https://orcid.org/0000-0003-4065-9742
 <https://orcid.org/0000-0003-4065-9742> rdf:type owl:NamedIndividual ;
-                                        skos:prefLabel "GeorgSchmitz" ;
-                                        foaf:name "Georg J. Schmitz" .
+    skos:prefLabel "GeorgSchmitz" ;
+    foaf:name "Georg J. Schmitz" .
 
 
-###  https://orcid.org/0009-0007-5850-6628
 <https://orcid.org/0009-0007-5850-6628> rdf:type owl:NamedIndividual ;
-                                        skos:prefLabel "AnnedeBaas" ;
-                                        foaf:name "Anne de Baas" ;
-                                        foaf:workplaceHomepage <https://materialsmodelling.com/> .
+    skos:prefLabel "AnnedeBaas" ;
+    foaf:name "Anne de Baas" ;
+    foaf:workplaceHomepage <https://materialsmodelling.com/> .
 
 
-###  https://orcid.org/0009-0008-8009-5009
 <https://orcid.org/0009-0008-8009-5009> rdf:type owl:NamedIndividual ;
-                                        skos:prefLabel "FrancescoZaccarini" ;
-                                        foaf:name "Francesco A. Zaccarini" ;
-                                        foaf:workplaceHomepage <https://www.unibo.it/en/> .
+    skos:prefLabel "FrancescoZaccarini" ;
+    foaf:name "Francesco A. Zaccarini" ;
+    foaf:workplaceHomepage <https://www.unibo.it/en/> .
 
 
-###  https://w3id.org/emmo#EMMC_ASBL
+<https://orcid.org/0000-0001-9189-2400> rdf:type owl:NamedIndividual ;
+    skos:prefLabel "SebastianoMoruzzi" ;
+    foaf:name "Sebastiano Moruzzi" ;
+    foaf:workplaceHomepage <https://www.unibo.it/en/> .
+
+
+<https://orcid.org/0000-0001-8869-3718> rdf:type owl:NamedIndividual ;
+    skos:prefLabel "FrancescaBleken" ;
+    foaf:name "Francesca Lønstad Bleken" ;
+    foaf:workplaceHomepage <https://www.sintef.no/en/> .
+
+
+<https://orcid.org/0000-0002-8758-6109> rdf:type owl:NamedIndividual ;
+    skos:prefLabel "SimonClark" ;
+    foaf:name "Simon Clark" ;
+    foaf:workplaceHomepage <https://www.sintef.no/en/> .
+
+
+<https://orcid.org/0000-0001-7815-6636> rdf:type owl:NamedIndividual ;
+    skos:prefLabel "OtelloRoscioni" ;
+    foaf:name "Otello M. Roscioni" ;
+    foaf:workplaceHomepage <https://materialsmodelling.com/> .
+
+
+<https://orcid.org/0000-0002-5417-6808> rdf:type owl:NamedIndividual ;
+    skos:prefLabel "MichaelNoeske" ;
+    foaf:name "Paul-Ludwig Michael Noeske" ;
+    foaf:workplaceHomepage <https://www.ifam.fraunhofer.de/en/> .
+
+
+
+# Organisations
+# =============
+
+### https://emmc.eu
 :EMMC_ASBL rdf:type owl:NamedIndividual ;
-           skos:prefLabel "EMMC_ASBL" ;
-           locn:fullAddress """EMMC ASBL
+    skos:prefLabel "EMMC_ASBL" ;
+    foaf:name "EMMC ASBL" ;
+    foaf:homepage "https://emmc.eu" ;
+    locn:fullAddress """EMMC ASBL
 European Materials Modelling Council
 Silversquare Stéphanie
 Avenue Louise 54
 1050 Brussels
 CBE no: 0731 621 312"""@en ;
-           foaf:homepage "https://emmc.eu" ;
-           foaf:logo <https://emmo-repo.github.io/emmc.png> ;
-           foaf:mbox <mailto:contact@emmc.eu> ;
-           foaf:name "EMMC ASBL" .
-
-
-###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
+    foaf:logo <https://emmo-repo.github.io/emmc.png> ;
+    foaf:mbox <mailto:contact@emmc.eu> .

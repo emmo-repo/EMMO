@@ -36,12 +36,23 @@ All other SI units goes into one of the following modules:
 
 ###  https://w3id.org/emmo#EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64
 :EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 rdf:type owl:AnnotationProperty ;
+                                           owl:deprecated "true"^^xsd:boolean ;
                                            skos:prefLabel "unitSymbol"@en ;
                                            :elucidation "The standard symbol for a unit."@en ;
                                            :note "A unit symbol may be a symbolic construct (e.g. km) or a symbol (e.g. m)."@en ;
                                            rdfs:subPropertyOf rdfs:comment ;
                                            rdfs:range xsd:string ;
                                            rdfs:domain :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 .
+
+
+###  https://w3id.org/emmo#unitSymbol
+:unitSymbol rdf:type owl:AnnotationProperty ;
+            skos:prefLabel "unitSymbol"@en ;
+            :elucidation "The standard symbol for a unit."@en ;
+            :note "A unit symbol may be a symbolic construct (e.g. km) or a symbol (e.g. m)."@en ;
+            rdfs:subPropertyOf rdfs:comment ;
+            rdfs:range xsd:string ;
+            rdfs:domain :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 .
 
 
 #################################################################
@@ -101,11 +112,11 @@ All other SI units goes into one of the following modules:
                         ] ;
         skos:prefLabel "Ampere"@en ;
         schema:unitCode "AMP" ;
-        :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/A" ;
-        :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "A" ;
-        :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.A00300" ;
         :dbpediaReference "http://dbpedia.org/resource/Ampere"^^xsd:anyURI ;
         :definition "The ampere, symbol A, is the SI unit of electric current. It is defined by taking the fixed numerical value of the elementary charge e to be 1.602176634×10−19 when expressed in the unit C, which is equal to A s, where the second is defined in terms of ∆νCs."@en ;
+        :iupacReference "https://doi.org/10.1351/goldbook.A00300" ;
+        :qudtReference "http://qudt.org/vocab/unit/A" ;
+        :ucumCode "A" ;
         :wikipediaReference "http://en.wikipedia.org/wiki/Ampere?oldid=494026699"^^xsd:anyURI .
 
 
@@ -119,15 +130,15 @@ All other SI units goes into one of the following modules:
                            ] ;
            skos:prefLabel "Becquerel"@en ;
            schema:unitCode "BQL" ;
-           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/BQ" ;
-           :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Bq" ;
-           :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.B00624" ;
            :dbpediaReference "http://dbpedia.org/resource/Becquerel"^^xsd:anyURI ;
            :definition "Radioactive decays per second."@en ;
            :elucidation "SI unit for radioactive activity."@en ;
+           :iupacReference "https://doi.org/10.1351/goldbook.B00624" ;
            :note """The SI derived unit of activity, usually meaning radioactivity. \"Radioactivity\" is caused when atoms disintegrate, ejecting energetic particles. One becquerel is the radiation caused by one disintegration per second; this is equivalent to about 27.0270 picocuries (pCi). The unit is named for a French physicist, Antoine-Henri Becquerel (1852-1908), the discoverer of radioactivity. Note: both the becquerel and the hertz are basically defined as one event per second, yet they measure different things. The hertz is used to measure the rates of events that happen periodically in a fixed and definite cycle. The becquerel is used to measure the rates of events that happen sporadically and unpredictably, not in a definite cycle.
 
 -- QUDT"""@en ;
+           :qudtReference "http://qudt.org/vocab/unit/BQ" ;
+           :ucumCode "Bq" ;
            :wikipediaReference "http://en.wikipedia.org/wiki/Becquerel?oldid=493710036"^^xsd:anyURI .
 
 
@@ -141,11 +152,11 @@ All other SI units goes into one of the following modules:
                          ] ;
          skos:prefLabel "Candela"@en ;
          schema:unitCode "CDL" ;
-         :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/CD" ;
-         :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "cd" ;
-         :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.C00787" ;
          :dbpediaReference "http://dbpedia.org/resource/Candela"^^xsd:anyURI ;
          :definition "The candela, symbol cd, is the SI unit of luminous intensity in a given direction. It is defined by taking the fixed numerical value of the luminous efficacy of monochromatic radiation of frequency 540×1012 Hz, Kcd, to be 683 when expressed in the unit lm W−1, which is equal to cd sr W−1, or cd sr kg−1 m−2 s3, where the kilogram, metre and second are defined in terms of h, c and ∆νCs."@en ;
+         :iupacReference "https://doi.org/10.1351/goldbook.C00787" ;
+         :qudtReference "http://qudt.org/vocab/unit/CD" ;
+         :ucumCode "cd" ;
          :wikipediaReference "http://en.wikipedia.org/wiki/Candela?oldid=484253082"^^xsd:anyURI .
 
 
@@ -159,14 +170,14 @@ All other SI units goes into one of the following modules:
                          ] ;
          skos:prefLabel "Coulomb"@en ;
          schema:unitCode "COU" ;
-         :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/C" ;
-         :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "C" ;
-         :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.C01365" ;
          :dbpediaReference "http://dbpedia.org/resource/Coulomb"^^xsd:anyURI ;
          :elucidation "SI unit for electric charge."@en ;
+         :iupacReference "https://doi.org/10.1351/goldbook.C01365" ;
          :note """The SI unit of electric charge. One coulomb is the amount of charge accumulated in one second by a current of one ampere. Electricity is actually a flow of charged particles, such as electrons, protons, or ions. The charge on one of these particles is a whole-number multiple of the charge e on a single electron, and one coulomb represents a charge of approximately 6.241 506 x 1018 e. The coulomb is named for a French physicist, Charles-Augustin de Coulomb (1736-1806), who was the first to measure accurately the forces exerted between electric charges.
 
 -- QUDT"""@en ;
+         :qudtReference "http://qudt.org/vocab/unit/C" ;
+         :ucumCode "C" ;
          :wikipediaReference "http://en.wikipedia.org/wiki/Coulomb?oldid=491815163"^^xsd:anyURI .
 
 
@@ -188,14 +199,14 @@ All other SI units goes into one of the following modules:
                                ] ;
                skos:prefLabel "DegreeCelsius"@en ;
                schema:unitCode "CEL" ;
-               :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/DEG_C" ;
-               :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Cel" ;
-               :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.D01561" ;
                :dbpediaReference "http://dbpedia.org/resource/Celsius"^^xsd:anyURI ;
                :elucidation "Measurement unit for Celsius temperature. This unit can only be used for expressing temperature differences."@en ;
+               :iupacReference "https://doi.org/10.1351/goldbook.D01561" ;
                :note """Celsius, also known as centigrade, is a scale and unit of measurement for temperature. It can refer to a specific temperature on the Celsius scale as well as a unit to indicate a temperature interval, a difference between two temperatures or an uncertainty. This definition fixes the magnitude of both the degree Celsius and the kelvin as precisely 1 part in 273.16 (approximately 0.00366) of the difference between absolute zero and the triple point of water. Thus, it sets the magnitude of one degree Celsius and that of one kelvin as exactly the same. Additionally, it establishes the difference between the two scales' null points as being precisely 273.15 °C.
 
 -- QUDT"""@en ;
+               :qudtReference "http://qudt.org/vocab/unit/DEG_C" ;
+               :ucumCode "Cel" ;
                :wikipediaReference "http://en.wikipedia.org/wiki/Celsius?oldid=494152178"^^xsd:anyURI .
 
 
@@ -1035,13 +1046,13 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
        rdfs:comment "Measurement unit for electric capacitance."@en ;
        skos:prefLabel "Farad"@en ;
        schema:unitCode "FAR" ;
-       :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/FARAD" ;
-       :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "F" ;
-       :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.F02320" ;
        :dbpediaReference "http://dbpedia.org/resource/Farad"^^xsd:anyURI ;
        :elucidation """The SI unit of electric capacitance. Very early in the study of electricity scientists discovered that a pair of conductors separated by an insulator can store a much larger charge than an isolated conductor can store. The better the insulator, the larger the charge that the conductors can hold. This property of a circuit is called capacitance, and it is measured in farads. One farad is defined as the ability to store one coulomb of charge per volt of potential difference between the two conductors. This is a natural definition, but the unit it defines is very large. In practical circuits, capacitance is often measured in microfarads, nanofarads, or sometimes even in picofarads (10⁻¹² farad, or trillionths of a farad). The unit is named for the British physicist Michael Faraday (1791-1867), who was known for his work in electricity and electrochemistry.
 
 -- QUDT"""@en ;
+       :iupacReference "https://doi.org/10.1351/goldbook.F02320" ;
+       :qudtReference "http://qudt.org/vocab/unit/FARAD" ;
+       :ucumCode "F" ;
        :wikipediaReference "http://en.wikipedia.org/wiki/Farad?oldid=493070876"^^xsd:anyURI .
 
 
@@ -1055,14 +1066,14 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
                       ] ;
       skos:prefLabel "Gray"@en ;
       schema:unitCode "A95" ;
-      :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/GRAY" ;
-      :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Gy" ;
-      :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.G02696" ;
       :dbpediaReference "http://dbpedia.org/resource/Grey"^^xsd:anyURI ;
       :elucidation "SI unit for absorbed dose."@en ;
+      :iupacReference "https://doi.org/10.1351/goldbook.G02696" ;
       :note """The SI unit of radiation dose. Radiation carries energy, and when it is absorbed by matter the matter receives this energy. The dose is the amount of energy deposited per unit of mass. One gray is defined to be the dose of one joule of energy absorbed per kilogram of matter, or 100 rad. The unit is named for the British physician L. Harold Gray (1905-1965), an authority on the use of radiation in the treatment of cancer.
 
 -- QUDT""" ;
+      :qudtReference "http://qudt.org/vocab/unit/GRAY" ;
+      :ucumCode "Gy" ;
       :wikipediaReference "//en.wikipedia.org/wiki/Grey?oldid=494774160"^^xsd:anyURI .
 
 
@@ -1076,15 +1087,15 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
                        ] ;
        skos:prefLabel "Henry"@en ;
        schema:unitCode "81" ;
-       :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/H" ;
-       :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "H" ;
-       :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.H02782" ;
        :dbpediaReference "http://dbpedia.org/resource/Henry"^^xsd:anyURI ;
        :elucidation "SI unit for electrical inductance."@en ;
+       :iupacReference "https://doi.org/10.1351/goldbook.H02782" ;
        :note "H = Wb/A = V·s/A = Ω·s"@en ,
              """The SI unit of electric inductance. A changing magnetic field induces an electric current in a loop of wire (or in a coil of many loops) located in the field. Although the induced voltage depends only on the rate at which the magnetic flux changes, measured in webers per second, the amount of the current depends also on the physical properties of the coil. A coil with an inductance of one henry requires a flux of one weber for each ampere of induced current. If, on the other hand, it is the current which changes, then the induced field will generate a potential difference within the coil: if the inductance is one henry a current change of one ampere per second generates a potential difference of one volt. The henry is a large unit; inductances in practical circuits are measured in millihenrys (mH) or microhenrys (μH). The unit is named for the American physicist Joseph Henry (1797-1878), one of several scientists who discovered independently how magnetic fields can be used to generate alternating currents.
 
 -- QUDT"""@en ;
+       :qudtReference "http://qudt.org/vocab/unit/H" ;
+       :ucumCode "H" ;
        :wikipediaReference "http://en.wikipedia.org/wiki/Henry?oldid=491435978"^^xsd:anyURI .
 
 
@@ -1098,14 +1109,14 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
                        ] ;
        skos:prefLabel "Hertz"@en ;
        schema:unitCode "HTZ" ;
-       :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/HZ" ;
-       :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Hz" ;
-       :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.H02785" ;
        :dbpediaReference "http://dbpedia.org/resource/Hertz"^^xsd:anyURI ;
        :elucidation "SI unit for frequence."@en ;
+       :iupacReference "https://doi.org/10.1351/goldbook.H02785" ;
        :note """The hertz (symbol Hz) is the SI unit of frequency defined as the number of cycles per second of a periodic phenomenon. One of its most common uses is the description of the sine wave, particularly those used in radio and audio applications, such as the frequency of musical tones. The word \"hertz\" is named for Heinrich Rudolf Hertz, who was the first to conclusively prove the existence of electromagnetic waves.
 
--- QUDT"""@en .
+-- QUDT"""@en ;
+       :qudtReference "http://qudt.org/vocab/unit/HZ" ;
+       :ucumCode "Hz" .
 
 
 ###  https://w3id.org/emmo#Joule
@@ -1118,14 +1129,14 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
                        ] ;
        skos:prefLabel "Joule"@en ;
        schema:unitCode "JOU" ;
-       :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/J" ;
-       :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "J" ;
-       :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.J03363" ;
        :dbpediaReference "http://dbpedia.org/resource/Joule"^^xsd:anyURI ;
        :elucidation "SI unit for energy."@en ;
+       :iupacReference "https://doi.org/10.1351/goldbook.J03363" ;
        :note """The SI unit of work or energy, defined to be the work done by a force of one newton acting to move an object through a distance of one meter in the direction in which the force is applied. Equivalently, since kinetic energy is one half the mass times the square of the velocity, one joule is the kinetic energy of a mass of two kilograms moving at a velocity of 1 m/s.
 
 -- QUDT"""@en ;
+       :qudtReference "http://qudt.org/vocab/unit/J" ;
+       :ucumCode "J" ;
        :wikipediaReference "http://en.wikipedia.org/wiki/Joule?oldid=494340406"^^xsd:anyURI .
 
 
@@ -1139,14 +1150,14 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
                        ] ;
        skos:prefLabel "Katal"@en ;
        schema:unitCode "KAT" ;
-       :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KAT" ;
-       :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kat" ;
-       :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.K03372" ;
        :dbpediaReference "http://dbpedia.org/resource/Katal"^^xsd:anyURI ;
        :elucidation "SI unit for catalytic activity."@en ;
+       :iupacReference "https://doi.org/10.1351/goldbook.K03372" ;
        :note """A unit of catalytic activity used especially in the chemistry of enzymes. A catalyst is a substance that starts or speeds a chemical reaction. Enzymes are proteins that act as catalysts within the bodies of living plants and animals. A catalyst has an activity of one katal if it enables a reaction to proceed at the rate of one mole per second.
 
 -- QUDT"""@en ;
+       :qudtReference "http://qudt.org/vocab/unit/KAT" ;
+       :ucumCode "kat" ;
        :wikipediaReference "http://en.wikipedia.org/wiki/Katal?oldid=486431865"^^xsd:anyURI .
 
 
@@ -1160,11 +1171,11 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
                         ] ;
         skos:prefLabel "Kelvin"@en ;
         schema:unitCode "KEL" ;
-        :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/K" ;
-        :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "K" ;
-        :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.K03374" ;
         :dbpediaReference "http://dbpedia.org/resource/Kelvin"^^xsd:anyURI ;
         :definition "The kelvin, symbol K, is the SI unit of thermodynamic temperature. It is defined by taking the fixed numerical value of the Boltzmann constant k to be 1.380649×10−23 when expressed in the unit J K−1, which is equal to kg m2 s−2 K−1, where the kilogram, metre and second are defined in terms of h, c and ∆νCs."@en ;
+        :iupacReference "https://doi.org/10.1351/goldbook.K03374" ;
+        :qudtReference "http://qudt.org/vocab/unit/K" ;
+        :ucumCode "K" ;
         :wikipediaReference "http://en.wikipedia.org/wiki/Kelvin?oldid=495075694"^^xsd:anyURI .
 
 
@@ -1179,11 +1190,11 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
           skos:altLabel "Kilogram"@en ;
           skos:prefLabel "Kilogram"@en ;
           schema:unitCode "KGM" ;
-          :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/KiloGM" ;
-          :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "kg" ;
-          :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.K03391" ;
           :dbpediaReference "http://dbpedia.org/resource/Kilogram"^^xsd:anyURI ;
           :definition "The kilogram, symbol kg, is the SI unit of mass. It is defined by taking the fixed numerical value of the Planck constant h to be 6.62607015×10−34 when expressed in the unit J s, which is equal to kg m2 s−1, where the metre and the second are defined in terms of c and ∆νCs."@en ;
+          :iupacReference "https://doi.org/10.1351/goldbook.K03391" ;
+          :qudtReference "http://qudt.org/vocab/unit/KiloGM" ;
+          :ucumCode "kg" ;
           :wikipediaReference "http://en.wikipedia.org/wiki/Kilogram?oldid=493633626"^^xsd:anyURI .
 
 
@@ -1197,14 +1208,14 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
                        ] ;
        skos:prefLabel "Lumen"@en ;
        schema:unitCode "LUM" ;
-       :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/LM" ;
-       :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "lm" ;
-       :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.L03639" ;
        :dbpediaReference "http://dbpedia.org/resource/Lumen"^^xsd:anyURI ;
        :elucidation "SI unit for luminous flux."@en ;
+       :iupacReference "https://doi.org/10.1351/goldbook.L03639" ;
        :note """The SI unit for measuring the flux of light being produced by a light source or received by a surface. The intensity of a light source is measured in candelas. One lumen represents the total flux of light emitted, equal to the intensity in candelas multiplied by the solid angle in steradians into which the light is emitted. A full sphere has a solid angle of 4·π steradians. A light source that uniformly radiates one candela in all directions has a total luminous flux of 1 cd·4π sr = 4π cd·sr ≈ 12.57 lumens. \"Lumen\" is a Latin word for light.
 
 -- QUDT"""@en ;
+       :qudtReference "http://qudt.org/vocab/unit/LM" ;
+       :ucumCode "lm" ;
        :wikipediaReference "https://en.wikipedia.org/wiki/Lumen_(unit)"^^xsd:anyURI .
 
 
@@ -1218,14 +1229,14 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
                      ] ;
      skos:prefLabel "Lux"@en ;
      schema:unitCode "LUX" ;
-     :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/LUX" ;
-     :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "lx" ;
-     :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.L03651" ;
      :dbpediaReference "http://dbpedia.org/resource/Lux"^^xsd:anyURI ;
      :elucidation "SI unit for illuminance."@en ;
+     :iupacReference "https://doi.org/10.1351/goldbook.L03651" ;
      :note """The SI unit for measuring the illumination (illuminance) of a surface. One lux is defined as an illumination of one lumen per square meter or 0.0001 phot. In considering the various light units, it's useful to think about light originating at a point and shining upon a surface. The intensity of the light source is measured in candelas; the total light flux in transit is measured in lumens (1 lumen = 1 candelau·steradian); and the amount of light received per unit of surface area is measured in lux (1 lux = 1 lumen/square meter). One lux is equal to approximately 0.09290 foot candle.
 
 -- QUDT"""@en ;
+     :qudtReference "http://qudt.org/vocab/unit/LUX" ;
+     :ucumCode "lx" ;
      :wikipediaReference "http://en.wikipedia.org/wiki/Lux?oldid=494700274"^^xsd:anyURI .
 
 
@@ -1240,11 +1251,11 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
        skos:altLabel "Meter"@en-us ;
        skos:prefLabel "Metre"@en ;
        schema:unitCode "MTR" ;
-       :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/M" ;
-       :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "m" ;
-       :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.M03884" ;
        :dbpediaReference "http://dbpedia.org/resource/Metre"^^xsd:anyURI ;
        :definition "The metre, symbol m, is the SI unit of length. It is defined by taking the fixed numerical value of the speed of light in vacuum c to be 299792458 when expressed in the unit m s−1, where the second is defined in terms of ∆νCs."@en ;
+       :iupacReference "https://doi.org/10.1351/goldbook.M03884" ;
+       :qudtReference "http://qudt.org/vocab/unit/M" ;
+       :ucumCode "m" ;
        :wikipediaReference "http://en.wikipedia.org/wiki/Metre?oldid=495145797"^^xsd:anyURI .
 
 
@@ -1258,11 +1269,11 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
                       ] ;
       skos:prefLabel "Mole"@en ;
       schema:unitCode "C34" ;
-      :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MOL" ;
-      :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mol" ;
-      :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.M03980" ;
       :dbpediaReference "http://dbpedia.org/resource/Mole_%28unit%29"^^xsd:anyURI ;
       :definition "The mole, symbol mol, is the SI unit of amount of substance. One mole contains exactly 6.022 140 76 × 1023 elementary entities. This number is the fixed numerical value of the Avogadro constant, NA, when expressed in the unit mol−1 and is called the Avogadro number. The amount of substance, symbol n, of a system is a measure of the number of specified elementary entities. An elementary entity may be an atom, a molecule, an ion, an electron, any other particle or specified group of particles."@en ;
+      :iupacReference "https://doi.org/10.1351/goldbook.M03980" ;
+      :qudtReference "http://qudt.org/vocab/unit/MOL" ;
+      :ucumCode "mol" ;
       :wikipediaReference "http://en.wikipedia.org/wiki/Mole_(unit)"^^xsd:anyURI .
 
 
@@ -1276,14 +1287,14 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
                         ] ;
         skos:prefLabel "Newton"@en ;
         schema:unitCode "NEW" ;
-        :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/N" ;
-        :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "N" ;
-        :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.N04135" ;
         :dbpediaReference "http://dbpedia.org/resource/Newton"^^xsd:anyURI ;
         :elucidation "SI unit for force."@en ;
+        :iupacReference "https://doi.org/10.1351/goldbook.N04135" ;
         :note """The \"Newton\" is the SI unit of force. A force of one newton will accelerate a mass of one kilogram at the rate of one meter per second per second. The newton is named for Isaac Newton (1642-1727), the British mathematician, physicist, and natural philosopher. He was the first person to understand clearly the relationship between force (F), mass (m), and acceleration (a) expressed by the formula F = m·a.
 
 -- QUDT"""@en ;
+        :qudtReference "http://qudt.org/vocab/unit/N" ;
+        :ucumCode "N" ;
         :wikipediaReference "http://en.wikipedia.org/wiki/Newton?oldid=488427661"^^xsd:anyURI .
 
 
@@ -1297,12 +1308,12 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
                      ] ;
      skos:prefLabel "Ohm"@en ;
      schema:unitCode "OHM" ;
-     :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/OHM" ;
-     :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Ohm" ;
-     :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.O04280" ;
      :dbpediaReference "http://dbpedia.org/resource/Ohm" ;
      :elucidation "The SI derived unit of electrical resistance, named after German physicist Georg Simon Ohm."@en ;
+     :iupacReference "https://doi.org/10.1351/goldbook.O04280" ;
      :note "Ω = V/A = H/s"@en ;
+     :qudtReference "http://qudt.org/vocab/unit/OHM" ;
+     :ucumCode "Ohm" ;
      :wikipediaReference "http://en.wikipedia.org/wiki/Ohm?oldid=494685555"^^xsd:anyURI .
 
 
@@ -1316,14 +1327,14 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
                         ] ;
         skos:prefLabel "Pascal"@en ;
         schema:unitCode "PAL" ;
-        :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/PA" ;
-        :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Pa" ;
-        :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.P04442" ;
         :dbpediaReference "http://dbpedia.org/resource/Pascal" ;
         :elucidation "SI unit for pressure."@en ;
+        :iupacReference "https://doi.org/10.1351/goldbook.P04442" ;
         :note """The SI unit of pressure. The pascal is the standard pressure unit in the MKS metric system, equal to one newton per square meter or one \"kilogram per meter per second per second.\" The unit is named for Blaise Pascal (1623-1662), French philosopher and mathematician, who was the first person to use a barometer to measure differences in altitude.
 
 -- QUDT"""@en ;
+        :qudtReference "http://qudt.org/vocab/unit/PA" ;
+        :ucumCode "Pa" ;
         :wikipediaReference "http://en.wikipedia.org/wiki/Pascal?oldid=492989202"^^xsd:anyURI .
 
 
@@ -1338,11 +1349,11 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
         rdfs:comment "Dimensionless measurement unit for plane angle."@en ;
         skos:prefLabel "Radian"@en ;
         schema:unitCode "C81" ;
-        :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/RAD" ;
-        :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "rad" ;
-        :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.R05036" ;
         :dbpediaReference "http://dbpedia.org/resource/Radian"^^xsd:anyURI ;
         :elucidation "Measure of plane angle."@en ;
+        :iupacReference "https://doi.org/10.1351/goldbook.R05036" ;
+        :qudtReference "http://qudt.org/vocab/unit/RAD" ;
+        :ucumCode "rad" ;
         :wikipediaReference "http://en.wikipedia.org/wiki/Radian?oldid=492309312"^^xsd:anyURI .
 
 
@@ -1356,11 +1367,11 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
                         ] ;
         skos:prefLabel "Second"@en ;
         schema:unitCode "SEC" ;
-        :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/SEC" ;
-        :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "s" ;
-        :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.S05513" ;
         :dbpediaReference "http://dbpedia.org/resource/Second"^^xsd:anyURI ;
         :definition "The second, symbol s, is the SI unit of time. It is defined by taking the fixed numerical value of the caesium frequency ∆νCs, the unperturbed ground-state hyperfine transition frequency of the caesium 133 atom, to be 9192631770 when expressed in the unit Hz, which is equal to s−1."@en ;
+        :iupacReference "https://doi.org/10.1351/goldbook.S05513" ;
+        :qudtReference "http://qudt.org/vocab/unit/SEC" ;
+        :ucumCode "s" ;
         :wikipediaReference "http://en.wikipedia.org/wiki/Second?oldid=495241006"^^xsd:anyURI .
 
 
@@ -1374,13 +1385,13 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
                          ] ;
          skos:prefLabel "Siemens"@en ;
          schema:unitCode "SIE" ;
-         :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/S"^^xsd:anyURI ;
-         :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "S" ;
          :elucidation "SI unit for electrical conductance."@en ;
          :note """Siemens  is the SI unit of electric conductance, susceptance, and admittance. The most important property of a conductor is the amount of current it will carry when a voltage is applied. Current flow is opposed by resistance in all circuits, and by also by reactance and impedance in alternating current circuits. Conductance, susceptance, and admittance are the inverses of resistance, reactance, and impedance, respectively. To measure these properties, the siemens is the reciprocal of the ohm. In other words, the conductance, susceptance, or admittance, in siemens, is simply 1 divided by the resistance, reactance or impedance, respectively, in ohms. The unit is named for the German electrical engineer Werner von Siemens (1816-1892).
 
 -- QUDT"""@en ,
                "S = A/V = F/s" ;
+         :qudtReference "http://qudt.org/vocab/unit/S"^^xsd:anyURI ;
+         :ucumCode "S" ;
          :wikipediaReference "https://en.wikipedia.org/wiki/Siemens_(unit)"^^xsd:anyURI .
 
 
@@ -1394,14 +1405,14 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
                          ] ;
          skos:prefLabel "Sievert"@en ;
          schema:unitCode "D13" ;
-         :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/SV" ;
-         :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Sv" ;
-         :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.S05658" ;
          :dbpediaReference "http://dbpedia.org/resource/Sievert"^^xsd:anyURI ;
          :elucidation "SI unit for equivalent doseof ionizing radiation. Sievert is derived from absorbed dose, but takes into account the biological effectiveness of the radiation, which is dependent on the radiation type and energy."@en ;
+         :iupacReference "https://doi.org/10.1351/goldbook.S05658" ;
          :note """Although the sievert has the same dimensions as the gray (i.e. joules per kilogram), it measures a different quantity. To avoid any risk of confusion between the absorbed dose and the equivalent dose, the corresponding special units, namely the gray instead of the joule per kilogram for absorbed dose and the sievert instead of the joule per kilogram for the dose equivalent, should be used.
 
 -- QUDT"""@en ;
+         :qudtReference "http://qudt.org/vocab/unit/SV" ;
+         :ucumCode "Sv" ;
          :wikipediaReference "http://en.wikipedia.org/wiki/Sievert?oldid=495474333"^^xsd:anyURI ,
                              "https://en.wikipedia.org/wiki/Equivalent_dose" .
 
@@ -1416,11 +1427,11 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
                            ] ;
            skos:prefLabel "Steradian"@en ;
            schema:unitCode "D27" ;
-           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/SR" ;
-           :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "sr" ;
-           :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.S05971" ;
            :dbpediaReference "http://dbpedia.org/resource/Steradian" ;
            :elucidation "Dimensionless measurement unit for solid angle."@en ;
+           :iupacReference "https://doi.org/10.1351/goldbook.S05971" ;
+           :qudtReference "http://qudt.org/vocab/unit/SR" ;
+           :ucumCode "sr" ;
            :wikipediaReference "http://en.wikipedia.org/wiki/Steradian?oldid=494317847"^^xsd:anyURI .
 
 
@@ -1434,15 +1445,15 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
                        ] ;
        skos:prefLabel "Tesla"@en ;
        schema:unitCode "D33" ;
-       :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/T" ;
-       :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "T" ;
-       :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.T06283" ;
        :dbpediaReference "http://dbpedia.org/resource/Tesla"^^xsd:anyURI ;
        :elucidation "SI unit for magnetic flux density or induction."@en ;
+       :iupacReference "https://doi.org/10.1351/goldbook.T06283" ;
        :note """The SI unit of flux density (or field intensity) for magnetic fields (also called the magnetic induction). The intensity of a magnetic field can be measured by placing a current-carrying conductor in the field. The magnetic field exerts a force on the conductor, a force which depends on the amount of the current and on the length of the conductor. One tesla is defined as the field intensity generating one newton of force per ampere of current per meter of conductor. Equivalently, one tesla represents a magnetic flux density of one weber per square meter of area. A field of one tesla is quite strong: the strongest fields available in laboratories are about 20 teslas, and the Earth's magnetic flux density, at its surface, is about 50 microteslas. The tesla, defined in 1958, honors the Serbian-American electrical engineer Nikola Tesla (1856-1943), whose work in electromagnetic induction led to the first practical generators and motors using alternating current.
 
 -- QUDT"""@en ,
              "T = V·s·m⁻² = N/(A·m) = Wb/m²" ;
+       :qudtReference "http://qudt.org/vocab/unit/T" ;
+       :ucumCode "T" ;
        :wikipediaReference "http://en.wikipedia.org/wiki/Tesla_(unit)"^^xsd:anyURI .
 
 
@@ -1456,12 +1467,12 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
                       ] ;
       skos:prefLabel "Volt"@en ;
       schema:unitCode "VLT" ;
-      :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/V" ;
-      :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "V" ;
-      :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.V06634" ;
       :dbpediaReference "http://dbpedia.org/resource/Volt"^^xsd:anyURI ;
       :elucidation "SI unit for electric potential difference."@en ;
+      :iupacReference "https://doi.org/10.1351/goldbook.V06634" ;
       :note "The volt is the unit of electric potential difference—electric potential difference is also known as voltage. The size of 1 volt is officially defined as the potential difference between two points of a wire carrying a current of 1 ampere when the power dissipated in the wire is 1 watt."@en ;
+      :qudtReference "http://qudt.org/vocab/unit/V" ;
+      :ucumCode "V" ;
       :wikipediaReference "http://en.wikipedia.org/wiki/Volt?oldid=494812083"^^xsd:anyURI .
 
 
@@ -1475,14 +1486,14 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
                       ] ;
       skos:prefLabel "Watt"@en ;
       schema:unitCode "WTT" ;
-      :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/W" ;
-      :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "W" ;
-      :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.W06656" ;
       :dbpediaReference "http://dbpedia.org/resource/Watt" ;
       :elucidation "SI unit for power."@en ;
+      :iupacReference "https://doi.org/10.1351/goldbook.W06656" ;
       :note """The SI unit of power. Power is the rate at which work is done, or (equivalently) the rate at which energy is expended. One watt is equal to a power rate of one joule of work per second of time. This unit is used both in mechanics and in electricity, so it links the mechanical and electrical units to one another. In mechanical terms, one watt equals about 0.001 341 02 horsepower (hp) or 0.737 562 foot-pound per second (lbf/s). In electrical terms, one watt is the power produced by a current of one ampere flowing through an electric potential of one volt. The name of the unit honors James Watt (1736-1819), the British engineer whose improvements to the steam engine are often credited with igniting the Industrial Revolution.
 
 -- QUDT"""@en ;
+      :qudtReference "http://qudt.org/vocab/unit/W" ;
+      :ucumCode "W" ;
       :wikipediaReference "http://en.wikipedia.org/wiki/Watt?oldid=494906356"^^xsd:anyURI .
 
 
@@ -1496,12 +1507,12 @@ https://en.wikipedia.org/wiki/General_Conference_on_Weights_and_Measures"""@en ;
                        ] ;
        skos:prefLabel "Weber"@en ;
        schema:unitCode "WEB" ;
-       :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/WB" ;
-       :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "Wb" ;
-       :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.W06666" ;
        :dbpediaReference "http://dbpedia.org/resource/Weber"^^xsd:anyURI ;
        :elucidation "SI unit for magnetic flux."@en ;
+       :iupacReference "https://doi.org/10.1351/goldbook.W06666" ;
        :note "The SI unit of magnetic flux. \"Flux\" is the rate (per unit of time) at which something crosses a surface perpendicular to the flow. The weber is a large unit, equal to 10⁸ maxwells, and practical fluxes are usually fractions of one weber. The weber is the magnetic flux which, linking a circuit of one turn, would produce in it an electromotive force of 1 volt if it were reduced to zero at a uniform rate in 1 second. In SI base units, the dimensions of the weber are (kg·m²)/(s²·A). The weber is commonly expressed in terms of other derived units as the Tesla-square meter (T·m²), volt-seconds (V·s), or joules per ampere (J/A)."@en ;
+       :qudtReference "http://qudt.org/vocab/unit/WB" ;
+       :ucumCode "Wb" ;
        :wikipediaReference "https://en.wikipedia.org/wiki/Weber_(unit)"^^xsd:anyURI .
 
 

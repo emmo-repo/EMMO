@@ -41,15 +41,68 @@ schema:unitCode rdf:type owl:AnnotationProperty ;
                 :elucidation "The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL."@en ;
                 :note "Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon."@en ,
                       "The UN/CEFACT Recommendation 20 provides three character alphabetic and alphanumeric codes for representing units of measurement for length, area, volume/capacity, mass (weight), time, and other quantities used in international trade. The codes are intended for use in manual and/or automated systems for the exchange of information between participants in international trade."@en ;
-                rdfs:subPropertyOf :EMMO_58e7c821_4af0_4394_89f7_a9649735f4d2 ;
+                rdfs:subPropertyOf :metrologicalReference ;
                 rdfs:range xsd:string ;
                 rdfs:domain :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 .
+
+
+###  https://w3id.org/emmo#VIMTerm
+:VIMTerm rdf:type owl:AnnotationProperty ;
+         rdfs:seeAlso "https://www.bipm.org/documents/20126/2071204/JCGM_200_2012.pdf"^^xsd:anyURI ;
+         skos:example "quantity value (term in VIM that corresponds to Quantity in EMMO)"@en ;
+         skos:prefLabel "VIMTerm"@en ;
+         :note "The term in the International vocabulary of metrology (VIM) (JCGM 200:2008) that corresponds to the annotated term in EMMO."@en ;
+         rdfs:subPropertyOf rdfs:isDefinedBy ,
+                            :metrologicalReference .
+
+
+###  https://w3id.org/emmo#iupacReference
+:iupacReference rdf:type owl:AnnotationProperty ;
+                rdfs:comment "DOI to corresponding concept in IUPAC"@en ;
+                rdfs:seeAlso "https://goldbook.iupac.org/"^^xsd:anyURI ;
+                skos:prefLabel "iupacReference"@en ;
+                rdfs:subPropertyOf rdfs:seeAlso ;
+                rdfs:range xsd:anyURI .
+
+
+###  https://w3id.org/emmo#metrologicalReference
+:metrologicalReference rdf:type owl:AnnotationProperty ;
+                       skos:prefLabel "metrologicalReference"@en ;
+                       rdfs:subPropertyOf rdfs:seeAlso .
+
+
+###  https://w3id.org/emmo#omReference
+:omReference rdf:type owl:AnnotationProperty ;
+             rdfs:seeAlso "https://enterpriseintegrationlab.github.io/icity/OM/doc/index-en.html" ,
+                          "https://github.com/HajoRijgersberg/OM" ;
+             skos:prefLabel "omReference"@en ;
+             :elucidation "IRI to corresponding concept in the Ontology of units of Measure."@en ;
+             rdfs:subPropertyOf :metrologicalReference .
+
+
+###  https://w3id.org/emmo#qudtReference
+:qudtReference rdf:type owl:AnnotationProperty ;
+               rdfs:seeAlso "http://www.qudt.org/2.1/catalog/qudt-catalog.html"@en ;
+               skos:prefLabel "qudtReference"@en ;
+               :elucidation "URL to corresponing entity in QUDT."@en ;
+               rdfs:subPropertyOf :metrologicalReference .
+
+
+###  https://w3id.org/emmo#ucumCode
+:ucumCode rdf:type owl:AnnotationProperty ;
+          rdfs:seeAlso "https://ucum.org/"^^xsd:anyURI ;
+          skos:prefLabel "ucumCode"@en ;
+          :elucidation "Unified Code for Units of Measure (UCUM)."@en ;
+          :note "The Unified Code for Units of Measure (UCUM) is a code system intended to include all units of measures being contemporarily used in international science, engineering, and business. The purpose is to facilitate unambiguous electronic communication of quantities together with their units."@en ;
+          rdfs:subPropertyOf :metrologicalReference ;
+          rdfs:range xsd:string ;
+          rdfs:domain :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 .
 
 
 ###  https://w3id.org/emmo#EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2
 :EMMO_0b1cbe60_d380_4787_b92e_be26bdacf2c2 rdf:type owl:AnnotationProperty ;
                                            owl:deprecated "true"^^xsd:boolean ;
-                                           owl:versionInfo "Replaced by schema:unitCode"@en ;
+                                           skos:changeNote "Replaced by schema:unitCode"@en ;
                                            skos:prefLabel "uneceCommonCode"@en ;
                                            :elucidation "The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL."@en ;
                                            :note "The UN/CEFACT Recommendation 20 provides three character alphabetic and alphanumeric codes for representing units of measurement for length, area, volume/capacity, mass (weight), time, and other quantities used in international trade. The codes are intended for use in manual and/or automated systems for the exchange of information between participants in international trade."@en ;
@@ -60,6 +113,8 @@ schema:unitCode rdf:type owl:AnnotationProperty ;
 
 ###  https://w3id.org/emmo#EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc
 :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc rdf:type owl:AnnotationProperty ;
+                                           owl:deprecated "true"^^xsd:boolean ;
+                                           skos:changeNote "Replaced by emmo:qudtReference"@en ;
                                            rdfs:seeAlso "http://www.qudt.org/2.1/catalog/qudt-catalog.html"@en ;
                                            skos:prefLabel "qudtReference"@en ;
                                            :elucidation "URL to corresponing entity in QUDT."@en ;
@@ -68,6 +123,8 @@ schema:unitCode rdf:type owl:AnnotationProperty ;
 
 ###  https://w3id.org/emmo#EMMO_209ba1b3_149f_4ff0_b672_941610eafd72
 :EMMO_209ba1b3_149f_4ff0_b672_941610eafd72 rdf:type owl:AnnotationProperty ;
+                                           owl:deprecated "true"^^xsd:boolean ;
+                                           skos:changeNote "Replaced by emmo:omReference"@en ;
                                            rdfs:seeAlso "https://enterpriseintegrationlab.github.io/icity/OM/doc/index-en.html" ,
                                                         "https://github.com/HajoRijgersberg/OM" ;
                                            skos:prefLabel "omReference"@en ;
@@ -77,6 +134,8 @@ schema:unitCode rdf:type owl:AnnotationProperty ;
 
 ###  https://w3id.org/emmo#EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652
 :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 rdf:type owl:AnnotationProperty ;
+                                           owl:deprecated "true"^^xsd:boolean ;
+                                           skos:changeNote "Replaced by emmo:ucumCode"@en ;
                                            rdfs:seeAlso "https://ucum.org/"^^xsd:anyURI ;
                                            skos:prefLabel "ucumCode"@en ;
                                            :elucidation "Unified Code for Units of Measure (UCUM)."@en ;
@@ -88,12 +147,16 @@ schema:unitCode rdf:type owl:AnnotationProperty ;
 
 ###  https://w3id.org/emmo#EMMO_58e7c821_4af0_4394_89f7_a9649735f4d2
 :EMMO_58e7c821_4af0_4394_89f7_a9649735f4d2 rdf:type owl:AnnotationProperty ;
+                                           owl:deprecated "true"^^xsd:boolean ;
+                                           skos:changeNote "Replaced by emmo:metrologicalReference"@en ;
                                            skos:prefLabel "metrologicalReference"@en ;
                                            rdfs:subPropertyOf rdfs:seeAlso .
 
 
 ###  https://w3id.org/emmo#EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6
 :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 rdf:type owl:AnnotationProperty ;
+                                           owl:deprecated "true"^^xsd:boolean ;
+                                           skos:changeNote "Replaced by emmo:VIMTerm"@en ;
                                            rdfs:seeAlso "https://www.bipm.org/documents/20126/2071204/JCGM_200_2012.pdf"^^xsd:anyURI ;
                                            skos:example "quantity value (term in VIM that corresponds to Quantity in EMMO)"@en ;
                                            skos:prefLabel "VIMTerm"@en ;
@@ -104,11 +167,15 @@ schema:unitCode rdf:type owl:AnnotationProperty ;
 
 ###  https://w3id.org/emmo#EMMO_fe015383_afb3_44a6_ae86_043628697aa2
 :EMMO_fe015383_afb3_44a6_ae86_043628697aa2 rdf:type owl:AnnotationProperty ;
+                                           owl:deprecated "true"^^xsd:boolean ;
+                                           skos:changeNote "Replaced by emmo:iupacReference"@en ;
                                            rdfs:comment "DOI to corresponding concept in IUPAC"@en ;
                                            rdfs:seeAlso "https://goldbook.iupac.org/"^^xsd:anyURI ;
                                            skos:prefLabel "iupacReference"@en ;
                                            rdfs:subPropertyOf rdfs:seeAlso ;
                                            rdfs:range xsd:anyURI .
+
+
 
 
 #################################################################
@@ -393,19 +460,19 @@ ISO 80000-1"""@en ;
 Rockwell C hardness
 electric resistance"""@en ;
                                            skos:prefLabel "Quantity"@en ;
-                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "https://qudt.org/schema/qudt/Quantity"^^xsd:anyURI ;
-                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "measurand"@en ,
-                                                                                      "quantity"@en ;
                                            :OWLRL2DLAxioms "DisjointUnionOf: SubjectiveProperty, ObjectiveProperty" ,
                                                            "EquivalentTo: PhysicalQuantity or OrdinalQuantity" ;
+                                           :VIMTerm "measurand"@en ,
+                                                    "quantity"@en ;
                                            :elucidation "A quantifiable property of a phenomenon, body, or substance."@en ;
                                            :note """VIM defines a quantity as a \"property of a phenomenon, body, or substance, where the property has a magnitude that can be expressed as a number and a reference\".
 
-A quantity in EMMO is a property and therefore only addresses the first part of the VIM definition (that is a property of a phenomenon, body, or substance). The second part (that it can be expressed as a number and a reference) is syntactic and addressed by emmo:QuantityValue."""@en .
+A quantity in EMMO is a property and therefore only addresses the first part of the VIM definition (that is a property of a phenomenon, body, or substance). The second part (that it can be expressed as a number and a reference) is syntactic and addressed by emmo:QuantityValue."""@en ;
+                                           :qudtReference "https://qudt.org/schema/qudt/Quantity"^^xsd:anyURI .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_0650c031_42b6_4f0a_b62d_d88f071da6bf ;
-   owl:annotatedProperty :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 ;
+   owl:annotatedProperty :VIMTerm ;
    owl:annotatedTarget "measurand"@en ;
    :note "VIM defines measurand as a quantity intended to be measured. This is redundant in EMMO and correspond to Quantity."@en
  ] .
@@ -415,7 +482,7 @@ A quantity in EMMO is a property and therefore only addresses the first part of 
 :EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ;
                                            skos:prefLabel "DerivedUnit"@en ;
-                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "derived unit"@en ;
+                                           :VIMTerm "derived unit"@en ;
                                            :elucidation "Derived units are defined as a numerical factor times the products of powers of the base units corresponding to the relations defining the derived quantities in terms of the base quantities."@en ;
                                            :note """A measurement unit for a derived quantity.
 -- VIM"""@en ,
@@ -430,7 +497,7 @@ A quantity in EMMO is a property and therefore only addresses the first part of 
                                                              owl:someValuesFrom :EMMO_f658c301_ce93_46cf_9639_4eace2c5d1d5
                                                            ] ;
                                            skos:prefLabel "MeasurementResult"@en ;
-                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "measurement result"@en ;
+                                           :VIMTerm "measurement result"@en ;
                                            :elucidation """Result of a measurement.
 
 A set of quantity values being attributed to a measurand (quantity) together with any other available relevant information, like measurement uncertainty.
@@ -448,9 +515,9 @@ A set of quantity values being attributed to a measurand (quantity) together wit
 Unit of number of cellular
 Unit of degeneracy in quantum mechanics"""@en ;
                                            skos:prefLabel "CountingUnit"@en ;
-                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/NUM"^^xsd:anyURI ;
-                                           :EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 1 ;
-                                           :elucidation "Unit for dimensionless quantities that have the nature of count."@en .
+                                           :elucidation "Unit for dimensionless quantities that have the nature of count."@en ;
+                                           :qudtReference "http://qudt.org/vocab/unit/NUM"^^xsd:anyURI ;
+                                           :ucumCode 1 .
 
 
 ###  https://w3id.org/emmo#EMMO_18ce5200_00f5_45bb_8c6f_6fb128cd41ae
@@ -488,8 +555,8 @@ This is peculiar to EMMO, where quantities as syntatic entities (explicit quanti
 Plane angle
 Number of apples"""@en ;
                                            skos:prefLabel "DimensionlessUnit"@en ;
-                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/UNITLESS"^^xsd:anyURI ;
-                                           :elucidation "The subclass of measurement units with no physical dimension."@en .
+                                           :elucidation "The subclass of measurement units with no physical dimension."@en ;
+                                           :qudtReference "http://qudt.org/vocab/unit/UNITLESS"^^xsd:anyURI .
 
 
 ###  https://w3id.org/emmo#EMMO_3eb993a1_61ae_4a20_b168_dda853f51c14
@@ -557,7 +624,7 @@ J stands for N m"""@en ;
                                                         "A measurement is the process of experimentally obtaining one or more measurement results that can reasonably be attributed to a quantity."@en ;
                                            skos:altLabel "MeasurementProcedure"@en ;
                                            skos:prefLabel "Measurement"@en ;
-                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "measurement"@en ;
+                                           :VIMTerm "measurement"@en ;
                                            :elucidation "An 'observation' that results in a quantitative comparison of a 'property' of an 'object' with a standard reference based on a well defined mesurement procedure."@en ;
                                            :note "For convinience, the semiotic shortcuts `hasMeasurementValue` and `hasMeasurementQuantity` allows the user to directly relate a measurement to the measured QuantityValue and Quantity, respectively."@en ,
                                                  "The output of a measurement is in EMMO a measurement result, which in turn is attributed to one or more measurement values."@en .
@@ -602,11 +669,11 @@ J stands for N m"""@en ;
                                            skos:example "Refractive index or volume fraction."@en ,
                                                         "Typically used for ratios of two units whos dimensions cancels out."@en ;
                                            skos:prefLabel "UnitOne"@en ;
-                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/UNITLESS" ;
                                            :definition "Represents the number 1, used as an explicit unit to say something has no units."@en ;
                                            :elucidation """\"The unit one is the neutral element of any system of units – necessary and present automatically.\"
 
--- SI Brochure"""@en .
+-- SI Brochure"""@en ;
+                                           :qudtReference "http://qudt.org/vocab/unit/UNITLESS" .
 
 
 ###  https://w3id.org/emmo#EMMO_611e4040_9a3e_4a1a_9fa2_7b1012269401
@@ -622,7 +689,7 @@ J stands for N m"""@en ;
                                            rdfs:subClassOf :EMMO_9159bb16_8a70_49f9_bac4_f5cf2a82c39a ;
                                            owl:disjointWith :EMMO_acaaa124_3dde_48b6_86e6_6ec6f364f408 ;
                                            skos:prefLabel "DerivedQuantity"@en ;
-                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "derived quantity"@en ;
+                                           :VIMTerm "derived quantity"@en ;
                                            :elucidation "\"Quantity, in a system of quantities, defined in terms of the base quantities of that system\"."@en .
 
 
@@ -653,7 +720,7 @@ J stands for N m"""@en ;
                                                              owl:someValuesFrom :EMMO_f2d5d3ad_2e00_417f_8849_686f3988d929
                                                            ] ;
                                            skos:prefLabel "MeasuringSystem"@en ;
-                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "measuring system"@en ;
+                                           :VIMTerm "measuring system"@en ;
                                            :elucidation """A set of one or more 'MeasuringInstruments' and often other devices, including any reagent and supply, assembled and adapted to give information used to generate 'MeasuredQuantityProperty' within specified intervals for quantities of specified kinds.
 
 -- VIM"""@en .
@@ -717,7 +784,7 @@ A color is a nominal property.
 
 Sex of a human being."""@en ;
                                            skos:prefLabel "NominalProperty"@en ;
-                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "nominal property"@en ;
+                                           :VIMTerm "nominal property"@en ;
                                            :elucidation "An 'ObjectiveProperty' that cannot be quantified."@en .
 
 
@@ -733,11 +800,11 @@ Sex of a human being."""@en ;
                                            rdfs:subClassOf :EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0 ;
                                            skos:example "Decibel"@en ;
                                            skos:prefLabel "LogarithmicUnit"@en ;
-                                           :EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/schema/qudt/LogarithmicUnit"^^xsd:anyURI ;
                                            :elucidation "A logarithmic unit is a unit that can be used to express a quantity (physical or mathematical) on a logarithmic scale, that is, as being proportional to the value of a logarithm function applied to the ratio of the quantity and a reference quantity of the same type."@en ;
                                            :note """Note that logarithmic units like decibel or neper are not univocally defines, since their definition depends on whether they are used to measure a \"power\" or a \"root-power\" quantity.
 
 It is advisory to create a uniquely defined subclass these units for concrete usage."""@en ;
+                                           :qudtReference "http://qudt.org/schema/qudt/LogarithmicUnit"^^xsd:anyURI ;
                                            :wikipediaReference "https://en.wikipedia.org/wiki/Logarithmic_scale#Logarithmic_units"^^xsd:anyURI .
 
 
@@ -777,7 +844,7 @@ It is advisory to create a uniquely defined subclass these units for concrete us
 :EMMO_acaaa124_3dde_48b6_86e6_6ec6f364f408 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_9159bb16_8a70_49f9_bac4_f5cf2a82c39a ;
                                            skos:prefLabel "BaseQuantity"@en ;
-                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "base quantity"@en ;
+                                           :VIMTerm "base quantity"@en ;
                                            :elucidation """\"Quantity in a conventionally chosen subset of a given system of quantities, where no quantity in the subset can be expressed in terms of the other quantities within that subset\"
 ISO 80000-1"""@en .
 
@@ -800,9 +867,9 @@ International vocabulary of metrology (VIM)"""@en .
 m/s
 km"""@en ;
                                            skos:prefLabel "MeasurementUnit"@en ;
-                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "measurement unit (VIM3 1.9)"@en ;
                                            :OWLRL2DLAxioms "DisjointUnionOf: DimensionlessUnit, DimensionalUnit" ,
                                                            "DisjointUnionOf: NonPrefixedUnit, PrefixedUnit" ;
+                                           :VIMTerm "measurement unit (VIM3 1.9)"@en ;
                                            :elucidation "A metrological reference for a physical quantity."@en ;
                                            :note """\"Real scalar quantity, defined and adopted by convention, with which any other quantity of the same kind can be compared to express the ratio of the second quantity to the first one as a number\"
 ISO 80000-1"""@en ,
@@ -845,7 +912,7 @@ International vocabulary of metrology (VIM)"""@en ;
                                            skos:example """Hardness
 Resilience"""@en ;
                                            skos:prefLabel "OrdinalQuantity"@en ;
-                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "ordinal quantity"@en ;
+                                           :VIMTerm "ordinal quantity"@en ;
                                            :elucidation """\"Quantity, defined by a conventional measurement procedure, for which a total ordering relation can be established, according to magnitude, with other quantities of the same kind, but for which no algebraic operations among those quantities exist\"
 International vocabulary of metrology (VIM)"""@en .
 
@@ -942,7 +1009,7 @@ Then I have two different physical quantities that are properties thanks to two 
                                                              owl:allValuesFrom :EMMO_acaaa124_3dde_48b6_86e6_6ec6f364f408
                                                            ] ;
                                            skos:prefLabel "BaseUnit"@en ;
-                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "base unit"@en ;
+                                           :VIMTerm "base unit"@en ;
                                            :elucidation "A set of units that correspond to the base quantities in a system of units."@en .
 
 
@@ -981,7 +1048,7 @@ This class refers to what is commonly known as physical property, i.e. a measura
                                            rdfs:subClassOf :EMMO_9be5fcc4_0d8b_481d_b984_6338d4b55588 ;
                                            rdfs:comment "A measuring instrument that can be used alone is a measuring system."@en ;
                                            skos:prefLabel "MeasuringInstrument"@en ;
-                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "measuring instrument"@en ;
+                                           :VIMTerm "measuring instrument"@en ;
                                            :elucidation """Device used for making measurements, alone or in conjunction with one or more supplementary devices.
 
 -- VIM"""@en .
@@ -1015,7 +1082,7 @@ While the string \"1 kg\" is a 'QuantityValue'."""@en ;
 6 MeV
 43.5 HRC(150 kg)"""@en ;
                                            skos:prefLabel "QuantityValue"@en ;
-                                           :EMMO_bb49844b_45d7_4f0d_8cae_8e552cbc20d6 "quantity value"@en ;
+                                           :VIMTerm "quantity value"@en ;
                                            :elucidation "A symbolic that has parts a numerical object and a reference expressing the value of a quantity (expressed as the product of the numerical and the unit)."@en ;
                                            :note "A quantity value is not necessarily a property, since it is possible to write \"10 kg\", without assigning this quantity to a specific object."@en .
 
