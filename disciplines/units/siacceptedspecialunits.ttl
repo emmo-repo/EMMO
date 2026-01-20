@@ -6,19 +6,19 @@
 @prefix emmo: <https://w3id.org/emmo#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix schema: <https://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @base <https://w3id.org/emmo#> .
 
 <https://w3id.org/emmo/disciplines/units/siacceptedspecialunits> rdf:type owl:Ontology ;
                                                                   owl:versionIRI <https://w3id.org/emmo/1.0.3/disciplines/units/siacceptedspecialunits> ;
                                                                   owl:imports <https://w3id.org/emmo/1.0.3/disciplines/units/siunits> ;
                                                                   dcterms:abstract "The module 'siacceptedspecialunits' include the 15 non-SI special units that are accepted for use with the SI units."@en ;
-                                                                  dcterms:contributor emmo:FrancescaBleken ,
-                                                                                      emmo:GerhardGoldbeck ,
-                                                                                      emmo:SimonClark ;
-                                                                  dcterms:creator emmo:EmanueleGhedini ,
-                                                                                  emmo:JesperFriis ;
+                                                                  dcterms:contributor <https://orcid.org/0000-0001-8869-3718> ,
+                                                                                      <https://orcid.org/0000-0002-4181-2852> ,
+                                                                                      <https://orcid.org/0000-0002-8758-6109> ;
+                                                                  dcterms:creator <https://orcid.org/0000-0003-3805-8761> ,
+                                                                                  <https://orcid.org/0000-0002-1560-809X> ;
                                                                   dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                                                   dcterms:publisher <https://emmc.eu> ;
                                                                   dcterms:title "SI accepted special units"@en ;
@@ -39,16 +39,16 @@ emmo:Arcminute rdf:type owl:Class ;
                                emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                emmo:EMMO_cdc962d8_f3ea_4764_a57a_c7caa4859179 ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
-                                 owl:hasValue "′"
-                               ] ,
-                               [ rdf:type owl:Restriction ;
                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                  owl:hasValue "2.908882E-4"^^xsd:double
                                ] ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
                                  owl:hasValue "0.0"^^xsd:double
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
+                                 owl:hasValue "′"
                                ] ;
                rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
                skos:altLabel "ArcMinute"@en ,
@@ -70,16 +70,16 @@ emmo:Arcsecond rdf:type owl:Class ;
                                emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                                emmo:EMMO_cdc962d8_f3ea_4764_a57a_c7caa4859179 ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
-                                 owl:hasValue "″"
-                               ] ,
-                               [ rdf:type owl:Restriction ;
                                  owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                  owl:hasValue "4.848137E-6"^^xsd:double
                                ] ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
                                  owl:hasValue "0.0"^^xsd:double
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
+                                 owl:hasValue "″"
                                ] ;
                rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
                skos:altLabel "ArcSecond"@en ,
@@ -100,12 +100,12 @@ emmo:AstronomicalUnit rdf:type owl:Class ;
                       rdfs:subClassOf emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
                                       emmo:EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc ,
                                       [ rdf:type owl:Restriction ;
-                                        owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
-                                        owl:hasValue "au"
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
                                         owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                         owl:hasValue "1.495979E11"^^xsd:double
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
+                                        owl:hasValue "au"
                                       ] ;
                       skos:altLabel "astronomical-unit"@en ;
                       skos:prefLabel "AstronomicalUnit"@en ;
@@ -128,16 +128,16 @@ emmo:Bel rdf:type owl:Class ;
                          emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
                          emmo:EMMO_972e01b0_b017_4903_8c05_b7edda958723 ,
                          [ rdf:type owl:Restriction ;
-                           owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
-                           owl:hasValue "B"
-                         ] ,
-                         [ rdf:type owl:Restriction ;
                            owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                            owl:hasValue "1.0"^^xsd:double
                          ] ,
                          [ rdf:type owl:Restriction ;
                            owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
                            owl:hasValue "0.0"^^xsd:double
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
+                           owl:hasValue "B"
                          ] ;
          rdfs:comment "Today decibel (one tenth of a bel) is commonly used instead of bel."@en ,
                       "bel is used to express the ratio of one value of a power or field quantity to another, on a logarithmic scale, the logarithmic quantity being called the power level or field level, respectively."@en ;
@@ -158,16 +158,16 @@ emmo:Dalton rdf:type owl:Class ;
             rdfs:subClassOf emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
                             emmo:EMMO_77e9dc31_5b19_463e_b000_44c6e79f98aa ,
                             [ rdf:type owl:Restriction ;
-                              owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
-                              owl:hasValue "Da"
-                            ] ,
-                            [ rdf:type owl:Restriction ;
                               owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                               owl:hasValue "1.660539E-27"^^xsd:double
                             ] ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
                               owl:hasValue "0.0"^^xsd:double
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
+                              owl:hasValue "Da"
                             ] ;
             rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
             skos:altLabel "AtomicMassUnit"@en ;
@@ -190,16 +190,16 @@ emmo:Day rdf:type owl:Class ;
          rdfs:subClassOf emmo:EMMO_02e894c3_b793_4197_b120_3442e08f58d1 ,
                          emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
                          [ rdf:type owl:Restriction ;
-                           owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
-                           owl:hasValue "d"
-                         ] ,
-                         [ rdf:type owl:Restriction ;
                            owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                            owl:hasValue "86400.0"^^xsd:double
                          ] ,
                          [ rdf:type owl:Restriction ;
                            owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
                            owl:hasValue "0.0"^^xsd:double
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
+                           owl:hasValue "d"
                          ] ;
          skos:prefLabel "Day"@en ;
          schema:unitCode "DAY" ;
@@ -247,16 +247,16 @@ emmo:Degree rdf:type owl:Class ;
             rdfs:subClassOf emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
                             emmo:EMMO_cdc962d8_f3ea_4764_a57a_c7caa4859179 ,
                             [ rdf:type owl:Restriction ;
-                              owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
-                              owl:hasValue "°"
-                            ] ,
-                            [ rdf:type owl:Restriction ;
                               owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                               owl:hasValue "0.01745329"^^xsd:double
                             ] ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
                               owl:hasValue "0.0"^^xsd:double
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
+                              owl:hasValue "°"
                             ] ;
             skos:prefLabel "Degree"@en ;
             schema:unitCode "DD" ;
@@ -272,7 +272,8 @@ emmo:Degree rdf:type owl:Class ;
 
 ###  https://w3id.org/emmo#EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac
 emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac rdf:type owl:Class ;
-                                               rdfs:subClassOf emmo:EMMO_3ee80521_3c23_4dd1_935d_9d522614a3e2 ;
+                                               rdfs:subClassOf emmo:EMMO_3ee80521_3c23_4dd1_935d_9d522614a3e2 ,
+                                                               emmo:EMMO_e8b5f7de_4fd9_41d7_b988_87b512fe0180 ;
                                                rdfs:comment "This is a list of units that are not defined as part of the International System of Units (SI), but are otherwise mentioned in the SI brouchure, because either the General Conference on Weights and Measures (CGPM) accepts their use as being multiples or submultiples of SI-units, they have important contemporary application worldwide, or are otherwise commonly encountered worldwide."@en ;
                                                skos:prefLabel "SIAcceptedUnit"@en ;
                                                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Non-SI units mentioned in the SI."@en ;
@@ -281,14 +282,16 @@ emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac rdf:type owl:Class ;
 
 ###  https://w3id.org/emmo#EMMO_93170bc8_d3b2_45bd_8cad_20aad08462ef
 emmo:EMMO_93170bc8_d3b2_45bd_8cad_20aad08462ef rdf:type owl:Class ;
-                                               rdfs:subClassOf emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ;
+                                               rdfs:subClassOf emmo:EMMO_c6d4a5e0_7e95_44df_a6db_84ee0a8bbc8e ,
+                                                               emmo:EMMO_e8b5f7de_4fd9_41d7_b988_87b512fe0180 ;
                                                skos:prefLabel "SIAcceptedPrefixedUnit"@en ;
                                                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Non-SI prefixed units that have been accepted by SI to be used together with the SI system."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_ac19c801_bead_4730_8b8c_50020eec45ec
 emmo:EMMO_ac19c801_bead_4730_8b8c_50020eec45ec rdf:type owl:Class ;
-                                               rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ;
+                                               rdfs:subClassOf emmo:EMMO_08b308d4_31cd_4779_a784_aa92fc730f39 ,
+                                                               emmo:EMMO_e8b5f7de_4fd9_41d7_b988_87b512fe0180 ;
                                                skos:prefLabel "SIAcceptedDerivedUnit"@en ;
                                                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Defived units that are accepted to be used with SI."@en .
 
@@ -296,11 +299,8 @@ emmo:EMMO_ac19c801_bead_4730_8b8c_50020eec45ec rdf:type owl:Class ;
 ###  https://w3id.org/emmo#EMMO_e8b5f7de_4fd9_41d7_b988_87b512fe0180
 emmo:EMMO_e8b5f7de_4fd9_41d7_b988_87b512fe0180 rdf:type owl:Class ;
                                                rdfs:subClassOf emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ;
-                                               owl:disjointUnionOf ( emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac
-                                                                     emmo:EMMO_93170bc8_d3b2_45bd_8cad_20aad08462ef
-                                                                     emmo:EMMO_ac19c801_bead_4730_8b8c_50020eec45ec
-                                                                   ) ;
                                                skos:prefLabel "SIAccepted"@en ;
+                                               emmo:EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "disjointUnionOf: SIAcceptedUnit, SIAcceptedPrefixedUnit, SIAcceptedDerivedUnit" ;
                                                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Non-SI unit that has been accepted by SI to be used together with the SI system."@en .
 
 
@@ -309,12 +309,12 @@ emmo:ElectronVolt rdf:type owl:Class ;
                   rdfs:subClassOf emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
                                   emmo:EMMO_f6070071_d054_4b17_9d2d_f446f7147d0f ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
-                                    owl:hasValue "eV"
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
                                     owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                     owl:hasValue "1.602177E-19"^^xsd:double
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
+                                    owl:hasValue "eV"
                                   ] ;
                   skos:prefLabel "ElectronVolt"@en ;
                   schema:unitCode "A53" ;
@@ -334,16 +334,16 @@ emmo:Hectare rdf:type owl:Class ;
              rdfs:subClassOf emmo:EMMO_33433bb1_c68f_45ee_a466_f01e2c57b214 ,
                              emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
                              [ rdf:type owl:Restriction ;
-                               owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
-                               owl:hasValue "ha"
-                             ] ,
-                             [ rdf:type owl:Restriction ;
                                owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                                owl:hasValue "10000.0"^^xsd:double
                              ] ,
                              [ rdf:type owl:Restriction ;
                                owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
                                owl:hasValue "0.0"^^xsd:double
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
+                               owl:hasValue "ha"
                              ] ;
              skos:prefLabel "Hectare"@en ;
              schema:unitCode "HAR" ;
@@ -362,16 +362,16 @@ emmo:Hour rdf:type owl:Class ;
           rdfs:subClassOf emmo:EMMO_02e894c3_b793_4197_b120_3442e08f58d1 ,
                           emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
                           [ rdf:type owl:Restriction ;
-                            owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
-                            owl:hasValue "h"
-                          ] ,
-                          [ rdf:type owl:Restriction ;
                             owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                             owl:hasValue "3600.0"^^xsd:double
                           ] ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
                             owl:hasValue "0.0"^^xsd:double
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
+                            owl:hasValue "h"
                           ] ;
           skos:prefLabel "Hour"@en ;
           schema:unitCode "HUR" ;
@@ -389,16 +389,16 @@ emmo:Litre rdf:type owl:Class ;
            rdfs:subClassOf emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
                            emmo:EMMO_9141801c_c539_4c72_b423_8c74ff6b8f05 ,
                            [ rdf:type owl:Restriction ;
-                             owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
-                             owl:hasValue "L"
-                           ] ,
-                           [ rdf:type owl:Restriction ;
                              owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                              owl:hasValue "0.001"^^xsd:double
                            ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
                              owl:hasValue "0.0"^^xsd:double
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
+                             owl:hasValue "L"
                            ] ;
            rdfs:comment "Other used symbols for litre are \"l\" and \"ℓ\"."@en ;
            skos:altLabel "liter"@en-us ;
@@ -419,16 +419,16 @@ emmo:Minute rdf:type owl:Class ;
             rdfs:subClassOf emmo:EMMO_02e894c3_b793_4197_b120_3442e08f58d1 ,
                             emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
                             [ rdf:type owl:Restriction ;
-                              owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
-                              owl:hasValue "min"
-                            ] ,
-                            [ rdf:type owl:Restriction ;
                               owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                               owl:hasValue "60.0"^^xsd:double
                             ] ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
                               owl:hasValue "0.0"^^xsd:double
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
+                              owl:hasValue "min"
                             ] ;
             skos:prefLabel "Minute"@en ;
             schema:unitCode "MIN" ;
@@ -446,16 +446,16 @@ emmo:Neper rdf:type owl:Class ;
            rdfs:subClassOf emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
                            emmo:EMMO_972e01b0_b017_4903_8c05_b7edda958723 ,
                            [ rdf:type owl:Restriction ;
-                             owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
-                             owl:hasValue "Np"
-                           ] ,
-                           [ rdf:type owl:Restriction ;
                              owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                              owl:hasValue "1.0"^^xsd:double
                            ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
                              owl:hasValue "0.0"^^xsd:double
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
+                             owl:hasValue "Np"
                            ] ;
            skos:prefLabel "Neper"@en ;
            schema:unitCode "C50" ;
@@ -479,16 +479,16 @@ emmo:Tonne rdf:type owl:Class ;
            rdfs:subClassOf emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac ,
                            emmo:EMMO_77e9dc31_5b19_463e_b000_44c6e79f98aa ,
                            [ rdf:type owl:Restriction ;
-                             owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
-                             owl:hasValue "t"
-                           ] ,
-                           [ rdf:type owl:Restriction ;
                              owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
                              owl:hasValue "1000.0"^^xsd:double
                            ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
                              owl:hasValue "0.0"^^xsd:double
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty emmo:EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 ;
+                             owl:hasValue "t"
                            ] ;
            skos:prefLabel "Tonne"@en ;
            schema:unitCode "TNE" ;
@@ -500,6 +500,18 @@ emmo:Tonne rdf:type owl:Class ;
 -- QUDT"""@en ;
            emmo:EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Tonne" ;
            emmo:EMMO_fe015383_afb3_44a6_ae86_043628697aa2 "https://doi.org/10.1351/goldbook.T06394" .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( emmo:EMMO_6795a4b8_ffd0_4588_a581_a9413fe49cac
+                emmo:EMMO_93170bc8_d3b2_45bd_8cad_20aad08462ef
+                emmo:EMMO_ac19c801_bead_4730_8b8c_50020eec45ec
+              )
+] .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

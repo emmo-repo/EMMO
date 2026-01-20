@@ -6,8 +6,8 @@
 @prefix emmo: <https://w3id.org/emmo#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix schema: <https://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @base <https://w3id.org/emmo#> .
 
 <https://w3id.org/emmo/disciplines/units/specialunits> rdf:type owl:Ontology ;
@@ -16,11 +16,11 @@
                                                         dcterms:abstract """The module 'specialunits' contain non-SI special units. Examples: Day, Week, Bar, Inch, ...
 
 Note that this module is not complete and may be extended with more units over time."""@en ;
-                                                        dcterms:contributor emmo:FrancescaBleken ,
-                                                                            emmo:GerhardGoldbeck ,
-                                                                            emmo:SimonClark ;
-                                                        dcterms:creator emmo:EmanueleGhedini ,
-                                                                        emmo:JesperFriis ;
+                                                        dcterms:contributor <https://orcid.org/0000-0001-8869-3718> ,
+                                                                            <https://orcid.org/0000-0002-4181-2852> ,
+                                                                            <https://orcid.org/0000-0002-8758-6109> ;
+                                                        dcterms:creator <https://orcid.org/0000-0003-3805-8761> ,
+                                                                        <https://orcid.org/0000-0002-1560-809X> ;
                                                         dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                                         dcterms:publisher <https://emmc.eu> ;
                                                         dcterms:title "Non-SI special units"@en ;
@@ -1265,9 +1265,9 @@ emmo:Maxwell rdf:type owl:Class ;
 
 ###  https://w3id.org/emmo#Mho
 emmo:Mho rdf:type owl:Class ;
-         rdfs:subClassOf emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
+         rdfs:subClassOf emmo:EMMO_321af35f_f0cc_4a5c_b4fe_8c2c0303fb0c ,
+                         emmo:EMMO_8246541a_f1f6_4d03_8bd7_fc6b76d17375 ,
                          emmo:EMMO_868ae137_4d25_493e_b270_21ea3d94849e ,
-                         emmo:EMMO_86ffe1bb_d457_4948_9e39_35f363b9a9fe ,
                          emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 ,
                          [ rdf:type owl:Restriction ;
                            owl:onProperty emmo:EMMO_8189b42e_0995_423a_a26c_51168b27c3cf ;
@@ -1277,13 +1277,16 @@ emmo:Mho rdf:type owl:Class ;
                            owl:onProperty emmo:EMMO_d088a3cb_d3e3_4eb2_9897_00aef0cb00cd ;
                            owl:hasValue "0.0"^^xsd:double
                          ] ;
+         rdfs:comment "A unit of conductance, equal to the reciprocal of the ohm."@en ,
+                      "The name is simply Ohm spelled backwards."@en ,
+                      "The preferred unit is now Siemens."@en ;
          rdfs:isDefinedBy "http://qudt.org/2.1/vocab/unit" ;
          rdfs:seeAlso "http://www.simetric.co.uk/siderived.htm" ;
          skos:prefLabel "Mho"@en ;
          emmo:EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc "http://qudt.org/vocab/unit/MHO" ;
          emmo:EMMO_33ae2d07_5526_4555_a0b4_8f4c031b5652 "mho" ;
          emmo:EMMO_7f1dec83_d85e_4e1b_b7bd_c9442d4f5a64 "℧" ;
-         emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """\"Mho\" is a C.G.S System unit for  'Electric Conductivity' expressed as mho.
+         emmo:EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """\"Mho\" is a C.G.S System unit for  'ElectricConductance' expressed as mho.
 
 -- QUDT"""@en .
 

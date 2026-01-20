@@ -13,11 +13,11 @@
                                                    owl:imports <https://w3id.org/emmo/1.0.3/disciplines/materials> ,
                                                                <https://w3id.org/emmo/1.0.3/reference/agency> ;
                                                    dcterms:abstract "Describes manufacturing processes with engineered participants. The module also provides a root for engineered materials."@en ;
-                                                   dcterms:creator <https://orcid.org/0000-0003-4065-9742> ,
-                                                                   :AdhamHashibon ,
-                                                                   :EmanueleGhedini ,
-                                                                   :GerhardGoldbeck ,
-                                                                   :JesperFriis ;
+                                                   dcterms:creator <https://orcid.org/0000-0002-1560-809X> ,
+                                                                   <https://orcid.org/0000-0002-4181-2852> ,
+                                                                   <https://orcid.org/0000-0003-0514-9229> ,
+                                                                   <https://orcid.org/0000-0003-3805-8761> ,
+                                                                   <https://orcid.org/0000-0003-4065-9742> ;
                                                    dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                                    dcterms:publisher <https://emmc.eu> ;
                                                    dcterms:title "Manufacturing"@en ;
@@ -49,6 +49,25 @@
                                            rdfs:subPropertyOf :EMMO_0ee9e6a2_9240_4b1d_ac9a_f72416c7dc70 ;
                                            rdfs:range :EMMO_127594de_4802_4ad6_b09d_d05b340394dd ;
                                            skos:prefLabel "hasServiceOutput"@en .
+
+
+###  https://w3id.org/emmo#EMMO_b1c64830_45c7_499d_9a72_68f517d57823
+:EMMO_b1c64830_45c7_499d_9a72_68f517d57823 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_0154a22e_2fd3_460a_a245_408ddb414f09 ;
+                                           rdfs:domain :EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad ;
+                                           rdfs:range :EMMO_a4d66059_5dd3_4b90_b4cb_10960559441b ;
+                                           skos:altLabel "isManufacturedOutputOf"@en ;
+                                           skos:prefLabel "manufacturedWith"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Relates a manufactured product to the manufacturing process that it was manufactured with."@en .
+
+
+###  https://w3id.org/emmo#EMMO_b24af630_0758_447e_a04d_a0e95db9b4fa
+:EMMO_b24af630_0758_447e_a04d_a0e95db9b4fa rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_b85e4738_500c_4e1b_bbe8_9e84190485d6 ;
+                                           rdfs:domain :EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad ;
+                                           rdfs:range :EMMO_c0afb341_7d31_4883_a307_ae4606df2a1b ;
+                                           skos:prefLabel "manufacturedBy"@en ;
+                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Relates a manufactured product to its manufacturer."@en .
 
 
 #################################################################
@@ -1026,6 +1045,10 @@ e.g. the fact that steel comes in sheets is not relevant for the definition of s
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :EMMO_2bb50428_568d_46e8_b8bf_59a4c5656461 ;
                                                              owl:someValuesFrom :EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_cd24eb82_a11c_4a31_96ea_32f870c5580a ;
+                                                             owl:someValuesFrom :EMMO_c130614a_2985_476d_a7ed_8a137847703c
                                                            ] ;
                                            skos:altLabel "Output"@en ;
                                            skos:prefLabel "Product"@en ;
@@ -1074,7 +1097,15 @@ It must have and initial stage of its life that is also an outcome of a intentio
 ###  https://w3id.org/emmo#EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad
 :EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_82fc8506_1f84_4add_9683_abea077bd1e3 ,
-                                                           :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ;
+                                                           :EMMO_90ae56e4_d197_49b6_be1a_0049e4756606 ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_b1c64830_45c7_499d_9a72_68f517d57823 ;
+                                                             owl:someValuesFrom :EMMO_a4d66059_5dd3_4b90_b4cb_10960559441b
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :EMMO_b24af630_0758_447e_a04d_a0e95db9b4fa ;
+                                                             owl:someValuesFrom :EMMO_c0afb341_7d31_4883_a307_ae4606df2a1b
+                                                           ] ;
                                            skos:altLabel "Artifact"@en ,
                                                          "Engineered"@en ,
                                                          "TangibleProduct"@en ;
@@ -1406,7 +1437,8 @@ manufacturing process: set of processes in manufacturing involving a flow and/or
 
 ###  https://w3id.org/emmo#EMMO_c0afb341_7d31_4883_a307_ae4606df2a1b
 :EMMO_c0afb341_7d31_4883_a307_ae4606df2a1b rdf:type owl:Class ;
-                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           rdfs:subClassOf :EMMO_c130614a_2985_476d_a7ed_8a137847703c ,
+                                                           [ rdf:type owl:Restriction ;
                                                              owl:onProperty [ owl:inverseOf :EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77
                                                                             ] ;
                                                              owl:someValuesFrom :EMMO_a4d66059_5dd3_4b90_b4cb_10960559441b
@@ -1688,8 +1720,8 @@ manufacturing process: set of processes in manufacturing involving a flow and/or
 
 ###  https://w3id.org/emmo#EMMO_ec7464a9_d99d_45f8_965b_4e9230ea8356
 :EMMO_ec7464a9_d99d_45f8_965b_4e9230ea8356 rdf:type owl:Class ;
-                                           owl:equivalentClass [ owl:intersectionOf ( :EMMO_4207e895_8b83_4318_996a_72cfb32acd94
-                                                                                      :EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad
+                                           owl:equivalentClass [ owl:intersectionOf ( :EMMO_86ca9b93_1183_4b65_81b8_c0fcd3bba5ad
+                                                                                      :EMMO_b418c9ac_be7c_42d1_862c_64f655ced6c5
                                                                                     ) ;
                                                                  rdf:type owl:Class
                                                                ] ;
