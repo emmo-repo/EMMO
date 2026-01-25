@@ -153,14 +153,14 @@ jobs:
         ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
         ssh-strict: no
 
-    - name: Copy to GitHub Pages
+    - name: Create pages directory
       run: |
         # Do not overwrite index.html
         rm public/index.html
-        # Tell GitHub that this site is not generated with jekyll (otherwise will the reference documentation not show up correctly)
-        touch public/.nojekyll
         # Copy to latest (root)
         cp -rf public/* pages/.
+        # Tell GitHub that this site is not generated with jekyll (otherwise will the reference documentation not show up correctly)
+        touch pages/.nojekyll
         # Copy to version
         VERSION=$(git rev-parse --abbrev-ref HEAD)
         if [ ! -d pages/versions/${VERSION} ]; then \
@@ -176,9 +176,12 @@ jobs:
         cd pages
         git config --global user.email "emmo@emmc.eu"
         git config --global user.name "EMMO Developer"
-        git add --all
+        git add --ignore-removal
         if [ -n "$(git status --porcelain -uno)" ]; then \
-          git commit -m 'Updated releasetable'; \
-          git pull origin master; \
-          git push origin master; \
+          git pull -Xours origin master; \
+          git checkout --orphan tmp; \
+          git commit -m 'Updated pages'; \
+          git branch -D master; \
+          git branch -m master; \
+          git push -f origin master; \
         fi
