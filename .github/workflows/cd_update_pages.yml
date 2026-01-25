@@ -159,8 +159,6 @@ jobs:
         rm public/index.html
         # Copy to latest (root)
         cp -rf public/* pages/.
-        # Tell GitHub that this site is not generated with jekyll (otherwise will the reference documentation not show up correctly)
-        touch pages/.nojekyll
         # Copy to version
         VERSION=$(git rev-parse --abbrev-ref HEAD)
         if [ ! -d pages/versions/${VERSION} ]; then \
@@ -176,6 +174,8 @@ jobs:
         cd pages
         git config --global user.email "emmo@emmc.eu"
         git config --global user.name "EMMO Developer"
+        # Tell GitHub that this site is not generated with jekyll (otherwise will the reference documentation not show up correctly)
+        touch .nojekyll
         git add --ignore-removal
         if [ -n "$(git status --porcelain -uno)" ]; then \
           git pull -Xours origin master; \
