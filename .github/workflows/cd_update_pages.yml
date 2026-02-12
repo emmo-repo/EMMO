@@ -66,9 +66,10 @@ jobs:
     - name: Create HUME namespace from emax
       run: |
         ontoconvert -saw --rename-iris \
+          --iri=https://w3id.org/emmo/hume \
           --base-iri="https://w3id.org/emmo/hume#" \
           --namespace="hume:https://w3id.org/hume#" \
-          --iri=https://w3id.org/emmo/hume \
+          --rename-ontology="|w3id.org/emmo/([0-9][^/]*)/?emax|w3id.org/emmo/\\1/hume|" \
           emax.ttl \
           public/hume.ttl
 
