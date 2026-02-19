@@ -13,17 +13,17 @@
                                         owl:imports <https://w3id.org/emmo/1.0.4/perspectives/contrast> ;
                                         dcterms:abstract ""@en ;
                                         dcterms:contributor <https://orcid.org/0000-0001-8869-3718> ,
-                                                            <https://orcid.org/0009-0008-8009-5009> ,
                                                             <https://orcid.org/0000-0002-4181-2852> ,
+                                                            <https://orcid.org/0009-0008-8009-5009> ,
                                                             "Michael Noeske, FRAUNHOFER IFAM, DE"@en ;
-                                        dcterms:creator <https://orcid.org/0000-0003-3805-8761> ,
-                                                        <https://orcid.org/0000-0002-1560-809X> ;
+                                        dcterms:creator <https://orcid.org/0000-0002-1560-809X> ,
+                                                        <https://orcid.org/0000-0003-3805-8761> ;
                                         dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                         dcterms:publisher <https://emmc.eu> ;
                                         dcterms:title "Data"@en ;
                                         rdfs:comment "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
                                         owl:versionInfo "1.0.4" ;
-                                        :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
+                                        :contact "emmo@emmc.eu" .
 
 #################################################################
 #    Object Properties
@@ -35,59 +35,43 @@
                                            rdfs:domain :EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a ;
                                            rdfs:range :EMMO_50d6236a_7667_4883_8ae1_9bb5d190423a ;
                                            skos:prefLabel "hasDatum"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Relates a dataset to its datum."@en .
+                                           :elucidation "Relates a dataset to its datum."@en .
 
 
 #################################################################
 #    Classes
 #################################################################
 
-###  https://w3id.org/emmo#EMMO_1a40459e_10d8_49b3_bb8c_c3595fb1d0bb
-:EMMO_1a40459e_10d8_49b3_bb8c_c3595fb1d0bb rdf:type owl:Class ;
-                                                                      rdfs:subClassOf :EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 ;
-                                                                      skos:prefLabel "DataByStructure"@en ;
-                                                                      :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "EquivalentTo: Dataset or Datum" ;
-                                                                      :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Categorisation of data by its structure."@en .
-
-
-###  https://w3id.org/emmo#EMMO_1e1cfc11_aa1a_44d4_a8d0_31e26deb2d19
-:EMMO_1e1cfc11_aa1a_44d4_a8d0_31e26deb2d19 rdf:type owl:Class ;
-                                                                      rdfs:subClassOf :EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 ;
-                                                                      skos:prefLabel "DataByNature"@en ;
-                                                                      :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "EquivalentTo: ClassicalData or QuantumData" ;
-                                                                      :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Categorisation of data by its nature."@en .
-
-
-###  https://w3id.org/emmo#EMMO_c66ad523_3937_485e_91bb_ad488ddb373f
-:EMMO_c66ad523_3937_485e_91bb_ad488ddb373f rdf:type owl:Class ;
-                                                                      rdfs:subClassOf :EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 ;
-                                                                      skos:prefLabel "DataByDiscretness"@en ;
-                                                                      :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "EquivalentTo: AnalogData or DiscreteData" ;
-                                                                      :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Categorisation of data by whether it is descrete or not."@en .
-
-
-###  https://w3id.org/emmo#EMMO_f0fec2df_41f0_4412_b28a_592858c065f0
-:EMMO_f0fec2df_41f0_4412_b28a_592858c065f0 rdf:type owl:Class ;
-                                                                      rdfs:subClassOf :EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 ;
-                                                                      skos:prefLabel "DataByNumerical"@en ;
-                                                                      :EMMO_8a137e9f_579c_4e28_baca_e8980eb0c3db "EquivalentTo: NumericalData or NonNumericalData" ;
-                                                                      :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Categorisation of data by whether it is numerical or not."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_0d1c0018_42e2_4506_bc3d_f53c117c1ad3
 :EMMO_0d1c0018_42e2_4506_bc3d_f53c117c1ad3 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_c66ad523_3937_485e_91bb_ad488ddb373f ;
                                            skos:example "A vynil contain continuous information about the recorded sound."@en ;
                                            skos:prefLabel "AnalogData"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data that are decoded retaining its continuous variations characteristic."@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The fact that there may be a finite granularity in the variations of the material basis (e.g. the smallest peak in a vynil that can be recognized by the piezo-electric transducer) does not prevent a data to be analog. It means only that the focus on such data encoding is on a scale that makes such variations negligible, making them practically a continuum."@en .
+                                           :elucidation "Data that are decoded retaining its continuous variations characteristic."@en ;
+                                           :note "The fact that there may be a finite granularity in the variations of the material basis (e.g. the smallest peak in a vynil that can be recognized by the piezo-electric transducer) does not prevent a data to be analog. It means only that the focus on such data encoding is on a scale that makes such variations negligible, making them practically a continuum."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a
 :EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_1a40459e_10d8_49b3_bb8c_c3595fb1d0bb ;
                                            skos:prefLabel "Dataset"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Encoded data made of more than one datum."@en .
+                                           :elucidation "Encoded data made of more than one datum."@en .
+
+
+###  https://w3id.org/emmo#EMMO_1a40459e_10d8_49b3_bb8c_c3595fb1d0bb
+:EMMO_1a40459e_10d8_49b3_bb8c_c3595fb1d0bb rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 ;
+                                           skos:prefLabel "DataByStructure"@en ;
+                                           :OWLRL2DLAxioms "EquivalentTo: Dataset or Datum" ;
+                                           :elucidation "Categorisation of data by its structure."@en .
+
+
+###  https://w3id.org/emmo#EMMO_1e1cfc11_aa1a_44d4_a8d0_31e26deb2d19
+:EMMO_1e1cfc11_aa1a_44d4_a8d0_31e26deb2d19 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 ;
+                                           skos:prefLabel "DataByNature"@en ;
+                                           :OWLRL2DLAxioms "EquivalentTo: ClassicalData or QuantumData" ;
+                                           :elucidation "Categorisation of data by its nature."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_50d6236a_7667_4883_8ae1_9bb5d190423a
@@ -95,28 +79,28 @@
                                            rdfs:subClassOf :EMMO_1a40459e_10d8_49b3_bb8c_c3595fb1d0bb ;
                                            skos:example "A character, a bit, a song in a CD."@en ;
                                            skos:prefLabel "Datum"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A self-consistent encoded data entity."@en .
+                                           :elucidation "A self-consistent encoded data entity."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_6fa1feac_c388_44cc_a721_283499d5addc
 :EMMO_6fa1feac_c388_44cc_a721_283499d5addc rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_1e1cfc11_aa1a_44d4_a8d0_31e26deb2d19 ;
                                            skos:prefLabel "QuantumData"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data that are expressed through quantum mechanical principles, and that can have several values ​​/ be in several states in the same place at the same time (quantum superposition), each of them with a certain probability."@en .
+                                           :elucidation "Data that are expressed through quantum mechanical principles, and that can have several values ​​/ be in several states in the same place at the same time (quantum superposition), each of them with a certain probability."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_888a5dea_3b7d_4dc0_93f2_d4e345a1f903
 :EMMO_888a5dea_3b7d_4dc0_93f2_d4e345a1f903 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_f0fec2df_41f0_4412_b28a_592858c065f0 ;
                                            skos:prefLabel "NumericalData"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data that can be decoded under a quantitative schema and also associated with a graphical number symbols."@en .
+                                           :elucidation "Data that can be decoded under a quantitative schema and also associated with a graphical number symbols."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_ac1a05c5_0c17_4387_bac0_683f2a86f3ed
 :EMMO_ac1a05c5_0c17_4387_bac0_683f2a86f3ed rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_f0fec2df_41f0_4412_b28a_592858c065f0 ;
                                            skos:prefLabel "NonNumericalData"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data that are non-quantitatively interpreted (e.g., qualitative data, types)."@en .
+                                           :elucidation "Data that are non-quantitatively interpreted (e.g., qualitative data, types)."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_be8592a7_68d1_4a06_ad23_82f2b56ef926
@@ -124,16 +108,32 @@
                                            rdfs:subClassOf :EMMO_c66ad523_3937_485e_91bb_ad488ddb373f ;
                                            skos:example "A text is a collection of discrete symbols. A compact disc is designed to host discrete states in the form of pits and lands."@en ;
                                            skos:prefLabel "DiscreteData"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data whose variations are decoded according to a discrete schema."@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """A discrete schema may be based on a continuum material basis that is filtered according to its variations. For example, a continuous voltage based signal can be considered 1 or 0 according to some threshold.
+                                           :elucidation "Data whose variations are decoded according to a discrete schema."@en ;
+                                           :note """A discrete schema may be based on a continuum material basis that is filtered according to its variations. For example, a continuous voltage based signal can be considered 1 or 0 according to some threshold.
 Discrete does not mean that the material basis is discrete, but that the data are encoded according to such step-based rules."""@en .
+
+
+###  https://w3id.org/emmo#EMMO_c66ad523_3937_485e_91bb_ad488ddb373f
+:EMMO_c66ad523_3937_485e_91bb_ad488ddb373f rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 ;
+                                           skos:prefLabel "DataByDiscretness"@en ;
+                                           :OWLRL2DLAxioms "EquivalentTo: AnalogData or DiscreteData" ;
+                                           :elucidation "Categorisation of data by whether it is descrete or not."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_ed257e78_8b59_44c3_9d61_06c261184f55
 :EMMO_ed257e78_8b59_44c3_9d61_06c261184f55 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_1e1cfc11_aa1a_44d4_a8d0_31e26deb2d19 ;
                                            skos:prefLabel "ClassicalData"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Data that are expressed through classical physics mechanisms, having one value and one state, and being in the same place at the same time."@en .
+                                           :elucidation "Data that are expressed through classical physics mechanisms, having one value and one state, and being in the same place at the same time."@en .
+
+
+###  https://w3id.org/emmo#EMMO_f0fec2df_41f0_4412_b28a_592858c065f0
+:EMMO_f0fec2df_41f0_4412_b28a_592858c065f0 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_3e7add3d_e6ed_489a_a796_8e31fef9b490 ;
+                                           skos:prefLabel "DataByNumerical"@en ;
+                                           :OWLRL2DLAxioms "EquivalentTo: NumericalData or NonNumericalData" ;
+                                           :elucidation "Categorisation of data by whether it is numerical or not."@en .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

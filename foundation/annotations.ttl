@@ -1,0 +1,231 @@
+@prefix : <https://w3id.org/emmo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/emmo#> .
+
+<https://w3id.org/emmo/foundation/annotations> rdf:type owl:Ontology ;
+                                               owl:versionIRI <https://w3id.org/emmo/1.0.4/foundation/annotations> ;
+                                               dcterms:abstract "Basic annotations used by EMMO."@en ;
+                                               dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+                                               dcterms:publisher <https://emmc.eu> ;
+                                               dcterms:title "EMMO Annotations"@en ;
+                                               owl:versionInfo "1.0.4" ;
+                                               foaf:mbox <mailto:emmo@emmc.eu> ;
+                                               :contact "emmo@emmc.eu" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/abstract
+dcterms:abstract rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/contributor
+dcterms:contributor rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+dcterms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+dcterms:license rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/publisher
+dcterms:publisher rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/source
+dcterms:source rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+dcterms:title rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#isDefinedBy
+rdfs:isDefinedBy rdfs:subPropertyOf rdfs:seeAlso .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#label
+rdfs:label rdfs:range rdfs:Literal .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#seeAlso
+rdfs:seeAlso rdfs:comment """EMMO applies the naming convension to its sub-properties of rdfs:seeAlso that their label must end with one of the following terms:
+  - 'Match': resolvable URLs to corresponding entity in another ontology
+  - 'Entry': resolvable URLs to a human readable resource describing the subject
+  - 'Ref': non-resolvable reference to a human readable resource describing the subject"""@en ,
+                          "Indicate a resource that might provide additional information about the subject resource."@en .
+
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+skos:altLabel rdf:type owl:AnnotationProperty ;
+              rdfs:subPropertyOf rdfs:label .
+
+
+###  http://www.w3.org/2004/02/skos/core#changeNote
+skos:changeNote rdf:type owl:AnnotationProperty ;
+              rdfs:subPropertyOf rdfs:comment .
+
+
+###  http://www.w3.org/2004/02/skos/core#editorialNote
+skos:editorialNote rdf:type owl:AnnotationProperty ;
+              rdfs:subPropertyOf rdfs:comment .
+
+
+###  http://www.w3.org/2004/02/skos/core#example
+skos:example rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#hiddenLabel
+skos:hiddenLabel rdf:type owl:AnnotationProperty ;
+                 rdfs:subPropertyOf rdfs:label .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:AnnotationProperty ;
+               rdfs:subPropertyOf rdfs:label .
+
+
+###  http://www.w3.org/ns/locn#fullAddress
+locn:fullAddress rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/logo
+foaf:logo rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/mbox
+foaf:mbox rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/name
+foaf:name rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/workplaceHomepage
+foaf:workplaceHomepage rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/emmo#OWL2DLRestrictedAxiom
+:OWL2DLRestrictedAxiom rdf:type owl:AnnotationProperty ;
+                       skos:prefLabel "OWL2DLRestrictedAxiom"@en ;
+                       :elucidation "Axiom not included in the theory because of OWL 2 DL global restrictions for decidability."@en ;
+                       rdfs:subPropertyOf rdfs:comment .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :OWL2DLRestrictedAxiom ;
+   owl:annotatedProperty :elucidation ;
+   owl:annotatedTarget "Axiom not included in the theory because of OWL 2 DL global restrictions for decidability."@en ;
+   rdfs:seeAlso "https://www.w3.org/TR/2012/REC-owl2-syntax-20121211/#Global_Restrictions_on_Axioms_in_OWL_2_DL"^^xsd:anyURI
+ ] .
+
+
+###  https://w3id.org/emmo#OWLRL2DLAxioms
+:OWLRL2DLAxioms rdf:type owl:AnnotationProperty ;
+                skos:prefLabel "OWLRL2DLAxioms"@en ;
+                :elucidation "Axioms to add to the OWL 2 RL version of the ontology to reach DL expressivity."@en ;
+                rdfs:subPropertyOf rdfs:comment .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :OWLRL2DLAxioms ;
+   owl:annotatedProperty :elucidation ;
+   owl:annotatedTarget "Axioms to add to the OWL 2 RL version of the ontology to reach DL expressivity."@en ;
+   rdfs:seeAlso "https://www.w3.org/TR/2012/REC-owl2-profiles-20121211/"^^xsd:anyURI
+ ] .
+
+
+###  https://w3id.org/emmo#conceptualisation
+:conceptualisation rdf:type owl:AnnotationProperty ;
+                   skos:prefLabel "conceptualisation"@en ;
+                   :elucidation "The conceptualisation annotation is a comment that helps the reader to understand how the world has been conceptualised by the ontology authors."@en ;
+                   :note "A conceptualisation is the preliminary step behind each theory, preceding each logical formalisation. The readers approaching an ontology entity should first read the conceptualisation annotation to clearly understand \"what we are talking about\" and the accompanying terminology, and then read the elucidation."@en ,
+                         "An conceptualisation can provide references to external knowledge sources (i.e. ISO, Goldbook, RoMM)."@en ;
+                   rdfs:subPropertyOf rdfs:comment .
+
+
+###  https://w3id.org/emmo#contact
+:contact rdf:type owl:AnnotationProperty ;
+         skos:prefLabel "contact"@en ;
+         :elucidation "A person or organisation acting as a contact point for enquiries about the ontology resource"@en ;
+         :note "The annotation should include an email address."@en ;
+         rdfs:subPropertyOf rdfs:comment .
+
+
+###  https://w3id.org/emmo#dbpediaReference
+:dbpediaReference rdf:type owl:AnnotationProperty ;
+                  rdfs:seeAlso "https://wiki.dbpedia.org/" ;
+                  skos:prefLabel "dbpediaReference"@en ;
+                  :elucidation "URL to corresponding dpbedia entry."@en ;
+                  rdfs:subPropertyOf rdfs:seeAlso ;
+                  rdfs:range xsd:anyURI .
+
+
+###  https://w3id.org/emmo#definition
+:definition rdf:type owl:AnnotationProperty ;
+            skos:prefLabel "definition"@en ;
+            :elucidation "Precise and univocal description of an ontological entity in the framework of an axiomatic system."@en ;
+            :note "A definition univocally determines a OWL entity using necessary and sufficient conditions referring to other OWL entities."@en ;
+            rdfs:subPropertyOf rdfs:comment .
+
+
+###  https://w3id.org/emmo#elucidation
+:elucidation rdf:type owl:AnnotationProperty ;
+             skos:prefLabel "elucidation"@en ;
+             :elucidation "Short enlightening explanation aimed to facilitate the user in drawing the connection (interpretation) between a OWL entity and the real world object(s) for which it stands."@en ;
+             :note "An elucidation should address the real world entities using the concepts introduced by the conceptualisation annotation."@en ;
+             rdfs:subPropertyOf rdfs:comment .
+
+
+###  https://w3id.org/emmo#etymology
+:etymology rdf:type owl:AnnotationProperty ;
+           skos:prefLabel "etymology"@en ;
+           :elucidation "The etymology annotation explains the origin of a word and the historical development of its meaning."@en ;
+           :note "Definitions are usually taken from Wiktionary."@en ,
+                 "The etymology annotation is usually applied to rdfs:label entities, to better understand the connection between a label and the concept it concisely represents."@en ;
+           rdfs:subPropertyOf rdfs:comment .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :etymology ;
+   owl:annotatedProperty :note ;
+   owl:annotatedTarget "Definitions are usually taken from Wiktionary."@en ;
+   rdfs:seeAlso "https://en.wiktionary.org/wiki/Wiktionary"@en
+ ] .
+
+
+###  https://w3id.org/emmo#illustration
+:illustration rdf:type owl:AnnotationProperty ;
+              skos:prefLabel "illustration"@en ;
+              :elucidation "A link to a graphical representation aimed to facilitate understanding of the concept, or of an annotation."@en ;
+              rdfs:subPropertyOf rdfs:seeAlso ;
+              rdfs:range xsd:anyURI .
+
+
+###  https://w3id.org/emmo#note
+:note rdf:type owl:AnnotationProperty ;
+      skos:prefLabel "note"@en ;
+      :elucidation "A text that add some information about the entity."@en ;
+      :note "A note can be addressed to facilitate interpretation, to suggest possible usage, to clarify the concepts behind each entity with respect to other ontological apporaches."@en ;
+      rdfs:subPropertyOf rdfs:comment .
+
+
+###  https://w3id.org/emmo#wikipediaReference
+:wikipediaReference rdf:type owl:AnnotationProperty ;
+                    rdfs:seeAlso "https://www.wikipedia.org/" ;
+                    skos:prefLabel "wikipediaReference"@en ;
+                    :elucidation "URL to corresponding Wikipedia entry."@en ;
+                    rdfs:subPropertyOf rdfs:seeAlso ;
+                    rdfs:range xsd:anyURI .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

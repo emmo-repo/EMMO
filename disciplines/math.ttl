@@ -15,17 +15,17 @@
                                                       <https://w3id.org/emmo/1.0.4/reference/data> ,
                                                       <https://w3id.org/emmo/1.0.4/reference/symbolic> ;
                                           dcterms:abstract "The math module defines the formal language of mathematics. Mathematical objects represents graphical objects based on graphical symbols arranged according the rules of math."@en ;
-                                          dcterms:creator <https://orcid.org/0000-0003-4065-9742> ,
+                                          dcterms:creator <https://orcid.org/0000-0002-1560-809X> ,
+                                                          <https://orcid.org/0000-0002-4181-2852> ,
                                                           <https://orcid.org/0000-0003-0514-9229> ,
                                                           <https://orcid.org/0000-0003-3805-8761> ,
-                                                          <https://orcid.org/0000-0002-4181-2852> ,
-                                                          <https://orcid.org/0000-0002-1560-809X> ;
+                                                          <https://orcid.org/0000-0003-4065-9742> ;
                                           dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                           dcterms:publisher <https://emmc.eu> ;
                                           dcterms:title "Math"@en ;
                                           rdfs:comment "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
                                           owl:versionInfo "1.0.4" ;
-                                          :EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17 "emmo@emmc.eu" .
+                                          :contact "emmo@emmc.eu" .
 
 #################################################################
 #    Annotation properties
@@ -72,7 +72,7 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
                                            rdf:type owl:FunctionalProperty ;
                                            rdfs:domain :EMMO_8b305b63_6fa3_44dd_9679_17eb8403a07a ;
                                            skos:prefLabel "hasNumberValue"@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The owl:dataProperty that provides a serialisation of an EMMO numerical data entity." .
+                                           :note "The owl:dataProperty that provides a serialisation of an EMMO numerical data entity." .
 
 
 #################################################################
@@ -99,7 +99,7 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
                                            skos:altLabel "1DArray"@en ,
                                                          "LinearArray" ;
                                            skos:prefLabel "Vector"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "1-dimensional array who's spatial direct parts are numbers."@en .
+                                           :elucidation "1-dimensional array who's spatial direct parts are numbers."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_0b6ebe5a_0026_4bef_a1c1_5be00df9f98e
@@ -107,7 +107,7 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
                                            rdfs:subClassOf :EMMO_88470739_03d3_4c47_a03e_b30a1288d50c ;
                                            skos:example "f(x) > 0"@en ;
                                            skos:prefLabel "Inequality"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A relation which makes a non-equal comparison between two numbers or other mathematical expressions."@en .
+                                           :elucidation "A relation which makes a non-equal comparison between two numbers or other mathematical expressions."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_1aed91a3_d00c_48af_8f43_a0c958b2512a
@@ -127,7 +127,7 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
                                                            ] ;
                                            skos:altLabel "2DArray"@en ;
                                            skos:prefLabel "Matrix"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "2-dimensional array who's spatial direct parts are vectors."@en .
+                                           :elucidation "2-dimensional array who's spatial direct parts are vectors."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_1eed0732_e3f1_4b2c_a9c4_b4e75eeb5895
@@ -136,20 +136,20 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
                                            skos:example """x
 k"""@en ;
                                            skos:prefLabel "Variable"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A variable is a symbolic object that stands for any other mathematical object, such as  number, a vector, a matrix, a function, the argument of a function, a set, an element of a set."@en .
+                                           :elucidation "A variable is a symbolic object that stands for any other mathematical object, such as  number, a vector, a matrix, a function, the argument of a function, a set, an element of a set."@en .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_1eed0732_e3f1_4b2c_a9c4_b4e75eeb5895 ;
    owl:annotatedProperty skos:prefLabel ;
    owl:annotatedTarget "Variable"@en ;
-   :EMMO_705f27ae_954c_4f13_98aa_18473fc52b25 "Fom Latin variabilis (\"changeable\")."@en
+   :etymology "Fom Latin variabilis (\"changeable\")."@en
  ] .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_1eed0732_e3f1_4b2c_a9c4_b4e75eeb5895 ;
-   owl:annotatedProperty :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 ;
+   owl:annotatedProperty :elucidation ;
    owl:annotatedTarget "A variable is a symbolic object that stands for any other mathematical object, such as  number, a vector, a matrix, a function, the argument of a function, a set, an element of a set."@en ;
-   :EMMO_c84c6752_6d64_48cc_9500_e54a3c34898d "https://en.wikipedia.org/wiki/Variable_(mathematics)"^^xsd:anyURI
+   :wikipediaReference "https://en.wikipedia.org/wiki/Variable_(mathematics)"^^xsd:anyURI
  ] .
 
 
@@ -162,7 +162,7 @@ k"""@en ;
                                                            ] ;
                                            skos:altLabel "3DArray"@en ;
                                            skos:prefLabel "Array3D"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "3-dimensional array who's spatial direct parts are matrices."@en .
+                                           :elucidation "3-dimensional array who's spatial direct parts are matrices."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_21f56795_ee72_4858_b571_11cfaa59c1a8
@@ -179,7 +179,7 @@ The fact that you can't give a name to a number without using a numeral or, in c
 For these reasons, the EMMO will consider numerals and numbers as the same concept."""@en ;
                                            skos:altLabel "Numeral"@en ;
                                            skos:prefLabel "Number"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A numerical data value."@en .
+                                           :elucidation "A numerical data value."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_223d9523_4169_4ecd_b8af_acad1215e1ff
@@ -192,7 +192,7 @@ For these reasons, the EMMO will consider numerals and numbers as the same conce
 :EMMO_24b30ba4_90f4_423d_93d2_fd0fde349087 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_1cba0b27_15d0_4326_933f_379d0b3565b6 ;
                                            skos:prefLabel "Shape4x3Matrix"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A real matrix with shape 4x3."@en .
+                                           :elucidation "A real matrix with shape 4x3."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_28fbea28_2204_4613_87ff_6d877b855fcd
@@ -207,7 +207,7 @@ a Matrix is a 2-dimensional Array with Vector as spatial direct parts,
 an Array3D is a 3-dimensional Array with Matrix as spatial direct parts,
 and so forth..."""@en ;
                                            skos:prefLabel "Array"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Arrays are ordered mathematical objects who's elementary spatial parts are numbers. Their dimensionality is constructed with spatial direct parthood, where 1-dimensional arrays have spatial direct parts Number and n-dimensional array have spatial direct parts (n-1)-dimensional arrays."@en .
+                                           :elucidation "Arrays are ordered mathematical objects who's elementary spatial parts are numbers. Their dimensionality is constructed with spatial direct parthood, where 1-dimensional arrays have spatial direct parts Number and n-dimensional array have spatial direct parts (n-1)-dimensional arrays."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_29afdf54_90ae_4c98_8845_fa9ea3f143a8
@@ -219,7 +219,7 @@ The definition of density as mass/volume.
 
 y = f(x)"""@en ;
                                            skos:prefLabel "DefiningEquation"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An equation that define a new variable in terms of other mathematical entities."@en .
+                                           :elucidation "An equation that define a new variable in terms of other mathematical entities."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_2b1303e8_d4c3_453b_9918_76f1d009543f
@@ -237,7 +237,7 @@ y = f(x)"""@en ;
                                            rdfs:subClassOf :EMMO_06658d8d_dcde_4fc9_aae1_17f71c0bcdec ;
                                            skos:example "The quantity value of physical quantities if real space is a Shape3Vector."@en ;
                                            skos:prefLabel "Shape3Vector"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A real vector with 3 elements."@en .
+                                           :elucidation "A real vector with 3 elements."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_3c424d37_cf62_41b1_ac9d_a316f8d113d6
@@ -263,14 +263,14 @@ y = f(x)"""@en ;
                                            skos:altLabel "FunctionDefinition"@en ;
                                            skos:example "y = f(x)"@en ;
                                            skos:prefLabel "MathematicalFunction"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A function defined using functional notation."@en .
+                                           :elucidation "A function defined using functional notation."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_4ce76d7f_03f8_45b6_9003_90052a79bfaa
 :EMMO_4ce76d7f_03f8_45b6_9003_90052a79bfaa rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0 ;
                                            skos:prefLabel "Numerical"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A 'Mathematical' that has no unknown value, i.e. all its 'Variable\"-s parts refers to a 'Number' (for scalars that have a built-in datatype) or to another 'Numerical' (for complex numerical data structures that should rely on external implementations)."@en .
+                                           :elucidation "A 'Mathematical' that has no unknown value, i.e. all its 'Variable\"-s parts refers to a 'Number' (for scalars that have a built-in datatype) or to another 'Numerical' (for complex numerical data structures that should rely on external implementations)."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_535d75a4_1972_40bc_88c6_ca566386934f
@@ -282,15 +282,15 @@ y = f(x)"""@en ;
                                                              owl:hasValue "="
                                                            ] ;
                                            skos:prefLabel "Equals"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The equals symbol."@en .
+                                           :elucidation "The equals symbol."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0
 :EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_d8d2144e_5c8d_455d_a643_5caf4d8d9df8 ;
                                            skos:prefLabel "Mathematical"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of general mathematical symbolic objects respecting mathematical syntactic rules."@en ;
-                                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A mathematical object in this branch is not representing a concept but an actual graphical object built using mathematcal symbols arranged in some way, according to math conventions."@en .
+                                           :elucidation "The class of general mathematical symbolic objects respecting mathematical syntactic rules."@en ;
+                                           :note "A mathematical object in this branch is not representing a concept but an actual graphical object built using mathematcal symbols arranged in some way, according to math conventions."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_5be83f9c_a4ba_4b9a_be1a_5bfc6e891231
@@ -321,7 +321,7 @@ y = f(x)"""@en ;
                                                            :EMMO_89a0c87c_0804_4013_937a_6fe234d9499c ;
                                            rdfs:comment "The set X is called domain and the set Y range or codomain."@en ;
                                            skos:prefLabel "MathematicalFormula"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A mathematical string that express a relation between the elements in one set X to elements in another set Y."@en .
+                                           :elucidation "A mathematical string that express a relation between the elements in one set X to elements in another set Y."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_89083bab_f69c_4d06_bf6d_62973b56cdc7
@@ -345,7 +345,7 @@ y = f(x)"""@en ;
 :EMMO_8c64fcfa_23aa_45f8_9e58_bdfd065fab8f rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_9e029526_79a2_47a8_a151_dd0545db471b ;
                                            skos:prefLabel "Constant"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A variable that stand for a numerical constant, even if it is unknown."@en .
+                                           :elucidation "A variable that stand for a numerical constant, even if it is unknown."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_8de14a59_660b_454f_aff8_76a07ce185f4
@@ -381,7 +381,7 @@ y = f(x)"""@en ;
 :EMMO_9e029526_79a2_47a8_a151_dd0545db471b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_1eed0732_e3f1_4b2c_a9c4_b4e75eeb5895 ;
                                            skos:prefLabel "NumericalVariable"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A variable standing for a numerical defined mathematical object like e.g. a number, a vector of numbers, a matrix of numbers."@en .
+                                           :elucidation "A variable standing for a numerical defined mathematical object like e.g. a number, a vector of numbers, a matrix of numbers."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527
@@ -416,7 +416,7 @@ y = f(x)"""@en ;
                                                            ] ;
                                            skos:example "π refers to the constant number ~3.14"@en ;
                                            skos:prefLabel "KnownConstant"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A variable that stand for a well known numerical constant (a known number)."@en .
+                                           :elucidation "A variable that stand for a well known numerical constant (a known number)."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_b5c58790_fb2d_42eb_b184_2a3f6ca60acb
@@ -459,7 +459,7 @@ x^2 +3x  = 5x
 dv/dt = a
 sin(x) = y"""@en ;
                                            skos:prefLabel "Equation"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The class of 'mathematical'-s that stand for a statement of equality between two mathematical expressions."@en .
+                                           :elucidation "The class of 'mathematical'-s that stand for a statement of equality between two mathematical expressions."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_f6d0c26a_98b6_4cf8_8632_aa259131faaa
@@ -469,7 +469,7 @@ sin(x) = y"""@en ;
                                            skos:example "The algebraic operator '+' that acts on two real numbers and produces one real number."@en ,
                                                         "The differential operator that acts on a C1 real function and produces another real function."@en ;
                                            skos:prefLabel "MathematicalOperator"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A mapping that acts on elements of one space and produces elements of another space."@en .
+                                           :elucidation "A mapping that acts on elements of one space and produces elements of another space."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_f8a2fe9f_458b_4771_9aba_a50e76afc52d
@@ -483,7 +483,7 @@ sin(x) = y"""@en ;
                                            rdfs:subClassOf :EMMO_54ee6b5e_5261_44a8_86eb_5717e7fdb9d0 ,
                                                            :EMMO_89a0c87c_0804_4013_937a_6fe234d9499c ;
                                            skos:prefLabel "Expression"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A well-formed finite combination of mathematical symbols according to some specific rules."@en .
+                                           :elucidation "A well-formed finite combination of mathematical symbols according to some specific rules."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_fe7e56ce_118b_4243_9aad_20eb9f4f31f6
@@ -491,7 +491,7 @@ sin(x) = y"""@en ;
                                            rdfs:subClassOf :EMMO_9e029526_79a2_47a8_a151_dd0545db471b ;
                                            skos:example "Velocity, for the Navier-Stokes equation."@en ;
                                            skos:prefLabel "Unknown"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The dependent variable for which an equation has been written."@en .
+                                           :elucidation "The dependent variable for which an equation has been written."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_ffe760a2_9d1f_4aef_8bee_1f450f9cb00d
@@ -506,16 +506,16 @@ sin(x) = y"""@en ;
                                                              owl:someValuesFrom :EMMO_5be83f9c_a4ba_4b9a_be1a_5bfc6e891231
                                                            ] ;
                                            skos:prefLabel "MathematicalConstruct"@en ;
-                                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A construct of two or more mathematical symbols."@en .
+                                           :elucidation "A construct of two or more mathematical symbols."@en .
 
 
-[ owl:qualifiedCardinality "3"^^xsd:nonNegativeInteger
+[ owl:qualifiedCardinality "4"^^xsd:nonNegativeInteger
 ] .
 
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
-[ owl:qualifiedCardinality "4"^^xsd:nonNegativeInteger
+[ owl:qualifiedCardinality "3"^^xsd:nonNegativeInteger
  ] .
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
