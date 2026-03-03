@@ -231,7 +231,7 @@ The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. rea
 
 ###  https://w3id.org/emmo#EMMO_abf30c80_6a0e_496e_b6dd_0439f0050fde
 :EMMO_abf30c80_6a0e_496e_b6dd_0439f0050fde rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_e1f718c7_27b6_49fa_af01_9ece7c79b654 ;
+                                           rdfs:subPropertyOf :EMMO_559ab98c_1c7d_4794_996c_8c1d8d56381c ;
                                            owl:inverseOf :EMMO_da27d905_beb6_44ea_a330_a2dd9c17b263 ;
                                            rdfs:isDefinedBy :EMMO_da27d905_beb6_44ea_a330_a2dd9c17b263 ;
                                            skos:prefLabel "isInternalRepresentationBy"@en .
@@ -312,7 +312,7 @@ The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. rea
 
 ###  https://w3id.org/emmo#EMMO_da27d905_beb6_44ea_a330_a2dd9c17b263
 :EMMO_da27d905_beb6_44ea_a330_a2dd9c17b263 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf :EMMO_f275e4e9_062b_4ca4_a679_4f26ec0a48ae ;
+                                           rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
                                            rdfs:domain :EMMO_0527413c_b286_4e9c_b2d0_03fb2a038dee ;
                                            rdfs:range :EMMO_054af807_85cd_4a13_8eba_119dfdaaf38b ;
                                            skos:prefLabel "hasInternalRepresentation"@en ;
@@ -1159,15 +1159,15 @@ For example, when a Boeing 747 is used as a sign for another Boeing 747."""@en ,
 
 
 [ :note """The rule for the subproperty chain:
- inverse (hasReferent) o inverse (hasInterpreter) ⇒ hasSign"""@en
+ inverse (hasInterpreter) o inverse (hasSign) ⇒ hasReferent"""@en
 ] .
 
 [ :note """The rule for the subproperty chain:
-inverse (hasSign) o inverse (hasReferent) ⇒ hasInterpreter"""@en
+ inverse (hasReferent) o inverse (hasInterpreter) ⇒ hasSign"""@en
  ] .
 
 [ :note """The rule for the subproperty chain:
- inverse (hasInterpreter) o inverse (hasSign) ⇒ hasReferent"""@en
+inverse (hasSign) o inverse (hasReferent) ⇒ hasInterpreter"""@en
  ] .
 
 #################################################################
@@ -1177,6 +1177,8 @@ inverse (hasSign) o inverse (hasReferent) ⇒ hasInterpreter"""@en
 <urn:swrl:var#x> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
 <urn:swrl:var#y> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#w> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
 <urn:swrl:var#z> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
@@ -1189,11 +1191,25 @@ inverse (hasSign) o inverse (hasReferent) ⇒ hasInterpreter"""@en
                                                      ] ;
                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_f2fc1ce9_cc3b_4eb5_a112_3c85d1b1374a ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_9e3ad976_b179_4315_b51e_7e874df583dc ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#w> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#x>
                                                                 ] ;
-                                                      rdf:rest rdf:nil
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_f2fc1ce9_cc3b_4eb5_a112_3c85d1b1374a ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_8fb6d667_f2af_482d_97a9_ec97cd81274d ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#w> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
                                                     ]
                                          ] ;
    <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
@@ -1215,11 +1231,25 @@ inverse (hasSign) o inverse (hasReferent) ⇒ hasInterpreter"""@en
                                                      ] ;
                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_8fb6d667_f2af_482d_97a9_ec97cd81274d ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#w> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#x>
                                                                 ] ;
-                                                      rdf:rest rdf:nil
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_cb804456_9459_4be5_ac63_a291a872fbd0 ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#w> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
                                                     ]
                                          ] ;
    <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
@@ -1241,11 +1271,25 @@ inverse (hasSign) o inverse (hasReferent) ⇒ hasInterpreter"""@en
                                                      ] ;
                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_f2fc1ce9_cc3b_4eb5_a112_3c85d1b1374a ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_9e3ad976_b179_4315_b51e_7e874df583dc ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#w> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
                                                                 ] ;
-                                                      rdf:rest rdf:nil
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_f2fc1ce9_cc3b_4eb5_a112_3c85d1b1374a ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_cb804456_9459_4be5_ac63_a291a872fbd0 ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#w> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#x>
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
                                                     ]
                                          ] ;
    <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;

@@ -47,6 +47,15 @@ This module introduces also the fundamental mereotopological relations used to d
                                            :definition "x isNotCauseOf y iff not(x isCauseOf y)"@en .
 
 
+###  https://w3id.org/emmo#EMMO_0528e41d_edd2_49f9_bd2a_aeabdc215515
+:EMMO_0528e41d_edd2_49f9_bd2a_aeabdc215515 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_33fd15ab_7662_4cc6_8bf6_988422efc631 ;
+                                           rdfs:range :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ;
+                                           owl:propertyDisjointWith :EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4 ;
+                                           skos:prefLabel "hasMultipleMembers"@en ;
+                                           :elucidation "A sub collection relation where the proper part is fully encompasses some of the members of the collection."@en .
+
+
 ###  https://w3id.org/emmo#EMMO_07808d05_18d1_4253_96e5_58b8277347de
 :EMMO_07808d05_18d1_4253_96e5_58b8277347de rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_fdfa43cd_1f48_4d82_ac49_685fe894558f ;
@@ -58,7 +67,7 @@ This module introduces also the fundamental mereotopological relations used to d
 ###  https://w3id.org/emmo#EMMO_0949a7de_78dc_421d_8603_3b685cb927a3
 :EMMO_0949a7de_78dc_421d_8603_3b685cb927a3 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_559ab98c_1c7d_4794_996c_8c1d8d56381c ;
-                                           owl:inverseOf <https://w3id.org/emmo#33fd15ab_7662_4cc6_8bf6_988422efc631> ;
+                                           owl:inverseOf :EMMO_33fd15ab_7662_4cc6_8bf6_988422efc631 ;
                                            rdfs:range :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ;
                                            rdfs:isDefinedBy <https://w3id.org/emmo#33fd15ab_7662_4cc6_8bf6_988422efc631> ;
                                            skos:prefLabel "isMemberOf"@en .
@@ -137,11 +146,23 @@ This module introduces also the fundamental mereotopological relations used to d
 
 ###  https://w3id.org/emmo#EMMO_339d8e1a_f52a_42cd_8df5_57b5328b939e
 :EMMO_339d8e1a_f52a_42cd_8df5_57b5328b939e rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf <https://w3id.org/emmo#76413949_896c_4363_a955_de4722c6e149> ;
+                                           rdfs:subPropertyOf :EMMO_76413949_896c_4363_a955_de4722c6e149 ;
                                            owl:inverseOf :EMMO_44549f38_809e_4d51_bb10_de31029055b9 ;
                                            rdfs:domain :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ;
                                            skos:prefLabel "hasFragment"@en ;
                                            :elucidation "The relation between two individuals representing a collection and a non-maximal proper part, meaning the the latter is connected with the rest of the whole."@en .
+
+
+###  https://w3id.org/emmo#EMMO_33fd15ab_7662_4cc6_8bf6_988422efc631
+:EMMO_33fd15ab_7662_4cc6_8bf6_988422efc631 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+                                           rdfs:domain :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ;
+                                           owl:propertyDisjointWith :EMMO_76413949_896c_4363_a955_de4722c6e149 ;
+                                           skos:altLabel "hasMaximalPart"@en ;
+                                           skos:prefLabel "hasMember"@en ;
+                                           :definition "A proper part which is not connected with the rest of the whole."@en ;
+                                           :elucidation "The relation between individuals representing a collection and one or more of its members." ;
+                                           :note "A maximal part is a proper part that is not connected with the rest of the whole."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_3733bd38_ca2b_4264_a92a_3075a1715598
@@ -250,7 +271,7 @@ This type of relation represent the coexistence of two entities in the a spatial
 
 ###  https://w3id.org/emmo#EMMO_55354438_7000_4284_b1b9_59d60c2261b9
 :EMMO_55354438_7000_4284_b1b9_59d60c2261b9 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf <https://w3id.org/emmo#76413949_896c_4363_a955_de4722c6e149> ;
+                                           rdfs:subPropertyOf :EMMO_76413949_896c_4363_a955_de4722c6e149 ;
                                            rdf:type owl:AsymmetricProperty ;
                                            rdfs:domain :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
                                            skos:prefLabel "hasPortionPart"@en ;
@@ -358,13 +379,22 @@ The direct causality in a 4D ontology covers both time-like causal interaction (
 
 ###  https://w3id.org/emmo#EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4
 :EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4 rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf <https://w3id.org/emmo#33fd15ab_7662_4cc6_8bf6_988422efc631> ;
+                                           rdfs:subPropertyOf :EMMO_33fd15ab_7662_4cc6_8bf6_988422efc631 ;
                                            rdf:type owl:AsymmetricProperty ;
                                            rdfs:range :EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
-                                           owl:propertyDisjointWith <https://w3id.org/emmo#0528e41d_edd2_49f9_bd2a_aeabdc215515> ;
                                            skos:altLabel "hasMember"@en ;
                                            skos:prefLabel "hasSingleMember"@en ;
                                            :elucidation "The relation between a collection and one of its item members."@en .
+
+
+###  https://w3id.org/emmo#EMMO_76413949_896c_4363_a955_de4722c6e149
+:EMMO_76413949_896c_4363_a955_de4722c6e149 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+                                           owl:inverseOf :EMMO_fdfa43cd_1f48_4d82_ac49_685fe894558f ;
+                                           skos:altLabel "hasNotMaximalPart"@en ;
+                                           skos:prefLabel "hasPiece"@en ;
+                                           :elucidation "The relation between two individuals representing an entity and a non-maximal proper part, meaning the the latter is connected with the rest of the whole."@en ;
+                                           :note "A non-maximal part is a proper part that is connected with the rest of the whole."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6
@@ -673,37 +703,7 @@ For this reason the EMMO OWL 2 DL will only deal with macro causality relations,
 ###  https://w3id.org/emmo#EMMO_fdfa43cd_1f48_4d82_ac49_685fe894558f
 :EMMO_fdfa43cd_1f48_4d82_ac49_685fe894558f rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_559ab98c_1c7d_4794_996c_8c1d8d56381c ;
-                                           owl:inverseOf <https://w3id.org/emmo#76413949_896c_4363_a955_de4722c6e149> ;
                                            skos:prefLabel "isPieceOf"@en .
-
-
-###  https://w3id.org/emmo#0528e41d_edd2_49f9_bd2a_aeabdc215515
-<https://w3id.org/emmo#0528e41d_edd2_49f9_bd2a_aeabdc215515> rdf:type owl:ObjectProperty ;
-                                                             rdfs:subPropertyOf <https://w3id.org/emmo#33fd15ab_7662_4cc6_8bf6_988422efc631> ;
-                                                             rdfs:range :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ;
-                                                             skos:prefLabel "hasMultipleMembers"@en ;
-                                                             :elucidation "A sub collection relation where the proper part is fully encompasses some of the members of the collection."@en .
-
-
-###  https://w3id.org/emmo#33fd15ab_7662_4cc6_8bf6_988422efc631
-<https://w3id.org/emmo#33fd15ab_7662_4cc6_8bf6_988422efc631> rdf:type owl:ObjectProperty ;
-                                                             rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
-                                                             rdfs:domain :EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ;
-                                                             owl:propertyDisjointWith <https://w3id.org/emmo#76413949_896c_4363_a955_de4722c6e149> ;
-                                                             skos:altLabel "hasMaximalPart"@en ;
-                                                             skos:prefLabel "hasMember"@en ;
-                                                             :definition "A proper part which is not connected with the rest of the whole."@en ;
-                                                             :elucidation "The relation between individuals representing a collection and one or more of its members." ;
-                                                             :note "A maximal part is a proper part that is not connected with the rest of the whole."@en .
-
-
-###  https://w3id.org/emmo#76413949_896c_4363_a955_de4722c6e149
-<https://w3id.org/emmo#76413949_896c_4363_a955_de4722c6e149> rdf:type owl:ObjectProperty ;
-                                                             rdfs:subPropertyOf :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
-                                                             skos:altLabel "hasNotMaximalPart"@en ;
-                                                             skos:prefLabel "hasPiece"@en ;
-                                                             :elucidation "The relation between two individuals representing an entity and a non-maximal proper part, meaning the the latter is connected with the rest of the whole."@en ;
-                                                             :note "A non-maximal part is a proper part that is connected with the rest of the whole."@en .
 
 
 #################################################################
@@ -1057,33 +1057,6 @@ This axiom may be seen as Ockam's razor applied to causality."""@en
 
 <urn:swrl:var#z> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
-[ rdfs:comment "Implementing Transitivity."@en ;
-   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
-   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_d01b3ee2_91a5_4ce2_95cd_f0d2c333c6d3 ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
-                                                     ] ;
-                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_d01b3ee2_91a5_4ce2_95cd_f0d2c333c6d3 ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
-                                                                ] ;
-                                                      rdf:rest rdf:nil
-                                                    ]
-                                         ] ;
-   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_d01b3ee2_91a5_4ce2_95cd_f0d2c333c6d3 ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
-                                                     ] ;
-                                           rdf:rest rdf:nil
-                                         ]
- ] .
-
 [ :note "Enforcing exclusivity between overlapping and causality."@en ;
    rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
@@ -1287,17 +1260,17 @@ This axiom may be seen as Ockam's razor applied to causality."""@en
                                          ]
  ] .
 
-[ rdfs:comment "Implementing transitivity."@en ;
+[ rdfs:comment "Implementing Transitivity."@en ;
    rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_b85e4738_500c_4e1b_bbe8_9e84190485d6 ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_d01b3ee2_91a5_4ce2_95cd_f0d2c333c6d3 ;
                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
                                                      ] ;
                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_b85e4738_500c_4e1b_bbe8_9e84190485d6 ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_d01b3ee2_91a5_4ce2_95cd_f0d2c333c6d3 ;
                                                                   <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
                                                                   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
                                                                 ] ;
@@ -1306,7 +1279,7 @@ This axiom may be seen as Ockam's razor applied to causality."""@en
                                          ] ;
    <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_b85e4738_500c_4e1b_bbe8_9e84190485d6 ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :EMMO_d01b3ee2_91a5_4ce2_95cd_f0d2c333c6d3 ;
                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
                                                      ] ;
