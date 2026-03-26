@@ -177,22 +177,6 @@ schema:unitCode rdf:type owl:AnnotationProperty ;
 
 
 #################################################################
-#    Datatypes
-#################################################################
-
-###  https://w3id.org/emmo#EMMO_799c067b_083f_4365_9452_1f1433b03676
-:EMMO_799c067b_083f_4365_9452_1f1433b03676 rdf:type rdfs:Datatype ;
-                                           skos:example "\"3 cm\""@en ,
-                                                        """A more complete example showing how to specify the value of a physical quantity in turtle using this datatype:
-
-    height1 a emmo:Height ;
-        hasSIQuantityValue \"3 cm\"^^emmo:SIQuantityDatatype ."""@en ;
-                                           skos:prefLabel "SIQuantityDatatype"@en ;
-                                           :elucidation "A datatype for a specifying a physcial quantity as a string consisting of a numerical, a separator and an SI unit."@en ;
-                                           :note "The unit should be a valid, possible prefixed, derived SI unit."@en .
-
-
-#################################################################
 #    Object Properties
 #################################################################
 
@@ -387,22 +371,6 @@ The label of this class was also changed from PhysicsDimension to PhysicalDimens
 #################################################################
 #    Data properties
 #################################################################
-
-###  https://w3id.org/emmo#EMMO_42806efc_581b_4ff8_81b0_b4d62153458b
-:EMMO_42806efc_581b_4ff8_81b0_b4d62153458b rdf:type owl:DatatypeProperty ;
-                                           rdfs:subPropertyOf owl:topDataProperty ;
-                                           rdfs:domain :EMMO_02c0621e_a527_4790_8a0f_2bb51973c819 ;
-                                           rdfs:range :EMMO_799c067b_083f_4365_9452_1f1433b03676 ;
-                                           skos:example """Example showing how to specify the value of a physical quantity in turtle using hasSIQuantityValue:
-
-    height1 a emmo:Height ;
-        hasSIQuantityValue \"3 cm\"^^emmo:SIQuantityDatatype ."""@en ;
-                                           skos:prefLabel "hasSIQuantityValue"@en ;
-                                           :elucidation "Relates a physical quantity to its value specified as a string consisting of a numerical, a separator and a unit."@en ;
-                                           :note """Using hasSIQuantityValue is a convenient, but less semantic, alternative to specify value and unit of a physical quantity compared to using the 'hasNumericalPart' and 'hasReferencePart'/'hasMetrologicalReference' relations.
-
-The unit should be a valid, possible prefixed, derived SI unit."""@en .
-
 
 ###  https://w3id.org/emmo#EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8
 :EMMO_daf7a9b7_18ef_4e73_9fb9_75adfd9800e8 rdf:type owl:DatatypeProperty ;
