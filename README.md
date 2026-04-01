@@ -124,7 +124,7 @@ Please create an issue if you have a public domain ontology that you think shoul
 | [Domain ontology for solid oxide fuel cells](https://github.com/emmo-repo/domain-sofc)                                    | https://w3id.org/emmo/domain/sofc#                                |
 | [Electrochemistry (ECHO)](https://github.com/emmo-repo/domain-electrochemistry)                                           | https://w3id.org/emmo/domain/electrochemistry#                    |
 | [General Process Ontology (GPO)](https://github.com/General-Process-Ontology/ontology)                                    | https://gpo.ontology.link/                                        |
-| [Magnetic Materials Ontology (MaMMoS)](https://github.com/MaMMoS-project/MagneticMaterialsOntology/)                      | https://w3id.org/emmo/domain/magnetic_material#                   |
+| [Magnetic Materials Ontology (MagMO)](https://emmo-repo.github.io/domain-magnetic-materials)                              | https://w3id.org/emmo/domain/magnetic-materials#                  |
 | [Manufacturing domain ontology (MaDO)](https://github.com/emmo-repo/domain-manufacturing)                                 | https://w3id.org/emmo/domain/manufacturing#                       |
 | [Microstructure Domain Ontology (MDO)](https://github.com/emmo-repo/domain-microstructure)                                | https://w3id.org/emmo/domain/microstructure#                      |
 | [Nanoindentation Ontology](https://github.com/emmo-repo/domain-nanoindentation)                                           | https://w3id.org/emmo/domain/nanoindentation#                     |
