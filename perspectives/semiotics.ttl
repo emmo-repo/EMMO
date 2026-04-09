@@ -151,6 +151,23 @@ The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. rea
                                            :elucidation "A relation that connects the semiotic object to the sign in a semiotic process."@en .
 
 
+###  https://w3id.org/emmo#EMMO_607b00f2_812c_4aa9_9253_266d266af1fa
+:EMMO_607b00f2_812c_4aa9_9253_266d266af1fa rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_07808d05_18d1_4253_96e5_58b8277347de ;
+                                           owl:inverseOf :EMMO_64e4d7b0_f07b_4328_9282_7bf9fb0c3d09 ;
+                                           rdfs:label "isPropertyPart"@en .
+
+
+###  https://w3id.org/emmo#EMMO_64e4d7b0_f07b_4328_9282_7bf9fb0c3d09
+:EMMO_64e4d7b0_f07b_4328_9282_7bf9fb0c3d09 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_55354438_7000_4284_b1b9_59d60c2261b9 ;
+                                           rdfs:domain :EMMO_35d4c439_fcb6_4399_a855_a89a207b41e9 ;
+                                           rdfs:range :EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba ;
+                                           rdfs:label "hasPropertyPart"@en ;
+                                           :elucidation "The relation connecting a description with its property parts. Description and parts are signs for the same entity"@en ;
+                                           :note "This relation is used to specify the detailed information that make up the overall description for an entity. A description can be used to summarize in one single entiity several properties relaterd to the same referent."@en .
+
+
 ###  https://w3id.org/emmo#EMMO_79fa18f3_6da9_42b9_8cc3_08d9e5c9da87
 :EMMO_79fa18f3_6da9_42b9_8cc3_08d9e5c9da87 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_e1f718c7_27b6_49fa_af01_9ece7c79b654 ;
@@ -1159,11 +1176,11 @@ For example, when a Boeing 747 is used as a sign for another Boeing 747."""@en ,
 
 
 [ :note """The rule for the subproperty chain:
- inverse (hasReferent) o inverse (hasInterpreter) ⇒ hasSign"""@en
+inverse (hasSign) o inverse (hasReferent) ⇒ hasInterpreter"""@en
 ] .
 
 [ :note """The rule for the subproperty chain:
-inverse (hasSign) o inverse (hasReferent) ⇒ hasInterpreter"""@en
+ inverse (hasReferent) o inverse (hasInterpreter) ⇒ hasSign"""@en
  ] .
 
 [ :note """The rule for the subproperty chain:
