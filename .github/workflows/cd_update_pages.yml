@@ -97,6 +97,15 @@ jobs:
           --output build/hume-inferred.ttl
         ontoconvert --iri=https://w3id.org/emmo/hume-inferred build/hume-inferred.ttl public/hume-inferred.ttl
 
+    - name: Create squashed unit-individuals
+      run: |
+        ontoconvert -saw \
+          --iri=https://w3id.org/emmo/unit-individuals \
+          --namespace="emmo:https://w3id.org/emmo#" \
+          --rename-ontology="|(w3id.org/emmo)/.*/([0-9][^/]*)/.*|\\1/\\2/unit-individuals|" \
+          disciplines/units/unit-individuals.ttl \
+          public/unit-individuals.ttl
+
     - name: Create ontologies in rdfxml format
       run: |
         ontoconvert public/emmo.ttl public/emmo.owl
