@@ -100,11 +100,8 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  https://w3id.org/emmo#EMMO_0b15f4ae_092e_4487_9100_3c44176c545c
 :EMMO_0b15f4ae_092e_4487_9100_3c44176c545c rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_ec2c8ac8_98c5_4c74_b85b_ff8e8ca6655c ;
-                                           owl:disjointUnionOf ( :EMMO_2031516a_2be7_48e8_9af7_7e1270e308fe
-                                                                 :EMMO_4a464c8d_8895_44a8_a628_aed13509f1bd
-                                                                 :EMMO_6c487fb3_03d1_4e56_91ed_c2e16dcbef60
-                                                               ) ;
                                            skos:prefLabel "Dispersion"@en ;
+                                           :OWLRL2DLAxioms "Equivalent To: Solution or Suspension or Colloid"@en ;
                                            :elucidation "A material in which distributed particles of one phase are dispersed in a different continuous phase."@en .
 
 
@@ -179,10 +176,14 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
 
 ###  https://w3id.org/emmo#EMMO_2031516a_2be7_48e8_9af7_7e1270e308fe
 :EMMO_2031516a_2be7_48e8_9af7_7e1270e308fe rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_0e6378df_1ce8_4321_b00c_ee9beea60a67 ;
-                                           rdfs:comment "Solutions are characterized by the occurrence of Rayleigh scattering on light,"@en ;
+                                           rdfs:subClassOf :EMMO_0b15f4ae_092e_4487_9100_3c44176c545c ,
+                                                           :EMMO_0e6378df_1ce8_4321_b00c_ee9beea60a67 ;
+                                           rdfs:seeAlso <https://doi.org/10.1351/goldbook.S05746> ;
                                            skos:prefLabel "Solution"@en ;
-                                           :elucidation "A solution is a homogeneous mixture composed of two or more substances."@en .
+                                           :elucidation "A solution is a homogeneous mixture composed of two or more substances, when for convenience one (or more) substance, which is called the solvent, is treated differently from the other substances, which are called solutes."@en ;
+                                           :note "IUPAC Goldbook definition is restricted to liquid or solid solutions. Here we extend the concept also to gas."@en ,
+                                                 "Solutions are characterized by the occurrence of Rayleigh scattering on light,"@en ;
+                                           :wikipediaReference <https://en.wikipedia.org/wiki/Solution_(chemistry)> .
 
 
 ###  https://w3id.org/emmo#EMMO_220b7201_d277_4dca_bf6a_5a5e2c4062dd
@@ -323,7 +324,9 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
 
 ###  https://w3id.org/emmo#EMMO_4a464c8d_8895_44a8_a628_aed13509f1bd
 :EMMO_4a464c8d_8895_44a8_a628_aed13509f1bd rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_0e030040_98a7_49b2_a871_dced1f3a6131 ;
+                                           rdfs:subClassOf :EMMO_0b15f4ae_092e_4487_9100_3c44176c545c ,
+                                                           :EMMO_0e030040_98a7_49b2_a871_dced1f3a6131 ,
+                                                           :EMMO_b9695e87_8261_412e_83cd_a86459426a28 ;
                                            owl:disjointUnionOf ( :EMMO_2dd512a1_5187_47cc_b0b8_141214e22b59
                                                                  :EMMO_33e0ac8b_a318_4285_b1de_e95347784632
                                                                  :EMMO_42185fe7_122c_4e0c_a3cd_659d3e21c389
@@ -465,7 +468,8 @@ The term phase is sometimes used as a synonym for state of matter, but there can
 
 ###  https://w3id.org/emmo#EMMO_6c487fb3_03d1_4e56_91ed_c2e16dcbef60
 :EMMO_6c487fb3_03d1_4e56_91ed_c2e16dcbef60 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_0e030040_98a7_49b2_a871_dced1f3a6131 ;
+                                           rdfs:subClassOf :EMMO_0b15f4ae_092e_4487_9100_3c44176c545c ,
+                                                           :EMMO_0e030040_98a7_49b2_a871_dced1f3a6131 ;
                                            skos:prefLabel "Colloid"@en ;
                                            :elucidation "A mixture in which one substance of microscopically dispersed insoluble or soluble particles (from 1 nm to 1 μm) is suspended throughout another substance and that does not settle, or would take a very long time to settle appreciably."@en ;
                                            :note "Colloids are characterized by the occurring of the Tyndall effect on light."@en .
@@ -829,6 +833,14 @@ isbn:9780521408448 rdf:type owl:NamedIndividual ,
                  :EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1
                )
  ] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :EMMO_2031516a_2be7_48e8_9af7_7e1270e308fe
+                :EMMO_4a464c8d_8895_44a8_a628_aed13509f1bd
+                :EMMO_6c487fb3_03d1_4e56_91ed_c2e16dcbef60
+              )
+] .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
