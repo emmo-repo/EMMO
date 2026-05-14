@@ -3,6 +3,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix isbn: <urn:isbn:> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -29,6 +30,34 @@
 #    Annotation properties
 #################################################################
 
+###  http://purl.org/dc/terms/alternative
+dcterms:alternative rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+dcterms:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/edition
+dcterms:edition rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/identifier
+dcterms:identifier rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/issued
+dcterms:issued rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/language
+dcterms:language rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/subject
+dcterms:subject rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.w3.org/2002/07/owl#minQualifiedCardinality
 owl:minQualifiedCardinality rdf:type owl:AnnotationProperty .
 
@@ -38,12 +67,25 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
 
 
 #################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#gYear
+xsd:gYear rdf:type rdfs:Datatype .
+
+
+#################################################################
 #    Classes
 #################################################################
+
+###  http://purl.org/dc/dcmitype/Text
+<http://purl.org/dc/dcmitype/Text> rdf:type owl:Class .
+
 
 ###  https://w3id.org/emmo#EMMO_04f2a2d5_e799_4692_a654_420e76f5acc1
 :EMMO_04f2a2d5_e799_4692_a654_420e76f5acc1 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8 ;
+                                           rdfs:seeAlso isbn:9780521408448 ;
                                            skos:prefLabel "Gas"@en ;
                                            :elucidation "Gas is a compressible fluid, a state of matter that has no fixed shape and no fixed volume."@en .
 
@@ -145,11 +187,6 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
 
 ###  https://w3id.org/emmo#EMMO_220b7201_d277_4dca_bf6a_5a5e2c4062dd
 :EMMO_220b7201_d277_4dca_bf6a_5a5e2c4062dd rdf:type owl:Class ;
-                                           owl:equivalentClass [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( :EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba
-                                                                               :EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1
-                                                                             )
-                                                               ] ;
                                            rdfs:subClassOf :EMMO_b9695e87_8261_412e_83cd_a86459426a28 ;
                                            skos:prefLabel "CondensedMatter"@en ;
                                            :OWLRL2DLAxioms "Equivalent To: Liquid or Solid" ;
@@ -231,11 +268,12 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
 :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_6e9cb807_fc68_4bcf_b3ba_5fccc887c644 ,
                                                            :EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352 ;
+                                           rdfs:seeAlso isbn:9780080966656 ,
+                                                        isbn:9780471736967 ;
                                            skos:prefLabel "Material"@en ;
-                                           :elucidation "The class of individuals standing for an amount of ordinary matter substance."@en ;
+                                           :elucidation "A material is a substance categorized according to some criteria based on kind, quality or quantity. An intended use is typically associated with each of the classes used to categorize a material entity."@en ;
                                            :note "A instance of a material (e.g. nitrogen) can represent any state of matter. The fact that the individual also belongs to other classes (e.g. Gas) would reveal the actual form in which the material is found."@en ,
-                                                 "A material may be either a mesoscopic or a continuum substance."@en ,
-                                                 "Material usually means some definite kind, quality, or quantity of matter, especially as intended for use."@en .
+                                                 "A material may be either a mesoscopic or a continuum substance."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_42185fe7_122c_4e0c_a3cd_659d3e21c389
@@ -399,7 +437,7 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
                                            owl:disjointWith :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ;
                                            skos:example """nanoparticle,
 quantum dot, 
-carbon nanotupe"""@en ;
+carbon nanotube"""@en ;
                                            skos:prefLabel "MesoscopicSubstance"@en ;
                                            :elucidation "A matter that is not a particulate matter and that does not fullfill the criteria of being a continuum substance."@en ;
                                            :note "Mesoscopic substances typically exist on a length scale between atoms and molecules and macroscopic (bulk) substances. They are typically in the range of some nanometers to about a micrometer and often exhibit unique physical properties due to their size and shape."@en .
@@ -474,12 +512,10 @@ In general, metallic and ionic bonds have atoms sharing electrons."""@en ,
 :EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ,
                                                            :EMMO_b9695e87_8261_412e_83cd_a86459426a28 ;
-                                           owl:disjointUnionOf ( :EMMO_04f2a2d5_e799_4692_a654_420e76f5acc1
-                                                                 :EMMO_4c21fb86_fdcf_444e_b498_86fe656295af
-                                                                 :EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba
-                                                               ) ;
+                                           owl:disjointWith :EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1 ;
                                            skos:example "Gas, liquid, plasma,"@en ;
                                            skos:prefLabel "Fluid"@en ;
+                                           :OWLRL2DLAxioms "Equivalent To: Gas or Plasma or Liquid"@en ;
                                            :elucidation "A continuum that has no fixed shape and yields easily to external pressure."@en .
 
 
@@ -493,15 +529,14 @@ In general, metallic and ionic bonds have atoms sharing electrons."""@en ,
 ###  https://w3id.org/emmo#EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2
 :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352 ;
+                                           skos:example "A single continuum individual can be the whole fluid in a pipe."@en ;
                                            skos:prefLabel "ContinuumSubstance"@en ;
-                                           :elucidation """A state that is a collection of sufficiently large number of other parts such that:
-- it is the bearer of qualities that can exists only by the fact that it is a sum of parts
-- the smallest partition dV of the state volume in which we are interested in, contains enough parts to be statistically consistent: n [#/m3] x dV [m3] >> 1"""@en ;
-                                           :note "A continuum is made of a sufficient number of parts that it continues to exists as continuum individual even after the loss of one of them i.e. a continuum is a redundant."@en ,
-                                                 """A continuum is not necessarily small (i.e. composed by the minimum amount of sates to fulfill the definition).
-
-A single continuum individual can be the whole fluid in a pipe."""@en ,
-                                                 "A continuum is the bearer of properties that are generated by the interactions of parts such as viscosity and thermal or electrical conductivity."@en .
+                                           :conceptualisation """Continuum is usually an assumption made relative to a specific entity and scale of observation. We can define a continuum substance as a substance for which continuum mechanics (i.e., solid or fluid mechanics) can be used as a model for the description and prediction of its behaviour.
+Paramount to this definition is the applicability of the continuum assumption, that is usually made by comparing the scale of the constituents' phenomena (e.g., mean free path of a molecule in a gas) and the scale of the macro-entity (e.g., the container of the gas)."""@en ;
+                                           :elucidation "A substance that is made of sufficiently large number of smaller parts such that it is the bearer of qualities that can exist only by the fact that it is a sum of parts."@en ;
+                                           :note "A continuum is not necessarily small (i.e. composed by the minimum amount of states to fulfill the definition)."@en ,
+                                                 "A continuum is the bearer of properties that are generated by the interactions of its fundamental parts, such as viscosity and thermal or electrical conductivity. In fact, viscosity or electrical conductivity are properties of the macro-entity (e.g., solid, fluid), and not of the constituents (e.g., atoms or molecules)."@en ;
+                                           :wikipediaReference <https://en.wikipedia.org/wiki/Continuum_mechanics> .
 
 
 ###  https://w3id.org/emmo#EMMO_94010cbc_c2a6_4cb9_b29a_83aa99d2ff70
@@ -679,19 +714,74 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
                                            :elucidation "A substance made of macromolecules formed by linking many smaller, repeating chemical units called monomers into long chains or networks, resulting in unique properties like toughness, elasticity, or flexibility, found in both natural forms (like DNA, protein) and synthetic plastics, rubbers, and fibers."@en .
 
 
-[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
+#################################################################
+#    Individuals
+#################################################################
+
+###  urn:isbn:9780080966656
+isbn:9780080966656 rdf:type owl:NamedIndividual ,
+                            <http://purl.org/dc/dcmitype/Text> ;
+                   dcterms:creator "David R. H. Jones" ,
+                                   "Michael F. Ashby" ;
+                   dcterms:description "An introduction to the properties and applications of engineering materials, focusing on design-led selection." ;
+                   dcterms:edition "4th Edition" ;
+                   dcterms:identifier "ISBN-13. 9780080966656" ;
+                   dcterms:issued "2012"^^xsd:gYear ;
+                   dcterms:language "en" ;
+                   dcterms:publisher "Butterworth-Heinemann" ;
+                   dcterms:subject "Materials Science" ,
+                                   "Materials Selection" ,
+                                   "Mechanical Engineering" ,
+                                   "Structural Materials" ;
+                   dcterms:title "Engineering Materials 1: An Introduction to Properties, Applications, and Design" .
+
+
+###  urn:isbn:9780471736967
+isbn:9780471736967 rdf:type owl:NamedIndividual ,
+                            <http://purl.org/dc/dcmitype/Text> ;
+                   dcterms:creator "William D. Callister, Jr." ;
+                   dcterms:edition "7th Edition" ;
+                   dcterms:identifier "ISBN-13. 9780471736967" ;
+                   dcterms:issued "2006"^^xsd:gYear ;
+                   dcterms:language "en" ;
+                   dcterms:publisher "John Wiley & Sons" ;
+                   dcterms:subject "Ceramics" ,
+                                   "Crystallography" ,
+                                   "Engineering" ,
+                                   "Materials Science" ,
+                                   "Metals" ,
+                                   "Polymers" ;
+                   dcterms:title "Materials Science and Engineering: An Introduction" .
+
+
+###  urn:isbn:9780521408448
+isbn:9780521408448 rdf:type owl:NamedIndividual ,
+                            <http://purl.org/dc/dcmitype/Text> ;
+                   dcterms:alternative "An Account of the Kinetic Theory of Viscosity, Thermal Conduction and Diffusion in Gases" ;
+                   dcterms:creator "Sydney Chapman" ,
+                                   "T. G. Cowling" ;
+                   dcterms:identifier "ISBN-10. 052140844X" ,
+                                      "ISBN-13. 978-0521408448" ;
+                   dcterms:issued "1991"^^xsd:gYear ;
+                   dcterms:language "en" ;
+                   dcterms:publisher "Addison-Wesley" ;
+                   dcterms:subject "Diffusion" ,
+                                   "Kinetic theory of gases" ,
+                                   "Thermal conduction" ,
+                                   "Viscosity" ;
+                   dcterms:title "The Mathematical Theory of Non-uniform Gases" .
+
+
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
 ] .
 
-[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
 [ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
@@ -700,10 +790,13 @@ A single continuum individual can be the whole fluid in a pipe."""@en ,
 [ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
  ] .
 
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
 [ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
  ] .
 
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
 #################################################################
