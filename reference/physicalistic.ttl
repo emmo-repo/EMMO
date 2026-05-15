@@ -96,10 +96,11 @@ spin 2: O15 in ground state."""@en ;
                                            skos:example "Hydrogen molecule is an adequate definition of a certain molecular entity for some purposes, whereas for others it is necessary to distinguish the electronic state and/or vibrational state and/or nuclear spin, etc. of the hydrogen molecule."@en ,
                                                         "Methane, may mean a single molecule of CH4 (molecular entity) or a molar amount, specified or not (chemical species), participating in a reaction. The degree of precision necessary to describe a molecular entity depends on the context."@en ;
                                            skos:prefLabel "MolecularEntity"@en ;
+                                           :conceptualisation """The use of \"etc.\"  in the standard IUPAC definition, is a clear indication that the concept is only described ostensively (i.e., by example) and cannot be rigrously defined. Strictly speaking, the IUPAC definition then is not a definition.
+This concept originates from chemistry practitioners, and the word \"molecular\" is not to be intended to refer to the more rigorous concept of molecule as bond state between nuclei (more than one) and electrons. For this reason also an atom can be considered the smallest entity that can be considered \"molecular\", including nucleus when they are seen as ions (e.g. H⁺, He⁺⁺)."""@en ;
                                            :elucidation "Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, radical, radical ion, complex, conformer etc., identifiable as a separately distinguishable entity that can undergo a chemical reaction."@en ;
                                            :note """Molecular entity is used as a general term for singular entities, irrespective of their nature, while chemical species stands for sets or ensembles of molecular entities.
-Note that the name of a compound may refer to the respective molecular entity or to the chemical species,"""@en ,
-                                                 "This concept is strictly related to chemistry. For this reason an atom can be considered the smallest entity that can be considered \"molecular\", including nucleus when they are seen as ions (e.g. H⁺, He⁺⁺)."@en .
+Note that the name of a compound may refer to the respective molecular entity or to the chemical species,"""@en .
 
 
 ###  https://w3id.org/emmo#EMMO_24dda193_ada8_433b_bb74_6ca4a0b89a20
@@ -156,7 +157,7 @@ spin 3/2: He5 in ground state, Delta baryons (excitations of the proton and neut
                                            rdfs:subClassOf :EMMO_41cecfc2_bb6b_45f3_b6cc_e7740d931afe ,
                                                            :EMMO_8b1367d6_0133_4b56_acc1_fa8b058169e3 ;
                                            skos:prefLabel "ParticulateMatter"@en ;
-                                           :elucidation "Bounded matter."@en .
+                                           :elucidation "Matter in the form of particulate of bonded constituents."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_3397f270_dfc1_4500_8f6f_4d0d85ac5f71
@@ -213,7 +214,7 @@ A physical phenomenon is defined as a causally non-convex interacting system, co
 :EMMO_41cecfc2_bb6b_45f3_b6cc_e7740d931afe rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_5b2222df_4da6_442f_8244_96e9e45887d1 ;
                                            skos:prefLabel "MatterByStructure"@en ;
-                                           :conceptualisation "Matter can be categorized according to its structure in two types, by drawing a line between particulate matter (i.e., from elemntary particles up to molecules) and aggregate of such particulates. When such aggregates show an homogeneity of property, according to some criteria, we call it a substance."@en ;
+                                           :conceptualisation "Matter can be categorized according to its structure in two types, by drawing a line between particulate matter (i.e., from elementary particles up to molecules) and aggregate of such particulates. When such aggregates show an homogeneity of property, according to some criteria, we call it a substance."@en ;
                                            :elucidation "Categorisation of matter by its structure."@en ;
                                            :note "Particulate matter and substance are not a covering for matter. Non-particulate matter are not represented with a class for simplicity."@en .
 
@@ -395,10 +396,17 @@ D. Griffiths, \"Introduction to elementary Particles\", Wiley-VCH, 2004, pp.16-1
                                                         "A pen can be classified as a substance (although it has parts with different properties) since it can be identified as being solid."@en ;
                                            skos:prefLabel "Substance"@en ;
                                            :OWLRL2DLAxioms "Disjoint Union Of: MesoscopicSubstance, ContinuumSubstance" ;
-                                           :conceptualisation "A substance is an intermediate concept between generic matter and more specific categorizations."@en ;
+                                           :conceptualisation """A substance is an aggregate of particulate matter that shows an homogeneity of property, according to some criteria. A substance is an intermediate concept between generic matter and more specific categorizations. A substance can be either continuum or mesoscopic.
+The word substance here refers to a concept that is unrelated with aristotelic philosophy."""@en ;
                                            :elucidation "A matter entity characterised by the fact that it possesses some homogeneous properties or identification criteria."@en ;
-                                           :note """A substance is always 4D self-connected, meaning that it represents only entities within a time interval that ensure self-connectivity.
-For example, the entity made of a bag of powder that is parceled up into portions and used in different applications is a single substance."""@en .
+                                           :note "A substance is always 4D self-connected, meaning that it represents only entities within a time interval that ensure self-connectivity. For example, the entity made of a bag of powder that is parceled up into portions and used in different applications is a single substance."@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352 ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "Substance"@en ;
+   :etymology "From Latin substantia (“substance, essence”), from substāns, present active participle of substō (“exist”, literally “stand under”), from sub + stō (“stand”) [Wikictionary]"@en
+ ] .
 
 
 ###  https://w3id.org/emmo#EMMO_be0a7278_b4e6_4bca_88ba_de3f67a478e2
@@ -460,6 +468,13 @@ In this material branch, H atom is a particular case, with respect to higher ato
 We cannot say that H₂ molecule has direct part two H atoms, but has direct part two H nucleus."""@en ;
                                            :note "An 'atom' is a 'nucleus' surrounded by an 'electron_cloud', i.e. a quantum system made of one or more bounded electrons."@en .
 
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_eb77076b_a104_42ac_a065_798b2d2809ad ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "Atom"@en ;
+   :etymology "From Ancient Greek ἄτομος (átomos, “indivisible”), from ἀ- (a-, “not”) +‎ τέμνω (témnō, “to cut”, o-grade in τομ-) +‎ -ος (-os) [Wiktionary]"@en
+ ] .
+
 
 ###  https://w3id.org/emmo#EMMO_f13672a3_59cc_40ed_8def_65009a8f74e6
 :EMMO_f13672a3_59cc_40ed_8def_65009a8f74e6 rdf:type owl:Class ;
@@ -500,13 +515,13 @@ We cannot say that H₂ molecule has direct part two H atoms, but has direct par
                                            :elucidation "A meson with spin two."@en .
 
 
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+[ owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger
 ] .
 
 [ owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger
  ] .
 
-[ owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
