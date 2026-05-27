@@ -102,11 +102,18 @@ dcmitype:Text rdf:type owl:Class .
 
 ###  https://w3id.org/emmo#EMMO_0afc19b0_2d43_4b3d_8da0_9ffb63bc1492
 :EMMO_0afc19b0_2d43_4b3d_8da0_9ffb63bc1492 rdf:type owl:Class ;
+                                           owl:equivalentClass [ owl:intersectionOf ( :EMMO_4e9fd152_147b_4564_8999_089608f41aff
+                                                                                      :EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1
+                                                                                    ) ;
+                                                                 rdf:type owl:Class
+                                                               ] ;
                                            rdfs:subClassOf :EMMO_f00fb163_48c9_4c59_b6c2_4205c082aa54 ;
-                                           skos:altLabel "NonCrystallineMaterial"@en ,
+                                           skos:altLabel "AmorphousMaterial"@en ,
+                                                         "NonCrystallineMaterial"@en ,
                                                          "SupercooledLiquid"@en ;
                                            skos:example "Glass"@en ;
-                                           skos:prefLabel "AmorphousMaterial"@en ;
+                                           skos:prefLabel "AmorphousSolid"@en ;
+                                           :conceptualisation "Amorphous solids are characterized by the absence of regular long-range order within their atomic networks, distinguishing them from highly ordered crystalline lattices. This structural disorder prevents the formation of regular macroscopic geometric facets. Thermodynamically and physically, this manifests as a lack of a distinct melting point, irregular fracture behavior, diffuse X-ray diffraction patterns, and isotropic mechanical, optical, and electrical properties."@en ;
                                            :elucidation "A solids characterised by the lack a systematic and regular arrangement of atoms over relatively large atomic distances"@en ;
                                            :wikipediaReference <https://en.wikipedia.org/wiki/Amorphous_solid> .
 
@@ -122,8 +129,8 @@ dcmitype:Text rdf:type owl:Class .
 
 ###  https://w3id.org/emmo#EMMO_0bb3b434_73aa_428f_b4e8_2a2468648e19
 :EMMO_0bb3b434_73aa_428f_b4e8_2a2468648e19 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_cc5db5b4_0f90_41e8_bfd5_d5d627ae85cf ,
-                                                           :EMMO_f1025834_0cd2_42a1_bfeb_13bec41c8655 ;
+                                           rdfs:subClassOf :EMMO_72da5a91_8678_45a1_9809_cb0f00ff2d87 ,
+                                                           :EMMO_cc5db5b4_0f90_41e8_bfd5_d5d627ae85cf ;
                                            rdfs:isDefinedBy <https://dictionary.iucr.org/Crystal> ;
                                            rdfs:seeAlso isbn:9780471736967 ;
                                            skos:prefLabel "SingleCrystal"@en ;
@@ -412,6 +419,25 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
                                            :elucidation "The class for materials categorised according material science main type categories (i.e., ceramic, composite, metallic and polymeric)."@en .
 
 
+###  https://w3id.org/emmo#EMMO_4e9fd152_147b_4564_8999_089608f41aff
+:EMMO_4e9fd152_147b_4564_8999_089608f41aff rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_b9695e87_8261_412e_83cd_a86459426a28 ;
+                                           rdfs:isDefinedBy <https://doi.org/10.1351/goldbook.12743> ;
+                                           skos:altLabel "AmorphousNetwork"@en ;
+                                           skos:prefLabel "AmorphousState"@en ;
+                                           :elucidation "State of matter characterised by the absence of long-range molecular order."@en ;
+                                           :note "In the absence of stress, the structure and properties of the amorphous state are generally isotropic at a large-enough scale, as in liquids."@en ,
+                                                 "One of the most common technique to define if a substance is lacking of a regular structure (amorphous) is to look at its x-ray diffraction pattern. A diffuse and poorly defined pattern is typical of an amorphous structure, while a regular reproducible pattern is typical of a crystalline structure."@en ,
+                                                 "Some degree of local order about 1 nm  in length may exist in the amorphous state."@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_4e9fd152_147b_4564_8999_089608f41aff ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "AmorphousState"@en ;
+   :etymology "From Ancient Greek ἄμορφος (ámorphos, “without form, shapeless, deformed”) (itself from ἀ- (a-, “without”) + μορφή (morphḗ, “form”)  [Wiktionary]"@en
+ ] .
+
+
 ###  https://w3id.org/emmo#EMMO_4ec569e9_dfdb_4c75_81b6_381f2c54c585
 :EMMO_4ec569e9_dfdb_4c75_81b6_381f2c54c585 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_0afc19b0_2d43_4b3d_8da0_9ffb63bc1492 ,
@@ -542,6 +568,18 @@ The term phase is sometimes used as a synonym for state of matter, but there can
  ] .
 
 
+###  https://w3id.org/emmo#EMMO_72da5a91_8678_45a1_9809_cb0f00ff2d87
+:EMMO_72da5a91_8678_45a1_9809_cb0f00ff2d87 rdf:type owl:Class ;
+                                           owl:equivalentClass [ owl:intersectionOf ( :EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1
+                                                                                      :EMMO_f1025834_0cd2_42a1_bfeb_13bec41c8655
+                                                                                    ) ;
+                                                                 rdf:type owl:Class
+                                                               ] ;
+                                           rdfs:subClassOf :EMMO_f00fb163_48c9_4c59_b6c2_4205c082aa54 ;
+                                           skos:altLabel "CrystallineMaterial"@en ;
+                                           skos:prefLabel "CrystallineSolid"@en .
+
+
 ###  https://w3id.org/emmo#EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba
 :EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_220b7201_d277_4dca_bf6a_5a5e2c4062dd ,
@@ -560,7 +598,7 @@ The term phase is sometimes used as a synonym for state of matter, but there can
 
 ###  https://w3id.org/emmo#EMMO_76cfad65_2147_44d6_86da_dc89c27c1782
 :EMMO_76cfad65_2147_44d6_86da_dc89c27c1782 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_f1025834_0cd2_42a1_bfeb_13bec41c8655 ;
+                                           rdfs:subClassOf :EMMO_72da5a91_8678_45a1_9809_cb0f00ff2d87 ;
                                            rdfs:seeAlso isbn:9780471736967 ;
                                            skos:prefLabel "PolyCrystallineMaterial"@en ;
                                            :elucidation "A material composed of a collection of many small crystals (or grains)"@en .
@@ -590,7 +628,8 @@ In general, metallic and ionic bonds have atoms sharing electrons."""@en ,
 
 ###  https://w3id.org/emmo#EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8
 :EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ,
+                                           rdfs:subClassOf :EMMO_4e9fd152_147b_4564_8999_089608f41aff ,
+                                                           :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ,
                                                            :EMMO_b9695e87_8261_412e_83cd_a86459426a28 ;
                                            owl:disjointWith :EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1 ;
                                            rdfs:seeAlso isbn:9780471400653 ;
@@ -658,8 +697,8 @@ Paramount to this definition is the applicability of the continuum assumption, t
 
 ###  https://w3id.org/emmo#EMMO_9a21a7f1_a37a_4451_8c99_91d72f4c6f35
 :EMMO_9a21a7f1_a37a_4451_8c99_91d72f4c6f35 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_c5e9e390_8836_4440_b4fd_c906fdd4f438 ,
-                                                           :EMMO_f1025834_0cd2_42a1_bfeb_13bec41c8655 ;
+                                           rdfs:subClassOf :EMMO_72da5a91_8678_45a1_9809_cb0f00ff2d87 ,
+                                                           :EMMO_c5e9e390_8836_4440_b4fd_c906fdd4f438 ;
                                            skos:example "Alumina"@en ,
                                                         "Silicon Carbide"@en ,
                                                         "Zirconia"@en ;
@@ -736,9 +775,11 @@ Paramount to this definition is the applicability of the continuum assumption, t
 :EMMO_b9695e87_8261_412e_83cd_a86459426a28 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ;
                                            skos:prefLabel "StateOfMatter"@en ;
-                                           :OWLRL2DLAxioms "Disjoint Union Of: Gas, Plasma, Liquid, Solid" ;
+                                           :OWLRL2DLAxioms "Disjoint Union Of: Gas, Plasma, Liquid, Solid" ,
+                                                           "Equivalent To: AmorphousState or CrystallineState" ;
                                            :elucidation "A superclass made as the disjoint union of all the form under which matter can exist."@en ;
-                                           :note "In physics, a state of matter is one of the distinct forms in which matter can exist. Four states of matter are observable in everyday life: solid, liquid, gas, and plasma."@en ;
+                                           :note "Besides the classical four state, IUPAC introduces another categorisation dimension with the distinction between amorphous and crystalline state. A substance can then be the combination of these different categorisation schemes, such as liquid crystal or amorphous solid."@en ,
+                                                 "In physics, a state of matter is one of the distinct forms in which matter can exist. Four states of matter are observable in everyday life: solid, liquid, gas, and plasma."@en ;
                                            :wikipediaReference "https://en.wikipedia.org/wiki/State_of_matter"@en .
 
 
@@ -855,7 +896,7 @@ Paramount to this definition is the applicability of the continuum assumption, t
    owl:annotatedSource :EMMO_ec2c8ac8_98c5_4c74_b85b_ff8e8ca6655c ;
    owl:annotatedProperty skos:prefLabel ;
    owl:annotatedTarget "Mixture"@en ;
-   :etymology "From Latin mixtūra (“a mixing”), from mixtus (“mix”)"@en
+   :etymology "From Latin mixtūra (“a mixing”), from mixtus (“mix”) [Wiktionary]"@en
  ] .
 
 
@@ -876,23 +917,17 @@ Paramount to this definition is the applicability of the continuum assumption, t
 
 ###  https://w3id.org/emmo#EMMO_f1025834_0cd2_42a1_bfeb_13bec41c8655
 :EMMO_f1025834_0cd2_42a1_bfeb_13bec41c8655 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_f00fb163_48c9_4c59_b6c2_4205c082aa54 ;
-                                           rdfs:seeAlso <https://dictionary.iucr.org> ;
-                                           skos:prefLabel "CrystallineMaterial"@en ;
-                                           :elucidation "A material is a crystal if it has essentially a sharp diffraction pattern. The word essentially means that most of the intensity of the diffraction is concentrated in relatively sharp Bragg peaks, besides the always present diffuse scattering."@en .
+                                           rdfs:subClassOf :EMMO_b9695e87_8261_412e_83cd_a86459426a28 ;
+                                           rdfs:isDefinedBy <https://dictionary.iucr.org/Crystal> ;
+                                           skos:prefLabel "CrystallineState"@en ;
+                                           :elucidation "A material is a crystal if it has essentially a sharp diffraction pattern. The word essentially means that most of the intensity of the diffraction is concentrated in relatively sharp Bragg peaks, besides the always present diffuse scattering."@en ;
+                                           :iupacReference <https://doi.org/10.1351/goldbook.12754> .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_f1025834_0cd2_42a1_bfeb_13bec41c8655 ;
    owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "CrystallineMaterial"@en ;
+   owl:annotatedTarget "CrystallineState"@en ;
    :etymology "From Ancient Greek κρύσταλλος (krústallos, “clear ice”), from κρύος (krúos, “frost”) [Wiktionary]"@en
- ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_f1025834_0cd2_42a1_bfeb_13bec41c8655 ;
-   owl:annotatedProperty :elucidation ;
-   owl:annotatedTarget "A material is a crystal if it has essentially a sharp diffraction pattern. The word essentially means that most of the intensity of the diffraction is concentrated in relatively sharp Bragg peaks, besides the always present diffuse scattering."@en ;
-   dcterms:contributor "Rickard Armiento"
  ] .
 
 
@@ -1060,12 +1095,6 @@ isbn:9780521408448 rdf:type owl:NamedIndividual ,
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
 ] .
 
-[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
- ] .
-
 [ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
  ] .
 
@@ -1076,6 +1105,12 @@ isbn:9780521408448 rdf:type owl:NamedIndividual ,
  ] .
 
 [ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
