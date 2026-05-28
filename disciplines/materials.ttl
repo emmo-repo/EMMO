@@ -156,6 +156,13 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
                                            :note "Usually the gas-like behavior is retained when the ratio between non-gaseous and gaseous components volumes is very small."@en .
 
 
+###  https://w3id.org/emmo#EMMO_1d0064d2_d77e_4ec7_b74a_00f98616156f
+:EMMO_1d0064d2_d77e_4ec7_b74a_00f98616156f rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_8820f251_ad36_43f4_a693_c0e86a89cc1f ;
+                                           skos:prefLabel "FunctionalMaterial"@en ;
+                                           :elucidation "Materials categorised for what they do rather than what they hold up. They are designed to react to their environment, convert energy, or process information."@en .
+
+
 ###  https://w3id.org/emmo#EMMO_1f5e3e7e_72c9_40d4_91dd_ae432d7b7018
 :EMMO_1f5e3e7e_72c9_40d4_91dd_ae432d7b7018 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_6c487fb3_03d1_4e56_91ed_c2e16dcbef60 ;
@@ -198,6 +205,14 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
                                            skos:prefLabel "Powder"@en ;
                                            :elucidation "A powder is a granular material composed of many very fine dry solid particles that may flow freely when shaken or tilted."@en ;
                                            :wikipediaReference "https://en.wikipedia.org/wiki/Powder"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_29a15bcd_e219_4afc_9f82_9d3fceb666cd ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "Powder"@en ;
+   rdfs:seeAlso <https://en.wiktionary.org/wiki/powder> ;
+   :etymology "From Latin pulverem, accusative singular of Latin pulvis (“dust, powder”) [Wiktionary]"@en
+ ] .
 
 
 ###  https://w3id.org/emmo#EMMO_2dd512a1_5187_47cc_b0b8_141214e22b59
@@ -284,6 +299,7 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
                                            rdfs:seeAlso isbn:9780080966656 ,
                                                         isbn:9780471736967 ;
                                            skos:prefLabel "Material"@en ;
+                                           :conceptualisation "It is quite hard to define what a material is, especially in order to distinguish it from the more general matter concept. Here we decided first to restrict the domain from the bottom, by making a material always a substance, thus excluding all particulate matter (e.g., molecular entities such as atoms and molecules). Then, to call material every entity that can be categorised according to the typical criteria used in material science (e.g., by structure, function, size, isotropy). Such criteria usually categorise a substance according to kind, quality or quantity and are expressed in order to facilitate the identification of specific class of substances according to an intended use. In short, a material is what is called material in material science."@en ;
                                            :elucidation "A material is a substance categorized according to some criteria based on kind, quality or quantity. An intended use is typically associated with each of the classes used to categorize a material entity."@en ;
                                            :note "A instance of a material (e.g. nitrogen) can represent any state of matter. The fact that the individual also belongs to other classes (e.g. Gas) would reveal the actual form in which the material is found."@en ,
                                                  "A material may be either a mesoscopic or a continuum substance."@en .
@@ -415,7 +431,7 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
                                            skos:prefLabel "AmorphousState"@en ;
                                            :conceptualisation "Amorphous substances are characterized by the absence of regular long-range order within their atomic networks, distinguishing them from highly ordered crystalline lattices. This structural disorder prevents the formation of regular macroscopic geometric facets. Thermodynamically and physically, this manifests as a lack of a distinct melting point, irregular fracture behavior, diffuse X-ray diffraction patterns, and isotropic mechanical, optical, and electrical properties."@en ;
                                            :elucidation "State of matter characterised by the absence of long-range molecular order."@en ;
-                                           :note "In the absence of stress, the structure and properties of the amorphous state are generally isotropic at a large-enough scale, as in liquids."@en ,
+                                           :note "In the absence of stress, the structure and properties of the amorphous state are generally isotropic at a large-enough scale, as in liquids, but they can readily develop functional/property anisotropy under the right conditions."@en ,
                                                  "One of the most common technique to define if a substance is lacking of a regular structure (amorphous) is to look at its x-ray diffraction pattern. A diffuse and poorly defined pattern is typical of an amorphous structure, while a regular reproducible pattern is typical of a crystalline structure."@en ,
                                                  "Some degree of local order about 1 nm  in length may exist in the amorphous state."@en .
 
@@ -490,8 +506,9 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
 ###  https://w3id.org/emmo#EMMO_5d659e25_a508_43ed_903c_3707c7c7cd4b
 :EMMO_5d659e25_a508_43ed_903c_3707c7c7cd4b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_e4e80813_f379_4091_b017_ee059811f806 ;
+                                           rdfs:isDefinedBy <https://www.iso.org/obp/ui/#iso:std:iso:80004:-1:ed-1:v1:en:term:3.1.4> ;
                                            skos:prefLabel "NanoMaterial"@en ;
-                                           :elucidation "Nanomaterials are Materials possessing, at minimum, one external dimension measuring 1-100nm"@en .
+                                           :elucidation "Material with any external dimension in the nanoscale or having internal structure or surface structure in the nanoscale [ISO 80004-1:2023(en), 3.1.4]"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_5e77f00d_5c0a_44e7_baf1_2c2a4cb5b3ae
@@ -513,12 +530,12 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
 :EMMO_660a4964_0333_4663_bc66_e93ef59b0679 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352 ;
                                            owl:disjointWith :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ;
-                                           skos:example """nanoparticle,
-quantum dot, 
-carbon nanotube"""@en ;
+                                           skos:example "carbon nanotube"@en ,
+                                                        "nanoparticle"@en ,
+                                                        "quantum dot"@en ;
                                            skos:prefLabel "MesoscopicSubstance"@en ;
-                                           :elucidation "A matter that is not a particulate matter and that does not fullfill the criteria of being a continuum substance."@en ;
-                                           :note "Mesoscopic substances typically exist on a length scale between atoms and molecules and macroscopic (bulk) substances. They are typically in the range of some nanometers to about a micrometer and often exhibit unique physical properties due to their size and shape."@en .
+                                           :conceptualisation "Mesoscopic substances typically exist on a length scale between atoms and molecules and macroscopic (bulk) substances. They are typically in the range of some nanometers to about a micrometer and often exhibit unique physical properties due to their size and shape."@en ;
+                                           :elucidation "A matter that is not a particulate matter and that does not fullfill the criteria of being a continuum substance."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_668fbd5b_6f1b_405c_9c6b_d6067bd0595a
@@ -539,6 +556,12 @@ The term phase is sometimes used as a synonym for state of matter, but there can
 The term phase is sometimes used as a synonym for state of matter, but there can be several immiscible phases of the same state of matter. Also, the term phase is sometimes used to refer to a set of equilibrium states demarcated in terms of state variables such as pressure and temperature by a phase boundary on a phase diagram. Because phase boundaries relate to changes in the organization of matter, such as a change from liquid to solid or a more subtle change from one crystal structure to another, this latter usage is similar to the use of \"phase\" as a synonym for state of matter. However, the state of matter and phase diagram usages are not commensurate with the formal definition given above and the intended meaning must be determined in part from the context in which the term is used."""@en ;
    :wikipediaReference "https://en.wikipedia.org/wiki/Phase_(matter)"@en
  ] .
+
+
+###  https://w3id.org/emmo#EMMO_6af73267_9d75_42f3_9748_f3a7e76969b8
+:EMMO_6af73267_9d75_42f3_9748_f3a7e76969b8 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_660a4964_0333_4663_bc66_e93ef59b0679 ;
+                                           skos:prefLabel "CrystalCell"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_6c487fb3_03d1_4e56_91ed_c2e16dcbef60
@@ -607,6 +630,12 @@ In general, metallic and ionic bonds have atoms sharing electrons."""@en ,
                                            :elucidation "A bonded atom that shares at least one electron to the atom-based entity of which is part of."@en .
 
 
+###  https://w3id.org/emmo#EMMO_83568a6d_7cc6_4f68_a6c4_abe3ace1ce7b
+:EMMO_83568a6d_7cc6_4f68_a6c4_abe3ace1ce7b rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_8820f251_ad36_43f4_a693_c0e86a89cc1f ;
+                                           skos:prefLabel "StructuralMaterial"@en .
+
+
 ###  https://w3id.org/emmo#EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8
 :EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ,
@@ -646,6 +675,14 @@ Paramount to this definition is the applicability of the continuum assumption, t
                                            :note "A continuum is not necessarily small (i.e. composed by the minimum amount of states to fulfill the definition)."@en ,
                                                  "A continuum is the bearer of properties that are generated by the interactions of its fundamental parts, such as viscosity and thermal or electrical conductivity. In fact, viscosity or electrical conductivity are properties of the macro-entity (e.g., solid, fluid), and not of the constituents (e.g., atoms or molecules)."@en ;
                                            :wikipediaReference <https://en.wikipedia.org/wiki/Continuum_mechanics> .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "ContinuumSubstance"@en ;
+   rdfs:seeAlso <https://en.wiktionary.org/wiki/continuum> ;
+   :etymology "From Latin continuum, neuter form of continuus, from contineō (“contain, enclose”) [Wiktionary]"@en
+ ] .
 
 
 ###  https://w3id.org/emmo#EMMO_90f959e9_2412_4e98_894c_623c24ef4a48
@@ -701,12 +738,21 @@ Paramount to this definition is the applicability of the continuum assumption, t
                                            rdfs:subClassOf :EMMO_9ec16158_9118_4886_be97_4310f02f7571 ;
                                            skos:prefLabel "CompactMaterial"@en .
 
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_9ebb6e14_c656_4568_abfa_f7f193ea14ac ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "CompactMaterial"@en ;
+   rdfs:seeAlso <https://en.wiktionary.org/wiki/compact> ;
+   :etymology "From Latin compāctus, perfect passive participle of compingō (“join together”), from com- (“together”) + pangō (“fasten”) [Wiktionary]"@en
+ ] .
+
 
 ###  https://w3id.org/emmo#EMMO_9ec16158_9118_4886_be97_4310f02f7571
 :EMMO_9ec16158_9118_4886_be97_4310f02f7571 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ;
                                            rdfs:seeAlso isbn:9780387986562 ;
-                                           skos:prefLabel "MaterialByCompactness"@en .
+                                           skos:prefLabel "MaterialByCompactness"@en ;
+                                           :elucidation "The class for materials categorised according to their compactness, distinguishing between granular an compact materials."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1
@@ -784,8 +830,15 @@ Paramount to this definition is the applicability of the continuum assumption, t
                                                         "Solid made of SiC or Si₃N₄"@en ,
                                                         "Solid made of ZrO₂"@en ;
                                            skos:prefLabel "CeramicMaterial"@en ;
-                                           :elucidation "An inorganic non-metallic solid made from elements (metals, non-metals, semi-metals like silicon) combined into compounds (oxides, carbides, nitrides) that are typically hard, strong, brittle, corrosion-resistant, and good insulators."@en ;
-                                           :note "Ceramic materials are hardened by intense heat and typically used from pottery and tiles to advanced electronics and aerospace parts."@en .
+                                           :elucidation "An inorganic non-metallic solid made from elements (metals, non-metals, semi-metals like silicon) combined into compounds (oxides, carbides, nitrides) that are typically hard, strong, brittle, corrosion-resistant, and good insulators."@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_c5e9e390_8836_4440_b4fd_c906fdd4f438 ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "CeramicMaterial"@en ;
+   rdfs:seeAlso <https://en.wiktionary.org/wiki/ceramic> ;
+   :etymology "From Ancient Greek κεραμικός (keramikós, “potter's”) [Wiktionary]"@en
+ ] .
 
 
 ###  https://w3id.org/emmo#EMMO_cc5db5b4_0f90_41e8_bfd5_d5d627ae85cf
@@ -854,6 +907,7 @@ Paramount to this definition is the applicability of the continuum assumption, t
 ###  https://w3id.org/emmo#EMMO_e4e80813_f379_4091_b017_ee059811f806
 :EMMO_e4e80813_f379_4091_b017_ee059811f806 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ;
+                                           rdfs:seeAlso <https://www.iso.org/obp/ui/#iso:std:iso:80004:-1:ed-1:v1:en> ;
                                            skos:prefLabel "MaterialBySize"@en .
 
 
@@ -885,7 +939,9 @@ Paramount to this definition is the applicability of the continuum assumption, t
 ###  https://w3id.org/emmo#EMMO_ec613a57_0c55_42cf_ba62_2f6b6576eb2e
 :EMMO_ec613a57_0c55_42cf_ba62_2f6b6576eb2e rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ;
-                                           skos:prefLabel "MaterialByIsotropy"@en .
+                                           skos:prefLabel "MaterialByIsotropy"@en ;
+                                           :conceptualisation "A material is property-isotropic with respect to a given property if that property has the same value regardless of the direction in which you measure it. Isotropy is always property-specific: a material can be isotropic in one property and anisotropic in another simultaneously."@en ;
+                                           :elucidation "The class for materials categorised according to the isotropicity of their properties."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_f00fb163_48c9_4c59_b6c2_4205c082aa54
@@ -894,7 +950,15 @@ Paramount to this definition is the applicability of the continuum assumption, t
                                            rdfs:seeAlso isbn:9780080966656 ,
                                                         isbn:9780471736967 ;
                                            skos:prefLabel "MaterialByStructure"@en ;
-                                           :elucidation "The superclass for all materials that are categorised according to their periodicity/crystalline structure"@en .
+                                           :elucidation "The superclass for all materials that are categorised according to their periodicity/crystalline structure"@en ;
+                                           :note "The distinction between amorphous and crystalline is about structural isotropy. Property isotropy is not necessarly related to structural isotropy (e.g., an amorphous material can express some anisotropic property under external conditions such a stress, flow, fields)."@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_f00fb163_48c9_4c59_b6c2_4205c082aa54 ;
+   owl:annotatedProperty :note ;
+   owl:annotatedTarget "The distinction between amorphous and crystalline is about structural isotropy. Property isotropy is not necessarly related to structural isotropy (e.g., an amorphous material can express some anisotropic property under external conditions such a stress, flow, fields)."@en ;
+   rdfs:seeAlso :EMMO_ec613a57_0c55_42cf_ba62_2f6b6576eb2e
+ ] .
 
 
 ###  https://w3id.org/emmo#EMMO_f1025834_0cd2_42a1_bfeb_13bec41c8655
@@ -1087,19 +1151,13 @@ isbn:9780521408448 rdf:type owl:NamedIndividual ,
                    skos:prefLabel "The Mathematical Theory of Non-uniform Gases"@en .
 
 
-[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
 ] .
 
-[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
-[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
 [ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
@@ -1108,10 +1166,16 @@ isbn:9780521408448 rdf:type owl:NamedIndividual ,
 [ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
  ] .
 
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
 #################################################################
