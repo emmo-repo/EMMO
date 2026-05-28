@@ -35,6 +35,10 @@
 dcterms:alternative rdf:type owl:AnnotationProperty .
 
 
+###  http://purl.org/dc/terms/bibliographicCitation
+dcterms:bibliographicCitation rdf:type owl:AnnotationProperty .
+
+
 ###  http://purl.org/dc/terms/description
 dcterms:description rdf:type owl:AnnotationProperty .
 
@@ -45,6 +49,10 @@ dcterms:edition rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/dc/terms/identifier
 dcterms:identifier rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/isPartOf
+dcterms:isPartOf rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/issued
@@ -431,9 +439,12 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
                                            skos:prefLabel "AmorphousState"@en ;
                                            :conceptualisation "Amorphous substances are characterized by the absence of regular long-range order within their atomic networks, distinguishing them from highly ordered crystalline lattices. This structural disorder prevents the formation of regular macroscopic geometric facets. Thermodynamically and physically, this manifests as a lack of a distinct melting point, irregular fracture behavior, diffuse X-ray diffraction patterns, and isotropic mechanical, optical, and electrical properties."@en ;
                                            :elucidation "State of matter characterised by the absence of long-range molecular order."@en ;
-                                           :note "In the absence of stress, the structure and properties of the amorphous state are generally isotropic at a large-enough scale, as in liquids, but they can readily develop functional/property anisotropy under the right conditions."@en ,
+                                           :iupacReference <https://doi.org/10.1351/goldbook.12743> ;
+                                           :note "If you look at the fundamental IUPAC (International Union of Pure and Applied Chemistry) definition, \"amorphous\" simply means a material lacks long-range translational order. Under this pure structural definition, liquids, gases, plasmas, and supercritical fluids are all amorphous states of matter. They have no crystalline lattice, no unit cells, and no repeating 3D patterns. If you take an X-ray diffraction scan of a liquid, you get the exact same broad, featureless \"amorphous halo\" that you get from a piece of solid glass. Therefore, structural physicists routinely refer to liquids as amorphous networks."@en ,
+                                                 "In the absence of stress, the structure and properties of the amorphous state are generally isotropic at a large-enough scale, as in liquids, but they can readily develop functional/property anisotropy under the right conditions."@en ,
                                                  "One of the most common technique to define if a substance is lacking of a regular structure (amorphous) is to look at its x-ray diffraction pattern. A diffuse and poorly defined pattern is typical of an amorphous structure, while a regular reproducible pattern is typical of a crystalline structure."@en ,
-                                                 "Some degree of local order about 1 nm  in length may exist in the amorphous state."@en .
+                                                 "Some degree of local order about 1 nm  in length may exist in the amorphous state."@en ;
+                                           :wikipediaReference <https://en.wikipedia.org/wiki/Amorphous_solid> .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_4e9fd152_147b_4564_8999_089608f41aff ;
@@ -450,7 +461,9 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
                                                                                     ) ;
                                                                  rdf:type owl:Class
                                                                ] ;
-                                           skos:prefLabel "AmorphousCeramicMaterial"@en ;
+                                           skos:prefLabel "AmorphousCeramic"@en ;
+                                           :conceptualisation """An amorphous ceramic can be categorised according to its formation process, depending on the fact that it went or not through a glass transition in glass or amorphous solid.
+The distinction is about the thermodynamic state of the material. Because a true glass was once a liquid, it occupies a specific metastable energy state dictated by how fast it was cooled. If you take an amorphous solid thin film (e.g., made by PVD) and heat it up, it will often crystallize abruptly or behave unpredictably because it has a highly stressed, ultra-high-energy structure. A true glass, when heated, will predictably soften into a supercooled liquid once it hits its Tg."""@en ;
                                            :elucidation "A ceramic with a disordered, random structure frozen in place."@en .
 
 
@@ -688,6 +701,7 @@ Paramount to this definition is the applicability of the continuum assumption, t
 ###  https://w3id.org/emmo#EMMO_90f959e9_2412_4e98_894c_623c24ef4a48
 :EMMO_90f959e9_2412_4e98_894c_623c24ef4a48 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_c5e9e390_8836_4440_b4fd_c906fdd4f438 ;
+                                           rdfs:isDefinedBy <https://doi.org/10.1016/j.jnoncrysol.2018.01.033> ;
                                            skos:altLabel "GlassCeramicMaterial"@en ,
                                                          "MixedCeramicMaterial"@en ;
                                            skos:example "Porcelain"@en ,
@@ -766,8 +780,11 @@ Paramount to this definition is the applicability of the continuum assumption, t
 ###  https://w3id.org/emmo#EMMO_a5da5097_9fb3_42c2_a6b2_b104f06ff773
 :EMMO_a5da5097_9fb3_42c2_a6b2_b104f06ff773 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_4ec569e9_dfdb_4c75_81b6_381f2c54c585 ;
+                                           skos:example "Borosilicate"@en ;
                                            skos:prefLabel "Glass"@en ;
-                                           :note "From a strict physics and thermodynamics standpoint, glass is a state of matter—specifically, an amorphous network trapped in a structurally frozen state. Because this state is entirely dependent on temperature, glass can exist as a flowing, viscous liquid just as easily as it can exist as a brittle windowpane."@en ;
+                                           :conceptualisation "To be considered a true glass, an amorphous ceramic must have been formed via the glass transition (usually by cooling a liquid fast enough to freeze its chaotic structure in place)."@en ;
+                                           :elucidation "An amorphous ceramic material obtained through a glass transition."@en ;
+                                           :note "From a strict physics and thermodynamics standpoint, glass is a state of matter. Specifically, an amorphous network trapped in a structurally frozen state. Because this state is entirely dependent on temperature, glass can exist as a flowing, viscous liquid just as easily as it can exist as a brittle windowpane."@en ;
                                            :wikipediaReference <https://en.wikipedia.org/wiki/Glass> .
 
 
@@ -1019,6 +1036,31 @@ Because a gas has absolutely zero correlation between the position and orientati
 #    Individuals
 #################################################################
 
+###  https://doi.org/10.1016/j.jnoncrysol.2018.01.033
+<https://doi.org/10.1016/j.jnoncrysol.2018.01.033> rdf:type owl:NamedIndividual ,
+                                                            dcmitype:Text ;
+                                                   dcterms:bibliographicCitation "Journal of Non-Crystalline Solids, Vol. 501, 2018, pp. 3-10" ;
+                                                   dcterms:creator "Arun K. Varshneya" ,
+                                                                   "Joachim Deubener" ,
+                                                                   "Marie Allix" ,
+                                                                   "Matthew J. Davis" ;
+                                                   dcterms:description "A consensus paper providing an updated, rigorous scientific definition and nomenclature guidelines for glass-ceramic materials." ;
+                                                   dcterms:identifier "10.1016/j.jnoncrysol.2018.01.033" ;
+                                                   dcterms:isPartOf [ rdf:type dcmitype:Text ;
+                                                                      dcterms:identifier "0022-3093" ;
+                                                                      dcterms:title "Journal of Non-Crystalline Solids"
+                                                                    ] ;
+                                                   dcterms:issued "2018"^^xsd:gYear ;
+                                                   dcterms:language "en" ;
+                                                   dcterms:publisher "Elsevier" ;
+                                                   dcterms:subject "Amorphous Materials" ,
+                                                                   "Crystallization" ,
+                                                                   "Glass-ceramics" ,
+                                                                   "Material Definition" ,
+                                                                   "Nomenclature" ;
+                                                   dcterms:title "Updated definition of glass-ceramics" .
+
+
 ###  urn:isbn:9780080966656
 isbn:9780080966656 rdf:type owl:NamedIndividual ,
                             dcmitype:Text ;
@@ -1151,31 +1193,31 @@ isbn:9780521408448 rdf:type owl:NamedIndividual ,
                    skos:prefLabel "The Mathematical Theory of Non-uniform Gases"@en .
 
 
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
 ] .
 
+[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
 [ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
-[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
-[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
  ] .
 
 #################################################################
