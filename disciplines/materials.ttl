@@ -15,12 +15,11 @@
                                                owl:versionIRI <https://w3id.org/emmo/1.0.4/disciplines/materials> ;
                                                owl:imports <https://w3id.org/emmo/1.0.4/reference/physicalistic> ;
                                                dcterms:abstract "The materials module populates the physicalistic perspective with materials subclasses categorised according to modern applied physical sciences."@en ;
-                                               dcterms:contributor <https://orcid.org/0000-0001-7815-6636> ;
+                                               dcterms:contributor <https://orcid.org/0000-0001-8869-3718> ,
+                                                                   <https://orcid.org/0009-0008-8009-5009> ;
                                                dcterms:creator <https://orcid.org/0000-0002-1560-809X> ,
                                                                <https://orcid.org/0000-0002-4181-2852> ,
-                                                               <https://orcid.org/0000-0003-0514-9229> ,
-                                                               <https://orcid.org/0000-0003-3805-8761> ,
-                                                               <https://orcid.org/0000-0003-4065-9742> ;
+                                                               <https://orcid.org/0000-0003-3805-8761> ;
                                                dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
                                                dcterms:publisher <https://emmc.eu> ;
                                                dcterms:title "Materials"@en ;
@@ -284,6 +283,14 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_220b7201_d277_4dca_bf6a_5a5e2c4062dd ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "CondensedMatter"@en ;
+   rdfs:seeAlso <https://en.wiktionary.org/wiki/condense> ;
+   :etymology "From Latin condēnsō, con- (“with, together”) + dēnsō (“thicken”) [Wiktionary]"@en
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_220b7201_d277_4dca_bf6a_5a5e2c4062dd ;
    owl:annotatedProperty :conceptualisation ;
    owl:annotatedTarget "The subject of condensed matter physics that deals with the macroscopic and microscopic physical properties of matter, especially the solid and liquid phases which arise from electromagnetic forces between atoms. More generally, the subject deals with \"condensed\" phases of matter: systems of many constituents with strong interactions between them."@en ;
    :wikipediaReference "https://en.wikipedia.org/wiki/Condensed_matter_physics"@en
@@ -449,7 +456,7 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
                                            rdfs:seeAlso isbn:9780080966656 ,
                                                         isbn:9780471736967 ;
                                            skos:prefLabel "Material"@en ;
-                                           :conceptualisation "It is quite hard to define what a material is, especially in order to distinguish it from the more general matter concept. Here we decided first to restrict the domain from the bottom, by making a material always a substance, thus excluding all particulate matter (e.g., molecular entities such as atoms and molecules). Then, to call material every entity that can be categorised according to the typical criteria used in material science (e.g., by structure, function, size, isotropy). Such criteria usually categorise a substance according to kind, quality or quantity and are expressed in order to facilitate the identification of specific class of substances according to an intended use. In short, a material is what is called material in material science."@en ;
+                                           :conceptualisation "It is quite hard to define what a material is, given the wide range of use of such term, especially in order to distinguish it from the more general matter concept. First, we decided to restrict the term's domain from the bottom, by making a material always a substance, thus excluding all particulate matter (e.g., molecular entities such as atoms and molecules), but still including mesoscopic entities (e.g., nanoparticles). Then, to call material every entity that can be categorised according to the typical criteria used in material science (e.g., by structure, function, size, isotropy). Such criteria usually categorise a substance according to kind, quality or quantity and are expressed in order to facilitate the identification of specific class of substances according to an intended use. In short, a material is what is called material in material science."@en ;
                                            :elucidation "A material is a substance categorized according to some criteria based on kind, quality or quantity. An intended use is typically associated with each of the classes used to categorize a material entity."@en ;
                                            :note "A instance of a material (e.g. nitrogen) can represent any state of matter. The fact that the individual also belongs to other classes (e.g. Gas) would reveal the actual form in which the material is found."@en ,
                                                  "A material may be either a mesoscopic or a continuum substance."@en .
@@ -766,6 +773,14 @@ The term phase is sometimes used as a synonym for state of matter, but there can
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_668fbd5b_6f1b_405c_9c6b_d6067bd0595a ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "PhaseOfMatter"@en ;
+   rdfs:seeAlso <https://en.wiktionary.org/wiki/phase> ;
+   :etymology "From Ancient Greek φάσις (phásis, “an appearance”), from φαίνω (phaínō, “to cause to appear”) [Wiktionary]"@en
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_668fbd5b_6f1b_405c_9c6b_d6067bd0595a ;
    owl:annotatedProperty :note ;
    owl:annotatedTarget """In the physical sciences, a phase is a region of space (a thermodynamic system), throughout which all physical properties of a material are essentially uniform. Examples of physical properties include density, index of refraction, magnetization and chemical composition. A simple description is that a phase is a region of material that is chemically uniform, physically distinct, and (often) mechanically separable. In a system consisting of ice and water in a glass jar, the ice cubes are one phase, the water is a second phase, and the humid air is a third phase over the ice and water. The glass of the jar is another separate phase.
 
@@ -970,8 +985,7 @@ In general, metallic and ionic bonds have atoms sharing electrons."""@en ,
                                            :conceptualisation """Continuum is usually an assumption made relative to a specific entity and scale of observation. We can define a continuum substance as a substance for which continuum mechanics (i.e., solid or fluid mechanics) can be used as a model for the description and prediction of its behaviour.
 Paramount to this definition is the applicability of the continuum assumption, that is usually made by comparing the scale of the constituents' phenomena (e.g., mean free path of a molecule in a gas) and the scale of the macro-entity (e.g., the container of the gas)."""@en ;
                                            :elucidation "A substance that is made of sufficiently large number of smaller parts such that it is the bearer of qualities that can exist only by the fact that it is a sum of parts."@en ;
-                                           :note "A continuum is not necessarily small (i.e. composed by the minimum amount of states to fulfill the definition)."@en ,
-                                                 "A continuum is the bearer of properties that are generated by the interactions of its fundamental parts, such as viscosity and thermal or electrical conductivity. In fact, viscosity or electrical conductivity are properties of the macro-entity (e.g., solid, fluid), and not of the constituents (e.g., atoms or molecules)."@en ;
+                                           :note "A continuum is the bearer of properties that are generated by the interactions of its fundamental parts, such as viscosity and thermal or electrical conductivity. In fact, viscosity or electrical conductivity are properties of the macro-entity (e.g., solid, fluid), and not of the constituents (e.g., atoms or molecules)."@en ;
                                            :wikipediaReference <https://en.wikipedia.org/wiki/Continuum_mechanics> .
 
 [ rdf:type owl:Axiom ;
@@ -1242,7 +1256,7 @@ The boundary between \"liquid glass\" and \"solid glass\" isn't a sharp melting 
                                            :OWLRL2DLAxioms "Disjoint Union Of: CondensedMatter, UncondensedMatter" ,
                                                            "Disjoint Union Of: Gas, Plasma, Liquid, Solid" ;
                                            :elucidation "A superclass made as the disjoint union of all the form under which matter can exist."@en ;
-                                           :note "Besides the classical four state, IUPAC introduces another categorisation dimension with the distinction between amorphous and crystalline state. A substance can then be the combination of these different categorisation schemes, such as liquid crystal or amorphous solid. However, between crystalline and amorphous states there may be intermediate state called semicrystalline materials where amorphous and crystalline phases are mixed."@en ,
+                                           :note "Besides the classical four state, IUPAC Goldbook introduces another categorisation dimension with the distinction between amorphous and crystalline state. A substance can then be the combination of these different categorisation schemes, such as liquid crystal or amorphous solid. However, between crystalline and amorphous states there may be intermediate state called semicrystalline materials where amorphous and crystalline phases are mixed."@en ,
                                                  "Besides the classical four states,we have also the categorisation widely used in material science between condensed (liquid and solid) and uncondensed (gas and plasma) matter."@en ,
                                                  "In physics, a state of matter is one of the distinct forms in which matter can exist. Four states of matter are observable in everyday life: solid, liquid, gas, and plasma."@en ;
                                            :wikipediaReference "https://en.wikipedia.org/wiki/State_of_matter"@en .
@@ -1559,7 +1573,8 @@ However, the modern definition focuses entirely on symmetry and diffraction patt
 :EMMO_fc9222ed_14af_419b_b9df_b6a8a04e9d38 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_b9695e87_8261_412e_83cd_a86459426a28 ;
                                            skos:prefLabel "UncondensedMatter"@en ;
-                                           :OWLRL2DLAxioms "Equivalent To: Gas or Plasma" .
+                                           :OWLRL2DLAxioms "Equivalent To: Gas or Plasma" ;
+                                           :elucidation "Matter in gas or plasma physical state."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_fda3040a_103a_4365_a8ca_bc1092e6b640
@@ -1722,22 +1737,10 @@ isbn:9780521408448 rdf:type owl:NamedIndividual ,
                    dcterms:title "The Mathematical Theory of Non-uniform Gases" .
 
 
-[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
 ] .
 
-[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
- ] .
-
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
 [ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
@@ -1747,6 +1750,18 @@ isbn:9780521408448 rdf:type owl:NamedIndividual ,
  ] .
 
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
  ] .
 
 #################################################################
