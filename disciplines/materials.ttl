@@ -452,16 +452,20 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
 
 ###  https://w3id.org/emmo#EMMO_4207e895_8b83_4318_996a_72cfb32acd94
 :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_6e9cb807_fc68_4bcf_b3ba_5fccc887c644 ,
-                                                           :EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352 ;
+                                           rdfs:subClassOf :EMMO_220b7201_d277_4dca_bf6a_5a5e2c4062dd ,
+                                                           :EMMO_6e9cb807_fc68_4bcf_b3ba_5fccc887c644 ;
                                            rdfs:seeAlso isbn:9780080966656 ,
                                                         isbn:9780471736967 ;
                                            skos:prefLabel "Material"@en ;
-                                           :conceptualisation "It is quite hard to define what a material is, given the wide range of use of such term, especially in order to distinguish it from the more general matter concept. First, we decided to restrict the term's domain from the bottom, by making a material always a substance, thus excluding all particulate matter (e.g., molecular entities such as atoms and molecules), but still including mesoscopic entities (e.g., nanoparticles). Then, to call material every entity that can be categorised according to the typical criteria used in material science (e.g., by structure, function, size, isotropy). Such criteria usually categorise a substance according to kind, quality or quantity and are expressed in order to facilitate the identification of specific class of substances according to an intended use. In short, a material is what is called material in material science."@en ;
-                                           :elucidation "A material is a substance categorized according to some criteria based on kind, quality or quantity. An intended use is typically associated with each of the classes used to categorize a material entity."@en ;
+                                           :conceptualisation "It is quite hard to define what a material is, given the wide range of use of such term, especially in order to distinguish it from the more general matter concept. First, we decided to restrict the term's domain with respect to matter, by making a material always a condensed matter, thus excluding all particulate matter (e.g., molecular entities such as atoms and molecules), and mesoscopic entities (e.g., nanoparticles). Then, to call material every entity that can be categorised according to the typical criteria used in material science (e.g., by structure, function, size, isotropy). Such criteria usually categorise a substance according to kind, quality or quantity and are expressed in order to facilitate the identification of specific class of substances according to an intended use. In short, a material is what is called material in material science."@en ;
+                                           :elucidation "A material is condensed matter categorized according to some criteria based on kind, quality or quantity. An intended use is typically associated with each of the classes used to categorize a material entity."@en ;
                                            :note "A instance of a material (e.g. nitrogen) can represent any state of matter. The fact that the individual also belongs to other classes (e.g. Gas) would reveal the actual form in which the material is found."@en ,
-                                                 "A material may be either a mesoscopic or a continuum substance."@en ,
-                                                 "The concept of material is not an ontological one i.e., does not originate from the entity per se, but originates from actual materials science practitioners and their categorisation habits. For this reason, all materials subclasses are grouped according to classification criteria (e.g., by compactness, by function, by size)."@en .
+                                                 "A material may be either a fluid or a solid substance."@en ,
+                                                 "The concept of material is not an ontological one i.e., does not originate from the entity per se, but originates from actual materials science practitioners and their categorisation habits. For this reason, all materials subclasses are grouped according to classification criteria (e.g., by compactness, by function, by size)."@en ,
+                                                 """The core paradigm of materials science is the Structure-Property-Processing-Performance relationship. This paradigm relies entirely on atoms being close enough to interact continuously, thus excluding non-condensed matter from the materials field:
+- Structure: refers to crystal lattices, defects, grain boundaries, or amorphous molecular networks. Gases, by definition, lack any long-range or short-range structural arrangement because their particles are in constant, random motion.
+- Properties: materials science measures collective mechanical properties (elastic modulus, hardness), thermal properties (conductivity), and electrical properties (band gaps). A gas cannot support a shear stress, deform plastically, or possess a structural microstructure.
+Because gases lack a fixed structure, they are traditionally handed over to chemistry, thermodynamics, or fluid mechanics, rather than materials science."""@en .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ;
@@ -588,8 +592,7 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
 
 ###  https://w3id.org/emmo#EMMO_4e9fd152_147b_4564_8999_089608f41aff
 :EMMO_4e9fd152_147b_4564_8999_089608f41aff rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_b9695e87_8261_412e_83cd_a86459426a28 ,
-                                                           :EMMO_f00fb163_48c9_4c59_b6c2_4205c082aa54 ;
+                                           rdfs:subClassOf :EMMO_b9695e87_8261_412e_83cd_a86459426a28 ;
                                            rdfs:isDefinedBy <https://doi.org/10.1351/goldbook.12743> ;
                                            skos:altLabel "AmorphousMaterial"@en ,
                                                          "AmorphousNetwork"@en ;
@@ -748,6 +751,13 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
 :EMMO_660a8a9d_5aa2_4fbd_b41b_55091f791a38 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_3cc35b7f_0d8a_40b4_89dd_07ec47f04093 ;
                                            skos:prefLabel "WhiteIron"@en .
+
+
+###  https://w3id.org/emmo#EMMO_66281f4c_ce3b_46e0_bd24_b5cdcce93094
+:EMMO_66281f4c_ce3b_46e0_bd24_b5cdcce93094 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_4e9fd152_147b_4564_8999_089608f41aff ,
+                                                           :EMMO_f00fb163_48c9_4c59_b6c2_4205c082aa54 ;
+                                           skos:prefLabel "AmorphousMaterial"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_668fbd5b_6f1b_405c_9c6b_d6067bd0595a
@@ -1157,7 +1167,7 @@ Paramount to this definition is the applicability of the continuum assumption, t
 
 ###  https://w3id.org/emmo#EMMO_a5da5097_9fb3_42c2_a6b2_b104f06ff773
 :EMMO_a5da5097_9fb3_42c2_a6b2_b104f06ff773 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4e9fd152_147b_4564_8999_089608f41aff ,
+                                           rdfs:subClassOf :EMMO_66281f4c_ce3b_46e0_bd24_b5cdcce93094 ,
                                                            :EMMO_b655d54f_d812_4635_a1a5_8949ee4383fc ;
                                            skos:example "Borosilicate"@en ;
                                            skos:prefLabel "Glass"@en ;
@@ -1220,8 +1230,7 @@ The boundary between \"liquid glass\" and \"solid glass\" isn't a sharp melting 
 
 ###  https://w3id.org/emmo#EMMO_b1a8a119_8997_4235_9fff_9a5403d3fc48
 :EMMO_b1a8a119_8997_4235_9fff_9a5403d3fc48 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_5d659e25_a508_43ed_903c_3707c7c7cd4b ,
-                                                           :EMMO_660a4964_0333_4663_bc66_e93ef59b0679 ;
+                                           rdfs:subClassOf :EMMO_660a4964_0333_4663_bc66_e93ef59b0679 ;
                                            skos:prefLabel "NanoParticle"@en .
 
 
@@ -1736,31 +1745,31 @@ isbn:9780521408448 rdf:type owl:NamedIndividual ,
                    dcterms:title "The Mathematical Theory of Non-uniform Gases" .
 
 
-[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
 ] .
 
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
-[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
  ] .
 
 [ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
  ] .
 
 [ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
 #################################################################
