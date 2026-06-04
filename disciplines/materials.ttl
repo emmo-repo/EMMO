@@ -460,7 +460,8 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
                                            :conceptualisation "It is quite hard to define what a material is, given the wide range of use of such term, especially in order to distinguish it from the more general matter concept. First, we decided to restrict the term's domain from the bottom, by making a material always a substance, thus excluding all particulate matter (e.g., molecular entities such as atoms and molecules), but still including mesoscopic entities (e.g., nanoparticles). Then, to call material every entity that can be categorised according to the typical criteria used in material science (e.g., by structure, function, size, isotropy). Such criteria usually categorise a substance according to kind, quality or quantity and are expressed in order to facilitate the identification of specific class of substances according to an intended use. In short, a material is what is called material in material science."@en ;
                                            :elucidation "A material is a substance categorized according to some criteria based on kind, quality or quantity. An intended use is typically associated with each of the classes used to categorize a material entity."@en ;
                                            :note "A instance of a material (e.g. nitrogen) can represent any state of matter. The fact that the individual also belongs to other classes (e.g. Gas) would reveal the actual form in which the material is found."@en ,
-                                                 "A material may be either a mesoscopic or a continuum substance."@en .
+                                                 "A material may be either a mesoscopic or a continuum substance."@en ,
+                                                 "The concept of material is not an ontological one i.e., does not originate from the entity per se, but originates from actual materials science practitioners and their categorisation habits. For this reason, all materials subclasses are grouped according to classification criteria (e.g., by compactness, by function, by size)."@en .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ;
@@ -608,19 +609,6 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
    owl:annotatedTarget "AmorphousState"@en ;
    :etymology "From Ancient Greek ἄμορφος (ámorphos, “without form, shapeless, deformed”) (itself from ἀ- (a-, “without”) + μορφή (morphḗ, “form”)  [Wiktionary]"@en
  ] .
-
-
-###  https://w3id.org/emmo#EMMO_4ec569e9_dfdb_4c75_81b6_381f2c54c585
-:EMMO_4ec569e9_dfdb_4c75_81b6_381f2c54c585 rdf:type owl:Class ;
-                                           owl:equivalentClass [ owl:intersectionOf ( :EMMO_4e9fd152_147b_4564_8999_089608f41aff
-                                                                                      :EMMO_c5e9e390_8836_4440_b4fd_c906fdd4f438
-                                                                                    ) ;
-                                                                 rdf:type owl:Class
-                                                               ] ;
-                                           skos:prefLabel "AmorphousCeramic"@en ;
-                                           :conceptualisation """An amorphous ceramic can be categorised according to its formation process, depending on the fact that it went or not through a glass transition in glass or amorphous solid.
-The distinction is about the thermodynamic state of the material. Because a true glass was once a liquid, it occupies a specific metastable energy state dictated by how fast it was cooled. If you take an amorphous solid thin film (e.g., made by PVD) and heat it up, it will often crystallize abruptly or behave unpredictably because it has a highly stressed, ultra-high-energy structure. A true glass, when heated, will predictably soften into a supercooled liquid once it hits its Tg."""@en ;
-                                           :elucidation "A ceramic with a disordered, random structure frozen in place."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_54e56cc0_b595_4fa2_b5cf_84a8d72ab454
@@ -1169,7 +1157,7 @@ Paramount to this definition is the applicability of the continuum assumption, t
 
 ###  https://w3id.org/emmo#EMMO_a5da5097_9fb3_42c2_a6b2_b104f06ff773
 :EMMO_a5da5097_9fb3_42c2_a6b2_b104f06ff773 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4ec569e9_dfdb_4c75_81b6_381f2c54c585 ,
+                                           rdfs:subClassOf :EMMO_4e9fd152_147b_4564_8999_089608f41aff ,
                                                            :EMMO_b655d54f_d812_4635_a1a5_8949ee4383fc ;
                                            skos:example "Borosilicate"@en ;
                                            skos:prefLabel "Glass"@en ;
@@ -1228,6 +1216,13 @@ The boundary between \"liquid glass\" and \"solid glass\" isn't a sharp melting 
                                            rdfs:subClassOf :EMMO_ec613a57_0c55_42cf_ba62_2f6b6576eb2e ;
                                            skos:prefLabel "IsotropicMaterial"@en ;
                                            :elucidation "A material whose properties do not depend on the direction in which measurements are taken."@en .
+
+
+###  https://w3id.org/emmo#EMMO_b1a8a119_8997_4235_9fff_9a5403d3fc48
+:EMMO_b1a8a119_8997_4235_9fff_9a5403d3fc48 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_5d659e25_a508_43ed_903c_3707c7c7cd4b ,
+                                                           :EMMO_660a4964_0333_4663_bc66_e93ef59b0679 ;
+                                           skos:prefLabel "NanoParticle"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_b418c9ac_be7c_42d1_862c_64f655ced6c5
@@ -1310,7 +1305,9 @@ The boundary between \"liquid glass\" and \"solid glass\" isn't a sharp melting 
                                                         "Solid made of ZrO₂"@en ;
                                            skos:prefLabel "CeramicMaterial"@en ;
                                            :elucidation "An inorganic non-metallic substance made from elements (metals, non-metals, semi-metals like silicon) combined into compounds (oxides, carbides, nitrides) that are typically hard, strong, brittle, corrosion-resistant, and good insulators."@en ;
-                                           :note "While the word \"ceramic\" instantly brings to mind brittle, rigid objects like coffee mugs, brick, or technical alumina plates, a ceramic is defined purely by its chemical bonds and atomic structure, as an inorganic non-metallic substance."@en .
+                                           :note """A ceramic with a disordered, random structure frozen in place, is considered amorphous. An amorphous ceramic can be categorised according to its formation process, depending on the fact that it went or not through a glass transition in glass or amorphous solid.
+The distinction is about the thermodynamic state of the material. Because a true glass was once a liquid, it occupies a specific metastable energy state dictated by how fast it was cooled. If you take an amorphous solid thin film (e.g., made by PVD) and heat it up, it will often crystallize abruptly or behave unpredictably because it has a highly stressed, ultra-high-energy structure. A true glass, when heated, will predictably soften into a supercooled liquid once it hits its Tg."""@en ,
+                                                 "While the word \"ceramic\" instantly brings to mind brittle, rigid objects like coffee mugs, brick, or technical alumina plates, a ceramic is defined purely by its chemical bonds and atomic structure, as an inorganic non-metallic substance."@en .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_c5e9e390_8836_4440_b4fd_c906fdd4f438 ;
@@ -1742,10 +1739,10 @@ isbn:9780521408448 rdf:type owl:NamedIndividual ,
 [ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
 ] .
 
-[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
 [ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
@@ -1757,10 +1754,10 @@ isbn:9780521408448 rdf:type owl:NamedIndividual ,
 [ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
  ] .
 
-[ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
