@@ -26,14 +26,6 @@
                                                  :contact "emmo@emmc.eu" .
 
 #################################################################
-#    Annotation properties
-#################################################################
-
-###  http://www.w3.org/2002/07/owl#qualifiedCardinality
-owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
-
-
-#################################################################
 #    Classes
 #################################################################
 
@@ -67,6 +59,7 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
 ###  https://w3id.org/emmo#EMMO_1c16bb7f_5400_4498_8ef2_54392908da4e
 :EMMO_1c16bb7f_5400_4498_8ef2_54392908da4e rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_43d0bb2c_bb0e_4312_a0de_084c29ff7f9e ;
+                                           skos:example "Meson"@en ;
                                            skos:prefLabel "HybridMatter"@en ;
                                            :elucidation "Matter composed of both matter and antimatter fundamental particles."@en .
 
@@ -269,10 +262,11 @@ A physical phenomenon is defined as a causally non-convex interacting system, co
                                            skos:altLabel "PhysicalSubstance"@en ;
                                            skos:prefLabel "Matter"@en ;
                                            :OWLRL2DLAxioms "DisjointUnionOf: HybridMatter, OrdinaryMatter, AntiMatter" ;
-                                           :conceptualisation """The interpretation of the term \"matter\" is not univocal. Several concepts are labelled with this term, depending on the field of science. The concept mass is sometimes related to the term \"matter\", even if the former refers to a physical quantity (precisely defined by modern physics) while the latter is a type that qualifies a physical entity.
-It is possible to identify more than one concept that can be reasonably labelled with the term \"matter\". For example, it is possible to label as matter only the entities that are made up of atoms. Or more generally, we can be more fine-grained and call \"matter\" the entities that are made up of protons, neutrons or electrons, so that we can call matter also a neutron radiation or a cathode ray.
-A more fundamental approach, that we embrace for the EMMO, considers matter as entities that are made of fermions (i.e. quarks and leptons) requiring their presence, excluding particles like the W and Z bosons that possess some mass, but are not fermions.
-Antimatter is a subclass of matter, and is opposed to ordinary matter."""@en ;
+                                           :conceptualisation """The interpretation of the term \"matter\" is not univocal. Several concepts are labelled with this term, depending on the field of science. The concept mass is sometimes related to the term \"matter\", even if the former refers to a physical quantity (precisely defined by modern physics) while the latter is a type that qualifies a physical entity. It is possible to identify more than one concept that can be reasonably labelled with the term \"matter\". For example, it is possible to label as matter only the entities that are made up of atoms. Or more generally, we can be more fine-grained and call \"matter\" the entities that are made up of protons, neutrons or electrons, so that we can call matter also a neutron radiation or a cathode ray.
+A more fundamental approach, that we embrace for the EMMO, considers matter as entities that are made of fermions (i.e. quarks and leptons) requiring their presence. Please note that W and Z bosons possess some mass, but are not fermions, and hence their presence does not qualify and entity as matter.
+Matter is categorized by:
+- type, as ordinary, anti and hybrid matter. Antimatter is a subclass of matter, and is opposed to ordinary matter.
+- structure, drawing a boundary between the particulate nature of matter that characterize matter up to molecular level, and the aggregate nature of matter that appeats at meso (e.g., nanoparticles) and continuum levels."""@en ;
                                            :elucidation "The class of physical objects that have some fermionic quantum parts."@en ;
                                            :note "A matter entity requires the presence of fermions without excluding the presence of real or virtual fundamental bosons parts that are responsible for the interactions between the (real) fundamental fermions."@en ,
                                                  "Matter includes ordinary- and anti-matter. It is possible to have entities that are made of particle and anti-particles (e.g. mesons made of a quark and an anti-quark pair) so that it is possible to have entities that are somewhat heterogeneous with regards to this distinction."@en .
@@ -515,28 +509,16 @@ We cannot say that H₂ molecule has direct part two H atoms, but has direct par
                                            :elucidation "A meson with spin two."@en .
 
 
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
-] .
-
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger
- ] .
-
 #################################################################
 #    General axioms
 #################################################################
 
 [ rdf:type owl:AllDisjointClasses ;
-   owl:members ( :EMMO_1c16bb7f_5400_4498_8ef2_54392908da4e
-                 :EMMO_6e9cb807_fc68_4bcf_b3ba_5fccc887c644
-                 :EMMO_f13672a3_59cc_40ed_8def_65009a8f74e6
-               )
- ] .
+  owl:members ( :EMMO_1c16bb7f_5400_4498_8ef2_54392908da4e
+                :EMMO_6e9cb807_fc68_4bcf_b3ba_5fccc887c644
+                :EMMO_f13672a3_59cc_40ed_8def_65009a8f74e6
+              )
+] .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
