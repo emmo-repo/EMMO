@@ -13,7 +13,7 @@
 
 <https://w3id.org/emmo/disciplines/materials> rdf:type owl:Ontology ;
                                                owl:versionIRI <https://w3id.org/emmo/1.0.4/disciplines/materials> ;
-                                               owl:imports <https://w3id.org/emmo/1.0.4/reference/physicalistic> ;
+                                               owl:imports <https://w3id.org/emmo/1.0.4/disciplines/statesofmatter> ;
                                                dcterms:abstract "The materials module populates the physicalistic perspective with materials subclasses categorised according to modern applied physical sciences."@en ;
                                                dcterms:contributor <https://orcid.org/0000-0001-8869-3718> ,
                                                                    <https://orcid.org/0009-0008-8009-5009> ;
@@ -91,45 +91,11 @@ dcmitype:Text rdf:type owl:Class .
                                            :elucidation "A metallic material composed of two or more elements."@en .
 
 
-###  https://w3id.org/emmo#EMMO_04f2a2d5_e799_4692_a654_420e76f5acc1
-:EMMO_04f2a2d5_e799_4692_a654_420e76f5acc1 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4e9fd152_147b_4564_8999_089608f41aff ,
-                                                           :EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8 ,
-                                                           :EMMO_fc9222ed_14af_419b_b9df_b6a8a04e9d38 ;
-                                           rdfs:seeAlso isbn:9780471400653 ,
-                                                        isbn:9780521408448 ;
-                                           skos:altLabel "Gas"@en ;
-                                           skos:prefLabel "GaseousState"@en ;
-                                           :OWLRL2DLAxioms "Disjoint Union Of: SupercriticalGaseousState, Vapor"@en ;
-                                           :conceptualisation """A gas is a state of matter in which particles (e.g., atoms or molecules) have enough kinetic energy to overcome the intermolecular forces binding them together, so they move freely and independently, filling whatever container holds them. Unlike a liquid, a gas has no definite volume and is readily compressible. 
-A gaseous state can be categorised univocally whether the substance sits below or above critical temperature T𞁞​, because that alone determines whether a liquid–vapor phase boundary exists. Below T𞁞​ the gaseous phase is condensable by isothermal compression; at and above T𞁞 no amount of pressure produces a distinct liquid.
-A gas differs from a plasma in that its particles remain electrically neutral and un-ionized; once a significant fraction of particles ionize, the system becomes a plasma, which responds to electromagnetic fields collectively."""@en ;
-                                           :elucidation "A gaseous state is a compressible fluid, a state of matter that has no fixed shape and no fixed volume."@en ;
-                                           :note "\"Vapor\" and \"gas\" are often used interchangeably in casual speech, but in the strict sense they are different branches of the tree, divided by T𞁞. A vapor can be liquefied by pressure alone; a gas cannot. This is why \"water vapor\" is correct (water's Tc​ = 647 K is far above ambient) while room-temperature N₂ or O₂ is properly a gas."@en ;
-                                           :wikipediaReference <https://en.wikipedia.org/wiki/Gas> .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_04f2a2d5_e799_4692_a654_420e76f5acc1 ;
-   owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "GaseousState"@en ;
-   :etymology "The word gas was coined in the early 17th century by Flemish chemist Jan Baptist van Helmont. He derived the term from the Ancient Greek word χάος (\"chaos\": void, empty space)."@en
- ] .
-
-
 ###  https://w3id.org/emmo#EMMO_0784ef07_72ca_4803_9807_127bfd66a6b2
 :EMMO_0784ef07_72ca_4803_9807_127bfd66a6b2 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_621bbbf3_d357_4ea7_b235_bc6a9ad3366a ;
                                            skos:prefLabel "Steel"@en ;
                                            :elucidation "Iron-carbon alloys containing other alloying elements specifically designed to enhance the properties of the material."@en .
-
-
-###  https://w3id.org/emmo#EMMO_0b15f4ae_092e_4487_9100_3c44176c545c
-:EMMO_0b15f4ae_092e_4487_9100_3c44176c545c rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_ec2c8ac8_98c5_4c74_b85b_ff8e8ca6655c ;
-                                           skos:prefLabel "Dispersion"@en ;
-                                           :OWLRL2DLAxioms "Equivalent To: Solution or Suspension or Colloid"@en ;
-                                           :elucidation "A material in which distributed particles of one phase are dispersed in a different continuous phase."@en ;
-                                           :wikipediaReference <https://en.wikipedia.org/wiki/Dispersion_(chemistry)> .
 
 
 ###  https://w3id.org/emmo#EMMO_0bb3b434_73aa_428f_b4e8_2a2468648e19
@@ -143,29 +109,6 @@ A gas differs from a plasma in that its particles remain electrically neutral an
                                            :conceptualisation "In a single crystal the periodic atomic lattice is continuous and unbroken across the entire specimen. There are no internal boundaries. Examples include silicon wafers used in microchips, or gem-quality diamond."@en ;
                                            :elucidation "A crystalline state is a single crystal when the periodic and repeated arrangement of atoms is perfect or extends throughout the entirety of the specimen without interruption."@en ;
                                            :iupacReference <https://doi.org/10.1351/goldbook.12754> .
-
-
-###  https://w3id.org/emmo#EMMO_0e030040_98a7_49b2_a871_dced1f3a6131
-:EMMO_0e030040_98a7_49b2_a871_dced1f3a6131 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_ec2c8ac8_98c5_4c74_b85b_ff8e8ca6655c ,
-                                                           [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
-                                                             owl:someValuesFrom :EMMO_668fbd5b_6f1b_405c_9c6b_d6067bd0595a
-                                                           ] ;
-                                           skos:prefLabel "PhaseHeterogeneousMixture"@en ;
-                                           :elucidation "A mixture in which more than one phases of matter cohexists."@en ;
-                                           :note """Phase heterogeneous mixture may share the same state of matter.
-
-For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture whose phases are clearly separated but share the same state of matter."""@en ;
-                                           :wikipediaReference <https://en.wikipedia.org/wiki/Mixture#Homogeneous_and_heterogeneous_mixtures> .
-
-
-###  https://w3id.org/emmo#EMMO_0e6378df_1ce8_4321_b00c_ee9beea60a67
-:EMMO_0e6378df_1ce8_4321_b00c_ee9beea60a67 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_ec2c8ac8_98c5_4c74_b85b_ff8e8ca6655c ;
-                                           skos:prefLabel "PhaseHomogeneousMixture"@en ;
-                                           :elucidation "A single phase mixture."@en ;
-                                           :wikipediaReference <https://en.wikipedia.org/wiki/Mixture#Homogeneous_and_heterogeneous_mixtures> .
 
 
 ###  https://w3id.org/emmo#EMMO_0f9c0736_3a27_424b_a9d7_45e7a76b40c5
@@ -192,25 +135,6 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
                                            rdfs:subClassOf :EMMO_d4d9fa8b_5998_4398_8aa4_05bdafa83e11 ;
                                            skos:prefLabel "BrittleMaterial"@en ;
                                            :elucidation "Materials that fracture with little to no prior plastic deformation, propagating cracks rapidly along atomic planes or grain boundaries once a critical stress intensity is reached."@en .
-
-
-###  https://w3id.org/emmo#EMMO_11a7a5f9_fcbd_45d0_b95f_8f0014becc31
-:EMMO_11a7a5f9_fcbd_45d0_b95f_8f0014becc31 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4d604a13_d1f6_42fd_818f_d3138d5e308c ;
-                                           skos:prefLabel "SupersaturatedVapor"@en ;
-                                           :conceptualisation "A metastable saturated vapor carried past the saturation point without nucleating (cloud chambers, condensing nozzle flow, atmospheric supersaturation)."@en .
-
-
-###  https://w3id.org/emmo#EMMO_12a9a254_9791_4a00_b045_f397bc3ab2bc
-:EMMO_12a9a254_9791_4a00_b045_f397bc3ab2bc rdf:type owl:Class ;
-                                           owl:equivalentClass [ owl:intersectionOf ( :EMMO_04f2a2d5_e799_4692_a654_420e76f5acc1
-                                                                                      :EMMO_ec2c8ac8_98c5_4c74_b85b_ff8e8ca6655c
-                                                                                    ) ;
-                                                                 rdf:type owl:Class
-                                                               ] ;
-                                           skos:prefLabel "GasMixture"@en ;
-                                           :elucidation "A mixture that behave macroscopically as a gas, even if it is composed of multi-phase/multi-state components."@en ;
-                                           :note "Usually the gas-like behavior is retained when the ratio between non-gaseous and gaseous components volumes is very small."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_14a2556f_f8fe_488d_bf18_cb216b130fe3
@@ -256,54 +180,10 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
                                            :elucidation "Materials that interact directly with photons, modulating light transmission or converting light into electrical energy and vice versa.\"@en ."@en .
 
 
-###  https://w3id.org/emmo#EMMO_1f5e3e7e_72c9_40d4_91dd_ae432d7b7018
-:EMMO_1f5e3e7e_72c9_40d4_91dd_ae432d7b7018 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_6c487fb3_03d1_4e56_91ed_c2e16dcbef60 ;
-                                           skos:prefLabel "Foam"@en ;
-                                           :elucidation "A colloid formed by trapping pockets of gas in a liquid or solid."@en .
-
-
-###  https://w3id.org/emmo#EMMO_2031516a_2be7_48e8_9af7_7e1270e308fe
-:EMMO_2031516a_2be7_48e8_9af7_7e1270e308fe rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_0b15f4ae_092e_4487_9100_3c44176c545c ,
-                                                           :EMMO_0e6378df_1ce8_4321_b00c_ee9beea60a67 ;
-                                           rdfs:seeAlso <https://doi.org/10.1351/goldbook.S05746> ;
-                                           skos:prefLabel "Solution"@en ;
-                                           :elucidation "A solution is a homogeneous mixture composed of two or more substances, when for convenience one (or more) substance, which is called the solvent, is treated differently from the other substances, which are called solutes."@en ;
-                                           :note "IUPAC Goldbook definition is restricted to liquid or solid solutions. Here we extend the concept also to gas."@en ,
-                                                 "Solutions are characterized by the occurrence of Rayleigh scattering on light,"@en ;
-                                           :wikipediaReference <https://en.wikipedia.org/wiki/Solution_(chemistry)> .
-
-
 ###  https://w3id.org/emmo#EMMO_20cdbfc8_2511_4ff3_b67c_28325960f70f
 :EMMO_20cdbfc8_2511_4ff3_b67c_28325960f70f rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_c5e9e390_8836_4440_b4fd_c906fdd4f438 ;
                                            skos:prefLabel "AdvancedCeramic"@en .
-
-
-###  https://w3id.org/emmo#EMMO_220b7201_d277_4dca_bf6a_5a5e2c4062dd
-:EMMO_220b7201_d277_4dca_bf6a_5a5e2c4062dd rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_b9695e87_8261_412e_83cd_a86459426a28 ;
-                                           skos:altLabel "CondensedState"@en ;
-                                           skos:prefLabel "CondensedMatter"@en ;
-                                           :OWLRL2DLAxioms "Equivalent To: Liquid or Solid" ;
-                                           :conceptualisation "The subject of condensed matter physics that deals with the macroscopic and microscopic physical properties of matter, especially the solid and liquid phases which arise from electromagnetic forces between atoms. More generally, the subject deals with \"condensed\" phases of matter: systems of many constituents with strong interactions between them."@en ;
-                                           :elucidation "Matter in liquid or solid physical state."@en .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_220b7201_d277_4dca_bf6a_5a5e2c4062dd ;
-   owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "CondensedMatter"@en ;
-   rdfs:seeAlso <https://en.wiktionary.org/wiki/condense> ;
-   :etymology "From Latin condēnsō, con- (“with, together”) + dēnsō (“thicken”) [Wiktionary]"@en
- ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_220b7201_d277_4dca_bf6a_5a5e2c4062dd ;
-   owl:annotatedProperty :conceptualisation ;
-   owl:annotatedTarget "The subject of condensed matter physics that deals with the macroscopic and microscopic physical properties of matter, especially the solid and liquid phases which arise from electromagnetic forces between atoms. More generally, the subject deals with \"condensed\" phases of matter: systems of many constituents with strong interactions between them."@en ;
-   :wikipediaReference "https://en.wikipedia.org/wiki/Condensed_matter_physics"@en
- ] .
 
 
 ###  https://w3id.org/emmo#EMMO_29a15bcd_e219_4afc_9f82_9d3fceb666cd
@@ -337,15 +217,6 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
                                            :elucidation "A metal alloy in which iron is not the primary constituent."@en .
 
 
-###  https://w3id.org/emmo#EMMO_2dd512a1_5187_47cc_b0b8_141214e22b59
-:EMMO_2dd512a1_5187_47cc_b0b8_141214e22b59 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4a464c8d_8895_44a8_a628_aed13509f1bd ,
-                                                           :EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1 ;
-                                           skos:example "Granite, sand, dried concrete."@en ;
-                                           skos:prefLabel "SolidSolidSuspension"@en ;
-                                           :elucidation "A coarse dispersion of solid in a solid continuum phase."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_2ecc463a_0423_4744_928a_2b65b88ee6b9
 :EMMO_2ecc463a_0423_4744_928a_2b65b88ee6b9 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_9f5d5e6f_d17b_4f38_96a7_0883c2cd1a9d ;
@@ -367,34 +238,6 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
                                            rdfs:subClassOf :EMMO_9d1efd57_a270_4344_9a8d_dffcaecc7934 ;
                                            skos:prefLabel "DielectricMaterial"@en ;
                                            :elucidation "Insulating materials with bound charges and wide bandgaps that respond to an external electric field via localized electrostatic polarization rather than long-range conduction."@en .
-
-
-###  https://w3id.org/emmo#EMMO_2fd3f574_5e93_47fe_afca_ed80b0a21ab4
-:EMMO_2fd3f574_5e93_47fe_afca_ed80b0a21ab4 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_eb77076b_a104_42ac_a065_798b2d2809ad ;
-                                           rdfs:comment "A standalone atom can be bonded with other atoms by intermolecular forces (i.e. dipole–dipole, London dispersion force, hydrogen bonding), since this bonds does not involve electron sharing."@en ;
-                                           skos:prefLabel "StandaloneAtom"@en ;
-                                           :OWLRL2DLAxioms "DisjointUnionOf: NeutralAtom, IonAtom" ;
-                                           :elucidation "An atom that does not share electrons with other atoms."@en .
-
-
-###  https://w3id.org/emmo#EMMO_31557fae_b039_491c_bcbb_0ccb8711d5a6
-:EMMO_31557fae_b039_491c_bcbb_0ccb8711d5a6 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_6c487fb3_03d1_4e56_91ed_c2e16dcbef60 ;
-                                           rdfs:seeAlso <https://www.britannica.com/science/sol-colloid> ;
-                                           skos:example "Fluid paint"@en ,
-                                                        "Mud"@en ;
-                                           skos:prefLabel "Sol"@en ;
-                                           :elucidation "A colloid in which small particles (1 nm to 100 nm) are suspended in a continuum phase."@en ;
-                                           :wikipediaReference <https://en.wikipedia.org/wiki/Sol_(colloid)> .
-
-
-###  https://w3id.org/emmo#EMMO_33e0ac8b_a318_4285_b1de_e95347784632
-:EMMO_33e0ac8b_a318_4285_b1de_e95347784632 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4a464c8d_8895_44a8_a628_aed13509f1bd ,
-                                                           :EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1 ;
-                                           skos:prefLabel "SolidLiquidSuspension"@en ;
-                                           :elucidation "A coarse dispersion of liquid in a solid continuum phase."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_34c3b7d3_d516_43aa_a230_3e67dfaa1daf
@@ -420,15 +263,6 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
                                            :elucidation "The class for materials categorised according to classical materials science, focusing on amorphous/crystalline nature, and main type categories (i.e., ceramic, composite, metallic and polymeric)."@en .
 
 
-###  https://w3id.org/emmo#EMMO_3995e22d_5720_4dcf_ba3b_d0ce03f514c6
-:EMMO_3995e22d_5720_4dcf_ba3b_d0ce03f514c6 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_6c487fb3_03d1_4e56_91ed_c2e16dcbef60 ,
-                                                           :EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1 ;
-                                           rdfs:seeAlso <https://www.britannica.com/science/gel> ;
-                                           skos:prefLabel "Gel"@en ;
-                                           :elucidation "A soft, solid or solid-like colloid consisting of two or more components, one of which is a liquid, present in substantial quantity."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_3cc35b7f_0d8a_40b4_89dd_07ec47f04093
 :EMMO_3cc35b7f_0d8a_40b4_89dd_07ec47f04093 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_621bbbf3_d357_4ea7_b235_bc6a9ad3366a ;
@@ -447,18 +281,6 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
                                            skos:prefLabel "MiscellaneousNonFerrousAlloy"@en .
 
 
-###  https://w3id.org/emmo#EMMO_40e18c93_a1b5_49ff_b06a_d9d932d1fb65
-:EMMO_40e18c93_a1b5_49ff_b06a_d9d932d1fb65 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_6c487fb3_03d1_4e56_91ed_c2e16dcbef60 ,
-                                                           :EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba ;
-                                           rdfs:isDefinedBy <https://goldbook.iupac.org/terms/view/E02065> ;
-                                           skos:example "Mayonnaise"@en ,
-                                                        "Milk"@en ;
-                                           skos:prefLabel "Emulsion"@en ;
-                                           :elucidation "An emulsion is a mixture of two or more liquids that are normally immiscible (a liquid-liquid heterogeneous mixture)."@en ;
-                                           :wikipediaReference <https://en.wikipedia.org/wiki/Emulsion> .
-
-
 ###  https://w3id.org/emmo#EMMO_4207e895_8b83_4318_996a_72cfb32acd94
 :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_220b7201_d277_4dca_bf6a_5a5e2c4062dd ,
@@ -468,8 +290,8 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
                                            skos:prefLabel "Material"@en ;
                                            :conceptualisation "It is quite hard to define what a material is, given the wide range of use of such term, especially in order to distinguish it from the more general matter concept. First, we decided to restrict the term's domain with respect to matter, by making a material always a condensed matter, thus excluding all particulate matter (e.g., molecular entities such as atoms and molecules), and mesoscopic entities (e.g., nanoparticles). Then, to call material every entity that can be categorised according to the typical criteria used in material science (e.g., by structure, function, size, isotropy). Such criteria usually categorise a substance according to kind, quality or quantity and are expressed in order to facilitate the identification of specific class of substances according to an intended use. In short, a material is what is called material in material science."@en ;
                                            :elucidation "A material is condensed matter categorized according to some criteria based on kind, quality or quantity. An intended use is typically associated with each of the classes used to categorize a material entity."@en ;
-                                           :note "A instance of a material (e.g. nitrogen) can represent any state of matter. The fact that the individual also belongs to other classes (e.g. Gas) would reveal the actual form in which the material is found."@en ,
-                                                 "A material may be either a fluid or a solid substance."@en ,
+                                           :note "A instance of a material (e.g. nitrogen) can represent any state of matter. The fact that the individual also belongs to other classes (e.g. liquid) would reveal the actual form in which the material is found."@en ,
+                                                 "A material may be either a fluid or a solid substance. Gas is not a material, because the material concept is here restricted to classical material science, focusing exclusively on condensed matter."@en ,
                                                  """Materials are here restricted to condensed matter. The core paradigm of materials science is the Structure-Property-Processing-Performance relationship. This paradigm relies entirely on atoms being close enough to interact continuously, thus excluding non-condensed matter from the materials field:
 - Structure: refers to crystal lattices, defects, grain boundaries, or amorphous molecular networks. Gases, by definition, lack any long-range or short-range structural arrangement because their particles are in constant, random motion.
 - Properties: materials science measures collective mechanical properties (elastic modulus, hardness), thermal properties (conductivity), and electrical properties (band gaps). A gas cannot support a shear stress, deform plastically, or possess a structural microstructure.
@@ -484,44 +306,10 @@ Because gases lack a fixed structure, they are traditionally handed over to chem
  ] .
 
 
-###  https://w3id.org/emmo#EMMO_42185fe7_122c_4e0c_a3cd_659d3e21c389
-:EMMO_42185fe7_122c_4e0c_a3cd_659d3e21c389 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4a464c8d_8895_44a8_a628_aed13509f1bd ,
-                                                           :EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba ;
-                                           skos:example "Sparkling water"@en ;
-                                           skos:prefLabel "LiquidGasSuspension"@en ;
-                                           :elucidation "A coarse dispersion of gas in a liquid continuum phase."@en .
-
-
-###  https://w3id.org/emmo#EMMO_4354ac74_7425_43ab_92e4_6dc19d1afee9
-:EMMO_4354ac74_7425_43ab_92e4_6dc19d1afee9 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_31557fae_b039_491c_bcbb_0ccb8711d5a6 ,
-                                                           :EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba ;
-                                           skos:example "Blood"@en ;
-                                           skos:prefLabel "LiquidSol"@en ;
-                                           :elucidation "A type of sol in the form of one solid dispersed in liquid."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_438cd1dd_15d6_4d49_acb6_c9f24fc5b4bf
 :EMMO_438cd1dd_15d6_4d49_acb6_c9f24fc5b4bf rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a8a7d320_825f_479a_8a47_85d8694f95b9 ;
                                            skos:prefLabel "Bronze"@en .
-
-
-###  https://w3id.org/emmo#EMMO_4588526f_8553_4f4d_aa73_a483e88d599b
-:EMMO_4588526f_8553_4f4d_aa73_a483e88d599b rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_2fd3f574_5e93_47fe_afca_ed80b0a21ab4 ;
-                                           owl:disjointWith :EMMO_db03061b_db31_4132_a47a_6a634846578b ;
-                                           skos:prefLabel "NeutralAtom"@en ;
-                                           :elucidation "A standalone atom that has no net charge."@en .
-
-
-###  https://w3id.org/emmo#EMMO_47fe2379_be21_48d1_9ede_402f0faf494b
-:EMMO_47fe2379_be21_48d1_9ede_402f0faf494b rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4a464c8d_8895_44a8_a628_aed13509f1bd ,
-                                                           :EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba ;
-                                           skos:prefLabel "LiquidLiquidSuspension"@en ;
-                                           :elucidation "A coarse dispersion of liquid in a liquid continuum phase."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_48fc6f16_0f04_4e86_a9fc_fcfc14c5ef4b
@@ -531,36 +319,6 @@ Because gases lack a fixed structure, they are traditionally handed over to chem
                                            skos:prefLabel "GranularMaterial"@en ;
                                            :elucidation "A granular material is a conglomeration of discrete solid, macroscopic particles that are  large enough to avoid thermal motion fluctuations, and characterized by a loss of energy whenever the particles interact."@en ;
                                            :wikipediaReference <https://en.wikipedia.org/wiki/Granular_material> .
-
-
-###  https://w3id.org/emmo#EMMO_498aad49_f8d4_40a4_a9eb_efd563a0115f
-:EMMO_498aad49_f8d4_40a4_a9eb_efd563a0115f rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_e0edfb9e_9a96_4fae_b942_831ffe27b84a ;
-                                           rdfs:isDefinedBy isbn:9780195129991 ;
-                                           skos:prefLabel "Spray"@en ;
-                                           :elucidation "A suspension of liquid droplets dispersed in a gas through an atomization process."@en .
-
-
-###  https://w3id.org/emmo#EMMO_4a464c8d_8895_44a8_a628_aed13509f1bd
-:EMMO_4a464c8d_8895_44a8_a628_aed13509f1bd rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_0b15f4ae_092e_4487_9100_3c44176c545c ,
-                                                           :EMMO_0e030040_98a7_49b2_a871_dced1f3a6131 ,
-                                                           :EMMO_b9695e87_8261_412e_83cd_a86459426a28 ;
-                                           rdfs:comment "Suspensions show no significant effect on visible light."@en ;
-                                           skos:prefLabel "Suspension"@en ;
-                                           :OWLRL2DLAxioms "Equivalent To: SolidSolidSuspension or SolidLiquidSuspension or LiquidGasSuspension or LiquidLiquidSuspension or SolidGasSuspension or GasSolidSuspension or GasLiquidSuspension or LiquidSolidSuspension" ;
-                                           :elucidation "An heterogeneous mixture that contains coarsly dispersed particles (no Tyndall effect), that generally tend to separate in time to the dispersion medium phase."@en ;
-                                           :wikipediaReference <https://en.wikipedia.org/wiki/Suspension_(chemistry)> .
-
-
-###  https://w3id.org/emmo#EMMO_4b3e2374_52a1_4420_8e3f_3ae6b9bf7dff
-:EMMO_4b3e2374_52a1_4420_8e3f_3ae6b9bf7dff rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_2031516a_2be7_48e8_9af7_7e1270e308fe ,
-                                                           :EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba ;
-                                           skos:example "An alcoholic beverage with ethanol dissolved in water (e.g., beer)."@en ;
-                                           skos:prefLabel "LiquidSolution"@en ;
-                                           :elucidation "A liquid solution made of two or more component substances."@en ;
-                                           :wikipediaReference <https://en.wikipedia.org/wiki/Solution_(chemistry)#Liquid_solutions> .
 
 
 ###  https://w3id.org/emmo#EMMO_4c1f58cd_6e2c_48fb_8098_1cbb762abb05
@@ -576,63 +334,12 @@ Because gases lack a fixed structure, they are traditionally handed over to chem
                                            :note "Metallic materials are known for their shiny luster, excellent electrical/thermal conductivity, malleability (shapable by hammering), and ductility (can be drawn into wires), due to metallic bonding (shared electrons); they often form alloys (like steel from iron/carbon) to enhance these properties for diverse applications."@en .
 
 
-###  https://w3id.org/emmo#EMMO_4c21fb86_fdcf_444e_b498_86fe656295af
-:EMMO_4c21fb86_fdcf_444e_b498_86fe656295af rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4e9fd152_147b_4564_8999_089608f41aff ,
-                                                           :EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8 ,
-                                                           :EMMO_fc9222ed_14af_419b_b9df_b6a8a04e9d38 ;
-                                           skos:prefLabel "Plasma"@en ;
-                                           :conceptualisation """The gaseous state grades into plasma once a non-negligible fraction of particles ionizes. Unlike vapor to liquid, this is generally a continuous ionization crossover, governed by Saha equilibrium under LTE, rather than a first-order phase transition with a sharp coexistence curve and latent heat. 
-That's precisely why \"fourth state of matter\" is a loose pedagogical label rather than a thermodynamically rigorous one: there's no Tc​-analogue, no discontinuity in the order parameter, just a smooth rise in ionization degree."""@en ;
-                                           :elucidation "A fluid in which a gas is ionized to a level where its electrical conductivity allows long-range electric and magnetic fields to dominate its behaviour."@en .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_4c21fb86_fdcf_444e_b498_86fe656295af ;
-   owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "Plasma"@en ;
-   :etymology """From Late Latin plasma (“mold”), from Ancient Greek πλάσμα (plásma, “something formed”) [Wiktionary]
-The term has been introduced in physics by Irving Langmuir in 1928."""@en
- ] .
-
-
-###  https://w3id.org/emmo#EMMO_4d604a13_d1f6_42fd_818f_d3138d5e308c
-:EMMO_4d604a13_d1f6_42fd_818f_d3138d5e308c rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_04f2a2d5_e799_4692_a654_420e76f5acc1 ;
-                                           skos:altLabel "SubcriticalGaseousState"@en ;
-                                           skos:prefLabel "Vapor"@en ;
-                                           :conceptualisation "Vapor is defined as the gas-phase form of a substance that is below its critical temperature T𞁞, meaning it can be condensed to liquid by pressure alone (condensability). It is a single, homogeneous phase. Vapos are typically invisible."@en ;
-                                           :elucidation "A gas made of a substance below its critical temperature"@en .
-
-
 ###  https://w3id.org/emmo#EMMO_4db521a3_f80f_436b_b9c7_e4b52b1383ea
 :EMMO_4db521a3_f80f_436b_b9c7_e4b52b1383ea rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_39348191_08fd_4bb6_9b1e_012d5b2f1ff6 ;
                                            rdfs:seeAlso isbn:9780471736967 ;
                                            skos:prefLabel "MaterialByType"@en ;
                                            :elucidation "The class for materials categorised according material science main type categories (i.e., ceramic, composite, metallic and polymeric)."@en .
-
-
-###  https://w3id.org/emmo#EMMO_4e9fd152_147b_4564_8999_089608f41aff
-:EMMO_4e9fd152_147b_4564_8999_089608f41aff rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_b9695e87_8261_412e_83cd_a86459426a28 ;
-                                           rdfs:isDefinedBy <https://doi.org/10.1351/goldbook.12743> ;
-                                           skos:altLabel "AmorphousNetwork"@en ;
-                                           skos:prefLabel "AmorphousState"@en ;
-                                           :conceptualisation "Amorphous substances are characterized by the absence of regular long-range order within their atomic networks, distinguishing them from highly ordered crystalline lattices. This structural disorder prevents the formation of regular macroscopic geometric facets. Thermodynamically and physically, this manifests as a lack of a distinct melting point, irregular fracture behavior, diffuse X-ray diffraction patterns, and isotropic mechanical, optical, and electrical properties."@en ;
-                                           :elucidation "State of matter characterised by the absence of long-range molecular order."@en ;
-                                           :iupacReference <https://doi.org/10.1351/goldbook.12743> ;
-                                           :note "If you look at the fundamental IUPAC (International Union of Pure and Applied Chemistry) definition, \"amorphous\" simply means a material lacks long-range translational order. Under this pure structural definition, liquids, gases, plasmas, and supercritical fluids are all amorphous states of matter. They have no crystalline lattice, no unit cells, and no repeating 3D patterns. If you take an X-ray diffraction scan of a liquid, you get the exact same broad, featureless \"amorphous halo\" that you get from a piece of solid glass. Therefore, structural physicists routinely refer to liquids as amorphous networks."@en ,
-                                                 "In the absence of stress, the structure and properties of the amorphous state are generally isotropic at a large-enough scale, as in liquids, but they can readily develop functional/property anisotropy under the right conditions."@en ,
-                                                 "One of the most common technique to define if a substance is lacking of a regular structure (amorphous) is to look at its x-ray diffraction pattern. A diffuse and poorly defined pattern is typical of an amorphous structure, while a regular reproducible pattern is typical of a crystalline structure."@en ,
-                                                 "Some degree of local order about 1 nm  in length may exist in the amorphous state."@en ;
-                                           :wikipediaReference <https://en.wikipedia.org/wiki/Amorphous_solid> .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_4e9fd152_147b_4564_8999_089608f41aff ;
-   owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "AmorphousState"@en ;
-   :etymology "From Ancient Greek ἄμορφος (ámorphos, “without form, shapeless, deformed”) (itself from ἀ- (a-, “without”) + μορφή (morphḗ, “form”)  [Wiktionary]"@en
- ] .
 
 
 ###  https://w3id.org/emmo#EMMO_54e56cc0_b595_4fa2_b5cf_84a8d72ab454
@@ -642,31 +349,6 @@ The term has been introduced in physics by Irving Langmuir in 1928."""@en
                                            :elucidation "Materials (phosphors) that absorb energy from photons, fields, or electron beams and re-emit it as lower-energy visible light."@en .
 
 
-###  https://w3id.org/emmo#EMMO_560d833a_6184_410c_859a_05d982712fd7
-:EMMO_560d833a_6184_410c_859a_05d982712fd7 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_04f2a2d5_e799_4692_a654_420e76f5acc1 ,
-                                                           :EMMO_6c487fb3_03d1_4e56_91ed_c2e16dcbef60 ;
-                                           rdfs:isDefinedBy isbn:9780195129991 ;
-                                           skos:example "Vapor"@en ;
-                                           skos:prefLabel "Aerosol"@en ;
-                                           :elucidation "A colloid composed of fine solid particles or liquid droplets in air or another gas."@en .
-
-
-###  https://w3id.org/emmo#EMMO_58ea1de4_ad55_4448_8430_4e29d7386ce7
-:EMMO_58ea1de4_ad55_4448_8430_4e29d7386ce7 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4d604a13_d1f6_42fd_818f_d3138d5e308c ;
-                                           skos:prefLabel "SuperheatedVapor"@en ;
-                                           :conceptualisation "A single gas phase displaced from saturation (higher T, or lower P at fixed T), but still below T𞁞."@en .
-
-
-###  https://w3id.org/emmo#EMMO_5a2af26d_99de_4e5e_b1cd_514be71420c3
-:EMMO_5a2af26d_99de_4e5e_b1cd_514be71420c3 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_96c8d72f_b436_44e2_9f7f_085c24094292 ;
-                                           rdfs:isDefinedBy isbn:9780195129991 ;
-                                           skos:prefLabel "Smoke"@en ;
-                                           :elucidation "Smoke is a solid aerosol made of particles emitted when a material undergoes combustion or pyrolysis."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_5a765b4a_d3e6_483c_a02e_af6ceedb50bd
 :EMMO_5a765b4a_d3e6_483c_a02e_af6ceedb50bd rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_1d0064d2_d77e_4ec7_b74a_00f98616156f ;
@@ -674,42 +356,11 @@ The term has been introduced in physics by Irving Langmuir in 1928."""@en
                                            :elucidation "Materials that drive chemical transformations or respond dynamically to specific molecular and biochemical environments."@en .
 
 
-###  https://w3id.org/emmo#EMMO_5add9885_dc98_4fa5_8482_fdf9ba5e3889
-:EMMO_5add9885_dc98_4fa5_8482_fdf9ba5e3889 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_31557fae_b039_491c_bcbb_0ccb8711d5a6 ,
-                                                           :EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1 ;
-                                           skos:prefLabel "SolidSol"@en ;
-                                           :elucidation "A type of sol in the form of one solid dispersed in another continuous solid."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_5bc02678_3136_425f_9de3_ceca3bd179da
 :EMMO_5bc02678_3136_425f_9de3_ceca3bd179da rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_d4d9fa8b_5998_4398_8aa4_05bdafa83e11 ;
                                            skos:prefLabel "ViscoelasticMaterial"@en ;
                                            :elucidation "Materials exhibiting a time-dependent mechanical response that combines elastic solid behavior and viscous fluid flow, characterized by creep and stress relaxation."@en .
-
-
-###  https://w3id.org/emmo#EMMO_5be9c137_325a_43d8_b7cd_ea93e7721c2d
-:EMMO_5be9c137_325a_43d8_b7cd_ea93e7721c2d rdf:type owl:Class ;
-                                           owl:equivalentClass [ owl:intersectionOf ( :EMMO_04f2a2d5_e799_4692_a654_420e76f5acc1
-                                                                                      :EMMO_2031516a_2be7_48e8_9af7_7e1270e308fe
-                                                                                    ) ;
-                                                                 rdf:type owl:Class
-                                                               ] ;
-                                           rdfs:seeAlso isbn:9780471400653 ,
-                                                        isbn:9780521408448 ;
-                                           skos:altLabel "GasMixture"@en ;
-                                           skos:example "Air"@en ;
-                                           skos:prefLabel "GasSolution"@en ;
-                                           :elucidation "A gaseous solution made of more than one component type."@en ;
-                                           :wikipediaReference <https://en.wikipedia.org/wiki/Solution_(chemistry)#Gaseous_mixtures> .
-
-
-###  https://w3id.org/emmo#EMMO_5cb107ba_7daa_46dd_8f9f_da22a6eac676
-:EMMO_5cb107ba_7daa_46dd_8f9f_da22a6eac676 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4b3e2374_52a1_4420_8e3f_3ae6b9bf7dff ;
-                                           skos:prefLabel "AqueousSolution"@en ;
-                                           :elucidation "A liquid solution in which the solvent is water."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_5d3bc6d7_d804_4016_96e1_b4d080eeb217
@@ -726,21 +377,6 @@ The term has been introduced in physics by Irving Langmuir in 1928."""@en
                                            rdfs:isDefinedBy <https://www.iso.org/obp/ui/#iso:std:iso:80004:-1:ed-1:v1:en:term:3.1.4> ;
                                            skos:prefLabel "NanoMaterial"@en ;
                                            :elucidation "Material with any external dimension in the nanoscale or having internal structure or surface structure in the nanoscale [ISO 80004-1:2023(en), 3.1.4]"@en .
-
-
-###  https://w3id.org/emmo#EMMO_5e77f00d_5c0a_44e7_baf1_2c2a4cb5b3ae
-:EMMO_5e77f00d_5c0a_44e7_baf1_2c2a4cb5b3ae rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_2031516a_2be7_48e8_9af7_7e1270e308fe ,
-                                                           :EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1 ;
-                                           skos:prefLabel "SolidSolution"@en ;
-                                           :elucidation "A solid solution made of two or more component substances."@en .
-
-
-###  https://w3id.org/emmo#EMMO_5fbc8aca_e9c7_4e19_b4f5_32cbf8128104
-:EMMO_5fbc8aca_e9c7_4e19_b4f5_32cbf8128104 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4354ac74_7425_43ab_92e4_6dc19d1afee9 ;
-                                           skos:prefLabel "Hydrosol"@en ;
-                                           :elucidation "A liquid sol when the dispersion medium is water"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_621bbbf3_d357_4ea7_b235_bc6a9ad3366a
@@ -764,19 +400,6 @@ The term has been introduced in physics by Irving Langmuir in 1928."""@en
                                            :elucidation "Materials possessing a spontaneous electric polarization that can be reversed or reoriented by the application of an external electric field."@en .
 
 
-###  https://w3id.org/emmo#EMMO_660a4964_0333_4663_bc66_e93ef59b0679
-:EMMO_660a4964_0333_4663_bc66_e93ef59b0679 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352 ;
-                                           owl:disjointWith :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ;
-                                           rdfs:seeAlso <https://doi.org/10.2777/417118> ;
-                                           skos:example "carbon nanotube"@en ,
-                                                        "nanoparticle"@en ,
-                                                        "quantum dot"@en ;
-                                           skos:prefLabel "MesoscopicSubstance"@en ;
-                                           :conceptualisation "Mesoscopic substances typically exist on a length scale between atoms and molecules and macroscopic (bulk) substances. They are typically in the range of some nanometers to about a micrometer and often exhibit unique physical properties due to their size and shape. Due to their nature of  they show no clear homonegenity in properties, and cannot be qualified as solid or liquid, but still have some criteria (e.g., structural, shape) that can be used to define them."@en ;
-                                           :elucidation "A matter that is not a particulate matter and that does not fullfill the criteria of being a continuum substance."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_660a8a9d_5aa2_4fbd_b41b_55091f791a38
 :EMMO_660a8a9d_5aa2_4fbd_b41b_55091f791a38 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_3cc35b7f_0d8a_40b4_89dd_07ec47f04093 ;
@@ -790,35 +413,6 @@ The term has been introduced in physics by Irving Langmuir in 1928."""@en
                                            skos:prefLabel "AmorphousMaterial"@en ;
                                            :conceptualisation "While the strict definition of amorphous state includes gases and plasmas, in these states are usually not considered materials in matearial science. Restricting amorphous state only to condensed matter, is the way in which we define the class of amorphous materials."@en ;
                                            :elucidation "An amorphous state which is also condensed matter."@en .
-
-
-###  https://w3id.org/emmo#EMMO_668fbd5b_6f1b_405c_9c6b_d6067bd0595a
-:EMMO_668fbd5b_6f1b_405c_9c6b_d6067bd0595a rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ;
-                                           skos:altLabel "Phase"@en ;
-                                           skos:example "One State, Multiple Solid Phases: Ice isn't just one phase. Under extreme pressures, solid ice can arrange itself into more than 15 different crystalline structures (Ice I, Ice II, Ice VII, etc.). Each of these structures is a different phase, even though they are all in the same solid state."@en ;
-                                           skos:prefLabel "PhaseOfMatter"@en ;
-                                           :elucidation "A chemically uniform, physically distinct, and mechanically separable region of matter, throughout which all physical properties of a material are essentially uniform."@en ;
-                                           :note """In the physical sciences, a phase is a region of space (a thermodynamic system), throughout which all physical properties of a material are essentially uniform. Examples of physical properties include density, index of refraction, magnetization and chemical composition. A simple description is that a phase is a region of material that is chemically uniform, physically distinct, and (often) mechanically separable. In a system consisting of ice and water in a glass jar, the ice cubes are one phase, the water is a second phase, and the humid air is a third phase over the ice and water. The glass of the jar is another separate phase.
-
-The term phase is sometimes used as a synonym for state of matter, but there can be several immiscible phases of the same state of matter. Also, the term phase is sometimes used to refer to a set of equilibrium states demarcated in terms of state variables such as pressure and temperature by a phase boundary on a phase diagram. Because phase boundaries relate to changes in the organization of matter, such as a change from liquid to solid or a more subtle change from one crystal structure to another, this latter usage is similar to the use of \"phase\" as a synonym for state of matter. However, the state of matter and phase diagram usages are not commensurate with the formal definition given above and the intended meaning must be determined in part from the context in which the term is used."""@en .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_668fbd5b_6f1b_405c_9c6b_d6067bd0595a ;
-   owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "PhaseOfMatter"@en ;
-   rdfs:seeAlso <https://en.wiktionary.org/wiki/phase> ;
-   :etymology "From Ancient Greek φάσις (phásis, “an appearance”), from φαίνω (phaínō, “to cause to appear”) [Wiktionary]"@en
- ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_668fbd5b_6f1b_405c_9c6b_d6067bd0595a ;
-   owl:annotatedProperty :note ;
-   owl:annotatedTarget """In the physical sciences, a phase is a region of space (a thermodynamic system), throughout which all physical properties of a material are essentially uniform. Examples of physical properties include density, index of refraction, magnetization and chemical composition. A simple description is that a phase is a region of material that is chemically uniform, physically distinct, and (often) mechanically separable. In a system consisting of ice and water in a glass jar, the ice cubes are one phase, the water is a second phase, and the humid air is a third phase over the ice and water. The glass of the jar is another separate phase.
-
-The term phase is sometimes used as a synonym for state of matter, but there can be several immiscible phases of the same state of matter. Also, the term phase is sometimes used to refer to a set of equilibrium states demarcated in terms of state variables such as pressure and temperature by a phase boundary on a phase diagram. Because phase boundaries relate to changes in the organization of matter, such as a change from liquid to solid or a more subtle change from one crystal structure to another, this latter usage is similar to the use of \"phase\" as a synonym for state of matter. However, the state of matter and phase diagram usages are not commensurate with the formal definition given above and the intended meaning must be determined in part from the context in which the term is used."""@en ;
-   :wikipediaReference "https://en.wikipedia.org/wiki/Phase_(matter)"@en
- ] .
 
 
 ###  https://w3id.org/emmo#EMMO_670b086c_b373_4639_aa72_9144dae89730
@@ -839,25 +433,6 @@ The term phase is sometimes used as a synonym for state of matter, but there can
                                            rdfs:subClassOf :EMMO_660a4964_0333_4663_bc66_e93ef59b0679 ;
                                            skos:altLabel "UnitCell"@en ;
                                            skos:prefLabel "CrystalCell"@en .
-
-
-###  https://w3id.org/emmo#EMMO_6c487fb3_03d1_4e56_91ed_c2e16dcbef60
-:EMMO_6c487fb3_03d1_4e56_91ed_c2e16dcbef60 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_0b15f4ae_092e_4487_9100_3c44176c545c ,
-                                                           :EMMO_0e030040_98a7_49b2_a871_dced1f3a6131 ;
-                                           rdfs:isDefinedBy <https://goldbook.iupac.org/terms/view/C01172> ;
-                                           skos:altLabel "ColloidalSystem"@en ;
-                                           skos:prefLabel "Colloid"@en ;
-                                           :elucidation "A mixture in which one substance of microscopically dispersed insoluble or soluble particles (from 1 nm to 1 μm) is suspended throughout another substance and that does not settle, or would take a very long time to settle appreciably."@en ;
-                                           :note "Colloids are characterized by the occurring of the Tyndall effect on light."@en ;
-                                           :wikipediaReference <https://en.wikipedia.org/wiki/Colloid> .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_6c487fb3_03d1_4e56_91ed_c2e16dcbef60 ;
-   owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "Colloid"@en ;
-   :etymology "From Ancient Greek κόλλα (kólla, “glue”)."@en
- ] .
 
 
 ###  https://w3id.org/emmo#EMMO_6d96d359_2e90_42e3_8126_cbefc4f28fd5
@@ -887,13 +462,6 @@ The term phase is sometimes used as a synonym for state of matter, but there can
                                            :elucidation "Artificially engineered, structured materials designed to exhibit physical and wave-modulation properties not found in naturally occurring homogeneous substances."@en .
 
 
-###  https://w3id.org/emmo#EMMO_73024d1d_8db0_4d2f_9fb1_0cd1f754d9d9
-:EMMO_73024d1d_8db0_4d2f_9fb1_0cd1f754d9d9 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4d604a13_d1f6_42fd_818f_d3138d5e308c ;
-                                           skos:prefLabel "SaturatedVapor"@en ;
-                                           :conceptualisation "A saturated vapor sits on the coexistence (saturation) curve, in equilibrium with its liquid at the dew point."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_734e1883_7768_4805_9ff5_cc90c6d6edb3
 :EMMO_734e1883_7768_4805_9ff5_cc90c6d6edb3 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_c5e9e390_8836_4440_b4fd_c906fdd4f438 ;
@@ -906,15 +474,6 @@ The term phase is sometimes used as a synonym for state of matter, but there can
                                                            :EMMO_cc6988f0_136a_4933_b986_270cff5e1137 ;
                                            skos:prefLabel "FerromagneticMaterial"@en ;
                                            :elucidation "Materials that possess spontaneous, long-range magnetic ordering, utilized to transform energy or store data via magnetic domain manipulation."@en .
-
-
-###  https://w3id.org/emmo#EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba
-:EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_220b7201_d277_4dca_bf6a_5a5e2c4062dd ,
-                                                           :EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8 ;
-                                           rdfs:seeAlso isbn:9780471400653 ;
-                                           skos:prefLabel "Liquid"@en ;
-                                           :elucidation "A liquid is a nearly incompressible fluid that conforms to the shape of its container but retains a (nearly) constant volume independent of pressure."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_75fe4fd1_0f7e_429b_b91d_59d248561bae
@@ -943,16 +502,6 @@ Because the vast majority of the matter possesses long-range translational order
 Inside a polycrystal, more than 99% of the atoms sit precisely on a periodic, highly ordered crystalline lattice. They have undergone a distinct phase transition (solidification/crystallization) into a crystalline state. The only atoms not in a perfect lattice are the thin, few-atom-wide walls at the grain boundaries."""@en .
 
 
-###  https://w3id.org/emmo#EMMO_77e2e601_5ecb_450b_b563_92f096997832
-:EMMO_77e2e601_5ecb_450b_b563_92f096997832 rdf:type owl:Class ;
-                                           owl:equivalentClass [ owl:intersectionOf ( :EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1
-                                                                                      :EMMO_ec2c8ac8_98c5_4c74_b85b_ff8e8ca6655c
-                                                                                    ) ;
-                                                                 rdf:type owl:Class
-                                                               ] ;
-                                           skos:prefLabel "SolidMixture"@en .
-
-
 ###  https://w3id.org/emmo#EMMO_78cfdd17_6f2e_43ef_a54f_ecaef5b191d0
 :EMMO_78cfdd17_6f2e_43ef_a54f_ecaef5b191d0 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_e6edf47f_a32b_4699_992a_cf6104157f25 ;
@@ -966,43 +515,11 @@ Inside a polycrystal, more than 99% of the atoms sit precisely on a periodic, hi
                                            skos:prefLabel "MalleableIron"@en .
 
 
-###  https://w3id.org/emmo#EMMO_8303a247_f9d9_4616_bdcd_f5cbd7b298e3
-:EMMO_8303a247_f9d9_4616_bdcd_f5cbd7b298e3 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_eb77076b_a104_42ac_a065_798b2d2809ad ;
-                                           rdfs:comment """A real bond between atoms is always something hybrid between covalent, metallic and ionic.
-
-In general, metallic and ionic bonds have atoms sharing electrons."""@en ,
-                                                        "The bond types that are covered by this definition are the strong electronic bonds: covalent, metallic and ionic."@en ,
-                                                        "This class can be used to represent molecules as simplified quantum systems, in which outer molecule shared electrons are un-entangled with the inner shells of the atoms composing the molecule."@en ;
-                                           skos:prefLabel "BondedAtom"@en ;
-                                           :elucidation "A bonded atom that shares at least one electron to the atom-based entity of which is part of."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_83568a6d_7cc6_4f68_a6c4_abe3ace1ce7b
 :EMMO_83568a6d_7cc6_4f68_a6c4_abe3ace1ce7b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_8820f251_ad36_43f4_a693_c0e86a89cc1f ;
                                            skos:prefLabel "StructuralMaterial"@en ;
                                            :elucidation "Materials selected primarily for their mechanical properties, such as strength, toughness, and hardness, to bear loads or resist deformation."@en .
-
-
-###  https://w3id.org/emmo#EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8
-:EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ,
-                                                           :EMMO_b9695e87_8261_412e_83cd_a86459426a28 ;
-                                           owl:disjointWith :EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1 ;
-                                           rdfs:seeAlso isbn:9780471400653 ;
-                                           skos:example "Gas, liquid, plasma,"@en ;
-                                           skos:prefLabel "Fluid"@en ;
-                                           :OWLRL2DLAxioms "Equivalent To: Gas or Plasma or Liquid"@en ;
-                                           :elucidation "A continuum that has no fixed shape and yields easily under an applied shear stress, or external force."@en ;
-                                           :wikipediaReference <https://en.wikipedia.org/wiki/Fluid> .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8 ;
-   owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "Fluid"@en ;
-   :etymology "From Latin fluidus (“flowing; fluid”), from Latin fluō (“to flow”), from Proto-Indo-European *bʰleh₁- (“to swell; surge; overflow; run”) [Wiktionary]"@en
- ] .
 
 
 ###  https://w3id.org/emmo#EMMO_8820f251_ad36_43f4_a693_c0e86a89cc1f
@@ -1017,28 +534,6 @@ In general, metallic and ionic bonds have atoms sharing electrons."""@en ,
                                            rdfs:subClassOf :EMMO_cc6988f0_136a_4933_b986_270cff5e1137 ;
                                            skos:prefLabel "ParamagneticMaterial"@en ;
                                            :elucidation "Materials with unpaired electron spins that exhibit random, uncoupled magnetic moments, generating a weak parallel alignment to an external field which is readily disrupted by thermal agitation."@en .
-
-
-###  https://w3id.org/emmo#EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2
-:EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352 ;
-                                           rdfs:seeAlso <https://doi.org/10.2777/417118> ,
-                                                        isbn:9780521405980 ;
-                                           skos:example "A single continuum individual can be the whole fluid in a pipe."@en ;
-                                           skos:prefLabel "ContinuumSubstance"@en ;
-                                           :conceptualisation """Continuum is usually an assumption made relative to a specific entity and scale of observation. We can define a continuum substance as a substance for which continuum mechanics (i.e., solid or fluid mechanics) can be used as a model for the description and prediction of its behaviour.
-Paramount to this definition is the applicability of the continuum assumption, that is usually made by comparing the scale of the constituents' phenomena (e.g., mean free path of a molecule in a gas) and the scale of the macro-entity (e.g., the container of the gas)."""@en ;
-                                           :elucidation "A substance that is made of sufficiently large number of smaller parts such that it is the bearer of qualities that can exist only by the fact that it is a sum of parts."@en ;
-                                           :note "A continuum is the bearer of properties that are generated by the interactions of its fundamental parts, such as viscosity and thermal or electrical conductivity. In fact, viscosity or electrical conductivity are properties of the macro-entity (e.g., solid, fluid), and not of the constituents (e.g., atoms or molecules)."@en ;
-                                           :wikipediaReference <https://en.wikipedia.org/wiki/Continuum_mechanics> .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ;
-   owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "ContinuumSubstance"@en ;
-   rdfs:seeAlso <https://en.wiktionary.org/wiki/continuum> ;
-   :etymology "From Latin continuum, neuter form of continuus, from contineō (“contain, enclose”) [Wiktionary]"@en
- ] .
 
 
 ###  https://w3id.org/emmo#EMMO_8c6a2498_e275_4bc7_8af8_62ad0d8fd242
@@ -1082,26 +577,6 @@ Paramount to this definition is the applicability of the continuum assumption, t
 :EMMO_93426415_8640_407a_baf8_09e903261180 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_c5e9e390_8836_4440_b4fd_c906fdd4f438 ;
                                            skos:prefLabel "RefractoryCeramic"@en .
-
-
-###  https://w3id.org/emmo#EMMO_94010cbc_c2a6_4cb9_b29a_83aa99d2ff70
-:EMMO_94010cbc_c2a6_4cb9_b29a_83aa99d2ff70 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_560d833a_6184_410c_859a_05d982712fd7 ;
-                                           rdfs:seeAlso isbn:9780195129991 ;
-                                           skos:example "Fog"@en ,
-                                                        "Mist"@en ,
-                                                        "Steam"@en ;
-                                           skos:prefLabel "LiquidAerosol"@en ;
-                                           :conceptualisation "A liquid aerosol is a two-phase system: tiny droplets of liquid suspended in a gas. The substance in the droplets is still in its condensed liquid phase, just finely divided. These droplets are large enough (typically ~0.1–100 µm) to scatter light, which is why aerosols are visible."@en ;
-                                           :elucidation "An aerosol composed of liquid droplets in air or another gas."@en .
-
-
-###  https://w3id.org/emmo#EMMO_96c8d72f_b436_44e2_9f7f_085c24094292
-:EMMO_96c8d72f_b436_44e2_9f7f_085c24094292 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_560d833a_6184_410c_859a_05d982712fd7 ;
-                                           rdfs:seeAlso isbn:9780195129991 ;
-                                           skos:prefLabel "SolidAerosol"@en ;
-                                           :elucidation "An aerosol composed of fine solid particles in air or another gas."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_97537021_9bab_4c94_9b76_c21e24a673eb
@@ -1155,15 +630,6 @@ Paramount to this definition is the applicability of the continuum assumption, t
                                            skos:prefLabel "MagnesiumAlloy"@en .
 
 
-###  https://w3id.org/emmo#EMMO_9bed5d66_805a_4b3a_9153_beaf67143848
-:EMMO_9bed5d66_805a_4b3a_9153_beaf67143848 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_1f5e3e7e_72c9_40d4_91dd_ae432d7b7018 ,
-                                                           :EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1 ;
-                                           skos:example "Aerogel"@en ;
-                                           skos:prefLabel "SolidFoam"@en ;
-                                           :elucidation "A foam of trapped gas in a solid."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_9d1efd57_a270_4344_9a8d_dffcaecc7934
 :EMMO_9d1efd57_a270_4344_9a8d_dffcaecc7934 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_d8a7aac9_984a_4254_ab3b_7d8b1c061149 ;
@@ -1200,14 +666,6 @@ Paramount to this definition is the applicability of the continuum assumption, t
                                            :elucidation "Materials that manipulate the behavior of electrons, holes, or mobile ions to control electrical currents or store electrical energy."@en .
 
 
-###  https://w3id.org/emmo#EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1
-:EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_220b7201_d277_4dca_bf6a_5a5e2c4062dd ,
-                                                           :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ;
-                                           skos:prefLabel "Solid"@en ;
-                                           :elucidation "A continuum characterized by structural rigidity and resistance to changes of shape or volume, that retains its shape and density when not confined."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_a376ec3a_c50a_40ac_8cc3_aa066c6b6371
 :EMMO_a376ec3a_c50a_40ac_8cc3_aa066c6b6371 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_1d0064d2_d77e_4ec7_b74a_00f98616156f ;
@@ -1226,21 +684,6 @@ Paramount to this definition is the applicability of the continuum assumption, t
                                            :note """A glass is not always a mechanical solid. From a strict physics and thermodynamics standpoint, glass is a state of matter. Specifically, an amorphous network trapped in a structurally frozen state. Because this state is entirely dependent on temperature, glass can exist as a flowing, viscous liquid just as easily as it can exist as a brittle windowpane.
 The boundary between \"liquid glass\" and \"solid glass\" isn't a sharp melting point like you see when ice turns to water. Instead, it is a gradual, temperature-dependent zone called the glass transition temperature Tg."""@en ;
                                            :wikipediaReference <https://en.wikipedia.org/wiki/Glass> .
-
-
-###  https://w3id.org/emmo#EMMO_a6f34396_1b31_4f42_abc6_cce491336bf6
-:EMMO_a6f34396_1b31_4f42_abc6_cce491336bf6 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_ce2b356f_ca4d_4d38_8a6e_0fdccc61a1b5 ;
-                                           skos:prefLabel "IdealGas"@en ;
-                                           :conceptualisation "A gas where the PV=nRT relation holds, with compressibility factor Z=1. Since no gas really fits whis model, an ideal gas is intended to be a substance for which this model is a reasonable apporximation."@en ;
-                                           :note "Strictly speaking, an ideal gas is a model, not a thermodynamic region."@en .
-
-
-###  https://w3id.org/emmo#EMMO_a71e5554_b7c6_4d18_b032_096f0f55c116
-:EMMO_a71e5554_b7c6_4d18_b032_096f0f55c116 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4354ac74_7425_43ab_92e4_6dc19d1afee9 ;
-                                           skos:prefLabel "Alcosol"@en ;
-                                           :elucidation "A liquid sol when the dispersion medium is alcohol"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_a7614651_aad1_4f28_8c98_3f4abc2f473e
@@ -1314,19 +757,6 @@ The boundary between \"liquid glass\" and \"solid glass\" isn't a sharp melting 
                                            :OWLRL2DLAxioms "EquivalentTo: Glass or GlassCeramic" .
 
 
-###  https://w3id.org/emmo#EMMO_b9695e87_8261_412e_83cd_a86459426a28
-:EMMO_b9695e87_8261_412e_83cd_a86459426a28 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ;
-                                           skos:prefLabel "StateOfMatter"@en ;
-                                           :OWLRL2DLAxioms "Disjoint Union Of: CondensedMatter, UncondensedMatter" ,
-                                                           "Disjoint Union Of: Gas, Plasma, Liquid, Solid" ;
-                                           :elucidation "A superclass made as the disjoint union of all the form under which matter can exist."@en ;
-                                           :note "Besides the classical four state, IUPAC Goldbook introduces another categorisation dimension with the distinction between amorphous and crystalline state. A substance can then be the combination of these different categorisation schemes, such as liquid crystal or amorphous solid. However, between crystalline and amorphous states there may be intermediate state called semicrystalline materials where amorphous and crystalline phases are mixed."@en ,
-                                                 "Besides the classical four states,we have also the categorisation widely used in material science between condensed (liquid and solid) and uncondensed (gas and plasma) matter."@en ,
-                                                 "In physics, a state of matter is one of the distinct forms in which matter can exist. Four states of matter are observable in everyday life: solid, liquid, gas, and plasma."@en ;
-                                           :wikipediaReference "https://en.wikipedia.org/wiki/State_of_matter"@en .
-
-
 ###  https://w3id.org/emmo#EMMO_ba2d8929_bf58_4721_a140_f2c8028b760c
 :EMMO_ba2d8929_bf58_4721_a140_f2c8028b760c rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_93426415_8640_407a_baf8_09e903261180 ;
@@ -1345,14 +775,6 @@ The boundary between \"liquid glass\" and \"solid glass\" isn't a sharp melting 
                                            rdfs:subClassOf :EMMO_9f5d5e6f_d17b_4f38_96a7_0883c2cd1a9d ;
                                            skos:prefLabel "FastIonConductor"@en ;
                                            :elucidation "Solid electrolytes that allow high mobility of specific ions through their crystal lattice while remaining electronically insulating."@en .
-
-
-###  https://w3id.org/emmo#EMMO_c457b6b9_5e73_4853_ae08_d776c12b8058
-:EMMO_c457b6b9_5e73_4853_ae08_d776c12b8058 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4a464c8d_8895_44a8_a628_aed13509f1bd ,
-                                                           :EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1 ;
-                                           skos:prefLabel "SolidGasSuspension"@en ;
-                                           :elucidation "A coarse dispersion of gas in a solid continuum phase."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_c4bc4bc2_cd96_4036_89cd_1e2f763d002e
@@ -1395,13 +817,6 @@ Here we embrace this definition in its wide and literal meaning, even if in prac
                                            skos:prefLabel "FerriticStainlessSteel"@en .
 
 
-###  https://w3id.org/emmo#EMMO_c74d40bb_83a9_46a0_b248_6647e945ba7c
-:EMMO_c74d40bb_83a9_46a0_b248_6647e945ba7c rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_f5dba4d2_41dd_4591_a9e2_d35f8aee99e8 ;
-                                           skos:prefLabel "SupercriticalFluid"@en ;
-                                           :conceptualisation "A gas with T>T𞁞 and p>p𞁞, single phase with liquid-like density and solvating power but gas-like diffusivity and zero surface tension. Continuously connected to both liquid and gas (you can circle the critical point without ever crossing a phase boundary)."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_cb5fe41c_19e8_40a1_8738_0a51f2565685
 :EMMO_cb5fe41c_19e8_40a1_8738_0a51f2565685 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_d4d9fa8b_5998_4398_8aa4_05bdafa83e11 ;
@@ -1423,16 +838,6 @@ Here we embrace this definition in its wide and literal meaning, even if in prac
                                            :elucidation "Materials classified by the orientation, coupling, and net macroscopic alignment of their atomic magnetic moments under an external magnetic field force."@en .
 
 
-###  https://w3id.org/emmo#EMMO_ce2b356f_ca4d_4d38_8a6e_0fdccc61a1b5
-:EMMO_ce2b356f_ca4d_4d38_8a6e_0fdccc61a1b5 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_f5dba4d2_41dd_4591_a9e2_d35f8aee99e8 ;
-                                           skos:altLabel "ProperGas"@en ,
-                                                         "TrueGas"@en ;
-                                           skos:prefLabel "Gas"@en ;
-                                           :conceptualisation "A proper (or true) gas is defined when T and p fall between T>T𞁞 and p<p𞁞. This is the region of permanent gases."@en ;
-                                           :note "The historical permanent gases (He, H₂, N₂, O₂) are simply those whose T𞁞lies below ambient, so they resisted liquefaction until cryogenic cooling below T𞁞."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_d23f6c13_c09c_42df_9d17_9695da110450
 :EMMO_d23f6c13_c09c_42df_9d17_9695da110450 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_2b43c6ff_4a2d_4eb1_9797_e279c52894d3 ;
@@ -1444,24 +849,6 @@ Here we embrace this definition in its wide and literal meaning, even if in prac
                                            rdfs:subClassOf :EMMO_d8a7aac9_984a_4254_ab3b_7d8b1c061149 ;
                                            skos:prefLabel "MechanicalResponseMaterial"@en ;
                                            :elucidation "Materials classified by their structural deformation and energy dissipation behaviors when subjected to mechanical tensile, compressive, or shear stress."@en .
-
-
-###  https://w3id.org/emmo#EMMO_d4f37e32_16ae_4cc6_b4cd_fd896b2449c4
-:EMMO_d4f37e32_16ae_4cc6_b4cd_fd896b2449c4 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_04f2a2d5_e799_4692_a654_420e76f5acc1 ,
-                                                           :EMMO_4a464c8d_8895_44a8_a628_aed13509f1bd ;
-                                           rdfs:seeAlso isbn:9780195129991 ;
-                                           skos:example "Dust, sand storm."@en ;
-                                           skos:prefLabel "GasSolidSuspension"@en ;
-                                           :elucidation "A coarse dispersion of solid in a gas continuum phase."@en .
-
-
-###  https://w3id.org/emmo#EMMO_d69d2e95_b22f_499a_a552_17fde0d778fc
-:EMMO_d69d2e95_b22f_499a_a552_17fde0d778fc rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_1f5e3e7e_72c9_40d4_91dd_ae432d7b7018 ,
-                                                           :EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba ;
-                                           skos:prefLabel "LiquidFoam"@en ;
-                                           :elucidation "A foam of trapped gas in a liquid."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_d8a7aac9_984a_4254_ab3b_7d8b1c061149
@@ -1478,35 +865,10 @@ Here we embrace this definition in its wide and literal meaning, even if in prac
                                            skos:prefLabel "DuctileIron"@en .
 
 
-###  https://w3id.org/emmo#EMMO_db03061b_db31_4132_a47a_6a634846578b
-:EMMO_db03061b_db31_4132_a47a_6a634846578b rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_2fd3f574_5e93_47fe_afca_ed80b0a21ab4 ;
-                                           rdfs:comment "The ion_atom is the basic part of a pure ionic bonded compound i.e. without eclectron sharing,"@en ;
-                                           skos:prefLabel "IonAtom"@en ;
-                                           :elucidation "A standalone atom with an unbalanced number of electrons with respect to its atomic number."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_ddb62e5b_9a1f_4d10_8cd8_32655301bfc9
 :EMMO_ddb62e5b_9a1f_4d10_8cd8_32655301bfc9 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ;
                                            skos:prefLabel "MaterialByOrigin"@en .
-
-
-###  https://w3id.org/emmo#EMMO_e0ebfc72_220f_4d9c_9a12_0e170116b7d3
-:EMMO_e0ebfc72_220f_4d9c_9a12_0e170116b7d3 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_73024d1d_8db0_4d2f_9fb1_0cd1f754d9d9 ;
-                                           skos:prefLabel "DrySaturatedVapor"@en ;
-                                           :conceptualisation "A saturated vapor with x = 1 (no wet phases)"@en .
-
-
-###  https://w3id.org/emmo#EMMO_e0edfb9e_9a96_4fae_b942_831ffe27b84a
-:EMMO_e0edfb9e_9a96_4fae_b942_831ffe27b84a rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_04f2a2d5_e799_4692_a654_420e76f5acc1 ,
-                                                           :EMMO_4a464c8d_8895_44a8_a628_aed13509f1bd ;
-                                           rdfs:seeAlso isbn:9780195129991 ;
-                                           skos:example "Rain, spray."@en ;
-                                           skos:prefLabel "GasLiquidSuspension"@en ;
-                                           :elucidation "A coarse dispersion of liquid in a gas continuum phase."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_e105a5e1_069a_4d2e_af65_4f5c6effde13
@@ -1523,14 +885,6 @@ Here we embrace this definition in its wide and literal meaning, even if in prac
                                            :elucidation "Materials with high concentrations of mobile charge carriers (e.g., free electron gas) that respond to an electric field by establishing a continuous macroscopic current density governed by Ohm's law."@en .
 
 
-###  https://w3id.org/emmo#EMMO_e4281979_2b07_4a43_a772_4903fb3696fe
-:EMMO_e4281979_2b07_4a43_a772_4903fb3696fe rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_d4f37e32_16ae_4cc6_b4cd_fd896b2449c4 ;
-                                           rdfs:isDefinedBy isbn:9780195129991 ;
-                                           skos:prefLabel "Dust"@en ;
-                                           :elucidation "A suspension of fine particles in the atmosphere."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_e4e80813_f379_4091_b017_ee059811f806
 :EMMO_e4e80813_f379_4091_b017_ee059811f806 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ;
@@ -1542,31 +896,6 @@ Here we embrace this definition in its wide and literal meaning, even if in prac
 :EMMO_e6edf47f_a32b_4699_992a_cf6104157f25 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_0784ef07_72ca_4803_9807_127bfd66a6b2 ;
                                            skos:prefLabel "LowAlloySteel"@en .
-
-
-###  https://w3id.org/emmo#EMMO_e9e02156_651f_41c8_9efb_d5da0d4ce5e2
-:EMMO_e9e02156_651f_41c8_9efb_d5da0d4ce5e2 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_4a464c8d_8895_44a8_a628_aed13509f1bd ,
-                                                           :EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba ;
-                                           skos:example "Mud"@en ;
-                                           skos:prefLabel "LiquidSolidSuspension"@en ;
-                                           :elucidation "A coarse dispersion of solids in a liquid continuum phase."@en .
-
-
-###  https://w3id.org/emmo#EMMO_ec2c8ac8_98c5_4c74_b85b_ff8e8ca6655c
-:EMMO_ec2c8ac8_98c5_4c74_b85b_ff8e8ca6655c rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ;
-                                           rdfs:isDefinedBy <https://goldbook.iupac.org/terms/view/M03949> ;
-                                           skos:prefLabel "Mixture"@en ;
-                                           :elucidation "A continuum substance made up of two or more different substances which are physically (not chemically) combined called constituents."@en ;
-                                           :wikipediaReference <https://en.wikipedia.org/wiki/Mixture#> .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :EMMO_ec2c8ac8_98c5_4c74_b85b_ff8e8ca6655c ;
-   owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "Mixture"@en ;
-   :etymology "From Latin mixtūra (“a mixing”), from mixtus (“mix”) [Wiktionary]"@en
- ] .
 
 
 ###  https://w3id.org/emmo#EMMO_ec613a57_0c55_42cf_ba62_2f6b6576eb2e
@@ -1624,15 +953,6 @@ However, the modern definition focuses entirely on symmetry and diffraction patt
                                            :elucidation "Materials classified by how they conduct kinetic thermal energy or expand volumetrically when exposed to a thermal field or temperature gradient."@en .
 
 
-###  https://w3id.org/emmo#EMMO_f5dba4d2_41dd_4591_a9e2_d35f8aee99e8
-:EMMO_f5dba4d2_41dd_4591_a9e2_d35f8aee99e8 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_04f2a2d5_e799_4692_a654_420e76f5acc1 ;
-                                           skos:altLabel "Gas"@en ;
-                                           skos:prefLabel "SupercriticalGaseousState"@en ;
-                                           :conceptualisation """A gaseous state where no liquid forms can be obtained by compression. The liquid–vapor distinction has vanished. 
-This state can be categorised by pressure relative to critical pressure p𞁞"""@en .
-
-
 ###  https://w3id.org/emmo#EMMO_f678173d_f036_4df1_a86b_2894560be617
 :EMMO_f678173d_f036_4df1_a86b_2894560be617 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_4db521a3_f80f_436b_b9c7_e4b52b1383ea ;
@@ -1656,14 +976,6 @@ This state can be categorised by pressure relative to critical pressure p𞁞"""
                                            skos:prefLabel "AluminumAlloy"@en .
 
 
-###  https://w3id.org/emmo#EMMO_fa47c0b4_c31c_4996_97f0_d68e19916f14
-:EMMO_fa47c0b4_c31c_4996_97f0_d68e19916f14 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_73024d1d_8db0_4d2f_9fb1_0cd1f754d9d9 ,
-                                                           :EMMO_94010cbc_c2a6_4cb9_b29a_83aa99d2ff70 ;
-                                           skos:prefLabel "WetVapor"@en ;
-                                           :conceptualisation "Wet vapor is a two-phase mixture of saturated vapor + entrained liquid droplets (0<x<1). The region identifies the steam-quality of the vapor."@en .
-
-
 ###  https://w3id.org/emmo#EMMO_fb27e6d6_159e_48a6_9c29_76dc31d8a860
 :EMMO_fb27e6d6_159e_48a6_9c29_76dc31d8a860 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_4db521a3_f80f_436b_b9c7_e4b52b1383ea ;
@@ -1676,22 +988,6 @@ This state can be categorised by pressure relative to critical pressure p𞁞"""
                                                         "Rubber"@en ;
                                            skos:prefLabel "PolymericMaterial"@en ;
                                            :elucidation "A substance made of macromolecules formed by linking many smaller, repeating chemical units called monomers into long chains or networks, resulting in unique properties like toughness, elasticity, or flexibility, found in both natural forms (like DNA, protein) and synthetic plastics, rubbers, and fibers."@en .
-
-
-###  https://w3id.org/emmo#EMMO_fc1d3f1c_b1bf_4e95_bbf6_1b8fdef710d2
-:EMMO_fc1d3f1c_b1bf_4e95_bbf6_1b8fdef710d2 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_ce2b356f_ca4d_4d38_8a6e_0fdccc61a1b5 ;
-                                           skos:prefLabel "RealGas"@en ;
-                                           :conceptualisation "A gas for which ideal assumptions cannot be made. An important role i played by finite intermolecular interaction and co-volume, Z≠1, virial expansion, van der Waals, Redlich–Kwong, Peng–Robinson, etc."@en .
-
-
-###  https://w3id.org/emmo#EMMO_fc9222ed_14af_419b_b9df_b6a8a04e9d38
-:EMMO_fc9222ed_14af_419b_b9df_b6a8a04e9d38 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_b9695e87_8261_412e_83cd_a86459426a28 ;
-                                           skos:altLabel "UncondensedState"@en ;
-                                           skos:prefLabel "UncondensedMatter"@en ;
-                                           :OWLRL2DLAxioms "Equivalent To: Gas or Plasma" ;
-                                           :elucidation "Matter in gas or plasma physical state."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_fda3040a_103a_4365_a8ca_bc1092e6b640
@@ -1726,27 +1022,6 @@ This state can be categorised by pressure relative to critical pressure p𞁞"""
                                                                    "Material Definition" ,
                                                                    "Nomenclature" ;
                                                    dcterms:title "Updated definition of glass-ceramics" .
-
-
-###  https://doi.org/10.2777/417118
-<https://doi.org/10.2777/417118> rdf:type owl:NamedIndividual ,
-                                          dcmitype:Text ;
-                                 dcterms:contributor "Anne F. de Baas" ;
-                                 dcterms:creator "European Commission. Directorate-General for Research and Innovation" ;
-                                 dcterms:description "The sixth edition of the Review of Materials Modelling, illustrating how advanced materials and nanotechnology simulation tools drive industrial efficiency and design within the Horizon 2020 framework." ;
-                                 dcterms:edition "Sixth version" ;
-                                 dcterms:identifier "10.2777/417118" ,
-                                                    "978-92-79-63185-6" ;
-                                 dcterms:issued "2017"^^xsd:gYear ;
-                                 dcterms:language "en" ;
-                                 dcterms:publisher "Publications Office of the European Union" ;
-                                 dcterms:subject "Computational materials science" ,
-                                                 "European Union projects" ,
-                                                 "H2020 LEIT-NMBP programme" ,
-                                                 "Materials modelling" ,
-                                                 "Nanotechnology" ,
-                                                 "Research and innovation policy" ;
-                                 dcterms:title "What makes a material function? – Let me compute the ways – Modelling in H2020 LEIT-NMBP programme materials and nanotechnology projects – Sixth version" .
 
 
 ###  urn:isbn:9780080966656
@@ -1803,24 +1078,6 @@ isbn:9780387986562 rdf:type owl:NamedIndividual ,
                    dcterms:title "Sands, Powders, and Grains: An Introduction to the Physics of Granular Materials"@en .
 
 
-###  urn:isbn:9780471400653
-isbn:9780471400653 rdf:type owl:NamedIndividual ,
-                            dcmitype:Text ;
-                   dcterms:creator "Charles F. Curtiss" ,
-                                   "Joseph O. Hirschfelder" ,
-                                   "R. Byron Bird" ;
-                   dcterms:description "A rigorous treatment of the molecular characteristics and behaviors of gases and liquids." ;
-                   dcterms:identifier "9780471400653" ;
-                   dcterms:issued "1964"^^xsd:gYear ;
-                   dcterms:language "en" ;
-                   dcterms:publisher "Wiley-Interscience" ;
-                   dcterms:subject "Fluid Dynamics" ,
-                                   "Kinetic Theory" ,
-                                   "Molecular Interactions" ,
-                                   "Statistical Mechanics" ;
-                   dcterms:title "The Molecular Theory of Gases and Liquids" .
-
-
 ###  urn:isbn:9780471736967
 isbn:9780471736967 rdf:type owl:NamedIndividual ,
                             dcmitype:Text ;
@@ -1837,68 +1094,6 @@ isbn:9780471736967 rdf:type owl:NamedIndividual ,
                                    "Metals" ,
                                    "Polymers" ;
                    dcterms:title "Materials Science and Engineering: An Introduction" .
-
-
-###  urn:isbn:9780521405980
-isbn:9780521405980 rdf:type owl:NamedIndividual ,
-                            dcmitype:Text ;
-                   dcterms:creator "Eliot Fried" ,
-                                   "Lallit Anand" ,
-                                   "Morton E. Gurtin" ;
-                   dcterms:description "A unified treatment of continuum mechanics and thermodynamics emphasizing the universal status of basic balances and the entropy imbalance." ;
-                   dcterms:identifier "ISBN-13. 9780521405980" ;
-                   dcterms:issued "2010"^^xsd:gYear ;
-                   dcterms:language "en" ;
-                   dcterms:publisher "Cambridge University Press" ;
-                   dcterms:subject "Continuum mechanics" ,
-                                   "Plasticity" ,
-                                   "Solid mechanics" ,
-                                   "Thermodynamics" ;
-                   dcterms:title "The Mechanics and Thermodynamics of Continua" .
-
-
-###  urn:isbn:9780521408448
-isbn:9780521408448 rdf:type owl:NamedIndividual ,
-                            dcmitype:Text ;
-                   dcterms:alternative "An Account of the Kinetic Theory of Viscosity, Thermal Conduction and Diffusion in Gases" ;
-                   dcterms:creator "Sydney Chapman" ,
-                                   "T. G. Cowling" ;
-                   dcterms:identifier "ISBN-10. 052140844X" ,
-                                      "ISBN-13. 978-0521408448" ;
-                   dcterms:issued "1991"^^xsd:gYear ;
-                   dcterms:language "en" ;
-                   dcterms:publisher "Addison-Wesley" ;
-                   dcterms:subject "Diffusion" ,
-                                   "Kinetic theory of gases" ,
-                                   "Thermal conduction" ,
-                                   "Viscosity" ;
-                   dcterms:title "The Mathematical Theory of Non-uniform Gases" .
-
-
-#################################################################
-#    General axioms
-#################################################################
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :EMMO_04f2a2d5_e799_4692_a654_420e76f5acc1
-                :EMMO_4c21fb86_fdcf_444e_b498_86fe656295af
-                :EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba
-                :EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1
-              )
-] .
-
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :EMMO_2dd512a1_5187_47cc_b0b8_141214e22b59
-                :EMMO_33e0ac8b_a318_4285_b1de_e95347784632
-                :EMMO_42185fe7_122c_4e0c_a3cd_659d3e21c389
-                :EMMO_47fe2379_be21_48d1_9ede_402f0faf494b
-                :EMMO_c457b6b9_5e73_4853_ae08_d776c12b8058
-                :EMMO_d4f37e32_16ae_4cc6_b4cd_fd896b2449c4
-                :EMMO_e0edfb9e_9a96_4fae_b942_831ffe27b84a
-                :EMMO_e9e02156_651f_41c8_9efb_d5da0d4ce5e2
-              )
-] .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

@@ -27,6 +27,29 @@
 #    Annotation properties
 #################################################################
 
+###  https://w3id.org/emmo#EMMO_2856bbc2_96e1_485b_b5f8_2fdfcb0c9b92
+:EMMO_2856bbc2_96e1_485b_b5f8_2fdfcb0c9b92 rdf:type owl:AnnotationProperty ;
+                                           rdfs:seeAlso "https://inchi.info/inchikey_overview_en.html"^^xsd:anyURI ;
+                                           owl:deprecated "true"^^xsd:boolean ;
+                                           skos:changeNote "Replaced by emmo:inchiKey"@en ;
+                                           skos:prefLabel "inchiKey"@en ;
+                                           :elucidation "A hash of the full International Chemical Identifier (InChi) for a chemical substance."@en ;
+                                           :note "The InChiKey is a hash of the full InChi identifier using the SHA-256 algorithm, designed to allow for easy web searches of chemical compounds."@en ;
+                                           rdfs:subPropertyOf rdfs:seeAlso .
+
+
+###  https://w3id.org/emmo#EMMO_2e0b0f1b_ba90_4827_af5a_92b826cb90de
+:EMMO_2e0b0f1b_ba90_4827_af5a_92b826cb90de rdf:type owl:AnnotationProperty ;
+                                           rdfs:isDefinedBy <http://opensmiles.org/opensmiles.html> ;
+                                           owl:deprecated "true"^^xsd:boolean ;
+                                           skos:changeNote "Replaced by emmo:SMILESReference"@en ;
+                                           skos:prefLabel "SMILESReference"@en ;
+                                           :elucidation "OpenSMILES representation of a molecular structure."@en ;
+                                           :note "OpenSMILES is an open specification of the SMILE language for specifying molecular structures, which has become a defacto standard for exchange of molecular structures."@en ;
+                                           :wikipediaReference <https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system> ;
+                                           rdfs:subPropertyOf rdfs:seeAlso .
+
+
 ###  https://w3id.org/emmo#SMILESReference
 :SMILESReference rdf:type owl:AnnotationProperty ;
                  rdfs:isDefinedBy <http://opensmiles.org/opensmiles.html> ;
@@ -44,29 +67,6 @@
           :elucidation "A hash of the full International Chemical Identifier (InChi) for a chemical substance."@en ;
           :note "The InChiKey is a hash of the full InChi identifier using the SHA-256 algorithm, designed to allow for easy web searches of chemical compounds."@en ;
           rdfs:subPropertyOf rdfs:seeAlso .
-
-
-###  https://w3id.org/emmo#EMMO_2856bbc2_96e1_485b_b5f8_2fdfcb0c9b92
-:EMMO_2856bbc2_96e1_485b_b5f8_2fdfcb0c9b92 rdf:type owl:AnnotationProperty ;
-                                           owl:deprecated "true"^^xsd:boolean ;
-                                           skos:changeNote "Replaced by emmo:inchiKey"@en ;
-                                           rdfs:seeAlso "https://inchi.info/inchikey_overview_en.html"^^xsd:anyURI ;
-                                           skos:prefLabel "inchiKey"@en ;
-                                           :elucidation "A hash of the full International Chemical Identifier (InChi) for a chemical substance."@en ;
-                                           :note "The InChiKey is a hash of the full InChi identifier using the SHA-256 algorithm, designed to allow for easy web searches of chemical compounds."@en ;
-                                           rdfs:subPropertyOf rdfs:seeAlso .
-
-
-###  https://w3id.org/emmo#EMMO_2e0b0f1b_ba90_4827_af5a_92b826cb90de
-:EMMO_2e0b0f1b_ba90_4827_af5a_92b826cb90de rdf:type owl:AnnotationProperty ;
-                                           owl:deprecated "true"^^xsd:boolean ;
-                                           skos:changeNote "Replaced by emmo:SMILESReference"@en ;
-                                           rdfs:isDefinedBy <http://opensmiles.org/opensmiles.html> ;
-                                           skos:prefLabel "SMILESReference"@en ;
-                                           :elucidation "OpenSMILES representation of a molecular structure."@en ;
-                                           :note "OpenSMILES is an open specification of the SMILE language for specifying molecular structures, which has become a defacto standard for exchange of molecular structures."@en ;
-                                           :wikipediaReference <https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system> ;
-                                           rdfs:subPropertyOf rdfs:seeAlso .
 
 
 #################################################################
@@ -200,6 +200,15 @@ Note that the name of a compound may refer to the respective molecular entity or
                                            :elucidation "Name of a chemical according to a standard."@en .
 
 
+###  https://w3id.org/emmo#EMMO_2fd3f574_5e93_47fe_afca_ed80b0a21ab4
+:EMMO_2fd3f574_5e93_47fe_afca_ed80b0a21ab4 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_eb77076b_a104_42ac_a065_798b2d2809ad ;
+                                           rdfs:comment "A standalone atom can be bonded with other atoms by intermolecular forces (i.e. dipole–dipole, London dispersion force, hydrogen bonding), since this bonds does not involve electron sharing."@en ;
+                                           skos:prefLabel "StandaloneAtom"@en ;
+                                           :OWLRL2DLAxioms "DisjointUnionOf: NeutralAtom, IonAtom" ;
+                                           :elucidation "An atom that does not share electrons with other atoms."@en .
+
+
 ###  https://w3id.org/emmo#EMMO_4208f937_8bad_47cf_af46_4ada75e63adb
 :EMMO_4208f937_8bad_47cf_af46_4ada75e63adb rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_9236d0aa_cb39_43a1_bbdd_6a2a714951c8 ,
@@ -219,6 +228,14 @@ Note that the name of a compound may refer to the respective molecular entity or
                                            skos:prefLabel "ElementalSubstance"@en ;
                                            :elucidation "A chemical substance composed of atoms with the same number of protons in the atomic nucleus." ;
                                            :iupacReference "https://doi.org/10.1351/goldbook.C01022" .
+
+
+###  https://w3id.org/emmo#EMMO_4588526f_8553_4f4d_aa73_a483e88d599b
+:EMMO_4588526f_8553_4f4d_aa73_a483e88d599b rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_2fd3f574_5e93_47fe_afca_ed80b0a21ab4 ;
+                                           owl:disjointWith :EMMO_db03061b_db31_4132_a47a_6a634846578b ;
+                                           skos:prefLabel "NeutralAtom"@en ;
+                                           :elucidation "A standalone atom that has no net charge."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_47338839_6cca_4a8e_b565_3c4d5517e2c0
@@ -302,6 +319,18 @@ This qualifies a chemical element as a name and not a matter obejct that can sta
                                            rdfs:subClassOf :EMMO_bd8db028_aec2_4a44_ad93_1a9f8270f72c ;
                                            skos:prefLabel "ChemicalComposition"@en ;
                                            :elucidation "A language construct that provides information about the consitutents of a substance and their fractions or amounts." .
+
+
+###  https://w3id.org/emmo#EMMO_8303a247_f9d9_4616_bdcd_f5cbd7b298e3
+:EMMO_8303a247_f9d9_4616_bdcd_f5cbd7b298e3 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_eb77076b_a104_42ac_a065_798b2d2809ad ;
+                                           rdfs:comment """A real bond between atoms is always something hybrid between covalent, metallic and ionic.
+
+In general, metallic and ionic bonds have atoms sharing electrons."""@en ,
+                                                        "The bond types that are covered by this definition are the strong electronic bonds: covalent, metallic and ionic."@en ,
+                                                        "This class can be used to represent molecules as simplified quantum systems, in which outer molecule shared electrons are un-entangled with the inner shells of the atoms composing the molecule."@en ;
+                                           skos:prefLabel "BondedAtom"@en ;
+                                           :elucidation "A bonded atom that shares at least one electron to the atom-based entity of which is part of."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_90963312_d9a9_4474_8d10_835aef5b168e
@@ -442,6 +471,14 @@ Chemical species is the macroscopic equivalent of molecular entity and refers to
                                            rdfs:subClassOf :EMMO_91a0635a_a89a_46de_8928_04a777d145c7 ;
                                            skos:prefLabel "InChI"@en ;
                                            :elucidation "The International Chemical Identifier (InChI) textual identifier proposed by IUPAC to provide a standard encoding for databases of molecular information." .
+
+
+###  https://w3id.org/emmo#EMMO_db03061b_db31_4132_a47a_6a634846578b
+:EMMO_db03061b_db31_4132_a47a_6a634846578b rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_2fd3f574_5e93_47fe_afca_ed80b0a21ab4 ;
+                                           rdfs:comment "The ion_atom is the basic part of a pure ionic bonded compound i.e. without eclectron sharing,"@en ;
+                                           skos:prefLabel "IonAtom"@en ;
+                                           :elucidation "A standalone atom with an unbalanced number of electrons with respect to its atomic number."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_df96cbb6_b5ee_4222_8eab_b3675df24bea
