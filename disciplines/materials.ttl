@@ -99,6 +99,8 @@ dcmitype:Text rdf:type owl:Class .
                                            rdfs:seeAlso isbn:9780471400653 ,
                                                         isbn:9780521408448 ;
                                            skos:prefLabel "Gas"@en ;
+                                           :conceptualisation """A gas is a state of matter in which particles (e.g., atoms or molecules) have enough kinetic energy to overcome the intermolecular forces binding them together, so they move freely and independently, filling whatever container holds them. Unlike a liquid, a gas has no definite volume and is readily compressible. 
+A gas differs from a plasma in that its particles remain electrically neutral and un-ionized; once a significant fraction of particles ionize, the system becomes a plasma, which responds to electromagnetic fields collectively."""@en ;
                                            :elucidation "Gas is a compressible fluid, a state of matter that has no fixed shape and no fixed volume."@en ;
                                            :wikipediaReference <https://en.wikipedia.org/wiki/Gas> .
 
@@ -574,9 +576,11 @@ Because gases lack a fixed structure, they are traditionally handed over to chem
 
 ###  https://w3id.org/emmo#EMMO_4d604a13_d1f6_42fd_818f_d3138d5e308c
 :EMMO_4d604a13_d1f6_42fd_818f_d3138d5e308c rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_94010cbc_c2a6_4cb9_b29a_83aa99d2ff70 ;
+                                           rdfs:subClassOf :EMMO_04f2a2d5_e799_4692_a654_420e76f5acc1 ;
                                            skos:prefLabel "Vapor"@en ;
-                                           :elucidation "A liquid aerosol composed of water droplets in air or another gas."@en .
+                                           :conceptualisation """Vapor is defined as the gas-phase form of a substance that is below its critical temperature, meaning it can be condensed to liquid by pressure alone. It is a single, homogeneous phase. Vapos are typically invisible.
+The term \"gas\" is often used for the phase above the critical temperature."""@en ;
+                                           :elucidation "A gas made of a substance below its critical temperature"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_4db521a3_f80f_436b_b9c7_e4b52b1383ea
@@ -736,11 +740,12 @@ Because gases lack a fixed structure, they are traditionally handed over to chem
 :EMMO_660a4964_0333_4663_bc66_e93ef59b0679 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352 ;
                                            owl:disjointWith :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ;
+                                           rdfs:seeAlso <https://doi.org/10.2777/417118> ;
                                            skos:example "carbon nanotube"@en ,
                                                         "nanoparticle"@en ,
                                                         "quantum dot"@en ;
                                            skos:prefLabel "MesoscopicSubstance"@en ;
-                                           :conceptualisation "Mesoscopic substances typically exist on a length scale between atoms and molecules and macroscopic (bulk) substances. They are typically in the range of some nanometers to about a micrometer and often exhibit unique physical properties due to their size and shape."@en ;
+                                           :conceptualisation "Mesoscopic substances typically exist on a length scale between atoms and molecules and macroscopic (bulk) substances. They are typically in the range of some nanometers to about a micrometer and often exhibit unique physical properties due to their size and shape. Due to their nature of  they show no clear homonegenity in properties, and cannot be qualified as solid or liquid, but still have some criteria (e.g., structural, shape) that can be used to define them."@en ;
                                            :elucidation "A matter that is not a particulate matter and that does not fullfill the criteria of being a continuum substance."@en .
 
 
@@ -982,7 +987,8 @@ In general, metallic and ionic bonds have atoms sharing electrons."""@en ,
 ###  https://w3id.org/emmo#EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2
 :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352 ;
-                                           rdfs:seeAlso isbn:9780521405980 ;
+                                           rdfs:seeAlso <https://doi.org/10.2777/417118> ,
+                                                        isbn:9780521405980 ;
                                            skos:example "A single continuum individual can be the whole fluid in a pipe."@en ;
                                            skos:prefLabel "ContinuumSubstance"@en ;
                                            :conceptualisation """Continuum is usually an assumption made relative to a specific entity and scale of observation. We can define a continuum substance as a substance for which continuum mechanics (i.e., solid or fluid mechanics) can be used as a model for the description and prediction of its behaviour.
@@ -1047,7 +1053,11 @@ Paramount to this definition is the applicability of the continuum assumption, t
 :EMMO_94010cbc_c2a6_4cb9_b29a_83aa99d2ff70 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_560d833a_6184_410c_859a_05d982712fd7 ;
                                            rdfs:seeAlso isbn:9780195129991 ;
+                                           skos:example "Fog"@en ,
+                                                        "Mist"@en ,
+                                                        "Steam"@en ;
                                            skos:prefLabel "LiquidAerosol"@en ;
+                                           :conceptualisation "A liquid aerosol is a two-phase system: tiny droplets of liquid suspended in a gas. The substance in the droplets is still in its condensed liquid phase, just finely divided. These droplets are large enough (typically ~0.1–100 µm) to scatter light, which is why aerosols are visible."@en ;
                                            :elucidation "An aerosol composed of liquid droplets in air or another gas."@en .
 
 
@@ -1625,6 +1635,27 @@ However, the modern definition focuses entirely on symmetry and diffraction patt
                                                                    "Material Definition" ,
                                                                    "Nomenclature" ;
                                                    dcterms:title "Updated definition of glass-ceramics" .
+
+
+###  https://doi.org/10.2777/417118
+<https://doi.org/10.2777/417118> rdf:type owl:NamedIndividual ,
+                                          dcmitype:Text ;
+                                 dcterms:contributor "Anne F. de Baas" ;
+                                 dcterms:creator "European Commission. Directorate-General for Research and Innovation" ;
+                                 dcterms:description "The sixth edition of the Review of Materials Modelling, illustrating how advanced materials and nanotechnology simulation tools drive industrial efficiency and design within the Horizon 2020 framework." ;
+                                 dcterms:edition "Sixth version" ;
+                                 dcterms:identifier "10.2777/417118" ,
+                                                    "978-92-79-63185-6" ;
+                                 dcterms:issued "2017"^^xsd:gYear ;
+                                 dcterms:language "en" ;
+                                 dcterms:publisher "Publications Office of the European Union" ;
+                                 dcterms:subject "Computational materials science" ,
+                                                 "European Union projects" ,
+                                                 "H2020 LEIT-NMBP programme" ,
+                                                 "Materials modelling" ,
+                                                 "Nanotechnology" ,
+                                                 "Research and innovation policy" ;
+                                 dcterms:title "What makes a material function? – Let me compute the ways – Modelling in H2020 LEIT-NMBP programme materials and nanotechnology projects – Sixth version" .
 
 
 ###  urn:isbn:9780080966656
