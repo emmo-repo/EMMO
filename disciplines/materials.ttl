@@ -98,16 +98,20 @@ dcmitype:Text rdf:type owl:Class .
                                                            :EMMO_fc9222ed_14af_419b_b9df_b6a8a04e9d38 ;
                                            rdfs:seeAlso isbn:9780471400653 ,
                                                         isbn:9780521408448 ;
-                                           skos:prefLabel "Gas"@en ;
+                                           skos:altLabel "Gas"@en ;
+                                           skos:prefLabel "GaseousState"@en ;
+                                           :OWLRL2DLAxioms "Disjoint Union Of: SupercriticalGaseousState, Vapor"@en ;
                                            :conceptualisation """A gas is a state of matter in which particles (e.g., atoms or molecules) have enough kinetic energy to overcome the intermolecular forces binding them together, so they move freely and independently, filling whatever container holds them. Unlike a liquid, a gas has no definite volume and is readily compressible. 
+A gaseous state can be categorised univocally whether the substance sits below or above critical temperature T𞁞​, because that alone determines whether a liquid–vapor phase boundary exists. Below T𞁞​ the gaseous phase is condensable by isothermal compression; at and above T𞁞 no amount of pressure produces a distinct liquid.
 A gas differs from a plasma in that its particles remain electrically neutral and un-ionized; once a significant fraction of particles ionize, the system becomes a plasma, which responds to electromagnetic fields collectively."""@en ;
-                                           :elucidation "Gas is a compressible fluid, a state of matter that has no fixed shape and no fixed volume."@en ;
+                                           :elucidation "A gaseous state is a compressible fluid, a state of matter that has no fixed shape and no fixed volume."@en ;
+                                           :note "\"Vapor\" and \"gas\" are often used interchangeably in casual speech, but in the strict sense they are different branches of the tree, divided by T𞁞. A vapor can be liquefied by pressure alone; a gas cannot. This is why \"water vapor\" is correct (water's Tc​ = 647 K is far above ambient) while room-temperature N₂ or O₂ is properly a gas."@en ;
                                            :wikipediaReference <https://en.wikipedia.org/wiki/Gas> .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :EMMO_04f2a2d5_e799_4692_a654_420e76f5acc1 ;
    owl:annotatedProperty skos:prefLabel ;
-   owl:annotatedTarget "Gas"@en ;
+   owl:annotatedTarget "GaseousState"@en ;
    :etymology "The word gas was coined in the early 17th century by Flemish chemist Jan Baptist van Helmont. He derived the term from the Ancient Greek word χάος (\"chaos\": void, empty space)."@en
  ] .
 
@@ -188,6 +192,13 @@ For example, immiscibile liquid phases (e.g. oil and water) constitute a mixture
                                            rdfs:subClassOf :EMMO_d4d9fa8b_5998_4398_8aa4_05bdafa83e11 ;
                                            skos:prefLabel "BrittleMaterial"@en ;
                                            :elucidation "Materials that fracture with little to no prior plastic deformation, propagating cracks rapidly along atomic planes or grain boundaries once a critical stress intensity is reached."@en .
+
+
+###  https://w3id.org/emmo#EMMO_11a7a5f9_fcbd_45d0_b95f_8f0014becc31
+:EMMO_11a7a5f9_fcbd_45d0_b95f_8f0014becc31 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_4d604a13_d1f6_42fd_818f_d3138d5e308c ;
+                                           skos:prefLabel "SupersaturatedVapor"@en ;
+                                           :conceptualisation "A metastable saturated vapor carried past the saturation point without nucleating (cloud chambers, condensing nozzle flow, atmospheric supersaturation)."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_12a9a254_9791_4a00_b045_f397bc3ab2bc
@@ -571,15 +582,25 @@ Because gases lack a fixed structure, they are traditionally handed over to chem
                                                            :EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8 ,
                                                            :EMMO_fc9222ed_14af_419b_b9df_b6a8a04e9d38 ;
                                            skos:prefLabel "Plasma"@en ;
+                                           :conceptualisation """The gaseous state grades into plasma once a non-negligible fraction of particles ionizes. Unlike vapor to liquid, this is generally a continuous ionization crossover, governed by Saha equilibrium under LTE, rather than a first-order phase transition with a sharp coexistence curve and latent heat. 
+That's precisely why \"fourth state of matter\" is a loose pedagogical label rather than a thermodynamically rigorous one: there's no Tc​-analogue, no discontinuity in the order parameter, just a smooth rise in ionization degree."""@en ;
                                            :elucidation "A fluid in which a gas is ionized to a level where its electrical conductivity allows long-range electric and magnetic fields to dominate its behaviour."@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :EMMO_4c21fb86_fdcf_444e_b498_86fe656295af ;
+   owl:annotatedProperty skos:prefLabel ;
+   owl:annotatedTarget "Plasma"@en ;
+   :etymology """From Late Latin plasma (“mold”), from Ancient Greek πλάσμα (plásma, “something formed”) [Wiktionary]
+The term has been introduced in physics by Irving Langmuir in 1928."""@en
+ ] .
 
 
 ###  https://w3id.org/emmo#EMMO_4d604a13_d1f6_42fd_818f_d3138d5e308c
 :EMMO_4d604a13_d1f6_42fd_818f_d3138d5e308c rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_04f2a2d5_e799_4692_a654_420e76f5acc1 ;
+                                           skos:altLabel "SubcriticalGaseousState"@en ;
                                            skos:prefLabel "Vapor"@en ;
-                                           :conceptualisation """Vapor is defined as the gas-phase form of a substance that is below its critical temperature, meaning it can be condensed to liquid by pressure alone. It is a single, homogeneous phase. Vapos are typically invisible.
-The term \"gas\" is often used for the phase above the critical temperature."""@en ;
+                                           :conceptualisation "Vapor is defined as the gas-phase form of a substance that is below its critical temperature T𞁞, meaning it can be condensed to liquid by pressure alone (condensability). It is a single, homogeneous phase. Vapos are typically invisible."@en ;
                                            :elucidation "A gas made of a substance below its critical temperature"@en .
 
 
@@ -629,6 +650,13 @@ The term \"gas\" is often used for the phase above the critical temperature."""@
                                            skos:example "Vapor"@en ;
                                            skos:prefLabel "Aerosol"@en ;
                                            :elucidation "A colloid composed of fine solid particles or liquid droplets in air or another gas."@en .
+
+
+###  https://w3id.org/emmo#EMMO_58ea1de4_ad55_4448_8430_4e29d7386ce7
+:EMMO_58ea1de4_ad55_4448_8430_4e29d7386ce7 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_4d604a13_d1f6_42fd_818f_d3138d5e308c ;
+                                           skos:prefLabel "SuperheatedVapor"@en ;
+                                           :conceptualisation "A single gas phase displaced from saturation (higher T, or lower P at fixed T), but still below T𞁞."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_5a2af26d_99de_4e5e_b1cd_514be71420c3
@@ -857,6 +885,13 @@ The term phase is sometimes used as a synonym for state of matter, but there can
                                            rdfs:subClassOf :EMMO_1d0064d2_d77e_4ec7_b74a_00f98616156f ;
                                            skos:prefLabel "Metamaterial"@en ;
                                            :elucidation "Artificially engineered, structured materials designed to exhibit physical and wave-modulation properties not found in naturally occurring homogeneous substances."@en .
+
+
+###  https://w3id.org/emmo#EMMO_73024d1d_8db0_4d2f_9fb1_0cd1f754d9d9
+:EMMO_73024d1d_8db0_4d2f_9fb1_0cd1f754d9d9 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_4d604a13_d1f6_42fd_818f_d3138d5e308c ;
+                                           skos:prefLabel "SaturatedVapor"@en ;
+                                           :conceptualisation "A saturated vapor sits on the coexistence (saturation) curve, in equilibrium with its liquid at the dew point."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_734e1883_7768_4805_9ff5_cc90c6d6edb3
@@ -1193,6 +1228,14 @@ The boundary between \"liquid glass\" and \"solid glass\" isn't a sharp melting 
                                            :wikipediaReference <https://en.wikipedia.org/wiki/Glass> .
 
 
+###  https://w3id.org/emmo#EMMO_a6f34396_1b31_4f42_abc6_cce491336bf6
+:EMMO_a6f34396_1b31_4f42_abc6_cce491336bf6 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_ce2b356f_ca4d_4d38_8a6e_0fdccc61a1b5 ;
+                                           skos:prefLabel "IdealGas"@en ;
+                                           :conceptualisation "A gas where the PV=nRT relation holds, with compressibility factor Z=1. Since no gas really fits whis model, an ideal gas is intended to be a substance for which this model is a reasonable apporximation."@en ;
+                                           :note "Strictly speaking, an ideal gas is a model, not a thermodynamic region."@en .
+
+
 ###  https://w3id.org/emmo#EMMO_a71e5554_b7c6_4d18_b032_096f0f55c116
 :EMMO_a71e5554_b7c6_4d18_b032_096f0f55c116 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_4354ac74_7425_43ab_92e4_6dc19d1afee9 ;
@@ -1352,6 +1395,13 @@ Here we embrace this definition in its wide and literal meaning, even if in prac
                                            skos:prefLabel "FerriticStainlessSteel"@en .
 
 
+###  https://w3id.org/emmo#EMMO_c74d40bb_83a9_46a0_b248_6647e945ba7c
+:EMMO_c74d40bb_83a9_46a0_b248_6647e945ba7c rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_f5dba4d2_41dd_4591_a9e2_d35f8aee99e8 ;
+                                           skos:prefLabel "SupercriticalFluid"@en ;
+                                           :conceptualisation "A gas with T>T𞁞 and p>p𞁞, single phase with liquid-like density and solvating power but gas-like diffusivity and zero surface tension. Continuously connected to both liquid and gas (you can circle the critical point without ever crossing a phase boundary)."@en .
+
+
 ###  https://w3id.org/emmo#EMMO_cb5fe41c_19e8_40a1_8738_0a51f2565685
 :EMMO_cb5fe41c_19e8_40a1_8738_0a51f2565685 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_d4d9fa8b_5998_4398_8aa4_05bdafa83e11 ;
@@ -1371,6 +1421,16 @@ Here we embrace this definition in its wide and literal meaning, even if in prac
                                            rdfs:subClassOf :EMMO_d8a7aac9_984a_4254_ab3b_7d8b1c061149 ;
                                            skos:prefLabel "MagneticResponseMaterial"@en ;
                                            :elucidation "Materials classified by the orientation, coupling, and net macroscopic alignment of their atomic magnetic moments under an external magnetic field force."@en .
+
+
+###  https://w3id.org/emmo#EMMO_ce2b356f_ca4d_4d38_8a6e_0fdccc61a1b5
+:EMMO_ce2b356f_ca4d_4d38_8a6e_0fdccc61a1b5 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_f5dba4d2_41dd_4591_a9e2_d35f8aee99e8 ;
+                                           skos:altLabel "ProperGas"@en ,
+                                                         "TrueGas"@en ;
+                                           skos:prefLabel "Gas"@en ;
+                                           :conceptualisation "A proper (or true) gas is defined when T and p fall between T>T𞁞 and p<p𞁞. This is the region of permanent gases."@en ;
+                                           :note "The historical permanent gases (He, H₂, N₂, O₂) are simply those whose T𞁞lies below ambient, so they resisted liquefaction until cryogenic cooling below T𞁞."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_d23f6c13_c09c_42df_9d17_9695da110450
@@ -1430,6 +1490,13 @@ Here we embrace this definition in its wide and literal meaning, even if in prac
 :EMMO_ddb62e5b_9a1f_4d10_8cd8_32655301bfc9 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_4207e895_8b83_4318_996a_72cfb32acd94 ;
                                            skos:prefLabel "MaterialByOrigin"@en .
+
+
+###  https://w3id.org/emmo#EMMO_e0ebfc72_220f_4d9c_9a12_0e170116b7d3
+:EMMO_e0ebfc72_220f_4d9c_9a12_0e170116b7d3 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_73024d1d_8db0_4d2f_9fb1_0cd1f754d9d9 ;
+                                           skos:prefLabel "DrySaturatedVapor"@en ;
+                                           :conceptualisation "A saturated vapor with x = 1 (no wet phases)"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_e0edfb9e_9a96_4fae_b942_831ffe27b84a
@@ -1557,6 +1624,15 @@ However, the modern definition focuses entirely on symmetry and diffraction patt
                                            :elucidation "Materials classified by how they conduct kinetic thermal energy or expand volumetrically when exposed to a thermal field or temperature gradient."@en .
 
 
+###  https://w3id.org/emmo#EMMO_f5dba4d2_41dd_4591_a9e2_d35f8aee99e8
+:EMMO_f5dba4d2_41dd_4591_a9e2_d35f8aee99e8 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_04f2a2d5_e799_4692_a654_420e76f5acc1 ;
+                                           skos:altLabel "Gas"@en ;
+                                           skos:prefLabel "SupercriticalGaseousState"@en ;
+                                           :conceptualisation """A gaseous state where no liquid forms can be obtained by compression. The liquid–vapor distinction has vanished. 
+This state can be categorised by pressure relative to critical pressure p𞁞"""@en .
+
+
 ###  https://w3id.org/emmo#EMMO_f678173d_f036_4df1_a86b_2894560be617
 :EMMO_f678173d_f036_4df1_a86b_2894560be617 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_4db521a3_f80f_436b_b9c7_e4b52b1383ea ;
@@ -1580,6 +1656,14 @@ However, the modern definition focuses entirely on symmetry and diffraction patt
                                            skos:prefLabel "AluminumAlloy"@en .
 
 
+###  https://w3id.org/emmo#EMMO_fa47c0b4_c31c_4996_97f0_d68e19916f14
+:EMMO_fa47c0b4_c31c_4996_97f0_d68e19916f14 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_73024d1d_8db0_4d2f_9fb1_0cd1f754d9d9 ,
+                                                           :EMMO_94010cbc_c2a6_4cb9_b29a_83aa99d2ff70 ;
+                                           skos:prefLabel "WetVapor"@en ;
+                                           :conceptualisation "Wet vapor is a two-phase mixture of saturated vapor + entrained liquid droplets (0<x<1). The region identifies the steam-quality of the vapor."@en .
+
+
 ###  https://w3id.org/emmo#EMMO_fb27e6d6_159e_48a6_9c29_76dc31d8a860
 :EMMO_fb27e6d6_159e_48a6_9c29_76dc31d8a860 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_4db521a3_f80f_436b_b9c7_e4b52b1383ea ;
@@ -1592,6 +1676,13 @@ However, the modern definition focuses entirely on symmetry and diffraction patt
                                                         "Rubber"@en ;
                                            skos:prefLabel "PolymericMaterial"@en ;
                                            :elucidation "A substance made of macromolecules formed by linking many smaller, repeating chemical units called monomers into long chains or networks, resulting in unique properties like toughness, elasticity, or flexibility, found in both natural forms (like DNA, protein) and synthetic plastics, rubbers, and fibers."@en .
+
+
+###  https://w3id.org/emmo#EMMO_fc1d3f1c_b1bf_4e95_bbf6_1b8fdef710d2
+:EMMO_fc1d3f1c_b1bf_4e95_bbf6_1b8fdef710d2 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_ce2b356f_ca4d_4d38_8a6e_0fdccc61a1b5 ;
+                                           skos:prefLabel "RealGas"@en ;
+                                           :conceptualisation "A gas for which ideal assumptions cannot be made. An important role i played by finite intermolecular interaction and co-volume, Z≠1, virial expansion, van der Waals, Redlich–Kwong, Peng–Robinson, etc."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_fc9222ed_14af_419b_b9df_b6a8a04e9d38
