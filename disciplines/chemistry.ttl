@@ -208,10 +208,10 @@ Note that the name of a compound may refer to the respective molecular entity or
 ###  https://w3id.org/emmo#EMMO_2fd3f574_5e93_47fe_afca_ed80b0a21ab4
 :EMMO_2fd3f574_5e93_47fe_afca_ed80b0a21ab4 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_eb77076b_a104_42ac_a065_798b2d2809ad ;
-                                           rdfs:comment "A standalone atom can be bonded with other atoms by intermolecular forces (i.e. dipole–dipole, London dispersion force, hydrogen bonding), since this bonds does not involve electron sharing."@en ;
                                            skos:prefLabel "StandaloneAtom"@en ;
                                            :OWLRL2DLAxioms "DisjointUnionOf: NeutralAtom, IonAtom" ;
-                                           :elucidation "An atom that does not share electrons with other atoms."@en .
+                                           :elucidation "An atom that does not share electrons with other atoms."@en ;
+                                           :note "A standalone atom can be bonded with other atoms by intermolecular forces (i.e. dipole–dipole, London dispersion force, hydrogen bonding), since this bonds does not involve electron sharing."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_4208f937_8bad_47cf_af46_4ada75e63adb
@@ -221,9 +221,9 @@ Note that the name of a compound may refer to the respective molecular entity or
                                                              owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
                                                              owl:someValuesFrom :EMMO_4f40def1_3cd7_4067_9596_541e9a5134cf
                                                            ] ;
-                                           skos:example "Hydrogen peroxide is H2O2" ;
+                                           skos:example "Hydrogen peroxide is H2O2e"@en ;
                                            skos:prefLabel "MolecularFormula"@en ;
-                                           :elucidation "An expression that provides information about the element types that constiture a molecule or a molecular substance and their number." .
+                                           :elucidation "An expression that provides information about the element types that constiture a molecule or a molecular substance and their number."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_436b11bd_1756_4821_9f14_c9ed6b67552e
@@ -231,7 +231,7 @@ Note that the name of a compound may refer to the respective molecular entity or
                                            rdfs:subClassOf :EMMO_df96cbb6_b5ee_4222_8eab_b3675df24bea ;
                                            skos:altLabel "PureSubstance"@en ;
                                            skos:prefLabel "ElementalSubstance"@en ;
-                                           :elucidation "A chemical substance composed of atoms with the same number of protons in the atomic nucleus." ;
+                                           :elucidation "A chemical substance composed of atoms with the same number of protons in the atomic nucleus."@en ;
                                            :iupacReference "https://doi.org/10.1351/goldbook.C01022" .
 
 
@@ -249,15 +249,12 @@ Note that the name of a compound may refer to the respective molecular entity or
                                            owl:disjointUnionOf ( :EMMO_21205421_5783_4d3e_81e5_10c5d894a88a
                                                                  :EMMO_df96cbb6_b5ee_4222_8eab_b3675df24bea
                                                                ) ;
-                                           rdfs:comment """A chemical entity comprises the two different ways to represents matter: as single recognizable particle entity (molecular entity) and as a composition of particle entities (substance).
-
-This distinction is not well assessed in actual chemical nomenclature, in which an element name refers to both the pure elemental substance or the atom.
-
-In the EMMO we force the adoption of a more strict categorization based on mereotopology.
-
-The class Material hosts the subclasses for which a substance can be identified without necessarily considering its nature of molecule/atom or substance (e.g. hydrocarbon is the class of both hydrocarbon molecules or gases).""" ;
                                            skos:prefLabel "ChemicalEntity"@en ;
-                                           skos:related <http://purl.obolibrary.org/obo/CHEBI_24431> .
+                                           skos:related <http://purl.obolibrary.org/obo/CHEBI_24431> ;
+                                           :conceptualisation """A chemical entity comprises the two different ways to represents matter: as single recognizable particle entity (molecular entity) and as a composition of particle entities (substance).
+This distinction is not well assessed in actual chemical nomenclature, in which an element name refers to both the pure elemental substance or the atom.
+In the EMMO we force the adoption of a more strict categorization based on mereotopology.
+The class Material hosts the subclasses for which a substance can be identified without necessarily considering its nature of molecule/atom or substance (e.g. hydrocarbon is the class of both hydrocarbon molecules or gases)."""@en .
 
 
 ###  https://w3id.org/emmo#EMMO_4e659c69_ca2d_4569_8a96_f99857a1fa32
@@ -272,15 +269,15 @@ The class Material hosts the subclasses for which a substance can be identified 
 :EMMO_4f40def1_3cd7_4067_9596_541e9a5134cf rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527 ,
                                                            :EMMO_abf7efbe_6b04_41b8_8326_4dd0f6be753e ;
-                                           rdfs:comment """The IUPAC Gold Book defines the a chemical element both as:
+                                           rdfs:seeAlso "http://publications.iupac.org/ci/2005/2701/ud.html" ;
+                                           skos:prefLabel "ChemicalElement"@en ;
+                                           :elucidation "The symbol for a specific chemical element, that can stand both for an atom or a substance."@en ;
+                                           :iupacReference "https://doi.org/10.1351/goldbook.C01022" ;
+                                           :note """The IUPAC Gold Book defines the a chemical element both as:
 - a species of atoms; all atoms with the same number of protons in the atomic nucleus
 -  a pure chemical substance composed of atoms with the same number of protons in the atomic nucleus
 
-This qualifies a chemical element as a name and not a matter obejct that can stand for an atom or a substance.""" ;
-                                           rdfs:seeAlso "http://publications.iupac.org/ci/2005/2701/ud.html" ;
-                                           skos:prefLabel "ChemicalElement"@en ;
-                                           :elucidation "The symbol for a specific chemical element, that can stand both for an atom or a substance." ;
-                                           :iupacReference "https://doi.org/10.1351/goldbook.C01022" .
+This qualifies a chemical element as a name and not a matter obejct that can stand for an atom or a substance."""@en .
 
 
 ###  https://w3id.org/emmo#EMMO_5b04b0d0_ba68_4685_8966_bed2a7b91de5
@@ -295,17 +292,17 @@ This qualifies a chemical element as a name and not a matter obejct that can sta
 ###  https://w3id.org/emmo#EMMO_643d99dd_fae6_4121_a76f_47f486a4480b
 :EMMO_643d99dd_fae6_4121_a76f_47f486a4480b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_abf7efbe_6b04_41b8_8326_4dd0f6be753e ;
-                                           rdfs:comment "A chemical numenclature should not be confused with the chemical formula." ;
                                            skos:prefLabel "ChemicalNomenclature"@en ;
-                                           :elucidation "A language object following a specific nomenclature rules for defining univocal names of chemical compounds." .
+                                           :elucidation "A language object following a specific nomenclature rules for defining univocal names of chemical compounds." ;
+                                           :note "A chemical numenclature should not be confused with the chemical formula."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_6afdb7e8_2a0b_444d_bde3_8d67d98180c0
 :EMMO_6afdb7e8_2a0b_444d_bde3_8d67d98180c0 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_9236d0aa_cb39_43a1_bbdd_6a2a714951c8 ;
-                                           skos:example "Hydrogen peroxide is HO" ;
+                                           skos:example "Hydrogen peroxide is HO"@en ;
                                            skos:prefLabel "EmpiricalFormula"@en ;
-                                           :elucidation "An expression that provide information about the element type of a compound and their relative ratio." .
+                                           :elucidation "An expression that provide information about the element type of a compound and their relative ratio."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_704630b8_fee3_49b9_baca_40e2dd276370
@@ -333,19 +330,18 @@ This qualifies a chemical element as a name and not a matter obejct that can sta
                                                                ] ;
                                            rdfs:subClassOf :EMMO_bd8db028_aec2_4a44_ad93_1a9f8270f72c ;
                                            skos:prefLabel "ChemicalComposition"@en ;
-                                           :elucidation "A language construct that provides information about the consitutents of a substance and their fractions or amounts." .
+                                           :elucidation "A language construct that provides information about the consitutents of a substance and their fractions or amounts."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_8303a247_f9d9_4616_bdcd_f5cbd7b298e3
 :EMMO_8303a247_f9d9_4616_bdcd_f5cbd7b298e3 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_eb77076b_a104_42ac_a065_798b2d2809ad ;
-                                           rdfs:comment """A real bond between atoms is always something hybrid between covalent, metallic and ionic.
-
-In general, metallic and ionic bonds have atoms sharing electrons."""@en ,
-                                                        "The bond types that are covered by this definition are the strong electronic bonds: covalent, metallic and ionic."@en ,
-                                                        "This class can be used to represent molecules as simplified quantum systems, in which outer molecule shared electrons are un-entangled with the inner shells of the atoms composing the molecule."@en ;
                                            skos:prefLabel "BondedAtom"@en ;
-                                           :elucidation "A bonded atom that shares at least one electron to the atom-based entity of which is part of."@en .
+                                           :elucidation "A bonded atom that shares at least one electron to the atom-based entity of which is part of."@en ;
+                                           :note """A real bond between atoms is always something hybrid between covalent, metallic and ionic.
+In general, metallic and ionic bonds have atoms sharing electrons."""@en ,
+                                                 "The bond types that are covered by this definition are the strong electronic bonds: covalent, metallic and ionic."@en ,
+                                                 "This class can be used to represent molecules as simplified quantum systems, in which outer molecule shared electrons are un-entangled with the inner shells of the atoms composing the molecule."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_90963312_d9a9_4474_8d10_835aef5b168e
@@ -373,9 +369,9 @@ In general, metallic and ionic bonds have atoms sharing electrons."""@en ,
                                                              owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
                                                              owl:someValuesFrom :EMMO_4f40def1_3cd7_4067_9596_541e9a5134cf
                                                            ] ;
-                                           rdfs:comment "A chemical formula may also include other symbols such as parentheses, plus and minus signs, brackets" ;
                                            skos:prefLabel "ChemicalFormula"@en ;
-                                           :elucidation "A symbolic construct that provides informations about the chemical proportions of the elements that constitute a chemical compound or a specific molecule." .
+                                           :elucidation "A symbolic construct that provides informations about the chemical proportions of the elements that constitute a chemical compound or a specific molecule."@en ;
+                                           :note "A chemical formula may also include other symbols such as parentheses, plus and minus signs, brackets"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_9fa966c7_5231_409e_841f_b4c5fd33732a
@@ -426,8 +422,8 @@ In general, metallic and ionic bonds have atoms sharing electrons."""@en ,
 ###  https://w3id.org/emmo#EMMO_bf836c2b_7800_474d_b674_f5d629fa0bb1
 :EMMO_bf836c2b_7800_474d_b674_f5d629fa0bb1 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_9236d0aa_cb39_43a1_bbdd_6a2a714951c8 ;
-                                           skos:example "An expression that provides information about the element types that constiture a molecule or a molecular substance and their number, together with simple information about the connectivity of its groups by using parenthesis or by goruping element names according to its molecular structure." ;
-                                           skos:prefLabel "CondensedFormula"@en .
+                                           skos:prefLabel "CondensedFormula"@en ;
+                                           :elucidation "An expression that provides information about the element types that constiture a molecule or a molecular substance and their number, together with simple information about the connectivity of its groups by using parenthesis or by goruping element names according to its molecular structure."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_cbcf8fe6_6da6_49e0_ab4d_00f737ea9689
@@ -439,27 +435,27 @@ In general, metallic and ionic bonds have atoms sharing electrons."""@en ,
                                                                              )
                                                                ] ;
                                            rdfs:subClassOf :EMMO_abf7efbe_6b04_41b8_8326_4dd0f6be753e ;
-                                           rdfs:comment """Following nominalistic approach a species is simply a name that can point to an element name, a chemical formula or a chemical compound.
-
-So everything addressed by these classes of names can be calleded a chemical species.""" ,
-                                                        """N2
+                                           skos:example """N2
 Methane
 CH4
 Fe
-Sodium Chloride""" ;
+Sodium Chloride"""@en ;
                                            skos:prefLabel "ChemicalSpecies"@en ;
                                            :elucidation """Specific form of an element defined as to isotopic composition, electronic or oxidation state, and/or complex or molecular structure.
 
-Chemical species is the macroscopic equivalent of molecular entity and refers to sets or ensembles of molecular entities.""" ;
-                                           :iupacReference "https://doi.org/10.1351/goldbook.CT06859" .
+Chemical species is the macroscopic equivalent of molecular entity and refers to sets or ensembles of molecular entities."""@en ;
+                                           :iupacReference "https://doi.org/10.1351/goldbook.CT06859" ;
+                                           :note """Following nominalistic approach a species is simply a name that can point to an element name, a chemical formula or a chemical compound.
+
+So everything addressed by these classes of names can be calleded a chemical species."""@en .
 
 
 ###  https://w3id.org/emmo#EMMO_d2a47cd8_662f_438f_855a_b4378eb992ff
 :EMMO_d2a47cd8_662f_438f_855a_b4378eb992ff rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_643d99dd_fae6_4121_a76f_47f486a4480b ;
-                                           skos:example "Water is 7732-18-5" ;
+                                           skos:example "Water is 7732-18-5"@en ;
                                            skos:prefLabel "CASRN"@en ;
-                                           :elucidation "Chemical Abstact Service registry number for a chemical substance from the American Chemical Society" .
+                                           :elucidation "Chemical Abstact Service registry number for a chemical substance from the American Chemical Society"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_d357e0dd_3497_4590_af6f_7954db7fecf7
@@ -485,25 +481,25 @@ Chemical species is the macroscopic equivalent of molecular entity and refers to
 :EMMO_d74ed682_894f_46c5_87cb_167f60926965 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_91a0635a_a89a_46de_8928_04a777d145c7 ;
                                            skos:prefLabel "InChI"@en ;
-                                           :elucidation "The International Chemical Identifier (InChI) textual identifier proposed by IUPAC to provide a standard encoding for databases of molecular information." .
+                                           :elucidation "The International Chemical Identifier (InChI) textual identifier proposed by IUPAC to provide a standard encoding for databases of molecular information."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_db03061b_db31_4132_a47a_6a634846578b
 :EMMO_db03061b_db31_4132_a47a_6a634846578b rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_2fd3f574_5e93_47fe_afca_ed80b0a21ab4 ;
-                                           rdfs:comment "The ion_atom is the basic part of a pure ionic bonded compound i.e. without eclectron sharing,"@en ;
                                            skos:prefLabel "IonAtom"@en ;
-                                           :elucidation "A standalone atom with an unbalanced number of electrons with respect to its atomic number."@en .
+                                           :elucidation "A standalone atom with an unbalanced number of electrons with respect to its atomic number."@en ;
+                                           :note "The ion_atom is the basic part of a pure ionic bonded compound i.e. without eclectron sharing,"@en .
 
 
 ###  https://w3id.org/emmo#EMMO_df96cbb6_b5ee_4222_8eab_b3675df24bea
 :EMMO_df96cbb6_b5ee_4222_8eab_b3675df24bea rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352 ;
-                                           rdfs:comment "A substance is always composed of more than one molecular entity. It lays in the continuum or mesoscopic domain." ;
                                            skos:prefLabel "ChemicalSubstance"@en ;
                                            skos:related <http://purl.obolibrary.org/obo/CHEBI_59999> ;
-                                           :elucidation "Matter of constant composition best characterized by the entities (molecules, formula units, atoms) it is composed of." ;
-                                           :iupacReference "https://doi.org/10.1351/goldbook.C01039" .
+                                           :elucidation "A substabce of constant composition best characterized by the entities (molecules, formula units, atoms) it is composed of."@en ;
+                                           :iupacReference "https://doi.org/10.1351/goldbook.C01039" ;
+                                           :note "A substance is always composed of more than one molecular entity. It lays in the continuum or mesoscopic domain."@en .
 
 
 ###  https://w3id.org/emmo#EMMO_e2b11f6a_4191_427e_9844_2e0ac88dfc8b
@@ -511,7 +507,7 @@ Chemical species is the macroscopic equivalent of molecular entity and refers to
                                            rdfs:subClassOf :EMMO_df96cbb6_b5ee_4222_8eab_b3675df24bea ;
                                            skos:prefLabel "ChemicalCompound"@en ;
                                            :OWLRL2DLAxioms "DisjointUnionOf InorganicCompound, OrganicCompound" ;
-                                           :elucidation "A chemical substance composed of many identical molecules (or molecular entities) composed of atoms from more than one element held together by chemical bonds." ;
+                                           :elucidation "A chemical substance composed of many identical molecules (or molecular entities) composed of atoms from more than one element held together by chemical bonds."@en ;
                                            :wikipediaReference "https://en.wikipedia.org/wiki/Chemical_compound" .
 
 
