@@ -27,6 +27,29 @@
 #    Annotation properties
 #################################################################
 
+###  https://w3id.org/emmo#EMMO_2856bbc2_96e1_485b_b5f8_2fdfcb0c9b92
+:EMMO_2856bbc2_96e1_485b_b5f8_2fdfcb0c9b92 rdf:type owl:AnnotationProperty ;
+                                           rdfs:seeAlso "https://inchi.info/inchikey_overview_en.html"^^xsd:anyURI ;
+                                           owl:deprecated "true"^^xsd:boolean ;
+                                           skos:changeNote "Replaced by emmo:inchiKey"@en ;
+                                           skos:prefLabel "inchiKey"@en ;
+                                           :elucidation "A hash of the full International Chemical Identifier (InChi) for a chemical substance."@en ;
+                                           :note "The InChiKey is a hash of the full InChi identifier using the SHA-256 algorithm, designed to allow for easy web searches of chemical compounds."@en ;
+                                           rdfs:subPropertyOf rdfs:seeAlso .
+
+
+###  https://w3id.org/emmo#EMMO_2e0b0f1b_ba90_4827_af5a_92b826cb90de
+:EMMO_2e0b0f1b_ba90_4827_af5a_92b826cb90de rdf:type owl:AnnotationProperty ;
+                                           rdfs:isDefinedBy <http://opensmiles.org/opensmiles.html> ;
+                                           owl:deprecated "true"^^xsd:boolean ;
+                                           skos:changeNote "Replaced by emmo:SMILESReference"@en ;
+                                           skos:prefLabel "SMILESReference"@en ;
+                                           :elucidation "OpenSMILES representation of a molecular structure."@en ;
+                                           :note "OpenSMILES is an open specification of the SMILE language for specifying molecular structures, which has become a defacto standard for exchange of molecular structures."@en ;
+                                           :wikipediaReference <https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system> ;
+                                           rdfs:subPropertyOf rdfs:seeAlso .
+
+
 ###  https://w3id.org/emmo#SMILESReference
 :SMILESReference rdf:type owl:AnnotationProperty ;
                  rdfs:isDefinedBy <http://opensmiles.org/opensmiles.html> ;
@@ -44,29 +67,6 @@
           :elucidation "A hash of the full International Chemical Identifier (InChi) for a chemical substance."@en ;
           :note "The InChiKey is a hash of the full InChi identifier using the SHA-256 algorithm, designed to allow for easy web searches of chemical compounds."@en ;
           rdfs:subPropertyOf rdfs:seeAlso .
-
-
-###  https://w3id.org/emmo#EMMO_2856bbc2_96e1_485b_b5f8_2fdfcb0c9b92
-:EMMO_2856bbc2_96e1_485b_b5f8_2fdfcb0c9b92 rdf:type owl:AnnotationProperty ;
-                                           owl:deprecated "true"^^xsd:boolean ;
-                                           skos:changeNote "Replaced by emmo:inchiKey"@en ;
-                                           rdfs:seeAlso "https://inchi.info/inchikey_overview_en.html"^^xsd:anyURI ;
-                                           skos:prefLabel "inchiKey"@en ;
-                                           :elucidation "A hash of the full International Chemical Identifier (InChi) for a chemical substance."@en ;
-                                           :note "The InChiKey is a hash of the full InChi identifier using the SHA-256 algorithm, designed to allow for easy web searches of chemical compounds."@en ;
-                                           rdfs:subPropertyOf rdfs:seeAlso .
-
-
-###  https://w3id.org/emmo#EMMO_2e0b0f1b_ba90_4827_af5a_92b826cb90de
-:EMMO_2e0b0f1b_ba90_4827_af5a_92b826cb90de rdf:type owl:AnnotationProperty ;
-                                           owl:deprecated "true"^^xsd:boolean ;
-                                           skos:changeNote "Replaced by emmo:SMILESReference"@en ;
-                                           rdfs:isDefinedBy <http://opensmiles.org/opensmiles.html> ;
-                                           skos:prefLabel "SMILESReference"@en ;
-                                           :elucidation "OpenSMILES representation of a molecular structure."@en ;
-                                           :note "OpenSMILES is an open specification of the SMILE language for specifying molecular structures, which has become a defacto standard for exchange of molecular structures."@en ;
-                                           :wikipediaReference <https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system> ;
-                                           rdfs:subPropertyOf rdfs:seeAlso .
 
 
 #################################################################
@@ -117,6 +117,15 @@ subst:alloy1 a emmo:Substance ;
                                            :elucidation "Relates a substance to one of its chemical species."@en .
 
 
+###  https://w3id.org/emmo#EMMO_889fbe10_70ca_41f3_b701_9853b845c8be
+:EMMO_889fbe10_70ca_41f3_b701_9853b845c8be rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                           rdfs:domain :EMMO_7efd64d1_05a1_49cd_a7f0_783ca050d4f3 ;
+                                           rdfs:range :EMMO_172e2c96_180b_40f8_a3e7_b624471f40c2 ;
+                                           skos:prefLabel "hasSingleComponentComposition"@en ;
+                                           :elucidation "Relates a chemical composition to one of its single-component compositions."@en .
+
+
 ###  https://w3id.org/emmo#EMMO_95d706e4_8b16_48a1_8dfd_40ccd4df1c12
 :EMMO_95d706e4_8b16_48a1_8dfd_40ccd4df1c12 rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
@@ -126,6 +135,15 @@ subst:alloy1 a emmo:Substance ;
                                            rdfs:range :EMMO_0650c031_42b6_4f0a_b62d_d88f071da6bf ;
                                            skos:prefLabel "hasQuantityPart"@en ;
                                            :note "Relates a symbolic construct to one of its quantity parts."@en .
+
+
+###  https://w3id.org/emmo#EMMO_bb260eeb_601e_47c3_b896_f99e6b0e4aee
+:EMMO_bb260eeb_601e_47c3_b896_f99e6b0e4aee rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_c58c799e_cc6c_4310_a3f1_78da70705b2a ;
+                                           rdfs:domain :EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352 ;
+                                           rdfs:range :EMMO_35d4c439_fcb6_4399_a855_a89a207b41e9 ;
+                                           skos:prefLabel "hasComposition"@en ;
+                                           :elucidation "Connects a substance to a description of its composition."@en .
 
 
 #################################################################
