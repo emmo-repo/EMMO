@@ -143,16 +143,9 @@ for Element, symbol, name in elements:
     element_name = f"{name.lower()}_symbol"
     element = Element(element_name)
     element.prefLabel = en(element_name)
+    element.elucidation = en(f"Chemical symbol individual for {name.lower()}.")
     element.is_a.append(isChemicalSymbolFor.some(AtomClass))
     onto._add_data_triple_spod(element.storid, onto.symbolValue.storid, symbol, "@en")
-
-#    # Add symbolValue data properties - seems that this must be done at triple level...
-#    for symbol, (element, element_name) in elements.items():
-#        onto._add_data_triple_spod(element.storid, onto.symbolValue.storid, symbol, "@en")
-#        element.name = element_name
-#        element.iri = onto.base_iri + element_name
-
-
 
 
 # Hack to ensure that we import using versionURI
