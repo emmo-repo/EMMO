@@ -128,7 +128,7 @@ Please create an issue if you have a public domain ontology that you think shoul
 | [Battery Ontology](https://github.com/emmo-repo/domain-battery)                                                           | https://w3id.org/emmo/domain/battery#                             |
 | [Characterisation Methodology Domain Ontology (CHAMEO)](https://github.com/emmo-repo/domain-characterisation-methodology) | https://w3id.org/emmo/domain/characterisation-methodology/chameo# |
 | [Chemical Substance Domain Ontology (CHEMS)](https://github.com/emmo-repo/domain-chemical-substance)                      | https://w3id.org/emmo/domain/chemical-substance#                  |
-| [CIF ontology](https://github.com/emmo-repo/CIF-ontology)                                                                 | http://emmo.info/CIF-ontology/ontology/cif_core#                  |
+| [CIF ontology](https://github.com/emmo-repo/domain-cif)                                                                   | http://emmo.info/CIF-ontology/ontology/cif_core#                  |
 | [Coating Domain Ontology](https://github.com/emmo-repo/domain-coating)                                                    | https://w3id.org/emmo/domain/coating#                             |
 | [Crystallography](https://github.com/emmo-repo/domain-crystallography)                                                    | http://emmo.info/domain-crystallography/crystallography#          |
 | [Domain Ontology for Additive Manufacturing (DOAM)](https://github.com/emmo-repo/domain-doam)                             | https://w3id.org/emmo/domain/doam#                                |
