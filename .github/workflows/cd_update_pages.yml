@@ -76,27 +76,32 @@ jobs:
 
     - name: Create EMMO inferred
       run: |
+        ontoconvert -sawe \
+          --iri="https://w3id.org/emmo" \
+          --base-iri="https://w3id.org/emmo#" \
+          --namespace="emmo:https://w3id.org/emmo#" \
+          --rename-ontology="|w3id.org/emmo/([0-9][^/]*)/?emax|w3id.org/emmo/\\1|" \
+          emmo.ttl \
+          build/emmo.ttl
         bin/robot reason \
           --reasoner HermiT \
           --remove-redundant-subclass-axioms true \
           --preserve-annotated-axioms true \
           --exclude-owl-thing true \
           --exclude-duplicate-axioms true \
-          --input public/emmo.ttl \
+          --input build/emmo.ttl \
           --output build/emmo-inferred.ttl
         ontoconvert --iri=https://w3id.org/emmo/inferred build/emmo-inferred.ttl public/emmo-inferred.ttl
 
     - name: Create HUME inferred
       run: |
-        bin/robot reason \
-          --reasoner HermiT \
-          --remove-redundant-subclass-axioms true \
-          --preserve-annotated-axioms true \
-          --exclude-owl-thing true \
-          --exclude-duplicate-axioms true \
-          --input public/hume.ttl \
-          --output build/hume-inferred.ttl
-        ontoconvert --iri=https://w3id.org/emmo/hume-inferred build/hume-inferred.ttl public/hume-inferred.ttl
+        ontoconvert -saw --rename-iris \
+          --iri=https://w3id.org/emmo/hume \
+          --base-iri="https://w3id.org/emmo/hume#" \
+          --namespace="hume:https://w3id.org/hume#" \
+          --rename-ontology="|w3id.org/emmo/([0-9][^/]*)/?emax|w3id.org/emmo/\\1/hume|" \
+          /build/emmo-inferred.ttl \
+          public/hume-inferred.ttl
 
     - name: Create squashed unit-individuals
       run: |
