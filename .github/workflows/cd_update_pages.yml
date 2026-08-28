@@ -7,13 +7,29 @@ on:
       - '[0-9]+.[0-9]+.[0-9]+-*'
       - 'master'
 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
 env:
   GIT_USER_NAME: EMMO Developers
   GIT_USER_EMAIL: "emmo@emmc.eu"
 
-jobs:
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
-  build:
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
 
     steps:
@@ -41,8 +57,8 @@ jobs:
     - name: Install dependencies
       run: |
         pip install --upgrade pip
-        #pip install "EMMOntoPy[ontodoc] @ git+https://github.com/emmo-repo/EMMOntoPy.git@master"
-        pip install "EMMOntoPy[ontodoc] @ git+https://github.com/emmo-repo/EMMOntoPy.git@fix-ontodoc-error"
+        pip install "EMMOntoPy[ontodoc] @ git+https://github.com/emmo-repo/EMMOntoPy.git@master"
+        #pip install "EMMOntoPy[ontodoc] @ git+https://github.com/emmo-repo/EMMOntoPy.git@fix-ontodoc-error"
         pip install sphinxcontrib-globalsubs sphinx_design nbsphinx pydata_sphinx_theme
 
     - name: List install python packages
@@ -161,43 +177,76 @@ jobs:
       with:
         args: --output public/module-table.html build/module-table.md
 
-    - name: Checkout GitHub Pages for EMMO-repo
-      uses: actions/checkout@v4
+    - name: Publish versioned docs for version branches
+      run: |
+        if [[ "${GITHUB_REF_NAME}" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]]; then
+          VERSION_DIR="versions/${GITHUB_REF_NAME}"
+          rm -rf "public/${VERSION_DIR}"
+          mkdir -p "public/${VERSION_DIR}"
+          tmpdir=$(mktemp -d)
+          cp -R public/. "${tmpdir}/"
+          cp -R "${tmpdir}/." "public/${VERSION_DIR}/"
+          rm -rf "${tmpdir}"
+        fi
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v4
       with:
-        repository: emmo-repo/emmo-repo.github.io
-        path: pages
-        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
-        ssh-strict: no
+        #github_token: ${{ secrets.GITHUB_TOKEN }}
+        deploy_key: ${{ secrets.PAGES_DEPLOY_KEY }}
+        publish_dir: ./public
+        enable_jekyll: false
+        keep_files: true
+        external_repository: emmo-repo/emmo-repo.github.io
+        publish_branch: master
+        #force_orphan: true
 
-    - name: Create pages directory
-      run: |
-        # Do not overwrite index.html
-        rm public/index.html
-        # Copy to latest (root)
-        cp -rf public/* pages/.
-        # Copy to version
-        VERSION=$(git rev-parse --abbrev-ref HEAD)
-        if [ ! -d pages/versions/${VERSION} ]; then \
-          mkdir pages/versions/${VERSION}
-        fi
-        cp -rf public/* pages/versions/${VERSION}/.
+    #- name: Deploy to GitHub Pages
+    #  uses: JamesIves/github-pages-deploy-action@v4
+    #  with:
+    #    folder: public
+    #    branch: gh-pages
+    #    clean: false
+    #    single-commit: true
 
-      # Domain repositories can use peaceiris/actions-gh-pages@v3.
-      # However, since EMMO for historical reasons uses a separate repo
-      # for its GitHub Pages, it is easier to use git directly.
-    - name: Push to GitHub Pages
-      run: |
-        cd pages
-        git config --global user.email "emmo@emmc.eu"
-        git config --global user.name "EMMO Developer"
-        # Tell GitHub that this site is not generated with jekyll (otherwise will the reference documentation not show up correctly)
-        touch .nojekyll
-        git add --ignore-removal
-        if [ -n "$(git status --porcelain -uno)" ]; then \
-          git pull -Xours origin master; \
-          git checkout --orphan tmp; \
-          git commit -m 'Updated pages'; \
-          git branch -D master; \
-          git branch -m master; \
-          git push -f origin master; \
-        fi
+
+#    - name: Checkout GitHub Pages for EMMO-repo
+#      uses: actions/checkout@v4
+#      with:
+#        repository: emmo-repo/emmo-repo.github.io
+#        path: pages
+#        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+#        ssh-strict: no
+#
+#    - name: Create pages directory
+#      run: |
+#        # Do not overwrite index.html
+#        rm public/index.html
+#        # Copy to latest (root)
+#        cp -rf public/* pages/.
+#        # Copy to version
+#        VERSION=$(git rev-parse --abbrev-ref HEAD)
+#        if [ ! -d pages/versions/${VERSION} ]; then \
+#          mkdir pages/versions/${VERSION}
+#        fi
+#        cp -rf public/* pages/versions/${VERSION}/.
+#
+#      # Domain repositories can use peaceiris/actions-gh-pages@v3.
+#      # However, since EMMO for historical reasons uses a separate repo
+#      # for its GitHub Pages, it is easier to use git directly.
+#    - name: Push to GitHub Pages
+#      run: |
+#        cd pages
+#        git config --global user.email "emmo@emmc.eu"
+#        git config --global user.name "EMMO Developer"
+#        # Tell GitHub that this site is not generated with jekyll (otherwise will the reference documentation not show up correctly)
+#        touch .nojekyll
+#        git add --ignore-removal
+#        if [ -n "$(git status --porcelain -uno)" ]; then \
+#          git pull -Xours origin master; \
+#          git checkout --orphan tmp; \
+#          git commit -m 'Updated pages'; \
+#          git branch -D master; \
+#          git branch -m master; \
+#          git push -f origin master; \
+#        fi
