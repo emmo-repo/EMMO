@@ -189,64 +189,56 @@ jobs:
           rm -rf "${tmpdir}"
         fi
 
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v4
-      with:
-        #github_token: ${{ secrets.GITHUB_TOKEN }}
-        deploy_key: ${{ secrets.PAGES_DEPLOY_KEY }}
-        publish_dir: ./public
-        enable_jekyll: false
-        keep_files: true
-        external_repository: emmo-repo/emmo-repo.github.io
-        publish_branch: master
-        #force_orphan: true
-
-    #- name: Deploy to GitHub Pages
-    #  uses: JamesIves/github-pages-deploy-action@v4
-    #  with:
-    #    folder: public
-    #    branch: gh-pages
-    #    clean: false
-    #    single-commit: true
-
-
-#    - name: Checkout GitHub Pages for EMMO-repo
-#      uses: actions/checkout@v4
+#    - name: Deploy
+#      uses: peaceiris/actions-gh-pages@v4
 #      with:
-#        repository: emmo-repo/emmo-repo.github.io
-#        path: pages
-#        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
-#        ssh-strict: no
-#
-#    - name: Create pages directory
-#      run: |
-#        # Do not overwrite index.html
-#        rm public/index.html
-#        # Copy to latest (root)
-#        cp -rf public/* pages/.
-#        # Copy to version
-#        VERSION=$(git rev-parse --abbrev-ref HEAD)
-#        if [ ! -d pages/versions/${VERSION} ]; then \
-#          mkdir pages/versions/${VERSION}
-#        fi
-#        cp -rf public/* pages/versions/${VERSION}/.
-#
-#      # Domain repositories can use peaceiris/actions-gh-pages@v3.
-#      # However, since EMMO for historical reasons uses a separate repo
-#      # for its GitHub Pages, it is easier to use git directly.
-#    - name: Push to GitHub Pages
-#      run: |
-#        cd pages
-#        git config --global user.email "emmo@emmc.eu"
-#        git config --global user.name "EMMO Developer"
-#        # Tell GitHub that this site is not generated with jekyll (otherwise will the reference documentation not show up correctly)
-#        touch .nojekyll
-#        git add --ignore-removal
-#        if [ -n "$(git status --porcelain -uno)" ]; then \
-#          git pull -Xours origin master; \
-#          git checkout --orphan tmp; \
-#          git commit -m 'Updated pages'; \
-#          git branch -D master; \
-#          git branch -m master; \
-#          git push -f origin master; \
-#        fi
+#        #github_token: ${{ secrets.GITHUB_TOKEN }}
+#        deploy_key: ${{ secrets.PAGES_DEPLOY_KEY }}
+#        publish_dir: ./public
+#        enable_jekyll: false
+#        keep_files: true
+#        external_repository: emmo-repo/emmo-repo.github.io
+#        publish_branch: master
+#        #force_orphan: true
+
+
+    - name: Checkout GitHub Pages for EMMO-repo
+      uses: actions/checkout@v4
+      with:
+        repository: emmo-repo/emmo-repo.github.io
+        path: pages
+        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        ssh-strict: no
+
+    - name: Create pages directory
+      run: |
+        # Do not overwrite index.html
+        rm public/index.html
+        # Copy to latest (root)
+        cp -rf public/* pages/.
+        # Copy to version
+        VERSION=$(git rev-parse --abbrev-ref HEAD)
+        if [ ! -d pages/versions/${VERSION} ]; then \
+          mkdir pages/versions/${VERSION}
+        fi
+        cp -rf public/* pages/versions/${VERSION}/.
+
+      # Domain repositories can use peaceiris/actions-gh-pages@v3.
+      # However, since EMMO for historical reasons uses a separate repo
+      # for its GitHub Pages, it is easier to use git directly.
+    - name: Push to GitHub Pages
+      run: |
+        cd pages
+        git config --global user.email "emmo@emmc.eu"
+        git config --global user.name "EMMO Developer"
+        # Tell GitHub that this site is not generated with jekyll (otherwise will the reference documentation not show up correctly)
+        touch .nojekyll
+        git add --ignore-removal
+        if [ -n "$(git status --porcelain -uno)" ]; then \
+          git pull -Xours origin master; \
+          git checkout --orphan tmp; \
+          git commit -m 'Updated pages'; \
+          git branch -D master; \
+          git branch -m master; \
+          git push -f origin master; \
+        fi
