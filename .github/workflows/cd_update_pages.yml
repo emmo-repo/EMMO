@@ -191,7 +191,9 @@ jobs:
 ##        fi
 
     - name: Add test file
-      run: touch public/abc.txt
+      run: |
+        mkdir -p public
+        touch public/abc.txt
 
     - name: Generate GitHub App token
       id: app-token
