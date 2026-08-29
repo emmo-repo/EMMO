@@ -27,10 +27,10 @@ concurrency:
 
 jobs:
   deploy:
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
@@ -189,56 +189,22 @@ jobs:
           rm -rf "${tmpdir}"
         fi
 
-#    - name: Deploy
-#      uses: peaceiris/actions-gh-pages@v4
-#      with:
-#        #github_token: ${{ secrets.GITHUB_TOKEN }}
-#        deploy_key: ${{ secrets.PAGES_DEPLOY_KEY }}
-#        publish_dir: ./public
-#        enable_jekyll: false
-#        keep_files: true
-#        external_repository: emmo-repo/emmo-repo.github.io
-#        publish_branch: master
-#        #force_orphan: true
-
-
-    - name: Checkout GitHub Pages for EMMO-repo
-      uses: actions/checkout@v4
+    - name: Generate GitHub App token
+      id: app-token
+      uses: actions/create-github-app-token@v1
       with:
-        repository: emmo-repo/emmo-repo.github.io
-        path: pages
-        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
-        ssh-strict: no
+        app-id: ${{ secrets.APP_ID }}
+        private-key: ${{ secrets.APP_PRIVATE_KEY }}
+        owner: emmo-repo
+        repositories: emmo-repo.github.io
 
-    - name: Create pages directory
-      run: |
-        # Do not overwrite index.html
-        rm public/index.html
-        # Copy to latest (root)
-        cp -rf public/* pages/.
-        # Copy to version
-        VERSION=$(git rev-parse --abbrev-ref HEAD)
-        if [ ! -d pages/versions/${VERSION} ]; then \
-          mkdir pages/versions/${VERSION}
-        fi
-        cp -rf public/* pages/versions/${VERSION}/.
-
-      # Domain repositories can use peaceiris/actions-gh-pages@v3.
-      # However, since EMMO for historical reasons uses a separate repo
-      # for its GitHub Pages, it is easier to use git directly.
-    - name: Push to GitHub Pages
-      run: |
-        cd pages
-        git config --global user.email "emmo@emmc.eu"
-        git config --global user.name "EMMO Developer"
-        # Tell GitHub that this site is not generated with jekyll (otherwise will the reference documentation not show up correctly)
-        touch .nojekyll
-        git add --ignore-removal
-        if [ -n "$(git status --porcelain -uno)" ]; then \
-          git pull -Xours origin master; \
-          git checkout --orphan tmp; \
-          git commit -m 'Updated pages'; \
-          git branch -D master; \
-          git branch -m master; \
-          git push -f origin master; \
-        fi
+    - name: Publish
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        personal_token: ${{ steps.app-token.outputs.token }}
+        external_repository: emmo-repo/emmo-repo.github.io
+        publish_branch: master
+        publish_dir: ./public
+        enable_jekyll: false
+        keep_files: true
+        #force_orphan: true  # Doesn't work with keep_files as of v4.
