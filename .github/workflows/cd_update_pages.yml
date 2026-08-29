@@ -28,10 +28,10 @@ concurrency:
 
 jobs:
   deploy:
-    #environment:
-    #  name: github-pages
-    #  url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
     - name: Checkout repository
@@ -41,159 +41,159 @@ jobs:
       run: |
         echo "GITHUB_REF_NAME=${GITHUB_REF_NAME}"
 
-##    - name: Setup Python 3.14
-##      uses: actions/setup-python@v5
-##      with:
-##        python-version: 3.14
-##
-##    - name: Install ROBOT
-##      run: |
-##        mkdir bin
-##        wget -nv https://github.com/ontodev/robot/releases/download/v1.9.6/robot.jar
-##        mv robot.jar bin/.
-##        curl https://raw.githubusercontent.com/ontodev/robot/master/bin/robot > bin/robot
-##        chmod +x bin/robot
-##        ls -l bin/
-##
-##    - name: Install dependencies
-##      run: |
-##        pip install --upgrade pip
-##        pip install "EMMOntoPy[ontodoc] @ git+https://github.com/emmo-repo/EMMOntoPy.git@master"
-##        #pip install "EMMOntoPy[ontodoc] @ git+https://github.com/emmo-repo/EMMOntoPy.git@fix-ontodoc-error"
-##        pip install sphinxcontrib-globalsubs sphinx_design nbsphinx pydata_sphinx_theme
-##
-##    - name: List install python packages
-##      run: |
-##        pip list
-##
-##    - name: Create and prepare build and public directories
-##      run: |
-##        mkdir build public
-##        if [ -d doc/_static ]; then cp -rf doc/_static/* build/. ; fi
-##
-##    - name: Create EMMO namespace from emax
-##      run: |
-##        ontoconvert -sawe \
-##          --iri="https://w3id.org/emmo" \
-##          --base-iri="https://w3id.org/emmo#" \
-##          --namespace="emmo:https://w3id.org/emmo#" \
-##          --rename-ontology="|w3id.org/emmo/([0-9][^/]*)/?emax|w3id.org/emmo/\\1|" \
-##          emax.ttl \
-##          public/emmo.ttl
-##
-##    - name: Create HUME namespace from emax
-##      run: |
-##        ontoconvert -saw --rename-iris \
-##          --iri=https://w3id.org/emmo/hume \
-##          --base-iri="https://w3id.org/emmo/hume#" \
-##          --namespace="hume:https://w3id.org/hume#" \
-##          --rename-ontology="|w3id.org/emmo/([0-9][^/]*)/?emax|w3id.org/emmo/\\1/hume|" \
-##          emax.ttl \
-##          public/hume.ttl
-##
-##    - name: Create EMMO inferred
-##      run: |
-##        ontoconvert -sawe \
-##          --iri="https://w3id.org/emmo" \
-##          --base-iri="https://w3id.org/emmo#" \
-##          --namespace="emmo:https://w3id.org/emmo#" \
-##          --rename-ontology="|w3id.org/emmo/([0-9][^/]*)/?emax|w3id.org/emmo/\\1|" \
-##          emmo.ttl \
-##          build/emmo.ttl
-##        bin/robot reason \
-##          --reasoner HermiT \
-##          --remove-redundant-subclass-axioms true \
-##          --preserve-annotated-axioms true \
-##          --exclude-owl-thing true \
-##          --exclude-duplicate-axioms true \
-##          --input build/emmo.ttl \
-##          --output build/emmo-inferred.ttl
-##        ontoconvert --iri=https://w3id.org/emmo/inferred build/emmo-inferred.ttl public/emmo-inferred.ttl
-##
-##    - name: Create HUME inferred
-##      run: |
-##        ontoconvert -saw --rename-iris \
-##          --iri=https://w3id.org/emmo/hume \
-##          --base-iri="https://w3id.org/emmo/hume#" \
-##          --namespace="hume:https://w3id.org/hume#" \
-##          --rename-ontology="|w3id.org/emmo/([0-9][^/]*)/?emax|w3id.org/emmo/\\1/hume|" \
-##          public/emmo-inferred.ttl \
-##          public/hume-inferred.ttl
-##
-##    - name: Create squashed unit-individuals
-##      run: |
-##        ontoconvert -saw \
-##          --iri=https://w3id.org/emmo/unit-individuals \
-##          --namespace="emmo:https://w3id.org/emmo#" \
-##          --rename-ontology="|(w3id.org/emmo)/.*/([0-9][^/]*)/.*|\\1/\\2/unit-individuals|" \
-##          disciplines/units/unit-individuals.ttl \
-##          public/unit-individuals.ttl
-##
-##    - name: Create ontologies in rdfxml format
-##      run: |
-##        ontoconvert public/emmo.ttl public/emmo.owl
-##        ontoconvert public/hume.ttl public/hume.owl
-##        ontoconvert public/emmo-inferred.ttl public/emmo-inferred.owl
-##        ontoconvert public/hume-inferred.ttl public/hume-inferred.owl
-##
-##
-##    - name: Create directory structure for EMMO
-##      run: |
-##        ontoconvert -rwe \
-##          --catalog-file \
-##          --iri=https://w3id.org/emmo/emmo \
-##          --namespace="emmo:https://w3id.org/emmo#" \
-##          --output-format=turtle \
-##          emmo.ttl \
-##          public/emmo/emmo
-##
-##    - name: Create directory structure for HUME
-##      run: |
-##        ontoconvert -rwe \
-##          --catalog-file \
-##          --rename-iris \
-##          --iri="https://w3id.org/emmo/hume" \
-##          --base-iri="https://w3id.org/emmo/hume#" \
-##          --namespace="hume:https://w3id.org/emmo/hume#" \
-##          --rename-ontology="|w3id.org/emmo/([0-9][^/]*/)?([^0-9].*)|w3id.org/emmo/\\1hume/\\2|" \
-##          --output-format=turtle \
-##          emmo.ttl \
-##          public/hume/hume
-##
-##    - name: Generate html documentation (based on EMAX)
-##      run: |
-##        ontodoc --iri-regex=https://w3id.org/emmo --imported emax.ttl build/emmo.rst
-##        sphinx-build "build/" "public/"
-##
-##    - name: Create html documentation for HUME
-##      run: |
-##        cp public/emmo.html public/hume.html
-##
-##    - name: Create module table in markdown
-##      run: |
-##        python .github/scripts/module-table.py > build/module-table.md
-##
-##    - name: Convert module-table from markdown to html
-##      uses: docker://pandoc/core:3.8
-##      with:
-##        args: --output public/module-table.html build/module-table.md
-##
-##    - name: Publish versioned docs for version branches
-##      run: |
-##        if [[ "${GITHUB_REF_NAME}" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]]; then
-##          VERSION_DIR="versions/${GITHUB_REF_NAME}"
-##          rm -rf "public/${VERSION_DIR}"
-##          mkdir -p "public/${VERSION_DIR}"
-##          tmpdir=$(mktemp -d)
-##          cp -R public/. "${tmpdir}/"
-##          cp -R "${tmpdir}/." "public/${VERSION_DIR}/"
-##          rm -rf "${tmpdir}"
-##        fi
+    - name: Setup Python 3.14
+      uses: actions/setup-python@v5
+      with:
+        python-version: 3.14
 
-    - name: Add test file
+    - name: Install ROBOT
       run: |
-        mkdir -p public
-        date > public/abc.txt
+        mkdir bin
+        wget -nv https://github.com/ontodev/robot/releases/download/v1.9.6/robot.jar
+        mv robot.jar bin/.
+        curl https://raw.githubusercontent.com/ontodev/robot/master/bin/robot > bin/robot
+        chmod +x bin/robot
+        ls -l bin/
+
+    - name: Install dependencies
+      run: |
+        pip install --upgrade pip
+        pip install "EMMOntoPy[ontodoc] @ git+https://github.com/emmo-repo/EMMOntoPy.git@master"
+        #pip install "EMMOntoPy[ontodoc] @ git+https://github.com/emmo-repo/EMMOntoPy.git@fix-ontodoc-error"
+        pip install sphinxcontrib-globalsubs sphinx_design nbsphinx pydata_sphinx_theme
+
+    - name: List install python packages
+      run: |
+        pip list
+
+    - name: Create and prepare build and public directories
+      run: |
+        mkdir build public
+        if [ -d doc/_static ]; then cp -rf doc/_static/* build/. ; fi
+
+    - name: Create EMMO namespace from emax
+      run: |
+        ontoconvert -sawe \
+          --iri="https://w3id.org/emmo" \
+          --base-iri="https://w3id.org/emmo#" \
+          --namespace="emmo:https://w3id.org/emmo#" \
+          --rename-ontology="|w3id.org/emmo/([0-9][^/]*)/?emax|w3id.org/emmo/\\1|" \
+          emax.ttl \
+          public/emmo.ttl
+
+    - name: Create HUME namespace from emax
+      run: |
+        ontoconvert -saw --rename-iris \
+          --iri=https://w3id.org/emmo/hume \
+          --base-iri="https://w3id.org/emmo/hume#" \
+          --namespace="hume:https://w3id.org/hume#" \
+          --rename-ontology="|w3id.org/emmo/([0-9][^/]*)/?emax|w3id.org/emmo/\\1/hume|" \
+          emax.ttl \
+          public/hume.ttl
+
+    - name: Create EMMO inferred
+      run: |
+        ontoconvert -sawe \
+          --iri="https://w3id.org/emmo" \
+          --base-iri="https://w3id.org/emmo#" \
+          --namespace="emmo:https://w3id.org/emmo#" \
+          --rename-ontology="|w3id.org/emmo/([0-9][^/]*)/?emax|w3id.org/emmo/\\1|" \
+          emmo.ttl \
+          build/emmo.ttl
+        bin/robot reason \
+          --reasoner HermiT \
+          --remove-redundant-subclass-axioms true \
+          --preserve-annotated-axioms true \
+          --exclude-owl-thing true \
+          --exclude-duplicate-axioms true \
+          --input build/emmo.ttl \
+          --output build/emmo-inferred.ttl
+        ontoconvert --iri=https://w3id.org/emmo/inferred build/emmo-inferred.ttl public/emmo-inferred.ttl
+
+    - name: Create HUME inferred
+      run: |
+        ontoconvert -saw --rename-iris \
+          --iri=https://w3id.org/emmo/hume \
+          --base-iri="https://w3id.org/emmo/hume#" \
+          --namespace="hume:https://w3id.org/hume#" \
+          --rename-ontology="|w3id.org/emmo/([0-9][^/]*)/?emax|w3id.org/emmo/\\1/hume|" \
+          public/emmo-inferred.ttl \
+          public/hume-inferred.ttl
+
+    - name: Create squashed unit-individuals
+      run: |
+        ontoconvert -saw \
+          --iri=https://w3id.org/emmo/unit-individuals \
+          --namespace="emmo:https://w3id.org/emmo#" \
+          --rename-ontology="|(w3id.org/emmo)/.*/([0-9][^/]*)/.*|\\1/\\2/unit-individuals|" \
+          disciplines/units/unit-individuals.ttl \
+          public/unit-individuals.ttl
+
+    - name: Create ontologies in rdfxml format
+      run: |
+        ontoconvert public/emmo.ttl public/emmo.owl
+        ontoconvert public/hume.ttl public/hume.owl
+        ontoconvert public/emmo-inferred.ttl public/emmo-inferred.owl
+        ontoconvert public/hume-inferred.ttl public/hume-inferred.owl
+
+
+    - name: Create directory structure for EMMO
+      run: |
+        ontoconvert -rwe \
+          --catalog-file \
+          --iri=https://w3id.org/emmo/emmo \
+          --namespace="emmo:https://w3id.org/emmo#" \
+          --output-format=turtle \
+          emmo.ttl \
+          public/emmo/emmo
+
+    - name: Create directory structure for HUME
+      run: |
+        ontoconvert -rwe \
+          --catalog-file \
+          --rename-iris \
+          --iri="https://w3id.org/emmo/hume" \
+          --base-iri="https://w3id.org/emmo/hume#" \
+          --namespace="hume:https://w3id.org/emmo/hume#" \
+          --rename-ontology="|w3id.org/emmo/([0-9][^/]*/)?([^0-9].*)|w3id.org/emmo/\\1hume/\\2|" \
+          --output-format=turtle \
+          emmo.ttl \
+          public/hume/hume
+
+    - name: Generate html documentation (based on EMAX)
+      run: |
+        ontodoc --iri-regex=https://w3id.org/emmo --imported emax.ttl build/emmo.rst
+        sphinx-build "build/" "public/"
+
+    - name: Create html documentation for HUME
+      run: |
+        cp public/emmo.html public/hume.html
+
+    - name: Create module table in markdown
+      run: |
+        python .github/scripts/module-table.py > build/module-table.md
+
+    - name: Convert module-table from markdown to html
+      uses: docker://pandoc/core:3.8
+      with:
+        args: --output public/module-table.html build/module-table.md
+
+    - name: Publish versioned docs for version branches
+      run: |
+        if [[ "${GITHUB_REF_NAME}" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]]; then
+          VERSION_DIR="versions/${GITHUB_REF_NAME}"
+          rm -rf "public/${VERSION_DIR}"
+          mkdir -p "public/${VERSION_DIR}"
+          tmpdir=$(mktemp -d)
+          cp -R public/. "${tmpdir}/"
+          cp -R "${tmpdir}/." "public/${VERSION_DIR}/"
+          rm -rf "${tmpdir}"
+        fi
+
+##    - name: Add test file
+##      run: |
+##        mkdir -p public
+##        date > public/abc.txt
 
     - name: Generate GitHub App token
       id: app-token
@@ -204,14 +204,14 @@ jobs:
         owner: emmo-repo
         repositories: emmo-repo.github.io
 
-      # debugging - can be removed
-    - name: Check token creation
-      run: |
-        if [ -z "${{ steps.app-token.outputs.token }}" ]; then
-          echo "No token generated"
-          exit 1
-        fi
-        echo "Token generated successfully"
+##      # debugging - can be removed
+##    - name: Check token creation
+##      run: |
+##        if [ -z "${{ steps.app-token.outputs.token }}" ]; then
+##          echo "No token generated"
+##          exit 1
+##        fi
+##        echo "Token generated successfully"
 
     - name: Publish
       uses: peaceiris/actions-gh-pages@v4
