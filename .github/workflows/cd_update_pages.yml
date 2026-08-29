@@ -204,6 +204,7 @@ jobs:
         owner: emmo-repo
         repositories: emmo-repo.github.io
 
+      # debugging - can be removed
     - name: Check token creation
       run: |
         if [ -z "${{ steps.app-token.outputs.token }}" ]; then
@@ -221,7 +222,7 @@ jobs:
         publish_dir: ./public
         enable_jekyll: false
         keep_files: true
-        force_orphan: true
+        #force_orphan: true  # Doesn't work with keep_files as of v4.
 
     #- name: Checkout Pages repo
     #  uses: actions/checkout@v4
