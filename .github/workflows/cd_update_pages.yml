@@ -193,7 +193,7 @@ jobs:
     - name: Add test file
       run: |
         mkdir -p public
-        touch public/abc.txt
+        date > public/abc.txt
 
     - name: Generate GitHub App token
       id: app-token
@@ -202,7 +202,7 @@ jobs:
         app-id: ${{ secrets.APP_ID }}
         private-key: ${{ secrets.APP_PRIVATE_KEY }}
         owner: emmo-repo
-        #repositories: emmo-repo.github.io
+        repositories: emmo-repo.github.io
 
     - name: Check token creation
       run: |
@@ -221,7 +221,7 @@ jobs:
         publish_dir: ./public
         enable_jekyll: false
         keep_files: true
-        #force_orphan: true
+        force_orphan: true
 
     #- name: Checkout Pages repo
     #  uses: actions/checkout@v4
