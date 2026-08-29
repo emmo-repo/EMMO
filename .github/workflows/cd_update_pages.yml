@@ -204,6 +204,14 @@ jobs:
         owner: emmo-repo
         repositories: emmo-repo.github.io
 
+    - name: Check token creation
+      run: |
+        if [ -z "${{ steps.app-token.outputs.token }}" ]; then
+          echo "No token generated"
+          exit 1
+        fi
+        echo "Token generated successfully"
+
     - name: Publish
       uses: peaceiris/actions-gh-pages@v4
       with:
