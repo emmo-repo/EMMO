@@ -202,27 +202,39 @@ jobs:
         app-id: ${{ secrets.APP_ID }}
         private-key: ${{ secrets.APP_PRIVATE_KEY }}
         owner: emmo-repo
+        repositories: emmo-repo.github.io
 
-    - name: Checkout Pages repo
-      uses: actions/checkout@v4
+    - name: Publish
+      uses: peaceiris/actions-gh-pages@v4
       with:
-        repository: emmo-repo/emmo-repo.github.io
-        token: ${{ steps.app-token.outputs.token }}
-        path: pages
+        personal_token: ${{ steps.app-token.outputs.token }}
+        external_repository: emmo-repo/emmo-repo.github.io
+        publish_branch: master
+        publish_dir: ./public
+        enable_jekyll: false
+        keep_files: true
+        #force_orphan: true
 
-    - name: Copy generated site
-      run: |
-        cp -R public/. pages/
-        #rsync -av --delete public/ pages/
-
-    - name: Commit changes
-      run: |
-        cd pages
-        git add .
-        if ! git diff --cached --quiet; then
-          git commit -m "Update published pages"
-          git push
-        fi
+    #- name: Checkout Pages repo
+    #  uses: actions/checkout@v4
+    #  with:
+    #    repository: emmo-repo/emmo-repo.github.io
+    #    token: ${{ steps.app-token.outputs.token }}
+    #    path: pages
+    #
+    #- name: Copy generated site
+    #  run: |
+    #    cp -R public/. pages/
+    #    #rsync -av --delete public/ pages/
+    #
+    #- name: Commit changes
+    #  run: |
+    #    cd pages
+    #    git add .
+    #    if ! git diff --cached --quiet; then
+    #      git commit -m "Update published pages"
+    #      git push
+    #    fi
 
 
 #    - name: Deploy
@@ -237,43 +249,43 @@ jobs:
 #        publish_branch: master
 #        #force_orphan: true
 
-    - name: Checkout GitHub Pages for EMMO-repo
-      uses: actions/checkout@v4
-      with:
-        repository: emmo-repo/emmo-repo.github.io
-        path: pages
-        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
-        ssh-strict: no
-
-    - name: Create pages directory
-      run: |
-        # Do not overwrite index.html
-        rm public/index.html
-        # Copy to latest (root)
-        cp -rf public/* pages/.
-        # Copy to version
-        VERSION=$(git rev-parse --abbrev-ref HEAD)
-        if [ ! -d pages/versions/${VERSION} ]; then \
-          mkdir pages/versions/${VERSION}
-        fi
-        cp -rf public/* pages/versions/${VERSION}/.
-
-      # Domain repositories can use peaceiris/actions-gh-pages@v3.
-      # However, since EMMO for historical reasons uses a separate repo
-      # for its GitHub Pages, it is easier to use git directly.
-    - name: Push to GitHub Pages
-      run: |
-        cd pages
-        git config --global user.email "emmo@emmc.eu"
-        git config --global user.name "EMMO Developer"
-        # Tell GitHub that this site is not generated with jekyll (otherwise will the reference documentation not show up correctly)
-        touch .nojekyll
-        git add --ignore-removal
-        if [ -n "$(git status --porcelain -uno)" ]; then \
-          git pull -Xours origin master; \
-          git checkout --orphan tmp; \
-          git commit -m 'Updated pages'; \
-          git branch -D master; \
-          git branch -m master; \
-          git push -f origin master; \
-        fi
+    ##- name: Checkout GitHub Pages for EMMO-repo
+    ##  uses: actions/checkout@v4
+    ##  with:
+    ##    repository: emmo-repo/emmo-repo.github.io
+    ##    path: pages
+    ##    ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+    ##    ssh-strict: no
+    ##
+    ##- name: Create pages directory
+    ##  run: |
+    ##    # Do not overwrite index.html
+    ##    rm public/index.html
+    ##    # Copy to latest (root)
+    ##    cp -rf public/* pages/.
+    ##    # Copy to version
+    ##    VERSION=$(git rev-parse --abbrev-ref HEAD)
+    ##    if [ ! -d pages/versions/${VERSION} ]; then \
+    ##      mkdir pages/versions/${VERSION}
+    ##    fi
+    ##    cp -rf public/* pages/versions/${VERSION}/.
+    ##
+    ##  # Domain repositories can use peaceiris/actions-gh-pages@v3.
+    ##  # However, since EMMO for historical reasons uses a separate repo
+    ##  # for its GitHub Pages, it is easier to use git directly.
+    ##- name: Push to GitHub Pages
+    ##  run: |
+    ##    cd pages
+    ##    git config --global user.email "emmo@emmc.eu"
+    ##    git config --global user.name "EMMO Developer"
+    ##    # Tell GitHub that this site is not generated with jekyll (otherwise will the reference documentation not show up correctly)
+    ##    touch .nojekyll
+    ##    git add --ignore-removal
+    ##    if [ -n "$(git status --porcelain -uno)" ]; then \
+    ##      git pull -Xours origin master; \
+    ##      git checkout --orphan tmp; \
+    ##      git commit -m 'Updated pages'; \
+    ##      git branch -D master; \
+    ##      git branch -m master; \
+    ##      git push -f origin master; \
+    ##    fi
