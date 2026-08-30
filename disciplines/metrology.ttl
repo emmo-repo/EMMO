@@ -123,6 +123,21 @@ schema:unitCode rdf:type owl:AnnotationProperty ;
                                            rdfs:range xsd:anyURI .
 
 
+###  https://w3id.org/emmo#EMMO_5ebd5e01_0ed3_49a2_a30d_cd05cbe72978
+:EMMO_5ebd5e01_0ed3_49a2_a30d_cd05cbe72978 rdf:type owl:Class ;
+                                           rdfs:subClassOf :EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0 ;
+                                           skos:altLabel "Unitless"@en ;
+                                           owl:deprecated "true"^^xsd:boolean ;
+                                           skos:example "Refractive index or volume fraction."@en ,
+                                                        "Typically used for ratios of two units whos dimensions cancels out."@en ;
+                                           skos:prefLabel "UnitOne"@en ;
+                                           :definition "Represents the number 1, used as an explicit unit to say something has no units."@en ;
+                                           :elucidation """\"The unit one is the neutral element of any system of units – necessary and present automatically.\"
+
+-- SI Brochure"""@en ;
+                                           :qudtReference "http://qudt.org/vocab/unit/UNITLESS" .
+
+
 ###  https://w3id.org/emmo#VIMTerm
 :VIMTerm rdf:type owl:AnnotationProperty ;
          rdfs:seeAlso "https://www.bipm.org/documents/20126/2071204/JCGM_200_2012.pdf"^^xsd:anyURI ;
@@ -670,18 +685,18 @@ J stands for N m"""@en ;
                                            :elucidation "A symbol that stands for a concept in the language of the meterological domain of ISO 80000."@en .
 
 
-###  https://w3id.org/emmo#EMMO_5ebd5e01_0ed3_49a2_a30d_cd05cbe72978
-:EMMO_5ebd5e01_0ed3_49a2_a30d_cd05cbe72978 rdf:type owl:Class ;
-                                           rdfs:subClassOf :EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0 ;
-                                           skos:altLabel "Unitless"@en ;
-                                           skos:example "Refractive index or volume fraction."@en ,
-                                                        "Typically used for ratios of two units whos dimensions cancels out."@en ;
-                                           skos:prefLabel "UnitOne"@en ;
-                                           :definition "Represents the number 1, used as an explicit unit to say something has no units."@en ;
-                                           :elucidation """\"The unit one is the neutral element of any system of units – necessary and present automatically.\"
+###  https://w3id.org/emmo#UnitOne
+:UnitOne rdf:type owl:NamedIndividual , :EMMO_3227b821_26a5_4c7c_9c01_5c24483e0bd0 ;
+    skos:altLabel "Unitless"@en ;
+    skos:example
+        "Refractive index or volume fraction."@en ,
+        "Typically used for ratios of two units whos dimensions cancels out."@en ;
+    skos:prefLabel "UnitOne"@en ;
+    :definition "Represents the number 1, used as an explicit unit to say something has no units."@en ;
+    :elucidation """\"The unit one is the neutral element of any system of units – necessary and present automatically.\"
 
 -- SI Brochure"""@en ;
-                                           :qudtReference "http://qudt.org/vocab/unit/UNITLESS" .
+    :qudtReference "http://qudt.org/vocab/unit/UNITLESS" .
 
 
 ###  https://w3id.org/emmo#EMMO_611e4040_9a3e_4a1a_9fa2_7b1012269401
