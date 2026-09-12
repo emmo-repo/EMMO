@@ -182,12 +182,11 @@ jobs:
         if [ "${GITHUB_REF_NAME}" != "master" ]; then
           set -x
           VERSION_DIR="versions/${GITHUB_REF_NAME}"
-          rm -rf "public/${VERSION_DIR}"
-          tmpdir=$(mktemp -d)
-          mv public/. "${tmpdir}/"
+          rm -rf "public/${VERSION_DIR}/*"
+          mv public/ tmp/
           mkdir -p "public/${VERSION_DIR}"
-          cp -R "${tmpdir}/." "public/${VERSION_DIR}/"
-          rm -rf "${tmpdir}"
+          cp -R tmp/. "public/${VERSION_DIR}/"
+          rm -rf tmp/"
         fi
 
     - name: Generate GitHub App token
