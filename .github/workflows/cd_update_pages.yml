@@ -180,6 +180,7 @@ jobs:
     - name: Publish non-master branches in separate directory under versions/
       run: |
         if [ "${GITHUB_REF_NAME}" != "master" ]; then
+          set -x
           VERSION_DIR="versions/${GITHUB_REF_NAME}"
           rm -rf "public/${VERSION_DIR}"
           tmpdir=$(mktemp -d)
