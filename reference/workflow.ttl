@@ -56,6 +56,17 @@ Workflows may also be extended reductionistically into serial and parallel workf
                                            skos:prefLabel "hasSerialTask"@en .
 
 
+###  https://w3id.org/emmo#EMMO_6a532d0f_11b9_45a6_b8bc_419fc4efb468
+:EMMO_6a532d0f_11b9_45a6_b8bc_419fc4efb468 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_0ed18c6b_8289_44fd_a7d7_c15a8786cdc0 ,
+                                                              :EMMO_cd24eb82_a11c_4a31_96ea_32f870c5580a ;
+                                           rdfs:domain :EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49 ;
+                                           rdfs:range :EMMO_8cf62c94_ae5f_4f80_8669_d5f91178db6d ;
+                                           skos:prefLabel "hasProceduralAgent"@en ;
+                                           :elucidation "Relates a procedure to an agent."@en ;
+                                           :note "This relation specialise hasAgent, by including the semiotic aspect of procedure being a referent in a semiotic process."@en .
+
+
 ###  https://w3id.org/emmo#EMMO_70da982d_1810_4b01_9630_a28e216ecd9a
 :EMMO_70da982d_1810_4b01_9630_a28e216ecd9a rdf:type owl:ObjectProperty ;
                                            rdfs:subPropertyOf :EMMO_8e52c42b_e879_4473_9fa1_4b23428b392b ;
@@ -79,6 +90,17 @@ Workflows may also be extended reductionistically into serial and parallel workf
                                                               :EMMO_74a75cf1_3418_4244_b43c_b5db94635d42 ;
                                            rdfs:range :EMMO_9f6ec830_c59f_46aa_8a22_945ba20b6ea3 ;
                                            skos:prefLabel "hasTaskTile"@en .
+
+
+###  https://w3id.org/emmo#EMMO_c05b1908_1a2f_482f_8e6f_6d66eedffef8
+:EMMO_c05b1908_1a2f_482f_8e6f_6d66eedffef8 rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf :EMMO_60577dea_9019_4537_ac41_80b0fb563d41 ,
+                                                              :EMMO_e1c65ca8_6fed_4859_b320_5f14928e8464 ;
+                                           rdfs:domain :EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49 ;
+                                           rdfs:range :EMMO_eaf4640d_651d_4cbe_a315_3d2dc5df3b35 ;
+                                           skos:prefLabel "hasProceduralData"@en ;
+                                           :elucidation "Relates a procedure to its procedural data."@en ;
+                                           :note "This relation specialise hasParticipant, by including the semiotic aspect of procedure being a referent in a semiotic process."@en .
 
 
 #################################################################
@@ -138,13 +160,12 @@ It means that you can declare that e.g. tightening a bolt is a task of building 
 :EMMO_472a0ca2_58bf_4618_b561_6fe68bd9fd49 rdf:type owl:Class ;
                                            rdfs:subClassOf :EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c ,
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty :EMMO_60577dea_9019_4537_ac41_80b0fb563d41 ;
-                                                             owl:someValuesFrom :EMMO_eaf4640d_651d_4cbe_a315_3d2dc5df3b35
+                                                             owl:onProperty :EMMO_6a532d0f_11b9_45a6_b8bc_419fc4efb468 ;
+                                                             owl:someValuesFrom :EMMO_8cf62c94_ae5f_4f80_8669_d5f91178db6d
                                                            ] ,
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_f2fc1ce9_cc3b_4eb5_a112_3c85d1b1374a
-                                                                            ] ;
-                                                             owl:someValuesFrom :EMMO_8cf62c94_ae5f_4f80_8669_d5f91178db6d
+                                                             owl:onProperty :EMMO_c05b1908_1a2f_482f_8e6f_6d66eedffef8 ;
+                                                             owl:someValuesFrom :EMMO_eaf4640d_651d_4cbe_a315_3d2dc5df3b35
                                                            ] ;
                                            skos:altLabel "Elaboration"@en ,
                                                          "Work"@en ;
