@@ -177,14 +177,14 @@ jobs:
       with:
         args: --output public/module-table.html build/module-table.md
 
-    - name: Publish versioned docs for version branches
+    - name: Publish non-master branches in separate directory under versions/
       run: |
-        if [[ "${GITHUB_REF_NAME}" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]]; then
+        if [ "${GITHUB_REF_NAME}" != "master" ]; then
           VERSION_DIR="versions/${GITHUB_REF_NAME}"
           rm -rf "public/${VERSION_DIR}"
-          mkdir -p "public/${VERSION_DIR}"
           tmpdir=$(mktemp -d)
-          cp -R public/. "${tmpdir}/"
+          mv public/. "${tmpdir}/"
+          mkdir -p "public/${VERSION_DIR}"
           cp -R "${tmpdir}/." "public/${VERSION_DIR}/"
           rm -rf "${tmpdir}"
         fi
