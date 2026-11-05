@@ -14,6 +14,7 @@ from rdflib.namespace import RDFS, OWL, DCTERMS
 
 from ontopy import World, get_ontology
 import owlready2
+from owlready2 import destroy_entity
 
 
 thisdir = os.path.abspath(os.path.dirname(__file__))
@@ -25,17 +26,32 @@ def en(s):
 
 
 # Check rdflib version (for preferred turtle serialising)
-if not int(rdflib.__version__.split('.')[0]) >= 5:
-    warnings.warn('upgrade to rdflib v5.0.0 or higher to get preferred output')
+if int(rdflib.__version__.split('.')[0]) < 5:
+    raise RuntimeError('requires rdflib>=5.0.0')
 
 # Connect to db and load emmo
 #world = World(filename='periodictable.sqlite3')
 world = World()
 chemistry = world.get_ontology(os.path.join(thisdir, 'chemistry.ttl')).load()
 #emmo_middle.sync_python_names()
+version = chemistry.get_version()
+
+
+# Hack:
+# We have two IRIs with prefLabel "elucidation", the deprecated
+# https://w3id.org/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9
+# and https://w3id.org/emmo#elucidation.
+# Which of these two IRIs `onto.elucidation` refers to is
+# currently arbitrary (ontopy v0.11.4).
+# Delete the deprecated one.
+if e := world['https://w3id.org/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9']:
+    world._del_data_triple_spod(s=e.storid)
+    world._del_data_triple_spod(o=e.storid)
 
 # Create new ontology
-onto = world.get_ontology('https://w3id.org/emmo/disciplines/periodictable#')
+onto = world.get_ontology(
+    f'https://w3id.org/emmo/{version}/disciplines/periodictable#'
+)
 onto.iri = 'https://w3id.org/emmo/disciplines/periodictable'
 onto.base_iri = 'https://w3id.org/emmo#'
 onto.prefix = 'emmo'
@@ -63,20 +79,23 @@ with onto:
             'This is a convenient shortcut for the measurement process '
             'process of the atomic mass reported by IUPAC2016.'
         ]
+        python_name = None
 
     class hasChemicalSymbol(onto.hasConvention):
         """Relates an atomic element to its chemical symbol."""
         domain = [onto.Atom]
         range = [onto.ChemicalSymbol]
+        python_name = None
 
     class isChemicalSymbolFor(onto.isConventionFor):
         """Relates a  chemical symbol to the atomic element it stands for."""
         domain = [onto.ChemicalSymbol]
         range = [onto.Atom]
         inverse_property = hasChemicalSymbol
+        python_name = None
 
     #onto.Atom.hasChemicalSymbol.exactly(1, onto.ChemicalElement)
-
+    elements = []
     for Z, (symbol, name, mass) in enumerate(zip(
             ase.data.chemical_symbols,
             ase.data.atomic_names,
@@ -86,19 +105,18 @@ with onto:
 
         print(Z, symbol, name, mass)
 
-        Element = types.new_class(
-            name.capitalize() + 'Symbol', (onto.ChemicalElement, )
-        )
-        Element.is_a.append(onto.hasSymbolValue.value(symbol))
-        Element.elucidation.append(en(f'The symbol that stands for the {name.lower()} atom.'))
-
         AtomClass = types.new_class(name.capitalize() + 'Atom', (onto.Atom, ))
         AtomClass.elucidation.append(en('Atom subclass for %s.' % name.lower()))
         AtomClass.is_a.append(hasAtomicNumber.value(Z))
         AtomClass.is_a.append(hasIUPAC2016AtomicMass.value(float(mass)))
-        #AtomClass.is_a.append(hasChemicalSymbol.some(Element))
-        Element.is_a.append(isChemicalSymbolFor.some(AtomClass))
 
+        Element = types.new_class(
+            name.capitalize() + 'Symbol', (onto.ChemicalElement, )
+        )
+        Element.is_a.append(onto.symbolValue.value(symbol))
+        Element.elucidation.append(en(f'The symbol that stands for the {name.lower()} atom.'))
+        Element.is_a.append(isChemicalSymbolFor.some(AtomClass))
+        elements.append((Element, symbol, name))
 
 # Set ontology metadata
 version = chemistry.get_version()
@@ -115,7 +133,7 @@ onto.metadata.abstract.append(en(
 
 onto.metadata.title.append(en('Periodic table'))
 onto.metadata.creator.append(chemistry['JesperFriis'])
-onto.metadata.creator.append(chemistry["FrancescaLonstadBleken"])
+onto.metadata.creator.append(chemistry["FrancescaBleken"])
 onto.metadata.creator.append(chemistry["EmanueleGhedini"])
 onto.metadata.publisher.append(chemistry["EMMC_ASBL"])
 onto.metadata.license.append(en(
@@ -131,9 +149,23 @@ onto.metadata.comment.append(en(
     'You can contact EMMO Authors via emmo@emmc.eu'))
 
 # Synchronise Python attributes to ontology
-onto.sync_attributes(name_policy='uuid', name_prefix='EMMO_',
-                     class_docstring='elucidation')
+onto.sync_attributes(
+    name_policy='uuid',
+    name_prefix='EMMO_',
+    class_docstring='elucidation',
+)
 onto.dir_label = False
+
+
+# After sync_attributes, add element individuals
+for Element, symbol, name in elements:
+    element_name = f"{name.lower()}_symbol"
+    element = Element(element_name)
+    element.prefLabel = en(element_name)
+    element.elucidation = en(f"Chemical symbol individual for {name.lower()}.")
+    element.is_a.append(isChemicalSymbolFor.some(onto[f"{name}Atom"]))
+    onto._add_data_triple_spod(element.storid, onto.symbolValue.storid, symbol, "@en")
+
 
 # Hack to ensure that we import using versionURI
 # FIXME: included this in sync_attributes()
@@ -151,6 +183,11 @@ for abbrev_iri in onto.world._get_obj_triples_sp_o(
         onto.storid,
         owlready2.owl_imports,
         onto._abbreviate(version_iri))
+
+# Hack: Remove python_name property
+pyname = "http://www.lesfleursdunormal.fr/static/_downloads/owlready_ontology.owl#python_name"
+pynameid = onto._abbreviate(pyname)
+onto._del_data_triple_spod(p=pynameid)
 
 # Save new ontology as turtle
 onto.save(
