@@ -63,12 +63,26 @@ EMMO has a modular structure, where each of the foundation, perspectives, refere
 A table with all modules can be found [here](https://emmo-repo.github.io/module-table.html).
 
 
+### EMMO individuals
+The only individual defined in EMMO is `emmo:universe`. Everything else is defined at class-level.
+The only exception to this are the EMMO contributors, that are included as part of the module annotations.
+
+Some modules, like disciplines/units, define additional individuals.
+These individuals are not included by default.
+If you need them, you should import them explicitly into your knowledge base.
+
+| Module           | IRI                                                      | Description                                                                                           |
+|------------------|----------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| contributors     | https://w3id.org/emmo/contributors                       | People and organisations who has contributed to the development of EMMO. Imported by EMMO by default. |
+| unit-individuals | https://w3id.org/emmo/disciplines/units/unit-individuals | Unit individuals.                                                                                     |
+
+
 ### EMMO versions
-EMMO provides in several versions.
+EMMO is provided in several versions.
 
 | Ontology      | Ontology IRI                        | Description                                                                                  |
 |---------------|-------------------------------------|----------------------------------------------------------------------------------------------|
-| EMMO          | https://w3id.org/emmo/emmo          | EMMO middle level ontology. Equivalent to `MLO` in the above table.                          |
+| EMMO          | https://w3id.org/emmo/emmo          | EMMO middle level ontology. Equivalent to the `MLO` level above.                             |
 | EMAX          | https://w3id.org/emmo/emax          | EMMO maximal, middle level ontology including the full standard model and specialised units. |
 | HUME          | https://w3id.org/emmo/hume/hume     | [EMMO for humans]: Like `EMMO` but with human-readable IRIs. Intended for examples.          |
 | ELITE         | https://w3id.org/emmo/elite/elite   | [EMMO LITE]: Subset of `HUME` intended for rapid testing of graph databases.                 |
@@ -79,7 +93,7 @@ EMMO provides in several versions.
 > [!NOTE]
 > Importing any of the above ontologies requires a client that understands `owl:imports`.
 > It will also be slow due to recursive import of modules.
-> If you only need entities, it will much faster to import any of the namespaces listed below.
+> If you don't need the `owl:Ontology` entities for the various modules (rarely needed), it will much faster to import any of the namespaces listed below.
 
 
 ## EMMO namespaces

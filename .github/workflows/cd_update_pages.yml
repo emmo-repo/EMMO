@@ -7,14 +7,30 @@ on:
       - '[0-9]+.[0-9]+.[0-9]+-*'
       - 'master'
 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
 env:
   GIT_USER_NAME: EMMO Developers
   GIT_USER_EMAIL: "emmo@emmc.eu"
 
-jobs:
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
-  build:
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
     - name: Checkout repository
@@ -42,6 +58,7 @@ jobs:
       run: |
         pip install --upgrade pip
         pip install "EMMOntoPy[ontodoc] @ git+https://github.com/emmo-repo/EMMOntoPy.git@master"
+        #pip install "EMMOntoPy[ontodoc] @ git+https://github.com/emmo-repo/EMMOntoPy.git@fix-ontodoc-error"
         pip install sphinxcontrib-globalsubs sphinx_design nbsphinx pydata_sphinx_theme
 
     - name: List install python packages
@@ -66,35 +83,50 @@ jobs:
     - name: Create HUME namespace from emax
       run: |
         ontoconvert -saw --rename-iris \
+          --iri=https://w3id.org/emmo/hume \
           --base-iri="https://w3id.org/emmo/hume#" \
           --namespace="hume:https://w3id.org/hume#" \
-          --iri=https://w3id.org/emmo/hume \
+          --rename-ontology="|w3id.org/emmo/([0-9][^/]*)/?emax|w3id.org/emmo/\\1/hume|" \
           emax.ttl \
           public/hume.ttl
 
     - name: Create EMMO inferred
       run: |
+        ontoconvert -sawe \
+          --iri="https://w3id.org/emmo" \
+          --base-iri="https://w3id.org/emmo#" \
+          --namespace="emmo:https://w3id.org/emmo#" \
+          --rename-ontology="|w3id.org/emmo/([0-9][^/]*)/?emax|w3id.org/emmo/\\1|" \
+          emmo.ttl \
+          build/emmo.ttl
         bin/robot reason \
           --reasoner HermiT \
           --remove-redundant-subclass-axioms true \
           --preserve-annotated-axioms true \
           --exclude-owl-thing true \
           --exclude-duplicate-axioms true \
-          --input public/emmo.ttl \
+          --input build/emmo.ttl \
           --output build/emmo-inferred.ttl
         ontoconvert --iri=https://w3id.org/emmo/inferred build/emmo-inferred.ttl public/emmo-inferred.ttl
 
     - name: Create HUME inferred
       run: |
-        bin/robot reason \
-          --reasoner HermiT \
-          --remove-redundant-subclass-axioms true \
-          --preserve-annotated-axioms true \
-          --exclude-owl-thing true \
-          --exclude-duplicate-axioms true \
-          --input public/hume.ttl \
-          --output build/hume-inferred.ttl
-        ontoconvert --iri=https://w3id.org/emmo/hume-inferred build/hume-inferred.ttl public/hume-inferred.ttl
+        ontoconvert -saw --rename-iris \
+          --iri=https://w3id.org/emmo/hume \
+          --base-iri="https://w3id.org/emmo/hume#" \
+          --namespace="hume:https://w3id.org/hume#" \
+          --rename-ontology="|w3id.org/emmo/([0-9][^/]*)/?emax|w3id.org/emmo/\\1/hume|" \
+          public/emmo-inferred.ttl \
+          public/hume-inferred.ttl
+
+    - name: Create squashed unit-individuals
+      run: |
+        ontoconvert -saw \
+          --iri=https://w3id.org/emmo/unit-individuals \
+          --namespace="emmo:https://w3id.org/emmo#" \
+          --rename-ontology="|(w3id.org/emmo)/.*/([0-9][^/]*)/.*|\\1/\\2/unit-individuals|" \
+          disciplines/units/unit-individuals.ttl \
+          public/unit-individuals.ttl
 
     - name: Create ontologies in rdfxml format
       run: |
@@ -145,40 +177,34 @@ jobs:
       with:
         args: --output public/module-table.html build/module-table.md
 
-    - name: Checkout GitHub Pages for EMMO-repo
-      uses: actions/checkout@v4
+    - name: Publish non-master branches in separate directory under versions/
+      run: |
+        if [ "${GITHUB_REF_NAME}" != "master" ]; then
+          set -x
+          VERSION_DIR="versions/${GITHUB_REF_NAME}"
+          rm -rf "public/${VERSION_DIR}/*"
+          mv public/ tmp/
+          mkdir -p "public/${VERSION_DIR}"
+          cp -R tmp/. "public/${VERSION_DIR}/"
+          rm -rf tmp/
+        fi
+
+    - name: Generate GitHub App token
+      id: app-token
+      uses: actions/create-github-app-token@v1
       with:
-        repository: emmo-repo/emmo-repo.github.io
-        path: pages
-        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
-        ssh-strict: no
+        app-id: ${{ secrets.APP_ID }}
+        private-key: ${{ secrets.APP_PRIVATE_KEY }}
+        owner: emmo-repo
+        repositories: emmo-repo.github.io
 
-    - name: Copy to GitHub Pages
-      run: |
-        # Do not overwrite index.html
-        rm public/index.html
-        # Tell GitHub that this site is not generated with jekyll (otherwise will the reference documentation not show up correctly)
-        touch public/.nojekyll
-        # Copy to latest (root)
-        cp -rf public/* pages/.
-        # Copy to version
-        VERSION=$(git rev-parse --abbrev-ref HEAD)
-        if [ ! -d pages/versions/${VERSION} ]; then \
-          mkdir pages/versions/${VERSION}
-        fi
-        cp -rf public/* pages/versions/${VERSION}/.
-
-      # Domain repositories can use peaceiris/actions-gh-pages@v3.
-      # However, since EMMO for historical reasons uses a separate repo
-      # for its GitHub Pages, it is easier to use git directly.
-    - name: Push to GitHub Pages
-      run: |
-        cd pages
-        git config --global user.email "emmo@emmc.eu"
-        git config --global user.name "EMMO Developer"
-        git add --all
-        if [ -n "$(git status --porcelain -uno)" ]; then \
-          git commit -m 'Updated releasetable'; \
-          git pull origin master; \
-          git push origin master; \
-        fi
+    - name: Publish
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        personal_token: ${{ steps.app-token.outputs.token }}
+        external_repository: emmo-repo/emmo-repo.github.io
+        publish_branch: master
+        publish_dir: ./public
+        enable_jekyll: false
+        keep_files: true
+        #force_orphan: true  # Doesn't work with keep_files as of v4.
