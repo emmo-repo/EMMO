@@ -33,9 +33,11 @@ if not int(rdflib.__version__.split('.')[0]) >= 5:
 world = World()
 chemistry = world.get_ontology(os.path.join(thisdir, 'chemistry.ttl')).load()
 #emmo_middle.sync_python_names()
+version = chemistry.get_version()
+
 
 # Create new ontology
-onto = world.get_ontology('https://w3id.org/emmo/disciplines/periodictable#')
+onto = world.get_ontology(f'https://w3id.org/emmo/{version}/disciplines/periodictable#')
 onto.iri = 'https://w3id.org/emmo/disciplines/periodictable'
 onto.base_iri = 'https://w3id.org/emmo#'
 onto.prefix = 'emmo'
@@ -103,7 +105,6 @@ with onto:
         elements.append((Element, symbol, name))
 
 # Set ontology metadata
-version = chemistry.get_version()
 version_iri = f'https://w3id.org/emmo/{version}/disciplines/periodictable'
 onto.set_version(version_iri=version_iri)
 
