@@ -1,0 +1,130 @@
+name: Generate figures
+
+# Exports every named frame in doc/figures.drawio to SVG and PNG.
+#
+# - push:          publish to GitHub Pages (figs/ for master,
+#                  versions/<branch>/figs/ for other branches)
+# - pull_request:  only build, and upload the figures as a workflow
+#                  artifact for review
+# - manual:        e.g. to publish figures for a newly created branch
+#
+# Runs only when the figure sheet (or the export machinery) changes.
+
+on:
+  push:
+    branches:
+      - '[0-9]+.[0-9]+.[0-9]+'
+      - '[0-9]+.[0-9]+.[0-9]+-*'
+      - 'master'
+    paths:
+      - 'doc/figures.drawio'
+      - '.github/scripts/export-figures.py'
+      - '.github/workflows/cd_figures.yml'
+
+  pull_request:
+    paths:
+      - 'doc/figures.drawio'
+      - '.github/scripts/export-figures.py'
+      - '.github/workflows/cd_figures.yml'
+
+  workflow_dispatch:
+
+env:
+  DRAWIO_VERSION: "29.3.6"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: figures-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  figures:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+
+    - name: Install draw.io
+      run: |
+        wget -nv "https://github.com/jgraph/drawio-desktop/releases/download/v${DRAWIO_VERSION}/drawio-amd64-${DRAWIO_VERSION}.deb"
+        sudo apt-get update
+        sudo apt-get install -y --no-install-recommends xvfb fonts-liberation "./drawio-amd64-${DRAWIO_VERSION}.deb"
+
+    - name: Determine output directory
+      run: |
+        if [ "${{ github.event_name }}" = "push" -o "${{ github.event_name }}" = "workflow_dispatch" ] \
+           && [ "${GITHUB_REF_NAME}" != "master" ]; then
+          echo "FIGDIR=public/versions/${GITHUB_REF_NAME}/figs" >> "$GITHUB_ENV"
+        else
+          echo "FIGDIR=public/figs" >> "$GITHUB_ENV"
+        fi
+
+    - name: Export figures
+      run: |
+        xvfb-run -a python .github/scripts/export-figures.py \
+          --no-sandbox --outdir "$FIGDIR"
+        ls -l "$FIGDIR"
+
+    # Reported, but not (yet) fatal: many figures are still to be moved
+    # from doc/figs/ to doc/figures.drawio.
+    - name: Check :illustration links in the ontology
+      continue-on-error: true
+      run: python .github/scripts/export-figures.py --check-ttl --list
+
+    - name: Upload figures for review
+      if: github.event_name == 'pull_request'
+      uses: actions/upload-artifact@v4
+      with:
+        name: figures
+        path: ${{ env.FIGDIR }}
+
+    - name: Generate GitHub App token
+      if: github.event_name != 'pull_request'
+      id: app-token
+      uses: actions/create-github-app-token@v1
+      with:
+        app-id: ${{ secrets.APP_ID }}
+        private-key: ${{ secrets.APP_PRIVATE_KEY }}
+        owner: emmo-repo
+        repositories: emmo-repo.github.io
+
+    # keep_files: only add/replace the figures, leave the rest of the
+    # site alone.  Retry once in case "Update GitHub Pages" pushed to the
+    # same repository at the same time.
+    - name: Publish
+      if: github.event_name != 'pull_request'
+      id: publish
+      continue-on-error: true
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        personal_token: ${{ steps.app-token.outputs.token }}
+        external_repository: emmo-repo/emmo-repo.github.io
+        publish_branch: master
+        publish_dir: ./public
+        enable_jekyll: false
+        keep_files: true
+        commit_message: "Update figures from"
+
+    - name: Wait before retrying
+      if: github.event_name != 'pull_request' && steps.publish.outcome == 'failure'
+      run: sleep 60
+
+    - name: Publish (retry)
+      if: github.event_name != 'pull_request' && steps.publish.outcome == 'failure'
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        personal_token: ${{ steps.app-token.outputs.token }}
+        external_repository: emmo-repo/emmo-repo.github.io
+        publish_branch: master
+        publish_dir: ./public
+        enable_jekyll: false
+        keep_files: true
+        commit_message: "Update figures from"
