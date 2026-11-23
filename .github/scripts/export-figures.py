@@ -171,22 +171,26 @@ def check_ttl(names, ttldir):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
-    p.add_argument("--drawio-file", default="doc/figures.drawio")
-    p.add_argument("--outdir", default="build/figs")
+    p.add_argument("--drawio-file", default="doc/figures.drawio",
+                   help="drawio file. Default: doc/figures.drawio")
+    p.add_argument("--outdir", default="build/figs",
+                   help="Output directory. Default: build/figs/")
     p.add_argument("--only", nargs="+", metavar="NAME",
                    help="only export these figures")
-    p.add_argument("--formats", default="svg,png")
+    p.add_argument("--formats", default="svg,png",
+                   help="Output formats (svg, png). Default: png")
     p.add_argument("--scale", type=float, default=2,
                    help="scale factor for PNG (default: 2)")
-    p.add_argument("--border", type=int, default=4)
+    p.add_argument("--border", type=int, default=4,
+                   help="Border size. Default: 4")
     p.add_argument("--drawio", default=shutil.which("drawio") or "drawio",
-                   help="path to drawio executable")
+                   help="Path to drawio executable.")
     p.add_argument("--no-sandbox", action="store_true",
-                   help="pass --no-sandbox to drawio (useful on CI)")
+                   help="Pass --no-sandbox to drawio (useful on CI)")
     p.add_argument("--check-ttl", action="store_true",
-                   help="check :illustration IRIs in *.ttl against figures")
+                   help="Check :illustration IRIs in *.ttl against figures.")
     p.add_argument("--list", action="store_true",
-                   help="list figure names and exit (without exporting)")
+                   help="List figure names and exit (without exporting)")
     args = p.parse_args()
 
     frames, warnings, roots = {}, [], {}
